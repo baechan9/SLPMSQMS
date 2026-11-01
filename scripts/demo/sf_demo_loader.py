@@ -354,6 +354,31 @@ class Loader:
 
     def run(self):
         self.check_org()
+        granted = self.grant_migration()
+        try:
+            self.load()
+        finally:
+            if granted:
+                sf(['data', 'delete', 'record', '--sobject', 'PermissionSetAssignment', '--record-id', granted], self.org, check=False)
+                print('이관 모드 PS(CMN_PS_DataMigration) 할당 해제')
+
+    def grant_migration(self):
+        """적재하는 동안만 관리자에게 이관 모드 PS를 붙인다(CR-12). 새 필드 FLS(서비스 전용 포함)와 이관 모드를 함께 준다.
+        이미 할당돼 있으면 건드리지 않는다. 돌려준 Id의 할당만 끝에 지운다."""
+        if self.dry:
+            return None
+        ps = soql(self.org, "SELECT Id FROM PermissionSet WHERE Name = 'CMN_PS_DataMigration'")
+        if not ps:
+            return None
+        uid = soql(self.org, f"SELECT Id FROM User WHERE Username = '{self.admin_username}'")[0]['Id']
+        if soql(self.org, f"SELECT Id FROM PermissionSetAssignment WHERE AssigneeId = '{uid}' AND PermissionSetId = '{ps[0]['Id']}'"):
+            return None
+        res = sf(['data', 'create', 'record', '--sobject', 'PermissionSetAssignment',
+                  '--values', f"AssigneeId={uid} PermissionSetId={ps[0]['Id']}"], self.org)
+        print('이관 모드 PS(CMN_PS_DataMigration)를 적재 동안 관리자에게 할당')
+        return res['result']['id']
+
+    def load(self):
         self.load_scope()
         if self.available('User'):
             self.create_users()

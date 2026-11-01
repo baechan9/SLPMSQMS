@@ -1,0 +1,185 @@
+{
+  "wi": "CMN-00-MDM-002",
+  "object": "CMN_Operation__c",
+  "package": "force-app-cmn",
+  "description": "공정. ExternalKey = {PlantCode}-{LineCode}-{OpCode}(트리거가 설정, 데모 보강 CR-6)",
+  "label": {
+    "ko": "공정",
+    "en_US": "Operation",
+    "zh_CN": "工序"
+  },
+  "plural": {
+    "ko": "공정",
+    "en_US": "Operations",
+    "zh_CN": "工序"
+  },
+  "nameField": {
+    "label": {
+      "ko": "공정명",
+      "en_US": "Operation Name",
+      "zh_CN": "工序名称"
+    }
+  },
+  "sharingModel": "ControlledByParent",
+  "tab": {
+    "motif": "Custom19: Wrench"
+  },
+  "fields": [
+    {
+      "name": "OpCode__c",
+      "type": "Text",
+      "length": 20,
+      "required": true,
+      "label": {
+        "ko": "공정 코드",
+        "en_US": "Operation Code",
+        "zh_CN": "工序代码"
+      },
+      "description": "같은 라인 안에서 유일"
+    },
+    {
+      "name": "Line__c",
+      "type": "MasterDetail",
+      "referenceTo": "CMN_Line__c",
+      "relationshipName": "Operations",
+      "relationshipLabel": {
+        "ko": "공정",
+        "en_US": "Operations",
+        "zh_CN": "工序"
+      },
+      "label": {
+        "ko": "라인",
+        "en_US": "Line",
+        "zh_CN": "产线"
+      }
+    },
+    {
+      "name": "Sequence__c",
+      "type": "Number",
+      "precision": 4,
+      "scale": 0,
+      "required": true,
+      "label": {
+        "ko": "공정 순서",
+        "en_US": "Sequence",
+        "zh_CN": "工序顺序"
+      }
+    },
+    {
+      "name": "OperationType__c",
+      "type": "Picklist",
+      "required": true,
+      "label": {
+        "ko": "공정 유형",
+        "en_US": "Operation Type",
+        "zh_CN": "工序类型"
+      },
+      "description": "헤드램프 공정 분류",
+      "values": [
+        {
+          "api": "MOLDING",
+          "label": {
+            "ko": "사출",
+            "en_US": "Injection Molding",
+            "zh_CN": "注塑"
+          }
+        },
+        {
+          "api": "COATING",
+          "label": {
+            "ko": "하드코팅",
+            "en_US": "Hard Coating",
+            "zh_CN": "硬涂层"
+          }
+        },
+        {
+          "api": "METALIZING",
+          "label": {
+            "ko": "증착",
+            "en_US": "Metalizing",
+            "zh_CN": "真空镀铝"
+          }
+        },
+        {
+          "api": "ASSEMBLY",
+          "label": {
+            "ko": "조립",
+            "en_US": "Assembly",
+            "zh_CN": "装配"
+          }
+        },
+        {
+          "api": "LEAK_TEST",
+          "label": {
+            "ko": "기밀검사",
+            "en_US": "Leak Test",
+            "zh_CN": "气密检测"
+          }
+        },
+        {
+          "api": "AIMING",
+          "label": {
+            "ko": "광축·배광",
+            "en_US": "Aiming / Beam Pattern",
+            "zh_CN": "光轴·配光"
+          }
+        },
+        {
+          "api": "EOL",
+          "label": {
+            "ko": "최종검사",
+            "en_US": "End of Line Test",
+            "zh_CN": "终检"
+          }
+        },
+        {
+          "api": "OTHER",
+          "label": {
+            "ko": "기타",
+            "en_US": "Other",
+            "zh_CN": "其他"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ExternalKey__c",
+      "type": "Text",
+      "length": 60,
+      "externalId": true,
+      "unique": true,
+      "serviceOnly": true,
+      "label": {
+        "ko": "외부 키",
+        "en_US": "External Key",
+        "zh_CN": "外部键"
+      },
+      "description": "{PlantCode}-{LineCode}-{OpCode}. 트리거가 설정(데모 보강 CR-6)"
+    },
+    {
+      "name": "IsActive__c",
+      "type": "Checkbox",
+      "default": true,
+      "label": {
+        "ko": "사용",
+        "en_US": "Active",
+        "zh_CN": "有效"
+      },
+      "description": "BR-2: 삭제 대신 비활성화(이력 레코드가 참조)",
+      "trackHistory": false
+    }
+  ],
+  "validationRules": [
+    {
+      "name": "CMN_Operation_OpCodeImmutable",
+      "field": "OpCode__c",
+      "formula": "AND(ISCHANGED(OpCode__c), NOT($Permission.CMN_DataMigration))",
+      "description": "공정 코드는 권한·채번·외부 연계 키라 만든 뒤 바꾸지 않는다(CMN-00-MDM-002). 이관 모드만 예외",
+      "message": {
+        "ko": "코드는 만든 뒤 바꿀 수 없습니다(권한·채번·외부 연계의 키).",
+        "en_US": "The code cannot be changed after creation (key for access, numbering and integration).",
+        "zh_CN": "代码创建后不可修改(用于权限、编号和外部集成的键)。"
+      }
+    }
+  ]
+}

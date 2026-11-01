@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label>工序类型</label>
+    <name>OperationType__c</name>
+    <picklistValues>
+        <masterLabel>사출</masterLabel>
+        <translation>注塑</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>하드코팅</masterLabel>
+        <translation>硬涂层</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>증착</masterLabel>
+        <translation>真空镀铝</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>조립</masterLabel>
+        <translation>装配</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>기밀검사</masterLabel>
+        <translation>气密检测</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>광축·배광</masterLabel>
+        <translation>光轴·配光</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>최종검사</masterLabel>
+        <translation>终检</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>기타</masterLabel>
+        <translation>其他</translation>
+    </picklistValues>
+</CustomFieldTranslation>

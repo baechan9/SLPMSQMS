@@ -10,7 +10,9 @@
       "CMN_PS_AppPms_Read",
       "CMN_PS_AppAdmin_Read",
       "CMN_PS_Setup_Read",
-      "CMN_PS_Admin_Ops"
+      "CMN_PS_Admin_Ops",
+      "CMN_PS_Site_Read",
+      "CMN_PS_Site_Admin"
     ]
   }
 }

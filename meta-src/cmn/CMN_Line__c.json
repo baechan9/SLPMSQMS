@@ -1,0 +1,122 @@
+{
+  "wi": "CMN-00-MDM-002",
+  "object": "CMN_Line__c",
+  "package": "force-app-cmn",
+  "description": "생산 라인. ExternalKey = {PlantCode}-{LineCode}(트리거가 설정, BR-1). 제품군 Lookup은 MDM-004가 추가",
+  "label": {
+    "ko": "라인",
+    "en_US": "Line",
+    "zh_CN": "产线"
+  },
+  "plural": {
+    "ko": "라인",
+    "en_US": "Lines",
+    "zh_CN": "产线"
+  },
+  "nameField": {
+    "label": {
+      "ko": "라인명",
+      "en_US": "Line Name",
+      "zh_CN": "产线名称"
+    }
+  },
+  "sharingModel": "ControlledByParent",
+  "enableHistory": true,
+  "tab": {
+    "motif": "Custom67: Gears"
+  },
+  "fields": [
+    {
+      "name": "LineCode__c",
+      "type": "Text",
+      "length": 20,
+      "required": true,
+      "label": {
+        "ko": "라인 코드",
+        "en_US": "Line Code",
+        "zh_CN": "产线代码"
+      },
+      "description": "같은 공장 안에서 유일(BR-1)"
+    },
+    {
+      "name": "Plant__c",
+      "type": "MasterDetail",
+      "referenceTo": "CMN_Plant__c",
+      "relationshipName": "Lines",
+      "relationshipLabel": {
+        "ko": "라인",
+        "en_US": "Lines",
+        "zh_CN": "产线"
+      },
+      "label": {
+        "ko": "공장",
+        "en_US": "Plant",
+        "zh_CN": "工厂"
+      }
+    },
+    {
+      "name": "ExternalKey__c",
+      "type": "Text",
+      "length": 40,
+      "externalId": true,
+      "unique": true,
+      "serviceOnly": true,
+      "label": {
+        "ko": "외부 키",
+        "en_US": "External Key",
+        "zh_CN": "外部键"
+      },
+      "description": "{PlantCode}-{LineCode}. 사용자가 입력하지 않음(트리거가 설정). 명세 필수: DB 필수 대신 트리거로 보장"
+    },
+    {
+      "name": "MesLineCode__c",
+      "type": "Text",
+      "length": 20,
+      "label": {
+        "ko": "MES 라인 코드",
+        "en_US": "MES Line Code",
+        "zh_CN": "MES产线代码"
+      }
+    },
+    {
+      "name": "IsActive__c",
+      "type": "Checkbox",
+      "default": true,
+      "label": {
+        "ko": "사용",
+        "en_US": "Active",
+        "zh_CN": "有效"
+      },
+      "description": "BR-2: 삭제 대신 비활성화(이력 레코드가 참조)",
+      "trackHistory": true
+    }
+  ],
+  "validationRules": [
+    {
+      "name": "CMN_Line_LineCodeImmutable",
+      "field": "LineCode__c",
+      "formula": "AND(ISCHANGED(LineCode__c), NOT($Permission.CMN_DataMigration))",
+      "description": "라인 코드는 권한·채번·외부 연계 키라 만든 뒤 바꾸지 않는다(CMN-00-MDM-002). 이관 모드만 예외",
+      "message": {
+        "ko": "코드는 만든 뒤 바꿀 수 없습니다(권한·채번·외부 연계의 키).",
+        "en_US": "The code cannot be changed after creation (key for access, numbering and integration).",
+        "zh_CN": "代码创建后不可修改(用于权限、编号和外部集成的键)。"
+      }
+    }
+  ],
+  "layout": {
+    "relatedLists": [
+      {
+        "object": "CMN_Operation__c",
+        "field": "Line__c",
+        "fields": [
+          "NAME",
+          "OpCode__c",
+          "Sequence__c",
+          "OperationType__c",
+          "IsActive__c"
+        ]
+      }
+    ]
+  }
+}

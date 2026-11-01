@@ -1,0 +1,21 @@
+{
+  "permissionSet": {
+    "wi": "CMN-00-MDM-002",
+    "name": "CMN_PS_Site_Admin",
+    "package": "force-app-cmn",
+    "label": "CMN Site Admin",
+    "description": "법인·공장·라인·공정 등록·수정과 SL Admin 탭(CMN-00-MDM-002). 마스터 OWD가 Public Read Only이고 하위가 주종 관계라 Modify All로 준다. 삭제는 트리거가 막는다(BR-2). 품질경영·IT 운영 PSG",
+    "objects": {
+      "CMN_Company__c": "admin",
+      "CMN_Plant__c": "admin",
+      "CMN_Line__c": "admin",
+      "CMN_Operation__c": "admin"
+    },
+    "tabs": [
+      "CMN_Company__c",
+      "CMN_Plant__c",
+      "CMN_Line__c",
+      "CMN_Operation__c"
+    ]
+  }
+}

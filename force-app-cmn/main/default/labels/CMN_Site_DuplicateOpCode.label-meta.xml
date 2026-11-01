@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_Site_DuplicateOpCode</fullName>
+    <categories>CMN</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>같은 라인에 같은 공정 코드. {0} = 공정 코드</shortDescription>
+    <value>같은 라인에 공정 코드 {0}이(가) 이미 있습니다.</value>
+</CustomLabel>

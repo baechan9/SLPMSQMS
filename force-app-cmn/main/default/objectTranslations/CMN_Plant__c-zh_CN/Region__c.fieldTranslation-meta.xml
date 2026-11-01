@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label>区域</label>
+    <name>Region__c</name>
+    <picklistValues>
+        <masterLabel>한국</masterLabel>
+        <translation>韩国</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>북미</masterLabel>
+        <translation>北美</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>중국</masterLabel>
+        <translation>中国</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>인도</masterLabel>
+        <translation>印度</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>유럽</masterLabel>
+        <translation>欧洲</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>중남미</masterLabel>
+        <translation>南美</translation>
+    </picklistValues>
+</CustomFieldTranslation>

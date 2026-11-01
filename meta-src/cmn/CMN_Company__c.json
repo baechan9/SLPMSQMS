@@ -1,0 +1,256 @@
+{
+  "wi": "CMN-00-MDM-002",
+  "object": "CMN_Company__c",
+  "package": "force-app-cmn",
+  "description": "법인(SAP 회사 코드). 공장의 주종 상위. 마스터 OWD Public Read Only(SEC-002 BR-1). 삭제 금지(BR-2)",
+  "label": {
+    "ko": "법인",
+    "en_US": "Company",
+    "zh_CN": "法人"
+  },
+  "plural": {
+    "ko": "법인",
+    "en_US": "Companies",
+    "zh_CN": "法人"
+  },
+  "nameField": {
+    "label": {
+      "ko": "법인명",
+      "en_US": "Company Name",
+      "zh_CN": "法人名称"
+    }
+  },
+  "sharingModel": "Read",
+  "tab": {
+    "motif": "Custom24: Buildings"
+  },
+  "fields": [
+    {
+      "name": "CompanyCode__c",
+      "type": "Text",
+      "length": 10,
+      "required": true,
+      "externalId": true,
+      "unique": true,
+      "label": {
+        "ko": "법인 코드",
+        "en_US": "Company Code",
+        "zh_CN": "法人代码"
+      },
+      "description": "SAP 회사 코드"
+    },
+    {
+      "name": "Country__c",
+      "type": "Picklist",
+      "required": true,
+      "label": {
+        "ko": "국가",
+        "en_US": "Country",
+        "zh_CN": "国家"
+      },
+      "description": "ISO 3166 alpha-2. 사업장·고객 국가 위주로 두고 필요 시 값 추가",
+      "values": [
+        {
+          "api": "KR",
+          "label": {
+            "ko": "대한민국",
+            "en_US": "Korea, Republic of",
+            "zh_CN": "韩国"
+          }
+        },
+        {
+          "api": "US",
+          "label": {
+            "ko": "미국",
+            "en_US": "United States",
+            "zh_CN": "美国"
+          }
+        },
+        {
+          "api": "CN",
+          "label": {
+            "ko": "중국",
+            "en_US": "China",
+            "zh_CN": "中国"
+          }
+        },
+        {
+          "api": "IN",
+          "label": {
+            "ko": "인도",
+            "en_US": "India",
+            "zh_CN": "印度"
+          }
+        },
+        {
+          "api": "PL",
+          "label": {
+            "ko": "폴란드",
+            "en_US": "Poland",
+            "zh_CN": "波兰"
+          }
+        },
+        {
+          "api": "BR",
+          "label": {
+            "ko": "브라질",
+            "en_US": "Brazil",
+            "zh_CN": "巴西"
+          }
+        },
+        {
+          "api": "MX",
+          "label": {
+            "ko": "멕시코",
+            "en_US": "Mexico",
+            "zh_CN": "墨西哥"
+          }
+        },
+        {
+          "api": "DE",
+          "label": {
+            "ko": "독일",
+            "en_US": "Germany",
+            "zh_CN": "德国"
+          }
+        },
+        {
+          "api": "JP",
+          "label": {
+            "ko": "일본",
+            "en_US": "Japan",
+            "zh_CN": "日本"
+          }
+        },
+        {
+          "api": "VN",
+          "label": {
+            "ko": "베트남",
+            "en_US": "Viet Nam",
+            "zh_CN": "越南"
+          }
+        },
+        {
+          "api": "CZ",
+          "label": {
+            "ko": "체코",
+            "en_US": "Czechia",
+            "zh_CN": "捷克"
+          }
+        },
+        {
+          "api": "SK",
+          "label": {
+            "ko": "슬로바키아",
+            "en_US": "Slovakia",
+            "zh_CN": "斯洛伐克"
+          }
+        },
+        {
+          "api": "HU",
+          "label": {
+            "ko": "헝가리",
+            "en_US": "Hungary",
+            "zh_CN": "匈牙利"
+          }
+        },
+        {
+          "api": "FR",
+          "label": {
+            "ko": "프랑스",
+            "en_US": "France",
+            "zh_CN": "法国"
+          }
+        },
+        {
+          "api": "IT",
+          "label": {
+            "ko": "이탈리아",
+            "en_US": "Italy",
+            "zh_CN": "意大利"
+          }
+        },
+        {
+          "api": "ES",
+          "label": {
+            "ko": "스페인",
+            "en_US": "Spain",
+            "zh_CN": "西班牙"
+          }
+        },
+        {
+          "api": "GB",
+          "label": {
+            "ko": "영국",
+            "en_US": "United Kingdom",
+            "zh_CN": "英国"
+          }
+        },
+        {
+          "api": "CA",
+          "label": {
+            "ko": "캐나다",
+            "en_US": "Canada",
+            "zh_CN": "加拿大"
+          }
+        },
+        {
+          "api": "TR",
+          "label": {
+            "ko": "튀르키예",
+            "en_US": "Türkiye",
+            "zh_CN": "土耳其"
+          }
+        },
+        {
+          "api": "SE",
+          "label": {
+            "ko": "스웨덴",
+            "en_US": "Sweden",
+            "zh_CN": "瑞典"
+          }
+        }
+      ]
+    },
+    {
+      "name": "IsActive__c",
+      "type": "Checkbox",
+      "default": true,
+      "label": {
+        "ko": "사용",
+        "en_US": "Active",
+        "zh_CN": "有效"
+      },
+      "description": "BR-2: 삭제 대신 비활성화(이력 레코드가 참조)",
+      "trackHistory": true
+    }
+  ],
+  "validationRules": [
+    {
+      "name": "CMN_Company_CompanyCodeImmutable",
+      "field": "CompanyCode__c",
+      "formula": "AND(ISCHANGED(CompanyCode__c), NOT($Permission.CMN_DataMigration))",
+      "description": "법인 코드는 권한·채번·외부 연계 키라 만든 뒤 바꾸지 않는다(CMN-00-MDM-002). 이관 모드만 예외",
+      "message": {
+        "ko": "코드는 만든 뒤 바꿀 수 없습니다(권한·채번·외부 연계의 키).",
+        "en_US": "The code cannot be changed after creation (key for access, numbering and integration).",
+        "zh_CN": "代码创建后不可修改(用于权限、编号和外部集成的键)。"
+      }
+    }
+  ],
+  "layout": {
+    "relatedLists": [
+      {
+        "object": "CMN_Plant__c",
+        "field": "Company__c",
+        "fields": [
+          "NAME",
+          "PlantCode__c",
+          "Region__c",
+          "TimeZone__c",
+          "IsActive__c"
+        ]
+      }
+    ]
+  }
+}

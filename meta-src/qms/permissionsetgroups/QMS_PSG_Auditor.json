@@ -5,6 +5,6 @@
     "package": "force-app-qms",
     "label": "QMS 심사원",
     "description": "내부·협력사 심사원: 심사 계획·결과·지적 사항(CMN-00-SEC-001)",
-    "permissionSets": ["CMN_PS_AppQms_Read"]
+    "permissionSets": ["CMN_PS_AppQms_Read", "CMN_PS_Site_Read"]
   }
 }

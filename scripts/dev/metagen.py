@@ -140,7 +140,7 @@ def field_xml(f, obj):
     if t not in ('MasterDetail', 'Formula', 'Summary', 'Checkbox', 'MultiselectPicklist'):
         opt.append(('required', f.get('required', False)))
     if t not in ('Formula', 'Summary'):
-        opt.append(('trackHistory', f.get('trackHistory', False)))
+        opt.append(('trackHistory', bool(f.get('trackHistory')) and bool(obj.get('enableHistory'))))
         opt.append(('trackTrending', False))
     opt.append(('type', f['returnType'] if t == 'Formula' else t))
     return doc('CustomField', body + sorted(opt, key=lambda kv: kv[0]))
@@ -291,6 +291,8 @@ def build_object(spec):
             ('fullName', vr['name']), ('active', vr.get('active', True)), ('description', vr.get('description')),
             ('errorConditionFormula', vr['formula']), ('errorDisplayField', vr.get('field')),
             ('errorMessage', lbl(vr['message']))]))
+    if not std and spec.get('layout', True) is not False:
+        build_layout(spec, base)
     if spec.get('tab') and not std:
         emit(f'{base}/tabs/{obj}.tab-meta.xml', doc('CustomTab', [
             ('customObject', True), ('motif', spec['tab'].get('motif', 'Custom57: Building'))]))
@@ -319,6 +321,54 @@ def build_object(spec):
             emit(f'{tdir}/{f["name"]}.fieldTranslation-meta.xml', field_translation(f, lang))
 
 
+# ---------------------------------------------------------------- 레이아웃
+def build_layout(spec, base):
+    """기본 페이지 레이아웃. Org가 객체를 만들 때 자동으로 만드는 '{라벨} 레이아웃'과 같은 이름으로 써서 덮어쓴다
+    (새 이름이면 프로필마다 레이아웃 할당이 필요해진다). 정의의 "layout"으로 열·관련 목록을 정할 수 있다."""
+    obj = spec['object']
+    lay = spec.get('layout') or {}
+    fields = spec.get('fields', [])
+    by_name = {f['name']: f for f in fields}
+
+    def item(name):
+        f = by_name.get(name)
+        if name == 'Name':
+            behavior = 'Readonly' if spec['nameField'].get('type') == 'AutoNumber' else 'Required'
+        elif f is None:
+            behavior = 'Readonly'
+        elif f['type'] in ('Formula', 'Summary') or f.get('serviceOnly') or spec.get('readOnlyLayout'):
+            behavior = 'Readonly'
+        elif f.get('required') or f['type'] == 'MasterDetail':
+            behavior = 'Required'
+        else:
+            behavior = 'Edit'
+        return {'behavior': behavior, 'field': name}
+
+    cols = lay.get('columns')
+    if not cols:
+        names = ['Name'] + [f['name'] for f in fields if f['type'] not in ('LongTextArea', 'Html')]
+        half = (len(names) + 1) // 2
+        cols = [names[:half], names[half:]]
+    sections = [{'customLabel': False, 'detailHeading': False, 'editHeading': True, 'label': 'Information',
+                 'layoutColumns': [{'layoutItems': [item(n) for n in c] or None} for c in cols],
+                 'style': 'TwoColumnsTopToBottom'}]
+    longs = [f['name'] for f in fields if f['type'] in ('LongTextArea', 'Html') and not lay.get('columns')]
+    if longs:
+        sections.append({'customLabel': False, 'detailHeading': False, 'editHeading': True, 'label': 'Description Information',
+                         'layoutColumns': [{'layoutItems': [item(n) for n in longs]}], 'style': 'OneColumn'})
+    sections.append({'customLabel': False, 'detailHeading': False, 'editHeading': False, 'label': 'System Information',
+                     'layoutColumns': [{'layoutItems': [{'behavior': 'Readonly', 'field': 'CreatedById'}]},
+                                       {'layoutItems': [{'behavior': 'Readonly', 'field': 'LastModifiedById'}]}],
+                     'style': 'TwoColumnsTopToBottom'})
+    related = [{'fields': r['fields'], 'relatedList': f"{r['object']}.{r['field']}"} for r in lay.get('relatedLists', [])]
+    if spec.get('enableHistory'):
+        related.append({'relatedList': 'RelatedEntityHistoryList'})
+    emit(f"{base}/layouts/{obj}-{lbl(spec['label'])} 레이아웃.layout-meta.xml", doc('Layout', [
+        ('layoutSections', sections), ('relatedLists', related or None),
+        ('showEmailCheckbox', False), ('showHighlightsPanel', False), ('showInteractionLogPanel', False),
+        ('showRunAssignmentRulesCheckbox', False), ('showSubmitAndAttachButton', False)]))
+
+
 # ---------------------------------------------------------------- 권한 셋
 def field_names(spec_index, obj):
     s = spec_index.get(obj)
@@ -335,16 +385,27 @@ def build_permset(ps, spec_index):
         'viewall': dict(allowCreate=False, allowDelete=False, allowEdit=False, allowRead=True, modifyAllRecords=False, viewAllRecords=True),
         'admin': dict(allowCreate=True, allowDelete=True, allowEdit=True, allowRead=True, modifyAllRecords=True, viewAllRecords=True),
     }
-    for obj, mode in ps.get('objects', {}).items():
-        a = access[mode] if isinstance(mode, str) else mode
-        objs.append(dict(a, object=obj))
+    wanted = dict(ps.get('objects', {}))
+    every = ps.get('allObjectFields', False)
+    if every:
+        # 이관·데모 적재용: 정의된 모든 객체의 모든 필드를 편집(서비스 전용 필드 포함). 표준 객체는 필드만
+        for obj, spec in spec_index.items():
+            if spec.get('kind', 'object') == 'object':
+                wanted.setdefault(obj, None if spec.get('standard') else 'edit')
+    for obj, mode in sorted(wanted.items()):
+        if mode is None:
+            a = access['edit']
+        else:
+            a = access[mode] if isinstance(mode, str) else mode
+            objs.append(dict(a, object=obj))
         writable = a['allowEdit'] or a['allowCreate']
         readonly = set(ps.get('readOnlyFields', {}).get(obj, []))
         for f in field_names(spec_index, obj):
             if f['type'] == 'MasterDetail' or f.get('required'):
                 continue  # 필수·주종 필드는 권한 셋에 넣을 수 없다(항상 접근)
             calc = f['type'] in ('Formula', 'Summary')
-            edit = writable and not calc and f['name'] not in readonly and not f.get('serviceOnly')
+            locked = not every and (f['name'] in readonly or f.get('serviceOnly'))
+            edit = writable and not calc and not locked
             fields.append({'editable': edit, 'field': f'{obj}.{f["name"]}', 'readable': True})
     body = [('applicationVisibilities', [{'application': a, 'visible': True} for a in ps.get('apps', [])] or None),
             ('classAccesses', [{'apexClass': c, 'enabled': True} for c in sorted(ps.get('classes', []))] or None),

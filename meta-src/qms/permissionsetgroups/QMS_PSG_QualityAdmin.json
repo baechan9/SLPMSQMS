@@ -8,7 +8,9 @@
     "permissionSets": [
       "CMN_PS_AppQms_Read",
       "CMN_PS_AppAdmin_Read",
-      "QMS_PS_Dashboard_AllPlants"
+      "QMS_PS_Dashboard_AllPlants",
+      "CMN_PS_Site_Read",
+      "CMN_PS_Site_Admin"
     ]
   }
 }

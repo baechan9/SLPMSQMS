@@ -24,4 +24,20 @@
         <label>处理时发生错误。请稍后重试或联系管理员。</label>
         <name>CMN_Common_UnexpectedError</name>
     </customLabels>
+    <customLabels>
+        <label>主数据不能删除。请取消“有效”以停用。</label>
+        <name>CMN_Site_DeleteNotAllowed</name>
+    </customLabels>
+    <customLabels>
+        <label>该工厂已存在产线代码 {0}。</label>
+        <name>CMN_Site_DuplicateLineCode</name>
+    </customLabels>
+    <customLabels>
+        <label>该产线已存在工序代码 {0}。</label>
+        <name>CMN_Site_DuplicateOpCode</name>
+    </customLabels>
+    <customLabels>
+        <label>找不到工厂 {0}。</label>
+        <name>CMN_Site_UnknownPlant</name>
+    </customLabels>
 </Translations>

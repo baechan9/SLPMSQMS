@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>法人</value>
+    </caseValues>
+    <nameFieldLabel>法人名称</nameFieldLabel>
+    <validationRules>
+        <errorMessage>代码创建后不可修改(用于权限、编号和外部集成的键)。</errorMessage>
+        <name>CMN_Company_CompanyCodeImmutable</name>
+    </validationRules>
+</CustomObjectTranslation>

@@ -232,6 +232,7 @@ public class CMN_TestDataFactory {
     if (!fields.containsKey(extField.toLowerCase())) {
       return;
     }
+    rememberExisting(obj, extField, rows);
     List<SObject> inserts = new List<SObject>();
     List<SObject> updates = new List<SObject>();
     List<String> insertKeys = new List<String>();
@@ -253,7 +254,7 @@ public class CMN_TestDataFactory {
           continue;
         }
         if (col.contains('.')) {
-          putRelation(rec, fields, col, raw);
+          putRelation(rec, fields, col, raw, isUpdate);
           continue;
         }
         Schema.SObjectField f = fields.get(col.toLowerCase());
@@ -280,11 +281,47 @@ public class CMN_TestDataFactory {
     }
   }
 
+  /** 이미 있는 레코드(@TestSetup 등)는 외부 키로 찾아 갱신 대상으로 둔다. 같은 키를 다시 넣어 중복 오류가 나지 않게 한다. */
+  private static void rememberExisting(
+    String obj,
+    String extField,
+    List<Object> rows
+  ) {
+    Set<String> exts = new Set<String>();
+    for (Object o : rows) {
+      Object v = ((Map<String, Object>) o).get(extField);
+      if (v != null) {
+        exts.add(String.valueOf(v));
+      }
+    }
+    String soql =
+      'SELECT Id, ' +
+      String.escapeSingleQuotes(extField) +
+      ' FROM ' +
+      String.escapeSingleQuotes(obj) +
+      ' WHERE ' +
+      String.escapeSingleQuotes(extField) +
+      ' IN :exts';
+    for (
+      SObject e : Database.queryWithBinds(
+        soql,
+        new Map<String, Object>{ 'exts' => exts },
+        AccessLevel.SYSTEM_MODE
+      )
+    ) {
+      REFS.put(
+        obj + '|' + extField + '|' + String.valueOf(e.get(extField)),
+        e.Id
+      );
+    }
+  }
+
   private static void putRelation(
     SObject rec,
     Map<String, Schema.SObjectField> fields,
     String col,
-    Object raw
+    Object raw,
+    Boolean isUpdate
   ) {
     String rel = col.substringBefore('.');
     String extField = col.substringAfter('.');
@@ -295,7 +332,11 @@ public class CMN_TestDataFactory {
     if (f == null || raw == null || String.isBlank(String.valueOf(raw))) {
       return;
     }
-    List<Schema.SObjectType> targets = f.getDescribe().getReferenceTo();
+    Schema.DescribeFieldResult fd = f.getDescribe();
+    if (isUpdate && !fd.isUpdateable()) {
+      return; // 주종 관계 필드는 갱신할 수 없다(재지정 불가)
+    }
+    List<Schema.SObjectType> targets = fd.getReferenceTo();
     String target = targets.isEmpty() ? null : String.valueOf(targets[0]);
     Id refId = target == 'User'
       ? USERS.get(String.valueOf(raw))

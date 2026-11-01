@@ -8,5 +8,7 @@
     <permissionSets>CMN_PS_AppPms_Read</permissionSets>
     <permissionSets>CMN_PS_AppQms_Read</permissionSets>
     <permissionSets>CMN_PS_Setup_Read</permissionSets>
+    <permissionSets>CMN_PS_Site_Admin</permissionSets>
+    <permissionSets>CMN_PS_Site_Read</permissionSets>
     <status>Updated</status>
 </PermissionSetGroup>

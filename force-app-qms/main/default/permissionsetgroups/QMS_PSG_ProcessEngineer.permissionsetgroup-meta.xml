@@ -4,5 +4,6 @@
     <hasActivationRequired>false</hasActivationRequired>
     <label>QMS 공정 엔지니어</label>
     <permissionSets>CMN_PS_AppQms_Read</permissionSets>
+    <permissionSets>CMN_PS_Site_Read</permissionSets>
     <status>Updated</status>
 </PermissionSetGroup>

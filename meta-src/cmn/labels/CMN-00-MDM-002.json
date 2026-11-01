@@ -1,0 +1,46 @@
+{
+  "wi": "CMN-00-MDM-002",
+  "package": "force-app-cmn",
+  "labels": [
+    {
+      "name": "CMN_Site_DeleteNotAllowed",
+      "category": "CMN",
+      "description": "법인·공장·라인·공정 삭제 시도(BR-2)",
+      "value": {
+        "ko": "기준정보는 삭제할 수 없습니다. 사용 여부를 해제해 비활성화하세요.",
+        "en_US": "Master data cannot be deleted. Deactivate it by clearing Active.",
+        "zh_CN": "主数据不能删除。请取消“有效”以停用。"
+      }
+    },
+    {
+      "name": "CMN_Site_DuplicateLineCode",
+      "category": "CMN",
+      "description": "같은 공장에 같은 라인 코드(BR-1). {0} = 라인 코드",
+      "value": {
+        "ko": "같은 공장에 라인 코드 {0}이(가) 이미 있습니다.",
+        "en_US": "Line code {0} already exists in this plant.",
+        "zh_CN": "该工厂已存在产线代码 {0}。"
+      }
+    },
+    {
+      "name": "CMN_Site_DuplicateOpCode",
+      "category": "CMN",
+      "description": "같은 라인에 같은 공정 코드. {0} = 공정 코드",
+      "value": {
+        "ko": "같은 라인에 공정 코드 {0}이(가) 이미 있습니다.",
+        "en_US": "Operation code {0} already exists on this line.",
+        "zh_CN": "该产线已存在工序代码 {0}。"
+      }
+    },
+    {
+      "name": "CMN_Site_UnknownPlant",
+      "category": "CMN",
+      "description": "공장 코드·Id로 공장을 찾지 못함(시간대 조회 등). {0} = 공장 코드 또는 Id",
+      "value": {
+        "ko": "공장 {0}을(를) 찾을 수 없습니다.",
+        "en_US": "Plant {0} was not found.",
+        "zh_CN": "找不到工厂 {0}。"
+      }
+    }
+  ]
+}

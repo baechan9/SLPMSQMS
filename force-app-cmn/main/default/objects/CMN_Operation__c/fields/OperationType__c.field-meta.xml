@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>OperationType__c</fullName>
+    <description>헤드램프 공정 분류</description>
+    <label>공정 유형</label>
+    <required>true</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>MOLDING</fullName>
+                <default>false</default>
+                <label>사출</label>
+            </value>
+            <value>
+                <fullName>COATING</fullName>
+                <default>false</default>
+                <label>하드코팅</label>
+            </value>
+            <value>
+                <fullName>METALIZING</fullName>
+                <default>false</default>
+                <label>증착</label>
+            </value>
+            <value>
+                <fullName>ASSEMBLY</fullName>
+                <default>false</default>
+                <label>조립</label>
+            </value>
+            <value>
+                <fullName>LEAK_TEST</fullName>
+                <default>false</default>
+                <label>기밀검사</label>
+            </value>
+            <value>
+                <fullName>AIMING</fullName>
+                <default>false</default>
+                <label>광축·배광</label>
+            </value>
+            <value>
+                <fullName>EOL</fullName>
+                <default>false</default>
+                <label>최종검사</label>
+            </value>
+            <value>
+                <fullName>OTHER</fullName>
+                <default>false</default>
+                <label>기타</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

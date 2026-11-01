@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Company</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Companies</value>
+    </caseValues>
+    <nameFieldLabel>Company Name</nameFieldLabel>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage>The code cannot be changed after creation (key for access, numbering and integration).</errorMessage>
+        <name>CMN_Company_CompanyCodeImmutable</name>
+    </validationRules>
+</CustomObjectTranslation>

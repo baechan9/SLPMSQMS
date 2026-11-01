@@ -1,0 +1,15 @@
+{
+  "permissionSet": {
+    "wi": "CMN-00-MDM-002",
+    "name": "CMN_PS_Site_Read",
+    "package": "force-app-cmn",
+    "label": "CMN Site Read",
+    "description": "법인·공장·라인·공정 조회(CMN-00-MDM-002). 사내 페르소나 PSG 전체에 포함",
+    "objects": {
+      "CMN_Company__c": "read",
+      "CMN_Plant__c": "read",
+      "CMN_Line__c": "read",
+      "CMN_Operation__c": "read"
+    }
+  }
+}

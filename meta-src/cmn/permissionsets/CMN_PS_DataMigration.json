@@ -4,7 +4,8 @@
     "name": "CMN_PS_DataMigration",
     "package": "force-app-cmn",
     "label": "CMN Data Migration Mode",
-    "description": "데이터 이관 모드(개발 플랜 CR-12). 데모·이관 적재 사용자에게만 적재 동안 할당한다",
-    "customPermissions": ["CMN_DataMigration"]
+    "description": "데이터 이관 모드(개발 플랜 CR-12). 정의된 모든 객체·필드 편집(서비스 전용 필드 포함, 생성기가 자동 갱신). 데모·이관 적재 사용자에게 적재하는 동안만 할당한다(데모 로더가 붙이고 뗀다). 페르소나 PSG에 넣지 않는다",
+    "customPermissions": ["CMN_DataMigration"],
+    "allObjectFields": true
   }
 }

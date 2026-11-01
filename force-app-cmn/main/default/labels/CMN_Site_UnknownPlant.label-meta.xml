@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_Site_UnknownPlant</fullName>
+    <categories>CMN</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>공장 코드·Id로 공장을 찾지 못함(시간대 조회 등). {0} = 공장 코드 또는 Id</shortDescription>
+    <value>공장 {0}을(를) 찾을 수 없습니다.</value>
+</CustomLabel>

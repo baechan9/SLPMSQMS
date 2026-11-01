@@ -24,4 +24,20 @@
         <label>An error occurred while processing your request. Try again later or contact your administrator.</label>
         <name>CMN_Common_UnexpectedError</name>
     </customLabels>
+    <customLabels>
+        <label>Master data cannot be deleted. Deactivate it by clearing Active.</label>
+        <name>CMN_Site_DeleteNotAllowed</name>
+    </customLabels>
+    <customLabels>
+        <label>Line code {0} already exists in this plant.</label>
+        <name>CMN_Site_DuplicateLineCode</name>
+    </customLabels>
+    <customLabels>
+        <label>Operation code {0} already exists on this line.</label>
+        <name>CMN_Site_DuplicateOpCode</name>
+    </customLabels>
+    <customLabels>
+        <label>Plant {0} was not found.</label>
+        <name>CMN_Site_UnknownPlant</name>
+    </customLabels>
 </Translations>

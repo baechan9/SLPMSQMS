@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_Company_CompanyCodeImmutable</fullName>
+    <active>true</active>
+    <description>법인 코드는 권한·채번·외부 연계 키라 만든 뒤 바꾸지 않는다(CMN-00-MDM-002). 이관 모드만 예외</description>
+    <errorConditionFormula>AND(ISCHANGED(CompanyCode__c), NOT($Permission.CMN_DataMigration))</errorConditionFormula>
+    <errorDisplayField>CompanyCode__c</errorDisplayField>
+    <errorMessage>코드는 만든 뒤 바꿀 수 없습니다(권한·채번·외부 연계의 키).</errorMessage>
+</ValidationRule>
