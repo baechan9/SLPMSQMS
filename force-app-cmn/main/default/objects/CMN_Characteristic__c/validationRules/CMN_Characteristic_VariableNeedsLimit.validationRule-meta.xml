@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_Characteristic_VariableNeedsLimit</fullName>
+    <active>true</active>
+    <description>계량형은 USL·LSL 중 1개 이상과 단위 필수</description>
+    <errorConditionFormula>AND(ISPICKVAL(CharType__c, 'VARIABLE'), OR(AND(ISBLANK(USL__c), ISBLANK(LSL__c)), ISBLANK(TEXT(Unit__c))))</errorConditionFormula>
+    <errorDisplayField>USL__c</errorDisplayField>
+    <errorMessage>계량형 특성은 상한·하한 규격 중 하나 이상과 단위가 필요합니다.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_Char_DuplicateVersion</fullName>
+    <categories>CMN</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>같은 품번·특성 번호·적용 시작일. {0} = 외부 키</shortDescription>
+    <value>같은 품번·특성 번호·적용 시작일의 특성이 이미 있습니다: {0}</value>
+</CustomLabel>

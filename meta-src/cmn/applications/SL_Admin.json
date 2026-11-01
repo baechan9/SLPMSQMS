@@ -18,7 +18,8 @@
       "CMN_Vehicle__c",
       "CMN_ProductGroup__c",
       "CMN_Item__c",
-      "CMN_SupplierItem__c"
+      "CMN_SupplierItem__c",
+      "CMN_Characteristic__c"
     ]
   }
 }

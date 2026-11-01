@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_Characteristic_SpecOrder</fullName>
+    <active>true</active>
+    <description>BR-1: LSL &lt; 기준값 &lt; USL(있는 값끼리)</description>
+    <errorConditionFormula>OR(AND(NOT(ISBLANK(LSL__c)), NOT(ISBLANK(USL__c)), LSL__c &gt;= USL__c), AND(NOT(ISBLANK(LSL__c)), NOT(ISBLANK(Nominal__c)), LSL__c &gt;= Nominal__c), AND(NOT(ISBLANK(Nominal__c)), NOT(ISBLANK(USL__c)), Nominal__c &gt;= USL__c))</errorConditionFormula>
+    <errorDisplayField>USL__c</errorDisplayField>
+    <errorMessage>규격 순서가 맞지 않습니다(하한 &lt; 기준값 &lt; 상한).</errorMessage>
+</ValidationRule>

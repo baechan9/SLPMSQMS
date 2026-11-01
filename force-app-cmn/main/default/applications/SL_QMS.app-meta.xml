@@ -13,5 +13,6 @@
     <label>SL QMS</label>
     <navType>Standard</navType>
     <tabs>standard-home</tabs>
+    <tabs>CMN_Characteristic__c</tabs>
     <uiType>Lightning</uiType>
 </CustomApplication>

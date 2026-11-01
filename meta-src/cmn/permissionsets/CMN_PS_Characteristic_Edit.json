@@ -1,0 +1,15 @@
+{
+  "permissionSet": {
+    "wi": "CMN-00-MDM-006",
+    "name": "CMN_PS_Characteristic_Edit",
+    "package": "force-app-cmn",
+    "label": "CMN Characteristic Edit",
+    "description": "품질 특성 작성·수정(초안), 새 버전·활성화 서비스, 특성 탭(CMN-00-MDM-006). 품질 엔지니어·팀장·개발·품질경영·IT 운영",
+    "objects": {
+      "CMN_Characteristic__c": "edit-delete",
+      "CMN_Item__c": "read"
+    },
+    "tabs": ["CMN_Characteristic__c"],
+    "classes": ["CMN_CharacteristicController"]
+  }
+}

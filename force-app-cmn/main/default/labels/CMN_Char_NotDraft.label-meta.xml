@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_Char_NotDraft</fullName>
+    <categories>CMN</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>초안 아닌 특성 활성화 요청</shortDescription>
+    <value>초안(DRAFT) 특성만 활성화할 수 있습니다.</value>
+</CustomLabel>

@@ -26,12 +26,12 @@
                 <behavior>Edit</behavior>
                 <field>Customer__c</field>
             </layoutItems>
-        </layoutColumns>
-        <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>CustomerPartNo__c</field>
             </layoutItems>
+        </layoutColumns>
+        <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>DrawingNo__c</field>
@@ -43,6 +43,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>PartCategory__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>SpecialCharCount__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -81,6 +85,15 @@
         <fields>ExternalKey__c</fields>
         <fields>UsagePerVehicle__c</fields>
         <relatedList>CMN_ItemVehicle__c.Item__c</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>NAME</fields>
+        <fields>CharNo__c</fields>
+        <fields>CharType__c</fields>
+        <fields>SpecialClass__c</fields>
+        <fields>Status__c</fields>
+        <fields>EffectiveFrom__c</fields>
+        <relatedList>CMN_Characteristic__c.Item__c</relatedList>
     </relatedLists>
     <relatedLists>
         <relatedList>RelatedEntityHistoryList</relatedList>

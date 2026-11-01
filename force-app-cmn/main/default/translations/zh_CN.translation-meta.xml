@@ -13,6 +13,30 @@
         <name>SL_QMS</name>
     </customApplications>
     <customLabels>
+        <label>只能删除草稿(DRAFT)特性。生效特性请用新版本替换。</label>
+        <name>CMN_Char_DeleteOnlyDraft</name>
+    </customLabels>
+    <customLabels>
+        <label>已存在相同物料、特性编号和生效日期的特性: {0}</label>
+        <name>CMN_Char_DuplicateVersion</name>
+    </customLabels>
+    <customLabels>
+        <label>需要生效日期。</label>
+        <name>CMN_Char_FromRequired</name>
+    </customLabels>
+    <customLabels>
+        <label>新版本的生效日期必须晚于当前版本。</label>
+        <name>CMN_Char_NewVersionMustBeLater</name>
+    </customLabels>
+    <customLabels>
+        <label>只有生效(ACTIVE)特性才能创建新版本。</label>
+        <name>CMN_Char_NotActive</name>
+    </customLabels>
+    <customLabels>
+        <label>只有草稿(DRAFT)特性才能生效。</label>
+        <name>CMN_Char_NotDraft</name>
+    </customLabels>
+    <customLabels>
         <label>输入值无效。</label>
         <name>CMN_Common_InvalidInput</name>
     </customLabels>

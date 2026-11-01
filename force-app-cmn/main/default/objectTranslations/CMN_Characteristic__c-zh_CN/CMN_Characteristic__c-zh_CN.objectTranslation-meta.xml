@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>质量特性</value>
+    </caseValues>
+    <nameFieldLabel>特性名称</nameFieldLabel>
+    <validationRules>
+        <errorMessage>规格顺序不正确(下限 &lt; 标称值 &lt; 上限)。</errorMessage>
+        <name>CMN_Characteristic_SpecOrder</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>计量型特性需要至少一个规格上下限和单位。</errorMessage>
+        <name>CMN_Characteristic_VariableNeedsLimit</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>生效(ACTIVE)特性的规格不能修改。请创建新版本并生效。</errorMessage>
+        <name>CMN_Characteristic_ActiveSpecLocked</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>生效特性需要生效日期。</errorMessage>
+        <name>CMN_Characteristic_ActiveNeedsFrom</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>失效日期必须在生效日期之后。</errorMessage>
+        <name>CMN_Characteristic_EffectiveRange</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>需要状态。</errorMessage>
+        <name>CMN_Characteristic_StatusRequired</name>
+    </validationRules>
+</CustomObjectTranslation>

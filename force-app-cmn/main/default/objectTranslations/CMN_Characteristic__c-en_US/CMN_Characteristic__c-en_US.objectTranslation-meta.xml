@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Characteristic</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Characteristics</value>
+    </caseValues>
+    <nameFieldLabel>Characteristic Name</nameFieldLabel>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage>Specification limits are out of order (LSL &lt; Nominal &lt; USL).</errorMessage>
+        <name>CMN_Characteristic_SpecOrder</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>A variable characteristic requires at least one of USL/LSL and a unit.</errorMessage>
+        <name>CMN_Characteristic_VariableNeedsLimit</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>Specifications of an ACTIVE characteristic cannot be changed. Create and activate a new version.</errorMessage>
+        <name>CMN_Characteristic_ActiveSpecLocked</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>An active characteristic requires an effective-from date.</errorMessage>
+        <name>CMN_Characteristic_ActiveNeedsFrom</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>Effective-to must be on or after effective-from.</errorMessage>
+        <name>CMN_Characteristic_EffectiveRange</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>Status is required.</errorMessage>
+        <name>CMN_Characteristic_StatusRequired</name>
+    </validationRules>
+</CustomObjectTranslation>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Status__c</fullName>
+    <description>DRAFT → ACTIVE(활성화) → OBSOLETE(새 버전 활성화 시). CMN_CharacteristicService만 변경. 명세 필수는 기본값 + 검증 규칙</description>
+    <label>상태</label>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>DRAFT</fullName>
+                <default>true</default>
+                <label>초안</label>
+            </value>
+            <value>
+                <fullName>ACTIVE</fullName>
+                <default>false</default>
+                <label>활성</label>
+            </value>
+            <value>
+                <fullName>OBSOLETE</fullName>
+                <default>false</default>
+                <label>폐기</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

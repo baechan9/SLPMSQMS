@@ -1,0 +1,412 @@
+{
+  "wi": "CMN-00-MDM-006",
+  "object": "CMN_Characteristic__c",
+  "package": "force-app-cmn",
+  "description": "품질 특성(관리계획서 특성 행). 수입·출하검사·SPC·MSA가 공통으로 쓰는 규격 정의. 버전: ACTIVE 규격은 수정 금지, 새 버전을 만들어 활성화하면 구 버전이 닫힌다(BR-3). Snowflake CORE.CHARACTERISTIC 동기화는 DWH-002",
+  "label": {
+    "ko": "품질 특성",
+    "en_US": "Characteristic",
+    "zh_CN": "质量特性"
+  },
+  "plural": {
+    "ko": "품질 특성",
+    "en_US": "Characteristics",
+    "zh_CN": "质量特性"
+  },
+  "nameField": {
+    "label": {
+      "ko": "특성명",
+      "en_US": "Characteristic Name",
+      "zh_CN": "特性名称"
+    }
+  },
+  "sharingModel": "ControlledByParent",
+  "enableHistory": true,
+  "tab": {
+    "motif": "Custom45: Compass"
+  },
+  "fields": [
+    {
+      "name": "Item__c",
+      "type": "MasterDetail",
+      "referenceTo": "CMN_Item__c",
+      "relationshipName": "Characteristics",
+      "writeRequiresMasterRead": true,
+      "relationshipLabel": {
+        "ko": "품질 특성",
+        "en_US": "Characteristics",
+        "zh_CN": "质量特性"
+      },
+      "label": {
+        "ko": "품번",
+        "en_US": "Item",
+        "zh_CN": "物料"
+      },
+      "description": "품번 읽기 권한만으로 특성 작성 가능(품번은 사내 공개 읽기 전용)"
+    },
+    {
+      "name": "CharNo__c",
+      "type": "Text",
+      "length": 20,
+      "required": true,
+      "label": {
+        "ko": "특성 번호",
+        "en_US": "Char. No.",
+        "zh_CN": "特性编号"
+      },
+      "description": "도면 풍선 번호 또는 관리계획서 번호"
+    },
+    {
+      "name": "CharType__c",
+      "type": "Picklist",
+      "required": true,
+      "trackHistory": true,
+      "label": {
+        "ko": "특성 유형",
+        "en_US": "Char. Type",
+        "zh_CN": "特性类型"
+      },
+      "description": "VISUAL은 한도견본(QMS-06-LMS) 연결 대상",
+      "values": [
+        {
+          "api": "VARIABLE",
+          "label": {
+            "ko": "계량",
+            "en_US": "Variable",
+            "zh_CN": "计量"
+          }
+        },
+        {
+          "api": "ATTRIBUTE",
+          "label": {
+            "ko": "계수",
+            "en_US": "Attribute",
+            "zh_CN": "计数"
+          }
+        },
+        {
+          "api": "VISUAL",
+          "label": {
+            "ko": "관능",
+            "en_US": "Visual",
+            "zh_CN": "感官"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Nominal__c",
+      "type": "Number",
+      "precision": 18,
+      "scale": 6,
+      "label": {
+        "ko": "기준값",
+        "en_US": "Nominal",
+        "zh_CN": "标称值"
+      }
+    },
+    {
+      "name": "USL__c",
+      "type": "Number",
+      "precision": 18,
+      "scale": 6,
+      "label": {
+        "ko": "상한 규격",
+        "en_US": "USL",
+        "zh_CN": "规格上限"
+      },
+      "description": "계량형이면 USL·LSL 중 1개 이상(편측 허용)",
+      "trackHistory": true
+    },
+    {
+      "name": "LSL__c",
+      "type": "Number",
+      "precision": 18,
+      "scale": 6,
+      "label": {
+        "ko": "하한 규격",
+        "en_US": "LSL",
+        "zh_CN": "规格下限"
+      },
+      "description": "계량형이면 USL·LSL 중 1개 이상(편측 허용)",
+      "trackHistory": true
+    },
+    {
+      "name": "Unit__c",
+      "type": "Picklist",
+      "label": {
+        "ko": "단위",
+        "en_US": "Unit",
+        "zh_CN": "单位"
+      },
+      "description": "계량형이면 필수. lm·cc/min·mA는 데모 보강(CR-6)",
+      "values": [
+        {
+          "api": "mm",
+          "label": "mm"
+        },
+        {
+          "api": "um",
+          "label": "um"
+        },
+        {
+          "api": "deg",
+          "label": "deg"
+        },
+        {
+          "api": "N",
+          "label": "N"
+        },
+        {
+          "api": "Nm",
+          "label": "Nm"
+        },
+        {
+          "api": "cd",
+          "label": "cd"
+        },
+        {
+          "api": "lx",
+          "label": "lx"
+        },
+        {
+          "api": "lm",
+          "label": "lm"
+        },
+        {
+          "api": "V",
+          "label": "V"
+        },
+        {
+          "api": "A",
+          "label": "A"
+        },
+        {
+          "api": "mA",
+          "label": "mA"
+        },
+        {
+          "api": "%",
+          "label": "%"
+        },
+        {
+          "api": "cc/min",
+          "label": "cc/min"
+        },
+        {
+          "api": "ETC",
+          "label": {
+            "ko": "기타",
+            "en_US": "Other",
+            "zh_CN": "其他"
+          }
+        }
+      ]
+    },
+    {
+      "name": "SpecialClass__c",
+      "type": "Picklist",
+      "required": true,
+      "default": "NONE",
+      "trackHistory": true,
+      "label": {
+        "ko": "특별특성",
+        "en_US": "Special Class",
+        "zh_CN": "特殊特性"
+      },
+      "description": "CC = 안전·법규, SC = 기능·성능 핵심",
+      "values": [
+        {
+          "api": "NONE",
+          "label": {
+            "ko": "일반",
+            "en_US": "None",
+            "zh_CN": "一般"
+          }
+        },
+        {
+          "api": "CC",
+          "label": "CC"
+        },
+        {
+          "api": "SC",
+          "label": "SC"
+        }
+      ]
+    },
+    {
+      "name": "CustomerSymbol__c",
+      "type": "Text",
+      "length": 20,
+      "label": {
+        "ko": "고객 기호",
+        "en_US": "Customer Symbol",
+        "zh_CN": "客户符号"
+      },
+      "description": "OEM 고유 기호 표기"
+    },
+    {
+      "name": "SpcRequired__c",
+      "type": "Checkbox",
+      "default": false,
+      "label": {
+        "ko": "SPC 대상",
+        "en_US": "SPC Required",
+        "zh_CN": "SPC对象"
+      }
+    },
+    {
+      "name": "TargetCpk__c",
+      "type": "Number",
+      "precision": 4,
+      "scale": 2,
+      "label": {
+        "ko": "목표 Cpk",
+        "en_US": "Target Cpk",
+        "zh_CN": "目标Cpk"
+      },
+      "description": "비면 저장 전에 CC 1.67, 그 외 1.33(BR-2)"
+    },
+    {
+      "name": "Status__c",
+      "type": "Picklist",
+      "default": "DRAFT",
+      "serviceOnly": true,
+      "trackHistory": true,
+      "label": {
+        "ko": "상태",
+        "en_US": "Status",
+        "zh_CN": "状态"
+      },
+      "description": "DRAFT → ACTIVE(활성화) → OBSOLETE(새 버전 활성화 시). CMN_CharacteristicService만 변경. 명세 필수는 기본값 + 검증 규칙",
+      "values": [
+        {
+          "api": "DRAFT",
+          "label": {
+            "ko": "초안",
+            "en_US": "Draft",
+            "zh_CN": "草稿"
+          }
+        },
+        {
+          "api": "ACTIVE",
+          "label": {
+            "ko": "활성",
+            "en_US": "Active",
+            "zh_CN": "生效"
+          }
+        },
+        {
+          "api": "OBSOLETE",
+          "label": {
+            "ko": "폐기",
+            "en_US": "Obsolete",
+            "zh_CN": "作废"
+          }
+        }
+      ]
+    },
+    {
+      "name": "EffectiveFrom__c",
+      "type": "Date",
+      "label": {
+        "ko": "적용 시작일",
+        "en_US": "Effective From",
+        "zh_CN": "生效日期"
+      },
+      "description": "ACTIVE면 필수"
+    },
+    {
+      "name": "EffectiveTo__c",
+      "type": "Date",
+      "label": {
+        "ko": "적용 종료일",
+        "en_US": "Effective To",
+        "zh_CN": "失效日期"
+      },
+      "description": "새 버전 활성화 시 서비스가 닫는다"
+    },
+    {
+      "name": "ExternalKey__c",
+      "type": "Text",
+      "length": 80,
+      "externalId": true,
+      "unique": true,
+      "serviceOnly": true,
+      "label": {
+        "ko": "외부 키",
+        "en_US": "External Key",
+        "zh_CN": "外部键"
+      },
+      "description": "{ItemNo}-{CharNo}-{EffectiveFrom yyyymmdd}(시작일이 없으면 -DRAFT). 트리거가 설정"
+    }
+  ],
+  "validationRules": [
+    {
+      "name": "CMN_Characteristic_SpecOrder",
+      "field": "USL__c",
+      "formula": "OR(AND(NOT(ISBLANK(LSL__c)), NOT(ISBLANK(USL__c)), LSL__c >= USL__c), AND(NOT(ISBLANK(LSL__c)), NOT(ISBLANK(Nominal__c)), LSL__c >= Nominal__c), AND(NOT(ISBLANK(Nominal__c)), NOT(ISBLANK(USL__c)), Nominal__c >= USL__c))",
+      "description": "BR-1: LSL < 기준값 < USL(있는 값끼리)",
+      "message": {
+        "ko": "규격 순서가 맞지 않습니다(하한 < 기준값 < 상한).",
+        "en_US": "Specification limits are out of order (LSL < Nominal < USL).",
+        "zh_CN": "规格顺序不正确(下限 < 标称值 < 上限)。"
+      }
+    },
+    {
+      "name": "CMN_Characteristic_VariableNeedsLimit",
+      "field": "USL__c",
+      "formula": "AND(ISPICKVAL(CharType__c, 'VARIABLE'), OR(AND(ISBLANK(USL__c), ISBLANK(LSL__c)), ISBLANK(TEXT(Unit__c))))",
+      "description": "계량형은 USL·LSL 중 1개 이상과 단위 필수",
+      "message": {
+        "ko": "계량형 특성은 상한·하한 규격 중 하나 이상과 단위가 필요합니다.",
+        "en_US": "A variable characteristic requires at least one of USL/LSL and a unit.",
+        "zh_CN": "计量型特性需要至少一个规格上下限和单位。"
+      }
+    },
+    {
+      "name": "CMN_Characteristic_ActiveSpecLocked",
+      "field": "USL__c",
+      "formula": "AND(ISPICKVAL(PRIORVALUE(Status__c), 'ACTIVE'), OR(ISCHANGED(USL__c), ISCHANGED(LSL__c), ISCHANGED(Nominal__c), ISCHANGED(Unit__c), ISCHANGED(CharType__c), ISCHANGED(SpecialClass__c)), NOT($Permission.CMN_DataMigration))",
+      "description": "BR-3·AC-2: ACTIVE 특성 규격 수정 금지(새 버전 안내). 이관 모드 예외",
+      "message": {
+        "ko": "활성(ACTIVE) 특성의 규격은 바꿀 수 없습니다. 새 버전을 만들어 활성화하세요.",
+        "en_US": "Specifications of an ACTIVE characteristic cannot be changed. Create and activate a new version.",
+        "zh_CN": "生效(ACTIVE)特性的规格不能修改。请创建新版本并生效。"
+      }
+    },
+    {
+      "name": "CMN_Characteristic_ActiveNeedsFrom",
+      "field": "EffectiveFrom__c",
+      "formula": "AND(ISPICKVAL(Status__c, 'ACTIVE'), ISBLANK(EffectiveFrom__c))",
+      "description": "ACTIVE면 적용 시작일 필수",
+      "message": {
+        "ko": "활성 특성은 적용 시작일이 필요합니다.",
+        "en_US": "An active characteristic requires an effective-from date.",
+        "zh_CN": "生效特性需要生效日期。"
+      }
+    },
+    {
+      "name": "CMN_Characteristic_EffectiveRange",
+      "field": "EffectiveTo__c",
+      "formula": "AND(NOT(ISBLANK(EffectiveFrom__c)), NOT(ISBLANK(EffectiveTo__c)), EffectiveTo__c < EffectiveFrom__c)",
+      "description": "종료일 ≥ 시작일",
+      "message": {
+        "ko": "적용 종료일은 시작일 이후여야 합니다.",
+        "en_US": "Effective-to must be on or after effective-from.",
+        "zh_CN": "失效日期必须在生效日期之后。"
+      }
+    },
+    {
+      "name": "CMN_Characteristic_StatusRequired",
+      "field": "Status__c",
+      "formula": "ISBLANK(TEXT(Status__c))",
+      "description": "상태 필수(서비스 전용이라 DB 필수 대신)",
+      "message": {
+        "ko": "상태가 필요합니다.",
+        "en_US": "Status is required.",
+        "zh_CN": "需要状态。"
+      }
+    }
+  ]
+}

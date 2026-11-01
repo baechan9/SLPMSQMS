@@ -1,0 +1,66 @@
+{
+  "wi": "CMN-00-MDM-006",
+  "package": "force-app-cmn",
+  "labels": [
+    {
+      "name": "CMN_Char_DuplicateVersion",
+      "category": "CMN",
+      "description": "같은 품번·특성 번호·적용 시작일. {0} = 외부 키",
+      "value": {
+        "ko": "같은 품번·특성 번호·적용 시작일의 특성이 이미 있습니다: {0}",
+        "en_US": "A characteristic with the same item, number and effective date already exists: {0}",
+        "zh_CN": "已存在相同物料、特性编号和生效日期的特性: {0}"
+      }
+    },
+    {
+      "name": "CMN_Char_DeleteOnlyDraft",
+      "category": "CMN",
+      "description": "초안 외 특성 삭제 시도",
+      "value": {
+        "ko": "초안(DRAFT) 특성만 삭제할 수 있습니다. 활성 특성은 새 버전으로 대체하세요.",
+        "en_US": "Only DRAFT characteristics can be deleted. Replace active ones with a new version.",
+        "zh_CN": "只能删除草稿(DRAFT)特性。生效特性请用新版本替换。"
+      }
+    },
+    {
+      "name": "CMN_Char_NotActive",
+      "category": "CMN",
+      "description": "ACTIVE 아닌 특성의 새 버전 요청",
+      "value": {
+        "ko": "활성(ACTIVE) 특성만 새 버전을 만들 수 있습니다.",
+        "en_US": "Only an ACTIVE characteristic can have a new version.",
+        "zh_CN": "只有生效(ACTIVE)特性才能创建新版本。"
+      }
+    },
+    {
+      "name": "CMN_Char_NotDraft",
+      "category": "CMN",
+      "description": "초안 아닌 특성 활성화 요청",
+      "value": {
+        "ko": "초안(DRAFT) 특성만 활성화할 수 있습니다.",
+        "en_US": "Only a DRAFT characteristic can be activated.",
+        "zh_CN": "只有草稿(DRAFT)特性才能生效。"
+      }
+    },
+    {
+      "name": "CMN_Char_FromRequired",
+      "category": "CMN",
+      "description": "적용 시작일 없이 활성화·새 버전",
+      "value": {
+        "ko": "적용 시작일이 필요합니다.",
+        "en_US": "An effective-from date is required.",
+        "zh_CN": "需要生效日期。"
+      }
+    },
+    {
+      "name": "CMN_Char_NewVersionMustBeLater",
+      "category": "CMN",
+      "description": "새 버전 시작일이 현재 버전 시작일 이하",
+      "value": {
+        "ko": "새 버전의 적용 시작일은 현재 버전 적용 시작일 이후여야 합니다.",
+        "en_US": "The new version must start after the current version.",
+        "zh_CN": "新版本的生效日期必须晚于当前版本。"
+      }
+    }
+  ]
+}

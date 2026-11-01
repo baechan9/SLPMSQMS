@@ -13,6 +13,30 @@
         <name>SL_QMS</name>
     </customApplications>
     <customLabels>
+        <label>Only DRAFT characteristics can be deleted. Replace active ones with a new version.</label>
+        <name>CMN_Char_DeleteOnlyDraft</name>
+    </customLabels>
+    <customLabels>
+        <label>A characteristic with the same item, number and effective date already exists: {0}</label>
+        <name>CMN_Char_DuplicateVersion</name>
+    </customLabels>
+    <customLabels>
+        <label>An effective-from date is required.</label>
+        <name>CMN_Char_FromRequired</name>
+    </customLabels>
+    <customLabels>
+        <label>The new version must start after the current version.</label>
+        <name>CMN_Char_NewVersionMustBeLater</name>
+    </customLabels>
+    <customLabels>
+        <label>Only an ACTIVE characteristic can have a new version.</label>
+        <name>CMN_Char_NotActive</name>
+    </customLabels>
+    <customLabels>
+        <label>Only a DRAFT characteristic can be activated.</label>
+        <name>CMN_Char_NotDraft</name>
+    </customLabels>
+    <customLabels>
         <label>The input value is not valid.</label>
         <name>CMN_Common_InvalidInput</name>
     </customLabels>

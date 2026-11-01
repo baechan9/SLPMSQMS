@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label>状态</label>
+    <name>Status__c</name>
+    <picklistValues>
+        <masterLabel>초안</masterLabel>
+        <translation>草稿</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>활성</masterLabel>
+        <translation>生效</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>폐기</masterLabel>
+        <translation>作废</translation>
+    </picklistValues>
+</CustomFieldTranslation>

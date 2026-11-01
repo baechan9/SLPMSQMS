@@ -249,6 +249,30 @@
       ]
     },
     {
+      "name": "SpecialCharCount__c",
+      "type": "Summary",
+      "summaryForeignKey": "CMN_Characteristic__c.Item__c",
+      "summaryOperation": "count",
+      "summaryFilterItems": [
+        {
+          "field": "CMN_Characteristic__c.SpecialClass__c",
+          "operation": "notEqual",
+          "value": "NONE"
+        },
+        {
+          "field": "CMN_Characteristic__c.Status__c",
+          "operation": "equals",
+          "value": "ACTIVE"
+        }
+      ],
+      "label": {
+        "ko": "특별특성 수",
+        "en_US": "Special Characteristics",
+        "zh_CN": "特殊特性数"
+      },
+      "description": "ACTIVE이면서 SpecialClass ≠ NONE인 특성 수(CMN-00-MDM-006에서 추가. 폐기 버전 중복을 막으려고 ACTIVE 조건 추가)"
+    },
+    {
       "name": "IsActive__c",
       "type": "Checkbox",
       "default": true,
@@ -295,6 +319,18 @@
         "object": "CMN_ItemVehicle__c",
         "field": "Item__c",
         "fields": ["NAME", "ExternalKey__c", "UsagePerVehicle__c"]
+      },
+      {
+        "object": "CMN_Characteristic__c",
+        "field": "Item__c",
+        "fields": [
+          "NAME",
+          "CharNo__c",
+          "CharType__c",
+          "SpecialClass__c",
+          "Status__c",
+          "EffectiveFrom__c"
+        ]
       }
     ]
   }

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CharType__c</fullName>
+    <description>VISUAL은 한도견본(QMS-06-LMS) 연결 대상</description>
+    <label>특성 유형</label>
+    <required>true</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>VARIABLE</fullName>
+                <default>false</default>
+                <label>계량</label>
+            </value>
+            <value>
+                <fullName>ATTRIBUTE</fullName>
+                <default>false</default>
+                <label>계수</label>
+            </value>
+            <value>
+                <fullName>VISUAL</fullName>
+                <default>false</default>
+                <label>관능</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -24,5 +24,6 @@
     <tabs>CMN_ProductGroup__c</tabs>
     <tabs>CMN_Item__c</tabs>
     <tabs>CMN_SupplierItem__c</tabs>
+    <tabs>CMN_Characteristic__c</tabs>
     <uiType>Lightning</uiType>
 </CustomApplication>

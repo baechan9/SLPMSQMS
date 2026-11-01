@@ -1,0 +1,13 @@
+{
+  "permissionSet": {
+    "wi": "CMN-00-MDM-006",
+    "name": "CMN_PS_Characteristic_Read",
+    "package": "force-app-cmn",
+    "label": "CMN Characteristic Read",
+    "description": "품질 특성 조회(CMN-00-MDM-006). 사내 페르소나 PSG 전체. 주종 상위 품번 읽기 포함",
+    "objects": {
+      "CMN_Characteristic__c": "read",
+      "CMN_Item__c": "read"
+    }
+  }
+}

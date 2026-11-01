@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_Characteristic_EffectiveRange</fullName>
+    <active>true</active>
+    <description>종료일 ≥ 시작일</description>
+    <errorConditionFormula>AND(NOT(ISBLANK(EffectiveFrom__c)), NOT(ISBLANK(EffectiveTo__c)), EffectiveTo__c &lt; EffectiveFrom__c)</errorConditionFormula>
+    <errorDisplayField>EffectiveTo__c</errorDisplayField>
+    <errorMessage>적용 종료일은 시작일 이후여야 합니다.</errorMessage>
+</ValidationRule>

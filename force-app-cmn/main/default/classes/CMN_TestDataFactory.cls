@@ -295,7 +295,7 @@ public class CMN_TestDataFactory {
           continue;
         }
         Schema.DescribeFieldResult fd = f.getDescribe();
-        if (isUpdate ? !fd.isUpdateable() : !fd.isCreateable()) {
+        if (!writable(fd, isUpdate)) {
           continue;
         }
         rec.put(f, convert(fd.getType(), substitute(raw)));
@@ -366,8 +366,8 @@ public class CMN_TestDataFactory {
       return;
     }
     Schema.DescribeFieldResult fd = f.getDescribe();
-    if (isUpdate && !fd.isUpdateable()) {
-      return; // 주종 관계 필드는 갱신할 수 없다(재지정 불가)
+    if (!writable(fd, isUpdate)) {
+      return;
     }
     List<Schema.SObjectType> targets = fd.getReferenceTo();
     String target = targets.isEmpty() ? null : String.valueOf(targets[0]);
@@ -377,6 +377,21 @@ public class CMN_TestDataFactory {
     if (refId != null) {
       rec.put(f, refId);
     }
+  }
+
+  /**
+   * 테스트 DML은 시스템 모드라 FLS와 무관하게 쓸 수 있다. isCreateable·isUpdateable은 실행 사용자 FLS를 반영해
+   * (관리자도 PS 없이는 새 필드 FLS가 없다) 값을 조용히 빠뜨리므로, 시스템 속성으로만 거른다.
+   */
+  private static Boolean writable(
+    Schema.DescribeFieldResult fd,
+    Boolean isUpdate
+  ) {
+    if (fd.isCalculated() || fd.isAutoNumber()) {
+      return false;
+    }
+    // 주종 관계 필드는 갱신할 수 없다(재지정 불가)
+    return !(isUpdate && fd.getRelationshipOrder() != null);
   }
 
   private static Object substitute(Object raw) {

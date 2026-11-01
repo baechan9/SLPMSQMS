@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_Char_NewVersionMustBeLater</fullName>
+    <categories>CMN</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>새 버전 시작일이 현재 버전 시작일 이하</shortDescription>
+    <value>새 버전의 적용 시작일은 현재 버전 적용 시작일 이후여야 합니다.</value>
+</CustomLabel>

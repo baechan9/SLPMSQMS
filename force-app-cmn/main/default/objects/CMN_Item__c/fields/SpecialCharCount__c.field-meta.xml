@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SpecialCharCount__c</fullName>
+    <description>ACTIVE이면서 SpecialClass ≠ NONE인 특성 수(CMN-00-MDM-006에서 추가. 폐기 버전 중복을 막으려고 ACTIVE 조건 추가)</description>
+    <label>특별특성 수</label>
+    <summaryFilterItems>
+        <field>CMN_Characteristic__c.SpecialClass__c</field>
+        <operation>notEqual</operation>
+        <value>NONE</value>
+    </summaryFilterItems>
+    <summaryFilterItems>
+        <field>CMN_Characteristic__c.Status__c</field>
+        <operation>equals</operation>
+        <value>ACTIVE</value>
+    </summaryFilterItems>
+    <summaryForeignKey>CMN_Characteristic__c.Item__c</summaryForeignKey>
+    <summaryOperation>count</summaryOperation>
+    <type>Summary</type>
+</CustomField>
