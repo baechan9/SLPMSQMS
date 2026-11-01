@@ -57,3 +57,11 @@ PMS PSG(`PMS_PSG_PM`, `PMS_PSG_CFT`, `PMS_PSG_PMO`)는 이름만 예약했다. P
 ## 5. 배포 후 단계
 
 Salesforce 라이선스 프로필에는 Metadata API에 나오지 않는 시스템 앱(Work, SecurityHub, DataGovernanceConsole, CommandCenterApp)이 앱 런처에 붙는다. `scripts/org/build-scratch.sh` 4단계와 CI `deploy-main`이 `profile-lockdown.py <별칭> --hide-system-apps`로 지운다. 새 Org 종류(Sandbox·운영)에 처음 배포할 때는 그 Org로 `profile-lockdown.py <별칭>`을 다시 실행해 프로필 XML의 숨김 목록을 갱신한다(기존 목록과 합친다).
+
+## 6. 기준정보 PS(P1)
+
+| PS | 내용 | PSG |
+| --- | --- | --- |
+| CMN_PS_Site_Read / CMN_PS_Site_Admin | 법인·공장·라인·공정 조회 / 관리(Modify All, 삭제는 트리거가 막음) | 조회: 사내 PSG 14개 / 관리: QualityAdmin, SystemAdmin |
+| CMN_PS_Org_Read / CMN_PS_Org_Admin | 부서·사용자 HR 필드 조회 / 부서 관리·HR 필드 편집 | 조회: 사내 PSG 14개 / 관리: SystemAdmin |
+| CMN_PS_DataMigration | 이관 모드 + 모든 객체·필드 편집(생성기 자동) | PSG에 넣지 않음. 데모 로더가 적재 동안만 할당 |

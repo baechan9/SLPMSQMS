@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>JobGradeCode__c</fullName>
+    <description>HR 직급 코드(임율 계산은 PMS 소관)</description>
+    <label>직급 코드</label>
+    <length>10</length>
+    <required>false</required>
+    <type>Text</type>
+</CustomField>

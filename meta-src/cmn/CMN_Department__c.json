@@ -1,0 +1,131 @@
+{
+  "wi": "CMN-00-MDM-001",
+  "object": "CMN_Department__c",
+  "package": "force-app-cmn",
+  "description": "부서(HR 부서 ID). 결재선(팀장)·귀책 부서·CFT·공장 권한의 근거. FullPath는 저장 시 자신, 하위는 비동기(CMN_DepartmentPathJob)로 계산. 삭제 금지(BR-1)",
+  "label": {
+    "ko": "부서",
+    "en_US": "Department",
+    "zh_CN": "部门"
+  },
+  "plural": {
+    "ko": "부서",
+    "en_US": "Departments",
+    "zh_CN": "部门"
+  },
+  "nameField": {
+    "label": {
+      "ko": "부서명",
+      "en_US": "Department Name",
+      "zh_CN": "部门名称"
+    }
+  },
+  "sharingModel": "Read",
+  "enableHistory": true,
+  "tab": {
+    "motif": "Custom15: People"
+  },
+  "fields": [
+    {
+      "name": "DeptCode__c",
+      "type": "Text",
+      "length": 20,
+      "required": true,
+      "externalId": true,
+      "unique": true,
+      "label": {
+        "ko": "부서 코드",
+        "en_US": "Department Code",
+        "zh_CN": "部门代码"
+      },
+      "description": "HR 부서 ID"
+    },
+    {
+      "name": "Parent__c",
+      "type": "Lookup",
+      "referenceTo": "CMN_Department__c",
+      "relationshipName": "ChildDepartments",
+      "relationshipLabel": {
+        "ko": "하위 부서",
+        "en_US": "Sub-departments",
+        "zh_CN": "下级部门"
+      },
+      "trackHistory": true,
+      "label": {
+        "ko": "상위 부서",
+        "en_US": "Parent Department",
+        "zh_CN": "上级部门"
+      },
+      "description": "순환 참조 금지(BR-2). 자기 참조 조회는 Restrict를 쓸 수 없다(부서는 삭제 금지라 영향 없음)"
+    },
+    {
+      "name": "Manager__c",
+      "type": "Lookup",
+      "referenceTo": "User",
+      "relationshipName": "ManagedDepartments",
+      "relationshipLabel": {
+        "ko": "관리 부서",
+        "en_US": "Managed Departments",
+        "zh_CN": "管理部门"
+      },
+      "trackHistory": true,
+      "label": {
+        "ko": "부서장",
+        "en_US": "Manager",
+        "zh_CN": "部门负责人"
+      },
+      "description": "부서장(팀장). 결재 Role 해석에 사용"
+    },
+    {
+      "name": "Plant__c",
+      "type": "Lookup",
+      "referenceTo": "CMN_Plant__c",
+      "relationshipName": "Departments",
+      "relationshipLabel": {
+        "ko": "부서",
+        "en_US": "Departments",
+        "zh_CN": "部门"
+      },
+      "deleteConstraint": "Restrict",
+      "label": {
+        "ko": "공장",
+        "en_US": "Plant",
+        "zh_CN": "工厂"
+      },
+      "description": "소속 공장(본사 부서는 공란)"
+    },
+    {
+      "name": "FullPath__c",
+      "type": "Text",
+      "length": 255,
+      "serviceOnly": true,
+      "label": {
+        "ko": "전체 경로",
+        "en_US": "Full Path",
+        "zh_CN": "完整路径"
+      },
+      "description": "\"SL > 품질본부 > 품질경영팀\". 상위 체인 최대 8단계(넘으면 앞을 …로 줄임). 트리거·CMN_DepartmentPathJob이 계산"
+    },
+    {
+      "name": "IsActive__c",
+      "type": "Checkbox",
+      "default": true,
+      "trackHistory": true,
+      "label": {
+        "ko": "사용",
+        "en_US": "Active",
+        "zh_CN": "有效"
+      },
+      "description": "폐지 부서는 false(삭제 금지, BR-1)"
+    }
+  ],
+  "layout": {
+    "relatedLists": [
+      {
+        "object": "CMN_Department__c",
+        "field": "Parent__c",
+        "fields": ["NAME", "DeptCode__c", "Manager__c", "IsActive__c"]
+      }
+    ]
+  }
+}

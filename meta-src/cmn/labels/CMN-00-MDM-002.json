@@ -3,9 +3,9 @@
   "package": "force-app-cmn",
   "labels": [
     {
-      "name": "CMN_Site_DeleteNotAllowed",
+      "name": "CMN_Master_DeleteNotAllowed",
       "category": "CMN",
-      "description": "법인·공장·라인·공정 삭제 시도(BR-2)",
+      "description": "기준정보(법인·공장·라인·공정·부서 등) 삭제 시도. CMN_MasterDataGuard",
       "value": {
         "ko": "기준정보는 삭제할 수 없습니다. 사용 여부를 해제해 비활성화하세요.",
         "en_US": "Master data cannot be deleted. Deactivate it by clearing Active.",

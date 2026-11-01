@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>부서(HR 부서 ID). 결재선(팀장)·귀책 부서·CFT·공장 권한의 근거. FullPath는 저장 시 자신, 하위는 비동기(CMN_DepartmentPathJob)로 계산. 삭제 금지(BR-1)</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableLicensing>false</enableLicensing>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>Read</externalSharingModel>
+    <label>부서</label>
+    <nameField>
+        <label>부서명</label>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>부서</pluralLabel>
+    <sharingModel>Read</sharingModel>
+    <visibility>Public</visibility>
+</CustomObject>

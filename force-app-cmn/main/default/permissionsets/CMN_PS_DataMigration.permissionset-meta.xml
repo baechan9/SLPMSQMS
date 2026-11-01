@@ -12,6 +12,31 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>CMN_Department__c.FullPath__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>CMN_Department__c.IsActive__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>CMN_Department__c.Manager__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>CMN_Department__c.Parent__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>CMN_Department__c.Plant__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>CMN_Line__c.ExternalKey__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -60,6 +85,31 @@
         <field>CMN_Plant__c.MesSiteCode__c</field>
         <readable>true</readable>
     </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>User.DepartmentCode__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>User.EmployeeNo__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>User.HrStatus__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>User.JobGradeCode__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>User.PrimaryPlantCode__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <hasActivationRequired>false</hasActivationRequired>
     <label>CMN Data Migration Mode</label>
     <objectPermissions>
@@ -70,6 +120,15 @@
         <modifyAllRecords>false</modifyAllRecords>
         <viewAllRecords>false</viewAllRecords>
         <object>CMN_Company__c</object>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <viewAllRecords>false</viewAllRecords>
+        <object>CMN_Department__c</object>
     </objectPermissions>
     <objectPermissions>
         <allowCreate>true</allowCreate>

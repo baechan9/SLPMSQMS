@@ -5,6 +5,10 @@
     "package": "force-app-qms",
     "label": "QMS 개발 엔지니어",
     "description": "개발팀: 제품 인정시험 계획 작성, 개발 품질 산출물(CMN-00-SEC-001)",
-    "permissionSets": ["CMN_PS_AppQms_Read", "CMN_PS_Site_Read"]
+    "permissionSets": [
+      "CMN_PS_AppQms_Read",
+      "CMN_PS_Site_Read",
+      "CMN_PS_Org_Read"
+    ]
   }
 }

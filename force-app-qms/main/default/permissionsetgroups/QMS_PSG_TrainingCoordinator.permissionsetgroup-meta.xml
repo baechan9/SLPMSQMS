@@ -4,6 +4,7 @@
     <hasActivationRequired>false</hasActivationRequired>
     <label>QMS 교육 담당</label>
     <permissionSets>CMN_PS_AppQms_Read</permissionSets>
+    <permissionSets>CMN_PS_Org_Read</permissionSets>
     <permissionSets>CMN_PS_Site_Read</permissionSets>
     <status>Updated</status>
 </PermissionSetGroup>

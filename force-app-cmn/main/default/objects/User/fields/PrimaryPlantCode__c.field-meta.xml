@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PrimaryPlantCode__c</fullName>
+    <description>기본 공장 CMN_Plant__c.PlantCode__c(화면 기본 필터·채번 기준). Lookup 불가로 코드. 레코드는 CMN_UserOrgService.primaryPlantsOf</description>
+    <label>기본 공장 코드</label>
+    <length>10</length>
+    <required>false</required>
+    <type>Text</type>
+</CustomField>

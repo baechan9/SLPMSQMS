@@ -1,0 +1,14 @@
+{
+  "permissionSet": {
+    "wi": "CMN-00-MDM-001",
+    "name": "CMN_PS_Org_Admin",
+    "package": "force-app-cmn",
+    "label": "CMN Org Admin",
+    "description": "부서 관리(Modify All, 삭제는 트리거가 막음)와 사용자 HR 필드 편집, 부서 탭(CMN-00-MDM-001). IT 운영 PSG(HR 동기화 정정용)",
+    "objects": {
+      "CMN_Department__c": "admin",
+      "User": "fields-edit"
+    },
+    "tabs": ["CMN_Department__c"]
+  }
+}

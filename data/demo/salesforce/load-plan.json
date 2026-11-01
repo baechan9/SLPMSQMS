@@ -351,10 +351,7 @@
       "pass": "update",
       "rows": 35,
       "recordTypeColumn": false,
-      "relations": {
-        "Department__r.DeptCode__c": "CMN_Department__c.DeptCode__c",
-        "PrimaryPlant__r.PlantCode__c": "CMN_Plant__c.PlantCode__c"
-      },
+      "relations": {},
       "userLookups": [],
       "tokenColumns": [],
       "onMissingUser": "skip",

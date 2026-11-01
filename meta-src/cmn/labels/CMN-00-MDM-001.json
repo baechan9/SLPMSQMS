@@ -1,0 +1,26 @@
+{
+  "wi": "CMN-00-MDM-001",
+  "package": "force-app-cmn",
+  "labels": [
+    {
+      "name": "CMN_Org_DepartmentCycle",
+      "category": "CMN",
+      "description": "상위 부서를 자신 또는 하위 부서로 지정(BR-2, AC-1)",
+      "value": {
+        "ko": "상위 부서를 자신이나 하위 부서로 지정할 수 없습니다(순환 참조).",
+        "en_US": "A department cannot be placed under itself or its sub-department (circular reference).",
+        "zh_CN": "不能将部门的上级设为其自身或下级部门(循环引用)。"
+      }
+    },
+    {
+      "name": "CMN_Org_UnknownDepartmentCode",
+      "category": "CMN",
+      "description": "사용자 부서 코드가 부서에 없음. {0} = 코드",
+      "value": {
+        "ko": "부서 코드 {0}이(가) 없습니다.",
+        "en_US": "Department code {0} does not exist.",
+        "zh_CN": "部门代码 {0} 不存在。"
+      }
+    }
+  ]
+}

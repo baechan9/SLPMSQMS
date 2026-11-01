@@ -5,6 +5,7 @@
     <label>CMN 경영진</label>
     <permissionSets>CMN_PS_AppPms_Read</permissionSets>
     <permissionSets>CMN_PS_AppQms_Read</permissionSets>
+    <permissionSets>CMN_PS_Org_Read</permissionSets>
     <permissionSets>CMN_PS_Site_Read</permissionSets>
     <permissionSets>QMS_PS_Dashboard_AllPlants</permissionSets>
     <status>Updated</status>

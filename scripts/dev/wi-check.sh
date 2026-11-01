@@ -54,7 +54,17 @@ for x in (f if isinstance(f, list) else [f]):
     print('FAIL', x.get('componentType'), x.get('fullName'), 'L', x.get('lineNumber'), '|', (x.get('problem') or '')[:250])"
   exit 1
 }
-sf project deploy start -o "$ORG" --wait 30 --json > build/deploy.json 2>/dev/null
+# 개발 Org는 로컬 소스가 기준이다. PSG는 배포 후 서버 재계산으로 원격 변경처럼 보여 매번 충돌이 나므로 무시한다
+sf project deploy start -o "$ORG" --wait 30 --ignore-conflicts --json > build/deploy.json 2>/dev/null || {
+  python3 -c "
+import json
+d = json.load(open('build/deploy.json')); r = d.get('result') or {}
+print('배포 실패:', (d.get('message') or '')[:300])
+f = (r.get('details') or {}).get('componentFailures') or []
+for x in (f if isinstance(f, list) else [f]):
+    print('FAIL', x.get('componentType'), x.get('fullName'), 'L', x.get('lineNumber'), '|', (x.get('problem') or '')[:250])"
+  exit 1
+}
 echo "배포 성공"
 step "Apex 테스트: $TESTS"
 sf apex run test -o "$ORG" -n "$TESTS" -c -w 30 --json > build/test-wi.json 2>/dev/null || true

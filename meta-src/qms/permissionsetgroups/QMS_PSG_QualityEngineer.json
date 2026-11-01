@@ -5,6 +5,10 @@
     "package": "force-app-qms",
     "label": "QMS 품질 엔지니어",
     "description": "공장 품질 엔지니어: NCR·4M·Claim·8D 생성/수정, 검사 판정(CMN-00-SEC-001)",
-    "permissionSets": ["CMN_PS_AppQms_Read", "CMN_PS_Site_Read"]
+    "permissionSets": [
+      "CMN_PS_AppQms_Read",
+      "CMN_PS_Site_Read",
+      "CMN_PS_Org_Read"
+    ]
   }
 }

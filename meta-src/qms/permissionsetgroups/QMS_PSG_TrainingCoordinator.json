@@ -5,6 +5,10 @@
     "package": "force-app-qms",
     "label": "QMS 교육 담당",
     "description": "공장 교육 담당(CMN-00-SEC-001)",
-    "permissionSets": ["CMN_PS_AppQms_Read", "CMN_PS_Site_Read"]
+    "permissionSets": [
+      "CMN_PS_AppQms_Read",
+      "CMN_PS_Site_Read",
+      "CMN_PS_Org_Read"
+    ]
   }
 }

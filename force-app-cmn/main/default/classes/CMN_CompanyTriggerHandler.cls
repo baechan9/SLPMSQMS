@@ -4,6 +4,6 @@
  */
 public with sharing class CMN_CompanyTriggerHandler extends CMN_TriggerHandler {
   protected override void beforeDelete() {
-    CMN_PlantService.preventDelete(oldRecords);
+    CMN_MasterDataGuard.preventDelete(oldRecords);
   }
 }

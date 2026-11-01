@@ -173,7 +173,7 @@ private class CMN_PlantService_Test {
       // Then: 모두 차단(라벨 문구)
       Assert.isFalse(r.isSuccess(), String.valueOf(target.getSObjectType()));
       Assert.areEqual(
-        Label.CMN_Site_DeleteNotAllowed,
+        Label.CMN_Master_DeleteNotAllowed,
         r.getErrors()[0].getMessage()
       );
     }

@@ -26,7 +26,15 @@
     </customLabels>
     <customLabels>
         <label>主数据不能删除。请取消“有效”以停用。</label>
-        <name>CMN_Site_DeleteNotAllowed</name>
+        <name>CMN_Master_DeleteNotAllowed</name>
+    </customLabels>
+    <customLabels>
+        <label>不能将部门的上级设为其自身或下级部门(循环引用)。</label>
+        <name>CMN_Org_DepartmentCycle</name>
+    </customLabels>
+    <customLabels>
+        <label>部门代码 {0} 不存在。</label>
+        <name>CMN_Org_UnknownDepartmentCode</name>
     </customLabels>
     <customLabels>
         <label>该工厂已存在产线代码 {0}。</label>

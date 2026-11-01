@@ -12,7 +12,8 @@
       "CMN_Company__c",
       "CMN_Plant__c",
       "CMN_Line__c",
-      "CMN_Operation__c"
+      "CMN_Operation__c",
+      "CMN_Department__c"
     ]
   }
 }

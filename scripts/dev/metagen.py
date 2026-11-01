@@ -139,7 +139,8 @@ def field_xml(f, obj):
             opt.append(('caseSensitive', f.get('caseSensitive', False)))
     if t not in ('MasterDetail', 'Formula', 'Summary', 'Checkbox', 'MultiselectPicklist'):
         opt.append(('required', f.get('required', False)))
-    if t not in ('Formula', 'Summary'):
+    if t not in ('Formula', 'Summary') and not obj.get('standard'):
+        # 표준 객체(User 등)에는 이 요소를 넣으면 '유효하지 않은 데이터 유형'으로 배포가 실패한다
         opt.append(('trackHistory', bool(f.get('trackHistory')) and bool(obj.get('enableHistory'))))
         opt.append(('trackTrending', False))
     opt.append(('type', f['returnType'] if t == 'Formula' else t))
@@ -395,6 +396,8 @@ def build_permset(ps, spec_index):
     for obj, mode in sorted(wanted.items()):
         if mode is None:
             a = access['edit']
+        elif mode in ('fields-read', 'fields-edit'):
+            a = access[mode[len('fields-'):]]  # 표준 객체(User 등): 객체 권한 없이 필드 권한만
         else:
             a = access[mode] if isinstance(mode, str) else mode
             objs.append(dict(a, object=obj))
@@ -450,17 +453,42 @@ def main():
         elif 'application' in d:
             build_app(d['application'])
     build_translations()
+    stale = stale_files()
     if a.check:
         diff = [p for p, c in written.items() if not os.path.exists(p) or open(p, encoding='utf-8').read() != c]
         for p in diff:
             print('최신 아님:', os.path.relpath(p, ROOT))
-        print(f'정의 {len(targets)}개, 파일 {len(written)}개, 다른 파일 {len(diff)}개')
-        sys.exit(1 if diff else 0)
+        for p in stale:
+            print('정의에 없는 생성 파일:', os.path.relpath(p, ROOT))
+        print(f'정의 {len(targets)}개, 파일 {len(written)}개, 다른 파일 {len(diff)}개, 남은 파일 {len(stale)}개')
+        sys.exit(1 if diff or stale else 0)
     for p, c in written.items():
         os.makedirs(os.path.dirname(p), exist_ok=True)
         with open(p, 'w', encoding='utf-8') as f:
             f.write(c)
+    for p in stale:
+        os.remove(p)
+        print('삭제(정의에 없음):', os.path.relpath(p, ROOT))
     print(f'정의 {len(targets)}개 → 파일 {len(written)}개')
+
+
+# 생성기가 만드는 파일 종류. 이 폴더·확장자의 파일 중 이번 생성 결과에 없는 것은 정의가 사라진 찌꺼기다
+GENERATED_DIRS = ('objects', 'objectTranslations', 'labels', 'permissionsets', 'permissionsetgroups',
+                  'applications', 'layouts', 'translations', 'customMetadata', 'tabs')
+GENERATED_SUFFIXES = ('.object-meta.xml', '.field-meta.xml', '.recordType-meta.xml', '.validationRule-meta.xml',
+                      '.objectTranslation-meta.xml', '.fieldTranslation-meta.xml', '.label-meta.xml',
+                      '.permissionset-meta.xml', '.permissionsetgroup-meta.xml', '.app-meta.xml', '.layout-meta.xml',
+                      '.translation-meta.xml', '.md-meta.xml', '.tab-meta.xml')
+
+
+def stale_files():
+    out = []
+    for pkg in glob.glob(os.path.join(ROOT, 'force-app-*', 'main', 'default')):
+        for d in GENERATED_DIRS:
+            for p in glob.glob(os.path.join(pkg, d, '**', '*'), recursive=True):
+                if p.endswith(GENERATED_SUFFIXES) and p not in written:
+                    out.append(p)
+    return sorted(out)
 
 
 if __name__ == '__main__':

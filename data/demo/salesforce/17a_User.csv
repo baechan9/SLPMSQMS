@@ -1,4 +1,4 @@
-EmployeeNo__c,Department__r.DeptCode__c,PrimaryPlant__r.PlantCode__c,JobGradeCode__c,HrStatus__c,LanguageOverride__c
+EmployeeNo__c,DepartmentCode__c,PrimaryPlantCode__c,JobGradeCode__c,HrStatus__c,LanguageOverride__c
 E1000,D0000,,G3,ACTIVE,false
 E1001,D1000,,G3,ACTIVE,false
 E1002,D1010,,G3,ACTIVE,false

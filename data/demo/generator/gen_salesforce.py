@@ -301,11 +301,12 @@ class Gen:
         for e in m['employees']:
             if e['license']:
                 self.out.keys.setdefault(R_USER, set()).add(e['no'])
-        fu = o.file('User', 'EmployeeNo__c', {'Department__r.DeptCode__c': R_DEPT, 'PrimaryPlant__r.PlantCode__c': R_PLANT},
+        # User는 사용자 정의 객체를 Lookup할 수 없어(플랫폼 제약) 부서·기본 공장을 코드로 둔다(CMN-00-MDM-001 명세 차이)
+        fu = o.file('User', 'EmployeeNo__c', {},
                     tag='update', note='로더가 만든 사용자만 갱신(없는 사번 행은 건너뜀)')
         for e in m['employees']:
             if e['license']:
-                o.add(fu, {'EmployeeNo__c': e['no'], 'Department__r.DeptCode__c': e['dept'], 'PrimaryPlant__r.PlantCode__c': e['plant'],
+                o.add(fu, {'EmployeeNo__c': e['no'], 'DepartmentCode__c': e['dept'], 'PrimaryPlantCode__c': e['plant'],
                            'JobGradeCode__c': 'G3', 'HrStatus__c': 'ACTIVE', 'LanguageOverride__c': 'false'})
         fd2 = o.file('CMN_Department__c', 'DeptCode__c', {'Parent__r.DeptCode__c': R_DEPT, 'Manager__r.EmployeeNo__c': R_USER}, tag='pass2')
         for d in m['departments']:

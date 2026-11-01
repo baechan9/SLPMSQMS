@@ -26,7 +26,15 @@
     </customLabels>
     <customLabels>
         <label>Master data cannot be deleted. Deactivate it by clearing Active.</label>
-        <name>CMN_Site_DeleteNotAllowed</name>
+        <name>CMN_Master_DeleteNotAllowed</name>
+    </customLabels>
+    <customLabels>
+        <label>A department cannot be placed under itself or its sub-department (circular reference).</label>
+        <name>CMN_Org_DepartmentCycle</name>
+    </customLabels>
+    <customLabels>
+        <label>Department code {0} does not exist.</label>
+        <name>CMN_Org_UnknownDepartmentCode</name>
     </customLabels>
     <customLabels>
         <label>Line code {0} already exists in this plant.</label>

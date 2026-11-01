@@ -58,16 +58,6 @@ public with sharing class CMN_PlantService {
 
   // ------------------------------------------------------------------ 트리거 규칙
   /**
-   * @description BR-2: 법인·공장·라인·공정은 삭제하지 않고 비활성화한다(주종 관계라 상위 삭제도 막는다).
-   * @param records 삭제 대상(Trigger.old)
-   */
-  public static void preventDelete(List<SObject> records) {
-    for (SObject r : records) {
-      r.addError(Label.CMN_Site_DeleteNotAllowed);
-    }
-  }
-
-  /**
    * @description BR-1: 라인 외부 키 = {PlantCode}-{LineCode}. 사용자가 넣은 값은 덮어쓴다. 같은 공장의 같은 라인 코드는 오류.
    * @param lines 저장할 라인(before insert·update)
    */

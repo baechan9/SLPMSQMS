@@ -18,5 +18,6 @@
     <tabs>CMN_Plant__c</tabs>
     <tabs>CMN_Line__c</tabs>
     <tabs>CMN_Operation__c</tabs>
+    <tabs>CMN_Department__c</tabs>
     <uiType>Lightning</uiType>
 </CustomApplication>

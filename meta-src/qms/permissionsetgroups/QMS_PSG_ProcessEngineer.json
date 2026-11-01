@@ -5,6 +5,10 @@
     "package": "force-app-qms",
     "label": "QMS 공정 엔지니어",
     "description": "생산기술·공정 담당: SPC 알람·OCAP, 수평전개 실행(CMN-00-SEC-001)",
-    "permissionSets": ["CMN_PS_AppQms_Read", "CMN_PS_Site_Read"]
+    "permissionSets": [
+      "CMN_PS_AppQms_Read",
+      "CMN_PS_Site_Read",
+      "CMN_PS_Org_Read"
+    ]
   }
 }

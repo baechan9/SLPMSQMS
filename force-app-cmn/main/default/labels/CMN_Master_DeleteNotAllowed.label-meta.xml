@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
-    <fullName>CMN_Site_DeleteNotAllowed</fullName>
+    <fullName>CMN_Master_DeleteNotAllowed</fullName>
     <categories>CMN</categories>
     <language>ko</language>
     <protected>false</protected>
-    <shortDescription>법인·공장·라인·공정 삭제 시도(BR-2)</shortDescription>
+    <shortDescription>기준정보(법인·공장·라인·공정·부서 등) 삭제 시도. CMN_MasterDataGuard</shortDescription>
     <value>기준정보는 삭제할 수 없습니다. 사용 여부를 해제해 비활성화하세요.</value>
 </CustomLabel>

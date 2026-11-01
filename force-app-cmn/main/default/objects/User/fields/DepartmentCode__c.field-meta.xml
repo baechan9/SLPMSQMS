@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DepartmentCode__c</fullName>
+    <description>소속 부서 CMN_Department__c.DeptCode__c. 명세는 Lookup이나 User는 사용자 정의 객체를 Lookup할 수 없어 코드로 둔다. 레코드는 CMN_UserOrgService.departmentsOf. 명세 필수(Y)는 HR 동기화가 보장</description>
+    <label>소속 부서 코드</label>
+    <length>20</length>
+    <required>false</required>
+    <type>Text</type>
+</CustomField>

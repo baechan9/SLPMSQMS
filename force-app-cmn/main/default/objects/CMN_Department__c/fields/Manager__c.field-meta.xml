@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Manager__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>부서장(팀장). 결재 Role 해석에 사용</description>
+    <label>부서장</label>
+    <referenceTo>User</referenceTo>
+    <relationshipLabel>관리 부서</relationshipLabel>
+    <relationshipName>ManagedDepartments</relationshipName>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

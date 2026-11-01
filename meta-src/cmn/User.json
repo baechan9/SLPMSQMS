@@ -1,0 +1,92 @@
+{
+  "wi": "CMN-00-MDM-001",
+  "object": "User",
+  "package": "force-app-cmn",
+  "standard": true,
+  "description": "사용자 HR 필드(CMN-00-MDM-001). 표준 Department(텍스트)는 쓰지 않는다. 부서·기본 공장은 코드(플랫폼 제약)",
+  "fields": [
+    {
+      "name": "EmployeeNo__c",
+      "type": "Text",
+      "length": 20,
+      "externalId": true,
+      "unique": true,
+      "label": {
+        "ko": "사번",
+        "en_US": "Employee No.",
+        "zh_CN": "工号"
+      },
+      "description": "사번. 명세 필수(Y)는 HR 동기화(INT-002)와 사용자 생성 절차가 보장(시스템·통합·포털 사용자 때문에 DB 필수 아님)"
+    },
+    {
+      "name": "DepartmentCode__c",
+      "type": "Text",
+      "length": 20,
+      "label": {
+        "ko": "소속 부서 코드",
+        "en_US": "Department Code",
+        "zh_CN": "所属部门代码"
+      },
+      "description": "소속 부서 CMN_Department__c.DeptCode__c. 명세는 Lookup이나 User는 사용자 정의 객체를 Lookup할 수 없어 코드로 둔다. 레코드는 CMN_UserOrgService.departmentsOf. 명세 필수(Y)는 HR 동기화가 보장"
+    },
+    {
+      "name": "JobGradeCode__c",
+      "type": "Text",
+      "length": 10,
+      "label": {
+        "ko": "직급 코드",
+        "en_US": "Job Grade Code",
+        "zh_CN": "职级代码"
+      },
+      "description": "HR 직급 코드(임율 계산은 PMS 소관)"
+    },
+    {
+      "name": "PrimaryPlantCode__c",
+      "type": "Text",
+      "length": 10,
+      "label": {
+        "ko": "기본 공장 코드",
+        "en_US": "Primary Plant Code",
+        "zh_CN": "默认工厂代码"
+      },
+      "description": "기본 공장 CMN_Plant__c.PlantCode__c(화면 기본 필터·채번 기준). Lookup 불가로 코드. 레코드는 CMN_UserOrgService.primaryPlantsOf"
+    },
+    {
+      "name": "HrStatus__c",
+      "type": "Picklist",
+      "default": "ACTIVE",
+      "label": {
+        "ko": "재직 상태",
+        "en_US": "HR Status",
+        "zh_CN": "在职状态"
+      },
+      "description": "휴직(LEAVE) 시 대리결재 자동 제안 대상. 기본 ACTIVE(명세 필수를 기본값으로 보장)",
+      "values": [
+        {
+          "api": "ACTIVE",
+          "label": {
+            "ko": "재직",
+            "en_US": "Active",
+            "zh_CN": "在职"
+          }
+        },
+        {
+          "api": "LEAVE",
+          "label": {
+            "ko": "휴직",
+            "en_US": "On Leave",
+            "zh_CN": "休假"
+          }
+        },
+        {
+          "api": "RETIRED",
+          "label": {
+            "ko": "퇴직",
+            "en_US": "Retired",
+            "zh_CN": "离职"
+          }
+        }
+      ]
+    }
+  ]
+}

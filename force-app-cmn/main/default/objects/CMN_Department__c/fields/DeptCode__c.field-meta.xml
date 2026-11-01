@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DeptCode__c</fullName>
+    <caseSensitive>false</caseSensitive>
+    <description>HR 부서 ID</description>
+    <externalId>true</externalId>
+    <label>부서 코드</label>
+    <length>20</length>
+    <required>true</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>true</unique>
+</CustomField>

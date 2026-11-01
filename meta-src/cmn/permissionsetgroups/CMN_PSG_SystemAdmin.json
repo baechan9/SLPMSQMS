@@ -12,7 +12,9 @@
       "CMN_PS_Setup_Read",
       "CMN_PS_Admin_Ops",
       "CMN_PS_Site_Read",
-      "CMN_PS_Site_Admin"
+      "CMN_PS_Site_Admin",
+      "CMN_PS_Org_Read",
+      "CMN_PS_Org_Admin"
     ]
   }
 }
