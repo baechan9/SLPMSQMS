@@ -59,6 +59,23 @@ public with sharing class CMN_PlantService {
   }
 
   /**
+   * @description 공장 Id → 공장 코드(트랜잭션 캐시 사용 — 채번·공유가 같은 공장을 다시 읽지 않는다).
+   * @param plantIds 공장 Id
+   * @return 공장 Id → 코드(없는 공장은 빠진다)
+   */
+  public static Map<Id, String> plantCodes(Set<Id> plantIds) {
+    load(new Set<String>(), plantIds);
+    Map<Id, String> out = new Map<Id, String>();
+    for (Id id : plantIds) {
+      CMN_Plant__c p = BY_ID.get(id);
+      if (p != null) {
+        out.put(id, p.PlantCode__c);
+      }
+    }
+    return out;
+  }
+
+  /**
    * @description 여러 공장을 한 번에 읽어 캐시에 올린다(채번처럼 레코드 여러 건을 다룰 때 루프 전에 호출).
    * @param plantIds 공장 Id
    */

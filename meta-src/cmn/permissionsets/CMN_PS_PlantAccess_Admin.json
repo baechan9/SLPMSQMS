@@ -1,0 +1,15 @@
+{
+  "permissionSet": {
+    "wi": "CMN-00-SEC-002",
+    "name": "CMN_PS_PlantAccess_Admin",
+    "package": "force-app-cmn",
+    "label": "CMN Plant Access Admin",
+    "description": "사용자별 공장 접근 관리와 공유 재계산 실행, 탭(CMN-00-SEC-002). IT 운영",
+    "objects": {
+      "CMN_UserPlantAccess__c": "admin",
+      "CMN_Plant__c": "read",
+      "CMN_Company__c": "read"
+    },
+    "tabs": ["CMN_UserPlantAccess__c"]
+  }
+}

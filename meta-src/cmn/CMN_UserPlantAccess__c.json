@@ -1,0 +1,113 @@
+{
+  "wi": "CMN-00-SEC-002",
+  "object": "CMN_UserPlantAccess__c",
+  "package": "force-app-cmn",
+  "description": "사용자별 공장 접근(SEC-002). 생성·삭제·수준 변경 시 공장 그룹(CMN_GRP_PLANT_{코드}_R/_E) 구성원을 비동기로 맞춘다(BR-2). ExternalKey = {EmployeeNo}-{PlantCode}",
+  "label": {
+    "ko": "공장 접근",
+    "en_US": "Plant Access",
+    "zh_CN": "工厂访问"
+  },
+  "plural": {
+    "ko": "공장 접근",
+    "en_US": "Plant Access",
+    "zh_CN": "工厂访问"
+  },
+  "nameField": {
+    "type": "AutoNumber",
+    "format": "PA-{0000000}",
+    "label": {
+      "ko": "접근 번호",
+      "en_US": "Access No.",
+      "zh_CN": "访问编号"
+    }
+  },
+  "sharingModel": "Private",
+  "enableHistory": true,
+  "tab": {
+    "motif": "Custom39: Telescope"
+  },
+  "fields": [
+    {
+      "name": "User__c",
+      "type": "Lookup",
+      "referenceTo": "User",
+      "relationshipName": "PlantAccesses",
+      "relationshipLabel": {
+        "ko": "공장 접근",
+        "en_US": "Plant Access",
+        "zh_CN": "工厂访问"
+      },
+      "trackHistory": true,
+      "label": {
+        "ko": "사용자",
+        "en_US": "User",
+        "zh_CN": "用户"
+      },
+      "description": "명세 필수: User 조회는 필수(삭제 제한)로 만들 수 없어 트리거가 확인"
+    },
+    {
+      "name": "Plant__c",
+      "type": "Lookup",
+      "referenceTo": "CMN_Plant__c",
+      "relationshipName": "UserAccesses",
+      "relationshipLabel": {
+        "ko": "사용자 접근",
+        "en_US": "User Access",
+        "zh_CN": "用户访问"
+      },
+      "required": true,
+      "deleteConstraint": "Restrict",
+      "trackHistory": true,
+      "label": {
+        "ko": "공장",
+        "en_US": "Plant",
+        "zh_CN": "工厂"
+      }
+    },
+    {
+      "name": "AccessLevel__c",
+      "type": "Picklist",
+      "required": true,
+      "default": "Read",
+      "trackHistory": true,
+      "label": {
+        "ko": "접근 수준",
+        "en_US": "Access Level",
+        "zh_CN": "访问级别"
+      },
+      "values": [
+        {
+          "api": "Read",
+          "label": {
+            "ko": "읽기",
+            "en_US": "Read",
+            "zh_CN": "只读"
+          }
+        },
+        {
+          "api": "Edit",
+          "label": {
+            "ko": "편집",
+            "en_US": "Edit",
+            "zh_CN": "编辑"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ExternalKey__c",
+      "type": "Text",
+      "length": 40,
+      "externalId": true,
+      "unique": true,
+      "serviceOnly": true,
+      "label": {
+        "ko": "외부 키",
+        "en_US": "External Key",
+        "zh_CN": "外部键"
+      },
+      "description": "{EmployeeNo}-{PlantCode}(사번이 없으면 사용자 Id). 트리거가 설정"
+    }
+  ]
+}

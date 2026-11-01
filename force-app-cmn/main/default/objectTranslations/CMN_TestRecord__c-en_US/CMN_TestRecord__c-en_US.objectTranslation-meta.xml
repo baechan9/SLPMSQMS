@@ -10,6 +10,14 @@
     </caseValues>
     <nameFieldLabel>Title</nameFieldLabel>
     <startsWith>Consonant</startsWith>
+    <sharingReasons>
+        <label>Plant Sharing</label>
+        <name>CMN_Plant__c</name>
+    </sharingReasons>
+    <sharingReasons>
+        <label>Supplier Sharing</label>
+        <name>CMN_Supplier__c</name>
+    </sharingReasons>
     <validationRules>
         <errorMessage>An issued number cannot be changed.</errorMessage>
         <name>CMN_TestRecord_RecordNoImmutable</name>

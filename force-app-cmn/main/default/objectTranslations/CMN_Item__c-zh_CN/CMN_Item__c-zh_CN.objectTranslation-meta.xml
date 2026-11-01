@@ -5,6 +5,10 @@
         <value>物料</value>
     </caseValues>
     <nameFieldLabel>物料名称</nameFieldLabel>
+    <sharingReasons>
+        <label>供应商共享</label>
+        <name>CMN_Supplier__c</name>
+    </sharingReasons>
     <validationRules>
         <errorMessage>成品(FG)需要客户。</errorMessage>
         <name>CMN_Item_FgRequiresCustomer</name>

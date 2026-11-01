@@ -83,6 +83,23 @@
         "zh_CN": "状态"
       },
       "description": "삭제 통제 검증(SEC-003, DRAFT만 삭제)"
+    },
+    {
+      "name": "Supplier__c",
+      "type": "Lookup",
+      "referenceTo": "Account",
+      "relationshipName": "TestRecords",
+      "relationshipLabel": {
+        "ko": "테스트 레코드",
+        "en_US": "Test Records",
+        "zh_CN": "测试记录"
+      },
+      "label": {
+        "ko": "협력사",
+        "en_US": "Supplier",
+        "zh_CN": "供应商"
+      },
+      "description": "협력사 공유 검증(SEC-002 BR-4)"
     }
   ],
   "validationRules": [
@@ -95,6 +112,24 @@
         "ko": "발행된 번호는 바꿀 수 없습니다.",
         "en_US": "An issued number cannot be changed.",
         "zh_CN": "已发放的编号不能修改。"
+      }
+    }
+  ],
+  "sharingReasons": [
+    {
+      "name": "CMN_Plant__c",
+      "label": {
+        "ko": "공장 공유",
+        "en_US": "Plant Sharing",
+        "zh_CN": "工厂共享"
+      }
+    },
+    {
+      "name": "CMN_Supplier__c",
+      "label": {
+        "ko": "협력사 공유",
+        "en_US": "Supplier Sharing",
+        "zh_CN": "供应商共享"
       }
     }
   ]

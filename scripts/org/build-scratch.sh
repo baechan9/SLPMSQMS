@@ -99,6 +99,10 @@ if [ "$NO_DATA" -eq 1 ] || [ -z "$PHASE" ]; then
   echo "건너뜀(--no-data 또는 --phase 없음)"
 else
   scripts/demo/load_salesforce.sh "$ALIAS" --upto-phase "$PHASE" ${USERS:+--users "$USERS"}
+  if [ -f force-app-cmn/main/default/classes/CMN_SharingRecalcBatch.cls ]; then
+    # 공장 그룹은 공장 생성 후 비동기로 생겨 직후 적재분의 공유가 빠질 수 있다 → 전체 재계산(CMN-00-SEC-002 BR-6)
+    sf apex run -o "$ALIAS" -f scripts/org/recalc-sharing.apex > /dev/null && echo "공유 재계산 배치 실행"
+  fi
 fi
 
 step 7 "Apex 테스트(RunLocalTests) + 커버리지 85%"

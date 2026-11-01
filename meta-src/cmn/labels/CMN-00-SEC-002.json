@@ -1,0 +1,26 @@
+{
+  "wi": "CMN-00-SEC-002",
+  "package": "force-app-cmn",
+  "labels": [
+    {
+      "name": "CMN_Sharing_UserRequired",
+      "category": "CMN",
+      "description": "공장 접근에 사용자 없음",
+      "value": {
+        "ko": "사용자를 지정하세요.",
+        "en_US": "Specify a user.",
+        "zh_CN": "请指定用户。"
+      }
+    },
+    {
+      "name": "CMN_Sharing_DuplicateAccess",
+      "category": "CMN",
+      "description": "같은 사용자·공장 접근 중복. {0} = 외부 키",
+      "value": {
+        "ko": "같은 사용자·공장 접근이 이미 있습니다: {0}",
+        "en_US": "The same user and plant access already exists: {0}",
+        "zh_CN": "已存在相同的用户和工厂访问: {0}"
+      }
+    }
+  ]
+}

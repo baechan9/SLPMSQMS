@@ -19,6 +19,7 @@
     <permissionSets>CMN_PS_Language_User</permissionSets>
     <permissionSets>CMN_PS_Org_Admin</permissionSets>
     <permissionSets>CMN_PS_Org_Read</permissionSets>
+    <permissionSets>CMN_PS_PlantAccess_Admin</permissionSets>
     <permissionSets>CMN_PS_Setup_Read</permissionSets>
     <permissionSets>CMN_PS_Site_Admin</permissionSets>
     <permissionSets>CMN_PS_Site_Read</permissionSets>

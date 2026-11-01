@@ -334,5 +334,16 @@
       }
     ]
   },
-  "i18nName": true
+  "i18nName": true,
+  "externalSharingModel": "Private",
+  "sharingReasons": [
+    {
+      "name": "CMN_Supplier__c",
+      "label": {
+        "ko": "협력사 공유",
+        "en_US": "Supplier Sharing",
+        "zh_CN": "供应商共享"
+      }
+    }
+  ]
 }

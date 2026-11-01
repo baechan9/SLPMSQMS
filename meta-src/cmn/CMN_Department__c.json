@@ -128,5 +128,6 @@
       }
     ]
   },
-  "i18nName": true
+  "i18nName": true,
+  "externalSharingModel": "Private"
 }

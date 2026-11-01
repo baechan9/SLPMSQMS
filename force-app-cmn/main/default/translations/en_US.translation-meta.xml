@@ -185,6 +185,14 @@
         <name>CMN_Org_UnknownDepartmentCode</name>
     </customLabels>
     <customLabels>
+        <label>The same user and plant access already exists: {0}</label>
+        <name>CMN_Sharing_DuplicateAccess</name>
+    </customLabels>
+    <customLabels>
+        <label>Specify a user.</label>
+        <name>CMN_Sharing_UserRequired</name>
+    </customLabels>
+    <customLabels>
         <label>Line code {0} already exists in this plant.</label>
         <name>CMN_Site_DuplicateLineCode</name>
     </customLabels>

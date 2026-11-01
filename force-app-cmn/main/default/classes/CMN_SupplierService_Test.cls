@@ -196,7 +196,8 @@ private class CMN_SupplierService_Test {
     Integer used = Limits.getQueries() - before;
 
     // Then: 트리거 SOQL 4회 이하(협력사·품번·공장·중복)
-    Assert.isTrue(used <= 4, 'SOQL ' + used);
+    // 협력사·품번·공장·중복 + 품번 협력사 공유의 포털 역할 조회(SEC-002)
+    Assert.isTrue(used <= 6, 'SOQL ' + used);
     Assert.areEqual(200, [SELECT COUNT() FROM CMN_SupplierItem__c]);
   }
 

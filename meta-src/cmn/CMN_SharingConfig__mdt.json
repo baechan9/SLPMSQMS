@@ -1,0 +1,53 @@
+{
+  "wi": "CMN-00-SEC-002",
+  "object": "CMN_SharingConfig__mdt",
+  "kind": "mdt",
+  "package": "force-app-cmn",
+  "description": "공장·협력사 공유 대상 객체(SEC-002 BR-3). 등록된 객체는 저장 때 공장 그룹(읽기·편집)과 협력사 포털 그룹에 Apex 공유(사유 CMN_Plant·CMN_Supplier)를 받는다. 각 업무 객체 WI가 레코드와 공유 사유를 더한다",
+  "label": {
+    "ko": "공유 설정"
+  },
+  "plural": {
+    "ko": "공유 설정"
+  },
+  "fields": [
+    {
+      "name": "ObjectApiName__c",
+      "type": "Text",
+      "length": 80,
+      "label": "Object API Name"
+    },
+    {
+      "name": "PlantField__c",
+      "type": "Text",
+      "length": 80,
+      "label": "Plant Field",
+      "description": "공장 Lookup 필드"
+    },
+    {
+      "name": "SupplierField__c",
+      "type": "Text",
+      "length": 80,
+      "label": "Supplier Field",
+      "description": "협력사 Account Lookup(선택). 협력사 포털 Manager 역할·하위 그룹에 읽기 공유"
+    },
+    {
+      "name": "IsActive__c",
+      "type": "Checkbox",
+      "default": true,
+      "label": "Active"
+    }
+  ],
+  "records": [
+    {
+      "name": "CMN_TestRecord",
+      "label": "테스트 대상 객체(DEV-3)",
+      "values": {
+        "ObjectApiName__c": "CMN_TestRecord__c",
+        "PlantField__c": "Plant__c",
+        "SupplierField__c": "Supplier__c",
+        "IsActive__c": true
+      }
+    }
+  ]
+}

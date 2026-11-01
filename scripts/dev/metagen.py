@@ -299,6 +299,10 @@ def build_object(spec):
         emit(f'{base}/objects/{obj}/recordTypes/{rt["name"]}.recordType-meta.xml', doc('RecordType', [
             ('fullName', rt['name']), ('active', True), ('description', rt.get('description')),
             ('label', lbl(rt['label'])), ('picklistValues', pv or None)]))
+    for sr in spec.get('sharingReasons', []):
+        # Apex 공유 사유(SEC-002): 행 사유 값은 {name}__c
+        emit(f'{base}/objects/{obj}/sharingReasons/{sr["name"]}.sharingReason-meta.xml',
+             doc('SharingReason', [('fullName', sr['name']), ('label', lbl(sr['label']))]))
     for vr in spec.get('validationRules', []):
         emit(f'{base}/objects/{obj}/validationRules/{vr["name"]}.validationRule-meta.xml', doc('ValidationRule', [
             ('fullName', vr['name']), ('active', vr.get('active', True)), ('description', vr.get('description')),
@@ -326,6 +330,9 @@ def build_object(spec):
             # 영어 객체 번역은 관사 선택용 startsWith가 필수다
             first = (lbl(spec['label'], lang) or 'x')[0].lower()
             body.append(('startsWith', 'Vowel' if first in 'aeiou' else 'Consonant'))
+        srs = [{'label': lbl(sr['label'], lang), 'name': sr['name']} for sr in spec.get('sharingReasons', [])]
+        if srs:
+            body.append(('sharingReasons', srs))
         vrs = [{'errorMessage': lbl(vr['message'], lang), 'name': vr['name']} for vr in spec.get('validationRules', [])]
         if vrs:
             body.append(('validationRules', vrs))
@@ -551,6 +558,8 @@ def check_translations(spec, where):
         need(vr.get('message'), f"{where}.{vr['name']}")
     for rt in spec.get('recordTypes', []):
         need(rt.get('label'), f"{where}.{rt['name']}")
+    for sr in spec.get('sharingReasons', []):
+        need(sr.get('label'), f"{where}.{sr['name']}")
     return missing
 
 
@@ -566,7 +575,7 @@ def merge_spec(base, extra):
 # 생성기가 만드는 파일 종류. 이 폴더·확장자의 파일 중 이번 생성 결과에 없는 것은 정의가 사라진 찌꺼기다
 GENERATED_DIRS = ('objects', 'objectTranslations', 'labels', 'permissionsets', 'permissionsetgroups',
                   'applications', 'layouts', 'translations', 'customMetadata', 'tabs')
-GENERATED_SUFFIXES = ('.object-meta.xml', '.field-meta.xml', '.recordType-meta.xml', '.validationRule-meta.xml',
+GENERATED_SUFFIXES = ('.object-meta.xml', '.field-meta.xml', '.recordType-meta.xml', '.validationRule-meta.xml', '.sharingReason-meta.xml',
                       '.objectTranslation-meta.xml', '.fieldTranslation-meta.xml', '.label-meta.xml',
                       '.permissionset-meta.xml', '.permissionsetgroup-meta.xml', '.app-meta.xml', '.layout-meta.xml',
                       '.translation-meta.xml', '.md-meta.xml', '.tab-meta.xml')

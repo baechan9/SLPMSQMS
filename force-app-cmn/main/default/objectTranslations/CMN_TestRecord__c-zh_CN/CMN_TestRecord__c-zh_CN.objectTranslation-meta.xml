@@ -5,6 +5,14 @@
         <value>测试记录</value>
     </caseValues>
     <nameFieldLabel>标题</nameFieldLabel>
+    <sharingReasons>
+        <label>工厂共享</label>
+        <name>CMN_Plant__c</name>
+    </sharingReasons>
+    <sharingReasons>
+        <label>供应商共享</label>
+        <name>CMN_Supplier__c</name>
+    </sharingReasons>
     <validationRules>
         <errorMessage>已发放的编号不能修改。</errorMessage>
         <name>CMN_TestRecord_RecordNoImmutable</name>

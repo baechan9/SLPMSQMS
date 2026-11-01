@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>공장·협력사 공유 대상 객체(SEC-002 BR-3). 등록된 객체는 저장 때 공장 그룹(읽기·편집)과 협력사 포털 그룹에 Apex 공유(사유 CMN_Plant·CMN_Supplier)를 받는다. 각 업무 객체 WI가 레코드와 공유 사유를 더한다</description>
+    <label>공유 설정</label>
+    <pluralLabel>공유 설정</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>

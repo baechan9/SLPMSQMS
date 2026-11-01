@@ -28,6 +28,7 @@
     <tabs>CMN_CodeGroup__c</tabs>
     <tabs>CMN_Code__c</tabs>
     <tabs>CMN_DeleteLog__c</tabs>
+    <tabs>CMN_UserPlantAccess__c</tabs>
     <uiType>Lightning</uiType>
     <utilityBar>SL_UtilityBar</utilityBar>
 </CustomApplication>

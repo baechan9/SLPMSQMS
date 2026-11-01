@@ -51,7 +51,8 @@ private class CMN_NumberingService_Test {
     Assert.areEqual(200, seen.size());
     Assert.areEqual('TST-KR01-2027-000001', byId.get(recs[0].Id));
     Assert.areEqual('TST-KR01-2027-000200', byId.get(recs[199].Id));
-    Assert.isTrue(used <= 4, 'SOQL ' + used);
+    // 채번(공장·카운터 잠금·생성 후 재조회) 3 + 공장 공유(그룹·기존 공유 행, SEC-002) 2
+    Assert.isTrue(used <= 6, 'SOQL ' + used);
     Assert.areEqual(200, counter('CMN_TestRecord__c/KR01/2027'));
   }
 

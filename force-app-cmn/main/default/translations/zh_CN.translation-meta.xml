@@ -185,6 +185,14 @@
         <name>CMN_Org_UnknownDepartmentCode</name>
     </customLabels>
     <customLabels>
+        <label>已存在相同的用户和工厂访问: {0}</label>
+        <name>CMN_Sharing_DuplicateAccess</name>
+    </customLabels>
+    <customLabels>
+        <label>请指定用户。</label>
+        <name>CMN_Sharing_UserRequired</name>
+    </customLabels>
+    <customLabels>
         <label>该工厂已存在产线代码 {0}。</label>
         <name>CMN_Site_DuplicateLineCode</name>
     </customLabels>
