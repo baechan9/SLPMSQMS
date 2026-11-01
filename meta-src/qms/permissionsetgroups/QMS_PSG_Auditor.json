@@ -8,7 +8,8 @@
     "permissionSets": [
       "CMN_PS_AppQms_Read",
       "CMN_PS_Site_Read",
-      "CMN_PS_Org_Read"
+      "CMN_PS_Org_Read",
+      "CMN_PS_Customer_Read"
     ]
   }
 }

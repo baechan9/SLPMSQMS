@@ -14,7 +14,9 @@
       "CMN_PS_Site_Read",
       "CMN_PS_Site_Admin",
       "CMN_PS_Org_Read",
-      "CMN_PS_Org_Admin"
+      "CMN_PS_Org_Admin",
+      "CMN_PS_Customer_Read",
+      "CMN_PS_Customer_Admin"
     ]
   }
 }

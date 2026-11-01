@@ -283,7 +283,8 @@ def build_object(spec):
         pv = []
         for f in picks:
             allowed = rt.get('picklists', {}).get(f['name']) or [v['api'] for v in f['values']]
-            pv.append({'picklist': f['name'], 'values': [{'fullName': a, 'default': a == f.get('default')} for a in allowed]})
+            dflt = rt.get('defaults', {}).get(f['name'], f.get('default'))
+            pv.append({'picklist': f['name'], 'values': [{'fullName': a, 'default': a == dflt} for a in allowed]})
         emit(f'{base}/objects/{obj}/recordTypes/{rt["name"]}.recordType-meta.xml', doc('RecordType', [
             ('fullName', rt['name']), ('active', True), ('description', rt.get('description')),
             ('label', lbl(rt['label'])), ('picklistValues', pv or None)]))
@@ -419,7 +420,8 @@ def build_permset(ps, spec_index):
             ('label', ps['label']),
             ('license', ps.get('license')),
             ('objectPermissions', sorted(objs, key=lambda d: d['object']) or None),
-            ('recordTypeVisibilities', [{'recordType': r, 'visible': True} for r in ps.get('recordTypes', [])] or None),
+            ('recordTypeVisibilities', [{'recordType': r, 'visible': True} for r in sorted(set(ps.get('recordTypes', []) + (
+                [f"{o}.{rt['name']}" for o, sp in spec_index.items() for rt in sp.get('recordTypes', [])] if every else [])))] or None),
             ('tabSettings', [{'tab': t, 'visibility': 'Visible'} for t in ps.get('tabs', [])] or None),
             ('userPermissions', [{'enabled': True, 'name': u} for u in sorted(ps.get('userPermissions', []))] or None)]
     emit(f'{pkg}/main/default/permissionsets/{ps["name"]}.permissionset-meta.xml', doc('PermissionSet', body))
@@ -436,14 +438,20 @@ def main():
         with open(p, encoding='utf-8') as f:
             d = json.load(f)
         if 'object' in d:
-            objects[d['object']] = d
+            if d['object'] in objects:
+                merge_spec(objects[d['object']], d)
+            else:
+                objects[d['object']] = d
     # 번역 파일은 모든 라벨을 모아야 하므로 항상 전체를 처리하고, 쓰기만 대상 파일로 한정하지 않는다
     targets = all_specs
+    built = set()
     for p in targets:
         with open(p, encoding='utf-8') as f:
             d = json.load(f)
         if 'object' in d:
-            build_object(d)
+            if d['object'] not in built:
+                built.add(d['object'])
+                build_object(objects[d['object']])
         elif 'permissionSet' in d:
             build_permset(d['permissionSet'], objects)
         elif 'labels' in d:
@@ -470,6 +478,14 @@ def main():
         os.remove(p)
         print('삭제(정의에 없음):', os.path.relpath(p, ROOT))
     print(f'정의 {len(targets)}개 → 파일 {len(written)}개')
+
+
+def merge_spec(base, extra):
+    """표준 객체(Account 등)는 여러 WI가 각자 정의 파일을 둔다(예: 고객 MDM-003, 협력사 MDM-005). 목록 항목을 합친다."""
+    if not base.get('standard') or not extra.get('standard'):
+        sys.exit(f"같은 객체 정의가 둘 이상: {base['object']} (표준 객체만 나눠 정의할 수 있다)")
+    for key in ('fields', 'recordTypes', 'validationRules'):
+        base[key] = base.get(key, []) + extra.get(key, [])
 
 
 # 생성기가 만드는 파일 종류. 이 폴더·확장자의 파일 중 이번 생성 결과에 없는 것은 정의가 사라진 찌꺼기다

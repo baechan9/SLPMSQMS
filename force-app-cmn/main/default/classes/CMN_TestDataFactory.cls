@@ -114,7 +114,25 @@ public class CMN_TestDataFactory {
         }
         created.put(emp, u);
       }
-      insert created.values();
+      // 데모 사용자를 적재한 Org에는 같은 사번 사용자가 이미 있다(사번은 유일). 그 사용자를 그대로 쓴다
+      List<User> toInsert = new List<User>();
+      Map<String, User> existing = new Map<String, User>();
+      for (User e : [
+        SELECT Id, EmployeeNo__c
+        FROM User
+        WHERE EmployeeNo__c IN :created.keySet()
+        WITH SYSTEM_MODE
+      ]) {
+        existing.put(e.EmployeeNo__c, e);
+      }
+      for (String emp : created.keySet()) {
+        if (existing.containsKey(emp)) {
+          created.put(emp, existing.get(emp));
+        } else {
+          toInsert.add(created.get(emp));
+        }
+      }
+      insert toInsert;
       Set<String> psgNames = new Set<String>();
       for (Map<String, Object> d : defs) {
         for (Object p : (List<Object>) d.get('permissionSetGroups')) {
@@ -131,13 +149,28 @@ public class CMN_TestDataFactory {
       }
       if (!psgIds.isEmpty()) {
         Test.calculatePermissionSetGroup(new List<Id>(psgIds.values()));
+        Set<String> have = new Set<String>();
+        for (PermissionSetAssignment a : [
+          SELECT AssigneeId, PermissionSetGroupId
+          FROM PermissionSetAssignment
+          WHERE
+            AssigneeId IN :existing.values()
+            AND PermissionSetGroupId != NULL
+          WITH SYSTEM_MODE
+        ]) {
+          have.add(a.AssigneeId + '|' + a.PermissionSetGroupId);
+        }
         List<PermissionSetAssignment> psas = new List<PermissionSetAssignment>();
         for (Map<String, Object> d : defs) {
+          Id assignee = created.get((String) d.get('employeeNo')).Id;
           for (Object p : (List<Object>) d.get('permissionSetGroups')) {
-            if (psgIds.containsKey((String) p)) {
+            if (
+              psgIds.containsKey((String) p) &&
+              !have.contains(assignee + '|' + psgIds.get((String) p))
+            ) {
               psas.add(
                 new PermissionSetAssignment(
-                  AssigneeId = created.get((String) d.get('employeeNo')).Id,
+                  AssigneeId = assignee,
                   PermissionSetGroupId = psgIds.get((String) p)
                 )
               );

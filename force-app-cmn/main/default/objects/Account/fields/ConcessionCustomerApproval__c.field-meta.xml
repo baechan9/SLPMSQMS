@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ConcessionCustomerApproval__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>특채 시 고객 승인 필요(Vol.6a NCR-003 BR-5 요청). CSR</description>
+    <label>특채 고객 승인 필요</label>
+    <type>Checkbox</type>
+</CustomField>

@@ -25,6 +25,10 @@
         <name>CMN_Common_UnexpectedError</name>
     </customLabels>
     <customLabels>
+        <label>Vehicle code {0} already exists for this customer.</label>
+        <name>CMN_Customer_DuplicateVehicleCode</name>
+    </customLabels>
+    <customLabels>
         <label>Master data cannot be deleted. Deactivate it by clearing Active.</label>
         <name>CMN_Master_DeleteNotAllowed</name>
     </customLabels>

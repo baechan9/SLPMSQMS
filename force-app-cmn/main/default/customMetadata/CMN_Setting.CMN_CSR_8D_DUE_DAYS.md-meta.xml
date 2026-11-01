@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>CSR 8D 최종 회신 기한 기본(일)</label>
+    <protected>false</protected>
+    <values>
+        <field>Value__c</field>
+        <value xsi:type="xsd:string">30</value>
+    </values>
+    <values>
+        <field>Note__c</field>
+        <value xsi:type="xsd:string">MDM-003 BR-2. Account.EightDDueDays__c가 비면 사용</value>
+    </values>
+</CustomMetadata>

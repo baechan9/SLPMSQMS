@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>전사 설정 키·값(“CMN 설정”). DeveloperName이 키. 여러 Vol.이 기본값·대상 목록을 여기 둔다(CMN_Settings로 읽음). 소유 WI가 명세에 없어 MDM-003 BR-2와 함께 추가</description>
+    <label>CMN 설정</label>
+    <pluralLabel>CMN 설정</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>

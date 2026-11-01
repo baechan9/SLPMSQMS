@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_Vehicle_EopAfterSop</fullName>
+    <active>true</active>
+    <description>양산 종료는 시작 이후</description>
+    <errorConditionFormula>AND(NOT(ISBLANK(SopDate__c)), NOT(ISBLANK(EopDate__c)), EopDate__c &lt; SopDate__c)</errorConditionFormula>
+    <errorDisplayField>EopDate__c</errorDisplayField>
+    <errorMessage>양산 종료일은 양산 시작일 이후여야 합니다.</errorMessage>
+</ValidationRule>

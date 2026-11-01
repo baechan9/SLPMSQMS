@@ -1,0 +1,317 @@
+{
+  "wi": "CMN-00-MDM-003",
+  "object": "Account",
+  "package": "force-app-cmn",
+  "standard": true,
+  "description": "고객(RecordType CMN_Customer)과 CSR 필드. 협력사 RecordType·필드는 MDM-005",
+  "recordTypes": [
+    {
+      "name": "CMN_Customer",
+      "label": {
+        "ko": "고객",
+        "en_US": "Customer",
+        "zh_CN": "客户"
+      },
+      "description": "완성차 고객(OEM). 차종 Customer__c 조회 필터 대상(BR-1)",
+      "defaults": {
+        "PpapDefaultLevel__c": "3"
+      }
+    }
+  ],
+  "fields": [
+    {
+      "name": "OemCode__c",
+      "type": "Text",
+      "length": 20,
+      "externalId": true,
+      "unique": true,
+      "label": {
+        "ko": "고객 코드",
+        "en_US": "OEM Code",
+        "zh_CN": "客户代码"
+      },
+      "description": "고객 코드. 고객 RecordType에서 필수(검증 규칙), 차종 외부 키의 앞부분이라 만든 뒤 바꾸지 않는다"
+    },
+    {
+      "name": "CustomerGroup__c",
+      "type": "Picklist",
+      "label": {
+        "ko": "OEM 그룹",
+        "en_US": "OEM Group",
+        "zh_CN": "OEM集团"
+      },
+      "description": "고객 RecordType에서 필수(검증 규칙)",
+      "values": [
+        {
+          "api": "HKMC",
+          "label": {
+            "ko": "현대기아",
+            "en_US": "HKMC",
+            "zh_CN": "现代起亚"
+          }
+        },
+        {
+          "api": "BMW",
+          "label": {
+            "ko": "BMW",
+            "en_US": "BMW",
+            "zh_CN": "宝马"
+          }
+        },
+        {
+          "api": "GM",
+          "label": {
+            "ko": "GM",
+            "en_US": "GM",
+            "zh_CN": "通用"
+          }
+        },
+        {
+          "api": "FORD",
+          "label": {
+            "ko": "포드",
+            "en_US": "Ford",
+            "zh_CN": "福特"
+          }
+        },
+        {
+          "api": "STELLANTIS",
+          "label": {
+            "ko": "스텔란티스",
+            "en_US": "Stellantis",
+            "zh_CN": "Stellantis"
+          }
+        },
+        {
+          "api": "RENAULT",
+          "label": {
+            "ko": "르노",
+            "en_US": "Renault",
+            "zh_CN": "雷诺"
+          }
+        },
+        {
+          "api": "CN_LOCAL",
+          "label": {
+            "ko": "중국 로컬",
+            "en_US": "China Local OEM",
+            "zh_CN": "中国本土"
+          }
+        },
+        {
+          "api": "OTHER",
+          "label": {
+            "ko": "기타",
+            "en_US": "Other",
+            "zh_CN": "其他"
+          }
+        }
+      ]
+    },
+    {
+      "name": "SapCustomerNo__c",
+      "type": "Text",
+      "length": 20,
+      "externalId": true,
+      "label": {
+        "ko": "SAP 고객 번호",
+        "en_US": "SAP Customer No.",
+        "zh_CN": "SAP客户编号"
+      }
+    },
+    {
+      "name": "ContainmentDueDays__c",
+      "type": "Number",
+      "precision": 3,
+      "scale": 0,
+      "label": {
+        "ko": "임시조치 회신 기한(일)",
+        "en_US": "Containment Due Days",
+        "zh_CN": "临时措施回复期限(天)"
+      },
+      "description": "클레임 임시조치(D3) 회신 기한. 비면 CMN 설정 CMN_CSR_CONTAINMENT_DUE_DAYS(1일)"
+    },
+    {
+      "name": "EightDDueDays__c",
+      "type": "Number",
+      "precision": 3,
+      "scale": 0,
+      "label": {
+        "ko": "8D 회신 기한(일)",
+        "en_US": "8D Due Days",
+        "zh_CN": "8D回复期限(天)"
+      },
+      "description": "8D 최종 회신 기한. 비면 CMN 설정 CMN_CSR_8D_DUE_DAYS(30일)"
+    },
+    {
+      "name": "RootCauseDueDays__c",
+      "type": "Number",
+      "precision": 3,
+      "scale": 0,
+      "label": {
+        "ko": "원인 회신 기한(일)",
+        "en_US": "Root Cause Due Days",
+        "zh_CN": "原因回复期限(天)"
+      },
+      "description": "원인 회신 기한(Vol.5 CLM-007 요청). 비면 CMN 설정 CMN_CSR_ROOT_CAUSE_DUE_DAYS(10일)"
+    },
+    {
+      "name": "PpapDefaultLevel__c",
+      "type": "Picklist",
+      "label": {
+        "ko": "기본 PPAP 레벨",
+        "en_US": "Default PPAP Level",
+        "zh_CN": "默认PPAP等级"
+      },
+      "description": "기본 PPAP 제출 레벨. 고객 RecordType 기본값 3",
+      "values": [
+        {
+          "api": "1",
+          "label": "1"
+        },
+        {
+          "api": "2",
+          "label": "2"
+        },
+        {
+          "api": "3",
+          "label": "3"
+        },
+        {
+          "api": "4",
+          "label": "4"
+        },
+        {
+          "api": "5",
+          "label": "5"
+        }
+      ]
+    },
+    {
+      "name": "AuditStandard__c",
+      "type": "MultiselectPicklist",
+      "label": {
+        "ko": "고객 감사 기준",
+        "en_US": "Audit Standard",
+        "zh_CN": "客户审核标准"
+      },
+      "values": [
+        {
+          "api": "VDA63",
+          "label": "VDA 6.3"
+        },
+        {
+          "api": "IATF16949",
+          "label": "IATF 16949"
+        },
+        {
+          "api": "CUSTOMER_SPECIFIC",
+          "label": {
+            "ko": "고객 고유",
+            "en_US": "Customer Specific",
+            "zh_CN": "客户特定"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ClaimFormTemplate__c",
+      "type": "Picklist",
+      "label": {
+        "ko": "클레임 회신 양식",
+        "en_US": "Claim Form Template",
+        "zh_CN": "索赔回复模板"
+      },
+      "description": "기본 클레임 회신 양식(값은 SL 확인 후 확정 — 오픈 이슈)",
+      "values": [
+        {
+          "api": "STD_8D",
+          "label": {
+            "ko": "표준 8D",
+            "en_US": "Standard 8D",
+            "zh_CN": "标准8D"
+          }
+        },
+        {
+          "api": "BMW_8D",
+          "label": {
+            "ko": "BMW 8D",
+            "en_US": "BMW 8D",
+            "zh_CN": "宝马8D"
+          }
+        },
+        {
+          "api": "HKMC_6PI",
+          "label": {
+            "ko": "현대기아 6PI",
+            "en_US": "HKMC 6PI",
+            "zh_CN": "现代起亚6PI"
+          }
+        },
+        {
+          "api": "GM_PRR",
+          "label": {
+            "ko": "GM PRR",
+            "en_US": "GM PRR",
+            "zh_CN": "通用PRR"
+          }
+        },
+        {
+          "api": "FORD_GSDB",
+          "label": {
+            "ko": "포드 GSDB",
+            "en_US": "Ford GSDB",
+            "zh_CN": "福特GSDB"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ChangeNoticeLeadDays__c",
+      "type": "Number",
+      "precision": 3,
+      "scale": 0,
+      "label": {
+        "ko": "4M 사전 통보 기한(일)",
+        "en_US": "Change Notice Lead Days",
+        "zh_CN": "4M事前通知期限(天)"
+      },
+      "description": "4M 변경 사전 통보·승인 기한 일수(Vol.6a 4MC-001·005 요청). CSR"
+    },
+    {
+      "name": "ConcessionCustomerApproval__c",
+      "type": "Checkbox",
+      "default": false,
+      "label": {
+        "ko": "특채 고객 승인 필요",
+        "en_US": "Concession Needs Customer Approval",
+        "zh_CN": "特采需客户批准"
+      },
+      "description": "특채 시 고객 승인 필요(Vol.6a NCR-003 BR-5 요청). CSR"
+    }
+  ],
+  "validationRules": [
+    {
+      "name": "CMN_Account_CustomerKeyRequired",
+      "field": "OemCode__c",
+      "formula": "AND(RecordType.DeveloperName = 'CMN_Customer', OR(ISBLANK(OemCode__c), ISPICKVAL(CustomerGroup__c, '')))",
+      "description": "고객은 고객 코드·OEM 그룹 필수(CMN-00-MDM-003)",
+      "message": {
+        "ko": "고객은 고객 코드와 OEM 그룹이 필요합니다.",
+        "en_US": "A customer requires an OEM code and OEM group.",
+        "zh_CN": "客户需要客户代码和OEM集团。"
+      }
+    },
+    {
+      "name": "CMN_Account_OemCodeImmutable",
+      "field": "OemCode__c",
+      "formula": "AND(ISCHANGED(OemCode__c), NOT(ISBLANK(PRIORVALUE(OemCode__c))), NOT($Permission.CMN_DataMigration))",
+      "description": "고객 코드는 차종 외부 키의 일부라 바꾸지 않는다(CMN-00-MDM-003). 이관 모드만 예외",
+      "message": {
+        "ko": "코드는 만든 뒤 바꿀 수 없습니다(권한·채번·외부 연계의 키).",
+        "en_US": "The code cannot be changed after creation (key for access, numbering and integration).",
+        "zh_CN": "代码创建后不可修改(用于权限、编号和外部集成的键)。"
+      }
+    }
+  ]
+}

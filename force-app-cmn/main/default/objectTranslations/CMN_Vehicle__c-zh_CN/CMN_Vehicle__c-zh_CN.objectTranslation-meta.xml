@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>车型</value>
+    </caseValues>
+    <nameFieldLabel>车型名称</nameFieldLabel>
+    <validationRules>
+        <errorMessage>量产结束日期必须在量产开始日期之后。</errorMessage>
+        <name>CMN_Vehicle_EopAfterSop</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>代码创建后不可修改(用于权限、编号和外部集成的键)。</errorMessage>
+        <name>CMN_Vehicle_VehicleCodeImmutable</name>
+    </validationRules>
+</CustomObjectTranslation>

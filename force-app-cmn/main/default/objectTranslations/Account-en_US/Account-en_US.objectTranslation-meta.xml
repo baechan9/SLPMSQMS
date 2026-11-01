@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <recordTypes>
+        <label>Customer</label>
+        <name>CMN_Customer</name>
+    </recordTypes>
+    <recordTypes>
+        <label>Supplier</label>
+        <name>CMN_Supplier</name>
+    </recordTypes>
+    <validationRules>
+        <errorMessage>A customer requires an OEM code and OEM group.</errorMessage>
+        <name>CMN_Account_CustomerKeyRequired</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>The code cannot be changed after creation (key for access, numbering and integration).</errorMessage>
+        <name>CMN_Account_OemCodeImmutable</name>
+    </validationRules>
+</CustomObjectTranslation>

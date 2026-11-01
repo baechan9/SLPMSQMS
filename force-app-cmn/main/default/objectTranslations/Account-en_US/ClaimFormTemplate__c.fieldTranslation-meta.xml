@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label>Claim Form Template</label>
+    <name>ClaimFormTemplate__c</name>
+    <picklistValues>
+        <masterLabel>표준 8D</masterLabel>
+        <translation>Standard 8D</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>BMW 8D</masterLabel>
+        <translation>BMW 8D</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>현대기아 6PI</masterLabel>
+        <translation>HKMC 6PI</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>GM PRR</masterLabel>
+        <translation>GM PRR</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>포드 GSDB</masterLabel>
+        <translation>Ford GSDB</translation>
+    </picklistValues>
+</CustomFieldTranslation>

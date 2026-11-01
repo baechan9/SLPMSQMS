@@ -25,6 +25,10 @@
         <name>CMN_Common_UnexpectedError</name>
     </customLabels>
     <customLabels>
+        <label>该客户已存在车型代码 {0}。</label>
+        <name>CMN_Customer_DuplicateVehicleCode</name>
+    </customLabels>
+    <customLabels>
         <label>主数据不能删除。请取消“有效”以停用。</label>
         <name>CMN_Master_DeleteNotAllowed</name>
     </customLabels>

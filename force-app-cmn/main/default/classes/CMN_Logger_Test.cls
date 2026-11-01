@@ -5,7 +5,8 @@ private class CMN_Logger_Test {
     // Given: 롤백될 트랜잭션 안에서 오류 로그
     Test.startTest();
     Savepoint sp = Database.setSavepoint();
-    insert new Account(Name = 'rolled back');
+    // 업무 레코드 예시(Account는 레코드타입·검증 규칙이 붙어 공통 테스트에 쓰지 않는다)
+    insert new CMN_Department__c(Name = 'rolled back', DeptCode__c = 'RB1');
     CMN_Logger.error(
       'CMN_Logger_Test.rollback',
       'boom',
@@ -19,7 +20,7 @@ private class CMN_Logger_Test {
     // Then: 업무 레코드는 사라지고 로그 1건은 남는다
     Assert.areEqual(
       0,
-      [SELECT COUNT() FROM Account WHERE Name = 'rolled back']
+      [SELECT COUNT() FROM CMN_Department__c WHERE Name = 'rolled back']
     );
     List<CMN_Log__c> logs = [
       SELECT Level__c, Source__c, Message__c, Payload__c, TransactionId__c

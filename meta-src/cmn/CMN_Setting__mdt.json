@@ -1,0 +1,55 @@
+{
+  "wi": "CMN-00-MDM-003",
+  "object": "CMN_Setting__mdt",
+  "kind": "mdt",
+  "package": "force-app-cmn",
+  "description": "전사 설정 키·값(“CMN 설정”). DeveloperName이 키. 여러 Vol.이 기본값·대상 목록을 여기 둔다(CMN_Settings로 읽음). 소유 WI가 명세에 없어 MDM-003 BR-2와 함께 추가",
+  "label": {
+    "ko": "CMN 설정"
+  },
+  "plural": {
+    "ko": "CMN 설정"
+  },
+  "fields": [
+    {
+      "name": "Value__c",
+      "type": "Text",
+      "length": 255,
+      "label": "Value",
+      "description": "값(문자열). 숫자·참거짓·쉼표 목록은 CMN_Settings가 변환"
+    },
+    {
+      "name": "Note__c",
+      "type": "Text",
+      "length": 255,
+      "label": "Note",
+      "description": "용도와 근거 WI"
+    }
+  ],
+  "records": [
+    {
+      "name": "CMN_CSR_CONTAINMENT_DUE_DAYS",
+      "label": "CSR 임시조치(D3) 회신 기한 기본(일)",
+      "values": {
+        "Value__c": "1",
+        "Note__c": "MDM-003 BR-2. Account.ContainmentDueDays__c가 비면 사용"
+      }
+    },
+    {
+      "name": "CMN_CSR_8D_DUE_DAYS",
+      "label": "CSR 8D 최종 회신 기한 기본(일)",
+      "values": {
+        "Value__c": "30",
+        "Note__c": "MDM-003 BR-2. Account.EightDDueDays__c가 비면 사용"
+      }
+    },
+    {
+      "name": "CMN_CSR_ROOT_CAUSE_DUE_DAYS",
+      "label": "CSR 원인 회신 기한 기본(일)",
+      "values": {
+        "Value__c": "10",
+        "Note__c": "MDM-003(Vol.5 CLM-007 BR-3 요청). Account.RootCauseDueDays__c가 비면 사용"
+      }
+    }
+  ]
+}

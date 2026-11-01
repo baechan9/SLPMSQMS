@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Vehicle</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Vehicles</value>
+    </caseValues>
+    <nameFieldLabel>Vehicle Name</nameFieldLabel>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage>EOP must be on or after SOP.</errorMessage>
+        <name>CMN_Vehicle_EopAfterSop</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>The code cannot be changed after creation (key for access, numbering and integration).</errorMessage>
+        <name>CMN_Vehicle_VehicleCodeImmutable</name>
+    </validationRules>
+</CustomObjectTranslation>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AuditStandard__c</fullName>
+    <label>고객 감사 기준</label>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>VDA63</fullName>
+                <default>false</default>
+                <label>VDA 6.3</label>
+            </value>
+            <value>
+                <fullName>IATF16949</fullName>
+                <default>false</default>
+                <label>IATF 16949</label>
+            </value>
+            <value>
+                <fullName>CUSTOMER_SPECIFIC</fullName>
+                <default>false</default>
+                <label>고객 고유</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

@@ -1,0 +1,16 @@
+{
+  "wi": "CMN-00-MDM-003",
+  "package": "force-app-cmn",
+  "labels": [
+    {
+      "name": "CMN_Customer_DuplicateVehicleCode",
+      "category": "CMN",
+      "description": "같은 고객의 같은 차종 코드. {0} = 차종 코드",
+      "value": {
+        "ko": "같은 고객에 차종 코드 {0}이(가) 이미 있습니다.",
+        "en_US": "Vehicle code {0} already exists for this customer.",
+        "zh_CN": "该客户已存在车型代码 {0}。"
+      }
+    }
+  ]
+}

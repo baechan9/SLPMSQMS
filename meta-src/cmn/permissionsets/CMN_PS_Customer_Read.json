@@ -1,0 +1,13 @@
+{
+  "permissionSet": {
+    "wi": "CMN-00-MDM-003",
+    "name": "CMN_PS_Customer_Read",
+    "package": "force-app-cmn",
+    "label": "CMN Customer Read",
+    "description": "고객(Account CSR 필드)·차종 조회(CMN-00-MDM-003). 사내 페르소나 PSG 전체",
+    "objects": {
+      "Account": "read",
+      "CMN_Vehicle__c": "read"
+    }
+  }
+}

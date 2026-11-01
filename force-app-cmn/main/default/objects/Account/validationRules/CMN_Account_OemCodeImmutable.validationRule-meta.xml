@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_Account_OemCodeImmutable</fullName>
+    <active>true</active>
+    <description>고객 코드는 차종 외부 키의 일부라 바꾸지 않는다(CMN-00-MDM-003). 이관 모드만 예외</description>
+    <errorConditionFormula>AND(ISCHANGED(OemCode__c), NOT(ISBLANK(PRIORVALUE(OemCode__c))), NOT($Permission.CMN_DataMigration))</errorConditionFormula>
+    <errorDisplayField>OemCode__c</errorDisplayField>
+    <errorMessage>코드는 만든 뒤 바꿀 수 없습니다(권한·채번·외부 연계의 키).</errorMessage>
+</ValidationRule>

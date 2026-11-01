@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_Customer_DuplicateVehicleCode</fullName>
+    <categories>CMN</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>같은 고객의 같은 차종 코드. {0} = 차종 코드</shortDescription>
+    <value>같은 고객에 차종 코드 {0}이(가) 이미 있습니다.</value>
+</CustomLabel>

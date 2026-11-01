@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label>Audit Standard</label>
+    <name>AuditStandard__c</name>
+    <picklistValues>
+        <masterLabel>VDA 6.3</masterLabel>
+        <translation>VDA 6.3</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>IATF 16949</masterLabel>
+        <translation>IATF 16949</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>고객 고유</masterLabel>
+        <translation>Customer Specific</translation>
+    </picklistValues>
+</CustomFieldTranslation>

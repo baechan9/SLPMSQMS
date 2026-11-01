@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ChangeNoticeLeadDays__c</fullName>
+    <description>4M 변경 사전 통보·승인 기한 일수(Vol.6a 4MC-001·005 요청). CSR</description>
+    <label>4M 사전 통보 기한(일)</label>
+    <precision>3</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <type>Number</type>
+</CustomField>

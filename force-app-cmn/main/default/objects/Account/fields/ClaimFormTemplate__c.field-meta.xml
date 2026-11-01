@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ClaimFormTemplate__c</fullName>
+    <description>기본 클레임 회신 양식(값은 SL 확인 후 확정 — 오픈 이슈)</description>
+    <label>클레임 회신 양식</label>
+    <required>false</required>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>STD_8D</fullName>
+                <default>false</default>
+                <label>표준 8D</label>
+            </value>
+            <value>
+                <fullName>BMW_8D</fullName>
+                <default>false</default>
+                <label>BMW 8D</label>
+            </value>
+            <value>
+                <fullName>HKMC_6PI</fullName>
+                <default>false</default>
+                <label>현대기아 6PI</label>
+            </value>
+            <value>
+                <fullName>GM_PRR</fullName>
+                <default>false</default>
+                <label>GM PRR</label>
+            </value>
+            <value>
+                <fullName>FORD_GSDB</fullName>
+                <default>false</default>
+                <label>포드 GSDB</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

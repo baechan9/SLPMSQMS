@@ -1,0 +1,19 @@
+{
+  "wi": "CMN-00-MDM-005",
+  "object": "Account",
+  "package": "force-app-cmn",
+  "standard": true,
+  "description": "협력사(RecordType CMN_Supplier). 레코드타입은 MDM-003 AC-1(고객 조회 필터) 검증을 위해 먼저 만들었고, 협력사 필드·규칙은 MDM-005가 이 파일에 더한다",
+  "recordTypes": [
+    {
+      "name": "CMN_Supplier",
+      "label": {
+        "ko": "협력사",
+        "en_US": "Supplier",
+        "zh_CN": "供应商"
+      },
+      "description": "부품 협력사. 차종 고객 조회에서 제외(MDM-003 BR-1)"
+    }
+  ],
+  "fields": []
+}
