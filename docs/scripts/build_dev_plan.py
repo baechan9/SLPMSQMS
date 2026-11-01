@@ -1,13 +1,17 @@
 """docs/30-dev/phase-map.csv(WI → 페이즈·레인)와 master/workitem-index.csv(선행·Wave·공수)로 개발 플랜 표를 다시 만들고 선행 순서를 검사한다.
 사용: python3 scripts/build_dev_plan.py   (docs/에서 실행)
 - 검사: 배정 누락·중복, 선행 순환, 선행이 뒤 페이즈에 있는 배정. 하나라도 있으면 파일을 고치지 않고 종료 코드 1.
-- 갱신: docs/30-dev/dev-plan.md 와 p*.md 의 <!-- BEGIN:키 --> ~ <!-- END:키 --> 구간만 바꾼다(나머지 본문은 사람이 쓴다)."""
+- 갱신: docs/30-dev/dev-plan.md 와 p*.md 의 <!-- BEGIN:키 --> ~ <!-- END:키 --> 구간만 바꾼다(나머지 본문은 사람이 쓴다).
+- DEV-STATUS: docs/20-status/DEV-STATUS.md 진행 표의 제목·페이즈·레인·Wave 열을 배정표로 다시 쓰고,
+  상태·시작일·완료일·보고서·비고 열(/implement-wi가 쓰는 값)은 그대로 둔다. 요약 표도 다시 계산한다."""
 import csv, glob, os, re, sys
 from collections import defaultdict
 
 INDEX = 'master/workitem-index.csv'
 MAP = 'docs/30-dev/phase-map.csv'
 PLAN = 'docs/30-dev/dev-plan.md'
+STATUS = 'docs/20-status/DEV-STATUS.md'
+STATUS_COLS = ['WI', '제목', '페이즈', '레인', 'Wave', '상태', '시작일', '완료일', '보고서', '비고']
 PHASES = [  # 번호, 이름, 문서, 마일스톤
     (0, '착수 준비', 'p00-setup.md', '정의 파일·재현 스크립트·CI 동작'),
     (1, '공통 프레임워크·기준정보', 'p01-cmn-framework-master.md', '기준정보 데모 적재, 다국어 표시'),
@@ -190,7 +194,42 @@ def main():
           '| WI | Wave | 선행 WI | 선행 Wave | 선행 배정 |', '| --- | --- | --- | --- | --- |']
     tb += [f"| {w} | {idx[w]['Wave']} | {d} | {idx[d]['Wave']} | P{phase[d]} |" for w, d in inv]
     replace_block(PLAN, 'WAVE-INVERSIONS', '\n'.join(tb))
+    sync_dev_status(idx, pm, phase, depth)
     print(f'{len(idx)} WI, {total:g} M/D, 페이즈 {len(PHASES)}개 — 선행 순서 위반 0, 순환 0, Wave 역전 {len(inv)}건, 임계 경로 {best[chain[-1]]:g} M/D')
+
+
+def sync_dev_status(idx, pm, phase, depth):
+    """DEV-STATUS 진행 표를 배정표 순서로 다시 쓰되, 진행 값(상태~비고)은 보존한다."""
+    text = open(STATUS, encoding='utf-8').read()
+    m = re.search(r'<!-- BEGIN:DEV-TABLE -->\n(.*?)<!-- END:DEV-TABLE -->', text, re.S)
+    if not m:
+        print(f'WARN {STATUS}: DEV-TABLE 구간 없음')
+        return
+    keep = {}
+    for line in m.group(1).splitlines():
+        cells = [c.strip() for c in line.strip().strip('|').split('|')]
+        if line.startswith('|') and len(cells) == len(STATUS_COLS) and cells[0] in idx:
+            keep[cells[0]] = cells[5:]
+    order = sorted(idx, key=lambda w: (phase[w], pm[w]['레인'], depth[w], w))
+    lines = ['| ' + ' | '.join(STATUS_COLS) + ' |', '|' + ' --- |' * len(STATUS_COLS)]
+    state = {}
+    for w in order:
+        prog = keep.get(w, ['대기', '', '', '', ''])
+        state[w] = prog[0]
+        lines.append(f"| {w} | {idx[w]['L4_워크아이템']} | P{phase[w]} | {pm[w]['레인']} | {idx[w]['Wave']} | " + ' | '.join(prog) + ' |')
+    replace_block(STATUS, 'DEV-TABLE', '\n'.join(lines))
+
+    def count(keys):
+        done = sum(1 for w in keys if state[w].startswith('개발 완료'))
+        doing = sum(1 for w in keys if state[w].startswith('개발 중'))
+        held = sum(1 for w in keys if state[w].startswith('보류'))
+        return f'{len(keys)} | {done} | {doing} | {held}'
+    s = ['| 페이즈 | 전체 WI | 개발 완료 | 개발 중 | 보류 |', '| --- | --- | --- | --- | --- |']
+    s += [f'| P{p} | ' + count([w for w in idx if phase[w] == p]) + ' |' for p, *_ in PHASES]
+    s += ['', '| Wave | 전체 WI | 개발 완료 | 개발 중 | 보류 |', '| --- | --- | --- | --- | --- |']
+    s += [f'| {wv} | ' + count([w for w in idx if idx[w]['Wave'] == wv]) + ' |' for wv in sorted(WAVE, key=WAVE.get)]
+    s += [f'| 합계 | ' + count(list(idx)) + ' |']
+    replace_block(STATUS, 'DEV-SUMMARY', '\n'.join(s))
 
 
 if __name__ == '__main__':
