@@ -1,0 +1,228 @@
+﻿WI_ID,L1_시스템,L2_메뉴,L3_기능,L4_워크아이템,RFP_추적,우선순위,Wave,플랫폼,유형,FitGap,선행WI,공수MD,출처,상태
+CMN-00-ARC-001,CMN,00 공통,ARC 개발 기반,개발 환경·저장소·CI/CD 표준,NFR-4.3,필수,W0,"SF, SNOW, MULE","CFG, DOC",Tailoring,없음,4,vol0,검토 대기
+CMN-00-ARC-002,CMN,00 공통,ARC 개발 기반,Apex 공통 프레임워크 (트리거·로그·예외·기능 스위치),"NFR-4.3, NFR-4.2",필수,W0,SF,"APEX, DM",Customization,ARC-001,5,vol0,검토 대기
+CMN-00-ARC-003,CMN,00 공통,ARC 개발 기반,업무 문서 번호 채번 서비스,"Q-21, 22, 17, 19, 20 (번호 체계 공통)",필수,W0,SF,"APEX, DM",Customization,ARC-002,3,vol0,검토 대기
+CMN-00-MDM-001,CMN,00 공통,MDM 기준정보,조직·사용자 기준정보,"Q-42, P-7",필수,W0,SF,DM,Tailoring,MDM-002,2,vol0,검토 대기
+CMN-00-MDM-002,CMN,00 공통,MDM 기준정보,법인·공장·라인·공정 계층,"NFR-4.3(멀티 사이트), Q-11, 19, 22",필수,W0,SF,DM,Tailoring,ARC-001,3,vol0,검토 대기
+CMN-00-MDM-003,CMN,00 공통,MDM 기준정보,고객·차종,"P-4, Q-16, 17, 32, 40",필수,W0,SF,DM,Tailoring,MDM-002,2,vol0,검토 대기
+CMN-00-MDM-004,CMN,00 공통,MDM 기준정보,제품군·품번(Item),"P-4, Q-4~15 전반",필수,W0,SF,DM,Tailoring,MDM-003,3,vol0,검토 대기
+CMN-00-MDM-005,CMN,00 공통,MDM 기준정보,협력사·협력사 품번,"Q-6, 18, 20, 21, 31",필수,W0,SF,DM,Tailoring,MDM-004,2,vol0,검토 대기
+CMN-00-MDM-006,CMN,00 공통,MDM 기준정보,품질 특성(Characteristic)·특별특성,"Q-6, 11, 12, 26, 23",필수,W0,"SF, SNOW",DM,Customization,MDM-004,3,vol0,검토 대기
+CMN-00-MDM-007,CMN,00 공통,MDM 기준정보,계층형 공통 코드,"Q-21, 22, 17, 36, 39",필수,W0,SF,"DM, LWC",Customization,ARC-002,4,vol0,검토 대기
+CMN-00-SEC-001,CMN,00 공통,SEC 권한·보안,페르소나·권한 셋 구조,"NFR-4.2(RBAC), Q-34, P-55",필수,W0,SF,CFG,Tailoring,ARC-001,3,vol0,검토 대기
+CMN-00-SEC-002,CMN,00 공통,SEC 권한·보안,공장·협력사 데이터 격리(공유 모델),"NFR-4.2(협력사 격리), NFR-4.3(멀티 사이트), P-57",필수,W0,"SF, EXP","APEX, CFG",Customization,"SEC-001, MDM-002, MDM-005",6,vol0,검토 대기
+CMN-00-SEC-003,CMN,00 공통,SEC 권한·보안,감사 로그·삭제 통제,"NFR-4.2(감사 로그), Q-33, P-39",필수,W0,SF,"APEX, CFG",Customization,ARC-002,4,vol0,검토 대기
+CMN-00-SEC-004,CMN,00 공통,SEC 권한·보안,인증·암호화·플랫폼 보안 설정,"NFR-4.2(암호화, SSO), Q-41",필수,W0,"SF, SNOW, MULE",CFG,Tailoring,SEC-001,3,vol0,검토 대기
+CMN-00-I18N-001,CMN,00 공통,I18N 다국어,다국어 기반(UI 언어·마스터 데이터·포탈 언어 연동),"Q-1, P-1, NFR-4.3(언어 확장)",필수,W0,SF,"CFG, APEX, LWC",Tailoring,MDM-001,5,vol0,검토 대기
+CMN-00-UX-001,CMN,00 공통,UX 화면 공통,모바일·멀티 브라우저 지원,"Q-2, P-2, NFR-4.4(모바일)",권장,W1,SF,"CFG, LWC",OOTB,SEC-001,3,vol0,검토 대기
+CMN-00-UX-002,CMN,00 공통,UX 화면 공통,화면별 사용 가이드,"Q-3, P-3",권장,W2,SF,"DM, LWC",Customization,I18N-001,3,vol0,검토 대기
+CMN-00-UX-003,CMN,00 공통,UX 화면 공통,공통 UI 컴포넌트(상태 진행바·코멘트 타임라인),"P-47, Q-29, Q-13 (진행 추적)",필수,W0,SF,"DM, LWC, APEX",Customization,"I18N-001, ARC-002",5,vol0,검토 대기
+CMN-00-APV-001,CMN,00 공통,APV 결재,결재 데이터 모델·상태 엔진·서비스 API,"Q-43, P-65, P-38",필수,W0,SF,"DM, APEX",Customization,"ARC-002, ARC-003, SEC-002",8,vol0,검토 대기
+CMN-00-APV-002,CMN,00 공통,APV 결재,결재선 템플릿·CFT Role 매핑,"Q-43, Q-44, P-65, P-66",필수,W0,SF,"DM, APEX",Customization,"APV-001, MDM-007",6,vol0,검토 대기
+CMN-00-APV-003,CMN,00 공통,APV 결재,결재 상신·처리·이력 UI,"Q-44, P-66, P-68",필수,W1,SF,"LWC, APEX",Customization,"APV-002, UX-001",6,vol0,검토 대기
+CMN-00-APV-004,CMN,00 공통,APV 결재,대리결재(위임),"Q-45, P-67",필수,W1,SF,"DM, APEX, LWC",Customization,"APV-001, TDO-001",4,vol0,검토 대기
+CMN-00-APV-005,CMN,00 공통,APV 결재,결재 지연 알림·에스컬레이션,"P-68, NFR-4.4(알림)",권장,W2,SF,APEX,Customization,"APV-001, NTF-001",2,vol0,검토 대기
+CMN-00-TDO-001,CMN,00 공통,TDO To-Do·포탈,통합 To-Do 모델·서비스,"Q-41, P-19, P-63",필수,W0,SF,"DM, APEX",Customization,"ARC-002, I18N-001",5,vol0,검토 대기
+CMN-00-TDO-002,CMN,00 공통,TDO To-Do·포탈,포탈 SSO,"Q-41, P-63, NFR-4.2(SSO)",필수,W0,SF,"CFG, APEX",Tailoring,"SEC-004, I18N-001",3,vol0,검토 대기
+CMN-00-TDO-003,CMN,00 공통,TDO To-Do·포탈,포탈 To-Do 연계 API,"Q-41, P-19, P-63",필수,W1,"SF, MULE","INT, APEX",Customization,"TDO-001, INT-001",5,vol0,검토 대기
+CMN-00-TDO-004,CMN,00 공통,TDO To-Do·포탈,QMS·PMS 메인 홈,"Q-41, P-63",필수,W1,SF,"LWC, CFG",Tailoring,"TDO-001, DSH-001",3,vol0,검토 대기
+CMN-00-NTF-001,CMN,00 공통,NTF 알림,알림 서비스(메일·벨·모바일 푸시),"NFR-4.4(알림), P-17, P-18, P-22, P-23",필수,W0,SF,"DM, APEX",Customization,"ARC-002, I18N-001",4,vol0,검토 대기
+CMN-00-DOC-001,CMN,00 공통,DOC 문서,문서·첨부·리비전 관리,"Q-35(리비전), P-34, P-36, P-39, P-45",필수,W0,SF,"DM, APEX, LWC",Customization,"ARC-003, MDM-007, SEC-002",7,vol0,검토 대기
+CMN-00-DSH-001,CMN,00 공통,DSH 대시보드,위젯 대시보드 프레임워크,"Q-34, P-55",필수,W1,SF,"DM, LWC, APEX",Customization,"SEC-001, I18N-001",7,vol0,검토 대기
+CMN-00-MTG-001,CMN,00 공통,MTG 회의,회의 관리,"Q-29, P-40",권장,W2,SF,"DM, LWC, APEX",Customization,"TDO-001, NTF-001, DOC-001",5,vol0,검토 대기
+CMN-00-INT-001,CMN,00 공통,INT 연계,연계 아키텍처·인터페이스 표준,"Q-42, P-64, NFR-4.3(API 제공)",필수,W0,"MULE, SF","INT, DM",Customization,"ARC-002, SEC-004",6,vol0,검토 대기
+CMN-00-INT-002,CMN,00 공통,INT 연계,HR 조직·임직원 연계,"Q-42, P-7, NFR-4.2",필수,W0,"MULE, SF","INT, DM",Tailoring,"INT-001, MDM-001",5,vol0,검토 대기
+CMN-00-INT-003,CMN,00 공통,INT 연계,SAP 기준정보 연계,"Q-42, P-64",필수,W0,"MULE, SF, SNOW",INT,Tailoring,"INT-001, MDM-002~005",6,vol0,검토 대기
+CMN-00-DWH-001,CMN,00 공통,DWH Snowflake DW,Snowflake 품질 DW(QDW) 기반,"Q-11, 16, 38, 평가 기준 “R&D DW 관점 연계”",필수,W0,SNOW,"SQL, CFG",Customization,"ARC-001, SEC-004",4,vol0,검토 대기
+CMN-00-DWH-002,CMN,00 공통,DWH Snowflake DW,Salesforce → Snowflake 복제,"Q-38, 39, 42, NFR-4.2(감사 이력 장기 보존)",필수,W1,"MULE, SNOW","INT, SQL",Customization,"DWH-001, INT-001",5,vol0,검토 대기
+CMN-00-DWH-003,CMN,00 공통,DWH Snowflake DW,Snowflake → Salesforce KPI·알람 전달,"Q-11, 16, 18, 34, 38",필수,W1,"SNOW, MULE, SF","INT, SQL, APEX, DM",Customization,"DWH-001, INT-001",6,vol0,검토 대기
+CMN-00-DWH-004,CMN,00 공통,DWH Snowflake DW,상세 데이터 조회 API(드릴다운),"Q-11, 16, 39",필수,W2,"MULE, SNOW, SF","INT, APEX",Customization,"DWH-001, INT-001",4,vol0,검토 대기
+CMN-00-AI-001,CMN,00 공통,AI AI,Agentforce·Trust Layer 기반 설정,"Q-35~40, P-58~62, NFR-4.2",권장,W1,"AF, DC, SF","CFG, AGENT",Tailoring,"SEC-001, I18N-001",4,vol0,검토 대기
+CMN-00-AI-002,CMN,00 공통,AI AI,문서 통합 검색·요약,"Q-35, P-58, P-69",필수(P-69)/권장(Q-35),W2,"DC, AF, MULE, SF","AGENT, INT, LWC",Customization,"AI-001, DOC-001",8,vol0,검토 대기
+CMN-00-AI-003,CMN,00 공통,AI AI,문서 버전 비교·변경 요약,"Q-35, P-39, P-58",권장,W2,"AF, SF","AGENT, APEX, LWC",Customization,AI-002,4,vol0,검토 대기
+CMN-00-AI-004,CMN,00 공통,AI AI,AI 추천 기록·채택·정확도 측정,"Q-36, Q-37, Q-40, P-59",권장(Q-40은 필수),W1,"SF, SNOW","DM, APEX, LWC",Customization,"AI-001, DWH-002",5,vol0,검토 대기
+CMN-00-AI-005,CMN,00 공통,AI AI,자연어 데이터 Q&A 프레임워크,"Q-39, P-62",권장,W2,"AF, SNOW, MULE, SF","AGENT, SQL, APEX",Customization,"AI-001, DWH-003, DWH-004",6,vol0,검토 대기
+QMS-02-DVQ-001,QMS,02 개발 품질,DVQ 인정시험,시험 항목 라이브러리,"Q-4, Q-5",필수,W1,SF,"DM, LWC",Tailoring,"MDM-001, MDM-007, I18N-001, SEC-001",4,vol2,검토 대기
+QMS-02-DVQ-002,QMS,02 개발 품질,DVQ 인정시험,시험 기준 템플릿(필수 시험 매트릭스),"Q-4, Q-5, Q-19, Q-20",필수,W1,SF,"DM, APEX, LWC",Customization,"DVQ-001, MDM-003, MDM-004",5,vol2,검토 대기
+QMS-02-DVQ-003,QMS,02 개발 품질,DVQ 인정시험,인정시험 계획 데이터 모델·상태 규칙,"Q-4, Q-5",필수,W1,SF,"DM, APEX",Customization,"DVQ-001, ARC-003, SEC-002, SEC-003, UX-003",6,vol2,검토 대기
+QMS-02-DVQ-004,QMS,02 개발 품질,DVQ 인정시험,계획 생성 마법사·라인 편집 그리드,"Q-4, Q-5",필수,W1,SF,"LWC, APEX",Customization,"DVQ-002, DVQ-003, UX-001",7,vol2,검토 대기
+QMS-02-DVQ-005,QMS,02 개발 품질,DVQ 인정시험,계획 결재와 트리거 연계 서비스,"Q-4, Q-5, Q-19, Q-20, P-21",필수,W1,SF,"APEX, CFG",Customization,"DVQ-003, APV-001, APV-002, TDO-001",5,vol2,검토 대기
+QMS-02-DVQ-006,QMS,02 개발 품질,DVQ 인정시험,시험 의뢰·접수·진행 관리,"Q-4, Q-5",필수,W1,SF,"DM, APEX, LWC",Customization,"DVQ-005, APV-002(Role), NTF-001",6,vol2,검토 대기
+QMS-02-DVQ-007,QMS,02 개발 품질,DVQ 인정시험,시험 결과 입력·항목 판정·불합격 처리,"Q-4, Q-5, Q-21, Q-22",필수,W1,SF,"LWC, APEX",Customization,"DVQ-006, DOC-001, UX-001",7,vol2,검토 대기
+QMS-02-DVQ-008,QMS,02 개발 품질,DVQ 인정시험,종합 판정·양산 적용 결정,"Q-4, Q-5(""양산 적용 가능 여부 판정""), Q-15, P-21",필수,W1,SF,"LWC, APEX, CFG",Customization,"DVQ-007, APV-001",5,vol2,검토 대기
+QMS-02-DVQ-009,QMS,02 개발 품질,DVQ 인정시험,DVP&R 보고서 생성(PDF·Excel),"Q-4, Q-5, Q-15, Q-32",필수,W2,SF,"APEX, LWC, CFG",Customization,"DVQ-008, DOC-001",5,vol2,검토 대기
+QMS-02-DVQ-010,QMS,02 개발 품질,DVQ 인정시험,협력사 시험 성적서 제출·검토(부품),"Q-4, Q-6, Q-8, NFR-4.2(협력사 격리)",필수,W2,"EXP, SF","DM, LWC, APEX",Customization,"DVQ-007, QMS-03-SPP-001(협력사 포털 기반)",6,vol2,검토 대기
+QMS-03-SPP-001,QMS,03 부품/협력사 품질,SPP 협력사 포털,협력사 포털 사이트·사용자·수신자 해석,"Q-6, Q-8, NFR-4.2(협력사 격리)",필수,W1,"EXP, SF","CFG, APEX, LWC",Tailoring,"SEC-001, SEC-002, MDM-005, I18N-001, NTF-001",6,vol3,검토 대기
+QMS-03-SPP-002,QMS,03 부품/협력사 품질,SPP 협력사 포털,포털 홈·To-Do·문서 업로드 공통 컴포넌트,"Q-6, Q-8, Q-41",필수,W1,"EXP, SF","LWC, APEX, DM",Customization,"SPP-001, TDO-001, DOC-001",5,vol3,검토 대기
+QMS-03-SPP-003,QMS,03 부품/협력사 품질,SPP 협력사 포털,협력사 인증서 관리,"Q-18, Q-31, Q-33",권장,W2,"EXP, SF","DM, LWC, APEX",Tailoring,"SPP-002, NTF-001",3,vol3,검토 대기
+QMS-03-IQC-001,QMS,03 부품/협력사 품질,IQC 수입검사,샘플링 계획·수입검사 기준서,"Q-6, Q-23",필수,W1,SF,"DM, APEX, LWC",Customization,"MDM-005, MDM-006, MDM-007, SEC-001",6,vol3,검토 대기
+QMS-03-IQC-002,QMS,03 부품/협력사 품질,IQC 수입검사,검사 로트 데이터 모델·입고 수신·로트 초기화,"Q-6, Q-42",필수,W1,SF,"DM, APEX",Customization,"IQC-001, ARC-003, SEC-002, SEC-003, UX-003, INT-001, TDO-001",6,vol3,검토 대기
+QMS-03-IQC-003,QMS,03 부품/협력사 품질,IQC 수입검사,검사 결과 입력·항목 판정·로트 판정(모바일),"Q-6, Q-2, NFR-4.4(모바일)",필수,W1,SF,"LWC, APEX",Customization,"IQC-002, UX-001, DOC-001, MDM-007",7,vol3,검토 대기
+QMS-03-IQC-004,QMS,03 부품/협력사 품질,IQC 수입검사,판정 후속 처리·SAP 회신·NCR 연계·협력사 통보,"Q-6, Q-21, Q-42",필수,W1,"SF, EXP","APEX, LWC",Customization,"IQC-003, NTF-001, SPP-001",5,vol3,검토 대기
+QMS-03-IQC-005,QMS,03 부품/협력사 품질,IQC 수입검사,검사 수준 자동 전환(정상·강화·완화·무검사),"Q-6, Q-9, Q-18",필수,W2,SF,"DM, APEX, LWC",Customization,"IQC-004, APV-001, APV-002",5,vol3,검토 대기
+QMS-03-IQC-006,QMS,03 부품/협력사 품질,IQC 수입검사,협력사 출하 성적서(COA) 제출·자동 점검·로트 매칭,"Q-6, Q-20",필수,W2,"EXP, SF","DM, LWC, APEX",Customization,"IQC-002, SPP-002",6,vol3,검토 대기
+QMS-03-IQC-007,QMS,03 부품/협력사 품질,IQC 수입검사,수입검사 실적 Snowflake 적재·협력사 KPI,"Q-6, Q-18, Q-38",필수,W2,"SNOW, MULE","SQL, INT",Customization,"IQC-002, IQC-006, DWH-002, DWH-003",4,vol3,검토 대기
+QMS-03-IQC-008,QMS,03 부품/협력사 품질,IQC 수입검사,성적서 신뢰성 점검(이상 성적서 탐지),"Q-6, Q-38",권장,W3,"SNOW, SF","SQL, APEX",Customization,"IQC-007, AI-004, DWH-003",4,vol3,검토 대기
+QMS-03-PWT-001,QMS,03 부품/협력사 품질,PWT 부품 보증시험,보증시험 주기 계획·자동 계획 생성,Q-7,필수,W2,SF,"DM, APEX, LWC",Customization,"QMS-02-DVQ-002, QMS-02-DVQ-005, MDM-005, ARC-003",5,vol3,검토 대기
+QMS-03-PWT-002,QMS,03 부품/협력사 품질,PWT 부품 보증시험,보증시험 준수 현황·불합격 연계,"Q-7, Q-32, Q-33",필수,W2,"SF, SNOW","LWC, APEX, SQL",Customization,"PWT-001, IQC-005, QMS-02-DVQ-008",4,vol3,검토 대기
+QMS-03-PPA-001,QMS,03 부품/협력사 품질,PPA 부품 Re-PPAP,PPAP 요소 마스터·제출 레벨 규칙,"Q-8, Q-15",필수,W1,SF,"DM, LWC, APEX",Tailoring,"MDM-003, MDM-004, MDM-007",4,vol3,검토 대기
+QMS-03-PPA-002,QMS,03 부품/협력사 품질,PPA 부품 Re-PPAP,PPAP 건 데이터 모델·트리거·요소 체크리스트 생성,"Q-8, Q-20, P-28",필수,W1,SF,"DM, APEX",Customization,"PPA-001, ARC-003, SEC-002, SEC-003, UX-003, TDO-001",6,vol3,검토 대기
+QMS-03-PPA-003,QMS,03 부품/협력사 품질,PPA 부품 Re-PPAP,협력사 PPAP 제출·요소별 검토,"Q-8, NFR-4.2(협력사 격리)",필수,W1,"EXP, SF","DM, LWC, APEX",Customization,"PPA-002, SPP-002, DOC-001, MDM-006",7,vol3,검토 대기
+QMS-03-PPA-004,QMS,03 부품/협력사 품질,PPA 부품 Re-PPAP,PSW 승인 결재·승인 상태 반영·잠정 승인 관리,"Q-8, Q-20, Q-43",필수,W1,SF,"APEX, LWC, CFG",Customization,"PPA-003, APV-001, APV-002",5,vol3,검토 대기
+QMS-03-PIS-001,QMS,03 부품/협력사 품질,PIS 부품 초기안정화,초기안정화 계획·목표·해제 기준,"Q-9, Q-10",필수,W2,SF,"DM, APEX, LWC",Customization,"IQC-005, PPA-004, ARC-003, SEC-002",5,vol3,검토 대기
+QMS-03-PIS-002,QMS,03 부품/협력사 품질,PIS 부품 초기안정화,안정화 실적 집계·협력사 강화 검사 보고,"Q-9, Q-18, Q-38",필수,W2,"SF, SNOW, EXP","SQL, APEX, LWC",Customization,"PIS-001, IQC-007, SPP-002, DWH-003",6,vol3,검토 대기
+QMS-03-PIS-003,QMS,03 부품/협력사 품질,PIS 부품 초기안정화,안정화 해제 판정·결재·연장,Q-9,필수,W2,SF,"APEX, LWC, CFG",Customization,"PIS-002, APV-001, IQC-005",4,vol3,검토 대기
+QMS-04-EFC-001,QMS,04 제품/공정 품질,EFC 초기유동,제품 초기유동 계획(PRODUCT)·트리거·강화 조치,"Q-10, Q-19",필수,W2,SF,"DM, APEX, LWC",Customization,"QMS-03-PIS-001, MDM-002, MDM-004, ARC-003",5,vol4,검토 대기
+QMS-04-EFC-002,QMS,04 제품/공정 품질,EFC 초기유동,MES 실적 집계·초기유동 관리 검사 기록,"Q-10, Q-38, Q-42",필수,W2,"SNOW, SF","SQL, APEX, LWC",Customization,"EFC-001, QMS-03-PIS-002, DWH-003, DWH-004",6,vol4,검토 대기
+QMS-04-EFC-003,QMS,04 제품/공정 품질,EFC 초기유동,초기유동 해제 판정·출하검사 강화 해제,Q-10,필수,W2,SF,"APEX, LWC, CFG",Customization,"EFC-002, QMS-03-PIS-003, FQC-003",4,vol4,검토 대기
+QMS-04-SPC-001,QMS,04 제품/공정 품질,SPC SPC,SPC 계획·관리도 설정,Q-11,필수,W1,"SF, SNOW","DM, LWC, APEX",Customization,"MDM-002, MDM-006, SEC-002, DWH-002",5,vol4,검토 대기
+QMS-04-SPC-002,QMS,04 제품/공정 품질,SPC SPC,측정 데이터·부분군·관리 한계·이상 판정(Snowflake),"Q-11, Q-38",필수,W1,"SNOW, SF","SQL, SNOWPARK, APEX",Customization,"SPC-001, DWH-001, DWH-003",7,vol4,검토 대기
+QMS-04-SPC-003,QMS,04 제품/공정 품질,SPC SPC,공정능력(Cp·Cpk·Pp·Ppk) 계산·KPI·조회 서비스,"Q-11, Q-15, Q-38",필수,W1,"SNOW, SF","SQL, SNOWPARK, APEX",Customization,"SPC-002, DWH-003, DWH-004",5,vol4,검토 대기
+QMS-04-SPC-004,QMS,04 제품/공정 품질,SPC SPC,관리 한계 재계산·승인,"Q-11, Q-19",필수,W2,"SF, SNOW","APEX, LWC, SQL",Customization,"SPC-001, SPC-002, APV-001",4,vol4,검토 대기
+QMS-04-SPC-005,QMS,04 제품/공정 품질,SPC SPC,SPC 알람 수신·OCAP 조치·NCR 연계,"Q-11, Q-21, Q-22",필수,W1,SF,"DM, APEX, LWC",Customization,"SPC-001, DWH-003, TDO-001, NTF-001, QMS-02-DVQ-007, QMS-06-NCR-002",7,vol4,검토 대기
+QMS-04-SPC-006,QMS,04 제품/공정 품질,SPC SPC,관리도·공정능력 화면,"Q-11, Q-34",필수,W1,SF,"LWC, APEX, CFG",Customization,"SPC-002, SPC-003, DWH-004, QMS-07-DSH-003",6,vol4,검토 대기
+QMS-04-FQC-001,QMS,04 제품/공정 품질,FQC 제품/출하 검사,출하검사 기준서,"Q-12, Q-23",필수,W2,SF,"DM, APEX, LWC",Customization,"QMS-03-IQC-001, MDM-003, MDM-006",5,vol4,검토 대기
+QMS-04-FQC-002,QMS,04 제품/공정 품질,FQC 제품/출하 검사,출하검사 로트 생성·결과 입력·판정,"Q-12, Q-2, NFR-4.4(모바일)",필수,W2,"SF, SNOW","DM, APEX, LWC, SQL",Customization,"FQC-001, QMS-03-IQC-003, ARC-003, SEC-002, UX-003, DWH-003",8,vol4,검토 대기
+QMS-04-FQC-003,QMS,04 제품/공정 품질,FQC 제품/출하 검사,출하 보류·NCR 연계·SAP 출하 차단·출하검사 강도 Hold,"Q-12, Q-22, Q-42",필수,W2,SF,"DM, APEX, LWC",Customization,"FQC-002, NTF-001, QMS-02-DVQ-007, QMS-05-CLM-007, QMS-06-NCR-001, QMS-06-NCR-002",7,vol4,검토 대기
+QMS-04-FQC-004,QMS,04 제품/공정 품질,FQC 제품/출하 검사,EOL 전수 시험·출하검사 실적 Snowflake 적재·KPI,"Q-12, Q-38, Q-42",필수,W2,"SNOW, SF","SQL, APEX",Customization,"FQC-002, DWH-002, DWH-003, DWH-004",4,vol4,검토 대기
+QMS-04-FQC-005,QMS,04 제품/공정 품질,FQC 제품/출하 검사,고객 출하 검사 성적서,"Q-12, Q-17",필수,W2,SF,"APEX, LWC, CFG",Customization,"FQC-002, DOC-001, QMS-02-DVQ-009",4,vol4,검토 대기
+QMS-04-HZD-001,QMS,04 제품/공정 품질,HZD 수평전개,수평전개 건·대상 데이터 모델·생성 서비스,"Q-13, Q-17, Q-21, Q-22",필수,W2,SF,"DM, APEX",Customization,"ARC-003, SEC-002, UX-003, TDO-001, MDM-004, MDM-007, QMS-02-DVQ-007",7,vol4,검토 대기
+QMS-04-HZD-002,QMS,04 제품/공정 품질,HZD 수평전개,수평전개 대상 선정 지원,Q-13,필수,W2,"SF, SNOW","APEX, LWC, SQL",Customization,"HZD-001, DWH-004, MDM-004, MDM-005",5,vol4,검토 대기
+QMS-04-HZD-003,QMS,04 제품/공정 품질,HZD 수평전개,대상별 실행·확인·지연 관리·효과 점검·현황,"Q-13, Q-34",필수,W2,"SF, EXP","LWC, APEX, SQL",Customization,"HZD-002, QMS-03-SPP-002, NTF-001",6,vol4,검토 대기
+QMS-04-LEL-001,QMS,04 제품/공정 품질,LEL 레슨런(LELE),레슨런 데이터 모델·태그·게시 절차,"Q-14, Q-40, Q-42",필수,W1,SF,"DM, APEX, CFG",Customization,"MDM-003, MDM-004, MDM-007, ARC-003, UX-003, I18N-001, APV-001",6,vol4,검토 대기
+QMS-04-LEL-002,QMS,04 제품/공정 품질,LEL 레슨런(LELE),레슨런 등록 화면·원천 연계 서비스·라이브러리,"Q-14, Q-17, Q-21, Q-22, Q-35",필수,W1,SF,"LWC, APEX",Customization,"LEL-001, DOC-001, QMS-02-DVQ-007",6,vol4,검토 대기
+QMS-04-LEL-003,QMS,04 제품/공정 품질,LEL 레슨런(LELE),체크포인트(개발 단계·액티비티 유형별 확인 항목),"Q-14, Q-40",필수,W1,SF,"DM, LWC, APEX",Customization,"LEL-001, LEL-002",4,vol4,검토 대기
+QMS-04-LEL-004,QMS,04 제품/공정 품질,LEL 레슨런(LELE),규칙 기반 매칭 서비스(QMS_LeleMatchService),"Q-40, Q-14",필수,W1,SF,APEX,Customization,"LEL-003, MDM-003, MDM-004",5,vol4,검토 대기
+QMS-04-LEL-005,QMS,04 제품/공정 품질,LEL 레슨런(LELE),후속 모델 반영 검토·이력(QMS_LeleApplication__c),"Q-14, Q-40, Q-42",필수,W1,SF,"DM, APEX, LWC",Customization,"LEL-004, TDO-001, APV-001",6,vol4,검토 대기
+QMS-04-RPP-001,QMS,04 제품/공정 품질,RPP 제품 Re-PPAP,고객 PPAP 레코드타입·트리거·요소 담당 배정,"Q-15, Q-19",필수,W1,SF,"DM, APEX, CFG",Customization,"QMS-03-PPA-001, QMS-03-PPA-002, MDM-003, APV-002",5,vol4,검토 대기
+QMS-04-RPP-002,QMS,04 제품/공정 품질,RPP 제품 Re-PPAP,SL 내부 증빙 자동 수집,"Q-15, Q-4, Q-5, Q-11, Q-26",필수,W1,"SF, SNOW","DM, APEX, LWC",Customization,"RPP-001, SPC-003, QMS-02-DVQ-009, DOC-001, DWH-004",6,vol4,검토 대기
+QMS-04-RPP-003,QMS,04 제품/공정 품질,RPP 제품 Re-PPAP,내부 검토·PSW 서명 결재·제출 패키지 생성,"Q-15, Q-32",필수,W2,SF,"APEX, LWC, CFG",Customization,"RPP-002, APV-001, QMS-02-DVQ-009",5,vol4,검토 대기
+QMS-04-RPP-004,QMS,04 제품/공정 품질,RPP 제품 Re-PPAP,고객 제출·판정 추적·4M 적용 연계 이벤트,"Q-15, Q-19, Q-32",필수,W1,SF,"DM, APEX, LWC",Customization,"RPP-001, QMS-03-PPA-002",5,vol4,검토 대기
+QMS-05-B2B-001,QMS,05 고객 품질,B2B 고객 B2B 데이터,고객 품질 통합 데이터 모델·결함 코드·품번 매핑,"Q-16, Q-42",필수,W1,"SNOW, SF","SQL, DM, LWC",Customization,"DWH-001, DWH-002, DWH-004, MDM-003, MDM-004, MDM-007",6,vol5,검토 대기
+QMS-05-B2B-002,QMS,05 고객 품질,B2B 고객 B2B 데이터,연계 없는 고객 데이터 파일 업로드·수집 현황,Q-16,필수,W1,"SF, MULE, SNOW","LWC, APEX, DM, INT",Customization,"B2B-001, DOC-001, DWH-003, INT-001",6,vol5,검토 대기
+QMS-05-B2B-003,QMS,05 고객 품질,B2B 고객 B2B 데이터,고객 품질 KPI 계산·목표·적재,"Q-16, Q-34, Q-38",필수,W1,"SNOW, MULE, SF","SQL, INT, DM",Customization,"B2B-001, DWH-003",4,vol5,검토 대기
+QMS-05-B2B-004,QMS,05 고객 품질,B2B 고객 B2B 데이터,Trend Monitoring 규칙 엔진,"Q-16, Q-38",필수,W2,"SNOW, SF","SQL, DM, LWC",Customization,"B2B-003, DWH-003, DWH-004",5,vol5,검토 대기
+QMS-05-B2B-005,QMS,05 고객 품질,B2B 고객 B2B 데이터,고객 품질 경보 처리·후속 조치 연결,"Q-16, Q-13, Q-28",필수,W2,SF,"DM, APEX, LWC",Customization,"B2B-004, CLM-007, QMS-02-DVQ-007, TDO-001, NTF-001",5,vol5,검토 대기
+QMS-05-B2B-006,QMS,05 고객 품질,B2B 고객 B2B 데이터,고객 품질 분석 화면·드릴다운,"Q-16, Q-34",필수,W1,"SF, SNOW","LWC, APEX, SQL",Customization,"B2B-003, DWH-004",6,vol5,검토 대기
+QMS-05-B2B-007,QMS,05 고객 품질,B2B 고객 B2B 데이터,OEM 고객 평가(스코어카드)·에스컬레이션 추적,"Q-16, Q-32",권장,W2,SF,"DM, LWC, APEX",Tailoring,"MDM-003, DOC-001, B2B-005",3,vol5,검토 대기
+QMS-05-CLM-001,QMS,05 고객 품질,CLM 고객 Claim·8D,8D 엔진 데이터 모델·단계 규칙·생성 서비스,"Q-17, Q-21, Q-22, Q-32, Q-37",필수,W1,SF,"DM, APEX",Customization,"ARC-002, ARC-003, MDM-007, SEC-002, SEC-003, UX-003, TDO-001, QMS-02-DVQ-007",8,vol5,검토 대기
+QMS-05-CLM-002,QMS,05 고객 품질,CLM 고객 Claim·8D,8D 작성 화면·단계 게이팅,"Q-17, Q-21, Q-22, Q-37",필수,W1,SF,"LWC, APEX",Customization,"CLM-001, UX-001, UX-003, DOC-001, AI-004",7,vol5,검토 대기
+QMS-05-CLM-003,QMS,05 고객 품질,CLM 고객 Claim·8D,8D 액션(CAPA) 추적·효과 검증,"Q-17, Q-21, Q-22",필수,W1,"SF, SNOW","DM, APEX, LWC, SQL",Customization,"CLM-001, TDO-001, NTF-001, DWH-003, DWH-004",6,vol5,검토 대기
+QMS-05-CLM-004,QMS,05 고객 품질,CLM 고객 Claim·8D,D7 재발 방지 연계·D8 종결 결재,"Q-17, Q-13, Q-14, Q-36",필수,W1,SF,"APEX, LWC, CFG",Customization,"CLM-002, CLM-003, APV-001, APV-002, AI-004, QMS-02-DVQ-007",5,vol5,검토 대기
+QMS-05-CLM-005,QMS,05 고객 품질,CLM 고객 Claim·8D,협력사 8D 포털 제출·SQE 단계 검토,"Q-21, NFR-4.2(협력사 격리)",필수,W2,"EXP, SF","DM, LWC, APEX",Customization,"CLM-002, QMS-03-SPP-001, QMS-03-SPP-002",7,vol5,검토 대기
+QMS-05-CLM-006,QMS,05 고객 품질,CLM 고객 Claim·8D,고객 양식 8D·6pi 보고서 생성,Q-17,필수,W1,SF,"APEX, LWC, CFG",Customization,"CLM-002, DOC-001",6,vol5,검토 대기
+QMS-05-CLM-007,QMS,05 고객 품질,CLM 고객 Claim·8D,고객 클레임 접수·기한 관리,"Q-17, Q-42",필수,W1,SF,"DM, APEX, LWC",Customization,"CLM-001, B2B-001, MDM-003, ARC-003, SEC-002, SEC-003, UX-003, NTF-001, DOC-001",7,vol5,검토 대기
+QMS-05-CLM-008,QMS,05 고객 품질,CLM 고객 Claim·8D,초기 대응: 의심 범위 산정·봉쇄·초기 회신,"Q-17, Q-42",필수,W1,"SF, SNOW","LWC, APEX, SQL",Customization,"CLM-007, CLM-003, CLM-006, DWH-004",5,vol5,검토 대기
+QMS-05-CLM-009,QMS,05 고객 품질,CLM 고객 Claim·8D,반품 분석·귀책 판정·부적합 연계,"Q-17, Q-21, Q-27",필수,W1,SF,"APEX, LWC, CFG",Customization,"CLM-007, APV-001, QMS-02-DVQ-007",5,vol5,검토 대기
+QMS-05-CLM-010,QMS,05 고객 품질,CLM 고객 Claim·8D,클레임 비용·협력사 구상,"Q-17, Q-21",필수,W2,"SF, EXP","DM, APEX, LWC",Customization,"CLM-009, APV-001, QMS-03-SPP-002, ARC-001",5,vol5,검토 대기
+QMS-05-CLM-011,QMS,05 고객 품질,CLM 고객 Claim·8D,고객 회신·수용 이력·종결·에스컬레이션,"Q-17, Q-41",필수,W1,"SF, SNOW","DM, APEX, LWC, SQL",Customization,"CLM-006, CLM-008, CLM-009, APV-001",6,vol5,검토 대기
+QMS-06-4MC-001,QMS,06 품질 운영 지원,4MC 4M 변경,변경 유형 기준표·리스크 체크리스트,"Q-19, Q-20",필수,W1,SF,"DM, APEX, LWC",Customization,"MDM-003, MDM-004, MDM-007, SEC-001",5,vol6a,검토 대기
+QMS-06-4MC-002,QMS,06 품질 운영 지원,4MC 4M 변경,4M 변경 데이터 모델·상태 규칙·이벤트,"Q-19, Q-20",필수,W1,SF,"DM, APEX",Customization,"4MC-001, ARC-003, SEC-002, SEC-003, UX-003, TDO-001",6,vol6a,검토 대기
+QMS-06-4MC-003,QMS,06 품질 운영 지원,4MC 4M 변경,4M 신청·영향 범위·리스크 평가 화면,"Q-19, Q-20, PoC 시나리오 3",필수,W1,"SF, SNOW","LWC, APEX",Customization,"4MC-002, DWH-004, UX-001",6,vol6a,검토 대기
+QMS-06-4MC-004,QMS,06 품질 운영 지원,4MC 4M 변경,협력사 4M 포털 신청·SQE 접수,"Q-20, NFR-4.2(협력사 격리)",필수,W2,"EXP, SF","DM, LWC, APEX",Customization,"4MC-003, QMS-03-SPP-001, QMS-03-SPP-002",6,vol6a,검토 대기
+QMS-06-4MC-005,QMS,06 품질 운영 지원,4MC 4M 변경,검증 계획 자동 구성·계획 결재·고객 통보·승인,"Q-19, Q-20, Q-43, Q-4, Q-8, Q-15",필수,W1,SF,"APEX, LWC, CFG",Customization,"4MC-003, APV-001, APV-002, QMS-02-DVQ-005, QMS-03-PPA-002",6,vol6a,검토 대기
+QMS-06-4MC-006,QMS,06 품질 운영 지원,4MC 4M 변경,검증 진행 게이트·적용 승인 결재,"Q-19, Q-20, Q-4, Q-8",필수,W1,SF,"APEX, LWC",Customization,4MC-005,5,vol6a,검토 대기
+QMS-06-4MC-007,QMS,06 품질 운영 지원,4MC 4M 변경,적용 시점 관리(구 재고·첫 적용 로트·로트 추적),"Q-20, Q-19, PoC 시나리오 3",필수,W1,"SF, SNOW","APEX, LWC, SQL",Customization,"4MC-006, QMS-03-IQC-004, QMS-03-IQC-006, QMS-03-PIS-001, DWH-003, DWH-004",7,vol6a,검토 대기
+QMS-06-4MC-008,QMS,06 품질 운영 지원,4MC 4M 변경,4M 종료·변경 이력 대장·KPI,"Q-19, Q-20, Q-32(변경 관리 증빙)",필수,W2,"SF, SNOW","APEX, LWC, SQL",Customization,"4MC-007, NCR-001, QMS-03-PIS-003, DWH-002, DWH-003",4,vol6a,검토 대기
+QMS-06-NCR-001,QMS,06 품질 운영 지원,NCR 부적합,부적합 데이터 모델·상태 규칙·공통 기반,"Q-21, Q-22, NFR-4.2(감사 로그)",필수,W1,SF,"DM, APEX",Customization,"MDM-005, MDM-006, MDM-007, ARC-003, SEC-002, SEC-003, UX-003",6,vol6a,검토 대기
+QMS-06-NCR-002,QMS,06 품질 운영 지원,NCR 부적합,부적합 등록(모바일)·원천 자동 생성 게이트웨이,"Q-21, Q-22, Q-2, NFR-4.4(모바일)",필수,W1,SF,"LWC, APEX",Customization,"NCR-001, UX-001, DOC-001, QMS-02-DVQ-007, QMS-03-IQC-004, QMS-03-IQC-005",6,vol6a,검토 대기
+QMS-06-NCR-003,QMS,06 품질 운영 지원,NCR 부적합,봉쇄·처분·특채·재고 처리 이벤트,"Q-21, Q-22, Q-42",필수,W1,SF,"DM, APEX, LWC",Customization,"NCR-002, APV-001, APV-002, DWH-004",7,vol6a,검토 대기
+QMS-06-NCR-004,QMS,06 품질 운영 지원,NCR 부적합,부적합 통보서·귀책 확정·이의 제기(포털),"Q-21, Q-22, Q-43, NFR-4.2(협력사 격리)",필수,W1,"SF, EXP","DM, APEX, LWC",Customization,"NCR-002, APV-001, APV-002, QMS-03-SPP-001, QMS-03-SPP-002, QMS-05-CLM-001",6,vol6a,검토 대기
+QMS-06-NCR-005,QMS,06 품질 운영 지원,NCR 부적합,원인·대책(8D 엔진 연계)·무단 4M 판정,"Q-21, Q-22, Q-36, Q-37, PoC 시나리오 1",필수,W1,SF,"APEX, LWC",Customization,"NCR-004, QMS-05-CLM-001, QMS-05-CLM-002",4,vol6a,검토 대기
+QMS-06-NCR-006,QMS,06 품질 운영 지원,NCR 부적합,효과 확인 연동·종결·후속 조치 요청,"Q-21, Q-22, Q-13, Q-14, PoC 시나리오 1",필수,W1,SF,"APEX, LWC",Customization,"NCR-005, QMS-05-CLM-003, QMS-05-CLM-004, QMS-03-IQC-005",4,vol6a,검토 대기
+QMS-06-NCR-007,QMS,06 품질 운영 지원,NCR 부적합,부적합 비용(COPQ)·협력사 구상,"Q-21, Q-22, Q-28",필수,W2,"SF, EXP","DM, APEX, LWC",Customization,"NCR-003, NCR-004, APV-001, APV-002, DWH-004",5,vol6a,검토 대기
+QMS-06-NCR-008,QMS,06 품질 운영 지원,NCR 부적합,부적합 실적 Snowflake 집계·KPI,"Q-21, Q-22, Q-18, Q-38, Q-39",필수,W2,"SNOW, MULE","SQL, INT",Customization,"NCR-001, NCR-003, DWH-002, DWH-003, DWH-004",4,vol6a,검토 대기
+QMS-06-LMS-001,QMS,06 품질 운영 지원,LMS 한도견본,관능 검사 조건·한도견본 등록·개정·고객 승인,Q-23,필수,W2,SF,"DM, APEX, LWC",Customization,"MDM-004, MDM-006, MDM-007, DOC-001, APV-001, APV-002, ARC-003",6,vol6b,검토 대기
+QMS-06-LMS-002,QMS,06 품질 운영 지원,LMS 한도견본,실물 견본 보관·배포·정기 점검·교체,Q-23,필수,W2,"SF, EXP","DM, APEX, LWC",Customization,"LMS-001, MDM-002, TDO-001, NTF-001, UX-001, QMS-03-SPP-001",4,vol6b,검토 대기
+QMS-06-LMS-003,QMS,06 품질 운영 지원,LMS 한도견본,검사 화면 견본 연결·모바일·포털 조회,"Q-23, Q-2",필수,W2,"SF, EXP","LWC, APEX",Customization,"LMS-001, LMS-002, UX-001, QMS-03-SPP-002",3,vol6b,검토 대기
+QMS-06-TRN-001,QMS,06 품질 운영 지원,TRN 교육·자격,교육 과정·연간 교육 계획·교육 차수,Q-24,필수,W2,SF,"DM, APEX, LWC",Customization,"MDM-001, INT-002, DOC-001, APV-001, APV-002, ARC-003",5,vol6b,검토 대기
+QMS-06-TRN-002,QMS,06 품질 운영 지원,TRN 교육·자격,교육 실행·출석·평가·이수 기록,Q-24,필수,W2,SF,"DM, APEX, LWC",Customization,"TRN-001, INT-002, UX-001, NTF-001",5,vol6b,검토 대기
+QMS-06-TRN-003,QMS,06 품질 운영 지원,TRN 교육·자격,자격 유형·자격 인증·자격 매트릭스·재인증,"Q-24, Q-30, Q-31, Q-32",필수,W2,"SF, SNOW","DM, APEX, LWC, SQL",Customization,"TRN-002, MDM-002, MDM-004, APV-001, APV-002, DWH-003",6,vol6b,검토 대기
+QMS-06-TRN-004,QMS,06 품질 운영 지원,TRN 교육·자격,자격 검증 서비스·검사원 훅·심사원 배정 API,"Q-24, Q-6, Q-12, Q-30, Q-32",필수,W2,SF,"APEX, CFG",Customization,"TRN-003, QMS-03-IQC-003, QMS-02-DVQ-007, QMS-06-IAU-005",4,vol6b,검토 대기
+QMS-06-GAU-001,QMS,06 품질 운영 지원,GAU 측정기,측정기 마스터·등록·QR 라벨·위치 관리,Q-25,필수,W2,SF,"DM, APEX, LWC",Customization,"MDM-001, MDM-002, MDM-004, MDM-007, SEC-002, SEC-003, UX-001, ARC-003",5,vol6b,검토 대기
+QMS-06-GAU-002,QMS,06 품질 운영 지원,GAU 측정기,교정 계획·교정 실행·성적서·판정,Q-25,필수,W2,"SF, SNOW","DM, APEX, LWC, SQL",Customization,"GAU-001, TDO-001, NTF-001, DOC-001, ARC-003, DWH-003",6,vol6b,검토 대기
+QMS-06-GAU-003,QMS,06 품질 운영 지원,GAU 측정기,사용 통제·검사 훅 구현·수리·분실·폐기,"Q-25, Q-6, Q-12",필수,W2,SF,"DM, APEX, LWC",Customization,"GAU-002, APV-001, APV-002, QMS-03-IQC-003",5,vol6b,검토 대기
+QMS-06-GAU-004,QMS,06 품질 운영 지원,GAU 측정기,교정 불합격 영향 분석·교정 현황 심사 증빙,"Q-25, Q-21, Q-22, Q-32",필수,W2,"SF, SNOW","DM, APEX, SQL, LWC",Customization,"GAU-002, DWH-004, NTF-001, TDO-001, QMS-03-IQC-007, QMS-02-DVQ-007, QMS-06-IAU-005",5,vol6b,검토 대기
+QMS-06-GAU-005,QMS,06 품질 운영 지원,GAU 측정기,기존 측정기 시스템 이관·연계 수신 계약,"Q-25, Q-42",필수,W2,"SF, MULE","INT, APEX, DM",Tailoring,"GAU-001, GAU-002, INT-001",3,vol6b,검토 대기
+QMS-06-MSA-001,QMS,06 품질 운영 지원,MSA MSA,MSA 대상·연구 계획·주기 관리,Q-26,필수,W2,"SF, SNOW","DM, APEX, LWC, SQL",Customization,"GAU-001, MDM-006, ARC-003, DWH-004",4,vol6b,검토 대기
+QMS-06-MSA-002,QMS,06 품질 운영 지원,MSA MSA,MSA 연구 데이터 모델·측정 입력 그리드,Q-26,필수,W2,"SF, SNOW","DM, LWC, APEX",Customization,"MSA-001, GAU-003, TRN-004, DWH-002, ARC-003",6,vol6b,검토 대기
+QMS-06-MSA-003,QMS,06 품질 운영 지원,MSA MSA,Gage R&R 계산(ANOVA·평균범위법)·판정,Q-26,필수,W2,"SNOW, SF, MULE","SNOWPARK, APEX, INT",Customization,"MSA-002, DWH-004",7,vol6b,검토 대기
+QMS-06-MSA-004,QMS,06 품질 운영 지원,MSA MSA,편의·직선성·안정성·계수형 일치성 계산,"Q-26, Q-23, Q-24",필수,W2,"SNOW, SF","SNOWPARK, APEX, LWC",Customization,"MSA-003, TRN-004",6,vol6b,검토 대기
+QMS-06-MSA-005,QMS,06 품질 운영 지원,MSA MSA,MSA 승인·보고서·PPAP 증빙 수집기·측정기 연결,"Q-26, Q-8, Q-15, Q-11",필수,W2,"SF, SNOW","APEX, LWC, CFG, SQL",Customization,"MSA-003, MSA-004, APV-001, APV-002, DOC-001, DWH-003, QMS-04-RPP-002",5,vol6b,검토 대기
+QMS-06-LAB-001,QMS,06 품질 운영 지원,LAB 분석실,분석 항목(실험실 범위)·분석 의뢰 데이터 모델,Q-27,필수,W2,SF,"DM, APEX, LWC",Customization,"MDM-004, MDM-005, GAU-001, ARC-003, SEC-002, SEC-003, UX-003",5,vol6b,검토 대기
+QMS-06-LAB-002,QMS,06 품질 운영 지원,LAB 분석실,분석 의뢰·검토·승인·시료 접수,"Q-27, Q-17, Q-21",필수,W2,SF,"LWC, APEX, CFG",Customization,"LAB-001, APV-001, APV-002, TDO-001, NTF-001, QMS-02-DVQ-007",5,vol6b,검토 대기
+QMS-06-LAB-003,QMS,06 품질 운영 지원,LAB 분석실,분석 실행·대기열·결과 입력·결과 보고서,"Q-27, Q-17, Q-21",필수,W2,SF,"LWC, APEX, CFG",Customization,"LAB-002, GAU-003, TRN-004, DOC-001, APV-001",6,vol6b,검토 대기
+QMS-06-LAB-004,QMS,06 품질 운영 지원,LAB 분석실,정기 분석 일정·처리 기간 KPI,Q-27,필수,W2,"SF, SNOW","DM, APEX, SQL",Customization,"LAB-003, DWH-002, DWH-003, ARC-003",3,vol6b,검토 대기
+QMS-06-IAU-001,QMS,06 품질 운영 지원,IAU 내부심사,심사 질문지 라이브러리·점수 체계·등급 규칙,"Q-30, Q-31, Q-32, Q-33",필수,W1,SF,"DM, LWC, APEX",Customization,"MDM-007, I18N-001, SEC-001",6,vol6c,검토 대기
+QMS-06-IAU-002,QMS,06 품질 운영 지원,IAU 내부심사,심사 데이터 모델·상태 규칙·심사팀 배정(자격·독립성),"Q-30, Q-31, Q-32, Q-33, NFR-4.2",필수,W1,SF,"DM, APEX, LWC",Customization,"IAU-001, ARC-003, SEC-002, SEC-003, UX-003, APV-001, TDO-001, NTF-001, QMS-02-DVQ-007",7,vol6c,검토 대기
+QMS-06-IAU-003,QMS,06 품질 운영 지원,IAU 내부심사,심사 수행(모바일)·점수 계산·심사 보고서,"Q-30, Q-31, Q-32, Q-2",필수,W1,SF,"LWC, APEX",Customization,"IAU-002, DOC-001, UX-001",7,vol6c,검토 대기
+QMS-06-IAU-004,QMS,06 품질 운영 지원,IAU 내부심사,심사 지적 사항·시정 조치·유효성 검증,"Q-30, Q-31, Q-32, Q-33, Q-36",필수,W1,SF,"DM, APEX, LWC",Customization,"IAU-003, TDO-001, NTF-001, AI-004, QMS-02-DVQ-007",6,vol6c,검토 대기
+QMS-06-IAU-005,QMS,06 품질 운영 지원,IAU 내부심사,질문-증빙 매핑·증빙 즉시 제시·증빙 스냅숏,"Q-32, Q-30, Q-35",필수,W1,"SF, SNOW","DM, APEX, LWC",Customization,"IAU-002, DOC-001, DWH-003, DWH-004",6,vol6c,검토 대기
+QMS-06-IAU-006,QMS,06 품질 운영 지원,IAU 내부심사,연간 내부심사 프로그램·커버리지·위험 기반 빈도,"Q-30, Q-33",필수,W2,SF,"DM, APEX, LWC",Customization,"IAU-002, APV-001, MDM-002, MDM-007",6,vol6c,검토 대기
+QMS-06-IAU-007,QMS,06 품질 운영 지원,IAU 내부심사,심사 실적 KPI·지적 분석(Snowflake),"Q-30, Q-32, Q-34",필수,W2,"SNOW, SF","SQL, CFG",Customization,"IAU-004, IAU-006, DWH-002, DWH-003, DWH-004",4,vol6c,검토 대기
+QMS-06-SAU-001,QMS,06 품질 운영 지원,SAU 협력사 Audit,협력사 심사 계획(위험 기반)·잠재력 평가·지도/진단,"Q-31, Q-18",필수,W2,SF,"DM, APEX, LWC",Customization,"IAU-002, IAU-003, MDM-005, QMS-03-SPP-001",5,vol6c,검토 대기
+QMS-06-SAU-002,QMS,06 품질 운영 지원,SAU 협력사 Audit,협력사 포털 심사 통보·지적 시정 계획 제출·검토,"Q-31, NFR-4.2(협력사 격리)",필수,W2,"EXP, SF","DM, LWC, APEX",Customization,"SAU-001, IAU-004, QMS-03-SPP-001, QMS-03-SPP-002",5,vol6c,검토 대기
+QMS-06-SAU-003,QMS,06 품질 운영 지원,SAU 협력사 Audit,협력사 심사 결과의 등급 반영·재심사·조회 서비스,"Q-31, Q-18",필수,W2,"SF, SNOW","APEX, SQL, LWC",Customization,"SAU-002, IAU-007",4,vol6c,검토 대기
+QMS-06-CAU-001,QMS,06 품질 운영 지원,CAU 고객 Audit(VDA 6.3),고객 심사 일정·준비 체크리스트·자체 평가,"Q-32, Q-29",필수,W1,SF,"DM, APEX, LWC",Customization,"IAU-002, IAU-005, TDO-001, MDM-003",6,vol6c,검토 대기
+QMS-06-CAU-002,QMS,06 품질 운영 지원,CAU 고객 Audit(VDA 6.3),VDA 6.3 점수·등급·강등 계산기(설정 데이터 기반),"Q-32, Q-31",필수,W1,SF,"APEX, LWC, DM",Customization,"IAU-001, IAU-003",5,vol6c,검토 대기
+QMS-06-CAU-003,QMS,06 품질 운영 지원,CAU 고객 Audit(VDA 6.3),고객 심사 결과·지적 대응·고객 회신 이력,"Q-32, Q-36",필수,W1,SF,"DM, APEX, LWC",Customization,"CAU-001, CAU-002, IAU-004, QMS-02-DVQ-007",5,vol6c,검토 대기
+QMS-06-CER-001,QMS,06 품질 운영 지원,CER 인증 관리,사업장 인증·인증 심사 주기·준비도 점검,Q-33,필수,W2,SF,"DM, APEX, LWC",Customization,"IAU-002, IAU-006, IAU-007, DOC-001, NTF-001, MTG-001",5,vol6c,검토 대기
+QMS-06-CER-002,QMS,06 품질 운영 지원,CER 인증 관리,인증 기관 지적 종결 관리·경영검토 입력 패키지,"Q-33, Q-29",필수,W2,SF,"APEX, LWC, CFG",Customization,"CER-001, IAU-004, IAU-007, MTG-001",4,vol6c,검토 대기
+QMS-06-SQM-001,QMS,06 품질 운영 지원,SQM 협력사 품질목표/실적,협력사 품질 목표 설정·협력사 합의,Q-18,필수,W2,"SF, EXP","DM, LWC, APEX",Customization,"MDM-004, MDM-005, APV-001, QMS-03-SPP-002",4,vol6c,검토 대기
+QMS-06-SQM-002,QMS,06 품질 운영 지원,SQM 협력사 품질목표/실적,월간 스코어카드 산정·분기 등급(Snowflake),"Q-18, Q-38, Q-31",필수,W2,"SNOW, SF, MULE","SQL, INT, DM",Customization,"SQM-001, SAU-003, QMS-03-IQC-007, DWH-002, DWH-003",6,vol6c,검토 대기
+QMS-06-SQM-003,QMS,06 품질 운영 지원,SQM 협력사 품질목표/실적,등급 확정·반영·저성과 협력사 개선·포털 스코어카드,"Q-18, Q-31",필수,W2,"SF, EXP","DM, APEX, LWC",Customization,"SQM-002, SAU-001, IMP-002, QMS-03-SPP-002",5,vol6c,검토 대기
+QMS-06-IMP-001,QMS,06 품질 운영 지원,IMP 개선과제,개선 과제 데이터 모델·단계·게이트 승인,Q-28,필수,W2,SF,"DM, APEX, LWC",Customization,"ARC-003, SEC-002, UX-003, APV-001, TDO-001, DOC-001, QMS-02-DVQ-007",6,vol6c,검토 대기
+QMS-06-IMP-002,QMS,06 품질 운영 지원,IMP 개선과제,개선 과제 원천 연계·KPI 추적·효과 확인·포트폴리오,"Q-28, Q-16, Q-18, Q-38",필수,W2,"SF, SNOW","APEX, LWC, SQL, DM",Customization,"IMP-001, DWH-003, DWH-004, QMS-02-DVQ-007",5,vol6c,검토 대기
+QMS-07-DSH-001,QMS,07 Dashboard,DSH 대시보드,KPI 정의 레지스트리·RAG 규칙 단일화,"Q-34, Q-38",필수,W1,"SF, SNOW, MULE","DM, CFG, INT, SQL",Customization,"DWH-003, I18N-001, QMS-03-IQC-007",5,vol7,검토 대기
+QMS-07-DSH-002,QMS,07 Dashboard,DSH 대시보드,위젯 데이터 서비스(공장 권한·비용 권한·캐시),"Q-34, NFR-4.1(3초), NFR-4.2(RBAC)",필수,W1,SF,"APEX, DM, CFG",Customization,"DSH-001, DWH-003, DWH-004, SEC-002",6,vol7,검토 대기
+QMS-07-DSH-003,QMS,07 Dashboard,DSH 대시보드,공용 차트·KPI 컴포넌트 라이브러리,"Q-34, Q-2(모바일)",필수,W1,SF,LWC,Customization,"DSH-002, CMN-00-DSH-001, UX-001",7,vol7,검토 대기
+QMS-07-DSH-004,QMS,07 Dashboard,DSH 대시보드,위젯 설정 폼·위젯 등록 규칙,Q-34,필수,W1,SF,"LWC, CFG, DM",Customization,"DSH-003, CMN-00-DSH-001",4,vol7,검토 대기
+QMS-07-DSH-005,QMS,07 Dashboard,DSH 대시보드,수입검사·협력사 품질 위젯,"Q-34, Q-6, Q-7, Q-9, Q-18",필수,W1,SF,"CFG, LWC",Tailoring,"DSH-003, DSH-004, QMS-03-IQC-007, QMS-06-SQM-002",5,vol7,검토 대기
+QMS-07-DSH-006,QMS,07 Dashboard,DSH 대시보드,공정·제품 품질 위젯(SPC·초기유동·출하검사·EOL),"Q-34, Q-10, Q-11, Q-12",필수,W1,SF,"CFG, LWC",Tailoring,"DSH-003, DSH-004, QMS-04-SPC-003, QMS-04-SPC-006, QMS-04-FQC-004, QMS-04-EFC-002",5,vol7,검토 대기
+QMS-07-DSH-007,QMS,07 Dashboard,DSH 대시보드,부적합·4M 위젯,"Q-34, Q-19, Q-20, Q-21, Q-22",필수,W1,SF,"CFG, LWC",Tailoring,"DSH-003, DSH-004, QMS-06-NCR-008, QMS-06-4MC-008",4,vol7,검토 대기
+QMS-07-DSH-008,QMS,07 Dashboard,DSH 대시보드,고객 품질 위젯(B2B·클레임·8D),"Q-34, Q-16, Q-17",필수,W1,SF,"CFG, LWC",Tailoring,"DSH-003, DSH-004, QMS-05-B2B-003, QMS-05-B2B-006, QMS-05-CLM-011, QMS-05-CLM-003",5,vol7,검토 대기
+QMS-07-DSH-009,QMS,07 Dashboard,DSH 대시보드,심사·인증·개선 과제 위젯,"Q-34, Q-28, Q-30, Q-31, Q-32, Q-33",필수,W2,SF,"CFG, LWC",Tailoring,"DSH-003, DSH-004, QMS-06-IAU-007, QMS-06-CER-001, QMS-06-IMP-002",4,vol7,검토 대기
+QMS-07-DSH-010,QMS,07 Dashboard,DSH 대시보드,측정·교육·분석실·한도견본 위젯,"Q-34, Q-23, Q-24, Q-25, Q-26, Q-27",필수,W2,SF,CFG,Tailoring,"DSH-003, DSH-004, QMS-06-GAU-002, QMS-06-MSA-005, QMS-06-TRN-003, QMS-06-LAB-004, QMS-06-LMS-002",3,vol7,검토 대기
+QMS-07-DSH-011,QMS,07 Dashboard,DSH 대시보드,레슨런·수평전개·PPAP 위젯,"Q-34, Q-8, Q-13, Q-14, Q-15, Q-40",필수,W2,SF,CFG,Tailoring,"DSH-003, DSH-004, QMS-04-LEL-005, QMS-04-HZD-003, QMS-04-RPP-004, QMS-03-PPA-004",3,vol7,검토 대기
+QMS-07-DSH-012,QMS,07 Dashboard,DSH 대시보드,AI 조기경보·AI 정확도·품질 질문 위젯,"Q-34, Q-36, Q-38, Q-39",권장,W1,"SF, AF","LWC, APEX, CFG",Customization,"DSH-003, CMN-00-AI-004, QMS-08-AIQ-011, QMS-08-AIQ-012, QMS-08-AIQ-016",5,vol7,검토 대기
+QMS-07-DSH-013,QMS,07 Dashboard,DSH 대시보드,역할별 추천 템플릿·페르소나 해석,"Q-34, Q-41",필수,W1,SF,"CFG, APEX",Tailoring,"DSH-005, DSH-006, DSH-007, DSH-008, CMN-00-DSH-001, CMN-00-TDO-004",4,vol7,검토 대기
+QMS-07-DSH-014,QMS,07 Dashboard,DSH 대시보드,품질 종합 Dashboard(PoC 시나리오 5),"Q-34, Q-39, Q-16, Q-21",필수,W1,SF,"LWC, CFG",Customization,"DSH-005, DSH-006, DSH-007, DSH-008, DSH-012",5,vol7,검토 대기
+QMS-07-DSH-015,QMS,07 Dashboard,DSH 대시보드,협력사 포털 품질 요약,"Q-34, Q-6, Q-18, NFR-4.2(협력사 격리)",권장,W2,"EXP, SF","LWC, APEX",Customization,"DSH-002, DSH-003, QMS-03-SPP-002, QMS-06-SQM-003",3,vol7,검토 대기
+QMS-07-DSH-016,QMS,07 Dashboard,DSH 대시보드,KPI 신선도·위젯 성능·사용 현황·연계 상태 위젯,"Q-34, NFR-4.1(3초), Q-42",권장,W2,SF,"APEX, LWC, DM, CFG",Customization,"DSH-001, DSH-002, DSH-003, DSH-013, QMS-09-INT-002",4,vol7,검토 대기
+QMS-08-AIQ-001,QMS,08 AI,AIQ 품질 AI,품질 어시스턴트 토픽·공통 지시·사용 정책,"Q-35, Q-36, Q-37, Q-38, Q-39, Q-40",권장,W1,"AF, SF","AGENT, APEX, CFG",Tailoring,"AI-001, SEC-001, I18N-001, ARC-002",5,vol8,검토 대기
+QMS-08-AIQ-002,QMS,08 AI,AIQ 품질 AI,품질 사례·레슨런 코퍼스와 의미 검색 서비스,"Q-36, Q-37, Q-40, Q-42",필수,W1,"SNOW, MULE, SF","SQL, INT, APEX",Customization,"DWH-001, DWH-002, DWH-004, AIQ-001, QMS-06-NCR-008, QMS-05-CLM-001, QMS-04-LEL-001, QMS-04-LEL-003, QMS-04-SPC-005, QMS-06-IAU-004",7,vol8,검토 대기
+QMS-08-AIQ-003,QMS,08 AI,AIQ 품질 AI,원인 후보 순위 엔진(원인 분포·유사 사례·맥락 신호),"Q-36, Q-37",권장,W1,SNOW,"SQL, SNOWPARK",Customization,"AIQ-002, DWH-004, QMS-06-NCR-008, QMS-04-SPC-002, QMS-06-4MC-008, QMS-03-IQC-007",6,vol8,검토 대기
+QMS-08-AIQ-004,QMS,08 AI,AIQ 품질 AI,원인 추천 서비스·원천 어댑터·화면 연결,Q-36,권장,W1,"SF, AF","APEX, LWC, AGENT",Customization,"AIQ-001, AIQ-002, AIQ-003, AI-004, QMS-06-IAU-004, QMS-04-SPC-005",6,vol8,검토 대기
+QMS-08-AIQ-005,QMS,08 AI,AIQ 품질 AI,8D 초안 지원(QMS_EightDAssist 구현),"Q-37, Q-36",권장,W1,"AF, SF","APEX, AGENT",Customization,"AIQ-004, QMS-05-CLM-001, QMS-05-CLM-002, QMS-05-CLM-003",7,vol8,검토 대기
+QMS-08-AIQ-006,QMS,08 AI,AIQ 품질 AI,추천 확정·적중 평가 자동화와 확정 사례 반영,"Q-36, Q-37, Q-38, Q-40",필수,W1,"SF, SNOW","APEX, SQL, CFG",Customization,"AI-004, AIQ-004, QMS-04-LEL-005, QMS-07-DSH-001",5,vol8,검토 대기
+QMS-08-AIQ-007,QMS,08 AI,AIQ 품질 AI,LELE 추천 서비스(규칙 후보 + 의미 순위 + 반영 초안),"Q-40, Q-14, Q-42",필수,W1,"SF, SNOW, AF","APEX, SQL, AGENT",Customization,"QMS-04-LEL-004, QMS-04-LEL-005, AIQ-001, AIQ-002, AI-004",7,vol8,검토 대기
+QMS-08-AIQ-008,QMS,08 AI,AIQ 품질 AI,PMS 연계 흐름·PoC 시나리오 6 시연,"Q-40, Q-42, PoC 시나리오 6",필수,W1,"SF, MULE","APEX, INT, DOC",Customization,"AIQ-007, QMS-04-LEL-005",5,vol8,검토 대기
+QMS-08-AIQ-009,QMS,08 AI,AIQ 품질 AI,품질 Q&A — 업무 현황 Action,"Q-39, Q-41",권장,W1,"AF, SF","AGENT, APEX",Customization,"AI-005, AIQ-001",5,vol8,검토 대기
+QMS-08-AIQ-010,QMS,08 AI,AIQ 품질 AI,품질 Q&A — 추세·통계(Cortex Analyst 시맨틱 모델·공장 권한),"Q-39, Q-38, PoC 시나리오 5",권장,W1,"SNOW, MULE, AF, SF","SQL, INT, AGENT, APEX, LWC",Customization,"AI-005, AIQ-001, AIQ-002, QMS-06-NCR-008, QMS-05-B2B-003, QMS-03-IQC-007, QMS-06-SQM-002, QMS-04-SPC-003, QMS-07-DSH-012",8,vol8,검토 대기
+QMS-08-AIQ-011,QMS,08 AI,AIQ 품질 AI,"위험 점수 계산(피처·점수·이상 탐지, Snowflake)",Q-38,권장,W2,SNOW,"SQL, SNOWPARK",Customization,"DWH-001, DWH-003, QMS-06-NCR-008, QMS-03-IQC-007, QMS-04-SPC-003, QMS-04-FQC-004, QMS-05-B2B-003, QMS-06-4MC-008, QMS-06-SQM-002",7,vol8,검토 대기
+QMS-08-AIQ-012,QMS,08 AI,AIQ 품질 AI,조기경보 처리·위험 화면·후속 조치,"Q-38, Q-34",권장,W2,"SF, AF","DM, APEX, LWC, AGENT",Customization,"AIQ-011, AIQ-001, AI-004, DWH-003, DWH-004, TDO-001, NTF-001",5,vol8,검토 대기
+QMS-08-AIQ-013,QMS,08 AI,AIQ 품질 AI,품질 문서 검색 범위·QMS 검색 구성·리비전 비교 사용처,Q-35,권장,W2,"DC, AF, SF","CFG, LWC, AGENT",Tailoring,"AI-002, AI-003, DOC-001, AIQ-001",4,vol8,검토 대기
+QMS-08-AIQ-014,QMS,08 AI,AIQ 품질 AI,4M 변경 기반 필요 시험 추천,"Q-36, Q-19, Q-20, Q-4",권장,W3,"SNOW, SF, AF","SQL, APEX",Customization,"QMS-06-4MC-003, QMS-06-4MC-005, QMS-02-DVQ-002, AIQ-002, AIQ-006",5,vol8,검토 대기
+QMS-08-AIQ-015,QMS,08 AI,AIQ 품질 AI,고객 심사 대비 예상 지적 추천,"Q-32, Q-36",권장,W3,"SNOW, SF, AF","SQL, APEX",Customization,"QMS-06-CAU-001, QMS-06-IAU-005, AIQ-002, AIQ-006",4,vol8,검토 대기
+QMS-08-AIQ-016,QMS,08 AI,AIQ 품질 AI,AI 평가·출시 기준·프롬프트 버전·사용량 운영,"Q-36, Q-37, Q-38, Q-39, Q-40, NFR-4.2",권장,W2,"SF, SNOW, AF","APEX, SQL, DOC, CFG",Customization,"AIQ-001, AIQ-003, AIQ-004, AIQ-007, AIQ-010, AIQ-011",5,vol8,검토 대기
+QMS-09-INT-001,QMS,09 연계,INT 연계,QMS 연계 공통 프레임·카탈로그·코드 매핑,"Q-42, NFR-4.3(API 제공)",필수,W1,"MULE, SF, SNOW","INT, DM, CFG",Customization,"CMN-00-INT-001, CMN-00-SEC-004, CMN-00-DWH-001, CMN-00-ARC-001",6,vol9,검토 대기
+QMS-09-INT-002,QMS,09 연계,INT 연계,외부 요청 수신 규약·동기화 상태 모니터·재전송,"Q-42, NFR-4.1(가용성)",필수,W1,"SF, MULE, SNOW","APEX, LWC, DM, SQL",Customization,"QMS-09-INT-001, CMN-00-DWH-003, CMN-00-NTF-001",5,vol9,검토 대기
+QMS-09-INT-003,QMS,09 연계,INT 연계,연계 테스트 환경·목(mock)·PoC 데이터 주입,"Q-42, Q-6, Q-11, Q-16",필수,W1,"MULE, SNOW, SF","INT, SQL, DOC",Customization,QMS-09-INT-001,4,vol9,검토 대기
+QMS-09-INT-004,QMS,09 연계,INT 연계,SAP 입고 → 수입검사 로트 생성(IF-SAP-002),"Q-6, Q-42",필수,W1,"MULE, SF",INT,Customization,"QMS-09-INT-001, QMS-03-IQC-002, CMN-00-INT-003",6,vol9,검토 대기
+QMS-09-INT-005,QMS,09 연계,INT 연계,수입검사 판정 → SAP 사용결정·재고 이동(IF-SAP-004),"Q-6, Q-42",필수,W1,"MULE, SF","INT, DM, CFG",Customization,"QMS-09-INT-004, QMS-03-IQC-004",5,vol9,검토 대기
+QMS-09-INT-006,QMS,09 연계,INT 연계,"SAP 납품 → 출하검사 로트, 출하 판정 → 출하 차단·해제(IF-SAP-005·006)","Q-12, Q-42",필수,W2,"MULE, SF",INT,Customization,"QMS-09-INT-005, QMS-04-FQC-002, QMS-04-FQC-003",6,vol9,검토 대기
+QMS-09-INT-007,QMS,09 연계,INT 연계,NCR 처분 재고 이동·협력사 구상 차변 메모(IF-SAP-007·008),"Q-21, Q-22, Q-42",필수,W1,"MULE, SF","INT, CFG",Customization,"QMS-09-INT-005, QMS-06-NCR-003, QMS-06-NCR-007",5,vol9,검토 대기
+QMS-09-INT-008,QMS,09 연계,INT 연계,"SAP → Snowflake 공용 데이터(재고·출하·환율·표준가·BOM·배치, IF-SAP-003)","Q-42, Q-16, Q-20, Q-21",필수,W1,"MULE, SNOW","INT, SQL",Customization,"QMS-09-INT-001, CMN-00-INT-003, CMN-00-DWH-001",6,vol9,검토 대기
+QMS-09-INT-009,QMS,09 연계,INT 연계,"클레임 봉쇄 의심 재고 SAP 보류(선택, IF-SAP-009)","Q-17, Q-42",권장,W3,"MULE, SF","INT, APEX",Customization,"QMS-09-INT-008, QMS-05-CLM-008",3,vol9,검토 대기
+QMS-09-INT-010,QMS,09 연계,INT 연계,MES → Snowflake SPC 측정값(IF-MES-001),"Q-11, Q-42",필수,W1,"MULE, SNOW","INT, SQL",Customization,"QMS-09-INT-001, QMS-04-SPC-002, CMN-00-MDM-002",5,vol9,검토 대기
+QMS-09-INT-011,QMS,09 연계,INT 연계,MES → Snowflake 생산·불량 실적과 EOL 시험(IF-MES-002·003),"Q-10, Q-12, Q-42",필수,W1,"MULE, SNOW","INT, SQL",Customization,"QMS-09-INT-001, QMS-04-EFC-002, QMS-04-FQC-004",6,vol9,검토 대기
+QMS-09-INT-012,QMS,09 연계,INT 연계,로트 계보(CORE.LOT_TRACE)·4M 첫 생산 로트 감지(IF-MES-004),"Q-20, Q-21, Q-42",필수,W1,"MULE, SNOW","INT, SQL",Customization,"QMS-09-INT-008, QMS-09-INT-011, QMS-06-4MC-007",5,vol9,검토 대기
+QMS-09-INT-013,QMS,09 연계,INT 연계,"4M 적용 허가 → MES 통보(선택, IF-MES-005)","Q-19, Q-20, Q-42",권장,W3,"MULE, SF","INT, APEX",Customization,"QMS-09-INT-001, QMS-06-4MC-006",3,vol9,검토 대기
+QMS-09-INT-014,QMS,09 연계,INT 연계,필드클레임 → Snowflake 고객 품질 원천(IF-FC-001),"Q-16, Q-42",필수,W1,"MULE, SNOW","INT, SQL",Customization,"QMS-09-INT-001, QMS-05-B2B-001",6,vol9,검토 대기
+QMS-09-INT-015,QMS,09 연계,INT 연계,고객 클레임 통보 → QMS_Claim__c(IF-FC-002),"Q-17, Q-42",필수,W1,"MULE, SF",INT,Customization,"QMS-09-INT-001, QMS-05-CLM-007",4,vol9,검토 대기
+QMS-09-INT-016,QMS,09 연계,INT 연계,고객 데이터 업로드 파일 처리(IF-B2B-001),"Q-16, Q-42",필수,W1,"MULE, SNOW, SF",INT,Customization,"QMS-09-INT-001, QMS-05-B2B-002",4,vol9,검토 대기
+QMS-09-INT-017,QMS,09 연계,INT 연계,측정기 시스템 → 측정기·교정 동기화(IF-GAU-001),"Q-25, Q-42",필수,W2,"MULE, SF",INT,Customization,"QMS-09-INT-001, QMS-06-GAU-005",5,vol9,검토 대기
+QMS-09-INT-018,QMS,09 연계,INT 연계,신뢰성 시스템 시험 의뢰·상태·결과 연계(IF-REL-001·002),"Q-4, Q-5, Q-42",필수,W2,"MULE, SF","INT, APEX",Customization,"QMS-09-INT-002, QMS-02-DVQ-006, QMS-02-DVQ-007",6,vol9,검토 대기
+QMS-09-INT-019,QMS,09 연계,INT 연계,"부품개발시스템 연계(신규 부품 PPAP 요청·PPAP 결과·협력사 등급, IF-PDS-001~003)","Q-8, Q-18, Q-42, P-28",필수,W2,"MULE, SF","INT, APEX",Customization,"QMS-09-INT-002, QMS-03-PPA-002, QMS-06-SQM-003",5,vol9,검토 대기
+QMS-09-INT-020,QMS,09 연계,INT 연계,"Snowflake 프로시저 호출 모드 구현·AI 호출 모드 운영 규약(IF-DW-001, IF-AI-001·002)","Q-26, Q-36, Q-39, Q-42",필수,W2,"MULE, SNOW","INT, SQL",Customization,"CMN-00-DWH-004, QMS-09-INT-001, QMS-09-INT-002",4,vol9,검토 대기
+QMS-09-INT-021,QMS,09 연계,INT 연계,"PMS 별도 Org 디지털 스레드(조건부, IF-AI-003·004, IF-PMS-002)","Q-40, Q-42, P-49, P-64",권장,W3,"MULE, SF","INT, APEX",Customization,"QMS-09-INT-001, QMS-04-LEL-004, QMS-04-LEL-005, QMS-08-AIQ-007, QMS-08-AIQ-008",7,vol9,검토 대기
