@@ -9,3 +9,8 @@
 .vscode
 
 coverage/
+
+# 소스가 아닌 문서와 생성 데이터. WI 문서·검토 패키지는 docs/scripts가 표를 만들고, data/demo는 생성기 산출물이다
+docs/
+data/
+**/*.md
