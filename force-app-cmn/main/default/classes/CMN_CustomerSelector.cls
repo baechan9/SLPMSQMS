@@ -27,18 +27,4 @@ public with sharing class CMN_CustomerSelector {
       WITH SYSTEM_MODE
     ];
   }
-
-  /**
-   * @description 외부 키로 차종을 찾는다(중복 검사).
-   * @param keys 외부 키(대소문자 무관)
-   * @return 차종 목록
-   */
-  public static List<CMN_Vehicle__c> vehiclesByExternalKey(Set<String> keys) {
-    return [
-      SELECT Id, ExternalKey__c
-      FROM CMN_Vehicle__c
-      WHERE ExternalKey__c IN :keys
-      WITH SYSTEM_MODE
-    ];
-  }
 }

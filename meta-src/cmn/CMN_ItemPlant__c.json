@@ -1,0 +1,104 @@
+{
+  "wi": "CMN-00-MDM-004",
+  "object": "CMN_ItemPlant__c",
+  "package": "force-app-cmn",
+  "description": "품번 × 공장(공장별 사용 여부). ExternalKey = {ItemNo}-{PlantCode}(트리거). 삭제 대신 Status PHASE_OUT",
+  "label": {
+    "ko": "공장별 품번",
+    "en_US": "Item Plant",
+    "zh_CN": "工厂物料"
+  },
+  "plural": {
+    "ko": "공장별 품번",
+    "en_US": "Item Plants",
+    "zh_CN": "工厂物料"
+  },
+  "nameField": {
+    "type": "AutoNumber",
+    "format": "IP-{0000000}",
+    "label": {
+      "ko": "연결 번호",
+      "en_US": "Link No.",
+      "zh_CN": "关联编号"
+    }
+  },
+  "sharingModel": "ControlledByParent",
+  "fields": [
+    {
+      "name": "Item__c",
+      "type": "MasterDetail",
+      "referenceTo": "CMN_Item__c",
+      "relationshipName": "ItemPlants",
+      "relationshipLabel": {
+        "ko": "공장별 품번",
+        "en_US": "Item Plants",
+        "zh_CN": "工厂物料"
+      },
+      "label": {
+        "ko": "품번",
+        "en_US": "Item",
+        "zh_CN": "物料"
+      }
+    },
+    {
+      "name": "Plant__c",
+      "type": "MasterDetail",
+      "referenceTo": "CMN_Plant__c",
+      "relationshipName": "ItemPlants",
+      "relationshipOrder": 1,
+      "relationshipLabel": {
+        "ko": "공장별 품번",
+        "en_US": "Item Plants",
+        "zh_CN": "工厂物料"
+      },
+      "label": {
+        "ko": "공장",
+        "en_US": "Plant",
+        "zh_CN": "工厂"
+      }
+    },
+    {
+      "name": "ExternalKey__c",
+      "type": "Text",
+      "length": 60,
+      "externalId": true,
+      "unique": true,
+      "serviceOnly": true,
+      "label": {
+        "ko": "외부 키",
+        "en_US": "External Key",
+        "zh_CN": "外部键"
+      },
+      "description": "{ItemNo}-{PlantCode}. 트리거가 설정"
+    },
+    {
+      "name": "Status__c",
+      "type": "Picklist",
+      "required": true,
+      "default": "ACTIVE",
+      "label": {
+        "ko": "상태",
+        "en_US": "Status",
+        "zh_CN": "状态"
+      },
+      "values": [
+        {
+          "api": "ACTIVE",
+          "label": {
+            "ko": "사용",
+            "en_US": "Active",
+            "zh_CN": "使用中"
+          }
+        },
+        {
+          "api": "PHASE_OUT",
+          "label": {
+            "ko": "단종",
+            "en_US": "Phase-out",
+            "zh_CN": "停产"
+          }
+        }
+      ]
+    }
+  ]
+}

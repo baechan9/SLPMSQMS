@@ -29,6 +29,18 @@
         <name>CMN_Customer_DuplicateVehicleCode</name>
     </customLabels>
     <customLabels>
+        <label>该工厂已登记此物料: {0}</label>
+        <name>CMN_Item_DuplicateItemPlant</name>
+    </customLabels>
+    <customLabels>
+        <label>该物料已关联此车型: {0}</label>
+        <name>CMN_Item_DuplicateItemVehicle</name>
+    </customLabels>
+    <customLabels>
+        <label>含有下级的产品组不能置于其他产品组之下(最多两级)。</label>
+        <name>CMN_Item_GroupHasChildren</name>
+    </customLabels>
+    <customLabels>
         <label>主数据不能删除。请取消“有效”以停用。</label>
         <name>CMN_Master_DeleteNotAllowed</name>
     </customLabels>

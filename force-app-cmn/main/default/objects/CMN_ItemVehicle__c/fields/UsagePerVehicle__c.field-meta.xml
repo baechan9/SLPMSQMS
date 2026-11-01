@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>UsagePerVehicle__c</fullName>
+    <defaultValue>1</defaultValue>
+    <description>차량당 사용 수량, 기본 1(Vol.5 B2B-003 BR-1 요청)</description>
+    <label>차량당 사용 수량</label>
+    <precision>4</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+</CustomField>

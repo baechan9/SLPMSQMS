@@ -1,0 +1,36 @@
+{
+  "wi": "CMN-00-MDM-004",
+  "package": "force-app-cmn",
+  "labels": [
+    {
+      "name": "CMN_Item_DuplicateItemPlant",
+      "category": "CMN",
+      "description": "같은 품번·공장 연결 중복. {0} = 외부 키",
+      "value": {
+        "ko": "이미 등록된 공장별 품번입니다: {0}",
+        "en_US": "This item is already registered for the plant: {0}",
+        "zh_CN": "该工厂已登记此物料: {0}"
+      }
+    },
+    {
+      "name": "CMN_Item_DuplicateItemVehicle",
+      "category": "CMN",
+      "description": "같은 품번·차종 연결 중복. {0} = 외부 키",
+      "value": {
+        "ko": "이미 연결된 적용 차종입니다: {0}",
+        "en_US": "This item is already linked to the vehicle: {0}",
+        "zh_CN": "该物料已关联此车型: {0}"
+      }
+    },
+    {
+      "name": "CMN_Item_GroupHasChildren",
+      "category": "CMN",
+      "description": "하위가 있는 제품군에 상위 지정(3단계가 됨)",
+      "value": {
+        "ko": "하위 제품군이 있는 제품군은 다른 제품군 아래에 둘 수 없습니다(2단계까지).",
+        "en_US": "A product group with sub-groups cannot be placed under another group (two levels at most).",
+        "zh_CN": "含有下级的产品组不能置于其他产品组之下(最多两级)。"
+      }
+    }
+  ]
+}

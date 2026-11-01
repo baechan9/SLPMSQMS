@@ -1,0 +1,103 @@
+{
+  "wi": "CMN-00-MDM-004",
+  "object": "CMN_ProductGroup__c",
+  "package": "force-app-cmn",
+  "description": "제품군(LAMP, LAMP_HL, LAMP_RCL, EV, MIRROR, FEM 등). 2단계 계층. 삭제 금지",
+  "label": {
+    "ko": "제품군",
+    "en_US": "Product Group",
+    "zh_CN": "产品组"
+  },
+  "plural": {
+    "ko": "제품군",
+    "en_US": "Product Groups",
+    "zh_CN": "产品组"
+  },
+  "nameField": {
+    "label": {
+      "ko": "제품군명",
+      "en_US": "Product Group Name",
+      "zh_CN": "产品组名称"
+    }
+  },
+  "sharingModel": "Read",
+  "tab": {
+    "motif": "Custom13: Box"
+  },
+  "fields": [
+    {
+      "name": "GroupCode__c",
+      "type": "Text",
+      "length": 20,
+      "required": true,
+      "externalId": true,
+      "unique": true,
+      "label": {
+        "ko": "제품군 코드",
+        "en_US": "Group Code",
+        "zh_CN": "产品组代码"
+      }
+    },
+    {
+      "name": "Parent__c",
+      "type": "Lookup",
+      "referenceTo": "CMN_ProductGroup__c",
+      "relationshipName": "ChildGroups",
+      "relationshipLabel": {
+        "ko": "하위 제품군",
+        "en_US": "Sub-groups",
+        "zh_CN": "下级产品组"
+      },
+      "label": {
+        "ko": "상위 제품군",
+        "en_US": "Parent Group",
+        "zh_CN": "上级产品组"
+      },
+      "description": "2단계 계층(상위의 상위 금지)"
+    },
+    {
+      "name": "IsActive__c",
+      "type": "Checkbox",
+      "default": true,
+      "label": {
+        "ko": "사용",
+        "en_US": "Active",
+        "zh_CN": "有效"
+      },
+      "description": "삭제 대신 비활성화(기준정보)"
+    }
+  ],
+  "validationRules": [
+    {
+      "name": "CMN_ProductGroup_TwoLevels",
+      "field": "Parent__c",
+      "formula": "AND(NOT(ISBLANK(Parent__c)), OR(Parent__c = Id, NOT(ISBLANK(Parent__r.Parent__c))))",
+      "description": "제품군은 2단계(상위의 상위 금지, 자기 자신 금지). 하위가 있는 제품군에 상위를 다는 경우는 트리거가 막는다",
+      "message": {
+        "ko": "제품군은 2단계까지만 둘 수 있습니다.",
+        "en_US": "Product groups can have at most two levels.",
+        "zh_CN": "产品组最多只能有两级。"
+      }
+    },
+    {
+      "name": "CMN_ProductGroup_GroupCodeImmutable",
+      "field": "GroupCode__c",
+      "formula": "AND(ISCHANGED(GroupCode__c), NOT($Permission.CMN_DataMigration))",
+      "description": "코드 변경 금지(이관 모드 예외)",
+      "message": {
+        "ko": "코드는 만든 뒤 바꿀 수 없습니다(권한·채번·외부 연계의 키).",
+        "en_US": "The code cannot be changed after creation (key for access, numbering and integration).",
+        "zh_CN": "代码创建后不可修改(用于权限、编号和外部集成的键)。"
+      }
+    }
+  ],
+  "layout": {
+    "relatedLists": [
+      {
+        "object": "CMN_ProductGroup__c",
+        "field": "Parent__c",
+        "fields": ["NAME", "GroupCode__c", "IsActive__c"]
+      }
+    ]
+  }
+}

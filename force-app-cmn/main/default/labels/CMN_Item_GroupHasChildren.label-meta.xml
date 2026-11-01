@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_Item_GroupHasChildren</fullName>
+    <categories>CMN</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>하위가 있는 제품군에 상위 지정(3단계가 됨)</shortDescription>
+    <value>하위 제품군이 있는 제품군은 다른 제품군 아래에 둘 수 없습니다(2단계까지).</value>
+</CustomLabel>

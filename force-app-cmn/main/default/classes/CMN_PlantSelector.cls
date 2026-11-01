@@ -43,36 +43,6 @@ public with sharing class CMN_PlantSelector {
   }
 
   /**
-   * @description 외부 키로 라인을 찾는다(중복 검사).
-   * @param keys 외부 키(대소문자 무관)
-   * @return 라인 목록
-   */
-  public static List<CMN_Line__c> linesByExternalKey(Set<String> keys) {
-    return [
-      SELECT Id, ExternalKey__c
-      FROM CMN_Line__c
-      WHERE ExternalKey__c IN :keys
-      WITH SYSTEM_MODE
-    ];
-  }
-
-  /**
-   * @description 외부 키로 공정을 찾는다(중복 검사).
-   * @param keys 외부 키(대소문자 무관)
-   * @return 공정 목록
-   */
-  public static List<CMN_Operation__c> operationsByExternalKey(
-    Set<String> keys
-  ) {
-    return [
-      SELECT Id, ExternalKey__c
-      FROM CMN_Operation__c
-      WHERE ExternalKey__c IN :keys
-      WITH SYSTEM_MODE
-    ];
-  }
-
-  /**
    * @description 라인의 공정(외부 키 재계산).
    * @param lineIds 라인 Id
    * @return 공정 목록

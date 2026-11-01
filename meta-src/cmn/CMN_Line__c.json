@@ -69,6 +69,23 @@
       "description": "{PlantCode}-{LineCode}. 사용자가 입력하지 않음(트리거가 설정). 명세 필수: DB 필수 대신 트리거로 보장"
     },
     {
+      "name": "ProductGroup__c",
+      "type": "Lookup",
+      "referenceTo": "CMN_ProductGroup__c",
+      "relationshipName": "Lines",
+      "relationshipLabel": {
+        "ko": "라인",
+        "en_US": "Lines",
+        "zh_CN": "产线"
+      },
+      "label": {
+        "ko": "주 생산 제품군",
+        "en_US": "Main Product Group",
+        "zh_CN": "主要产品组"
+      },
+      "description": "주 생산 제품군(CMN-00-MDM-004에서 추가)"
+    },
+    {
       "name": "MesLineCode__c",
       "type": "Text",
       "length": 20,

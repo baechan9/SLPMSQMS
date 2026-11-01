@@ -15,7 +15,9 @@
       "CMN_Operation__c",
       "CMN_Department__c",
       "standard-Account",
-      "CMN_Vehicle__c"
+      "CMN_Vehicle__c",
+      "CMN_ProductGroup__c",
+      "CMN_Item__c"
     ]
   }
 }

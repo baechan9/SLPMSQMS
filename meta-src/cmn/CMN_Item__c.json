@@ -1,0 +1,301 @@
+{
+  "wi": "CMN-00-MDM-004",
+  "object": "CMN_Item__c",
+  "package": "force-app-cmn",
+  "description": "품번(SAP 자재번호). 완제품~구매부품 한 체계. 부적합·인정시험·Re-PPAP·SPC 특성이 매달린다. BOM은 저장하지 않음(Snowflake CORE.SAP_BOM, BR-2)",
+  "label": {
+    "ko": "품번",
+    "en_US": "Item",
+    "zh_CN": "物料"
+  },
+  "plural": {
+    "ko": "품번",
+    "en_US": "Items",
+    "zh_CN": "物料"
+  },
+  "nameField": {
+    "label": {
+      "ko": "품명",
+      "en_US": "Item Name",
+      "zh_CN": "物料名称"
+    }
+  },
+  "sharingModel": "Read",
+  "enableHistory": true,
+  "tab": {
+    "motif": "Custom98: Puzzle"
+  },
+  "fields": [
+    {
+      "name": "ItemNo__c",
+      "type": "Text",
+      "length": 40,
+      "required": true,
+      "externalId": true,
+      "unique": true,
+      "label": {
+        "ko": "품번",
+        "en_US": "Item No.",
+        "zh_CN": "物料号"
+      },
+      "description": "SAP 자재번호. SAP 동기화 upsert 키(AC-1)"
+    },
+    {
+      "name": "ItemType__c",
+      "type": "Picklist",
+      "required": true,
+      "trackHistory": true,
+      "label": {
+        "ko": "품목 유형",
+        "en_US": "Item Type",
+        "zh_CN": "物料类型"
+      },
+      "values": [
+        {
+          "api": "FG",
+          "label": {
+            "ko": "완제품",
+            "en_US": "Finished Good",
+            "zh_CN": "成品"
+          }
+        },
+        {
+          "api": "SFG",
+          "label": {
+            "ko": "반제품",
+            "en_US": "Semi-finished Good",
+            "zh_CN": "半成品"
+          }
+        },
+        {
+          "api": "PART",
+          "label": {
+            "ko": "구매부품",
+            "en_US": "Purchased Part",
+            "zh_CN": "外购件"
+          }
+        },
+        {
+          "api": "RAW",
+          "label": {
+            "ko": "원재료",
+            "en_US": "Raw Material",
+            "zh_CN": "原材料"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ProductGroup__c",
+      "type": "Lookup",
+      "referenceTo": "CMN_ProductGroup__c",
+      "relationshipName": "Items",
+      "relationshipLabel": {
+        "ko": "품번",
+        "en_US": "Items",
+        "zh_CN": "物料"
+      },
+      "required": true,
+      "deleteConstraint": "Restrict",
+      "label": {
+        "ko": "제품군",
+        "en_US": "Product Group",
+        "zh_CN": "产品组"
+      }
+    },
+    {
+      "name": "Customer__c",
+      "type": "Lookup",
+      "referenceTo": "Account",
+      "relationshipName": "Items",
+      "relationshipLabel": {
+        "ko": "품번",
+        "en_US": "Items",
+        "zh_CN": "物料"
+      },
+      "label": {
+        "ko": "고객",
+        "en_US": "Customer",
+        "zh_CN": "客户"
+      },
+      "description": "FG만 필수(BR-1). 고객 레코드타입만(조회 필터 — 레코드타입 라벨 \"고객\"으로 비교)",
+      "lookupFilter": {
+        "errorMessage": "고객(CMN_Customer) 계정만 선택할 수 있습니다.",
+        "items": [
+          {
+            "field": "Account.RecordTypeId",
+            "operation": "equals",
+            "value": "고객"
+          }
+        ]
+      }
+    },
+    {
+      "name": "CustomerPartNo__c",
+      "type": "Text",
+      "length": 40,
+      "trackHistory": true,
+      "label": {
+        "ko": "고객 품번",
+        "en_US": "Customer Part No.",
+        "zh_CN": "客户零件号"
+      }
+    },
+    {
+      "name": "DrawingNo__c",
+      "type": "Text",
+      "length": 40,
+      "label": {
+        "ko": "도면 번호",
+        "en_US": "Drawing No.",
+        "zh_CN": "图号"
+      },
+      "description": "PDM 도면 번호"
+    },
+    {
+      "name": "DrawingRev__c",
+      "type": "Text",
+      "length": 10,
+      "trackHistory": true,
+      "label": {
+        "ko": "도면 리비전",
+        "en_US": "Drawing Rev.",
+        "zh_CN": "图纸版本"
+      },
+      "description": "PDM 도면 리비전"
+    },
+    {
+      "name": "PartCategory__c",
+      "type": "Picklist",
+      "label": {
+        "ko": "부품 분류",
+        "en_US": "Part Category",
+        "zh_CN": "零件分类"
+      },
+      "description": "LELE·수평전개 유사도 키",
+      "values": [
+        {
+          "api": "LENS",
+          "label": {
+            "ko": "렌즈",
+            "en_US": "Lens",
+            "zh_CN": "透镜"
+          }
+        },
+        {
+          "api": "HOUSING",
+          "label": {
+            "ko": "하우징",
+            "en_US": "Housing",
+            "zh_CN": "壳体"
+          }
+        },
+        {
+          "api": "LED_MODULE",
+          "label": {
+            "ko": "LED 모듈",
+            "en_US": "LED Module",
+            "zh_CN": "LED模组"
+          }
+        },
+        {
+          "api": "REFLECTOR",
+          "label": {
+            "ko": "리플렉터",
+            "en_US": "Reflector",
+            "zh_CN": "反射镜"
+          }
+        },
+        {
+          "api": "BEZEL",
+          "label": {
+            "ko": "베젤",
+            "en_US": "Bezel",
+            "zh_CN": "装饰框"
+          }
+        },
+        {
+          "api": "CONNECTOR",
+          "label": {
+            "ko": "커넥터",
+            "en_US": "Connector",
+            "zh_CN": "连接器"
+          }
+        },
+        {
+          "api": "PCB",
+          "label": {
+            "ko": "PCB",
+            "en_US": "PCB",
+            "zh_CN": "PCB"
+          }
+        },
+        {
+          "api": "ACTUATOR",
+          "label": {
+            "ko": "액추에이터",
+            "en_US": "Actuator",
+            "zh_CN": "执行器"
+          }
+        },
+        {
+          "api": "ETC",
+          "label": {
+            "ko": "기타",
+            "en_US": "Other",
+            "zh_CN": "其他"
+          }
+        }
+      ]
+    },
+    {
+      "name": "IsActive__c",
+      "type": "Checkbox",
+      "default": true,
+      "label": {
+        "ko": "사용",
+        "en_US": "Active",
+        "zh_CN": "有效"
+      },
+      "description": "삭제 대신 비활성화(기준정보)"
+    }
+  ],
+  "validationRules": [
+    {
+      "name": "CMN_Item_FgRequiresCustomer",
+      "field": "Customer__c",
+      "formula": "AND(ISPICKVAL(ItemType__c, 'FG'), ISBLANK(Customer__c))",
+      "description": "BR-1: 완제품은 고객 필수",
+      "message": {
+        "ko": "완제품(FG)은 고객이 필요합니다.",
+        "en_US": "A finished good (FG) requires a customer.",
+        "zh_CN": "成品(FG)需要客户。"
+      }
+    },
+    {
+      "name": "CMN_Item_ItemNoImmutable",
+      "field": "ItemNo__c",
+      "formula": "AND(ISCHANGED(ItemNo__c), NOT($Permission.CMN_DataMigration))",
+      "description": "품번은 SAP 키·연결 외부 키라 바꾸지 않는다(이관 모드 예외)",
+      "message": {
+        "ko": "코드는 만든 뒤 바꿀 수 없습니다(권한·채번·외부 연계의 키).",
+        "en_US": "The code cannot be changed after creation (key for access, numbering and integration).",
+        "zh_CN": "代码创建后不可修改(用于权限、编号和外部集成的键)。"
+      }
+    }
+  ],
+  "layout": {
+    "relatedLists": [
+      {
+        "object": "CMN_ItemPlant__c",
+        "field": "Item__c",
+        "fields": ["NAME", "ExternalKey__c", "Status__c"]
+      },
+      {
+        "object": "CMN_ItemVehicle__c",
+        "field": "Item__c",
+        "fields": ["NAME", "ExternalKey__c", "UsagePerVehicle__c"]
+      }
+    ]
+  }
+}

@@ -29,6 +29,18 @@
         <name>CMN_Customer_DuplicateVehicleCode</name>
     </customLabels>
     <customLabels>
+        <label>This item is already registered for the plant: {0}</label>
+        <name>CMN_Item_DuplicateItemPlant</name>
+    </customLabels>
+    <customLabels>
+        <label>This item is already linked to the vehicle: {0}</label>
+        <name>CMN_Item_DuplicateItemVehicle</name>
+    </customLabels>
+    <customLabels>
+        <label>A product group with sub-groups cannot be placed under another group (two levels at most).</label>
+        <name>CMN_Item_GroupHasChildren</name>
+    </customLabels>
+    <customLabels>
         <label>Master data cannot be deleted. Deactivate it by clearing Active.</label>
         <name>CMN_Master_DeleteNotAllowed</name>
     </customLabels>

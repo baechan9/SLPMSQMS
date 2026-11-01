@@ -67,7 +67,6 @@ public with sharing class CMN_PlantService {
       plantIds.add(l.Plant__c);
     }
     load(new Set<String>(), plantIds);
-    Map<String, SObject> byKey = new Map<String, SObject>();
     for (CMN_Line__c l : lines) {
       CMN_Plant__c p = BY_ID.get(l.Plant__c);
       if (p == null || String.isBlank(l.LineCode__c)) {
@@ -75,16 +74,11 @@ public with sharing class CMN_PlantService {
       }
       l.LineCode__c = l.LineCode__c.trim();
       l.ExternalKey__c = p.PlantCode__c + '-' + l.LineCode__c;
-      claim(
-        byKey,
-        l,
-        CMN_Line__c.LineCode__c,
-        Label.CMN_Site_DuplicateLineCode
-      );
     }
-    rejectExisting(
-      byKey,
-      CMN_PlantSelector.linesByExternalKey(byKey.keySet()),
+    CMN_KeyGuard.rejectDuplicates(
+      lines,
+      CMN_Line__c.ExternalKey__c,
+      CMN_Line__c.LineCode__c,
       CMN_Line__c.LineCode__c,
       Label.CMN_Site_DuplicateLineCode
     );
@@ -100,7 +94,6 @@ public with sharing class CMN_PlantService {
       lineIds.add(o.Line__c);
     }
     Map<Id, CMN_Line__c> lines = CMN_PlantSelector.linesById(lineIds);
-    Map<String, SObject> byKey = new Map<String, SObject>();
     for (CMN_Operation__c o : operations) {
       CMN_Line__c l = lines.get(o.Line__c);
       if (l == null || String.isBlank(o.OpCode__c)) {
@@ -108,16 +101,11 @@ public with sharing class CMN_PlantService {
       }
       o.OpCode__c = o.OpCode__c.trim();
       o.ExternalKey__c = l.ExternalKey__c + '-' + o.OpCode__c;
-      claim(
-        byKey,
-        o,
-        CMN_Operation__c.OpCode__c,
-        Label.CMN_Site_DuplicateOpCode
-      );
     }
-    rejectExisting(
-      byKey,
-      CMN_PlantSelector.operationsByExternalKey(byKey.keySet()),
+    CMN_KeyGuard.rejectDuplicates(
+      operations,
+      CMN_Operation__c.ExternalKey__c,
+      CMN_Operation__c.OpCode__c,
       CMN_Operation__c.OpCode__c,
       Label.CMN_Site_DuplicateOpCode
     );
@@ -196,37 +184,6 @@ public with sharing class CMN_PlantService {
     for (CMN_Plant__c p : CMN_PlantSelector.plants(missingCodes, missingIds)) {
       BY_CODE.put(p.PlantCode__c.toUpperCase(), p);
       BY_ID.put(p.Id, p);
-    }
-  }
-
-  /** 같은 저장 묶음 안의 중복 키를 찾는다. 키는 대소문자 무관(유일 필드가 대소문자를 구분하지 않음). */
-  private static void claim(
-    Map<String, SObject> byKey,
-    SObject record,
-    Schema.SObjectField codeField,
-    String message
-  ) {
-    String key = ((String) record.get('ExternalKey__c')).toUpperCase();
-    if (byKey.containsKey(key)) {
-      record.addError(codeField, format(message, record.get(codeField)));
-    } else {
-      byKey.put(key, record);
-    }
-  }
-
-  private static void rejectExisting(
-    Map<String, SObject> byKey,
-    List<SObject> existing,
-    Schema.SObjectField codeField,
-    String message
-  ) {
-    for (SObject e : existing) {
-      SObject incoming = byKey.get(
-        ((String) e.get('ExternalKey__c')).toUpperCase()
-      );
-      if (incoming != null && incoming.Id != e.Id) {
-        incoming.addError(codeField, format(message, incoming.get(codeField)));
-      }
     }
   }
 

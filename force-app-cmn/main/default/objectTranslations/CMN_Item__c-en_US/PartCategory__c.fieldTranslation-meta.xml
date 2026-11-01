@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label>Part Category</label>
+    <name>PartCategory__c</name>
+    <picklistValues>
+        <masterLabel>렌즈</masterLabel>
+        <translation>Lens</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>하우징</masterLabel>
+        <translation>Housing</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>LED 모듈</masterLabel>
+        <translation>LED Module</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>리플렉터</masterLabel>
+        <translation>Reflector</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>베젤</masterLabel>
+        <translation>Bezel</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>커넥터</masterLabel>
+        <translation>Connector</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>PCB</masterLabel>
+        <translation>PCB</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>액추에이터</masterLabel>
+        <translation>Actuator</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>기타</masterLabel>
+        <translation>Other</translation>
+    </picklistValues>
+</CustomFieldTranslation>

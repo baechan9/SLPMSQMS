@@ -1,0 +1,88 @@
+{
+  "wi": "CMN-00-MDM-004",
+  "object": "CMN_ItemVehicle__c",
+  "package": "force-app-cmn",
+  "description": "품번 × 차종(적용 차종). ExternalKey = {ItemNo}-{차종 외부 키}(트리거). 차량당 사용 수량은 Vol.5 B2B-003 요청",
+  "label": {
+    "ko": "적용 차종",
+    "en_US": "Item Vehicle",
+    "zh_CN": "适用车型"
+  },
+  "plural": {
+    "ko": "적용 차종",
+    "en_US": "Item Vehicles",
+    "zh_CN": "适用车型"
+  },
+  "nameField": {
+    "type": "AutoNumber",
+    "format": "IV-{0000000}",
+    "label": {
+      "ko": "연결 번호",
+      "en_US": "Link No.",
+      "zh_CN": "关联编号"
+    }
+  },
+  "sharingModel": "ControlledByParent",
+  "fields": [
+    {
+      "name": "Item__c",
+      "type": "MasterDetail",
+      "referenceTo": "CMN_Item__c",
+      "relationshipName": "ItemVehicles",
+      "relationshipLabel": {
+        "ko": "적용 차종",
+        "en_US": "Item Vehicles",
+        "zh_CN": "适用车型"
+      },
+      "label": {
+        "ko": "품번",
+        "en_US": "Item",
+        "zh_CN": "物料"
+      }
+    },
+    {
+      "name": "Vehicle__c",
+      "type": "MasterDetail",
+      "referenceTo": "CMN_Vehicle__c",
+      "relationshipName": "ItemVehicles",
+      "relationshipOrder": 1,
+      "relationshipLabel": {
+        "ko": "적용 품번",
+        "en_US": "Items",
+        "zh_CN": "适用物料"
+      },
+      "label": {
+        "ko": "차종",
+        "en_US": "Vehicle",
+        "zh_CN": "车型"
+      }
+    },
+    {
+      "name": "ExternalKey__c",
+      "type": "Text",
+      "length": 100,
+      "externalId": true,
+      "unique": true,
+      "serviceOnly": true,
+      "label": {
+        "ko": "외부 키",
+        "en_US": "External Key",
+        "zh_CN": "外部键"
+      },
+      "description": "{ItemNo}-{OemCode}-{VehicleCode}. 트리거가 설정(데모 보강)"
+    },
+    {
+      "name": "UsagePerVehicle__c",
+      "type": "Number",
+      "precision": 4,
+      "scale": 0,
+      "default": "1",
+      "label": {
+        "ko": "차량당 사용 수량",
+        "en_US": "Usage per Vehicle",
+        "zh_CN": "单车用量"
+      },
+      "description": "차량당 사용 수량, 기본 1(Vol.5 B2B-003 BR-1 요청)"
+    }
+  ]
+}

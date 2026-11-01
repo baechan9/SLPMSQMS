@@ -11,7 +11,8 @@
       "QMS_PS_Dashboard_AllPlants",
       "CMN_PS_Site_Read",
       "CMN_PS_Org_Read",
-      "CMN_PS_Customer_Read"
+      "CMN_PS_Customer_Read",
+      "CMN_PS_Item_Read"
     ]
   }
 }

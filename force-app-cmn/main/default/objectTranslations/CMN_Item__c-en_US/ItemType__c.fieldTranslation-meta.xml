@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label>Item Type</label>
+    <name>ItemType__c</name>
+    <picklistValues>
+        <masterLabel>완제품</masterLabel>
+        <translation>Finished Good</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>반제품</masterLabel>
+        <translation>Semi-finished Good</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>구매부품</masterLabel>
+        <translation>Purchased Part</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>원재료</masterLabel>
+        <translation>Raw Material</translation>
+    </picklistValues>
+</CustomFieldTranslation>

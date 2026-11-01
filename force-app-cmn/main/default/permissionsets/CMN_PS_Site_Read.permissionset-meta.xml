@@ -23,6 +23,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>CMN_Line__c.ProductGroup__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>CMN_Operation__c.ExternalKey__c</field>
         <readable>true</readable>
     </fieldPermissions>

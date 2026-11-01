@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_Item_DuplicateItemPlant</fullName>
+    <categories>CMN</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>같은 품번·공장 연결 중복. {0} = 외부 키</shortDescription>
+    <value>이미 등록된 공장별 품번입니다: {0}</value>
+</CustomLabel>

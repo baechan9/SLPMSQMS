@@ -88,7 +88,6 @@ public with sharing class CMN_CustomerService {
     Map<Id, Account> customers = new Map<Id, Account>(
       CMN_CustomerSelector.customers(customerIds)
     );
-    Map<String, CMN_Vehicle__c> byKey = new Map<String, CMN_Vehicle__c>();
     for (CMN_Vehicle__c v : vehicles) {
       Account c = customers.get(v.Customer__c);
       if (
@@ -100,29 +99,13 @@ public with sharing class CMN_CustomerService {
       }
       v.VehicleCode__c = v.VehicleCode__c.trim();
       v.ExternalKey__c = c.OemCode__c + '-' + v.VehicleCode__c;
-      String key = v.ExternalKey__c.toUpperCase();
-      if (byKey.containsKey(key)) {
-        v.addError(CMN_Vehicle__c.VehicleCode__c, duplicate(v));
-      } else {
-        byKey.put(key, v);
-      }
     }
-    for (
-      CMN_Vehicle__c e : CMN_CustomerSelector.vehiclesByExternalKey(
-        byKey.keySet()
-      )
-    ) {
-      CMN_Vehicle__c incoming = byKey.get(e.ExternalKey__c.toUpperCase());
-      if (incoming != null && incoming.Id != e.Id) {
-        incoming.addError(CMN_Vehicle__c.VehicleCode__c, duplicate(incoming));
-      }
-    }
-  }
-
-  private static String duplicate(CMN_Vehicle__c v) {
-    return String.format(
-      Label.CMN_Customer_DuplicateVehicleCode,
-      new List<Object>{ v.VehicleCode__c }
+    CMN_KeyGuard.rejectDuplicates(
+      vehicles,
+      CMN_Vehicle__c.ExternalKey__c,
+      CMN_Vehicle__c.VehicleCode__c,
+      CMN_Vehicle__c.VehicleCode__c,
+      Label.CMN_Customer_DuplicateVehicleCode
     );
   }
 }

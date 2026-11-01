@@ -1,0 +1,19 @@
+{
+  "permissionSet": {
+    "wi": "CMN-00-MDM-004",
+    "name": "CMN_PS_Item_Admin",
+    "package": "force-app-cmn",
+    "label": "CMN Item Admin",
+    "description": "제품군·품번·연결 관리(Modify All, 제품군·품번·공장별 품번 삭제는 트리거가 막음)와 탭(CMN-00-MDM-004). 품질경영·IT 운영 연결 객체가 공장·차종 주종 하위라 법인·공장·차종 읽기를 함께 준다(권한 종속)",
+    "objects": {
+      "CMN_ProductGroup__c": "admin",
+      "CMN_Item__c": "admin",
+      "CMN_ItemPlant__c": "admin",
+      "CMN_ItemVehicle__c": "admin",
+      "CMN_Company__c": "read",
+      "CMN_Plant__c": "read",
+      "CMN_Vehicle__c": "read"
+    },
+    "tabs": ["CMN_ProductGroup__c", "CMN_Item__c"]
+  }
+}

@@ -5,6 +5,7 @@
     <label>QMS 협력사 품질(SQE)</label>
     <permissionSets>CMN_PS_AppQms_Read</permissionSets>
     <permissionSets>CMN_PS_Customer_Read</permissionSets>
+    <permissionSets>CMN_PS_Item_Read</permissionSets>
     <permissionSets>CMN_PS_Org_Read</permissionSets>
     <permissionSets>CMN_PS_Site_Read</permissionSets>
     <status>Updated</status>
