@@ -2062,7 +2062,7 @@ class Gen:
                  [(1, 'APPROVE', 'E1111', 'APPROVED', D('2026-02-26'), 'SQ_MANAGER'), (2, 'APPROVE', 'E1101', 'APPROVED', D('2026-02-27'), 'QUALITY_MANAGER')],
                  D('2026-02-25'), D('2026-02-27'))
         # 무검사 결재 대상은 수준 변경 기록(ExternalKey) — TargetRecordId를 바로잡는다
-        lc_key = 'LC-V10007-P-ACT-01-KR01-20260302'
+        lc_key = f"LC-V10007-P-ACT-01-KR01-{D('2026-03-02').strftime('%Y%m%d')}"
         f_ar['rows'][-1].update({'TargetRecordId__c': ref('QMS_IqcLevelChange__c', 'ExternalKey__c', lc_key), 'TargetRecordNo__c': lc_key})
         # 진행 중 8D → 리더 To-Do
         for row in self.f_8d['rows']:
