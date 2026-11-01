@@ -1,0 +1,129 @@
+{
+  "queryKey": "QMS_SPC_CAPABILITY_STUDY",
+  "mode": "QUERY",
+  "version": 1,
+  "params": {
+    "itemId": "S-LENS-BE1",
+    "fromDate": "2026-11-21",
+    "toDate": "2026-11-30",
+    "plantCodes": [
+      "KR01"
+    ]
+  },
+  "columns": [
+    {
+      "name": "planId",
+      "type": "STRING",
+      "unit": null
+    },
+    {
+      "name": "planNo",
+      "type": "STRING",
+      "unit": null
+    },
+    {
+      "name": "characteristicId",
+      "type": "STRING",
+      "unit": null
+    },
+    {
+      "name": "charNo",
+      "type": "STRING",
+      "unit": null
+    },
+    {
+      "name": "specialClass",
+      "type": "STRING",
+      "unit": null
+    },
+    {
+      "name": "lineCode",
+      "type": "STRING",
+      "unit": null
+    },
+    {
+      "name": "n",
+      "type": "INTEGER",
+      "unit": null
+    },
+    {
+      "name": "mean",
+      "type": "NUMBER",
+      "unit": "mm"
+    },
+    {
+      "name": "sigmaWithin",
+      "type": "NUMBER",
+      "unit": "mm"
+    },
+    {
+      "name": "sigmaOverall",
+      "type": "NUMBER",
+      "unit": "mm"
+    },
+    {
+      "name": "cp",
+      "type": "NUMBER",
+      "unit": null
+    },
+    {
+      "name": "cpk",
+      "type": "NUMBER",
+      "unit": null
+    },
+    {
+      "name": "pp",
+      "type": "NUMBER",
+      "unit": null
+    },
+    {
+      "name": "ppk",
+      "type": "NUMBER",
+      "unit": null
+    },
+    {
+      "name": "isStable",
+      "type": "BOOLEAN",
+      "unit": null
+    },
+    {
+      "name": "flags",
+      "type": "STRING",
+      "unit": null
+    }
+  ],
+  "rows": [
+    [
+      "SPC-KR01-00001",
+      "SPC-KR01-00001",
+      "S-LENS-BE1-C10-20250301",
+      "C10",
+      "SC",
+      "L02",
+      1200,
+      3.02047417,
+      0.02040067,
+      0.02381443,
+      1.633933,
+      1.299399,
+      1.399712,
+      1.113132,
+      false,
+      null
+    ]
+  ],
+  "rowCount": 1,
+  "truncated": false,
+  "asOf": "2026-11-30T14:16:00Z",
+  "stale": false,
+  "scopeNote": "KR01",
+  "generatedAt": "2026-12-01T00:00:03Z",
+  "durationMs": 840,
+  "calcVersion": null,
+  "warnings": [],
+  "errorCode": null,
+  "errorMessage": null,
+  "result": null,
+  "cacheHit": false,
+  "requestId": "demo-a6250ba5a88b"
+}

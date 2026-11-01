@@ -1,0 +1,31 @@
+{
+  "Username": "e2101.{orgAlias}@slqms.demo",
+  "LastName": "王",
+  "FirstName": "磊",
+  "Email": "e2101@slqms.example.com",
+  "Alias": "e2101",
+  "CommunityNickname": "e2101.demo",
+  "TimeZoneSidKey": "Asia/Shanghai",
+  "LocaleSidKey": "zh_CN",
+  "LanguageLocaleKey": "zh_CN",
+  "EmailEncodingKey": "UTF-8",
+  "profileName": "Standard User",
+  "FederationIdentifier": "E2101",
+  "EmployeeNo__c": "E2101",
+  "_demo": {
+    "priority": 30,
+    "create": false,
+    "mapToAdmin": false,
+    "permissionSetGroups": [
+      "QMS_PSG_QualityManager"
+    ],
+    "approvalRoles": [
+      "QUALITY_MANAGER@CN01",
+      "SQ_MANAGER@CN01"
+    ],
+    "nameKo": "王磊",
+    "nameEn": "Wang Lei",
+    "dept": "D4100",
+    "plant": "CN01"
+  }
+}

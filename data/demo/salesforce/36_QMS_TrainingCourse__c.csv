@@ -1,0 +1,13 @@
+CourseCode__c,Name,Category__c,DeliveryType__c,DurationHours__c,HasExam__c,PassScore__c,MinAttendancePct__c,Objectives__c,RefreshMonths__c,Languages__c,OwnerDept__r.DeptCode__c,Version__c,Status__c
+TRN-IQC-01,수입검사 기본,INSPECTOR,CLASSROOM,8,true,70,90,수입검사 기본 업무 수행에 필요한 기준과 판정 방법을 익힌다.,24,ko;en_US,D3100,1,ACTIVE
+TRN-EOL-01,EOL 검사·광축 판정,INSPECTOR,OJT,16,true,70,90,EOL 검사·광축 판정 업무 수행에 필요한 기준과 판정 방법을 익힌다.,24,ko;en_US,D3100,1,ACTIVE
+TRN-VIS-01,외관 판정·한도견본,INSPECTOR,CLASSROOM,4,true,70,90,외관 판정·한도견본 업무 수행에 필요한 기준과 판정 방법을 익힌다.,24,ko;en_US,D3100,1,ACTIVE
+TRN-SPC-01,SPC 기초,CORE_TOOLS,CLASSROOM,8,true,70,90,SPC 기초 업무 수행에 필요한 기준과 판정 방법을 익힌다.,24,ko;en_US,D3100,1,ACTIVE
+TRN-MSA-01,MSA 실무,CORE_TOOLS,CLASSROOM,8,true,70,90,MSA 실무 업무 수행에 필요한 기준과 판정 방법을 익힌다.,24,ko;en_US,D3100,1,ACTIVE
+TRN-8D-01,8D 문제 해결,PROBLEM_SOLVING,CLASSROOM,8,true,70,90,8D 문제 해결 업무 수행에 필요한 기준과 판정 방법을 익힌다.,24,ko;en_US,D3100,1,ACTIVE
+TRN-FMEA-01,AIAG-VDA FMEA 이해,CORE_TOOLS,CLASSROOM,16,true,70,90,AIAG-VDA FMEA 이해 업무 수행에 필요한 기준과 판정 방법을 익힌다.,24,ko;en_US,D3100,1,ACTIVE
+TRN-IATF-01,IATF 16949 내부심사원,AUDITOR,CLASSROOM,24,true,70,90,IATF 16949 내부심사원 업무 수행에 필요한 기준과 판정 방법을 익힌다.,24,ko;en_US,D3100,1,ACTIVE
+TRN-VDA-01,VDA 6.3 공정 심사,AUDITOR,EXTERNAL_COURSE,40,true,70,90,VDA 6.3 공정 심사 업무 수행에 필요한 기준과 판정 방법을 익힌다.,24,ko;en_US,D3100,1,ACTIVE
+TRN-SUP-01,협력사 심사 실무,AUDITOR,CLASSROOM,8,true,70,90,협력사 심사 실무 업무 수행에 필요한 기준과 판정 방법을 익힌다.,24,ko;en_US,D3100,1,ACTIVE
+TRN-CAL-01,측정기 교정 실무,CALIBRATION,OJT,8,true,70,90,측정기 교정 실무 업무 수행에 필요한 기준과 판정 방법을 익힌다.,24,ko;en_US,D3100,1,ACTIVE
+TRN-ESD-01,ESD 관리,PRODUCT_SAFETY,ELEARNING_EXTERNAL,2,false,70,90,ESD 관리 업무 수행에 필요한 기준과 판정 방법을 익힌다.,24,ko;en_US,D3100,1,ACTIVE

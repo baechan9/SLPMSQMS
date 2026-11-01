@@ -1,0 +1,162 @@
+{
+  "_meta": {
+    "dto": "QMS_IqcQueueDTO",
+    "definition": "제안 DTO(WI 미정의 — 변경 요청)",
+    "scenario": "S9",
+    "asOf": "2026-12-01",
+    "generator": "gen_salesforce.py",
+    "note": null
+  },
+  "plantCode": "KR01",
+  "asOf": "2026-11-30T23:00:00Z",
+  "counts": {
+    "pending": 8,
+    "overdue": 0,
+    "fullInspection": 1
+  },
+  "rows": [
+    {
+      "lotId": "a0H2A826999A560AAA",
+      "recordNo": "IQC-KR01-2026-000936",
+      "externalKey": "KR01-2026-5011301352-0001",
+      "itemNo": "P-LENS-HE1",
+      "itemName": "HE1 아우터 렌즈",
+      "vendorNo": "V10001",
+      "vendorName": "알파광학(데모)",
+      "grDate": "2026-11-30",
+      "grQty": 500,
+      "inspectionLevel": "TIGHTENED",
+      "fullInspection": true,
+      "coaStatus": "MATCHED",
+      "holds": [
+        "STABILIZATION"
+      ],
+      "is4mFirstLot": false,
+      "dueAt": "2026-12-01T00:00:00Z"
+    },
+    {
+      "lotId": "a0H937544854E74AAA",
+      "recordNo": "IQC-KR01-2026-000937",
+      "externalKey": "KR01-2026-5011301353-0001",
+      "itemNo": "P-HSG-HE1",
+      "itemName": "HE1 하우징",
+      "vendorNo": "V10002",
+      "vendorName": "베타폴리텍(데모)",
+      "grDate": "2026-11-30",
+      "grQty": 300,
+      "inspectionLevel": "TIGHTENED",
+      "fullInspection": false,
+      "coaStatus": "MATCHED",
+      "holds": [
+        "NCR",
+        "NCR"
+      ],
+      "is4mFirstLot": false,
+      "dueAt": "2026-12-01T00:00:00Z"
+    },
+    {
+      "lotId": "a0HB5D16B2D65D7AAA",
+      "recordNo": "IQC-KR01-2026-000938",
+      "externalKey": "KR01-2026-5011301354-0001",
+      "itemNo": "P-HSG-BE1",
+      "itemName": "BE1 하우징",
+      "vendorNo": "V10002",
+      "vendorName": "베타폴리텍(데모)",
+      "grDate": "2026-11-30",
+      "grQty": 300,
+      "inspectionLevel": "TIGHTENED",
+      "fullInspection": false,
+      "coaStatus": "MATCHED",
+      "holds": [
+        "NCR"
+      ],
+      "is4mFirstLot": false,
+      "dueAt": "2026-12-01T00:00:00Z"
+    },
+    {
+      "lotId": "a0H4E9F78EB1FA6AAA",
+      "recordNo": "IQC-KR01-2026-000939",
+      "externalKey": "KR01-2026-5011301355-0001",
+      "itemNo": "P-LED-HE1",
+      "itemName": "HE1 DRL·로빔 LED 모듈",
+      "vendorNo": "V10003",
+      "vendorName": "감마LED(데모)",
+      "grDate": "2026-11-30",
+      "grQty": 1000,
+      "inspectionLevel": "NORMAL",
+      "fullInspection": false,
+      "coaStatus": "MATCHED",
+      "holds": [],
+      "is4mFirstLot": false,
+      "dueAt": "2026-12-01T00:00:00Z"
+    },
+    {
+      "lotId": "a0H6E1A84D67091AAA",
+      "recordNo": "IQC-KR01-2026-000940",
+      "externalKey": "KR01-2026-5011301356-0001",
+      "itemNo": "P-CON-01",
+      "itemName": "12핀 방수 커넥터",
+      "vendorNo": "V10005",
+      "vendorName": "엡실론커넥터(데모)",
+      "grDate": "2026-11-30",
+      "grQty": 2000,
+      "inspectionLevel": "REDUCED",
+      "fullInspection": false,
+      "coaStatus": "MATCHED",
+      "holds": [],
+      "is4mFirstLot": false,
+      "dueAt": "2026-12-01T00:00:00Z"
+    },
+    {
+      "lotId": "a0H29263F804D6FAAA",
+      "recordNo": "IQC-KR01-2026-000941",
+      "externalKey": "KR01-2026-5011301357-0001",
+      "itemNo": "P-PCB-HE1",
+      "itemName": "HE1 드라이버 PCB",
+      "vendorNo": "V10006",
+      "vendorName": "제타PCB(데모)",
+      "grDate": "2026-11-30",
+      "grQty": 1000,
+      "inspectionLevel": "NORMAL",
+      "fullInspection": false,
+      "coaStatus": "NOT_REQUIRED",
+      "holds": [],
+      "is4mFirstLot": false,
+      "dueAt": "2026-12-01T00:00:00Z"
+    },
+    {
+      "lotId": "a0H377864BE9999AAA",
+      "recordNo": "IQC-KR01-2026-000942",
+      "externalKey": "KR01-2026-5011301358-0001",
+      "itemNo": "P-ACT-01",
+      "itemName": "레벨링 액추에이터",
+      "vendorNo": "V10007",
+      "vendorName": "에타모션(데모)",
+      "grDate": "2026-11-30",
+      "grQty": 500,
+      "inspectionLevel": "SKIP",
+      "fullInspection": false,
+      "coaStatus": "NOT_REQUIRED",
+      "holds": [],
+      "is4mFirstLot": false,
+      "dueAt": "2026-12-01T00:00:00Z"
+    },
+    {
+      "lotId": "a0H3011FBF5195AAAA",
+      "recordNo": "IQC-KR01-2026-000943",
+      "externalKey": "KR01-2026-5011301359-0001",
+      "itemNo": "R-PC-A01",
+      "itemName": "광학용 PC 레진 A등급",
+      "vendorNo": "V10008",
+      "vendorName": "세타소재(데모)",
+      "grDate": "2026-11-30",
+      "grQty": 2000,
+      "inspectionLevel": "REDUCED",
+      "fullInspection": false,
+      "coaStatus": "NOT_REQUIRED",
+      "holds": [],
+      "is4mFirstLot": false,
+      "dueAt": "2026-12-01T00:00:00Z"
+    }
+  ]
+}

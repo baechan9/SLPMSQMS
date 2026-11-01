@@ -1,0 +1,31 @@
+{
+  "Username": "e3102.{orgAlias}@slqms.demo",
+  "LastName": "Brooks",
+  "FirstName": "Emily",
+  "Email": "e3102@slqms.example.com",
+  "Alias": "e3102",
+  "CommunityNickname": "e3102.demo",
+  "TimeZoneSidKey": "America/Chicago",
+  "LocaleSidKey": "en_US",
+  "LanguageLocaleKey": "en_US",
+  "EmailEncodingKey": "UTF-8",
+  "profileName": "Standard User",
+  "FederationIdentifier": "E3102",
+  "EmployeeNo__c": "E3102",
+  "_demo": {
+    "priority": 33,
+    "create": false,
+    "mapToAdmin": false,
+    "permissionSetGroups": [
+      "QMS_PSG_QualityEngineer",
+      "QMS_PSG_SupplierQuality"
+    ],
+    "approvalRoles": [
+      "SUPPLIER_QUALITY@US01"
+    ],
+    "nameKo": "Emily Brooks",
+    "nameEn": "Emily Brooks",
+    "dept": "D5100",
+    "plant": "US01"
+  }
+}

@@ -1,0 +1,22 @@
+DeptCode__c,Name,Plant__r.PlantCode__c,IsActive__c
+D0000,SL(데모),,true
+D1000,품질본부,,true
+D1010,품질경영팀,,true
+D1020,고객품질팀,,true
+D1030,분석실,KR01,true
+D1100,KR01 품질팀,KR01,true
+D1110,KR01 협력사품질팀,KR01,true
+D1120,KR01 생산팀,KR01,true
+D1130,KR01 공장,KR01,true
+D1140,KR01 생산기술팀,KR01,true
+D1150,KR01 계측팀,KR01,true
+D1170,신뢰성팀,KR01,true
+D1175,광학팀,KR01,true
+D2000,연구개발본부,,true
+D2010,헤드램프 개발팀,,true
+D3000,구매팀,,true
+D3100,인재개발팀,,true
+D4100,CN01 품질팀,CN01,true
+D5100,US01 품질팀,US01,true
+D6100,PL01 품질팀,PL01,true
+D9000,IT운영팀,,true

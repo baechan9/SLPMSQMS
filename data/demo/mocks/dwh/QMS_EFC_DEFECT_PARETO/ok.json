@@ -1,0 +1,136 @@
+{
+  "queryKey": "QMS_EFC_DEFECT_PARETO",
+  "mode": "QUERY",
+  "version": 1,
+  "params": {
+    "plantCodes": [
+      "CN01",
+      "KR01",
+      "KR02",
+      "PL01",
+      "US01"
+    ],
+    "fromDate": "2026-06-01",
+    "toDate": "2026-11-30"
+  },
+  "columns": [
+    {
+      "name": "defectTypeCode",
+      "type": "STRING",
+      "unit": null
+    },
+    {
+      "name": "defectTypeName",
+      "type": "STRING",
+      "unit": null
+    },
+    {
+      "name": "qty",
+      "type": "NUMBER",
+      "unit": null
+    },
+    {
+      "name": "pct",
+      "type": "NUMBER",
+      "unit": "%"
+    },
+    {
+      "name": "cumulativePct",
+      "type": "NUMBER",
+      "unit": "%"
+    }
+  ],
+  "rows": [
+    [
+      "DEFECT_TYPE/SEALING/CONDENSATION/INNER_FOG",
+      "내부 김서림·결로",
+      1108,
+      32.1,
+      32.1
+    ],
+    [
+      "DEFECT_TYPE/FUNCTION/LIGHTING/DRL_FLICKER",
+      "DRL 점멸",
+      750,
+      21.73,
+      53.82
+    ],
+    [
+      "DEFECT_TYPE/DIMENSION/POSITION/FLATNESS",
+      "평면도",
+      433,
+      12.54,
+      66.37
+    ],
+    [
+      "DEFECT_TYPE/OPTICAL/AIMING/AIM_OUT",
+      "조준 이탈",
+      265,
+      7.68,
+      74.04
+    ],
+    [
+      "DEFECT_TYPE/APPEARANCE/SCRATCH/LENS_SCRATCH",
+      "렌즈 긁힘",
+      205,
+      5.94,
+      79.98
+    ],
+    [
+      "DEFECT_TYPE/SEALING/LEAK/LEAK_RATE",
+      "누설량 초과",
+      197,
+      5.71,
+      85.69
+    ],
+    [
+      "DEFECT_TYPE/APPEARANCE/FOREIGN/INNER_FOREIGN",
+      "램프 내부 이물",
+      178,
+      5.16,
+      90.85
+    ],
+    [
+      "DEFECT_TYPE/FUNCTION/LIGHTING/LED_OFF",
+      "LED 미점등",
+      120,
+      3.48,
+      94.32
+    ],
+    [
+      "DEFECT_TYPE/APPEARANCE/HAZE/LENS_HAZE",
+      "렌즈 헤이즈",
+      118,
+      3.42,
+      97.74
+    ],
+    [
+      "DEFECT_TYPE/ELECTRICAL/CONNECTOR/PIN_BENT",
+      "핀 변형",
+      56,
+      1.62,
+      99.36
+    ],
+    [
+      "DEFECT_TYPE/DIMENSION/THICKNESS/LENS_THICKNESS",
+      "렌즈 두께",
+      22,
+      0.64,
+      100.0
+    ]
+  ],
+  "rowCount": 11,
+  "truncated": false,
+  "asOf": "2026-11-30T14:55:00Z",
+  "stale": false,
+  "scopeNote": "ALL",
+  "generatedAt": "2026-12-01T00:00:03Z",
+  "durationMs": 840,
+  "calcVersion": null,
+  "warnings": [],
+  "errorCode": null,
+  "errorMessage": null,
+  "result": null,
+  "cacheHit": false,
+  "requestId": "demo-437e84584a81"
+}

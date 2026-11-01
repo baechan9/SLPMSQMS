@@ -1,0 +1,386 @@
+{
+  "plant": "CN01",
+  "line": "L01",
+  "item": "92101-KC1L",
+  "note": "S13. FPY = 1차 PASS 시리얼 / 시험 시리얼",
+  "monthly": {
+    "2026-10-01": {
+      "tested": 4050,
+      "fp": 3988,
+      "finalFail": 9,
+      "fpyPct": 98.469
+    },
+    "2026-11-01": {
+      "tested": 3750,
+      "fp": 3571,
+      "finalFail": 21,
+      "fpyPct": 95.227
+    }
+  },
+  "daily": {
+    "2026-10-01": {
+      "tested": 150,
+      "fp": 146,
+      "finalFail": 0,
+      "scrapped": 0,
+      "fpyPct": 97.333
+    },
+    "2026-10-02": {
+      "tested": 150,
+      "fp": 150,
+      "finalFail": 0,
+      "scrapped": 0,
+      "fpyPct": 100.0
+    },
+    "2026-10-03": {
+      "tested": 150,
+      "fp": 148,
+      "finalFail": 0,
+      "scrapped": 0,
+      "fpyPct": 98.667
+    },
+    "2026-10-05": {
+      "tested": 150,
+      "fp": 149,
+      "finalFail": 0,
+      "scrapped": 0,
+      "fpyPct": 99.333
+    },
+    "2026-10-06": {
+      "tested": 150,
+      "fp": 147,
+      "finalFail": 1,
+      "scrapped": 1,
+      "fpyPct": 98.0
+    },
+    "2026-10-07": {
+      "tested": 150,
+      "fp": 148,
+      "finalFail": 0,
+      "scrapped": 0,
+      "fpyPct": 98.667
+    },
+    "2026-10-08": {
+      "tested": 150,
+      "fp": 144,
+      "finalFail": 0,
+      "scrapped": 0,
+      "fpyPct": 96.0
+    },
+    "2026-10-09": {
+      "tested": 150,
+      "fp": 149,
+      "finalFail": 1,
+      "scrapped": 1,
+      "fpyPct": 99.333
+    },
+    "2026-10-10": {
+      "tested": 150,
+      "fp": 150,
+      "finalFail": 0,
+      "scrapped": 0,
+      "fpyPct": 100.0
+    },
+    "2026-10-12": {
+      "tested": 150,
+      "fp": 149,
+      "finalFail": 1,
+      "scrapped": 1,
+      "fpyPct": 99.333
+    },
+    "2026-10-13": {
+      "tested": 150,
+      "fp": 150,
+      "finalFail": 0,
+      "scrapped": 0,
+      "fpyPct": 100.0
+    },
+    "2026-10-14": {
+      "tested": 150,
+      "fp": 148,
+      "finalFail": 0,
+      "scrapped": 0,
+      "fpyPct": 98.667
+    },
+    "2026-10-15": {
+      "tested": 150,
+      "fp": 149,
+      "finalFail": 1,
+      "scrapped": 1,
+      "fpyPct": 99.333
+    },
+    "2026-10-16": {
+      "tested": 150,
+      "fp": 149,
+      "finalFail": 0,
+      "scrapped": 0,
+      "fpyPct": 99.333
+    },
+    "2026-10-17": {
+      "tested": 150,
+      "fp": 148,
+      "finalFail": 1,
+      "scrapped": 1,
+      "fpyPct": 98.667
+    },
+    "2026-10-19": {
+      "tested": 150,
+      "fp": 147,
+      "finalFail": 1,
+      "scrapped": 1,
+      "fpyPct": 98.0
+    },
+    "2026-10-20": {
+      "tested": 150,
+      "fp": 147,
+      "finalFail": 0,
+      "scrapped": 0,
+      "fpyPct": 98.0
+    },
+    "2026-10-21": {
+      "tested": 150,
+      "fp": 149,
+      "finalFail": 0,
+      "scrapped": 0,
+      "fpyPct": 99.333
+    },
+    "2026-10-22": {
+      "tested": 150,
+      "fp": 144,
+      "finalFail": 1,
+      "scrapped": 1,
+      "fpyPct": 96.0
+    },
+    "2026-10-23": {
+      "tested": 150,
+      "fp": 144,
+      "finalFail": 1,
+      "scrapped": 1,
+      "fpyPct": 96.0
+    },
+    "2026-10-24": {
+      "tested": 150,
+      "fp": 148,
+      "finalFail": 0,
+      "scrapped": 0,
+      "fpyPct": 98.667
+    },
+    "2026-10-26": {
+      "tested": 150,
+      "fp": 148,
+      "finalFail": 0,
+      "scrapped": 0,
+      "fpyPct": 98.667
+    },
+    "2026-10-27": {
+      "tested": 150,
+      "fp": 148,
+      "finalFail": 0,
+      "scrapped": 0,
+      "fpyPct": 98.667
+    },
+    "2026-10-28": {
+      "tested": 150,
+      "fp": 149,
+      "finalFail": 0,
+      "scrapped": 0,
+      "fpyPct": 99.333
+    },
+    "2026-10-29": {
+      "tested": 150,
+      "fp": 147,
+      "finalFail": 1,
+      "scrapped": 1,
+      "fpyPct": 98.0
+    },
+    "2026-10-30": {
+      "tested": 150,
+      "fp": 150,
+      "finalFail": 0,
+      "scrapped": 0,
+      "fpyPct": 100.0
+    },
+    "2026-10-31": {
+      "tested": 150,
+      "fp": 143,
+      "finalFail": 0,
+      "scrapped": 0,
+      "fpyPct": 95.333
+    },
+    "2026-11-02": {
+      "tested": 150,
+      "fp": 146,
+      "finalFail": 0,
+      "scrapped": 0,
+      "fpyPct": 97.333
+    },
+    "2026-11-03": {
+      "tested": 150,
+      "fp": 143,
+      "finalFail": 0,
+      "scrapped": 0,
+      "fpyPct": 95.333
+    },
+    "2026-11-04": {
+      "tested": 150,
+      "fp": 141,
+      "finalFail": 2,
+      "scrapped": 2,
+      "fpyPct": 94.0
+    },
+    "2026-11-05": {
+      "tested": 150,
+      "fp": 141,
+      "finalFail": 1,
+      "scrapped": 1,
+      "fpyPct": 94.0
+    },
+    "2026-11-06": {
+      "tested": 150,
+      "fp": 147,
+      "finalFail": 0,
+      "scrapped": 0,
+      "fpyPct": 98.0
+    },
+    "2026-11-07": {
+      "tested": 150,
+      "fp": 136,
+      "finalFail": 1,
+      "scrapped": 1,
+      "fpyPct": 90.667
+    },
+    "2026-11-09": {
+      "tested": 150,
+      "fp": 148,
+      "finalFail": 0,
+      "scrapped": 0,
+      "fpyPct": 98.667
+    },
+    "2026-11-10": {
+      "tested": 150,
+      "fp": 144,
+      "finalFail": 1,
+      "scrapped": 1,
+      "fpyPct": 96.0
+    },
+    "2026-11-11": {
+      "tested": 150,
+      "fp": 140,
+      "finalFail": 0,
+      "scrapped": 0,
+      "fpyPct": 93.333
+    },
+    "2026-11-12": {
+      "tested": 150,
+      "fp": 142,
+      "finalFail": 2,
+      "scrapped": 2,
+      "fpyPct": 94.667
+    },
+    "2026-11-13": {
+      "tested": 150,
+      "fp": 143,
+      "finalFail": 2,
+      "scrapped": 2,
+      "fpyPct": 95.333
+    },
+    "2026-11-14": {
+      "tested": 150,
+      "fp": 143,
+      "finalFail": 1,
+      "scrapped": 1,
+      "fpyPct": 95.333
+    },
+    "2026-11-16": {
+      "tested": 150,
+      "fp": 142,
+      "finalFail": 0,
+      "scrapped": 0,
+      "fpyPct": 94.667
+    },
+    "2026-11-17": {
+      "tested": 150,
+      "fp": 142,
+      "finalFail": 1,
+      "scrapped": 1,
+      "fpyPct": 94.667
+    },
+    "2026-11-18": {
+      "tested": 150,
+      "fp": 140,
+      "finalFail": 1,
+      "scrapped": 1,
+      "fpyPct": 93.333
+    },
+    "2026-11-19": {
+      "tested": 150,
+      "fp": 144,
+      "finalFail": 1,
+      "scrapped": 1,
+      "fpyPct": 96.0
+    },
+    "2026-11-20": {
+      "tested": 150,
+      "fp": 144,
+      "finalFail": 0,
+      "scrapped": 0,
+      "fpyPct": 96.0
+    },
+    "2026-11-21": {
+      "tested": 150,
+      "fp": 142,
+      "finalFail": 1,
+      "scrapped": 1,
+      "fpyPct": 94.667
+    },
+    "2026-11-23": {
+      "tested": 150,
+      "fp": 144,
+      "finalFail": 0,
+      "scrapped": 0,
+      "fpyPct": 96.0
+    },
+    "2026-11-24": {
+      "tested": 150,
+      "fp": 145,
+      "finalFail": 0,
+      "scrapped": 0,
+      "fpyPct": 96.667
+    },
+    "2026-11-25": {
+      "tested": 150,
+      "fp": 141,
+      "finalFail": 3,
+      "scrapped": 3,
+      "fpyPct": 94.0
+    },
+    "2026-11-26": {
+      "tested": 150,
+      "fp": 145,
+      "finalFail": 2,
+      "scrapped": 2,
+      "fpyPct": 96.667
+    },
+    "2026-11-27": {
+      "tested": 150,
+      "fp": 143,
+      "finalFail": 0,
+      "scrapped": 0,
+      "fpyPct": 95.333
+    },
+    "2026-11-28": {
+      "tested": 150,
+      "fp": 140,
+      "finalFail": 2,
+      "scrapped": 2,
+      "fpyPct": 93.333
+    },
+    "2026-11-30": {
+      "tested": 150,
+      "fp": 145,
+      "finalFail": 0,
+      "scrapped": 0,
+      "fpyPct": 96.667
+    }
+  }
+}

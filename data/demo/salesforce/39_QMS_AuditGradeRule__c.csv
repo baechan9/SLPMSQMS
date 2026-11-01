@@ -1,0 +1,5 @@
+ExternalKey__c,Checklist__r.ChecklistCode__c,RuleType__c,Grade__c,MinPercent__c,MaxPercent__c,Condition__c,Threshold__c,AppliesToGrades__c,ResultGrade__c,Sequence__c,Description__c
+VDA63-SL-DEMO-V1-A,VDA63-SL-DEMO-V1,GRADE_BAND,A,90,100,,,,,1,[데모 가정] 90% 이상 A
+VDA63-SL-DEMO-V1-B,VDA63-SL-DEMO-V1,GRADE_BAND,B,80,89.99,,,,,2,[데모 가정] 80% 이상 90% 미만 B
+VDA63-SL-DEMO-V1-C,VDA63-SL-DEMO-V1,GRADE_BAND,C,0,79.99,,,,,3,[데모 가정] 80% 미만 C
+VDA63-SL-DEMO-V1-DG1,VDA63-SL-DEMO-V1,DOWNGRADE,,,,STAR_QUESTION_SCORE_LE,0,"A,B",C,4,[데모 가정] 별표 질문 0점이면 C

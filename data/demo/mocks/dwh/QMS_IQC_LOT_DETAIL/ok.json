@@ -1,0 +1,310 @@
+{
+  "queryKey": "QMS_IQC_LOT_DETAIL",
+  "mode": "QUERY",
+  "version": 1,
+  "params": {
+    "vendorNo": "V10002",
+    "itemNo": "P-HSG-BE1",
+    "fromDate": "2026-06-01",
+    "toDate": "2026-11-30",
+    "plantCodes": [
+      "KR01"
+    ]
+  },
+  "columns": [
+    {
+      "name": "lotNo",
+      "type": "STRING",
+      "unit": null
+    },
+    {
+      "name": "grDate",
+      "type": "DATE",
+      "unit": null
+    },
+    {
+      "name": "decision",
+      "type": "STRING",
+      "unit": null
+    },
+    {
+      "name": "inspectionLevel",
+      "type": "STRING",
+      "unit": null
+    },
+    {
+      "name": "coaStatus",
+      "type": "STRING",
+      "unit": null
+    },
+    {
+      "name": "ngCount",
+      "type": "INTEGER",
+      "unit": null
+    },
+    {
+      "name": "rejectQty",
+      "type": "NUMBER",
+      "unit": null
+    }
+  ],
+  "rows": [
+    [
+      "IQC-KR01-2026-000938",
+      "2026-11-30",
+      null,
+      "TIGHTENED",
+      "MATCHED",
+      null,
+      null
+    ],
+    [
+      "IQC-KR01-2026-000902",
+      "2026-11-23",
+      "ACCEPT",
+      "TIGHTENED",
+      "MATCHED",
+      0,
+      null
+    ],
+    [
+      "IQC-KR01-2026-000866",
+      "2026-11-16",
+      "ACCEPT",
+      "TIGHTENED",
+      "MATCHED",
+      0,
+      null
+    ],
+    [
+      "IQC-KR01-2026-000830",
+      "2026-11-09",
+      "REJECT",
+      "TIGHTENED",
+      "MATCHED",
+      1,
+      300.0
+    ],
+    [
+      "IQC-KR01-2026-000795",
+      "2026-11-02",
+      "ACCEPT",
+      "TIGHTENED",
+      "MATCHED",
+      0,
+      null
+    ],
+    [
+      "IQC-KR01-2026-000759",
+      "2026-10-26",
+      "ACCEPT",
+      "TIGHTENED",
+      "MATCHED",
+      0,
+      null
+    ],
+    [
+      "IQC-KR01-2026-000723",
+      "2026-10-19",
+      "REJECT",
+      "TIGHTENED",
+      "MATCHED",
+      1,
+      300.0
+    ],
+    [
+      "IQC-KR01-2026-000687",
+      "2026-10-12",
+      "ACCEPT",
+      "TIGHTENED",
+      "MATCHED",
+      0,
+      null
+    ],
+    [
+      "IQC-KR01-2026-000651",
+      "2026-10-05",
+      "REJECT",
+      "NORMAL",
+      "MATCHED",
+      1,
+      300.0
+    ],
+    [
+      "IQC-KR01-2026-000615",
+      "2026-09-28",
+      "ACCEPT",
+      "NORMAL",
+      "MATCHED",
+      0,
+      null
+    ],
+    [
+      "IQC-KR01-2026-000579",
+      "2026-09-21",
+      "ACCEPT",
+      "NORMAL",
+      "MATCHED",
+      0,
+      null
+    ],
+    [
+      "IQC-KR01-2026-000543",
+      "2026-09-14",
+      "ACCEPT",
+      "NORMAL",
+      "MATCHED",
+      0,
+      null
+    ],
+    [
+      "IQC-KR01-2026-000507",
+      "2026-09-07",
+      "ACCEPT",
+      "NORMAL",
+      "MATCHED",
+      0,
+      null
+    ],
+    [
+      "IQC-KR01-2026-000471",
+      "2026-08-31",
+      "ACCEPT",
+      "NORMAL",
+      "MATCHED",
+      0,
+      null
+    ],
+    [
+      "IQC-KR01-2026-000435",
+      "2026-08-24",
+      "ACCEPT",
+      "NORMAL",
+      "MATCHED",
+      0,
+      null
+    ],
+    [
+      "IQC-KR01-2026-000399",
+      "2026-08-17",
+      "ACCEPT",
+      "NORMAL",
+      "MATCHED",
+      0,
+      null
+    ],
+    [
+      "IQC-KR01-2026-000363",
+      "2026-08-10",
+      "ACCEPT",
+      "NORMAL",
+      "MATCHED",
+      0,
+      null
+    ],
+    [
+      "IQC-KR01-2026-000327",
+      "2026-08-03",
+      "ACCEPT",
+      "NORMAL",
+      "MATCHED",
+      0,
+      null
+    ],
+    [
+      "IQC-KR01-2026-000291",
+      "2026-07-27",
+      "ACCEPT",
+      "NORMAL",
+      "MATCHED",
+      0,
+      null
+    ],
+    [
+      "IQC-KR01-2026-000255",
+      "2026-07-20",
+      "ACCEPT",
+      "NORMAL",
+      "MATCHED",
+      0,
+      null
+    ],
+    [
+      "IQC-KR01-2026-000219",
+      "2026-07-13",
+      "ACCEPT",
+      "NORMAL",
+      "MATCHED",
+      0,
+      null
+    ],
+    [
+      "IQC-KR01-2026-000183",
+      "2026-07-06",
+      "ACCEPT",
+      "NORMAL",
+      "MATCHED",
+      0,
+      null
+    ],
+    [
+      "IQC-KR01-2026-000147",
+      "2026-06-29",
+      "ACCEPT",
+      "NORMAL",
+      "MATCHED",
+      0,
+      null
+    ],
+    [
+      "IQC-KR01-2026-000111",
+      "2026-06-22",
+      "ACCEPT",
+      "NORMAL",
+      "MATCHED",
+      0,
+      null
+    ],
+    [
+      "IQC-KR01-2026-000075",
+      "2026-06-15",
+      "ACCEPT",
+      "NORMAL",
+      "MATCHED",
+      0,
+      null
+    ],
+    [
+      "IQC-KR01-2026-000039",
+      "2026-06-08",
+      "ACCEPT",
+      "NORMAL",
+      "MATCHED",
+      0,
+      null
+    ],
+    [
+      "IQC-KR01-2026-000003",
+      "2026-06-01",
+      "ACCEPT",
+      "NORMAL",
+      "MATCHED",
+      0,
+      null
+    ]
+  ],
+  "rowCount": 27,
+  "truncated": false,
+  "asOf": "2026-11-30T14:55:00Z",
+  "stale": false,
+  "scopeNote": "KR01",
+  "generatedAt": "2026-12-01T00:00:03Z",
+  "durationMs": 840,
+  "calcVersion": null,
+  "warnings": [],
+  "errorCode": null,
+  "errorMessage": null,
+  "result": null,
+  "cacheHit": false,
+  "requestId": "demo-05d43c65d81a"
+}

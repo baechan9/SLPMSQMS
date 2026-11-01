@@ -1,0 +1,9 @@
+ItemCode__c,Name,NameEn__c,Category__c,MethodStandard__c,EquipmentTypeCodes__c,ResultType__c,Unit__c,StandardTatDays__c,Plant__r.PlantCode__c,IsExternal__c,RequiredQualTypeCode__c,Status__c
+LAB-XRAY-001,X-ray 솔더 보이드,X-ray solder void,STRUCTURE,SL-LAB-01(데모),XRAY,VALUE,%,2,KR01,false,LAB_ANALYST,ACTIVE
+LAB-XSEC-001,단면 관찰,Cross-section,STRUCTURE,SL-LAB-02(데모),MICROSCOPE,TEXT,,3,KR01,false,LAB_ANALYST,ACTIVE
+LAB-FTIR-001,FT-IR 성분 분석,FT-IR composition,COMPOSITION,SL-LAB-03(데모),FTIR,TEXT,,3,KR01,false,LAB_ANALYST,ACTIVE
+LAB-DSC-001,DSC 열분석,DSC thermal analysis,THERMAL,SL-LAB-04(데모),DSC,VALUE,℃,4,KR01,false,LAB_ANALYST,ACTIVE
+LAB-HARD-001,코팅 경도,Coating hardness,HARDNESS,SL-LAB-05(데모),HARDNESS,VALUE,H,1,KR01,false,LAB_ANALYST,ACTIVE
+LAB-MOIST-001,레진 수분,Resin moisture,COMPOSITION,SL-LAB-06(데모),MOISTURE,VALUE,%,1,KR01,false,LAB_ANALYST,ACTIVE
+LAB-HAZE-001,헤이즈 측정,Haze measurement,SURFACE,SL-LAB-07(데모),SPECTRO,VALUE,%,1,KR01,false,LAB_ANALYST,ACTIVE
+LAB-SEM-001,SEM 표면 관찰,SEM surface,STRUCTURE,SL-LAB-08(데모),SEM,TEXT,,5,KR01,false,LAB_ANALYST,ACTIVE

@@ -1,0 +1,31 @@
+{
+  "Username": "e3101.{orgAlias}@slqms.demo",
+  "LastName": "Turner",
+  "FirstName": "Michael",
+  "Email": "e3101@slqms.example.com",
+  "Alias": "e3101",
+  "CommunityNickname": "e3101.demo",
+  "TimeZoneSidKey": "America/Chicago",
+  "LocaleSidKey": "en_US",
+  "LanguageLocaleKey": "en_US",
+  "EmailEncodingKey": "UTF-8",
+  "profileName": "Standard User",
+  "FederationIdentifier": "E3101",
+  "EmployeeNo__c": "E3101",
+  "_demo": {
+    "priority": 32,
+    "create": false,
+    "mapToAdmin": false,
+    "permissionSetGroups": [
+      "QMS_PSG_QualityManager"
+    ],
+    "approvalRoles": [
+      "QUALITY_MANAGER@US01",
+      "SQ_MANAGER@US01"
+    ],
+    "nameKo": "Michael Turner",
+    "nameEn": "Michael Turner",
+    "dept": "D5100",
+    "plant": "US01"
+  }
+}

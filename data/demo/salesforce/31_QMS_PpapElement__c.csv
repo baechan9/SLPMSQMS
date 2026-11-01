@@ -1,0 +1,19 @@
+ElementCode__c,ElementSet__c,Sequence__c,Name,NameEn__c,DocClass__r.ExternalKey__c,InputType__c,Level1__c,Level2__c,Level3__c,Level4__c,Level5__c,Guidance__c,IsActive__c
+AIAG_PPAP4-01,AIAG_PPAP4,1,설계 기록,Design records,DOC_CLASS/PPAP/DESIGN_RECORD,DOCUMENT,R,S,S,S,R,[데모 가정] 레벨별 S/R 값은 매뉴얼 원문 검수 전 임시 값이다. 설계 기록 제출본이 최신 리비전인지 확인한다.,true
+AIAG_PPAP4-02,AIAG_PPAP4,2,승인된 설계 변경 문서,Engineering change documents,DOC_CLASS/PPAP/ENG_CHANGE,DOCUMENT,R,S,S,S,R,[데모 가정] 레벨별 S/R 값은 매뉴얼 원문 검수 전 임시 값이다. 승인된 설계 변경 문서 제출본이 최신 리비전인지 확인한다.,true
+AIAG_PPAP4-03,AIAG_PPAP4,3,고객 엔지니어링 승인,Customer engineering approval,DOC_CLASS/PPAP/CUST_ENG_APPROVAL,DOCUMENT,R,R,S,S,R,[데모 가정] 레벨별 S/R 값은 매뉴얼 원문 검수 전 임시 값이다. 고객 엔지니어링 승인 제출본이 최신 리비전인지 확인한다.,true
+AIAG_PPAP4-04,AIAG_PPAP4,4,설계 FMEA,Design FMEA,DOC_CLASS/PPAP/DFMEA,DOCUMENT,R,R,S,S,R,[데모 가정] 레벨별 S/R 값은 매뉴얼 원문 검수 전 임시 값이다. 설계 FMEA 제출본이 최신 리비전인지 확인한다.,true
+AIAG_PPAP4-05,AIAG_PPAP4,5,공정 흐름도,Process flow diagram,DOC_CLASS/PPAP/PROCESS_FLOW,DOCUMENT,R,R,S,S,R,[데모 가정] 레벨별 S/R 값은 매뉴얼 원문 검수 전 임시 값이다. 공정 흐름도 제출본이 최신 리비전인지 확인한다.,true
+AIAG_PPAP4-06,AIAG_PPAP4,6,공정 FMEA,Process FMEA,DOC_CLASS/PPAP/PFMEA,DOCUMENT,R,R,S,S,R,[데모 가정] 레벨별 S/R 값은 매뉴얼 원문 검수 전 임시 값이다. 공정 FMEA 제출본이 최신 리비전인지 확인한다.,true
+AIAG_PPAP4-07,AIAG_PPAP4,7,관리계획서,Control plan,DOC_CLASS/PPAP/CONTROL_PLAN,DOCUMENT,R,R,S,S,R,[데모 가정] 레벨별 S/R 값은 매뉴얼 원문 검수 전 임시 값이다. 관리계획서 제출본이 최신 리비전인지 확인한다.,true
+AIAG_PPAP4-08,AIAG_PPAP4,8,MSA 연구,MSA studies,DOC_CLASS/PPAP/MSA,DOCUMENT,R,R,S,S,R,[데모 가정] 레벨별 S/R 값은 매뉴얼 원문 검수 전 임시 값이다. MSA 연구 제출본이 최신 리비전인지 확인한다.,true
+AIAG_PPAP4-09,AIAG_PPAP4,9,치수 결과,Dimensional results,DOC_CLASS/PPAP/DIM_RESULT,DIMENSION,R,S,S,S,R,[데모 가정] 레벨별 S/R 값은 매뉴얼 원문 검수 전 임시 값이다. 치수 결과 제출본이 최신 리비전인지 확인한다.,true
+AIAG_PPAP4-10,AIAG_PPAP4,10,재료·성능 시험 결과,Material/performance test results,DOC_CLASS/PPAP/MAT_PERF_TEST,DOCUMENT,R,S,S,S,R,[데모 가정] 레벨별 S/R 값은 매뉴얼 원문 검수 전 임시 값이다. 재료·성능 시험 결과 제출본이 최신 리비전인지 확인한다.,true
+AIAG_PPAP4-11,AIAG_PPAP4,11,초기 공정 연구,Initial process studies,DOC_CLASS/PPAP/INITIAL_PROCESS_STUDY,CAPABILITY,R,S,S,S,R,[데모 가정] 레벨별 S/R 값은 매뉴얼 원문 검수 전 임시 값이다. 초기 공정 연구 제출본이 최신 리비전인지 확인한다.,true
+AIAG_PPAP4-12,AIAG_PPAP4,12,시험실 자격 문서,Qualified laboratory documentation,DOC_CLASS/PPAP/LAB_QUALIFICATION,DOCUMENT,R,R,S,S,R,[데모 가정] 레벨별 S/R 값은 매뉴얼 원문 검수 전 임시 값이다. 시험실 자격 문서 제출본이 최신 리비전인지 확인한다.,true
+AIAG_PPAP4-13,AIAG_PPAP4,13,외관 승인 보고서,Appearance approval report,DOC_CLASS/PPAP/AAR,DOCUMENT,S,S,S,S,R,[데모 가정] 레벨별 S/R 값은 매뉴얼 원문 검수 전 임시 값이다. 외관 승인 보고서 제출본이 최신 리비전인지 확인한다.,true
+AIAG_PPAP4-14,AIAG_PPAP4,14,샘플 제품,Sample production parts,DOC_CLASS/PPAP/SAMPLE_PRODUCT,CHECKLIST,R,R,R,R,R,[데모 가정] 레벨별 S/R 값은 매뉴얼 원문 검수 전 임시 값이다. 샘플 제품 제출본이 최신 리비전인지 확인한다.,true
+AIAG_PPAP4-15,AIAG_PPAP4,15,마스터 샘플,Master sample,DOC_CLASS/PPAP/MASTER_SAMPLE,CHECKLIST,R,R,R,R,R,[데모 가정] 레벨별 S/R 값은 매뉴얼 원문 검수 전 임시 값이다. 마스터 샘플 제출본이 최신 리비전인지 확인한다.,true
+AIAG_PPAP4-16,AIAG_PPAP4,16,검사 보조구,Checking aids,DOC_CLASS/PPAP/CHECKING_AIDS,DOCUMENT,R,R,R,R,R,[데모 가정] 레벨별 S/R 값은 매뉴얼 원문 검수 전 임시 값이다. 검사 보조구 제출본이 최신 리비전인지 확인한다.,true
+AIAG_PPAP4-17,AIAG_PPAP4,17,고객 특정 요구 적합 기록,Customer-specific requirements records,DOC_CLASS/PPAP/CSR_RECORD,DOCUMENT,R,R,S,C,R,[데모 가정] 레벨별 S/R 값은 매뉴얼 원문 검수 전 임시 값이다. 고객 특정 요구 적합 기록 제출본이 최신 리비전인지 확인한다.,true
+AIAG_PPAP4-18,AIAG_PPAP4,18,부품 제출 보증서,Part submission warrant,DOC_CLASS/PPAP/PSW,PSW,S,S,S,S,R,[데모 가정] 레벨별 S/R 값은 매뉴얼 원문 검수 전 임시 값이다. 부품 제출 보증서 제출본이 최신 리비전인지 확인한다.,true

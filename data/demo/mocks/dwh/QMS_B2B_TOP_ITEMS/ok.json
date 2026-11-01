@@ -1,0 +1,112 @@
+{
+  "queryKey": "QMS_B2B_TOP_ITEMS",
+  "mode": "QUERY",
+  "version": 1,
+  "params": {
+    "customerCodes": [],
+    "dataTypes": [
+      "LINE_0KM"
+    ],
+    "periodType": "MONTH",
+    "periodStart": "2026-11-01",
+    "plantCodes": [
+      "KR01",
+      "KR02",
+      "CN01",
+      "US01",
+      "PL01"
+    ]
+  },
+  "columns": [
+    {
+      "name": "itemNo",
+      "type": "STRING",
+      "unit": null
+    },
+    {
+      "name": "itemName",
+      "type": "STRING",
+      "unit": null
+    },
+    {
+      "name": "currentQty",
+      "type": "NUMBER",
+      "unit": null
+    },
+    {
+      "name": "previousQty",
+      "type": "NUMBER",
+      "unit": null
+    },
+    {
+      "name": "changePct",
+      "type": "NUMBER",
+      "unit": "%"
+    }
+  ],
+  "rows": [
+    [
+      "63117-BE1L",
+      "BE1 헤드램프 LH",
+      3,
+      2,
+      50.0
+    ],
+    [
+      "63117-BE1R",
+      "BE1 헤드램프 RH",
+      3,
+      2,
+      50.0
+    ],
+    [
+      "92101-HE1L",
+      "HE1 헤드램프 LH",
+      2,
+      1,
+      100.0
+    ],
+    [
+      "92101-HE2L",
+      "HE2 헤드램프 LH",
+      1,
+      2,
+      -50.0
+    ],
+    [
+      "92401-HE1L",
+      "HE1 리어램프 LH",
+      1,
+      1,
+      0.0
+    ],
+    [
+      "98140-SE1L",
+      "SE1 헤드램프 LH",
+      1,
+      0,
+      null
+    ],
+    [
+      "92101-KE1L",
+      "KE1 헤드램프 LH",
+      0,
+      2,
+      -100.0
+    ]
+  ],
+  "rowCount": 7,
+  "truncated": false,
+  "asOf": "2026-11-30T14:55:00Z",
+  "stale": false,
+  "scopeNote": "ALL",
+  "generatedAt": "2026-12-01T00:00:03Z",
+  "durationMs": 840,
+  "calcVersion": null,
+  "warnings": [],
+  "errorCode": null,
+  "errorMessage": null,
+  "result": null,
+  "cacheHit": false,
+  "requestId": "demo-fe85071437c0"
+}

@@ -1,0 +1,113 @@
+{
+  "queryKey": "QMS_SPC_LIMIT_PREVIEW",
+  "mode": "QUERY",
+  "version": 1,
+  "params": {
+    "planId": "S7-PLAN",
+    "planNo": "SPC-KR01-00001",
+    "fromTs": "2026-11-25T15:05:00Z",
+    "toTs": "2026-11-30T14:09:00Z",
+    "excludedSubgroups": "[]",
+    "plantCodes": [
+      "KR01"
+    ]
+  },
+  "columns": [
+    {
+      "name": "cl",
+      "type": "NUMBER",
+      "unit": "mm"
+    },
+    {
+      "name": "ucl",
+      "type": "NUMBER",
+      "unit": "mm"
+    },
+    {
+      "name": "lcl",
+      "type": "NUMBER",
+      "unit": "mm"
+    },
+    {
+      "name": "dispCl",
+      "type": "NUMBER",
+      "unit": "mm"
+    },
+    {
+      "name": "dispUcl",
+      "type": "NUMBER",
+      "unit": "mm"
+    },
+    {
+      "name": "dispLcl",
+      "type": "NUMBER",
+      "unit": "mm"
+    },
+    {
+      "name": "sigmaWithin",
+      "type": "NUMBER",
+      "unit": "mm"
+    },
+    {
+      "name": "subgroupCount",
+      "type": "INTEGER",
+      "unit": null
+    },
+    {
+      "name": "currentCl",
+      "type": "NUMBER",
+      "unit": "mm"
+    },
+    {
+      "name": "currentUcl",
+      "type": "NUMBER",
+      "unit": "mm"
+    },
+    {
+      "name": "currentLcl",
+      "type": "NUMBER",
+      "unit": "mm"
+    },
+    {
+      "name": "widthChangePct",
+      "type": "NUMBER",
+      "unit": "%"
+    },
+    {
+      "name": "cpkNew",
+      "type": "NUMBER",
+      "unit": null
+    }
+  ],
+  "rows": [
+    [
+      3.030815,
+      3.057514,
+      3.004116,
+      0.018706,
+      0.039077,
+      null,
+      0.01990045,
+      120,
+      2.999914,
+      3.027003,
+      2.972826,
+      -1.4375,
+      1.158851
+    ]
+  ],
+  "rowCount": 1,
+  "truncated": false,
+  "asOf": "2026-11-30T14:16:00Z",
+  "stale": false,
+  "scopeNote": "KR01",
+  "generatedAt": "2026-12-01T00:00:03Z",
+  "durationMs": 840,
+  "calcVersion": null,
+  "warnings": [],
+  "errorCode": null,
+  "errorMessage": null,
+  "result": null,
+  "cacheHit": false,
+  "requestId": "demo-8925d1227e32"
+}

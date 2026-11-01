@@ -1,0 +1,181 @@
+{
+  "queryKey": "QMS_SPC_PLAN_SUMMARY",
+  "mode": "QUERY",
+  "version": 1,
+  "params": {
+    "plantCode": "KR01",
+    "plantCodes": [
+      "KR01"
+    ]
+  },
+  "columns": [
+    {
+      "name": "planId",
+      "type": "STRING",
+      "unit": null
+    },
+    {
+      "name": "planNo",
+      "type": "STRING",
+      "unit": null
+    },
+    {
+      "name": "itemNo",
+      "type": "STRING",
+      "unit": null
+    },
+    {
+      "name": "charNo",
+      "type": "STRING",
+      "unit": null
+    },
+    {
+      "name": "charName",
+      "type": "STRING",
+      "unit": null
+    },
+    {
+      "name": "specialClass",
+      "type": "STRING",
+      "unit": null
+    },
+    {
+      "name": "lineCode",
+      "type": "STRING",
+      "unit": null
+    },
+    {
+      "name": "opCode",
+      "type": "STRING",
+      "unit": null
+    },
+    {
+      "name": "chartType",
+      "type": "STRING",
+      "unit": null
+    },
+    {
+      "name": "cpk",
+      "type": "NUMBER",
+      "unit": null
+    },
+    {
+      "name": "ppk",
+      "type": "NUMBER",
+      "unit": null
+    },
+    {
+      "name": "targetCpk",
+      "type": "NUMBER",
+      "unit": null
+    },
+    {
+      "name": "rag",
+      "type": "STRING",
+      "unit": null
+    },
+    {
+      "name": "openAlarms",
+      "type": "INTEGER",
+      "unit": null
+    },
+    {
+      "name": "dataGap",
+      "type": "BOOLEAN",
+      "unit": null
+    },
+    {
+      "name": "lastMeasuredAt",
+      "type": "DATETIME",
+      "unit": null
+    }
+  ],
+  "rows": [
+    [
+      "SPC-KR01-00002",
+      "SPC-KR01-00002",
+      "63117-BE1L",
+      "C40",
+      "실링 비드 폭",
+      "SC",
+      "L01",
+      "OP20",
+      "XBAR_S",
+      1.43883,
+      0.972113,
+      1.33,
+      "GREEN",
+      1,
+      false,
+      "2026-11-30T12:09:00Z"
+    ],
+    [
+      "SPC-KR01-00001",
+      "SPC-KR01-00001",
+      "S-LENS-BE1",
+      "C10",
+      "렌즈 두께(중앙)",
+      "SC",
+      "L02",
+      "OP10",
+      "XBAR_S",
+      1.514234,
+      1.302786,
+      1.33,
+      "GREEN",
+      1,
+      false,
+      "2026-11-30T14:09:00Z"
+    ],
+    [
+      "SPC-KR01-00003",
+      "SPC-KR01-00003",
+      "63117-BE1L",
+      "C30",
+      "기밀 누설량",
+      "SC",
+      "L01",
+      "OP40",
+      "XBAR_S",
+      2.295542,
+      2.310837,
+      1.33,
+      "GREEN",
+      0,
+      false,
+      "2026-11-30T12:09:00Z"
+    ],
+    [
+      "SPC-KR01-00004",
+      "SPC-KR01-00004",
+      "92101-HE1L",
+      "C20",
+      "조준 수직각",
+      "CC",
+      "L05",
+      "OP50",
+      "I_MR",
+      null,
+      null,
+      1.67,
+      "NONE",
+      0,
+      true,
+      null
+    ]
+  ],
+  "rowCount": 4,
+  "truncated": false,
+  "asOf": "2026-11-30T14:16:00Z",
+  "stale": false,
+  "scopeNote": "KR01",
+  "generatedAt": "2026-12-01T00:00:03Z",
+  "durationMs": 840,
+  "calcVersion": null,
+  "warnings": [],
+  "errorCode": null,
+  "errorMessage": null,
+  "result": null,
+  "cacheHit": false,
+  "requestId": "demo-59d821f24f9e"
+}

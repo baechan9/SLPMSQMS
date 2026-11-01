@@ -1,0 +1,30 @@
+{
+  "_meta": {
+    "dto": "QMS_EightDStatusDTO",
+    "definition": "WI 정의(QMS-05-CLM-001 getStatusBySource)",
+    "scenario": "S1",
+    "asOf": "2026-12-01",
+    "generator": "gen_salesforce.py",
+    "note": null
+  },
+  "eightDId": "a0E0F6A5269D0F9AAA",
+  "recordNo": "8D-KR01-2026-00034",
+  "status": "IN_PROGRESS",
+  "currentStep": "D4",
+  "stepStatus": {
+    "D1": "APPROVED",
+    "D2": "APPROVED",
+    "D3": "APPROVED",
+    "D4": "IN_PROGRESS",
+    "D5": "NOT_STARTED",
+    "D6": "NOT_STARTED",
+    "D7": "NOT_STARTED",
+    "D8": "NOT_STARTED"
+  },
+  "dueDate": "2026-12-14",
+  "isOverdue": false,
+  "occurrenceCauseCode": null,
+  "escapeCauseCode": null,
+  "effectivenessResult": "PENDING",
+  "closedAt": null
+}

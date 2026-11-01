@@ -1,0 +1,134 @@
+{
+  "S7": [
+    {
+      "PERIOD_START": "2026-11-21",
+      "PERIOD_END": "2026-11-30",
+      "N_VALUES": 1200,
+      "MEAN": 3.02047417,
+      "SIGMA_WITHIN": 0.02040067,
+      "CP": 1.633933,
+      "CPK": 1.299399,
+      "PP": 1.399712,
+      "PPK": 1.113132,
+      "FLAGS": null
+    }
+  ],
+  "S7_rolling_last": {
+    "PERIOD_START": "2026-11-01",
+    "PERIOD_END": "2026-11-30",
+    "CPK": 1.514234,
+    "PPK": 1.302786
+  },
+  "S7_firsts": {
+    "S7_firstR2AfterDrift": {
+      "subgroupNo": 4235,
+      "subgroupTs": "2026-11-24T01:09:00Z",
+      "value": 3.02
+    },
+    "S7_firstR1AfterDrift": {
+      "subgroupNo": 4192,
+      "subgroupTs": "2026-11-22T06:09:00Z",
+      "value": 3.0304
+    },
+    "S7_firstR2": {
+      "subgroupNo": 1506,
+      "subgroupTs": "2026-08-02T08:09:00Z",
+      "value": 3.0002
+    },
+    "S7_firstR1": {
+      "subgroupNo": 1682,
+      "subgroupTs": "2026-08-09T16:09:00Z",
+      "value": 3.0366
+    }
+  },
+  "MSA": {
+    "S8-MSA1": [
+      12.234649535518864,
+      11,
+      null,
+      "CONDITIONAL"
+    ],
+    "S8-MSA2": [
+      5.684113205795936,
+      24,
+      null,
+      "ACCEPTABLE"
+    ],
+    "S8-MSA3": [
+      null,
+      null,
+      0.8192771084337349,
+      "ACCEPTABLE"
+    ]
+  },
+  "EOL": {
+    "2026-10-01": 98.469,
+    "2026-11-01": 95.227
+  },
+  "MES_top": [
+    [
+      "DEFECT_TYPE/SEALING/CONDENSATION/INNER_FOG",
+      1108
+    ],
+    [
+      "DEFECT_TYPE/FUNCTION/LIGHTING/DRL_FLICKER",
+      750
+    ],
+    [
+      "DEFECT_TYPE/DIMENSION/POSITION/FLATNESS",
+      433
+    ],
+    [
+      "DEFECT_TYPE/OPTICAL/AIMING/AIM_OUT",
+      265
+    ],
+    [
+      "DEFECT_TYPE/APPEARANCE/SCRATCH/LENS_SCRATCH",
+      205
+    ]
+  ],
+  "BMW_BE1L_ppm_last4": [
+    [
+      "2026-08-01",
+      0.0
+    ],
+    [
+      "2026-09-01",
+      61.881
+    ],
+    [
+      "2026-10-01",
+      124.603
+    ],
+    [
+      "2026-11-01",
+      185.759
+    ]
+  ],
+  "b2b_alerts": [
+    [
+      "DEMO-0KM-CONSEC3",
+      "2026-11-01",
+      185.759
+    ],
+    [
+      "DEMO-FIELD-MIS3",
+      "2026-07-01",
+      1.3979
+    ],
+    [
+      "DEMO-FIELD-MIS3",
+      "2026-08-01",
+      2.1127
+    ]
+  ],
+  "derived": [
+    "CORE.INSPECTION_RESULT",
+    "CORE.NCR_DEFECT",
+    "CORE.FOURM_CHANGE"
+  ],
+  "notes": [
+    "SPC-CN01-00001 알람 SignalsJson 798건이 120,000자를 넘어 앞부분만 저장",
+    "협력사 로트를 Salesforce 수입검사 CSV에서 1359건 사용"
+  ]
+}

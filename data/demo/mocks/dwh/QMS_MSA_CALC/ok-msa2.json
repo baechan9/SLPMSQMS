@@ -1,0 +1,696 @@
+{
+  "queryKey": "QMS_MSA_CALC",
+  "mode": "PROCEDURE",
+  "version": 1,
+  "params": {
+    "studyId": "S8-MSA2",
+    "studyNo": "MSA-KR01-2026-00008",
+    "studyType": "GRR_ANOVA"
+  },
+  "columns": [],
+  "rows": [],
+  "rowCount": 0,
+  "truncated": false,
+  "asOf": null,
+  "stale": false,
+  "scopeNote": null,
+  "generatedAt": "2026-12-01T00:00:03Z",
+  "durationMs": 840,
+  "calcVersion": "msa-1.0.0-demo",
+  "warnings": [],
+  "errorCode": null,
+  "errorMessage": null,
+  "result": {
+    "engineVersion": "msa-1.0.0-demo",
+    "studyId": "MSA-KR01-2026-00008",
+    "studyNo": "MSA-KR01-2026-00008",
+    "studyType": "GRR_ANOVA",
+    "calcSeq": 1,
+    "status": "OK",
+    "errorCode": null,
+    "metrics": {
+      "ev": 0.004779876799899994,
+      "av": 0.0025379070554735106,
+      "interaction": 0.0,
+      "grr": 0.005411856838871889,
+      "pv": 0.09505629017834188,
+      "tv": 0.09521022264921757,
+      "pctGrrStudyVar": 5.684113205795936,
+      "pctGrrTolerance": 8.117785258307833,
+      "pctGrrProcess": null,
+      "ndc": 24,
+      "interactionPValue": 0.5392087813188917,
+      "interactionPooled": true,
+      "rangeOutOfControlCount": 1
+    },
+    "verdict": {
+      "value": "ACCEPTABLE",
+      "basis": "WORST",
+      "reason": "%GRR(WORST) 8.12 < 10.0"
+    },
+    "anovaTable": [
+      {
+        "source": "PART",
+        "df": 9,
+        "ss": 0.4881333333333333,
+        "ms": 0.054237037037037035,
+        "f": 2373.900709219859,
+        "p": 2.0439776031901435e-60
+      },
+      {
+        "source": "APPRAISER",
+        "df": 2,
+        "ss": 0.00030333333333333335,
+        "ms": 0.00015166666666666668,
+        "f": 6.638297872340429,
+        "p": 0.0028491714328418676
+      },
+      {
+        "source": "REPEATABILITY",
+        "df": 48,
+        "ss": 0.0010966666666666661,
+        "ms": 2.284722222222221e-05,
+        "f": null,
+        "p": null
+      },
+      {
+        "source": "TOTAL",
+        "df": 59,
+        "ss": 0.4895333333333332,
+        "ms": null,
+        "f": null,
+        "p": null
+      }
+    ],
+    "anovaTableFull": [
+      {
+        "source": "PART",
+        "df": 9,
+        "ss": 0.4881333333333333,
+        "ms": 0.054237037037037035,
+        "f": 2461.1764705882365,
+        "p": 6.200482838136904e-26
+      },
+      {
+        "source": "APPRAISER",
+        "df": 2,
+        "ss": 0.00030333333333333335,
+        "ms": 0.00015166666666666668,
+        "f": 6.882352941176475,
+        "p": 0.006024888304475923
+      },
+      {
+        "source": "PART_X_APPRAISER",
+        "df": 18,
+        "ss": 0.0003966666666666664,
+        "ms": 2.2037037037037024e-05,
+        "f": 0.9444444444444442,
+        "p": 0.5392087813188917
+      },
+      {
+        "source": "REPEATABILITY",
+        "df": 30,
+        "ss": 0.0006999999999999998,
+        "ms": 2.3333333333333326e-05,
+        "f": null,
+        "p": null
+      },
+      {
+        "source": "TOTAL",
+        "df": 59,
+        "ss": 0.4895333333333332,
+        "ms": null,
+        "f": null,
+        "p": null
+      }
+    ],
+    "varianceComponents": [
+      {
+        "source": "REPEATABILITY",
+        "variance": 2.284722222222221e-05,
+        "pctContribution": 0.2520381274699213,
+        "stdDev": 0.004779876799899994,
+        "studyVar": 0.028679260799399964,
+        "pctStudyVar": 5.020339903531646,
+        "pctTolerance": 7.1698151998499915
+      },
+      {
+        "source": "REPRODUCIBILITY",
+        "variance": 6.440972222222224e-06,
+        "pctContribution": 0.07105330189311618,
+        "stdDev": 0.0025379070554735106,
+        "studyVar": 0.015227442332841064,
+        "pctStudyVar": 2.6655825234480397,
+        "pctTolerance": 3.8068605832102658
+      },
+      {
+        "source": "APPRAISER",
+        "variance": 6.440972222222224e-06,
+        "pctContribution": 0.07105330189311618,
+        "stdDev": 0.0025379070554735106,
+        "studyVar": 0.015227442332841064,
+        "pctStudyVar": 2.6655825234480397,
+        "pctTolerance": 3.8068605832102658
+      },
+      {
+        "source": "PART_X_APPRAISER",
+        "variance": 0.0,
+        "pctContribution": 0.0,
+        "stdDev": 0.0,
+        "studyVar": 0.0,
+        "pctStudyVar": 0.0,
+        "pctTolerance": 0.0
+      },
+      {
+        "source": "TOTAL_GRR",
+        "variance": 2.9288194444444437e-05,
+        "pctContribution": 0.32309142936303753,
+        "stdDev": 0.005411856838871889,
+        "studyVar": 0.032471141033231336,
+        "pctStudyVar": 5.684113205795936,
+        "pctTolerance": 8.117785258307833
+      },
+      {
+        "source": "PART_TO_PART",
+        "variance": 0.009035698302469137,
+        "pctContribution": 99.67690857063695,
+        "stdDev": 0.09505629017834188,
+        "studyVar": 0.5703377410700513,
+        "pctStudyVar": 99.83832358900912,
+        "pctTolerance": 142.58443526751282
+      },
+      {
+        "source": "TOTAL",
+        "variance": 0.009064986496913582,
+        "pctContribution": 100.0,
+        "stdDev": 0.09521022264921757,
+        "studyVar": 0.5712613358953054,
+        "pctStudyVar": 100.0,
+        "pctTolerance": 142.81533397382634
+      }
+    ],
+    "chartData": {
+      "components": [
+        {
+          "source": "REPEATABILITY",
+          "pctContribution": 0.2520381274699213,
+          "pctStudyVar": 5.020339903531646,
+          "pctTolerance": 7.1698151998499915
+        },
+        {
+          "source": "REPRODUCIBILITY",
+          "pctContribution": 0.07105330189311618,
+          "pctStudyVar": 2.6655825234480397,
+          "pctTolerance": 3.8068605832102658
+        },
+        {
+          "source": "TOTAL_GRR",
+          "pctContribution": 0.32309142936303753,
+          "pctStudyVar": 5.684113205795936,
+          "pctTolerance": 8.117785258307833
+        },
+        {
+          "source": "PART_TO_PART",
+          "pctContribution": 99.67690857063695,
+          "pctStudyVar": 99.83832358900912,
+          "pctTolerance": 142.58443526751282
+        }
+      ],
+      "rByAppraiser": [
+        {
+          "appraiser": "A",
+          "part": 1,
+          "range": 0.0
+        },
+        {
+          "appraiser": "A",
+          "part": 2,
+          "range": 0.009999999999999995
+        },
+        {
+          "appraiser": "A",
+          "part": 3,
+          "range": 0.009999999999999995
+        },
+        {
+          "appraiser": "A",
+          "part": 4,
+          "range": 0.010000000000000002
+        },
+        {
+          "appraiser": "A",
+          "part": 5,
+          "range": 0.0
+        },
+        {
+          "appraiser": "A",
+          "part": 6,
+          "range": 0.0
+        },
+        {
+          "appraiser": "A",
+          "part": 7,
+          "range": 0.0
+        },
+        {
+          "appraiser": "A",
+          "part": 8,
+          "range": 0.0
+        },
+        {
+          "appraiser": "A",
+          "part": 9,
+          "range": 0.0
+        },
+        {
+          "appraiser": "A",
+          "part": 10,
+          "range": 0.0
+        },
+        {
+          "appraiser": "B",
+          "part": 1,
+          "range": 0.009999999999999981
+        },
+        {
+          "appraiser": "B",
+          "part": 2,
+          "range": 0.0
+        },
+        {
+          "appraiser": "B",
+          "part": 3,
+          "range": 0.0
+        },
+        {
+          "appraiser": "B",
+          "part": 4,
+          "range": 0.010000000000000002
+        },
+        {
+          "appraiser": "B",
+          "part": 5,
+          "range": 0.0
+        },
+        {
+          "appraiser": "B",
+          "part": 6,
+          "range": 0.019999999999999997
+        },
+        {
+          "appraiser": "B",
+          "part": 7,
+          "range": 0.0
+        },
+        {
+          "appraiser": "B",
+          "part": 8,
+          "range": 0.009999999999999995
+        },
+        {
+          "appraiser": "B",
+          "part": 9,
+          "range": 0.0
+        },
+        {
+          "appraiser": "B",
+          "part": 10,
+          "range": 0.0
+        },
+        {
+          "appraiser": "C",
+          "part": 1,
+          "range": 0.010000000000000009
+        },
+        {
+          "appraiser": "C",
+          "part": 2,
+          "range": 0.0
+        },
+        {
+          "appraiser": "C",
+          "part": 3,
+          "range": 0.010000000000000009
+        },
+        {
+          "appraiser": "C",
+          "part": 4,
+          "range": 0.0
+        },
+        {
+          "appraiser": "C",
+          "part": 5,
+          "range": 0.01
+        },
+        {
+          "appraiser": "C",
+          "part": 6,
+          "range": 0.0
+        },
+        {
+          "appraiser": "C",
+          "part": 7,
+          "range": 0.0
+        },
+        {
+          "appraiser": "C",
+          "part": 8,
+          "range": 0.0
+        },
+        {
+          "appraiser": "C",
+          "part": 9,
+          "range": 0.0
+        },
+        {
+          "appraiser": "C",
+          "part": 10,
+          "range": 0.009999999999999981
+        }
+      ],
+      "xbarByAppraiser": [
+        {
+          "appraiser": "A",
+          "part": 1,
+          "mean": -0.15
+        },
+        {
+          "appraiser": "A",
+          "part": 2,
+          "mean": -0.11499999999999999
+        },
+        {
+          "appraiser": "A",
+          "part": 3,
+          "mean": -0.07500000000000001
+        },
+        {
+          "appraiser": "A",
+          "part": 4,
+          "mean": -0.045
+        },
+        {
+          "appraiser": "A",
+          "part": 5,
+          "mean": -0.01
+        },
+        {
+          "appraiser": "A",
+          "part": 6,
+          "mean": 0.02
+        },
+        {
+          "appraiser": "A",
+          "part": 7,
+          "mean": 0.05
+        },
+        {
+          "appraiser": "A",
+          "part": 8,
+          "mean": 0.08
+        },
+        {
+          "appraiser": "A",
+          "part": 9,
+          "mean": 0.11
+        },
+        {
+          "appraiser": "A",
+          "part": 10,
+          "mean": 0.14
+        },
+        {
+          "appraiser": "B",
+          "part": 1,
+          "mean": -0.14500000000000002
+        },
+        {
+          "appraiser": "B",
+          "part": 2,
+          "mean": -0.11
+        },
+        {
+          "appraiser": "B",
+          "part": 3,
+          "mean": -0.07
+        },
+        {
+          "appraiser": "B",
+          "part": 4,
+          "mean": -0.035
+        },
+        {
+          "appraiser": "B",
+          "part": 5,
+          "mean": -0.01
+        },
+        {
+          "appraiser": "B",
+          "part": 6,
+          "mean": 0.02
+        },
+        {
+          "appraiser": "B",
+          "part": 7,
+          "mean": 0.05
+        },
+        {
+          "appraiser": "B",
+          "part": 8,
+          "mean": 0.08499999999999999
+        },
+        {
+          "appraiser": "B",
+          "part": 9,
+          "mean": 0.11
+        },
+        {
+          "appraiser": "B",
+          "part": 10,
+          "mean": 0.14
+        },
+        {
+          "appraiser": "C",
+          "part": 1,
+          "mean": -0.135
+        },
+        {
+          "appraiser": "C",
+          "part": 2,
+          "mean": -0.11
+        },
+        {
+          "appraiser": "C",
+          "part": 3,
+          "mean": -0.065
+        },
+        {
+          "appraiser": "C",
+          "part": 4,
+          "mean": -0.04
+        },
+        {
+          "appraiser": "C",
+          "part": 5,
+          "mean": -0.005
+        },
+        {
+          "appraiser": "C",
+          "part": 6,
+          "mean": 0.03
+        },
+        {
+          "appraiser": "C",
+          "part": 7,
+          "mean": 0.05
+        },
+        {
+          "appraiser": "C",
+          "part": 8,
+          "mean": 0.08
+        },
+        {
+          "appraiser": "C",
+          "part": 9,
+          "mean": 0.11
+        },
+        {
+          "appraiser": "C",
+          "part": 10,
+          "mean": 0.14500000000000002
+        }
+      ],
+      "interaction": [
+        {
+          "part": 1,
+          "appraiser": "A",
+          "mean": -0.15
+        },
+        {
+          "part": 1,
+          "appraiser": "B",
+          "mean": -0.14500000000000002
+        },
+        {
+          "part": 1,
+          "appraiser": "C",
+          "mean": -0.135
+        },
+        {
+          "part": 2,
+          "appraiser": "A",
+          "mean": -0.11499999999999999
+        },
+        {
+          "part": 2,
+          "appraiser": "B",
+          "mean": -0.11
+        },
+        {
+          "part": 2,
+          "appraiser": "C",
+          "mean": -0.11
+        },
+        {
+          "part": 3,
+          "appraiser": "A",
+          "mean": -0.07500000000000001
+        },
+        {
+          "part": 3,
+          "appraiser": "B",
+          "mean": -0.07
+        },
+        {
+          "part": 3,
+          "appraiser": "C",
+          "mean": -0.065
+        },
+        {
+          "part": 4,
+          "appraiser": "A",
+          "mean": -0.045
+        },
+        {
+          "part": 4,
+          "appraiser": "B",
+          "mean": -0.035
+        },
+        {
+          "part": 4,
+          "appraiser": "C",
+          "mean": -0.04
+        },
+        {
+          "part": 5,
+          "appraiser": "A",
+          "mean": -0.01
+        },
+        {
+          "part": 5,
+          "appraiser": "B",
+          "mean": -0.01
+        },
+        {
+          "part": 5,
+          "appraiser": "C",
+          "mean": -0.005
+        },
+        {
+          "part": 6,
+          "appraiser": "A",
+          "mean": 0.02
+        },
+        {
+          "part": 6,
+          "appraiser": "B",
+          "mean": 0.02
+        },
+        {
+          "part": 6,
+          "appraiser": "C",
+          "mean": 0.03
+        },
+        {
+          "part": 7,
+          "appraiser": "A",
+          "mean": 0.05
+        },
+        {
+          "part": 7,
+          "appraiser": "B",
+          "mean": 0.05
+        },
+        {
+          "part": 7,
+          "appraiser": "C",
+          "mean": 0.05
+        },
+        {
+          "part": 8,
+          "appraiser": "A",
+          "mean": 0.08
+        },
+        {
+          "part": 8,
+          "appraiser": "B",
+          "mean": 0.08499999999999999
+        },
+        {
+          "part": 8,
+          "appraiser": "C",
+          "mean": 0.08
+        },
+        {
+          "part": 9,
+          "appraiser": "A",
+          "mean": 0.11
+        },
+        {
+          "part": 9,
+          "appraiser": "B",
+          "mean": 0.11
+        },
+        {
+          "part": 9,
+          "appraiser": "C",
+          "mean": 0.11
+        },
+        {
+          "part": 10,
+          "appraiser": "A",
+          "mean": 0.14
+        },
+        {
+          "part": 10,
+          "appraiser": "B",
+          "mean": 0.14
+        },
+        {
+          "part": 10,
+          "appraiser": "C",
+          "mean": 0.14500000000000002
+        }
+      ]
+    },
+    "warnings": [
+      "REPEAT_IDENTICAL_OVER_50PCT"
+    ],
+    "xbarRCrossCheck": {
+      "method": "XBAR_R",
+      "K1": 0.886226925452758,
+      "K2": 0.5231192150734928,
+      "K3": 0.31455568637901443,
+      "EV": 0.0035449077018110315,
+      "AV": 0.0027658102416742254,
+      "GRR": 0.004496229187586995,
+      "PV": 0.08964837061801913,
+      "TV": 0.08976105186200206,
+      "pctGrrStudyVar": 5.009109289961822,
+      "pctGrrTolerance": 6.744343781380492,
+      "ndc": 28
+    }
+  },
+  "cacheHit": false,
+  "requestId": "demo-19a545a078c2"
+}

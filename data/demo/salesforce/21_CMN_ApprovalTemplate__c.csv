@@ -1,0 +1,11 @@
+ExternalKey__c,Name,TypeCode__c,Scope__c,AllowUserEdit__c,IsDefault__c,IsActive__c
+TPL-QMS_4M_APPROVE,4M 계획·적용 결재,QMS_4M_APPROVE,SYSTEM,true,true,true
+TPL-QMS_NCR_NOTICE,부적합 통보서,QMS_NCR_NOTICE,SYSTEM,true,true,true
+TPL-QMS_NCR_CONCESSION,특채,QMS_NCR_CONCESSION,SYSTEM,true,true,true
+TPL-QMS_8D_CLOSE_CLAIM,클레임 8D 종결,QMS_8D_CLOSE_CLAIM,SYSTEM,true,true,true
+TPL-QMS_8D_CLOSE_NCR,부적합 8D 종결,QMS_8D_CLOSE_NCR,SYSTEM,true,true,true
+TPL-QMS_PPAP_APPROVE,PPAP 판정,QMS_PPAP_APPROVE,SYSTEM,true,true,true
+TPL-QMS_QUAL_PLAN,인정시험 계획,QMS_QUAL_PLAN,SYSTEM,true,true,true
+TPL-QMS_QUAL_JUDGMENT,인정시험 판정,QMS_QUAL_JUDGMENT,SYSTEM,true,true,true
+TPL-QMS_STAB_RELEASE,초기안정화 해제,QMS_STAB_RELEASE,SYSTEM,true,true,true
+TPL-QMS_IQC_SKIP_APPROVE,무검사 전환,QMS_IQC_SKIP_APPROVE,SYSTEM,true,true,true

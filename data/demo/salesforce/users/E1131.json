@@ -1,0 +1,31 @@
+{
+  "Username": "e1131.{orgAlias}@slqms.demo",
+  "LastName": "신",
+  "FirstName": "동현",
+  "Email": "e1131@slqms.example.com",
+  "Alias": "e1131",
+  "CommunityNickname": "e1131.demo",
+  "TimeZoneSidKey": "Asia/Seoul",
+  "LocaleSidKey": "ko_KR",
+  "LanguageLocaleKey": "ko",
+  "EmailEncodingKey": "UTF-8",
+  "profileName": "Standard User",
+  "FederationIdentifier": "E1131",
+  "EmployeeNo__c": "E1131",
+  "_demo": {
+    "priority": 17,
+    "create": false,
+    "mapToAdmin": false,
+    "permissionSetGroups": [
+      "QMS_PSG_Viewer",
+      "CMN_PSG_Executive"
+    ],
+    "approvalRoles": [
+      "PLANT_MANAGER@KR01"
+    ],
+    "nameKo": "신동현",
+    "nameEn": "Donghyun Shin",
+    "dept": "D1130",
+    "plant": "KR01"
+  }
+}

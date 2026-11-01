@@ -1,0 +1,2 @@
+ExternalKey__c,Delegator__r.EmployeeNo__c,Delegate__r.EmployeeNo__c,StartAt__c,EndAt__c,TypeCodes__c,Reason__c
+DLG-E1101-20261201,E1101,E1102,2026-11-30T15:00:00Z,2026-12-05T14:59:00Z,,해외 고객 출장(데모)

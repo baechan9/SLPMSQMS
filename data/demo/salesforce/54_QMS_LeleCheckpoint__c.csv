@@ -1,0 +1,19 @@
+ExternalKey__c,LessonLearned__r.RecordNo__c,Sequence__c,CheckText__c,CheckTextEn__c,DevPhaseCode__c,ActivityTypeCode__c,VerificationMethod__c,RequiredEvidence__c,IsMandatory__c
+LL-2026-00002-CP01,LL-2026-00002,10,벤트 캡 위치가 차량 장착 상태 물 고임 해석 결과의 침수 구역 밖에 있는가,Is the vent cap outside the flooded zone in the installed-position water analysis?,P1,MECH_DESIGN,DESIGN_REVIEW,검토 기록 또는 시험 성적서,true
+LL-2025-00001-CP01,LL-2025-00001,10,유동 해석 웰드라인 예측 위치가 광학 유효면과 겹치지 않는가,Do predicted weld lines avoid the optical area?,P2,MOLD_DESIGN,DESIGN_REVIEW,검토 기록 또는 시험 성적서,false
+LL-2025-00012-CP01,LL-2025-00012,10,실링 비드 폭을 SC로 지정하고 토출 압력 인터록과 SPC 계획이 관리계획서에 있는가,Is bead width an SC with flow interlock and SPC in the control plan?,P4,CONTROL_PLAN,DOCUMENT_REVIEW,검토 기록 또는 시험 성적서,true
+LL-2025-00007-CP01,LL-2025-00007,10,관리계획서에 레진 투입 전 수분 측정(0.02% 이하)이 있는가,Does the control plan require resin moisture ≤0.02% before molding?,P4,CONTROL_PLAN,DOCUMENT_REVIEW,검토 기록 또는 시험 성적서,false
+LL-2025-00008-CP01,LL-2025-00008,10,PV 계획에 하드코팅 경화로 조도·온도 분포 측정이 있는가,Does PV include curing oven irradiance/temperature mapping?,P4,PV_TEST,TEST,검토 기록 또는 시험 성적서,false
+LL-2025-00004-CP01,LL-2025-00004,10,LED 모듈 PPAP에 X-ray 전수 검사(보이드 25% 이하)와 성적서 제출 조건이 있는가,Does LED module PPAP require 100% X-ray (void ≤25%)?,P4,SUPPLIER_PPAP,DOCUMENT_REVIEW,검토 기록 또는 시험 성적서,true
+LL-2025-00002-CP01,LL-2025-00002,10,협력사 포장 사양서가 PPAP 요소로 승인돼 있는가,Is the supplier packaging spec approved as a PPAP element?,P4,SUPPLIER_PPAP,DOCUMENT_REVIEW,검토 기록 또는 시험 성적서,true
+LL-2025-00006-CP01,LL-2025-00006,10,PFMEA에 PCB ESD 손상 고장 모드와 예방 관리가 있는가,Does the PFMEA include ESD damage and its prevention?,P3,PFMEA,DOCUMENT_REVIEW,검토 기록 또는 시험 성적서,true
+LL-2026-00003-CP01,LL-2026-00003,10,DV 계획의 액추에이터 내구 사이클이 실사용 상위 5% 조건 이상인가,Do DV actuator cycles cover the top 5% of field usage?,P3,DV_TEST,TEST,검토 기록 또는 시험 성적서,true
+LL-2025-00005-CP01,LL-2025-00005,10,조준 브래킷 강성 해석 결과가 설계 검토에서 승인됐는가,Was the aiming bracket stiffness analysis approved in design review?,P1,MECH_DESIGN,DESIGN_REVIEW,검토 기록 또는 시험 성적서,true
+LL-2026-00004-CP01,LL-2026-00004,10,실링면 평면도가 도면·관리계획서에 SC로 지정돼 있는가,Is sealing-face flatness designated SC on drawing and control plan?,P1,MECH_DESIGN,DESIGN_REVIEW,검토 기록 또는 시험 성적서,true
+LL-2026-00001-CP01,LL-2026-00001,10,배광 해석에 렌즈 두께 공차 최악 조건이 포함됐는가,Does the beam analysis cover worst-case lens thickness?,P1,OPT_DESIGN,SIMULATION,검토 기록 또는 시험 성적서,true
+LL-2025-00009-CP01,LL-2025-00009,10,열충격 후 코팅 판정 조건(배율·조도·한도견본)이 시험 기준에 있는가,"Are magnification, lighting and limit samples defined?",P3,DV_TEST,TEST,검토 기록 또는 시험 성적서,false
+LL-2025-00010-CP01,LL-2025-00010,10,금형 이관 계획에 초품 전수 검사와 Re-PPAP가 있는가,Does the tool transfer plan include 100% first-off inspection and Re-PPAP?,P4,SUPPLIER_PPAP,DOCUMENT_REVIEW,검토 기록 또는 시험 성적서,false
+LL-2025-00003-CP01,LL-2025-00003,10,관리계획서에 EOL 조준 측정기 반기 MSA가 있는가,Is semi-annual MSA planned for EOL aiming testers?,P4,CONTROL_PLAN,DOCUMENT_REVIEW,검토 기록 또는 시험 성적서,true
+LL-2025-00011-CP01,LL-2025-00011,10,양산 준비 체크리스트에 조립 구역 습도 기준이 있는가,Does the SOP readiness checklist define humidity limits?,P5,CONTROL_PLAN,DOCUMENT_REVIEW,검토 기록 또는 시험 성적서,true
+LL-2025-00013-CP01,LL-2025-00013,10,매트릭스 LED 열해석이 공차 최악 조건으로 수행됐는가,Was matrix LED thermal analysis done at worst-case tolerance?,P1,ELEC_DESIGN,SIMULATION,검토 기록 또는 시험 성적서,true
+LL-2025-00014-CP01,LL-2025-00014,10,착수 단계에서 과거차 문제 검토 회의를 하고 반영 결과를 기록했는가,Was a past-issue review held and documented at kick-off?,P1,PAST_ISSUE_REVIEW,CHECKLIST,검토 기록 또는 시험 성적서,false

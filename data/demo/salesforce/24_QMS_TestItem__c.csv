@@ -1,0 +1,13 @@
+TestCode__c,Name,NameEn__c,Category__c,MethodStandard__c,Condition__c,JudgmentType__c,Unit__c,LSL__c,USL__c,Criteria__c,DefaultSampleQty__c,DefaultDurationDays__c,DefaultExecutor__c,ResponsibleDept__r.DeptCode__c,Revision__c,Status__c
+ENV-THS-001,열충격,Thermal shock,ENVIRONMENTAL,SL-QT-ENV-01(데모),"-40℃ 30분 ↔ 85℃ 30분, 100사이클",PASS_FAIL,,,,"시험 후 렌즈·코팅 크랙 없음, 점등 정상",5,14,INTERNAL_LAB,D1170,1,ACTIVE
+ENV-HH-001,고온고습,Damp heat,ENVIRONMENTAL,SL-QT-ENV-02(데모),85℃/85%RH 240시간,PASS_FAIL,,,,"시험 후 내부 결로 없음, 점등·조준 정상",5,12,INTERNAL_LAB,D1170,1,ACTIVE
+ENV-CON-001,결로,Condensation,ENVIRONMENTAL,SL-QT-ENV-03(데모),"점등 1시간 후 냉수 분사, 6사이클",VISUAL,,,,결로 30분 이내 소멸,3,5,INTERNAL_LAB,D1170,1,ACTIVE
+SEA-IPX9K-001,고압 방수,High-pressure water,SEALING,SL-QT-SEA-01(데모),"80℃ 고압수 4방향, 각 30초",PASS_FAIL,,,,내부 침수 없음,3,3,INTERNAL_LAB,D1170,1,ACTIVE
+SEA-LEAK-001,기밀 누설,Leak rate,SEALING,SL-QT-SEA-02(데모),차압 20kPa 유지,VALUE_RANGE,ETC,,3.0,누설량 3.0cc/min 이하,5,2,INTERNAL_LAB,D1170,1,ACTIVE
+MEC-VIB-001,진동,Vibration,MECHANICAL,SL-QT-MEC-01(데모),랜덤 진동 3축 각 8시간,PASS_FAIL,,,,"조준 변화 ±0.1° 이내, 파손 없음",3,7,INTERNAL_LAB,D1170,1,ACTIVE
+OPT-BEAM-001,배광,Beam pattern,OPTICAL,SL-QT-OPT-01(데모),"25m 배광 측정, 법규 측정점",VALUE_RANGE,cd,20000,,"HV점 20,000cd 이상, 법규 측정점 전부 합격",3,3,INTERNAL_LAB,D1175,1,ACTIVE
+MAT-UV-001,내광성(UV),UV resistance,MATERIAL,SL-QT-MAT-01(데모),"크세논 아크 2,000시간",VALUE_RANGE,%,,1.5,"헤이즈 증가량 1.5% 이하, 황변 ΔYI 3 이하",3,90,INTERNAL_LAB,D1170,1,ACTIVE
+MAT-HAZE-001,헤이즈·투과율,Haze/transmittance,MATERIAL,SL-QT-MAT-02(데모),ASTM 방법 준용(데모),VALUE_RANGE,%,,1.5,"헤이즈 1.5% 이하, 투과율 88% 이상",5,2,INTERNAL_LAB,D1175,1,ACTIVE
+ELE-EMC-001,EMC 방사,Radiated emission,ELECTRICAL,SL-QT-ELE-01(데모),고객 EMC 규격 Class 5(데모),REPORT,,,,외부 기관 성적서 합격,2,10,EXTERNAL_LAB,,1,ACTIVE
+ELE-VOLT-001,전압 변동,Supply voltage variation,ELECTRICAL,SL-QT-ELE-02(데모),9~16V 스윕,PASS_FAIL,,,,점멸·소등 없음,3,2,INTERNAL_LAB,D1170,1,ACTIVE
+DUR-ACT-001,액추에이터 내구,Actuator durability,DURABILITY,SL-QT-DUR-01(데모),"-30℃/85℃ 구동 50,000회",PASS_FAIL,,,,작동·위치 정밀도 유지,3,21,INTERNAL_LAB,D1170,1,ACTIVE

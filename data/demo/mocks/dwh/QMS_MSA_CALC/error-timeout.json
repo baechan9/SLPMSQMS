@@ -1,0 +1,25 @@
+{
+  "queryKey": "QMS_MSA_CALC",
+  "mode": "PROCEDURE",
+  "version": 1,
+  "params": {
+    "studyId": "S8-MSA1"
+  },
+  "columns": [],
+  "rows": [],
+  "rowCount": 0,
+  "truncated": false,
+  "asOf": null,
+  "stale": false,
+  "scopeNote": null,
+  "generatedAt": "2026-12-01T00:00:03Z",
+  "durationMs": 8000,
+  "calcVersion": null,
+  "warnings": [],
+  "errorCode": "TIMEOUT",
+  "errorMessage": "Procedure exceeded 55000 ms",
+  "result": null,
+  "cacheHit": false,
+  "requestId": "demo-bb1899c27dd3",
+  "mockHttpStatus": 504
+}

@@ -1,0 +1,129 @@
+{
+  "queryKey": "QMS_NCR_PARETO",
+  "mode": "QUERY",
+  "version": 1,
+  "params": {
+    "plantCodes": [
+      "CN01",
+      "KR01",
+      "KR02",
+      "PL01",
+      "US01"
+    ],
+    "fromDate": "2026-06-01",
+    "toDate": "2026-11-30"
+  },
+  "columns": [
+    {
+      "name": "defectTypeL2Code",
+      "type": "STRING",
+      "unit": null
+    },
+    {
+      "name": "defectTypeL2",
+      "type": "STRING",
+      "unit": null
+    },
+    {
+      "name": "ncrCount",
+      "type": "INTEGER",
+      "unit": null
+    },
+    {
+      "name": "defectQty",
+      "type": "NUMBER",
+      "unit": null
+    },
+    {
+      "name": "cumulativePct",
+      "type": "NUMBER",
+      "unit": "%"
+    }
+  ],
+  "rows": [
+    [
+      "POSITION",
+      "위치",
+      6,
+      31.0,
+      27.27
+    ],
+    [
+      "LIGHTING",
+      "점등",
+      4,
+      47.0,
+      45.45
+    ],
+    [
+      "CONDENSATION",
+      "결로",
+      3,
+      14.0,
+      59.09
+    ],
+    [
+      "AIMING",
+      "조준",
+      2,
+      16.0,
+      68.18
+    ],
+    [
+      "FOREIGN",
+      "이물",
+      2,
+      24.0,
+      77.27
+    ],
+    [
+      "CONNECTOR",
+      "커넥터",
+      1,
+      20.0,
+      81.82
+    ],
+    [
+      "HAZE",
+      "흐림",
+      1,
+      8.0,
+      86.36
+    ],
+    [
+      "LEAK",
+      "누설",
+      1,
+      8.0,
+      90.91
+    ],
+    [
+      "SCRATCH",
+      "긁힘",
+      1,
+      4.0,
+      95.45
+    ],
+    [
+      "THICKNESS",
+      "두께",
+      1,
+      6.0,
+      100.0
+    ]
+  ],
+  "rowCount": 10,
+  "truncated": false,
+  "asOf": "2026-11-30T14:55:00Z",
+  "stale": false,
+  "scopeNote": "ALL",
+  "generatedAt": "2026-12-01T00:00:03Z",
+  "durationMs": 840,
+  "calcVersion": null,
+  "warnings": [],
+  "errorCode": null,
+  "errorMessage": null,
+  "result": null,
+  "cacheHit": false,
+  "requestId": "demo-44b747f2dfa1"
+}

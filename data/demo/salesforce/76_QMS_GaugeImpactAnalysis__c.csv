@@ -1,0 +1,2 @@
+RecordNo__c,Gauge__r.GaugeNo__c,Calibration__r.RecordNo__c,Plant__r.PlantCode__c,PeriodFrom__c,PeriodTo__c,MaxErrorAsFound__c,MaxErrorPctOfTol__c,UncoveredSources__c,Status__c
+GIA-KR01-2026-0001,GA-KR01-0456,CAL-KR01-2026-000037,KR01,2025-11-20,2026-11-20,0.05,16.7,2025-11-20~2026-05-31 수입검사 로트는 데모 데이터 기간 밖,OPEN

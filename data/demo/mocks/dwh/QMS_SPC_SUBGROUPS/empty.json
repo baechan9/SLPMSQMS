@@ -1,0 +1,107 @@
+{
+  "queryKey": "QMS_SPC_SUBGROUPS",
+  "mode": "QUERY",
+  "version": 1,
+  "params": {
+    "planId": "S7-PLAN",
+    "planNo": "SPC-KR01-00001",
+    "fromTs": "2025-01-01T00:00:00Z",
+    "toTs": "2025-01-31T23:59:59Z",
+    "limit": 125,
+    "plantCodes": [
+      "KR01"
+    ]
+  },
+  "columns": [
+    {
+      "name": "subgroupNo",
+      "type": "INTEGER",
+      "unit": null
+    },
+    {
+      "name": "subgroupTs",
+      "type": "DATETIME",
+      "unit": null
+    },
+    {
+      "name": "n",
+      "type": "INTEGER",
+      "unit": null
+    },
+    {
+      "name": "mean",
+      "type": "NUMBER",
+      "unit": "mm"
+    },
+    {
+      "name": "rangeVal",
+      "type": "NUMBER",
+      "unit": "mm"
+    },
+    {
+      "name": "stddevVal",
+      "type": "NUMBER",
+      "unit": "mm"
+    },
+    {
+      "name": "mrVal",
+      "type": "NUMBER",
+      "unit": "mm"
+    },
+    {
+      "name": "pVal",
+      "type": "NUMBER",
+      "unit": null
+    },
+    {
+      "name": "uVal",
+      "type": "NUMBER",
+      "unit": null
+    },
+    {
+      "name": "sampleN",
+      "type": "INTEGER",
+      "unit": null
+    },
+    {
+      "name": "ucl",
+      "type": "NUMBER",
+      "unit": "mm"
+    },
+    {
+      "name": "lcl",
+      "type": "NUMBER",
+      "unit": "mm"
+    },
+    {
+      "name": "limitVersion",
+      "type": "INTEGER",
+      "unit": null
+    },
+    {
+      "name": "excluded",
+      "type": "BOOLEAN",
+      "unit": null
+    },
+    {
+      "name": "hasOos",
+      "type": "BOOLEAN",
+      "unit": null
+    }
+  ],
+  "rows": [],
+  "rowCount": 0,
+  "truncated": false,
+  "asOf": "2026-11-30T14:16:00Z",
+  "stale": false,
+  "scopeNote": "KR01",
+  "generatedAt": "2026-12-01T00:00:03Z",
+  "durationMs": 840,
+  "calcVersion": null,
+  "warnings": [],
+  "errorCode": null,
+  "errorMessage": null,
+  "result": null,
+  "cacheHit": false,
+  "requestId": "demo-e93fb6ae71e9"
+}

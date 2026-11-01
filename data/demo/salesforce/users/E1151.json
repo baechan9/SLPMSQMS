@@ -1,0 +1,30 @@
+{
+  "Username": "e1151.{orgAlias}@slqms.demo",
+  "LastName": "문",
+  "FirstName": "지호",
+  "Email": "e1151@slqms.example.com",
+  "Alias": "e1151",
+  "CommunityNickname": "e1151.demo",
+  "TimeZoneSidKey": "Asia/Seoul",
+  "LocaleSidKey": "ko_KR",
+  "LanguageLocaleKey": "ko",
+  "EmailEncodingKey": "UTF-8",
+  "profileName": "Standard User",
+  "FederationIdentifier": "E1151",
+  "EmployeeNo__c": "E1151",
+  "_demo": {
+    "priority": 8,
+    "create": true,
+    "mapToAdmin": false,
+    "permissionSetGroups": [
+      "QMS_PSG_Metrology"
+    ],
+    "approvalRoles": [
+      "METROLOGY_LEAD@KR01"
+    ],
+    "nameKo": "문지호",
+    "nameEn": "Jiho Moon",
+    "dept": "D1150",
+    "plant": "KR01"
+  }
+}

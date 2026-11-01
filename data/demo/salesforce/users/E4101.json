@@ -1,0 +1,31 @@
+{
+  "Username": "e4101.{orgAlias}@slqms.demo",
+  "LastName": "Nowak",
+  "FirstName": "Piotr",
+  "Email": "e4101@slqms.example.com",
+  "Alias": "e4101",
+  "CommunityNickname": "e4101.demo",
+  "TimeZoneSidKey": "Europe/Warsaw",
+  "LocaleSidKey": "pl_PL",
+  "LanguageLocaleKey": "en_US",
+  "EmailEncodingKey": "UTF-8",
+  "profileName": "Standard User",
+  "FederationIdentifier": "E4101",
+  "EmployeeNo__c": "E4101",
+  "_demo": {
+    "priority": 34,
+    "create": false,
+    "mapToAdmin": false,
+    "permissionSetGroups": [
+      "QMS_PSG_QualityManager"
+    ],
+    "approvalRoles": [
+      "QUALITY_MANAGER@PL01",
+      "SQ_MANAGER@PL01"
+    ],
+    "nameKo": "Piotr Nowak",
+    "nameEn": "Piotr Nowak",
+    "dept": "D6100",
+    "plant": "PL01"
+  }
+}

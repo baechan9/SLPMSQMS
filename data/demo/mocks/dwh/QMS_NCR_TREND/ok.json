@@ -1,0 +1,132 @@
+{
+  "queryKey": "QMS_NCR_TREND",
+  "mode": "QUERY",
+  "version": 1,
+  "params": {
+    "plantCodes": [
+      "CN01",
+      "KR01",
+      "KR02",
+      "PL01",
+      "US01"
+    ],
+    "fromMonth": "2025-11",
+    "toMonth": "2026-11"
+  },
+  "columns": [
+    {
+      "name": "month",
+      "type": "DATE",
+      "unit": null
+    },
+    {
+      "name": "opened",
+      "type": "INTEGER",
+      "unit": null
+    },
+    {
+      "name": "closed",
+      "type": "INTEGER",
+      "unit": null
+    },
+    {
+      "name": "openEnd",
+      "type": "INTEGER",
+      "unit": null
+    }
+  ],
+  "rows": [
+    [
+      "2025-11-01",
+      2,
+      3,
+      3
+    ],
+    [
+      "2025-12-01",
+      3,
+      3,
+      3
+    ],
+    [
+      "2026-01-01",
+      2,
+      2,
+      3
+    ],
+    [
+      "2026-02-01",
+      3,
+      2,
+      4
+    ],
+    [
+      "2026-03-01",
+      3,
+      3,
+      4
+    ],
+    [
+      "2026-04-01",
+      3,
+      3,
+      4
+    ],
+    [
+      "2026-05-01",
+      3,
+      4,
+      3
+    ],
+    [
+      "2026-06-01",
+      2,
+      2,
+      3
+    ],
+    [
+      "2026-07-01",
+      4,
+      1,
+      6
+    ],
+    [
+      "2026-08-01",
+      3,
+      5,
+      4
+    ],
+    [
+      "2026-09-01",
+      2,
+      3,
+      3
+    ],
+    [
+      "2026-10-01",
+      3,
+      3,
+      3
+    ],
+    [
+      "2026-11-01",
+      8,
+      3,
+      8
+    ]
+  ],
+  "rowCount": 13,
+  "truncated": false,
+  "asOf": "2026-11-30T14:55:00Z",
+  "stale": false,
+  "scopeNote": "ALL",
+  "generatedAt": "2026-12-01T00:00:03Z",
+  "durationMs": 840,
+  "calcVersion": null,
+  "warnings": [],
+  "errorCode": null,
+  "errorMessage": null,
+  "result": null,
+  "cacheHit": false,
+  "requestId": "demo-49b0bb564976"
+}

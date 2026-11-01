@@ -1,0 +1,7 @@
+OemCode__c,RecordTypeDeveloperName,Name,CustomerGroup__c,SapCustomerNo__c,ContainmentDueDays__c,EightDDueDays__c,RootCauseDueDays__c,PpapDefaultLevel__c,AuditStandard__c,ClaimFormTemplate__c
+HMC,CMN_Customer,Hyundai Motor (Demo),HKMC,C20001,1,14,7,3,IATF16949,HKMC_6PI
+KIA,CMN_Customer,Kia (Demo),HKMC,C20002,1,14,7,3,IATF16949,HKMC_6PI
+BMW,CMN_Customer,BMW (Demo),BMW,C30001,1,20,10,3,VDA63;IATF16949,BMW_8D
+GM,CMN_Customer,GM (Demo),GM,C40001,1,30,10,3,IATF16949;CUSTOMER_SPECIFIC,GM_PRR
+FORD,CMN_Customer,Ford (Demo),FORD,C40002,1,30,10,3,IATF16949;CUSTOMER_SPECIFIC,FORD_GSDB
+STLA,CMN_Customer,Stellantis (Demo),STELLANTIS,C50001,1,30,10,3,IATF16949,STD_8D

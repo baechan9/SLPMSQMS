@@ -1,0 +1,185 @@
+{
+  "queryKey": "QMS_B2B_DETAIL",
+  "mode": "QUERY",
+  "version": 1,
+  "params": {
+    "customerCodes": [
+      "BMW"
+    ],
+    "itemNos": [
+      "63117-BE1L"
+    ],
+    "dataTypes": [
+      "LINE_0KM"
+    ],
+    "from": "2026-09-01",
+    "to": "2026-11-30",
+    "includeCost": false,
+    "plantCodes": [
+      "KR01",
+      "PL01"
+    ]
+  },
+  "columns": [
+    {
+      "name": "eventDate",
+      "type": "DATE",
+      "unit": null
+    },
+    {
+      "name": "customerRefNo",
+      "type": "STRING",
+      "unit": null
+    },
+    {
+      "name": "vehicleCode",
+      "type": "STRING",
+      "unit": null
+    },
+    {
+      "name": "itemNo",
+      "type": "STRING",
+      "unit": null
+    },
+    {
+      "name": "defectTypeCode",
+      "type": "STRING",
+      "unit": null
+    },
+    {
+      "name": "customerDefectText",
+      "type": "STRING",
+      "unit": null
+    },
+    {
+      "name": "mis",
+      "type": "INTEGER",
+      "unit": null
+    },
+    {
+      "name": "mileageKm",
+      "type": "NUMBER",
+      "unit": "km"
+    },
+    {
+      "name": "country",
+      "type": "STRING",
+      "unit": null
+    },
+    {
+      "name": "costKrw",
+      "type": "NUMBER",
+      "unit": "KRW"
+    },
+    {
+      "name": "customerJudgment",
+      "type": "STRING",
+      "unit": null
+    },
+    {
+      "name": "claimNo",
+      "type": "STRING",
+      "unit": null
+    }
+  ],
+  "rows": [
+    [
+      "2026-11-14",
+      "BMW-0K-2611-BE1L-0003",
+      "BE1",
+      "63117-BE1L",
+      "DEFECT_TYPE/OPTICAL/AIMING/AIM_OUT",
+      "Einstellung fehlerhaft",
+      null,
+      null,
+      "DE",
+      null,
+      "SUPPLIER_RESPONSIBLE",
+      null
+    ],
+    [
+      "2026-11-10",
+      "BMW-0K-2611-BE1L-0001",
+      "BE1",
+      "63117-BE1L",
+      "DEFECT_TYPE/FUNCTION/LIGHTING/LED_OFF",
+      "LED Ausfall",
+      null,
+      null,
+      "DE",
+      null,
+      "SUPPLIER_RESPONSIBLE",
+      null
+    ],
+    [
+      "2026-11-05",
+      "BMW-0K-2611-BE1L-0002",
+      "BE1",
+      "63117-BE1L",
+      "DEFECT_TYPE/SEALING/CONDENSATION/INNER_FOG",
+      "Kondenswasser im Scheinwerfer",
+      null,
+      null,
+      "DE",
+      null,
+      "UNDER_ANALYSIS",
+      null
+    ],
+    [
+      "2026-10-30",
+      "BMW-0K-2610-BE1L-0001",
+      "BE1",
+      "63117-BE1L",
+      "DEFECT_TYPE/SEALING/CONDENSATION/INNER_FOG",
+      "Kondenswasser im Scheinwerfer",
+      null,
+      null,
+      "DE",
+      null,
+      "SUPPLIER_RESPONSIBLE",
+      null
+    ],
+    [
+      "2026-10-17",
+      "BMW-0K-2610-BE1L-0002",
+      "BE1",
+      "63117-BE1L",
+      "DEFECT_TYPE/SEALING/CONDENSATION/INNER_FOG",
+      "Kondenswasser im Scheinwerfer",
+      null,
+      null,
+      "DE",
+      null,
+      "SUPPLIER_RESPONSIBLE",
+      null
+    ],
+    [
+      "2026-09-26",
+      "BMW-0K-2609-BE1L-0001",
+      "BE1",
+      "63117-BE1L",
+      "DEFECT_TYPE/OPTICAL/AIMING/AIM_OUT",
+      "Einstellung fehlerhaft",
+      null,
+      null,
+      "DE",
+      null,
+      "UNDER_ANALYSIS",
+      null
+    ]
+  ],
+  "rowCount": 6,
+  "truncated": false,
+  "asOf": "2026-11-30T14:55:00Z",
+  "stale": false,
+  "scopeNote": "KR01, PL01",
+  "generatedAt": "2026-12-01T00:00:03Z",
+  "durationMs": 840,
+  "calcVersion": null,
+  "warnings": [],
+  "errorCode": null,
+  "errorMessage": null,
+  "result": null,
+  "cacheHit": false,
+  "requestId": "demo-3d7efa632005"
+}

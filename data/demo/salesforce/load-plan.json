@@ -1,0 +1,1880 @@
+{
+  "note": "Salesforce 데모 적재 순서. scripts/demo/load_salesforce.sh가 이 파일과 load-plan.snowflake.json(90번대)을 order 순으로 합쳐 `sf data upsert bulk`로 적재한다. RecordTypeDeveloperName 열은 RecordTypeId로, {{ref:객체.외부키=값}}·{{user:사번}} 토큰은 Id로 바꾼다. 토큰 대상이 아직 없으면 비워 적재하고 마지막 보정 패스에서 다시 채운다. onMissingUser = skip이면 사용자가 없는 행을 건너뛰고, admin이면 실행 사용자(E1901)로 바꾼다.",
+  "asOf": "2026-12-01",
+  "users": "salesforce/users/*.json",
+  "files": [
+    {
+      "order": 1,
+      "file": "01_CMN_Company__c.csv",
+      "object": "CMN_Company__c",
+      "externalId": "CompanyCode__c",
+      "operation": "upsert",
+      "pass": null,
+      "rows": 4,
+      "recordTypeColumn": false,
+      "relations": {},
+      "userLookups": [],
+      "tokenColumns": [],
+      "onMissingUser": "admin",
+      "note": null
+    },
+    {
+      "order": 2,
+      "file": "02_CMN_ProductGroup__c.csv",
+      "object": "CMN_ProductGroup__c",
+      "externalId": "GroupCode__c",
+      "operation": "upsert",
+      "pass": "pass1",
+      "rows": 3,
+      "recordTypeColumn": false,
+      "relations": {},
+      "userLookups": [],
+      "tokenColumns": [],
+      "onMissingUser": "admin",
+      "note": null
+    },
+    {
+      "order": 2.1,
+      "file": "02a_CMN_ProductGroup__c.csv",
+      "object": "CMN_ProductGroup__c",
+      "externalId": "GroupCode__c",
+      "operation": "upsert",
+      "pass": "pass2-parent",
+      "rows": 2,
+      "recordTypeColumn": false,
+      "relations": {
+        "Parent__r.GroupCode__c": "CMN_ProductGroup__c.GroupCode__c"
+      },
+      "userLookups": [],
+      "tokenColumns": [],
+      "onMissingUser": "admin",
+      "note": null
+    },
+    {
+      "order": 3,
+      "file": "03_CMN_Plant__c.csv",
+      "object": "CMN_Plant__c",
+      "externalId": "PlantCode__c",
+      "operation": "upsert",
+      "pass": null,
+      "rows": 5,
+      "recordTypeColumn": false,
+      "relations": {
+        "Company__r.CompanyCode__c": "CMN_Company__c.CompanyCode__c"
+      },
+      "userLookups": [],
+      "tokenColumns": [],
+      "onMissingUser": "admin",
+      "note": null
+    },
+    {
+      "order": 4,
+      "file": "04_CMN_Line__c.csv",
+      "object": "CMN_Line__c",
+      "externalId": "ExternalKey__c",
+      "operation": "upsert",
+      "pass": null,
+      "rows": 9,
+      "recordTypeColumn": false,
+      "relations": {
+        "Plant__r.PlantCode__c": "CMN_Plant__c.PlantCode__c",
+        "ProductGroup__r.GroupCode__c": "CMN_ProductGroup__c.GroupCode__c"
+      },
+      "userLookups": [],
+      "tokenColumns": [],
+      "onMissingUser": "admin",
+      "note": null
+    },
+    {
+      "order": 5,
+      "file": "05_CMN_Operation__c.csv",
+      "object": "CMN_Operation__c",
+      "externalId": "ExternalKey__c",
+      "operation": "upsert",
+      "pass": null,
+      "rows": 28,
+      "recordTypeColumn": false,
+      "relations": {
+        "Line__r.ExternalKey__c": "CMN_Line__c.ExternalKey__c"
+      },
+      "userLookups": [],
+      "tokenColumns": [],
+      "onMissingUser": "admin",
+      "note": null
+    },
+    {
+      "order": 6,
+      "file": "06_CMN_CodeGroup__c.csv",
+      "object": "CMN_CodeGroup__c",
+      "externalId": "GroupCode__c",
+      "operation": "upsert",
+      "pass": null,
+      "rows": 13,
+      "recordTypeColumn": false,
+      "relations": {},
+      "userLookups": [],
+      "tokenColumns": [],
+      "onMissingUser": "admin",
+      "note": null
+    },
+    {
+      "order": 7,
+      "file": "07_CMN_Code__c.csv",
+      "object": "CMN_Code__c",
+      "externalId": "ExternalKey__c",
+      "operation": "upsert",
+      "pass": "L1",
+      "rows": 109,
+      "recordTypeColumn": false,
+      "relations": {
+        "CodeGroup__r.GroupCode__c": "CMN_CodeGroup__c.GroupCode__c",
+        "Parent__r.ExternalKey__c": "CMN_Code__c.ExternalKey__c"
+      },
+      "userLookups": [],
+      "tokenColumns": [],
+      "onMissingUser": "admin",
+      "note": null
+    },
+    {
+      "order": 7.1,
+      "file": "07a_CMN_Code__c.csv",
+      "object": "CMN_Code__c",
+      "externalId": "ExternalKey__c",
+      "operation": "upsert",
+      "pass": "L2",
+      "rows": 68,
+      "recordTypeColumn": false,
+      "relations": {
+        "CodeGroup__r.GroupCode__c": "CMN_CodeGroup__c.GroupCode__c",
+        "Parent__r.ExternalKey__c": "CMN_Code__c.ExternalKey__c"
+      },
+      "userLookups": [],
+      "tokenColumns": [],
+      "onMissingUser": "admin",
+      "note": null
+    },
+    {
+      "order": 7.2,
+      "file": "07b_CMN_Code__c.csv",
+      "object": "CMN_Code__c",
+      "externalId": "ExternalKey__c",
+      "operation": "upsert",
+      "pass": "L3",
+      "rows": 33,
+      "recordTypeColumn": false,
+      "relations": {
+        "CodeGroup__r.GroupCode__c": "CMN_CodeGroup__c.GroupCode__c",
+        "Parent__r.ExternalKey__c": "CMN_Code__c.ExternalKey__c"
+      },
+      "userLookups": [],
+      "tokenColumns": [],
+      "onMissingUser": "admin",
+      "note": null
+    },
+    {
+      "order": 8,
+      "file": "08_Account.csv",
+      "object": "Account",
+      "externalId": "OemCode__c",
+      "operation": "upsert",
+      "pass": "customer",
+      "rows": 6,
+      "recordTypeColumn": true,
+      "relations": {},
+      "userLookups": [],
+      "tokenColumns": [],
+      "onMissingUser": "admin",
+      "note": "RecordTypeDeveloperName → RecordTypeId"
+    },
+    {
+      "order": 9,
+      "file": "09_Account.csv",
+      "object": "Account",
+      "externalId": "SapVendorNo__c",
+      "operation": "upsert",
+      "pass": "supplier",
+      "rows": 8,
+      "recordTypeColumn": true,
+      "relations": {},
+      "userLookups": [],
+      "tokenColumns": [],
+      "onMissingUser": "admin",
+      "note": "RecordTypeDeveloperName → RecordTypeId"
+    },
+    {
+      "order": 10,
+      "file": "10_CMN_Vehicle__c.csv",
+      "object": "CMN_Vehicle__c",
+      "externalId": "ExternalKey__c",
+      "operation": "upsert",
+      "pass": null,
+      "rows": 9,
+      "recordTypeColumn": false,
+      "relations": {
+        "Customer__r.OemCode__c": "Account.OemCode__c"
+      },
+      "userLookups": [],
+      "tokenColumns": [],
+      "onMissingUser": "admin",
+      "note": null
+    },
+    {
+      "order": 11,
+      "file": "11_CMN_Item__c.csv",
+      "object": "CMN_Item__c",
+      "externalId": "ItemNo__c",
+      "operation": "upsert",
+      "pass": null,
+      "rows": 25,
+      "recordTypeColumn": false,
+      "relations": {
+        "ProductGroup__r.GroupCode__c": "CMN_ProductGroup__c.GroupCode__c",
+        "Customer__r.OemCode__c": "Account.OemCode__c"
+      },
+      "userLookups": [],
+      "tokenColumns": [],
+      "onMissingUser": "admin",
+      "note": null
+    },
+    {
+      "order": 12,
+      "file": "12_CMN_ItemPlant__c.csv",
+      "object": "CMN_ItemPlant__c",
+      "externalId": "ExternalKey__c",
+      "operation": "upsert",
+      "pass": null,
+      "rows": 38,
+      "recordTypeColumn": false,
+      "relations": {
+        "Item__r.ItemNo__c": "CMN_Item__c.ItemNo__c",
+        "Plant__r.PlantCode__c": "CMN_Plant__c.PlantCode__c"
+      },
+      "userLookups": [],
+      "tokenColumns": [],
+      "onMissingUser": "admin",
+      "note": null
+    },
+    {
+      "order": 13,
+      "file": "13_CMN_ItemVehicle__c.csv",
+      "object": "CMN_ItemVehicle__c",
+      "externalId": "ExternalKey__c",
+      "operation": "upsert",
+      "pass": null,
+      "rows": 21,
+      "recordTypeColumn": false,
+      "relations": {
+        "Item__r.ItemNo__c": "CMN_Item__c.ItemNo__c",
+        "Vehicle__r.ExternalKey__c": "CMN_Vehicle__c.ExternalKey__c"
+      },
+      "userLookups": [],
+      "tokenColumns": [],
+      "onMissingUser": "admin",
+      "note": null
+    },
+    {
+      "order": 14,
+      "file": "14_CMN_SupplierItem__c.csv",
+      "object": "CMN_SupplierItem__c",
+      "externalId": "ExternalKey__c",
+      "operation": "upsert",
+      "pass": null,
+      "rows": 21,
+      "recordTypeColumn": false,
+      "relations": {
+        "Supplier__r.SapVendorNo__c": "Account.SapVendorNo__c",
+        "Item__r.ItemNo__c": "CMN_Item__c.ItemNo__c",
+        "Plant__r.PlantCode__c": "CMN_Plant__c.PlantCode__c"
+      },
+      "userLookups": [],
+      "tokenColumns": [],
+      "onMissingUser": "admin",
+      "note": null
+    },
+    {
+      "order": 15,
+      "file": "15_CMN_Characteristic__c.csv",
+      "object": "CMN_Characteristic__c",
+      "externalId": "ExternalKey__c",
+      "operation": "upsert",
+      "pass": null,
+      "rows": 25,
+      "recordTypeColumn": false,
+      "relations": {
+        "Item__r.ItemNo__c": "CMN_Item__c.ItemNo__c"
+      },
+      "userLookups": [],
+      "tokenColumns": [],
+      "onMissingUser": "admin",
+      "note": null
+    },
+    {
+      "order": 16,
+      "file": "16_CMN_Department__c.csv",
+      "object": "CMN_Department__c",
+      "externalId": "DeptCode__c",
+      "operation": "upsert",
+      "pass": "pass1",
+      "rows": 21,
+      "recordTypeColumn": false,
+      "relations": {
+        "Plant__r.PlantCode__c": "CMN_Plant__c.PlantCode__c"
+      },
+      "userLookups": [],
+      "tokenColumns": [],
+      "onMissingUser": "admin",
+      "note": null
+    },
+    {
+      "order": 17,
+      "file": "17_CMN_Employee__c.csv",
+      "object": "CMN_Employee__c",
+      "externalId": "EmployeeNo__c",
+      "operation": "upsert",
+      "pass": "pass1",
+      "rows": 38,
+      "recordTypeColumn": false,
+      "relations": {
+        "Department__r.DeptCode__c": "CMN_Department__c.DeptCode__c"
+      },
+      "userLookups": [],
+      "tokenColumns": [],
+      "onMissingUser": "admin",
+      "note": null
+    },
+    {
+      "order": 17.1,
+      "file": "17a_User.csv",
+      "object": "User",
+      "externalId": "EmployeeNo__c",
+      "operation": "upsert",
+      "pass": "update",
+      "rows": 35,
+      "recordTypeColumn": false,
+      "relations": {
+        "Department__r.DeptCode__c": "CMN_Department__c.DeptCode__c",
+        "PrimaryPlant__r.PlantCode__c": "CMN_Plant__c.PlantCode__c"
+      },
+      "userLookups": [],
+      "tokenColumns": [],
+      "onMissingUser": "skip",
+      "note": "로더가 만든 사용자만 갱신(없는 사번 행은 건너뜀)"
+    },
+    {
+      "order": 17.2,
+      "file": "17b_CMN_Department__c.csv",
+      "object": "CMN_Department__c",
+      "externalId": "DeptCode__c",
+      "operation": "upsert",
+      "pass": "pass2",
+      "rows": 21,
+      "recordTypeColumn": false,
+      "relations": {
+        "Parent__r.DeptCode__c": "CMN_Department__c.DeptCode__c",
+        "Manager__r.EmployeeNo__c": "User.EmployeeNo__c"
+      },
+      "userLookups": [
+        "Manager__r.EmployeeNo__c"
+      ],
+      "tokenColumns": [],
+      "onMissingUser": "admin",
+      "note": null
+    },
+    {
+      "order": 17.3,
+      "file": "17c_CMN_Employee__c.csv",
+      "object": "CMN_Employee__c",
+      "externalId": "EmployeeNo__c",
+      "operation": "upsert",
+      "pass": "pass2-user",
+      "rows": 35,
+      "recordTypeColumn": false,
+      "relations": {
+        "User__r.EmployeeNo__c": "User.EmployeeNo__c"
+      },
+      "userLookups": [
+        "User__r.EmployeeNo__c"
+      ],
+      "tokenColumns": [],
+      "onMissingUser": "skip",
+      "note": null
+    },
+    {
+      "order": 18,
+      "file": "18_Contact.csv",
+      "object": "Contact",
+      "externalId": "ExternalKey__c",
+      "operation": "upsert",
+      "pass": null,
+      "rows": 16,
+      "recordTypeColumn": false,
+      "relations": {
+        "Account.SapVendorNo__c": "Account.SapVendorNo__c"
+      },
+      "userLookups": [],
+      "tokenColumns": [],
+      "onMissingUser": "admin",
+      "note": null
+    },
+    {
+      "order": 19,
+      "file": "19_CMN_UserPlantAccess__c.csv",
+      "object": "CMN_UserPlantAccess__c",
+      "externalId": "ExternalKey__c",
+      "operation": "upsert",
+      "pass": null,
+      "rows": 23,
+      "recordTypeColumn": false,
+      "relations": {
+        "User__r.EmployeeNo__c": "User.EmployeeNo__c",
+        "Plant__r.PlantCode__c": "CMN_Plant__c.PlantCode__c"
+      },
+      "userLookups": [
+        "User__r.EmployeeNo__c"
+      ],
+      "tokenColumns": [],
+      "onMissingUser": "skip",
+      "note": null
+    },
+    {
+      "order": 20,
+      "file": "20_CMN_RoleAssignment__c.csv",
+      "object": "CMN_RoleAssignment__c",
+      "externalId": "ExternalKey__c",
+      "operation": "upsert",
+      "pass": null,
+      "rows": 26,
+      "recordTypeColumn": false,
+      "relations": {
+        "Role__r.ExternalKey__c": "CMN_Code__c.ExternalKey__c",
+        "Plant__r.PlantCode__c": "CMN_Plant__c.PlantCode__c",
+        "User__r.EmployeeNo__c": "User.EmployeeNo__c"
+      },
+      "userLookups": [
+        "User__r.EmployeeNo__c"
+      ],
+      "tokenColumns": [],
+      "onMissingUser": "admin",
+      "note": null
+    },
+    {
+      "order": 21,
+      "file": "21_CMN_ApprovalTemplate__c.csv",
+      "object": "CMN_ApprovalTemplate__c",
+      "externalId": "ExternalKey__c",
+      "operation": "upsert",
+      "pass": null,
+      "rows": 10,
+      "recordTypeColumn": false,
+      "relations": {},
+      "userLookups": [],
+      "tokenColumns": [],
+      "onMissingUser": "admin",
+      "note": null
+    },
+    {
+      "order": 22,
+      "file": "22_CMN_ApprovalTemplateStep__c.csv",
+      "object": "CMN_ApprovalTemplateStep__c",
+      "externalId": "ExternalKey__c",
+      "operation": "upsert",
+      "pass": null,
+      "rows": 16,
+      "recordTypeColumn": false,
+      "relations": {
+        "Template__r.ExternalKey__c": "CMN_ApprovalTemplate__c.ExternalKey__c"
+      },
+      "userLookups": [],
+      "tokenColumns": [],
+      "onMissingUser": "admin",
+      "note": null
+    },
+    {
+      "order": 23,
+      "file": "23_CMN_Delegation__c.csv",
+      "object": "CMN_Delegation__c",
+      "externalId": "ExternalKey__c",
+      "operation": "upsert",
+      "pass": null,
+      "rows": 1,
+      "recordTypeColumn": false,
+      "relations": {
+        "Delegator__r.EmployeeNo__c": "User.EmployeeNo__c",
+        "Delegate__r.EmployeeNo__c": "User.EmployeeNo__c"
+      },
+      "userLookups": [
+        "Delegator__r.EmployeeNo__c",
+        "Delegate__r.EmployeeNo__c"
+      ],
+      "tokenColumns": [],
+      "onMissingUser": "skip",
+      "note": null
+    },
+    {
+      "order": 24,
+      "file": "24_QMS_TestItem__c.csv",
+      "object": "QMS_TestItem__c",
+      "externalId": "TestCode__c",
+      "operation": "upsert",
+      "pass": null,
+      "rows": 12,
+      "recordTypeColumn": false,
+      "relations": {
+        "ResponsibleDept__r.DeptCode__c": "CMN_Department__c.DeptCode__c"
+      },
+      "userLookups": [],
+      "tokenColumns": [],
+      "onMissingUser": "admin",
+      "note": null
+    },
+    {
+      "order": 25,
+      "file": "25_QMS_TestStandard__c.csv",
+      "object": "QMS_TestStandard__c",
+      "externalId": "ExternalKey__c",
+      "operation": "upsert",
+      "pass": null,
+      "rows": 5,
+      "recordTypeColumn": false,
+      "relations": {
+        "Customer__r.OemCode__c": "Account.OemCode__c",
+        "ProductGroup__r.GroupCode__c": "CMN_ProductGroup__c.GroupCode__c"
+      },
+      "userLookups": [],
+      "tokenColumns": [],
+      "onMissingUser": "admin",
+      "note": null
+    },
+    {
+      "order": 26,
+      "file": "26_QMS_TestStandardLine__c.csv",
+      "object": "QMS_TestStandardLine__c",
+      "externalId": "ExternalKey__c",
+      "operation": "upsert",
+      "pass": null,
+      "rows": 30,
+      "recordTypeColumn": false,
+      "relations": {
+        "Standard__r.ExternalKey__c": "QMS_TestStandard__c.ExternalKey__c",
+        "TestItem__r.TestCode__c": "QMS_TestItem__c.TestCode__c"
+      },
+      "userLookups": [],
+      "tokenColumns": [],
+      "onMissingUser": "admin",
+      "note": null
+    },
+    {
+      "order": 27,
+      "file": "27_QMS_SamplingPlan__c.csv",
+      "object": "QMS_SamplingPlan__c",
+      "externalId": "PlanCode__c",
+      "operation": "upsert",
+      "pass": null,
+      "rows": 2,
+      "recordTypeColumn": false,
+      "relations": {},
+      "userLookups": [],
+      "tokenColumns": [],
+      "onMissingUser": "admin",
+      "note": null
+    },
+    {
+      "order": 28,
+      "file": "28_QMS_SamplingPlanRow__c.csv",
+      "object": "QMS_SamplingPlanRow__c",
+      "externalId": "ExternalKey__c",
+      "operation": "upsert",
+      "pass": null,
+      "rows": 18,
+      "recordTypeColumn": false,
+      "relations": {
+        "Plan__r.PlanCode__c": "QMS_SamplingPlan__c.PlanCode__c"
+      },
+      "userLookups": [],
+      "tokenColumns": [],
+      "onMissingUser": "admin",
+      "note": null
+    },
+    {
+      "order": 29,
+      "file": "29_QMS_IqcStandard__c.csv",
+      "object": "QMS_IqcStandard__c",
+      "externalId": "ExternalKey__c",
+      "operation": "upsert",
+      "pass": null,
+      "rows": 21,
+      "recordTypeColumn": false,
+      "relations": {
+        "Item__r.ItemNo__c": "CMN_Item__c.ItemNo__c",
+        "Plant__r.PlantCode__c": "CMN_Plant__c.PlantCode__c",
+        "DefaultSamplingPlan__r.PlanCode__c": "QMS_SamplingPlan__c.PlanCode__c"
+      },
+      "userLookups": [],
+      "tokenColumns": [],
+      "onMissingUser": "admin",
+      "note": null
+    },
+    {
+      "order": 30,
+      "file": "30_QMS_IqcStandardLine__c.csv",
+      "object": "QMS_IqcStandardLine__c",
+      "externalId": "ExternalKey__c",
+      "operation": "upsert",
+      "pass": null,
+      "rows": 77,
+      "recordTypeColumn": false,
+      "relations": {
+        "Standard__r.ExternalKey__c": "QMS_IqcStandard__c.ExternalKey__c",
+        "Characteristic__r.ExternalKey__c": "CMN_Characteristic__c.ExternalKey__c"
+      },
+      "userLookups": [],
+      "tokenColumns": [],
+      "onMissingUser": "admin",
+      "note": null
+    },
+    {
+      "order": 31,
+      "file": "31_QMS_PpapElement__c.csv",
+      "object": "QMS_PpapElement__c",
+      "externalId": "ElementCode__c",
+      "operation": "upsert",
+      "pass": null,
+      "rows": 18,
+      "recordTypeColumn": false,
+      "relations": {
+        "DocClass__r.ExternalKey__c": "CMN_Code__c.ExternalKey__c"
+      },
+      "userLookups": [],
+      "tokenColumns": [],
+      "onMissingUser": "admin",
+      "note": null
+    },
+    {
+      "order": 32,
+      "file": "32_QMS_PpapLevelRule__c.csv",
+      "object": "QMS_PpapLevelRule__c",
+      "externalId": "ExternalKey__c",
+      "operation": "upsert",
+      "pass": null,
+      "rows": 5,
+      "recordTypeColumn": false,
+      "relations": {},
+      "userLookups": [],
+      "tokenColumns": [],
+      "onMissingUser": "admin",
+      "note": null
+    },
+    {
+      "order": 33,
+      "file": "33_QMS_ChangeTypeRule__c.csv",
+      "object": "QMS_ChangeTypeRule__c",
+      "externalId": "ExternalKey__c",
+      "operation": "upsert",
+      "pass": null,
+      "rows": 5,
+      "recordTypeColumn": false,
+      "relations": {
+        "ChangeType__r.ExternalKey__c": "CMN_Code__c.ExternalKey__c"
+      },
+      "userLookups": [],
+      "tokenColumns": [],
+      "onMissingUser": "admin",
+      "note": null
+    },
+    {
+      "order": 34,
+      "file": "34_QMS_LabAnalysisItem__c.csv",
+      "object": "QMS_LabAnalysisItem__c",
+      "externalId": "ItemCode__c",
+      "operation": "upsert",
+      "pass": null,
+      "rows": 8,
+      "recordTypeColumn": false,
+      "relations": {
+        "Plant__r.PlantCode__c": "CMN_Plant__c.PlantCode__c"
+      },
+      "userLookups": [],
+      "tokenColumns": [],
+      "onMissingUser": "admin",
+      "note": null
+    },
+    {
+      "order": 35,
+      "file": "35_QMS_QualificationType__c.csv",
+      "object": "QMS_QualificationType__c",
+      "externalId": "TypeCode__c",
+      "operation": "upsert",
+      "pass": null,
+      "rows": 10,
+      "recordTypeColumn": false,
+      "relations": {},
+      "userLookups": [],
+      "tokenColumns": [],
+      "onMissingUser": "admin",
+      "note": null
+    },
+    {
+      "order": 36,
+      "file": "36_QMS_TrainingCourse__c.csv",
+      "object": "QMS_TrainingCourse__c",
+      "externalId": "CourseCode__c",
+      "operation": "upsert",
+      "pass": null,
+      "rows": 12,
+      "recordTypeColumn": false,
+      "relations": {
+        "OwnerDept__r.DeptCode__c": "CMN_Department__c.DeptCode__c"
+      },
+      "userLookups": [],
+      "tokenColumns": [],
+      "onMissingUser": "admin",
+      "note": null
+    },
+    {
+      "order": 37,
+      "file": "37_QMS_AuditChecklist__c.csv",
+      "object": "QMS_AuditChecklist__c",
+      "externalId": "ChecklistCode__c",
+      "operation": "upsert",
+      "pass": null,
+      "rows": 1,
+      "recordTypeColumn": false,
+      "relations": {},
+      "userLookups": [],
+      "tokenColumns": [],
+      "onMissingUser": "admin",
+      "note": null
+    },
+    {
+      "order": 38,
+      "file": "38_QMS_AuditQuestion__c.csv",
+      "object": "QMS_AuditQuestion__c",
+      "externalId": "ExternalKey__c",
+      "operation": "upsert",
+      "pass": null,
+      "rows": 20,
+      "recordTypeColumn": false,
+      "relations": {
+        "Checklist__r.ChecklistCode__c": "QMS_AuditChecklist__c.ChecklistCode__c"
+      },
+      "userLookups": [],
+      "tokenColumns": [],
+      "onMissingUser": "admin",
+      "note": null
+    },
+    {
+      "order": 39,
+      "file": "39_QMS_AuditGradeRule__c.csv",
+      "object": "QMS_AuditGradeRule__c",
+      "externalId": "ExternalKey__c",
+      "operation": "upsert",
+      "pass": null,
+      "rows": 4,
+      "recordTypeColumn": false,
+      "relations": {
+        "Checklist__r.ChecklistCode__c": "QMS_AuditChecklist__c.ChecklistCode__c"
+      },
+      "userLookups": [],
+      "tokenColumns": [],
+      "onMissingUser": "admin",
+      "note": null
+    },
+    {
+      "order": 40,
+      "file": "40_QMS_NCR__c.csv",
+      "object": "QMS_NCR__c",
+      "externalId": "RecordNo__c",
+      "operation": "upsert",
+      "pass": null,
+      "rows": 70,
+      "recordTypeColumn": true,
+      "relations": {
+        "Plant__r.PlantCode__c": "CMN_Plant__c.PlantCode__c",
+        "Line__r.ExternalKey__c": "CMN_Line__c.ExternalKey__c",
+        "Operation__r.ExternalKey__c": "CMN_Operation__c.ExternalKey__c",
+        "Item__r.ItemNo__c": "CMN_Item__c.ItemNo__c",
+        "Supplier__r.SapVendorNo__c": "Account.SapVendorNo__c",
+        "SupplierItem__r.ExternalKey__c": "CMN_SupplierItem__c.ExternalKey__c",
+        "SupplierShareTo__r.SapVendorNo__c": "Account.SapVendorNo__c",
+        "Customer__r.OemCode__c": "Account.OemCode__c",
+        "Vehicle__r.ExternalKey__c": "CMN_Vehicle__c.ExternalKey__c",
+        "DetectedBy__r.EmployeeNo__c": "User.EmployeeNo__c",
+        "DefectType__r.ExternalKey__c": "CMN_Code__c.ExternalKey__c",
+        "Responsibility__r.ExternalKey__c": "CMN_Code__c.ExternalKey__c",
+        "ResponsibleDept__r.DeptCode__c": "CMN_Department__c.DeptCode__c",
+        "RootCause__r.ExternalKey__c": "CMN_Code__c.ExternalKey__c",
+        "ClosedBy__r.EmployeeNo__c": "User.EmployeeNo__c",
+        "Characteristic__r.ExternalKey__c": "CMN_Characteristic__c.ExternalKey__c"
+      },
+      "userLookups": [
+        "DetectedBy__r.EmployeeNo__c",
+        "ClosedBy__r.EmployeeNo__c"
+      ],
+      "tokenColumns": [
+        "SourceRecordId__c"
+      ],
+      "onMissingUser": "admin",
+      "note": null
+    },
+    {
+      "order": 41,
+      "file": "41_QMS_EightD__c.csv",
+      "object": "QMS_EightD__c",
+      "externalId": "RecordNo__c",
+      "operation": "upsert",
+      "pass": null,
+      "rows": 86,
+      "recordTypeColumn": true,
+      "relations": {
+        "Plant__r.PlantCode__c": "CMN_Plant__c.PlantCode__c",
+        "Item__r.ItemNo__c": "CMN_Item__c.ItemNo__c",
+        "Customer__r.OemCode__c": "Account.OemCode__c",
+        "Supplier__r.SapVendorNo__c": "Account.SapVendorNo__c",
+        "ResponsibleDept__r.DeptCode__c": "CMN_Department__c.DeptCode__c",
+        "Champion__r.EmployeeNo__c": "User.EmployeeNo__c",
+        "Leader__r.EmployeeNo__c": "User.EmployeeNo__c",
+        "DefectType__r.ExternalKey__c": "CMN_Code__c.ExternalKey__c",
+        "OccurrenceCauseCode__r.ExternalKey__c": "CMN_Code__c.ExternalKey__c"
+      },
+      "userLookups": [
+        "Champion__r.EmployeeNo__c",
+        "Leader__r.EmployeeNo__c"
+      ],
+      "tokenColumns": [
+        "SourceRecordId__c"
+      ],
+      "onMissingUser": "admin",
+      "note": null
+    },
+    {
+      "order": 42,
+      "file": "42_QMS_EightDStep__c.csv",
+      "object": "QMS_EightDStep__c",
+      "externalId": "ExternalKey__c",
+      "operation": "upsert",
+      "pass": null,
+      "rows": 584,
+      "recordTypeColumn": false,
+      "relations": {
+        "EightD__r.RecordNo__c": "QMS_EightD__c.RecordNo__c",
+        "SubmittedBy__r.EmployeeNo__c": "User.EmployeeNo__c",
+        "ApprovedBy__r.EmployeeNo__c": "User.EmployeeNo__c"
+      },
+      "userLookups": [
+        "SubmittedBy__r.EmployeeNo__c",
+        "ApprovedBy__r.EmployeeNo__c"
+      ],
+      "tokenColumns": [],
+      "onMissingUser": "admin",
+      "note": null
+    },
+    {
+      "order": 43,
+      "file": "43_QMS_EightDTeamMember__c.csv",
+      "object": "QMS_EightDTeamMember__c",
+      "externalId": "ExternalKey__c",
+      "operation": "upsert",
+      "pass": null,
+      "rows": 102,
+      "recordTypeColumn": false,
+      "relations": {
+        "EightD__r.RecordNo__c": "QMS_EightD__c.RecordNo__c",
+        "User__r.EmployeeNo__c": "User.EmployeeNo__c"
+      },
+      "userLookups": [
+        "User__r.EmployeeNo__c"
+      ],
+      "tokenColumns": [],
+      "onMissingUser": "admin",
+      "note": null
+    },
+    {
+      "order": 44,
+      "file": "44_QMS_EightDAction__c.csv",
+      "object": "QMS_EightDAction__c",
+      "externalId": "ExternalKey__c",
+      "operation": "upsert",
+      "pass": null,
+      "rows": 287,
+      "recordTypeColumn": false,
+      "relations": {
+        "EightD__r.RecordNo__c": "QMS_EightD__c.RecordNo__c",
+        "Owner__r.EmployeeNo__c": "User.EmployeeNo__c",
+        "VerifiedBy__r.EmployeeNo__c": "User.EmployeeNo__c"
+      },
+      "userLookups": [
+        "Owner__r.EmployeeNo__c",
+        "VerifiedBy__r.EmployeeNo__c"
+      ],
+      "tokenColumns": [],
+      "onMissingUser": "admin",
+      "note": null
+    },
+    {
+      "order": 45,
+      "file": "45_QMS_Claim__c.csv",
+      "object": "QMS_Claim__c",
+      "externalId": "RecordNo__c",
+      "operation": "upsert",
+      "pass": null,
+      "rows": 20,
+      "recordTypeColumn": false,
+      "relations": {
+        "Customer__r.OemCode__c": "Account.OemCode__c",
+        "Vehicle__r.ExternalKey__c": "CMN_Vehicle__c.ExternalKey__c",
+        "Item__r.ItemNo__c": "CMN_Item__c.ItemNo__c",
+        "Plant__r.PlantCode__c": "CMN_Plant__c.PlantCode__c",
+        "Line__r.ExternalKey__c": "CMN_Line__c.ExternalKey__c",
+        "DefectType__r.ExternalKey__c": "CMN_Code__c.ExternalKey__c",
+        "Responsibility__r.ExternalKey__c": "CMN_Code__c.ExternalKey__c",
+        "ResponsibleDept__r.DeptCode__c": "CMN_Department__c.DeptCode__c",
+        "Supplier__r.SapVendorNo__c": "Account.SapVendorNo__c",
+        "SupplierItem__r.ExternalKey__c": "CMN_SupplierItem__c.ExternalKey__c",
+        "Characteristic__r.ExternalKey__c": "CMN_Characteristic__c.ExternalKey__c"
+      },
+      "userLookups": [],
+      "tokenColumns": [
+        "SupplierNcrRecordId__c",
+        "LabRequestRecordId__c"
+      ],
+      "onMissingUser": "admin",
+      "note": null
+    },
+    {
+      "order": 45.1,
+      "file": "45a_QMS_NCR__c.csv",
+      "object": "QMS_NCR__c",
+      "externalId": "RecordNo__c",
+      "operation": "upsert",
+      "pass": "pass2-8d",
+      "rows": 70,
+      "recordTypeColumn": false,
+      "relations": {
+        "EightD__r.RecordNo__c": "QMS_EightD__c.RecordNo__c"
+      },
+      "userLookups": [],
+      "tokenColumns": [],
+      "onMissingUser": "admin",
+      "note": null
+    },
+    {
+      "order": 45.2,
+      "file": "45b_QMS_Claim__c.csv",
+      "object": "QMS_Claim__c",
+      "externalId": "RecordNo__c",
+      "operation": "upsert",
+      "pass": "pass2-8d",
+      "rows": 20,
+      "recordTypeColumn": false,
+      "relations": {
+        "EightD__r.RecordNo__c": "QMS_EightD__c.RecordNo__c"
+      },
+      "userLookups": [],
+      "tokenColumns": [],
+      "onMissingUser": "admin",
+      "note": null
+    },
+    {
+      "order": 46,
+      "file": "46_QMS_NcrContainment__c.csv",
+      "object": "QMS_NcrContainment__c",
+      "externalId": "ExternalKey__c",
+      "operation": "upsert",
+      "pass": null,
+      "rows": 72,
+      "recordTypeColumn": false,
+      "relations": {
+        "Ncr__r.RecordNo__c": "QMS_NCR__c.RecordNo__c",
+        "DoneBy__r.EmployeeNo__c": "User.EmployeeNo__c"
+      },
+      "userLookups": [
+        "DoneBy__r.EmployeeNo__c"
+      ],
+      "tokenColumns": [],
+      "onMissingUser": "admin",
+      "note": null
+    },
+    {
+      "order": 47,
+      "file": "47_QMS_NcrDisposition__c.csv",
+      "object": "QMS_NcrDisposition__c",
+      "externalId": "ExternalKey__c",
+      "operation": "upsert",
+      "pass": null,
+      "rows": 69,
+      "recordTypeColumn": false,
+      "relations": {
+        "Ncr__r.RecordNo__c": "QMS_NCR__c.RecordNo__c",
+        "Disposition__r.ExternalKey__c": "CMN_Code__c.ExternalKey__c",
+        "Executor__r.EmployeeNo__c": "User.EmployeeNo__c"
+      },
+      "userLookups": [
+        "Executor__r.EmployeeNo__c"
+      ],
+      "tokenColumns": [],
+      "onMissingUser": "admin",
+      "note": null
+    },
+    {
+      "order": 48,
+      "file": "48_QMS_IqcLot__c.csv",
+      "object": "QMS_IqcLot__c",
+      "externalId": "ExternalKey__c",
+      "operation": "upsert",
+      "pass": null,
+      "rows": 1359,
+      "recordTypeColumn": false,
+      "relations": {
+        "Plant__r.PlantCode__c": "CMN_Plant__c.PlantCode__c",
+        "Item__r.ItemNo__c": "CMN_Item__c.ItemNo__c",
+        "Supplier__r.SapVendorNo__c": "Account.SapVendorNo__c",
+        "SupplierItem__r.ExternalKey__c": "CMN_SupplierItem__c.ExternalKey__c",
+        "Standard__r.ExternalKey__c": "QMS_IqcStandard__c.ExternalKey__c",
+        "Inspector__r.EmployeeNo__c": "User.EmployeeNo__c",
+        "DecidedBy__r.EmployeeNo__c": "User.EmployeeNo__c"
+      },
+      "userLookups": [
+        "Inspector__r.EmployeeNo__c",
+        "DecidedBy__r.EmployeeNo__c"
+      ],
+      "tokenColumns": [
+        "NcrRecordId__c"
+      ],
+      "onMissingUser": "admin",
+      "note": null
+    },
+    {
+      "order": 49,
+      "file": "49_QMS_IqcResult__c.csv",
+      "object": "QMS_IqcResult__c",
+      "externalId": "ExternalKey__c",
+      "operation": "upsert",
+      "pass": null,
+      "rows": 4859,
+      "recordTypeColumn": false,
+      "relations": {
+        "Lot__r.ExternalKey__c": "QMS_IqcLot__c.ExternalKey__c",
+        "StandardLine__r.ExternalKey__c": "QMS_IqcStandardLine__c.ExternalKey__c",
+        "Characteristic__r.ExternalKey__c": "CMN_Characteristic__c.ExternalKey__c"
+      },
+      "userLookups": [],
+      "tokenColumns": [],
+      "onMissingUser": "admin",
+      "note": null
+    },
+    {
+      "order": 50,
+      "file": "50_QMS_SupplierCoa__c.csv",
+      "object": "QMS_SupplierCoa__c",
+      "externalId": "RecordNo__c",
+      "operation": "upsert",
+      "pass": null,
+      "rows": 811,
+      "recordTypeColumn": false,
+      "relations": {
+        "SupplierItem__r.ExternalKey__c": "CMN_SupplierItem__c.ExternalKey__c",
+        "Supplier__r.SapVendorNo__c": "Account.SapVendorNo__c",
+        "Item__r.ItemNo__c": "CMN_Item__c.ItemNo__c",
+        "Plant__r.PlantCode__c": "CMN_Plant__c.PlantCode__c",
+        "Standard__r.ExternalKey__c": "QMS_IqcStandard__c.ExternalKey__c",
+        "MatchedLot__r.ExternalKey__c": "QMS_IqcLot__c.ExternalKey__c"
+      },
+      "userLookups": [],
+      "tokenColumns": [],
+      "onMissingUser": "admin",
+      "note": null
+    },
+    {
+      "order": 51,
+      "file": "51_QMS_IqcLevelChange__c.csv",
+      "object": "QMS_IqcLevelChange__c",
+      "externalId": "ExternalKey__c",
+      "operation": "upsert",
+      "pass": null,
+      "rows": 5,
+      "recordTypeColumn": false,
+      "relations": {
+        "SupplierItem__r.ExternalKey__c": "CMN_SupplierItem__c.ExternalKey__c"
+      },
+      "userLookups": [],
+      "tokenColumns": [],
+      "onMissingUser": "admin",
+      "note": null
+    },
+    {
+      "order": 52,
+      "file": "52_QMS_IqcLevelHold__c.csv",
+      "object": "QMS_IqcLevelHold__c",
+      "externalId": "ExternalKey__c",
+      "operation": "upsert",
+      "pass": null,
+      "rows": 6,
+      "recordTypeColumn": false,
+      "relations": {
+        "SupplierItem__r.ExternalKey__c": "CMN_SupplierItem__c.ExternalKey__c"
+      },
+      "userLookups": [],
+      "tokenColumns": [
+        "SourceRecordId__c"
+      ],
+      "onMissingUser": "admin",
+      "note": null
+    },
+    {
+      "order": 53,
+      "file": "53_QMS_LessonLearned__c.csv",
+      "object": "QMS_LessonLearned__c",
+      "externalId": "RecordNo__c",
+      "operation": "upsert",
+      "pass": null,
+      "rows": 18,
+      "recordTypeColumn": false,
+      "relations": {
+        "Plant__r.PlantCode__c": "CMN_Plant__c.PlantCode__c",
+        "Customer__r.OemCode__c": "Account.OemCode__c",
+        "ProductGroup__r.GroupCode__c": "CMN_ProductGroup__c.GroupCode__c",
+        "DefectType__r.ExternalKey__c": "CMN_Code__c.ExternalKey__c",
+        "CauseCode__r.ExternalKey__c": "CMN_Code__c.ExternalKey__c",
+        "PublishedBy__r.EmployeeNo__c": "User.EmployeeNo__c"
+      },
+      "userLookups": [
+        "PublishedBy__r.EmployeeNo__c"
+      ],
+      "tokenColumns": [
+        "SourceRecordId__c"
+      ],
+      "onMissingUser": "admin",
+      "note": null
+    },
+    {
+      "order": 54,
+      "file": "54_QMS_LeleCheckpoint__c.csv",
+      "object": "QMS_LeleCheckpoint__c",
+      "externalId": "ExternalKey__c",
+      "operation": "upsert",
+      "pass": null,
+      "rows": 18,
+      "recordTypeColumn": false,
+      "relations": {
+        "LessonLearned__r.RecordNo__c": "QMS_LessonLearned__c.RecordNo__c"
+      },
+      "userLookups": [],
+      "tokenColumns": [],
+      "onMissingUser": "admin",
+      "note": null
+    },
+    {
+      "order": 55,
+      "file": "55_QMS_QualPlan__c.csv",
+      "object": "QMS_QualPlan__c",
+      "externalId": "RecordNo__c",
+      "operation": "upsert",
+      "pass": null,
+      "rows": 15,
+      "recordTypeColumn": true,
+      "relations": {
+        "Item__r.ItemNo__c": "CMN_Item__c.ItemNo__c",
+        "Supplier__r.SapVendorNo__c": "Account.SapVendorNo__c",
+        "Customer__r.OemCode__c": "Account.OemCode__c",
+        "Vehicle__r.ExternalKey__c": "CMN_Vehicle__c.ExternalKey__c",
+        "Plant__r.PlantCode__c": "CMN_Plant__c.PlantCode__c",
+        "Standard__r.ExternalKey__c": "QMS_TestStandard__c.ExternalKey__c",
+        "ResponsibleDept__r.DeptCode__c": "CMN_Department__c.DeptCode__c"
+      },
+      "userLookups": [],
+      "tokenColumns": [
+        "SourceRecordId__c"
+      ],
+      "onMissingUser": "admin",
+      "note": null
+    },
+    {
+      "order": 56,
+      "file": "56_QMS_QualPlanLine__c.csv",
+      "object": "QMS_QualPlanLine__c",
+      "externalId": "ExternalKey__c",
+      "operation": "upsert",
+      "pass": null,
+      "rows": 98,
+      "recordTypeColumn": false,
+      "relations": {
+        "Plan__r.RecordNo__c": "QMS_QualPlan__c.RecordNo__c",
+        "TestItem__r.TestCode__c": "QMS_TestItem__c.TestCode__c",
+        "ExecutorDept__r.DeptCode__c": "CMN_Department__c.DeptCode__c"
+      },
+      "userLookups": [],
+      "tokenColumns": [],
+      "onMissingUser": "admin",
+      "note": null
+    },
+    {
+      "order": 57,
+      "file": "57_QMS_Ppap__c.csv",
+      "object": "QMS_Ppap__c",
+      "externalId": "RecordNo__c",
+      "operation": "upsert",
+      "pass": null,
+      "rows": 18,
+      "recordTypeColumn": true,
+      "relations": {
+        "SupplierItem__r.ExternalKey__c": "CMN_SupplierItem__c.ExternalKey__c",
+        "Supplier__r.SapVendorNo__c": "Account.SapVendorNo__c",
+        "Item__r.ItemNo__c": "CMN_Item__c.ItemNo__c",
+        "Plant__r.PlantCode__c": "CMN_Plant__c.PlantCode__c",
+        "Sqe__r.EmployeeNo__c": "User.EmployeeNo__c"
+      },
+      "userLookups": [
+        "Sqe__r.EmployeeNo__c"
+      ],
+      "tokenColumns": [
+        "SourceRecordId__c"
+      ],
+      "onMissingUser": "admin",
+      "note": null
+    },
+    {
+      "order": 58,
+      "file": "58_QMS_PpapElementLine__c.csv",
+      "object": "QMS_PpapElementLine__c",
+      "externalId": "ExternalKey__c",
+      "operation": "upsert",
+      "pass": null,
+      "rows": 324,
+      "recordTypeColumn": false,
+      "relations": {
+        "Ppap__r.RecordNo__c": "QMS_Ppap__c.RecordNo__c",
+        "Element__r.ElementCode__c": "QMS_PpapElement__c.ElementCode__c",
+        "ReviewedBy__r.EmployeeNo__c": "User.EmployeeNo__c"
+      },
+      "userLookups": [
+        "ReviewedBy__r.EmployeeNo__c"
+      ],
+      "tokenColumns": [],
+      "onMissingUser": "admin",
+      "note": null
+    },
+    {
+      "order": 59,
+      "file": "59_QMS_PpapSubmission__c.csv",
+      "object": "QMS_PpapSubmission__c",
+      "externalId": "ExternalKey__c",
+      "operation": "upsert",
+      "pass": null,
+      "rows": 18,
+      "recordTypeColumn": false,
+      "relations": {
+        "Ppap__r.RecordNo__c": "QMS_Ppap__c.RecordNo__c",
+        "Supplier__r.SapVendorNo__c": "Account.SapVendorNo__c",
+        "Plant__r.PlantCode__c": "CMN_Plant__c.PlantCode__c"
+      },
+      "userLookups": [],
+      "tokenColumns": [],
+      "onMissingUser": "admin",
+      "note": null
+    },
+    {
+      "order": 60,
+      "file": "60_QMS_FourMChange__c.csv",
+      "object": "QMS_FourMChange__c",
+      "externalId": "RecordNo__c",
+      "operation": "upsert",
+      "pass": null,
+      "rows": 12,
+      "recordTypeColumn": true,
+      "relations": {
+        "Plant__r.PlantCode__c": "CMN_Plant__c.PlantCode__c",
+        "Supplier__r.SapVendorNo__c": "Account.SapVendorNo__c",
+        "PrimaryChangeType__r.ExternalKey__c": "CMN_Code__c.ExternalKey__c"
+      },
+      "userLookups": [],
+      "tokenColumns": [
+        "FirstLotRecordId__c",
+        "StabilizationPlanId__c",
+        "SupplierRequestId__c"
+      ],
+      "onMissingUser": "admin",
+      "note": null
+    },
+    {
+      "order": 61,
+      "file": "61_QMS_FourMItem__c.csv",
+      "object": "QMS_FourMItem__c",
+      "externalId": "ExternalKey__c",
+      "operation": "upsert",
+      "pass": null,
+      "rows": 13,
+      "recordTypeColumn": false,
+      "relations": {
+        "FourM__r.RecordNo__c": "QMS_FourMChange__c.RecordNo__c",
+        "Item__r.ItemNo__c": "CMN_Item__c.ItemNo__c",
+        "SupplierItem__r.ExternalKey__c": "CMN_SupplierItem__c.ExternalKey__c",
+        "Line__r.ExternalKey__c": "CMN_Line__c.ExternalKey__c",
+        "Customer__r.OemCode__c": "Account.OemCode__c"
+      },
+      "userLookups": [],
+      "tokenColumns": [],
+      "onMissingUser": "admin",
+      "note": null
+    },
+    {
+      "order": 62,
+      "file": "62_QMS_FourMVerification__c.csv",
+      "object": "QMS_FourMVerification__c",
+      "externalId": "ExternalKey__c",
+      "operation": "upsert",
+      "pass": null,
+      "rows": 17,
+      "recordTypeColumn": false,
+      "relations": {
+        "FourM__r.RecordNo__c": "QMS_FourMChange__c.RecordNo__c",
+        "Item__r.ItemNo__c": "CMN_Item__c.ItemNo__c",
+        "Customer__r.OemCode__c": "Account.OemCode__c",
+        "Owner__r.EmployeeNo__c": "User.EmployeeNo__c"
+      },
+      "userLookups": [
+        "Owner__r.EmployeeNo__c"
+      ],
+      "tokenColumns": [
+        "LinkedRecordId__c"
+      ],
+      "onMissingUser": "admin",
+      "note": null
+    },
+    {
+      "order": 63,
+      "file": "63_CMN_Document__c.csv",
+      "object": "CMN_Document__c",
+      "externalId": "ExternalKey__c",
+      "operation": "upsert",
+      "pass": null,
+      "rows": 98,
+      "recordTypeColumn": false,
+      "relations": {
+        "DocClass__r.ExternalKey__c": "CMN_Code__c.ExternalKey__c",
+        "Plant__r.PlantCode__c": "CMN_Plant__c.PlantCode__c",
+        "Supplier__r.SapVendorNo__c": "Account.SapVendorNo__c"
+      },
+      "userLookups": [],
+      "tokenColumns": [
+        "ParentRecordId__c"
+      ],
+      "onMissingUser": "admin",
+      "note": null
+    },
+    {
+      "order": 63.1,
+      "file": "63a_QMS_QualPlanLine__c.csv",
+      "object": "QMS_QualPlanLine__c",
+      "externalId": "ExternalKey__c",
+      "operation": "upsert",
+      "pass": "pass2-report",
+      "rows": 98,
+      "recordTypeColumn": false,
+      "relations": {
+        "ReportDocument__r.ExternalKey__c": "CMN_Document__c.ExternalKey__c"
+      },
+      "userLookups": [],
+      "tokenColumns": [],
+      "onMissingUser": "admin",
+      "note": null
+    },
+    {
+      "order": 64,
+      "file": "64_CMN_DocumentRevision__c.csv",
+      "object": "CMN_DocumentRevision__c",
+      "externalId": "ExternalKey__c",
+      "operation": "upsert",
+      "pass": null,
+      "rows": 98,
+      "recordTypeColumn": false,
+      "relations": {
+        "Document__r.ExternalKey__c": "CMN_Document__c.ExternalKey__c"
+      },
+      "userLookups": [],
+      "tokenColumns": [],
+      "onMissingUser": "admin",
+      "note": "ExternalKey__c 의미 충돌(DOC-001은 외부 저장소 키로 정의) — 변경 요청 참고"
+    },
+    {
+      "order": 64.1,
+      "file": "64a_CMN_Document__c.csv",
+      "object": "CMN_Document__c",
+      "externalId": "ExternalKey__c",
+      "operation": "upsert",
+      "pass": "pass2-current",
+      "rows": 98,
+      "recordTypeColumn": false,
+      "relations": {
+        "CurrentRevision__r.ExternalKey__c": "CMN_DocumentRevision__c.ExternalKey__c"
+      },
+      "userLookups": [],
+      "tokenColumns": [],
+      "onMissingUser": "admin",
+      "note": null
+    },
+    {
+      "order": 65,
+      "file": "65_QMS_SupplierFourMRequest__c.csv",
+      "object": "QMS_SupplierFourMRequest__c",
+      "externalId": "RecordNo__c",
+      "operation": "upsert",
+      "pass": null,
+      "rows": 1,
+      "recordTypeColumn": false,
+      "relations": {
+        "Supplier__r.SapVendorNo__c": "Account.SapVendorNo__c",
+        "Plant__r.PlantCode__c": "CMN_Plant__c.PlantCode__c",
+        "ChangeType__r.ExternalKey__c": "CMN_Code__c.ExternalKey__c"
+      },
+      "userLookups": [],
+      "tokenColumns": [
+        "FourMChangeId__c"
+      ],
+      "onMissingUser": "admin",
+      "note": null
+    },
+    {
+      "order": 66,
+      "file": "66_QMS_StabilizationPlan__c.csv",
+      "object": "QMS_StabilizationPlan__c",
+      "externalId": "RecordNo__c",
+      "operation": "upsert",
+      "pass": null,
+      "rows": 2,
+      "recordTypeColumn": true,
+      "relations": {
+        "SupplierItem__r.ExternalKey__c": "CMN_SupplierItem__c.ExternalKey__c",
+        "Supplier__r.SapVendorNo__c": "Account.SapVendorNo__c",
+        "Item__r.ItemNo__c": "CMN_Item__c.ItemNo__c",
+        "Plant__r.PlantCode__c": "CMN_Plant__c.PlantCode__c"
+      },
+      "userLookups": [],
+      "tokenColumns": [
+        "SourceRecordId__c"
+      ],
+      "onMissingUser": "admin",
+      "note": null
+    },
+    {
+      "order": 67,
+      "file": "67_QMS_LabRequest__c.csv",
+      "object": "QMS_LabRequest__c",
+      "externalId": "RecordNo__c",
+      "operation": "upsert",
+      "pass": null,
+      "rows": 25,
+      "recordTypeColumn": false,
+      "relations": {
+        "Plant__r.PlantCode__c": "CMN_Plant__c.PlantCode__c",
+        "RequesterPlant__r.PlantCode__c": "CMN_Plant__c.PlantCode__c",
+        "RequesterDept__r.DeptCode__c": "CMN_Department__c.DeptCode__c",
+        "Requester__r.EmployeeNo__c": "User.EmployeeNo__c",
+        "Item__r.ItemNo__c": "CMN_Item__c.ItemNo__c",
+        "Supplier__r.SapVendorNo__c": "Account.SapVendorNo__c",
+        "AcceptedBy__r.EmployeeNo__c": "User.EmployeeNo__c"
+      },
+      "userLookups": [
+        "Requester__r.EmployeeNo__c",
+        "AcceptedBy__r.EmployeeNo__c"
+      ],
+      "tokenColumns": [
+        "SourceRecordId__c"
+      ],
+      "onMissingUser": "admin",
+      "note": null
+    },
+    {
+      "order": 68,
+      "file": "68_QMS_EightDSubmission__c.csv",
+      "object": "QMS_EightDSubmission__c",
+      "externalId": "ExternalKey__c",
+      "operation": "upsert",
+      "pass": null,
+      "rows": 3,
+      "recordTypeColumn": false,
+      "relations": {
+        "EightD__r.RecordNo__c": "QMS_EightD__c.RecordNo__c",
+        "Supplier__r.SapVendorNo__c": "Account.SapVendorNo__c",
+        "Plant__r.PlantCode__c": "CMN_Plant__c.PlantCode__c",
+        "ReviewedBy__r.EmployeeNo__c": "User.EmployeeNo__c"
+      },
+      "userLookups": [
+        "ReviewedBy__r.EmployeeNo__c"
+      ],
+      "tokenColumns": [],
+      "onMissingUser": "admin",
+      "note": null
+    },
+    {
+      "order": 69,
+      "file": "69_QMS_Audit__c.csv",
+      "object": "QMS_Audit__c",
+      "externalId": "RecordNo__c",
+      "operation": "upsert",
+      "pass": null,
+      "rows": 8,
+      "recordTypeColumn": true,
+      "relations": {
+        "Plant__r.PlantCode__c": "CMN_Plant__c.PlantCode__c",
+        "Supplier__r.SapVendorNo__c": "Account.SapVendorNo__c",
+        "Customer__r.OemCode__c": "Account.OemCode__c",
+        "Checklist__r.ChecklistCode__c": "QMS_AuditChecklist__c.ChecklistCode__c",
+        "AuditeeDept__r.DeptCode__c": "CMN_Department__c.DeptCode__c",
+        "LeadAuditor__r.EmployeeNo__c": "User.EmployeeNo__c"
+      },
+      "userLookups": [
+        "LeadAuditor__r.EmployeeNo__c"
+      ],
+      "tokenColumns": [],
+      "onMissingUser": "admin",
+      "note": null
+    },
+    {
+      "order": 69.1,
+      "file": "69a_QMS_Audit__c.csv",
+      "object": "QMS_Audit__c",
+      "externalId": "RecordNo__c",
+      "operation": "upsert",
+      "pass": "pass2-parent",
+      "rows": 1,
+      "recordTypeColumn": false,
+      "relations": {
+        "ParentAudit__r.RecordNo__c": "QMS_Audit__c.RecordNo__c"
+      },
+      "userLookups": [],
+      "tokenColumns": [],
+      "onMissingUser": "admin",
+      "note": null
+    },
+    {
+      "order": 70,
+      "file": "70_QMS_AuditResultItem__c.csv",
+      "object": "QMS_AuditResultItem__c",
+      "externalId": "ExternalKey__c",
+      "operation": "upsert",
+      "pass": null,
+      "rows": 40,
+      "recordTypeColumn": false,
+      "relations": {
+        "Audit__r.RecordNo__c": "QMS_Audit__c.RecordNo__c",
+        "Question__r.ExternalKey__c": "QMS_AuditQuestion__c.ExternalKey__c",
+        "AnsweredBy__r.EmployeeNo__c": "User.EmployeeNo__c"
+      },
+      "userLookups": [
+        "AnsweredBy__r.EmployeeNo__c"
+      ],
+      "tokenColumns": [],
+      "onMissingUser": "admin",
+      "note": null
+    },
+    {
+      "order": 71,
+      "file": "71_QMS_AuditFinding__c.csv",
+      "object": "QMS_AuditFinding__c",
+      "externalId": "RecordNo__c",
+      "operation": "upsert",
+      "pass": null,
+      "rows": 3,
+      "recordTypeColumn": false,
+      "relations": {
+        "Audit__r.RecordNo__c": "QMS_Audit__c.RecordNo__c",
+        "Plant__r.PlantCode__c": "CMN_Plant__c.PlantCode__c",
+        "Customer__r.OemCode__c": "Account.OemCode__c",
+        "ResponsibleDept__r.DeptCode__c": "CMN_Department__c.DeptCode__c",
+        "ResponsibleUser__r.EmployeeNo__c": "User.EmployeeNo__c",
+        "RootCauseCode__r.ExternalKey__c": "CMN_Code__c.ExternalKey__c",
+        "VerifiedBy__r.EmployeeNo__c": "User.EmployeeNo__c"
+      },
+      "userLookups": [
+        "ResponsibleUser__r.EmployeeNo__c",
+        "VerifiedBy__r.EmployeeNo__c"
+      ],
+      "tokenColumns": [],
+      "onMissingUser": "admin",
+      "note": null
+    },
+    {
+      "order": 72,
+      "file": "72_QMS_CustomerAuditPrepTask__c.csv",
+      "object": "QMS_CustomerAuditPrepTask__c",
+      "externalId": "ExternalKey__c",
+      "operation": "upsert",
+      "pass": null,
+      "rows": 8,
+      "recordTypeColumn": false,
+      "relations": {
+        "Audit__r.RecordNo__c": "QMS_Audit__c.RecordNo__c",
+        "Owner__r.EmployeeNo__c": "User.EmployeeNo__c"
+      },
+      "userLookups": [
+        "Owner__r.EmployeeNo__c"
+      ],
+      "tokenColumns": [
+        "LinkedRecordId__c"
+      ],
+      "onMissingUser": "admin",
+      "note": null
+    },
+    {
+      "order": 73,
+      "file": "73_QMS_Gauge__c.csv",
+      "object": "QMS_Gauge__c",
+      "externalId": "GaugeNo__c",
+      "operation": "upsert",
+      "pass": null,
+      "rows": 60,
+      "recordTypeColumn": false,
+      "relations": {
+        "GaugeType__r.ExternalKey__c": "CMN_Code__c.ExternalKey__c",
+        "Plant__r.PlantCode__c": "CMN_Plant__c.PlantCode__c",
+        "Department__r.DeptCode__c": "CMN_Department__c.DeptCode__c",
+        "Line__r.ExternalKey__c": "CMN_Line__c.ExternalKey__c",
+        "Custodian__r.EmployeeNo__c": "CMN_Employee__c.EmployeeNo__c",
+        "Item__r.ItemNo__c": "CMN_Item__c.ItemNo__c"
+      },
+      "userLookups": [],
+      "tokenColumns": [],
+      "onMissingUser": "admin",
+      "note": null
+    },
+    {
+      "order": 74,
+      "file": "74_QMS_LabRequestItem__c.csv",
+      "object": "QMS_LabRequestItem__c",
+      "externalId": "ExternalKey__c",
+      "operation": "upsert",
+      "pass": null,
+      "rows": 29,
+      "recordTypeColumn": false,
+      "relations": {
+        "Request__r.RecordNo__c": "QMS_LabRequest__c.RecordNo__c",
+        "AnalysisItem__r.ItemCode__c": "QMS_LabAnalysisItem__c.ItemCode__c",
+        "Equipment__r.GaugeNo__c": "QMS_Gauge__c.GaugeNo__c",
+        "Analyst__r.EmployeeNo__c": "User.EmployeeNo__c"
+      },
+      "userLookups": [
+        "Analyst__r.EmployeeNo__c"
+      ],
+      "tokenColumns": [],
+      "onMissingUser": "admin",
+      "note": null
+    },
+    {
+      "order": 75,
+      "file": "75_QMS_Calibration__c.csv",
+      "object": "QMS_Calibration__c",
+      "externalId": "RecordNo__c",
+      "operation": "upsert",
+      "pass": null,
+      "rows": 154,
+      "recordTypeColumn": false,
+      "relations": {
+        "Gauge__r.GaugeNo__c": "QMS_Gauge__c.GaugeNo__c",
+        "PerformedBy__r.EmployeeNo__c": "CMN_Employee__c.EmployeeNo__c"
+      },
+      "userLookups": [],
+      "tokenColumns": [],
+      "onMissingUser": "admin",
+      "note": null
+    },
+    {
+      "order": 76,
+      "file": "76_QMS_GaugeImpactAnalysis__c.csv",
+      "object": "QMS_GaugeImpactAnalysis__c",
+      "externalId": "RecordNo__c",
+      "operation": "upsert",
+      "pass": null,
+      "rows": 1,
+      "recordTypeColumn": false,
+      "relations": {
+        "Gauge__r.GaugeNo__c": "QMS_Gauge__c.GaugeNo__c",
+        "Calibration__r.RecordNo__c": "QMS_Calibration__c.RecordNo__c",
+        "Plant__r.PlantCode__c": "CMN_Plant__c.PlantCode__c"
+      },
+      "userLookups": [],
+      "tokenColumns": [],
+      "onMissingUser": "admin",
+      "note": null
+    },
+    {
+      "order": 77,
+      "file": "77_QMS_TrainingSession__c.csv",
+      "object": "QMS_TrainingSession__c",
+      "externalId": "RecordNo__c",
+      "operation": "upsert",
+      "pass": null,
+      "rows": 24,
+      "recordTypeColumn": false,
+      "relations": {
+        "Course__r.CourseCode__c": "QMS_TrainingCourse__c.CourseCode__c",
+        "Plant__r.PlantCode__c": "CMN_Plant__c.PlantCode__c",
+        "Instructor__r.EmployeeNo__c": "CMN_Employee__c.EmployeeNo__c"
+      },
+      "userLookups": [],
+      "tokenColumns": [],
+      "onMissingUser": "admin",
+      "note": null
+    },
+    {
+      "order": 78,
+      "file": "78_QMS_TrainingAttendance__c.csv",
+      "object": "QMS_TrainingAttendance__c",
+      "externalId": "ExternalKey__c",
+      "operation": "upsert",
+      "pass": null,
+      "rows": 90,
+      "recordTypeColumn": false,
+      "relations": {
+        "Course__r.CourseCode__c": "QMS_TrainingCourse__c.CourseCode__c",
+        "Session__r.RecordNo__c": "QMS_TrainingSession__c.RecordNo__c",
+        "Employee__r.EmployeeNo__c": "CMN_Employee__c.EmployeeNo__c",
+        "Plant__r.PlantCode__c": "CMN_Plant__c.PlantCode__c"
+      },
+      "userLookups": [],
+      "tokenColumns": [],
+      "onMissingUser": "admin",
+      "note": null
+    },
+    {
+      "order": 79,
+      "file": "79_QMS_Qualification__c.csv",
+      "object": "QMS_Qualification__c",
+      "externalId": "RecordNo__c",
+      "operation": "upsert",
+      "pass": null,
+      "rows": 60,
+      "recordTypeColumn": false,
+      "relations": {
+        "Employee__r.EmployeeNo__c": "CMN_Employee__c.EmployeeNo__c",
+        "QualificationType__r.TypeCode__c": "QMS_QualificationType__c.TypeCode__c",
+        "Plant__r.PlantCode__c": "CMN_Plant__c.PlantCode__c"
+      },
+      "userLookups": [],
+      "tokenColumns": [],
+      "onMissingUser": "admin",
+      "note": null
+    },
+    {
+      "order": 80,
+      "file": "80_QMS_Certification__c.csv",
+      "object": "QMS_Certification__c",
+      "externalId": "RecordNo__c",
+      "operation": "upsert",
+      "pass": null,
+      "rows": 6,
+      "recordTypeColumn": false,
+      "relations": {
+        "Plant__r.PlantCode__c": "CMN_Plant__c.PlantCode__c"
+      },
+      "userLookups": [],
+      "tokenColumns": [],
+      "onMissingUser": "admin",
+      "note": null
+    },
+    {
+      "order": 81,
+      "file": "81_QMS_SupplierCertificate__c.csv",
+      "object": "QMS_SupplierCertificate__c",
+      "externalId": "ExternalKey__c",
+      "operation": "upsert",
+      "pass": null,
+      "rows": 8,
+      "recordTypeColumn": false,
+      "relations": {
+        "Supplier__r.SapVendorNo__c": "Account.SapVendorNo__c"
+      },
+      "userLookups": [],
+      "tokenColumns": [],
+      "onMissingUser": "admin",
+      "note": null
+    },
+    {
+      "order": 82,
+      "file": "82_QMS_LimitSample__c.csv",
+      "object": "QMS_LimitSample__c",
+      "externalId": "RecordNo__c",
+      "operation": "upsert",
+      "pass": null,
+      "rows": 15,
+      "recordTypeColumn": false,
+      "relations": {
+        "Item__r.ItemNo__c": "CMN_Item__c.ItemNo__c",
+        "Characteristic__r.ExternalKey__c": "CMN_Characteristic__c.ExternalKey__c",
+        "Plant__r.PlantCode__c": "CMN_Plant__c.PlantCode__c",
+        "DefectCode__r.ExternalKey__c": "CMN_Code__c.ExternalKey__c",
+        "Customer__r.OemCode__c": "Account.OemCode__c"
+      },
+      "userLookups": [],
+      "tokenColumns": [],
+      "onMissingUser": "admin",
+      "note": null
+    },
+    {
+      "order": 83,
+      "file": "83_CMN_ApprovalRequest__c.csv",
+      "object": "CMN_ApprovalRequest__c",
+      "externalId": "RecordNo__c",
+      "operation": "upsert",
+      "pass": null,
+      "rows": 7,
+      "recordTypeColumn": false,
+      "relations": {
+        "Plant__r.PlantCode__c": "CMN_Plant__c.PlantCode__c"
+      },
+      "userLookups": [],
+      "tokenColumns": [
+        "TargetRecordId__c"
+      ],
+      "onMissingUser": "admin",
+      "note": null
+    },
+    {
+      "order": 84,
+      "file": "84_CMN_ApprovalStep__c.csv",
+      "object": "CMN_ApprovalStep__c",
+      "externalId": "ExternalKey__c",
+      "operation": "upsert",
+      "pass": null,
+      "rows": 14,
+      "recordTypeColumn": false,
+      "relations": {
+        "Request__r.RecordNo__c": "CMN_ApprovalRequest__c.RecordNo__c",
+        "Approver__r.EmployeeNo__c": "User.EmployeeNo__c",
+        "ActedBy__r.EmployeeNo__c": "User.EmployeeNo__c"
+      },
+      "userLookups": [
+        "Approver__r.EmployeeNo__c",
+        "ActedBy__r.EmployeeNo__c"
+      ],
+      "tokenColumns": [],
+      "onMissingUser": "admin",
+      "note": null
+    },
+    {
+      "order": 85,
+      "file": "85_CMN_Todo__c.csv",
+      "object": "CMN_Todo__c",
+      "externalId": "ExternalKey__c",
+      "operation": "upsert",
+      "pass": null,
+      "rows": 31,
+      "recordTypeColumn": false,
+      "relations": {
+        "Assignee__r.EmployeeNo__c": "User.EmployeeNo__c",
+        "DelegatedFrom__r.EmployeeNo__c": "User.EmployeeNo__c",
+        "Plant__r.PlantCode__c": "CMN_Plant__c.PlantCode__c"
+      },
+      "userLookups": [
+        "Assignee__r.EmployeeNo__c",
+        "DelegatedFrom__r.EmployeeNo__c"
+      ],
+      "tokenColumns": [
+        "ExternalKey__c",
+        "SourceRecordId__c",
+        "TargetRecordId__c"
+      ],
+      "onMissingUser": "admin",
+      "note": null
+    }
+  ]
+}

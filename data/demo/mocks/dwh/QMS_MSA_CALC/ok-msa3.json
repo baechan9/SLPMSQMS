@@ -1,0 +1,82 @@
+{
+  "queryKey": "QMS_MSA_CALC",
+  "mode": "PROCEDURE",
+  "version": 1,
+  "params": {
+    "studyId": "S8-MSA3",
+    "studyNo": "MSA-KR01-2026-00009",
+    "studyType": "ATTRIBUTE"
+  },
+  "columns": [],
+  "rows": [],
+  "rowCount": 0,
+  "truncated": false,
+  "asOf": null,
+  "stale": false,
+  "scopeNote": null,
+  "generatedAt": "2026-12-01T00:00:03Z",
+  "durationMs": 840,
+  "calcVersion": "msa-1.0.0-demo",
+  "warnings": [],
+  "errorCode": null,
+  "errorMessage": null,
+  "result": {
+    "engineVersion": "msa-1.0.0-demo",
+    "studyId": "MSA-KR01-2026-00009",
+    "studyNo": "MSA-KR01-2026-00009",
+    "studyType": "ATTRIBUTE",
+    "calcSeq": 1,
+    "status": "OK",
+    "errorCode": null,
+    "metrics": {
+      "kappaWithinMin": 0.6474735605170389,
+      "kappaBetween": 0.7194805194805193,
+      "kappaVsStandardMin": 0.8192771084337349,
+      "effectivenessPct": 83.33333333333334,
+      "missRatePct": 5.0,
+      "falseAlarmPct": 12.5,
+      "systemEffectivenessPct": 76.66666666666667,
+      "metricBasis": "APPRAISER_WORST"
+    },
+    "verdict": {
+      "value": "ACCEPTABLE",
+      "basis": "ATTRIBUTE",
+      "reason": "평가자 대 기준 kappa 최소 0.819 ≥ 0.75(데모 임시 기준)"
+    },
+    "appraiserResults": [
+      {
+        "appraiser": "A",
+        "employeeNo": "E1104",
+        "kappaVsStandard": 0.853658536585366,
+        "kappaWithin": 0.7129186602870814,
+        "effectivenessPct": 86.66666666666667,
+        "missRatePct": 5.0,
+        "falseAlarmPct": 7.5,
+        "verdict": "ACCEPTABLE"
+      },
+      {
+        "appraiser": "B",
+        "employeeNo": "E1105",
+        "kappaVsStandard": 0.8192771084337349,
+        "kappaWithin": 0.6474735605170389,
+        "effectivenessPct": 83.33333333333334,
+        "missRatePct": 5.0,
+        "falseAlarmPct": 10.0,
+        "verdict": "ACCEPTABLE"
+      },
+      {
+        "appraiser": "C",
+        "employeeNo": "E1114",
+        "kappaVsStandard": 0.8235294117647058,
+        "kappaWithin": 0.7942857142857143,
+        "effectivenessPct": 86.66666666666667,
+        "missRatePct": 0.0,
+        "falseAlarmPct": 12.5,
+        "verdict": "ACCEPTABLE"
+      }
+    ],
+    "warnings": []
+  },
+  "cacheHit": false,
+  "requestId": "demo-11287490e0d5"
+}

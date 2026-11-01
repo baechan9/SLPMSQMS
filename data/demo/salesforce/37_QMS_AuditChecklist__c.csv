@@ -1,0 +1,2 @@
+ChecklistCode__c,Family__c,Version__c,Name,Scheme__c,RecordTypes__c,AuditTypes__c,StandardRef__c,AllowedScores__c,TextSource__c,LicenseConfirmed__c,EffectiveFrom__c,TotalMethod__c,Status__c
+VDA63-SL-DEMO-V1,VDA63,1,"VDA 6.3 형식 공정 심사(SL 문구, 데모)",VDA63,INTERNAL;SUPPLIER;CUSTOMER,PROCESS;PRE_ASSESSMENT;CUSTOMER_AUDIT,"VDA 6.3 형식(질문 번호만, 문구는 SL 자체)","0,4,6,8,10",SL_WORDING,false,2025-01-01,QUESTION_SUM,ACTIVE

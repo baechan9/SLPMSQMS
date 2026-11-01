@@ -1,0 +1,37 @@
+{
+  "queryKey": "QMS_MSA_CALC",
+  "mode": "PROCEDURE",
+  "version": 1,
+  "params": {
+    "studyId": "S8-MSA1",
+    "studyType": "GRR_XBAR_R"
+  },
+  "columns": [],
+  "rows": [],
+  "rowCount": 0,
+  "truncated": false,
+  "asOf": null,
+  "stale": false,
+  "scopeNote": null,
+  "generatedAt": "2026-12-01T00:00:03Z",
+  "durationMs": 840,
+  "calcVersion": "msa-1.0.0-demo",
+  "warnings": [],
+  "errorCode": null,
+  "errorMessage": null,
+  "result": {
+    "engineVersion": "msa-1.0.0-demo",
+    "studyId": "S8-MSA1",
+    "studyType": "GRR_XBAR_R",
+    "calcSeq": 2,
+    "status": "FAILED",
+    "errorCode": "CONSTANT_NOT_VERIFIED",
+    "metrics": null,
+    "verdict": null,
+    "warnings": [
+      "K3(PARTS=10) VERIFIED_BY 공란"
+    ]
+  },
+  "cacheHit": false,
+  "requestId": "demo-416c6610ec5b"
+}

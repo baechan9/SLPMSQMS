@@ -1,0 +1,229 @@
+{
+  "queryKey": "QMS_B2B_TREND",
+  "mode": "QUERY",
+  "version": 1,
+  "params": {
+    "customerCodes": [
+      "BMW"
+    ],
+    "itemNos": [
+      "63117-BE1L"
+    ],
+    "dataTypes": [
+      "LINE_0KM"
+    ],
+    "periodType": "MONTH",
+    "from": "2025-11-01",
+    "to": "2026-11-01",
+    "plantCodes": [
+      "KR01",
+      "PL01"
+    ]
+  },
+  "columns": [
+    {
+      "name": "periodStart",
+      "type": "DATE",
+      "unit": null
+    },
+    {
+      "name": "dataType",
+      "type": "STRING",
+      "unit": null
+    },
+    {
+      "name": "customerCode",
+      "type": "STRING",
+      "unit": null
+    },
+    {
+      "name": "eventCount",
+      "type": "INTEGER",
+      "unit": null
+    },
+    {
+      "name": "qty",
+      "type": "NUMBER",
+      "unit": null
+    },
+    {
+      "name": "denominator",
+      "type": "NUMBER",
+      "unit": null
+    },
+    {
+      "name": "ppm",
+      "type": "NUMBER",
+      "unit": "PPM"
+    },
+    {
+      "name": "r1000",
+      "type": "NUMBER",
+      "unit": "R1000"
+    },
+    {
+      "name": "target",
+      "type": "NUMBER",
+      "unit": "PPM"
+    }
+  ],
+  "rows": [
+    [
+      "2025-11-01",
+      "LINE_0KM",
+      "BMW",
+      0,
+      0,
+      14837,
+      0.0,
+      null,
+      50
+    ],
+    [
+      "2025-12-01",
+      "LINE_0KM",
+      "BMW",
+      0,
+      0,
+      14923,
+      0.0,
+      null,
+      50
+    ],
+    [
+      "2026-01-01",
+      "LINE_0KM",
+      "BMW",
+      1,
+      1,
+      18620,
+      53.706,
+      null,
+      50
+    ],
+    [
+      "2026-02-01",
+      "LINE_0KM",
+      "BMW",
+      0,
+      0,
+      14901,
+      0.0,
+      null,
+      50
+    ],
+    [
+      "2026-03-01",
+      "LINE_0KM",
+      "BMW",
+      0,
+      0,
+      14840,
+      0.0,
+      null,
+      50
+    ],
+    [
+      "2026-04-01",
+      "LINE_0KM",
+      "BMW",
+      0,
+      0,
+      14861,
+      0.0,
+      null,
+      50
+    ],
+    [
+      "2026-05-01",
+      "LINE_0KM",
+      "BMW",
+      1,
+      1,
+      18485,
+      54.098,
+      null,
+      50
+    ],
+    [
+      "2026-06-01",
+      "LINE_0KM",
+      "BMW",
+      1,
+      1,
+      16933,
+      59.056,
+      null,
+      50
+    ],
+    [
+      "2026-07-01",
+      "LINE_0KM",
+      "BMW",
+      1,
+      1,
+      16695,
+      59.898,
+      null,
+      50
+    ],
+    [
+      "2026-08-01",
+      "LINE_0KM",
+      "BMW",
+      0,
+      0,
+      15871,
+      0.0,
+      null,
+      50
+    ],
+    [
+      "2026-09-01",
+      "LINE_0KM",
+      "BMW",
+      1,
+      1,
+      16160,
+      61.881,
+      null,
+      50
+    ],
+    [
+      "2026-10-01",
+      "LINE_0KM",
+      "BMW",
+      2,
+      2,
+      16051,
+      124.603,
+      null,
+      50
+    ],
+    [
+      "2026-11-01",
+      "LINE_0KM",
+      "BMW",
+      3,
+      3,
+      16150,
+      185.759,
+      null,
+      50
+    ]
+  ],
+  "rowCount": 13,
+  "truncated": false,
+  "asOf": "2026-11-30T14:55:00Z",
+  "stale": false,
+  "scopeNote": "KR01, PL01",
+  "generatedAt": "2026-12-01T00:00:03Z",
+  "durationMs": 840,
+  "calcVersion": null,
+  "warnings": [],
+  "errorCode": null,
+  "errorMessage": null,
+  "result": null,
+  "cacheHit": false,
+  "requestId": "demo-82a626815513"
+}

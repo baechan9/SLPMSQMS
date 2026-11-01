@@ -1,0 +1,97 @@
+{
+  "_meta": {
+    "dto": "QMS_FourMVerificationRowDTO[]",
+    "definition": "제안 DTO(WI 미정의 — 변경 요청)",
+    "scenario": "S3",
+    "asOf": "2026-12-01",
+    "generator": "gen_salesforce.py",
+    "note": null
+  },
+  "fourMRecordNo": "4M-KR01-2026-00004",
+  "rows": [
+    {
+      "id": "a0G394242E2A344AAA",
+      "sequence": 10,
+      "type": "QUAL_TEST",
+      "gateStage": "BEFORE_APPLY",
+      "title": "인정시험(내광성·열충격·헤이즈)",
+      "owner": "E1112",
+      "dueDate": "2026-11-02",
+      "status": "DONE",
+      "linkedObject": "QMS_QualPlan__c",
+      "linkedRecordNo": "QTP-KR01-2026-00004",
+      "customerDecision": null,
+      "mandatory": true
+    },
+    {
+      "id": "a0G820962A9BD40AAA",
+      "sequence": 20,
+      "type": "PPAP_SUPPLIER",
+      "gateStage": "BEFORE_APPLY",
+      "title": "협력사 Re-PPAP(레벨 3)",
+      "owner": "E1112",
+      "dueDate": "2026-11-15",
+      "status": "DONE",
+      "linkedObject": "QMS_Ppap__c",
+      "linkedRecordNo": "PPA-KR01-2026-00007",
+      "customerDecision": null,
+      "mandatory": true
+    },
+    {
+      "id": "a0GF169DB65655BAAA",
+      "sequence": 30,
+      "type": "CUSTOMER_NOTICE",
+      "gateStage": "BEFORE_APPLY",
+      "title": "HMC 변경 통보",
+      "owner": "E1202",
+      "dueDate": "2026-09-25",
+      "status": "DONE",
+      "linkedObject": null,
+      "linkedRecordNo": null,
+      "customerDecision": "APPROVED",
+      "mandatory": true
+    },
+    {
+      "id": "a0GD570BFA745C2AAA",
+      "sequence": 40,
+      "type": "PFMEA_UPDATE",
+      "gateStage": "BEFORE_APPLY",
+      "title": "협력사 PFMEA 개정 확인",
+      "owner": "E1112",
+      "dueDate": "2026-10-20",
+      "status": "DONE",
+      "linkedObject": null,
+      "linkedRecordNo": null,
+      "customerDecision": null,
+      "mandatory": true
+    },
+    {
+      "id": "a0GDC0EE763BA98AAA",
+      "sequence": 50,
+      "type": "CONTROL_PLAN_UPDATE",
+      "gateStage": "BEFORE_APPLY",
+      "title": "협력사 관리계획서 개정 확인",
+      "owner": "E1112",
+      "dueDate": "2026-10-20",
+      "status": "DONE",
+      "linkedObject": null,
+      "linkedRecordNo": null,
+      "customerDecision": null,
+      "mandatory": true
+    },
+    {
+      "id": "a0G9732772188E7AAA",
+      "sequence": 60,
+      "type": "FIRST_LOT_INSPECTION",
+      "gateStage": "AFTER_APPLY",
+      "title": "첫 적용 로트 전수 검사",
+      "owner": "E1104",
+      "dueDate": "2026-11-25",
+      "status": "DONE",
+      "linkedObject": "QMS_IqcLot__c",
+      "linkedRecordNo": "IQC-KR01-2026-000915",
+      "customerDecision": null,
+      "mandatory": true
+    }
+  ]
+}

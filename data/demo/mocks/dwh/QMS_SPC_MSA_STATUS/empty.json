@@ -1,0 +1,69 @@
+{
+  "queryKey": "QMS_SPC_MSA_STATUS",
+  "mode": "QUERY",
+  "version": 1,
+  "params": {
+    "characteristicId": "92101-KC1L-C20-20250501",
+    "plantCode": "CN01",
+    "plantCodes": [
+      "CN01"
+    ]
+  },
+  "columns": [
+    {
+      "name": "studyNo",
+      "type": "STRING",
+      "unit": null
+    },
+    {
+      "name": "studyType",
+      "type": "STRING",
+      "unit": null
+    },
+    {
+      "name": "gaugeNo",
+      "type": "STRING",
+      "unit": null
+    },
+    {
+      "name": "verdict",
+      "type": "STRING",
+      "unit": null
+    },
+    {
+      "name": "pctGrrStudyVar",
+      "type": "NUMBER",
+      "unit": "%"
+    },
+    {
+      "name": "pctGrrTolerance",
+      "type": "NUMBER",
+      "unit": "%"
+    },
+    {
+      "name": "ndc",
+      "type": "INTEGER",
+      "unit": null
+    },
+    {
+      "name": "approvedDate",
+      "type": "DATE",
+      "unit": null
+    }
+  ],
+  "rows": [],
+  "rowCount": 0,
+  "truncated": false,
+  "asOf": "2026-11-30T14:55:00Z",
+  "stale": false,
+  "scopeNote": "CN01",
+  "generatedAt": "2026-12-01T00:00:03Z",
+  "durationMs": 840,
+  "calcVersion": null,
+  "warnings": [],
+  "errorCode": null,
+  "errorMessage": null,
+  "result": null,
+  "cacheHit": false,
+  "requestId": "demo-ab2a909baf75"
+}

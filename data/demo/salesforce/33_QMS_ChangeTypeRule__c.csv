@@ -1,0 +1,6 @@
+ExternalKey__c,ChangeType__r.ExternalKey__c,Scope__c,RiskClass__c,CustomerNotice__c,CustomerLeadDays__c,QualTestRequired__c,SupplierPpapRequired__c,CustomerPpapRequired__c,StabilizationRequired__c,PfmeaReview__c,ControlPlanUpdate__c,WorkInstructionUpdate__c,TrialRun__c,MsaRequired__c,TrainingRequired__c,LimitSampleReview__c,MinLeadDays__c,Status__c,Version__c
+CTR-RESIN-GRADE,CHANGE_TYPE/MATERIAL/RESIN/RESIN_GRADE,BOTH,A,NOTICE,30,true,true,false,true,true,true,false,true,false,false,false,30,ACTIVE,1
+CTR-MOLD-REPAIR,CHANGE_TYPE/MACHINE/MOLD/MOLD_REPAIR,BOTH,B,NOT_REQUIRED,,false,true,false,true,true,true,false,true,false,false,false,14,ACTIVE,1
+CTR-PROCESS-PARAM,CHANGE_TYPE/METHOD/CONDITION/PROCESS_PARAM,INTERNAL,B,NOT_REQUIRED,,true,false,false,true,true,true,false,true,false,false,false,14,ACTIVE,1
+CTR-GAUGE-METHOD,CHANGE_TYPE/MEASUREMENT/GAUGE/GAUGE_METHOD,BOTH,C,NOT_REQUIRED,,false,false,false,false,true,true,false,true,true,false,false,7,ACTIVE,1
+CTR-SITE-TRANSFER,CHANGE_TYPE/ENVIRONMENT/LOCATION/SITE_TRANSFER,BOTH,A,APPROVAL,90,true,true,true,true,true,true,false,true,false,false,false,90,ACTIVE,1

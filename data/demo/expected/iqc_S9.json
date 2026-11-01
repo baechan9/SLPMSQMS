@@ -1,0 +1,978 @@
+{
+  "asOf": "2026-12-01",
+  "period": {
+    "from": "2026-06-01",
+    "to": "2026-11-30"
+  },
+  "larDefinition": "QMS_IQC_LAR = ACCEPT 로트 / 판정 로트 × 100(자동 합격 SKIP·검사 중 로트 제외), 월 = 입고일(GrDate) 기준",
+  "counts": {
+    "lots": 1359,
+    "decided": 1273,
+    "autoAccepted": 79,
+    "pending": 8,
+    "rejected": 5
+  },
+  "levelChanges": [
+    {
+      "supplierItem": "V10002-P-HSG-BE1-KR01",
+      "date": "2026-10-19",
+      "from": "NORMAL",
+      "to": "TIGHTENED",
+      "reason": "SWITCH_RULE"
+    },
+    {
+      "supplierItem": "V10002-P-HSG-HE1-KR01",
+      "date": "2026-11-25",
+      "from": "NORMAL",
+      "to": "TIGHTENED",
+      "reason": "SWITCH_RULE"
+    },
+    {
+      "supplierItem": "V10005-P-CON-01-KR01",
+      "date": "2026-05-15",
+      "from": "NORMAL",
+      "to": "REDUCED",
+      "reason": "SWITCH_RULE"
+    },
+    {
+      "supplierItem": "V10007-P-ACT-01-KR01",
+      "date": "2026-03-02",
+      "from": "REDUCED",
+      "to": "SKIP",
+      "reason": "SKIP_APPROVAL"
+    },
+    {
+      "supplierItem": "V10008-R-PC-A01-KR01",
+      "date": "2026-04-10",
+      "from": "NORMAL",
+      "to": "REDUCED",
+      "reason": "SWITCH_RULE"
+    }
+  ],
+  "holds": [
+    {
+      "supplierItem": "V10002-P-HSG-BE1-KR01",
+      "type": "NCR",
+      "source": "NCR-KR01-2026-000022",
+      "active": false
+    },
+    {
+      "supplierItem": "V10002-P-HSG-BE1-KR01",
+      "type": "NCR",
+      "source": "NCR-KR01-2026-000023",
+      "active": false
+    },
+    {
+      "supplierItem": "V10002-P-HSG-BE1-KR01",
+      "type": "NCR",
+      "source": "NCR-KR01-2026-000024",
+      "active": true
+    },
+    {
+      "supplierItem": "V10002-P-HSG-HE1-KR01",
+      "type": "NCR",
+      "source": "NCR-KR01-2026-000027",
+      "active": true
+    },
+    {
+      "supplierItem": "V10002-P-HSG-HE1-KR01",
+      "type": "NCR",
+      "source": "NCR-KR01-2026-000029",
+      "active": true
+    },
+    {
+      "supplierItem": "V10001-P-LENS-HE1-KR01",
+      "type": "STABILIZATION",
+      "source": "STB-KR01-2026-00001",
+      "active": true
+    }
+  ],
+  "rejects": [
+    {
+      "lot": "IQC-KR01-2026-000651",
+      "lotKey": "KR01-2026-5010050939-0001",
+      "date": "2026-10-05",
+      "item": "P-HSG-BE1",
+      "vendor": "V10002",
+      "plant": "KR01",
+      "ncr": "NCR-KR01-2026-000022"
+    },
+    {
+      "lot": "IQC-KR01-2026-000723",
+      "lotKey": "KR01-2026-5010191043-0001",
+      "date": "2026-10-19",
+      "item": "P-HSG-BE1",
+      "vendor": "V10002",
+      "plant": "KR01",
+      "ncr": "NCR-KR01-2026-000023"
+    },
+    {
+      "lot": "IQC-KR01-2026-000830",
+      "lotKey": "KR01-2026-5011091198-0001",
+      "date": "2026-11-09",
+      "item": "P-HSG-BE1",
+      "vendor": "V10002",
+      "plant": "KR01",
+      "ncr": "NCR-KR01-2026-000024"
+    },
+    {
+      "lot": "IQC-KR01-2026-000901",
+      "lotKey": "KR01-2026-5011231301-0001",
+      "date": "2026-11-23",
+      "item": "P-HSG-HE1",
+      "vendor": "V10002",
+      "plant": "KR01",
+      "ncr": "NCR-KR01-2026-000027"
+    },
+    {
+      "lot": "IQC-KR01-2026-000916",
+      "lotKey": "KR01-2026-5011251324-0001",
+      "date": "2026-11-25",
+      "item": "P-HSG-HE1",
+      "vendor": "V10002",
+      "plant": "KR01",
+      "ncr": "NCR-KR01-2026-000029"
+    }
+  ],
+  "coaAnomalies": [
+    {
+      "rule": "R1_IDENTICAL_VALUES",
+      "supplierItem": "V10005-P-CON-01-KR01",
+      "coa": [
+        "COA-KR01-2026-000426",
+        "COA-KR01-2026-000464"
+      ],
+      "dates": [
+        "2026-11-03",
+        "2026-11-17"
+      ]
+    },
+    {
+      "rule": "OOS_HOLD",
+      "coa": "COA-KR01-2026-000437",
+      "supplierItem": "V10003-P-LED-HE1-KR01",
+      "characteristic": "P-LED-HE1-C40-20240101",
+      "value": 27.0,
+      "usl": 25.0
+    }
+  ],
+  "s3FirstLot": {
+    "lot": "IQC-KR01-2026-000915",
+    "lotKey": "KR01-2026-5011251323-0001",
+    "level": "TIGHTENED",
+    "fullInspection": true,
+    "stabilizationLotsDecided": 2
+  },
+  "larMonthly": [
+    {
+      "month": "2026-06",
+      "vendor": "V10001",
+      "plant": "CN01",
+      "decidedLots": 9,
+      "acceptLots": 9,
+      "rejectLots": 0,
+      "lar": 100.0
+    },
+    {
+      "month": "2026-06",
+      "vendor": "V10001",
+      "plant": "KR01",
+      "decidedLots": 13,
+      "acceptLots": 13,
+      "rejectLots": 0,
+      "lar": 100.0
+    },
+    {
+      "month": "2026-06",
+      "vendor": "V10002",
+      "plant": "KR01",
+      "decidedLots": 27,
+      "acceptLots": 27,
+      "rejectLots": 0,
+      "lar": 100.0
+    },
+    {
+      "month": "2026-06",
+      "vendor": "V10002",
+      "plant": "PL01",
+      "decidedLots": 9,
+      "acceptLots": 9,
+      "rejectLots": 0,
+      "lar": 100.0
+    },
+    {
+      "month": "2026-06",
+      "vendor": "V10003",
+      "plant": "KR01",
+      "decidedLots": 31,
+      "acceptLots": 31,
+      "rejectLots": 0,
+      "lar": 100.0
+    },
+    {
+      "month": "2026-06",
+      "vendor": "V10003",
+      "plant": "PL01",
+      "decidedLots": 9,
+      "acceptLots": 9,
+      "rejectLots": 0,
+      "lar": 100.0
+    },
+    {
+      "month": "2026-06",
+      "vendor": "V10004",
+      "plant": "KR01",
+      "decidedLots": 9,
+      "acceptLots": 9,
+      "rejectLots": 0,
+      "lar": 100.0
+    },
+    {
+      "month": "2026-06",
+      "vendor": "V10005",
+      "plant": "CN01",
+      "decidedLots": 9,
+      "acceptLots": 9,
+      "rejectLots": 0,
+      "lar": 100.0
+    },
+    {
+      "month": "2026-06",
+      "vendor": "V10005",
+      "plant": "KR01",
+      "decidedLots": 22,
+      "acceptLots": 22,
+      "rejectLots": 0,
+      "lar": 100.0
+    },
+    {
+      "month": "2026-06",
+      "vendor": "V10005",
+      "plant": "PL01",
+      "decidedLots": 9,
+      "acceptLots": 9,
+      "rejectLots": 0,
+      "lar": 100.0
+    },
+    {
+      "month": "2026-06",
+      "vendor": "V10005",
+      "plant": "US01",
+      "decidedLots": 9,
+      "acceptLots": 9,
+      "rejectLots": 0,
+      "lar": 100.0
+    },
+    {
+      "month": "2026-06",
+      "vendor": "V10006",
+      "plant": "KR01",
+      "decidedLots": 22,
+      "acceptLots": 22,
+      "rejectLots": 0,
+      "lar": 100.0
+    },
+    {
+      "month": "2026-06",
+      "vendor": "V10007",
+      "plant": "PL01",
+      "decidedLots": 9,
+      "acceptLots": 9,
+      "rejectLots": 0,
+      "lar": 100.0
+    },
+    {
+      "month": "2026-06",
+      "vendor": "V10007",
+      "plant": "US01",
+      "decidedLots": 9,
+      "acceptLots": 9,
+      "rejectLots": 0,
+      "lar": 100.0
+    },
+    {
+      "month": "2026-06",
+      "vendor": "V10008",
+      "plant": "KR01",
+      "decidedLots": 22,
+      "acceptLots": 22,
+      "rejectLots": 0,
+      "lar": 100.0
+    },
+    {
+      "month": "2026-07",
+      "vendor": "V10001",
+      "plant": "CN01",
+      "decidedLots": 9,
+      "acceptLots": 9,
+      "rejectLots": 0,
+      "lar": 100.0
+    },
+    {
+      "month": "2026-07",
+      "vendor": "V10001",
+      "plant": "KR01",
+      "decidedLots": 14,
+      "acceptLots": 14,
+      "rejectLots": 0,
+      "lar": 100.0
+    },
+    {
+      "month": "2026-07",
+      "vendor": "V10002",
+      "plant": "KR01",
+      "decidedLots": 27,
+      "acceptLots": 27,
+      "rejectLots": 0,
+      "lar": 100.0
+    },
+    {
+      "month": "2026-07",
+      "vendor": "V10002",
+      "plant": "PL01",
+      "decidedLots": 9,
+      "acceptLots": 9,
+      "rejectLots": 0,
+      "lar": 100.0
+    },
+    {
+      "month": "2026-07",
+      "vendor": "V10003",
+      "plant": "KR01",
+      "decidedLots": 32,
+      "acceptLots": 32,
+      "rejectLots": 0,
+      "lar": 100.0
+    },
+    {
+      "month": "2026-07",
+      "vendor": "V10003",
+      "plant": "PL01",
+      "decidedLots": 9,
+      "acceptLots": 9,
+      "rejectLots": 0,
+      "lar": 100.0
+    },
+    {
+      "month": "2026-07",
+      "vendor": "V10004",
+      "plant": "KR01",
+      "decidedLots": 9,
+      "acceptLots": 9,
+      "rejectLots": 0,
+      "lar": 100.0
+    },
+    {
+      "month": "2026-07",
+      "vendor": "V10005",
+      "plant": "CN01",
+      "decidedLots": 9,
+      "acceptLots": 9,
+      "rejectLots": 0,
+      "lar": 100.0
+    },
+    {
+      "month": "2026-07",
+      "vendor": "V10005",
+      "plant": "KR01",
+      "decidedLots": 23,
+      "acceptLots": 23,
+      "rejectLots": 0,
+      "lar": 100.0
+    },
+    {
+      "month": "2026-07",
+      "vendor": "V10005",
+      "plant": "PL01",
+      "decidedLots": 9,
+      "acceptLots": 9,
+      "rejectLots": 0,
+      "lar": 100.0
+    },
+    {
+      "month": "2026-07",
+      "vendor": "V10005",
+      "plant": "US01",
+      "decidedLots": 9,
+      "acceptLots": 9,
+      "rejectLots": 0,
+      "lar": 100.0
+    },
+    {
+      "month": "2026-07",
+      "vendor": "V10006",
+      "plant": "KR01",
+      "decidedLots": 23,
+      "acceptLots": 23,
+      "rejectLots": 0,
+      "lar": 100.0
+    },
+    {
+      "month": "2026-07",
+      "vendor": "V10007",
+      "plant": "PL01",
+      "decidedLots": 9,
+      "acceptLots": 9,
+      "rejectLots": 0,
+      "lar": 100.0
+    },
+    {
+      "month": "2026-07",
+      "vendor": "V10007",
+      "plant": "US01",
+      "decidedLots": 9,
+      "acceptLots": 9,
+      "rejectLots": 0,
+      "lar": 100.0
+    },
+    {
+      "month": "2026-07",
+      "vendor": "V10008",
+      "plant": "KR01",
+      "decidedLots": 23,
+      "acceptLots": 23,
+      "rejectLots": 0,
+      "lar": 100.0
+    },
+    {
+      "month": "2026-08",
+      "vendor": "V10001",
+      "plant": "CN01",
+      "decidedLots": 8,
+      "acceptLots": 8,
+      "rejectLots": 0,
+      "lar": 100.0
+    },
+    {
+      "month": "2026-08",
+      "vendor": "V10001",
+      "plant": "KR01",
+      "decidedLots": 13,
+      "acceptLots": 13,
+      "rejectLots": 0,
+      "lar": 100.0
+    },
+    {
+      "month": "2026-08",
+      "vendor": "V10002",
+      "plant": "KR01",
+      "decidedLots": 26,
+      "acceptLots": 26,
+      "rejectLots": 0,
+      "lar": 100.0
+    },
+    {
+      "month": "2026-08",
+      "vendor": "V10002",
+      "plant": "PL01",
+      "decidedLots": 8,
+      "acceptLots": 8,
+      "rejectLots": 0,
+      "lar": 100.0
+    },
+    {
+      "month": "2026-08",
+      "vendor": "V10003",
+      "plant": "KR01",
+      "decidedLots": 29,
+      "acceptLots": 29,
+      "rejectLots": 0,
+      "lar": 100.0
+    },
+    {
+      "month": "2026-08",
+      "vendor": "V10003",
+      "plant": "PL01",
+      "decidedLots": 8,
+      "acceptLots": 8,
+      "rejectLots": 0,
+      "lar": 100.0
+    },
+    {
+      "month": "2026-08",
+      "vendor": "V10004",
+      "plant": "KR01",
+      "decidedLots": 8,
+      "acceptLots": 8,
+      "rejectLots": 0,
+      "lar": 100.0
+    },
+    {
+      "month": "2026-08",
+      "vendor": "V10005",
+      "plant": "CN01",
+      "decidedLots": 8,
+      "acceptLots": 8,
+      "rejectLots": 0,
+      "lar": 100.0
+    },
+    {
+      "month": "2026-08",
+      "vendor": "V10005",
+      "plant": "KR01",
+      "decidedLots": 21,
+      "acceptLots": 21,
+      "rejectLots": 0,
+      "lar": 100.0
+    },
+    {
+      "month": "2026-08",
+      "vendor": "V10005",
+      "plant": "PL01",
+      "decidedLots": 8,
+      "acceptLots": 8,
+      "rejectLots": 0,
+      "lar": 100.0
+    },
+    {
+      "month": "2026-08",
+      "vendor": "V10005",
+      "plant": "US01",
+      "decidedLots": 8,
+      "acceptLots": 8,
+      "rejectLots": 0,
+      "lar": 100.0
+    },
+    {
+      "month": "2026-08",
+      "vendor": "V10006",
+      "plant": "KR01",
+      "decidedLots": 21,
+      "acceptLots": 21,
+      "rejectLots": 0,
+      "lar": 100.0
+    },
+    {
+      "month": "2026-08",
+      "vendor": "V10007",
+      "plant": "PL01",
+      "decidedLots": 8,
+      "acceptLots": 8,
+      "rejectLots": 0,
+      "lar": 100.0
+    },
+    {
+      "month": "2026-08",
+      "vendor": "V10007",
+      "plant": "US01",
+      "decidedLots": 8,
+      "acceptLots": 8,
+      "rejectLots": 0,
+      "lar": 100.0
+    },
+    {
+      "month": "2026-08",
+      "vendor": "V10008",
+      "plant": "KR01",
+      "decidedLots": 21,
+      "acceptLots": 21,
+      "rejectLots": 0,
+      "lar": 100.0
+    },
+    {
+      "month": "2026-09",
+      "vendor": "V10001",
+      "plant": "CN01",
+      "decidedLots": 9,
+      "acceptLots": 9,
+      "rejectLots": 0,
+      "lar": 100.0
+    },
+    {
+      "month": "2026-09",
+      "vendor": "V10001",
+      "plant": "KR01",
+      "decidedLots": 13,
+      "acceptLots": 13,
+      "rejectLots": 0,
+      "lar": 100.0
+    },
+    {
+      "month": "2026-09",
+      "vendor": "V10002",
+      "plant": "KR01",
+      "decidedLots": 26,
+      "acceptLots": 26,
+      "rejectLots": 0,
+      "lar": 100.0
+    },
+    {
+      "month": "2026-09",
+      "vendor": "V10002",
+      "plant": "PL01",
+      "decidedLots": 9,
+      "acceptLots": 9,
+      "rejectLots": 0,
+      "lar": 100.0
+    },
+    {
+      "month": "2026-09",
+      "vendor": "V10003",
+      "plant": "KR01",
+      "decidedLots": 31,
+      "acceptLots": 31,
+      "rejectLots": 0,
+      "lar": 100.0
+    },
+    {
+      "month": "2026-09",
+      "vendor": "V10003",
+      "plant": "PL01",
+      "decidedLots": 9,
+      "acceptLots": 9,
+      "rejectLots": 0,
+      "lar": 100.0
+    },
+    {
+      "month": "2026-09",
+      "vendor": "V10004",
+      "plant": "KR01",
+      "decidedLots": 9,
+      "acceptLots": 9,
+      "rejectLots": 0,
+      "lar": 100.0
+    },
+    {
+      "month": "2026-09",
+      "vendor": "V10005",
+      "plant": "CN01",
+      "decidedLots": 9,
+      "acceptLots": 9,
+      "rejectLots": 0,
+      "lar": 100.0
+    },
+    {
+      "month": "2026-09",
+      "vendor": "V10005",
+      "plant": "KR01",
+      "decidedLots": 22,
+      "acceptLots": 22,
+      "rejectLots": 0,
+      "lar": 100.0
+    },
+    {
+      "month": "2026-09",
+      "vendor": "V10005",
+      "plant": "PL01",
+      "decidedLots": 9,
+      "acceptLots": 9,
+      "rejectLots": 0,
+      "lar": 100.0
+    },
+    {
+      "month": "2026-09",
+      "vendor": "V10005",
+      "plant": "US01",
+      "decidedLots": 9,
+      "acceptLots": 9,
+      "rejectLots": 0,
+      "lar": 100.0
+    },
+    {
+      "month": "2026-09",
+      "vendor": "V10006",
+      "plant": "KR01",
+      "decidedLots": 22,
+      "acceptLots": 22,
+      "rejectLots": 0,
+      "lar": 100.0
+    },
+    {
+      "month": "2026-09",
+      "vendor": "V10007",
+      "plant": "PL01",
+      "decidedLots": 9,
+      "acceptLots": 9,
+      "rejectLots": 0,
+      "lar": 100.0
+    },
+    {
+      "month": "2026-09",
+      "vendor": "V10007",
+      "plant": "US01",
+      "decidedLots": 9,
+      "acceptLots": 9,
+      "rejectLots": 0,
+      "lar": 100.0
+    },
+    {
+      "month": "2026-09",
+      "vendor": "V10008",
+      "plant": "KR01",
+      "decidedLots": 22,
+      "acceptLots": 22,
+      "rejectLots": 0,
+      "lar": 100.0
+    },
+    {
+      "month": "2026-10",
+      "vendor": "V10001",
+      "plant": "CN01",
+      "decidedLots": 9,
+      "acceptLots": 9,
+      "rejectLots": 0,
+      "lar": 100.0
+    },
+    {
+      "month": "2026-10",
+      "vendor": "V10001",
+      "plant": "KR01",
+      "decidedLots": 13,
+      "acceptLots": 13,
+      "rejectLots": 0,
+      "lar": 100.0
+    },
+    {
+      "month": "2026-10",
+      "vendor": "V10002",
+      "plant": "KR01",
+      "decidedLots": 26,
+      "acceptLots": 24,
+      "rejectLots": 2,
+      "lar": 92.307692
+    },
+    {
+      "month": "2026-10",
+      "vendor": "V10002",
+      "plant": "PL01",
+      "decidedLots": 9,
+      "acceptLots": 9,
+      "rejectLots": 0,
+      "lar": 100.0
+    },
+    {
+      "month": "2026-10",
+      "vendor": "V10003",
+      "plant": "KR01",
+      "decidedLots": 31,
+      "acceptLots": 31,
+      "rejectLots": 0,
+      "lar": 100.0
+    },
+    {
+      "month": "2026-10",
+      "vendor": "V10003",
+      "plant": "PL01",
+      "decidedLots": 9,
+      "acceptLots": 9,
+      "rejectLots": 0,
+      "lar": 100.0
+    },
+    {
+      "month": "2026-10",
+      "vendor": "V10004",
+      "plant": "KR01",
+      "decidedLots": 9,
+      "acceptLots": 9,
+      "rejectLots": 0,
+      "lar": 100.0
+    },
+    {
+      "month": "2026-10",
+      "vendor": "V10005",
+      "plant": "CN01",
+      "decidedLots": 9,
+      "acceptLots": 9,
+      "rejectLots": 0,
+      "lar": 100.0
+    },
+    {
+      "month": "2026-10",
+      "vendor": "V10005",
+      "plant": "KR01",
+      "decidedLots": 22,
+      "acceptLots": 22,
+      "rejectLots": 0,
+      "lar": 100.0
+    },
+    {
+      "month": "2026-10",
+      "vendor": "V10005",
+      "plant": "PL01",
+      "decidedLots": 9,
+      "acceptLots": 9,
+      "rejectLots": 0,
+      "lar": 100.0
+    },
+    {
+      "month": "2026-10",
+      "vendor": "V10005",
+      "plant": "US01",
+      "decidedLots": 9,
+      "acceptLots": 9,
+      "rejectLots": 0,
+      "lar": 100.0
+    },
+    {
+      "month": "2026-10",
+      "vendor": "V10006",
+      "plant": "KR01",
+      "decidedLots": 22,
+      "acceptLots": 22,
+      "rejectLots": 0,
+      "lar": 100.0
+    },
+    {
+      "month": "2026-10",
+      "vendor": "V10007",
+      "plant": "PL01",
+      "decidedLots": 9,
+      "acceptLots": 9,
+      "rejectLots": 0,
+      "lar": 100.0
+    },
+    {
+      "month": "2026-10",
+      "vendor": "V10007",
+      "plant": "US01",
+      "decidedLots": 9,
+      "acceptLots": 9,
+      "rejectLots": 0,
+      "lar": 100.0
+    },
+    {
+      "month": "2026-10",
+      "vendor": "V10008",
+      "plant": "KR01",
+      "decidedLots": 22,
+      "acceptLots": 22,
+      "rejectLots": 0,
+      "lar": 100.0
+    },
+    {
+      "month": "2026-11",
+      "vendor": "V10001",
+      "plant": "CN01",
+      "decidedLots": 8,
+      "acceptLots": 8,
+      "rejectLots": 0,
+      "lar": 100.0
+    },
+    {
+      "month": "2026-11",
+      "vendor": "V10001",
+      "plant": "KR01",
+      "decidedLots": 12,
+      "acceptLots": 12,
+      "rejectLots": 0,
+      "lar": 100.0
+    },
+    {
+      "month": "2026-11",
+      "vendor": "V10002",
+      "plant": "KR01",
+      "decidedLots": 24,
+      "acceptLots": 21,
+      "rejectLots": 3,
+      "lar": 87.5
+    },
+    {
+      "month": "2026-11",
+      "vendor": "V10002",
+      "plant": "PL01",
+      "decidedLots": 8,
+      "acceptLots": 8,
+      "rejectLots": 0,
+      "lar": 100.0
+    },
+    {
+      "month": "2026-11",
+      "vendor": "V10003",
+      "plant": "KR01",
+      "decidedLots": 27,
+      "acceptLots": 27,
+      "rejectLots": 0,
+      "lar": 100.0
+    },
+    {
+      "month": "2026-11",
+      "vendor": "V10003",
+      "plant": "PL01",
+      "decidedLots": 8,
+      "acceptLots": 8,
+      "rejectLots": 0,
+      "lar": 100.0
+    },
+    {
+      "month": "2026-11",
+      "vendor": "V10004",
+      "plant": "KR01",
+      "decidedLots": 8,
+      "acceptLots": 8,
+      "rejectLots": 0,
+      "lar": 100.0
+    },
+    {
+      "month": "2026-11",
+      "vendor": "V10005",
+      "plant": "CN01",
+      "decidedLots": 8,
+      "acceptLots": 8,
+      "rejectLots": 0,
+      "lar": 100.0
+    },
+    {
+      "month": "2026-11",
+      "vendor": "V10005",
+      "plant": "KR01",
+      "decidedLots": 20,
+      "acceptLots": 20,
+      "rejectLots": 0,
+      "lar": 100.0
+    },
+    {
+      "month": "2026-11",
+      "vendor": "V10005",
+      "plant": "PL01",
+      "decidedLots": 8,
+      "acceptLots": 8,
+      "rejectLots": 0,
+      "lar": 100.0
+    },
+    {
+      "month": "2026-11",
+      "vendor": "V10005",
+      "plant": "US01",
+      "decidedLots": 8,
+      "acceptLots": 8,
+      "rejectLots": 0,
+      "lar": 100.0
+    },
+    {
+      "month": "2026-11",
+      "vendor": "V10006",
+      "plant": "KR01",
+      "decidedLots": 20,
+      "acceptLots": 20,
+      "rejectLots": 0,
+      "lar": 100.0
+    },
+    {
+      "month": "2026-11",
+      "vendor": "V10007",
+      "plant": "PL01",
+      "decidedLots": 8,
+      "acceptLots": 8,
+      "rejectLots": 0,
+      "lar": 100.0
+    },
+    {
+      "month": "2026-11",
+      "vendor": "V10007",
+      "plant": "US01",
+      "decidedLots": 8,
+      "acceptLots": 8,
+      "rejectLots": 0,
+      "lar": 100.0
+    },
+    {
+      "month": "2026-11",
+      "vendor": "V10008",
+      "plant": "KR01",
+      "decidedLots": 20,
+      "acceptLots": 20,
+      "rejectLots": 0,
+      "lar": 100.0
+    }
+  ]
+}

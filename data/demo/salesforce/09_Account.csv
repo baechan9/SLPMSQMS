@@ -1,0 +1,9 @@
+SapVendorNo__c,RecordTypeDeveloperName,Name,SupplierGrade__c,IatfCertified__c,IatfExpiry__c,PortalEnabled__c,BillingCountry
+V10001,CMN_Supplier,알파광학(데모),A,true,2027-09-30,true,KR
+V10002,CMN_Supplier,베타폴리텍(데모),C,true,2027-02-28,true,KR
+V10003,CMN_Supplier,감마LED(데모),B,true,2028-01-31,true,KR
+V10004,CMN_Supplier,델타코팅(데모),B,false,,true,KR
+V10005,CMN_Supplier,엡실론커넥터(데모),A,true,2027-11-30,true,KR
+V10006,CMN_Supplier,제타PCB(데모),B,true,2027-06-30,true,CN
+V10007,CMN_Supplier,에타모션(데모),A,true,2028-03-31,false,KR
+V10008,CMN_Supplier,세타소재(데모),A,true,2027-12-31,true,KR

@@ -1,0 +1,110 @@
+{
+  "queryKey": "QMS_SPC_CAPABILITY_STUDY",
+  "mode": "QUERY",
+  "version": 1,
+  "params": {
+    "itemId": "92101-HE1L",
+    "fromDate": "2026-11-21",
+    "toDate": "2026-11-30",
+    "plantCodes": [
+      "KR01"
+    ]
+  },
+  "columns": [
+    {
+      "name": "planId",
+      "type": "STRING",
+      "unit": null
+    },
+    {
+      "name": "planNo",
+      "type": "STRING",
+      "unit": null
+    },
+    {
+      "name": "characteristicId",
+      "type": "STRING",
+      "unit": null
+    },
+    {
+      "name": "charNo",
+      "type": "STRING",
+      "unit": null
+    },
+    {
+      "name": "specialClass",
+      "type": "STRING",
+      "unit": null
+    },
+    {
+      "name": "lineCode",
+      "type": "STRING",
+      "unit": null
+    },
+    {
+      "name": "n",
+      "type": "INTEGER",
+      "unit": null
+    },
+    {
+      "name": "mean",
+      "type": "NUMBER",
+      "unit": "mm"
+    },
+    {
+      "name": "sigmaWithin",
+      "type": "NUMBER",
+      "unit": "mm"
+    },
+    {
+      "name": "sigmaOverall",
+      "type": "NUMBER",
+      "unit": "mm"
+    },
+    {
+      "name": "cp",
+      "type": "NUMBER",
+      "unit": null
+    },
+    {
+      "name": "cpk",
+      "type": "NUMBER",
+      "unit": null
+    },
+    {
+      "name": "pp",
+      "type": "NUMBER",
+      "unit": null
+    },
+    {
+      "name": "ppk",
+      "type": "NUMBER",
+      "unit": null
+    },
+    {
+      "name": "isStable",
+      "type": "BOOLEAN",
+      "unit": null
+    },
+    {
+      "name": "flags",
+      "type": "STRING",
+      "unit": null
+    }
+  ],
+  "rows": [],
+  "rowCount": 0,
+  "truncated": false,
+  "asOf": "2026-11-30T14:16:00Z",
+  "stale": false,
+  "scopeNote": "KR01",
+  "generatedAt": "2026-12-01T00:00:03Z",
+  "durationMs": 840,
+  "calcVersion": null,
+  "warnings": [],
+  "errorCode": null,
+  "errorMessage": null,
+  "result": null,
+  "cacheHit": false,
+  "requestId": "demo-b9cd620a51ef"
+}

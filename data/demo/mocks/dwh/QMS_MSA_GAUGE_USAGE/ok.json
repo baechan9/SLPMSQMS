@@ -1,0 +1,89 @@
+{
+  "queryKey": "QMS_MSA_GAUGE_USAGE",
+  "mode": "QUERY",
+  "version": 1,
+  "params": {
+    "plantCodes": [
+      "KR01"
+    ],
+    "fromDate": "2026-06-01"
+  },
+  "columns": [
+    {
+      "name": "charId",
+      "type": "STRING",
+      "unit": null
+    },
+    {
+      "name": "charNo",
+      "type": "STRING",
+      "unit": null
+    },
+    {
+      "name": "gaugeNo",
+      "type": "STRING",
+      "unit": null
+    },
+    {
+      "name": "measureCount",
+      "type": "INTEGER",
+      "unit": null
+    },
+    {
+      "name": "lastMeasuredAt",
+      "type": "DATETIME",
+      "unit": null
+    }
+  ],
+  "rows": [
+    [
+      "P-CON-01-C10-20240101",
+      "C10",
+      "GA-KR01-0511",
+      2620,
+      "2026-11-30"
+    ],
+    [
+      "P-LENS-HE1-C10-20240101",
+      "C10",
+      "GA-KR01-0511",
+      2488,
+      "2026-11-30"
+    ],
+    [
+      "P-HSG-HE1-C20-20240101",
+      "C20",
+      "GA-KR01-0512",
+      1048,
+      "2026-11-30"
+    ],
+    [
+      "P-HSG-BE1-C10-20250301",
+      "C10",
+      "GA-KR01-0456",
+      407,
+      "2026-11-30"
+    ],
+    [
+      "P-HSG-BE1-C20-20250301",
+      "C20",
+      "GA-KR01-0512",
+      387,
+      "2026-11-23T06:00:00Z"
+    ]
+  ],
+  "rowCount": 5,
+  "truncated": false,
+  "asOf": "2026-11-30T14:55:00Z",
+  "stale": false,
+  "scopeNote": "KR01",
+  "generatedAt": "2026-12-01T00:00:03Z",
+  "durationMs": 840,
+  "calcVersion": null,
+  "warnings": [],
+  "errorCode": null,
+  "errorMessage": null,
+  "result": null,
+  "cacheHit": false,
+  "requestId": "demo-6df65eb40dc5"
+}

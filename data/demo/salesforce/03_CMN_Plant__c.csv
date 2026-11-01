@@ -1,0 +1,6 @@
+PlantCode__c,Name,Company__r.CompanyCode__c,Region__c,TimeZone__c,DefaultLanguage__c,MesSiteCode__c
+KR01,한국 1공장(헤드램프),1000,KR,Asia/Seoul,ko,MKR01
+KR02,한국 2공장(리어램프),1000,KR,Asia/Seoul,ko,MKR02
+CN01,중국 공장,2000,CN,Asia/Shanghai,zh_CN,MCN01
+US01,미국 공장,3000,NA,America/Chicago,en_US,MUS01
+PL01,폴란드 공장,4000,EU,Europe/Warsaw,pl,MPL01

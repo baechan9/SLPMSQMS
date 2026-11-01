@@ -1,0 +1,30 @@
+{
+  "_meta": {
+    "dto": "QMS_EightDStatusDTO",
+    "definition": "WI 정의(QMS-05-CLM-001 getStatusBySource)",
+    "scenario": "S2",
+    "asOf": "2026-12-01",
+    "generator": "gen_salesforce.py",
+    "note": null
+  },
+  "eightDId": "a0EDF368175E7F3AAA",
+  "recordNo": "8D-KR01-2026-00032",
+  "status": "IN_PROGRESS",
+  "currentStep": "D5",
+  "stepStatus": {
+    "D1": "APPROVED",
+    "D2": "APPROVED",
+    "D3": "APPROVED",
+    "D4": "APPROVED",
+    "D5": "IN_PROGRESS",
+    "D6": "NOT_STARTED",
+    "D7": "NOT_STARTED",
+    "D8": "NOT_STARTED"
+  },
+  "dueDate": "2026-12-19",
+  "isOverdue": false,
+  "occurrenceCauseCode": "CAUSE_5M1E/MATERIAL/LED_SOLDER",
+  "escapeCauseCode": null,
+  "effectivenessResult": "PENDING",
+  "closedAt": null
+}

@@ -1,0 +1,122 @@
+{
+  "queryKey": "QMS_DW_FRESHNESS",
+  "mode": "QUERY",
+  "version": 1,
+  "params": {},
+  "columns": [
+    {
+      "name": "sourceKey",
+      "type": "STRING",
+      "unit": null
+    },
+    {
+      "name": "lastLoadedAt",
+      "type": "DATETIME",
+      "unit": null
+    },
+    {
+      "name": "expectedIntervalMin",
+      "type": "INTEGER",
+      "unit": null
+    },
+    {
+      "name": "stale",
+      "type": "BOOLEAN",
+      "unit": null
+    }
+  ],
+  "rows": [
+    [
+      "MES_SPC",
+      "2026-11-30T14:55:00Z",
+      5,
+      false
+    ],
+    [
+      "SPC_SUBGROUP",
+      "2026-11-30T14:55:00Z",
+      5,
+      false
+    ],
+    [
+      "SPC_CAPABILITY",
+      "2026-11-30T14:55:00Z",
+      1440,
+      false
+    ],
+    [
+      "MES_PRODUCTION",
+      "2026-11-30T14:55:00Z",
+      60,
+      false
+    ],
+    [
+      "EOL",
+      "2026-11-30T14:55:00Z",
+      60,
+      false
+    ],
+    [
+      "IQC_RESULT",
+      "2026-11-30T14:55:00Z",
+      15,
+      false
+    ],
+    [
+      "CUSTOMER_QUALITY",
+      "2026-11-30T14:55:00Z",
+      1440,
+      false
+    ],
+    [
+      "SF_REPLICA_15MIN",
+      "2026-11-30T14:55:00Z",
+      15,
+      false
+    ],
+    [
+      "SF_REPLICA_DAILY",
+      "2026-11-30T14:55:00Z",
+      1440,
+      false
+    ],
+    [
+      "MSA_RESULT",
+      "2026-11-30T14:55:00Z",
+      1440,
+      false
+    ],
+    [
+      "SAP_STOCK",
+      "2026-11-30T14:55:00Z",
+      60,
+      false
+    ],
+    [
+      "SAP_SHIPMENT",
+      "2026-11-30T14:55:00Z",
+      1440,
+      false
+    ],
+    [
+      "SAP_BOM",
+      "2026-11-30T14:55:00Z",
+      1440,
+      false
+    ]
+  ],
+  "rowCount": 13,
+  "truncated": false,
+  "asOf": "2026-11-30T14:55:00Z",
+  "stale": false,
+  "scopeNote": null,
+  "generatedAt": "2026-12-01T00:00:03Z",
+  "durationMs": 840,
+  "calcVersion": null,
+  "warnings": [],
+  "errorCode": null,
+  "errorMessage": null,
+  "result": null,
+  "cacheHit": false,
+  "requestId": "demo-195064a3d4f7"
+}

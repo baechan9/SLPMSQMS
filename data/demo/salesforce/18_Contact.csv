@@ -1,0 +1,17 @@
+ExternalKey__c,Account.SapVendorNo__c,LastName,FirstName,Email,Title,SupplierRoles__c,PortalPlants__c,PortalUserStatus__c
+CT-V10001-01,V10001,이,지현,v10001.contact1@example.com,품질 담당,QUALITY;PPAP,,NONE
+CT-V10001-02,V10001,박,수빈,v10001.contact2@example.com,영업·관리 책임,SHIPPING;MANAGEMENT,,NONE
+CT-V10002-01,V10002,박,태준,v10002.contact1@example.com,품질 담당,QUALITY;PPAP,,NONE
+CT-V10002-02,V10002,최,하린,v10002.contact2@example.com,영업·관리 책임,SHIPPING;MANAGEMENT,,NONE
+CT-V10003-01,V10003,최,준서,v10003.contact1@example.com,품질 담당,QUALITY;PPAP,,NONE
+CT-V10003-02,V10003,정,예린,v10003.contact2@example.com,영업·관리 책임,SHIPPING;MANAGEMENT,,NONE
+CT-V10004-01,V10004,정,도윤,v10004.contact1@example.com,품질 담당,QUALITY;PPAP,,NONE
+CT-V10004-02,V10004,강,민호,v10004.contact2@example.com,영업·관리 책임,SHIPPING;MANAGEMENT,,NONE
+CT-V10005-01,V10005,강,지현,v10005.contact1@example.com,품질 담당,QUALITY;PPAP,,NONE
+CT-V10005-02,V10005,조,수빈,v10005.contact2@example.com,영업·관리 책임,SHIPPING;MANAGEMENT,,NONE
+CT-V10006-01,V10006,조,태준,v10006.contact1@example.com,품질 담당,QUALITY;PPAP,,NONE
+CT-V10006-02,V10006,윤,하린,v10006.contact2@example.com,영업·관리 책임,SHIPPING;MANAGEMENT,,NONE
+CT-V10007-01,V10007,윤,준서,v10007.contact1@example.com,품질 담당,QUALITY;PPAP,,NONE
+CT-V10007-02,V10007,김,예린,v10007.contact2@example.com,영업·관리 책임,SHIPPING;MANAGEMENT,,NONE
+CT-V10008-01,V10008,김,도윤,v10008.contact1@example.com,품질 담당,QUALITY;PPAP,,NONE
+CT-V10008-02,V10008,이,민호,v10008.contact2@example.com,영업·관리 책임,SHIPPING;MANAGEMENT,,NONE

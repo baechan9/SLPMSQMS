@@ -47,7 +47,7 @@
 - **외부 키가 없는 객체**: WI에 External ID가 없는 객체(CMN_Operation__c, CMN_ItemVehicle__c, Contact, CMN_RoleAssignment__c, 결재선 템플릿·단계, CMN_Delegation__c, CMN_Document__c, 시험 기준·라인, 샘플링 행, 수입검사 기준서·라인, 8D 팀원·액션·제출, QMS_SpcLimit__c, QMS_MsaAppraiser__c, 분석 의뢰 항목 등)는 `ExternalKey__c`(Text(80), External ID, Unique)를 두는 것으로 제안하고 데모 CSV는 그 열로 upsert한다. 데이터 이관에도 같은 키가 필요하므로 각 WI 변경 요청으로 올린다(8절).
 - **코드 키**: CMN_Code__c.ExternalKey__c는 계층 경로 전체(`{Group}/{L1}/{L2}/{L3}`)로 통일한다. 같은 그룹 안에서 하위 코드 이름이 겹칠 수 있기 때문이다(예: CHANGE_TYPE의 METHOD/CONDITION과 ENVIRONMENT/CONDITION). Vol.0 MDM-007의 `{GroupCode}/{Code}` 정의를 바꾸는 변경 요청이다.
 - **Snowflake 계획 키**: SPC·MSA 테이블의 PLAN_ID·STUDY_ID(Salesforce Id) 옆에 PLAN_NO·STUDY_NO(RecordNo)를 둔다. 데모·테스트 재현과 조인은 번호로 한다(Vol.4 SPC-002, Vol.6b MSA-002 변경 요청).
-- **단위 코드**: CMN_KpiValue__c.Unit__c는 Vol.7 KPI 레지스트리 단위 코드(PPM, PCT, CNT, DAY, MIN 등)를 쓴다(Vol.0 DWH-003 예시 값 변경 요청).
+- **단위 코드**: CMN_KpiValue__c.Unit__c는 Vol.7 KPI 레지스트리 단위 코드(PPM, PCT, CNT, DAYS, MIN 등, 정확한 목록은 Vol.7 KPI 카탈로그)를 쓴다(Vol.0 DWH-003 예시 값 변경 요청).
 - **MSA 풀링 기준**: ANOVA 교호작용 풀링 기준 p > 0.25(AIAG)를 데모 기본값으로 쓴다(Vol.6b 설정 기본값 확인 요청).
 
 ## 5. 시나리오
@@ -189,7 +189,7 @@
 DWH-004 `CMN_DwQueryService`(모드 QUERY·PROCEDURE·SEARCH·ANALYST)가 Salesforce 화면에 돌려주는 표준 형식이다. Vol.7 위젯 DTO 공통 필드(asOf, stale, truncated, scopeNote, errorCode)와 같은 이름을 쓴다. 목 파일 `data/demo/mocks/dwh/{QueryKey}/{case}.json`은 이 형식을 그대로 쓴다.
 
     {
-      "queryKey": "QMS_SPC_CHART",
+      "queryKey": "QMS_SPC_SUBGROUPS",
       "mode": "QUERY",
       "version": 1,
       "params": {"planId": "...", "from": "2026-11-01T00:00:00Z", "to": "2026-11-30T23:59:59Z"},
@@ -216,7 +216,7 @@ DWH-004 `CMN_DwQueryService`(모드 QUERY·PROCEDURE·SEARCH·ANALYST)가 Salesf
 
 ## 8. 데모 적재에서 나온 WI 변경 요청
 
-데이터를 만들면서 발견한 명세 누락·불일치는 데이터 작업이 `data/demo/wi-change-requests.md`에 표(대상 WI, 내용, 데모에서 쓴 임시 값)로 모은다. 2단계 WI 보강 작업이 이 표를 반영한다.
+데이터를 만들면서 발견한 명세 누락·불일치는 생성기가 `data/demo/wi-change-requests-salesforce.md`, `data/demo/wi-change-requests-snowflake.md`에 표(대상 WI, 내용, 데모에서 쓴 임시 값)로 다시 만든다. 2단계 WI 보강 작업이 이 표를 반영한다.
 
 ## 9. 적재 절차
 

@@ -1,0 +1,48 @@
+{
+  "queryKey": "QMS_MSA_CHART",
+  "mode": "PROCEDURE",
+  "version": 1,
+  "params": {
+    "studyId": "S8-MSA1",
+    "studyNo": "MSA-KR01-2026-00007",
+    "calcSeq": 1,
+    "chartType": "COMPONENTS"
+  },
+  "columns": [],
+  "rows": [],
+  "rowCount": 0,
+  "truncated": false,
+  "asOf": null,
+  "stale": false,
+  "scopeNote": null,
+  "generatedAt": "2026-12-01T00:00:03Z",
+  "durationMs": 840,
+  "calcVersion": "msa-1.0.0-demo",
+  "warnings": [],
+  "errorCode": null,
+  "errorMessage": null,
+  "result": {
+    "engineVersion": "msa-1.0.0-demo",
+    "studyId": "MSA-KR01-2026-00007",
+    "calcSeq": 1,
+    "chartType": "COMPONENTS",
+    "status": "OK",
+    "mimeType": "image/png",
+    "width": 480,
+    "height": 240,
+    "imageBase64": "iVBORw0KGgoAAAANSUhEUgAAAeAAAADwCAIAAABXFyDtAAAEbklEQVR42u3ZQZWFMBBFwQhjjYiIYI0SREQYNsACp8Oik1Sdr+CRvouZ8gCQUjEBgEADINAAAg2AQAMINAACDYBAAwg0AAININAACDQAAg0g0AAINIBAAyDQwITuawv/BBpAoAUaGM1+tPBPoAUaEGiBBgRaoAUaEGiBBhBogQYEWqAFGhBogQYEWqAFGhBogQYQaIEGBFqgBRoQaIEGBFqgBRoQaIEGBFqgBRoQaIEGEGiBBgRaoAUaEGiBBgRaoAUaEGiBBhBogQYEWqAFGhBogQYEWqAFGhBogQYEWqAFGhBogQYQaIEGBFqgBRoQaIEGBFqgBRoQaIEGEGiBBgRaoAUaEGiBBgRaoAUaEGiBBhBogQYEWqABBFqgAYEWaIEGBFqgAYEWaIEGBFqgAQRaoAGBjgT6bDX8E2hAoAVaoAGBFmgAgRZoQKAFGkCgBRoQaIEWaECgBRoQaIEWaECgBRpAoAUaEGiBFmhAoAUaEGiBFmhAoAUaQKAFGhBogRZoQKAFGhBogRZoQKAFGhBogRZoQKAFGkCgBRoQaIEWaECgBRoQaIEWaECgBRpAoAUaEGiBFmhAoAUaEGiBFmhAoAUaEGiBFmhAoAUaQKAFGhBogRZoQKAFGhBogRZoQKAFGkCgBRoQaIEWaECgBRoQaIEWaECgBRpAoAUaEGiBBhBogQYEWqAFGhBogQYEWqAFGhBogQYQaIEGBFqgBRoQaIEGBFqgBRoQaIEGEGiBBgRaoAUaEGiBBgRaoAUaEGiBBgRaoAUaEGiBBhBogQYEWqAFGhBogQYEWqAFGhBogQYQaIEGBFqgBRoQaIEGBFqgBRoQaIEGBFqgBRoQaIEGEGiBBgRaoAUaEGiBBgRaoAUaEGiBBhBogQYEWqAFGhBogQYEWqAFGhBogQYQaIEGBFqgAQRaoAGBFmiBBgRaoAGBFmiBBgRaoAEEWqABgRZogQYEWqABgRZogQYEWqABBFqgAYEWaO8MEGiBBgRaoAUaEGiBBgRaoAUaEGiBBhBogQYEWqAFGhBogQYEWqAFGhBogQYQaIEGBFqgBRoQaIEGBFqgBRoQaIEGBFqgBRoQaIEGEGiBBgRaoAUaEGiBBgRaoAUaEGiBBhBogQYEWqAFGhBogQYEWqAFGhBogQYQaIEGBFqgAQRaoAGBFmiBhv/1Z0WgBVqgQaAFWqBBoAVaoAUaBFqgBdoxgDcp0ALtGBBogRZogYYMb3KOrAi0QAs0Ai3QAi3QINACLdCOAYEWaEsKtEDjTQq0QDsGBFqgBVqgfUK8SYEWaMdQZcW/W71JgRZoxyDQAi3QrlugBVqgvUmBFmjHYElLCrRAC7SsWNKSAi3QjkFWLGlJgRZon9CSlhRogXYMsmJJSwq0QDsGS1pSoAVaoGXFkrJiSYH2CQVaVixpSYH2CQXam7SkQH9UAegw9t+gAZYl0AACDYBAAwg0AAININAACDQAAg0g0AAINIBAAyDQAAg0gEADINAAAg2AQAMINAB5vMa8Qqm7VZA/AAAAAElFTkSuQmCC",
+    "series": [
+      "pctContribution",
+      "pctStudyVar",
+      "pctTolerance"
+    ],
+    "categories": [
+      "REPEATABILITY",
+      "REPRODUCIBILITY",
+      "TOTAL_GRR",
+      "PART_TO_PART"
+    ]
+  },
+  "cacheHit": false,
+  "requestId": "demo-37d5019ff1e3"
+}

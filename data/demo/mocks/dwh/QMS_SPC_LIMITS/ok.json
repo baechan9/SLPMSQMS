@@ -1,0 +1,98 @@
+{
+  "queryKey": "QMS_SPC_LIMITS",
+  "mode": "QUERY",
+  "version": 1,
+  "params": {
+    "planId": "S7-PLAN",
+    "planNo": "SPC-KR01-00001",
+    "plantCodes": [
+      "KR01"
+    ]
+  },
+  "columns": [
+    {
+      "name": "version",
+      "type": "INTEGER",
+      "unit": null
+    },
+    {
+      "name": "status",
+      "type": "STRING",
+      "unit": null
+    },
+    {
+      "name": "effectiveFrom",
+      "type": "DATETIME",
+      "unit": null
+    },
+    {
+      "name": "cl",
+      "type": "NUMBER",
+      "unit": "mm"
+    },
+    {
+      "name": "ucl",
+      "type": "NUMBER",
+      "unit": "mm"
+    },
+    {
+      "name": "lcl",
+      "type": "NUMBER",
+      "unit": "mm"
+    },
+    {
+      "name": "dispCl",
+      "type": "NUMBER",
+      "unit": "mm"
+    },
+    {
+      "name": "dispUcl",
+      "type": "NUMBER",
+      "unit": "mm"
+    },
+    {
+      "name": "dispLcl",
+      "type": "NUMBER",
+      "unit": "mm"
+    },
+    {
+      "name": "sigmaWithin",
+      "type": "NUMBER",
+      "unit": "mm"
+    },
+    {
+      "name": "source",
+      "type": "STRING",
+      "unit": null
+    }
+  ],
+  "rows": [
+    [
+      1,
+      "ACTIVE",
+      "2026-08-01T00:00:00Z",
+      2.999914,
+      3.027003,
+      2.972826,
+      0.018979,
+      0.039647,
+      null,
+      0.0201907,
+      "CALCULATED"
+    ]
+  ],
+  "rowCount": 1,
+  "truncated": false,
+  "asOf": "2026-11-30T14:16:00Z",
+  "stale": false,
+  "scopeNote": "KR01",
+  "generatedAt": "2026-12-01T00:00:03Z",
+  "durationMs": 840,
+  "calcVersion": null,
+  "warnings": [],
+  "errorCode": null,
+  "errorMessage": null,
+  "result": null,
+  "cacheHit": false,
+  "requestId": "demo-571235692abd"
+}

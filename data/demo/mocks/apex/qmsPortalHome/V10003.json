@@ -1,0 +1,99 @@
+{
+  "_meta": {
+    "dto": "QMS_PortalHomeDTO",
+    "definition": "제안 DTO(WI 미정의 — 변경 요청)",
+    "scenario": "S2·S9",
+    "asOf": "2026-12-01",
+    "generator": "gen_salesforce.py",
+    "note": "협력사 포털 홈 카드 묶음"
+  },
+  "supplier": {
+    "vendorNo": "V10003",
+    "name": "감마LED(데모)"
+  },
+  "eightD": [
+    {
+      "recordNo": "8D-KR01-2026-00032",
+      "title": "감마LED HE1 LED 모듈 솔더 보이드 8D(협력사)",
+      "currentStep": "D5",
+      "nextSubmission": {
+        "stage": "ACTION_PLAN",
+        "round": 1,
+        "status": "DRAFT"
+      },
+      "dueDate": "2026-12-19"
+    }
+  ],
+  "ncr": [
+    {
+      "recordNo": "NCR-KR01-2026-000026",
+      "status": "COUNTERMEASURE",
+      "defect": "DRL 점멸(솔더 보이드)"
+    }
+  ],
+  "coa": [
+    {
+      "recordNo": "COA-KR01-2026-000437",
+      "status": "OOS_HOLD",
+      "itemNo": "P-LED-HE1",
+      "message": "솔더 보이드율 27%(규격 25% 이하) — 출하 보류"
+    }
+  ],
+  "notices": [],
+  "lar3Months": [
+    {
+      "month": "2026-09",
+      "vendor": "V10003",
+      "plant": "KR01",
+      "decidedLots": 31,
+      "acceptLots": 31,
+      "rejectLots": 0,
+      "lar": 100.0
+    },
+    {
+      "month": "2026-09",
+      "vendor": "V10003",
+      "plant": "PL01",
+      "decidedLots": 9,
+      "acceptLots": 9,
+      "rejectLots": 0,
+      "lar": 100.0
+    },
+    {
+      "month": "2026-10",
+      "vendor": "V10003",
+      "plant": "KR01",
+      "decidedLots": 31,
+      "acceptLots": 31,
+      "rejectLots": 0,
+      "lar": 100.0
+    },
+    {
+      "month": "2026-10",
+      "vendor": "V10003",
+      "plant": "PL01",
+      "decidedLots": 9,
+      "acceptLots": 9,
+      "rejectLots": 0,
+      "lar": 100.0
+    },
+    {
+      "month": "2026-11",
+      "vendor": "V10003",
+      "plant": "KR01",
+      "decidedLots": 27,
+      "acceptLots": 27,
+      "rejectLots": 0,
+      "lar": 100.0
+    },
+    {
+      "month": "2026-11",
+      "vendor": "V10003",
+      "plant": "PL01",
+      "decidedLots": 8,
+      "acceptLots": 8,
+      "rejectLots": 0,
+      "lar": 100.0
+    }
+  ]
+}

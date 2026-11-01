@@ -1,0 +1,16 @@
+{
+  "note": "데모 논리 키 → 레코드 번호(Snowflake 데이터 작업분). scenario_keys.json에 합친다.",
+  "keys": {
+    "S1-SPC-ALARM": "ALM-KR01-2026-000017",
+    "S1-SPC-BEAD": "SPC-KR01-00002",
+    "S13-PLAN": "SPC-CN01-00001",
+    "S13-SPC-ALARM": "ALM-CN01-2026-000021",
+    "S7-ALARM": "ALM-KR01-2026-000033",
+    "S7-PLAN": "SPC-KR01-00001",
+    "S7-PLAN-LEAK": "SPC-KR01-00003",
+    "S7-PLAN-NODATA": "SPC-KR01-00004",
+    "S8-MSA1": "MSA-KR01-2026-00007",
+    "S8-MSA2": "MSA-KR01-2026-00008",
+    "S8-MSA3": "MSA-KR01-2026-00009"
+  }
+}

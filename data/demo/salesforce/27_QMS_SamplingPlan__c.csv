@@ -1,0 +1,3 @@
+PlanCode__c,Name,Method__c,Status__c
+C0-DEMO,"c=0 데모 표(가정 값, 공식 표 아님)",C0,ACTIVE
+FULL-100,전수,FULL,ACTIVE

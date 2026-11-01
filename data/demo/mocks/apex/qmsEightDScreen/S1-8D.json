@@ -1,0 +1,150 @@
+{
+  "_meta": {
+    "dto": "QMS_EightDScreenDTO",
+    "definition": "제안 DTO(WI 미정의 — 변경 요청)",
+    "scenario": "S1",
+    "asOf": "2026-12-01",
+    "generator": "gen_salesforce.py",
+    "note": "8D 작성 화면 초기 로드 응답. 필드명은 객체 API명에서 __c를 뗀 camelCase"
+  },
+  "header": {
+    "id": "a0E0F6A5269D0F9AAA",
+    "recordNo": "8D-KR01-2026-00034",
+    "name": "BE1 LH 내부 김서림 8D(BMW 반품)",
+    "recordType": "NCR_INTERNAL",
+    "mode": "FULL_8D",
+    "form": "BMW_8D",
+    "status": "IN_PROGRESS",
+    "currentStep": "D4",
+    "dueDate": "2026-12-14",
+    "severity": "MAJOR",
+    "plantCode": "KR01",
+    "itemNo": "63117-BE1L",
+    "customerCode": "BMW",
+    "leader": {
+      "employeeNo": "E1103",
+      "name": "최민준"
+    },
+    "champion": {
+      "employeeNo": "E1101",
+      "name": "박정우"
+    }
+  },
+  "source": {
+    "object": "QMS_NCR__c",
+    "recordNo": "NCR-KR01-2026-000028",
+    "sourceType": "CUSTOMER_RETURN",
+    "defectTypePath": "기밀 > 결로 > 내부 김서림·결로",
+    "defectQty": 3,
+    "suspectQty": 160
+  },
+  "steps": [
+    {
+      "stepNo": "D1",
+      "status": "APPROVED",
+      "dueDate": "2026-11-29",
+      "approvedAt": "2026-11-29T01:00:00Z"
+    },
+    {
+      "stepNo": "D2",
+      "status": "APPROVED",
+      "dueDate": "2026-12-03",
+      "approvedAt": "2026-12-03T01:00:00Z"
+    },
+    {
+      "stepNo": "D3",
+      "status": "APPROVED",
+      "dueDate": "2026-12-07",
+      "approvedAt": "2026-12-07T01:00:00Z"
+    },
+    {
+      "stepNo": "D4",
+      "status": "IN_PROGRESS",
+      "dueDate": "2026-12-11",
+      "approvedAt": null
+    },
+    {
+      "stepNo": "D5",
+      "status": "NOT_STARTED",
+      "dueDate": "2026-12-15",
+      "approvedAt": null
+    },
+    {
+      "stepNo": "D6",
+      "status": "NOT_STARTED",
+      "dueDate": "2026-12-19",
+      "approvedAt": null
+    },
+    {
+      "stepNo": "D7",
+      "status": "NOT_STARTED",
+      "dueDate": "2026-12-23",
+      "approvedAt": null
+    },
+    {
+      "stepNo": "D8",
+      "status": "NOT_STARTED",
+      "dueDate": "2026-12-27",
+      "approvedAt": null
+    }
+  ],
+  "d2": {
+    "ProblemStatement__c": "BMW 조립 라인 세차 시험 후 BE1 헤드램프 LH 렌즈 내부 상단에 김서림이 보여 3EA가 반품됐다. 반품품 3EA 모두 실링 비드 끊김 없이 폭이 얇은 구간(하단 좌측)이 있고, 같은 주간 생산품이다.",
+    "D2What__c": "BE1 헤드램프 LH 렌즈 내부 김서림",
+    "D2Where__c": "BMW 조립 라인 세차 시험(KR01 L01 생산품)",
+    "D2When__c": "2026-11-24 반품 접수(생산 2026-11-16~17)",
+    "D2Who__c": "BMW 라인 검사원 발견, SL 품질 접수",
+    "D2Why__c": "고객 라인 정지 위험, 필드 유출 시 시인성 저하",
+    "D2How__c": "세차 시험 후 육안",
+    "D2HowMany__c": 3
+  },
+  "team": [
+    {
+      "employeeNo": "E1101",
+      "role": "CHAMPION"
+    },
+    {
+      "employeeNo": "E1103",
+      "role": "LEADER"
+    },
+    {
+      "employeeNo": "E1102",
+      "role": "MEMBER"
+    }
+  ],
+  "actions": [
+    {
+      "actionNo": "A01",
+      "type": "CONTAINMENT",
+      "description": "사내 재고·운송 중 재고 선별(30EA)",
+      "status": "DONE",
+      "suspectQty": 30,
+      "ngQty": 3
+    }
+  ],
+  "containment": [
+    {
+      "location": "FG_WAREHOUSE",
+      "checked": 120,
+      "ng": 0,
+      "status": "DONE"
+    },
+    {
+      "location": "IN_TRANSIT",
+      "checked": 40,
+      "ng": 0,
+      "status": "DONE"
+    }
+  ],
+  "aiAssist": {
+    "available": true,
+    "stepNo": "D4",
+    "lastRecommendationId": null,
+    "expectedFile": "data/demo/expected/ai_rca_S1.json"
+  },
+  "permissions": {
+    "canEdit": true,
+    "canSubmit": true,
+    "canApprove": false
+  }
+}

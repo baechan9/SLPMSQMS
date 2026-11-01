@@ -1,0 +1,71 @@
+{
+  "queryKey": "QMS_BOM_WHERE_USED",
+  "mode": "QUERY",
+  "version": 1,
+  "params": {
+    "itemNos": [
+      "P-LENS-HE1"
+    ],
+    "plantCode": "KR01",
+    "asOfDate": "2026-11-30",
+    "plantCodes": [
+      "KR01"
+    ]
+  },
+  "columns": [
+    {
+      "name": "inputItemNo",
+      "type": "STRING",
+      "unit": null
+    },
+    {
+      "name": "itemNo",
+      "type": "STRING",
+      "unit": null
+    },
+    {
+      "name": "level",
+      "type": "INTEGER",
+      "unit": null
+    },
+    {
+      "name": "isTop",
+      "type": "BOOLEAN",
+      "unit": null
+    },
+    {
+      "name": "componentQty",
+      "type": "NUMBER",
+      "unit": null
+    },
+    {
+      "name": "plantCode",
+      "type": "STRING",
+      "unit": null
+    }
+  ],
+  "rows": [
+    [
+      "P-LENS-HE1",
+      "92101-HE1L",
+      1,
+      true,
+      1,
+      "KR01"
+    ]
+  ],
+  "rowCount": 1,
+  "truncated": false,
+  "asOf": "2026-11-30T14:00:00Z",
+  "stale": false,
+  "scopeNote": "KR01",
+  "generatedAt": "2026-12-01T00:00:03Z",
+  "durationMs": 840,
+  "calcVersion": null,
+  "warnings": [],
+  "errorCode": null,
+  "errorMessage": null,
+  "result": null,
+  "cacheHit": false,
+  "requestId": "demo-91605a277ba6"
+}

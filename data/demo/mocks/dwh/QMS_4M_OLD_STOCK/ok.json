@@ -1,0 +1,121 @@
+{
+  "queryKey": "QMS_4M_OLD_STOCK",
+  "mode": "QUERY",
+  "version": 1,
+  "params": {
+    "itemNos": [
+      "P-LENS-HE1"
+    ],
+    "plantCode": "KR01",
+    "vendorNo": "V10001",
+    "plantCodes": [
+      "KR01"
+    ]
+  },
+  "columns": [
+    {
+      "name": "plantCode",
+      "type": "STRING",
+      "unit": null
+    },
+    {
+      "name": "storageLocation",
+      "type": "STRING",
+      "unit": null
+    },
+    {
+      "name": "itemNo",
+      "type": "STRING",
+      "unit": null
+    },
+    {
+      "name": "batch",
+      "type": "STRING",
+      "unit": null
+    },
+    {
+      "name": "vendorBatch",
+      "type": "STRING",
+      "unit": null
+    },
+    {
+      "name": "stockType",
+      "type": "STRING",
+      "unit": null
+    },
+    {
+      "name": "specialStock",
+      "type": "STRING",
+      "unit": null
+    },
+    {
+      "name": "vendorNo",
+      "type": "STRING",
+      "unit": null
+    },
+    {
+      "name": "qty",
+      "type": "NUMBER",
+      "unit": null
+    },
+    {
+      "name": "uom",
+      "type": "STRING",
+      "unit": null
+    },
+    {
+      "name": "batchProdDate",
+      "type": "DATE",
+      "unit": null
+    },
+    {
+      "name": "snapshotTs",
+      "type": "DATETIME",
+      "unit": null
+    }
+  ],
+  "rows": [
+    [
+      "KR01",
+      "RM01",
+      "P-LENS-HE1",
+      "B0001344",
+      "V10001-261127-A",
+      "UNRESTRICTED",
+      null,
+      "V10001",
+      1800,
+      "EA",
+      "2026-11-27",
+      "2026-11-30T14:00:00Z"
+    ],
+    [
+      "KR01",
+      "RM01",
+      "P-LENS-HE1",
+      "B0001352",
+      "V10001-261130-A",
+      "QUALITY",
+      null,
+      "V10001",
+      500.0,
+      "EA",
+      "2026-11-30",
+      "2026-11-30T14:00:00Z"
+    ]
+  ],
+  "rowCount": 2,
+  "truncated": false,
+  "asOf": "2026-11-30T14:00:00Z",
+  "stale": false,
+  "scopeNote": "KR01",
+  "generatedAt": "2026-12-01T00:00:03Z",
+  "durationMs": 840,
+  "calcVersion": null,
+  "warnings": [],
+  "errorCode": null,
+  "errorMessage": null,
+  "result": null,
+  "cacheHit": false,
+  "requestId": "demo-38015978c656"
+}

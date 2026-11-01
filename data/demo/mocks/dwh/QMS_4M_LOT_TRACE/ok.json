@@ -1,0 +1,200 @@
+{
+  "queryKey": "QMS_4M_LOT_TRACE",
+  "mode": "QUERY",
+  "version": 1,
+  "params": {
+    "plantCode": "KR01",
+    "lotType": "SUPPLIER_LOT",
+    "lotNos": [
+      "V10001-261125-A"
+    ],
+    "maxDepth": 5,
+    "plantCodes": [
+      "KR01"
+    ]
+  },
+  "columns": [
+    {
+      "name": "seedLotNo",
+      "type": "STRING",
+      "unit": null
+    },
+    {
+      "name": "seedExists",
+      "type": "BOOLEAN",
+      "unit": null
+    },
+    {
+      "name": "depth",
+      "type": "INTEGER",
+      "unit": null
+    },
+    {
+      "name": "fromLotType",
+      "type": "STRING",
+      "unit": null
+    },
+    {
+      "name": "fromLotNo",
+      "type": "STRING",
+      "unit": null
+    },
+    {
+      "name": "fromItemNo",
+      "type": "STRING",
+      "unit": null
+    },
+    {
+      "name": "toLotType",
+      "type": "STRING",
+      "unit": null
+    },
+    {
+      "name": "toLotNo",
+      "type": "STRING",
+      "unit": null
+    },
+    {
+      "name": "toItemNo",
+      "type": "STRING",
+      "unit": null
+    },
+    {
+      "name": "qty",
+      "type": "NUMBER",
+      "unit": null
+    },
+    {
+      "name": "linkTs",
+      "type": "DATETIME",
+      "unit": null
+    },
+    {
+      "name": "linkSource",
+      "type": "STRING",
+      "unit": null
+    },
+    {
+      "name": "customerCode",
+      "type": "STRING",
+      "unit": null
+    },
+    {
+      "name": "shipDate",
+      "type": "DATE",
+      "unit": null
+    }
+  ],
+  "rows": [
+    [
+      "V10001-261125-A",
+      true,
+      1,
+      "SUPPLIER_LOT",
+      "V10001-261125-A",
+      "P-LENS-HE1",
+      "MES_LOT",
+      "KR01L05261126DHE1L",
+      "92101-HE1L",
+      184,
+      "2026-11-25T23:00:00Z",
+      "MES_CONSUME",
+      null,
+      null
+    ],
+    [
+      "V10001-261125-A",
+      true,
+      2,
+      "MES_LOT",
+      "KR01L05261126DHE1L",
+      "92101-HE1L",
+      "DELIVERY",
+      "810000565",
+      "92101-HE1L",
+      365,
+      "2026-11-26T08:00:00Z",
+      "SAP_DELIVERY",
+      "HMC",
+      "2026-11-26"
+    ],
+    [
+      "V10001-261125-A",
+      true,
+      1,
+      "SUPPLIER_LOT",
+      "V10001-261125-A",
+      "P-LENS-HE1",
+      "MES_LOT",
+      "KR01L05261126NHE1L",
+      "92101-HE1L",
+      184,
+      "2026-11-25T23:00:00Z",
+      "MES_CONSUME",
+      null,
+      null
+    ],
+    [
+      "V10001-261125-A",
+      true,
+      1,
+      "SUPPLIER_LOT",
+      "V10001-261125-A",
+      "P-LENS-HE1",
+      "MES_LOT",
+      "KR01L05261127DHE1L",
+      "92101-HE1L",
+      195,
+      "2026-11-26T23:00:00Z",
+      "MES_CONSUME",
+      null,
+      null
+    ],
+    [
+      "V10001-261125-A",
+      true,
+      2,
+      "MES_LOT",
+      "KR01L05261127DHE1L",
+      "92101-HE1L",
+      "DELIVERY",
+      "810000566",
+      "92101-HE1L",
+      390,
+      "2026-11-27T08:00:00Z",
+      "SAP_DELIVERY",
+      "HMC",
+      "2026-11-27"
+    ],
+    [
+      "V10001-261125-A",
+      true,
+      1,
+      "SUPPLIER_LOT",
+      "V10001-261125-A",
+      "P-LENS-HE1",
+      "MES_LOT",
+      "KR01L05261127NHE1L",
+      "92101-HE1L",
+      195,
+      "2026-11-26T23:00:00Z",
+      "MES_CONSUME",
+      null,
+      null
+    ]
+  ],
+  "rowCount": 6,
+  "truncated": false,
+  "asOf": "2026-11-30T14:55:00Z",
+  "stale": false,
+  "scopeNote": "KR01",
+  "generatedAt": "2026-12-01T00:00:03Z",
+  "durationMs": 840,
+  "calcVersion": null,
+  "warnings": [],
+  "errorCode": null,
+  "errorMessage": null,
+  "result": null,
+  "cacheHit": false,
+  "requestId": "demo-588d92cb596e"
+}

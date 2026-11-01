@@ -1,0 +1,91 @@
+{
+  "queryKey": "QMS_B2B_PARETO",
+  "mode": "QUERY",
+  "version": 1,
+  "params": {
+    "customerCodes": [
+      "BMW"
+    ],
+    "dataTypes": [
+      "LINE_0KM"
+    ],
+    "from": "2026-06-01",
+    "to": "2026-11-30",
+    "plantCodes": [
+      "KR01",
+      "PL01"
+    ]
+  },
+  "columns": [
+    {
+      "name": "defectTypeCode",
+      "type": "STRING",
+      "unit": null
+    },
+    {
+      "name": "defectTypeName",
+      "type": "STRING",
+      "unit": null
+    },
+    {
+      "name": "eventCount",
+      "type": "INTEGER",
+      "unit": null
+    },
+    {
+      "name": "qty",
+      "type": "NUMBER",
+      "unit": null
+    },
+    {
+      "name": "pct",
+      "type": "NUMBER",
+      "unit": "%"
+    },
+    {
+      "name": "cumulativePct",
+      "type": "NUMBER",
+      "unit": "%"
+    }
+  ],
+  "rows": [
+    [
+      "DEFECT_TYPE/SEALING/CONDENSATION/INNER_FOG",
+      "INNER_FOG",
+      9,
+      9,
+      64.29,
+      64.29
+    ],
+    [
+      "DEFECT_TYPE/OPTICAL/AIMING/AIM_OUT",
+      "AIM_OUT",
+      3,
+      3,
+      21.43,
+      85.71
+    ],
+    [
+      "DEFECT_TYPE/FUNCTION/LIGHTING/LED_OFF",
+      "LED_OFF",
+      2,
+      2,
+      14.29,
+      100.0
+    ]
+  ],
+  "rowCount": 3,
+  "truncated": false,
+  "asOf": "2026-11-30T14:55:00Z",
+  "stale": false,
+  "scopeNote": "KR01, PL01",
+  "generatedAt": "2026-12-01T00:00:03Z",
+  "durationMs": 840,
+  "calcVersion": null,
+  "warnings": [],
+  "errorCode": null,
+  "errorMessage": null,
+  "result": null,
+  "cacheHit": false,
+  "requestId": "demo-b6b264d8fb7a"
+}

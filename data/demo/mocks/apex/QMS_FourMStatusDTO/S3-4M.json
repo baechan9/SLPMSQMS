@@ -1,0 +1,28 @@
+{
+  "_meta": {
+    "dto": "QMS_FourMStatusDTO",
+    "definition": "제안 DTO(4MC-002 getStatusBySource 반환형, 필드 미정의 — 변경 요청)",
+    "scenario": "S3",
+    "asOf": "2026-12-01",
+    "generator": "gen_salesforce.py",
+    "note": null
+  },
+  "fourMId": "a0F690B0FEB342AAAA",
+  "recordNo": "4M-KR01-2026-00004",
+  "status": "STABILIZING",
+  "riskClass": "A",
+  "plannedApplyDate": "2026-11-20",
+  "appliedAt": "2026-11-25T06:00:00Z",
+  "firstLotRecordNo": "IQC-KR01-2026-000915",
+  "stabilization": {
+    "recordNo": "STB-KR01-2026-00001",
+    "status": "ACTIVE",
+    "startDate": "2026-11-25",
+    "minDays": 90,
+    "minLots": 10,
+    "actualLots": 2
+  },
+  "verificationTotal": 6,
+  "verificationDone": 6,
+  "unauthorized": false
+}

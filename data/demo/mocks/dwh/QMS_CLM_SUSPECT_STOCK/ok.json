@@ -1,0 +1,166 @@
+{
+  "queryKey": "QMS_CLM_SUSPECT_STOCK",
+  "mode": "QUERY",
+  "version": 1,
+  "params": {
+    "itemNo": "92101-HE1L",
+    "plantCode": "KR01",
+    "prodFrom": "2026-07-01",
+    "prodTo": "2026-09-30",
+    "transitDays": 7,
+    "plantCodes": [
+      "KR01"
+    ]
+  },
+  "columns": [
+    {
+      "name": "locationType",
+      "type": "STRING",
+      "unit": null
+    },
+    {
+      "name": "plantCode",
+      "type": "STRING",
+      "unit": null
+    },
+    {
+      "name": "storageLocation",
+      "type": "STRING",
+      "unit": null
+    },
+    {
+      "name": "oemCode",
+      "type": "STRING",
+      "unit": null
+    },
+    {
+      "name": "itemNo",
+      "type": "STRING",
+      "unit": null
+    },
+    {
+      "name": "batch",
+      "type": "STRING",
+      "unit": null
+    },
+    {
+      "name": "stockType",
+      "type": "STRING",
+      "unit": null
+    },
+    {
+      "name": "batchProdDate",
+      "type": "DATE",
+      "unit": null
+    },
+    {
+      "name": "qty",
+      "type": "NUMBER",
+      "unit": null
+    },
+    {
+      "name": "pgiDate",
+      "type": "DATE",
+      "unit": null
+    },
+    {
+      "name": "snapshotTs",
+      "type": "DATETIME",
+      "unit": null
+    }
+  ],
+  "rows": [
+    [
+      "SERVICE",
+      "KR01",
+      "SV01",
+      null,
+      "92101-HE1L",
+      "HE1L260815",
+      "UNRESTRICTED",
+      "2026-08-15",
+      36,
+      null,
+      "2026-11-30T14:00:00Z"
+    ],
+    [
+      "IN_TRANSIT",
+      "KR01",
+      null,
+      "HMC",
+      "92101-HE1L",
+      "HE1L261124",
+      null,
+      "2026-11-24",
+      374,
+      "2026-11-24",
+      "2026-11-30T14:00:00Z"
+    ],
+    [
+      "IN_TRANSIT",
+      "KR01",
+      null,
+      "HMC",
+      "92101-HE1L",
+      "HE1L261125",
+      null,
+      "2026-11-25",
+      367,
+      "2026-11-25",
+      "2026-11-30T14:00:00Z"
+    ],
+    [
+      "IN_TRANSIT",
+      "KR01",
+      null,
+      "HMC",
+      "92101-HE1L",
+      "HE1L261126",
+      null,
+      "2026-11-26",
+      365,
+      "2026-11-26",
+      "2026-11-30T14:00:00Z"
+    ],
+    [
+      "IN_TRANSIT",
+      "KR01",
+      null,
+      "HMC",
+      "92101-HE1L",
+      "HE1L261127",
+      null,
+      "2026-11-27",
+      390,
+      "2026-11-27",
+      "2026-11-30T14:00:00Z"
+    ],
+    [
+      "IN_TRANSIT",
+      "KR01",
+      null,
+      "HMC",
+      "92101-HE1L",
+      "HE1L261130",
+      null,
+      "2026-11-30",
+      724,
+      "2026-11-30",
+      "2026-11-30T14:00:00Z"
+    ]
+  ],
+  "rowCount": 6,
+  "truncated": false,
+  "asOf": "2026-11-30T14:00:00Z",
+  "stale": false,
+  "scopeNote": "KR01",
+  "generatedAt": "2026-12-01T00:00:03Z",
+  "durationMs": 840,
+  "calcVersion": null,
+  "warnings": [],
+  "errorCode": null,
+  "errorMessage": null,
+  "result": null,
+  "cacheHit": false,
+  "requestId": "demo-9e136f26949d"
+}

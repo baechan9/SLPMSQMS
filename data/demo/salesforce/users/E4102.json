@@ -1,0 +1,31 @@
+{
+  "Username": "e4102.{orgAlias}@slqms.demo",
+  "LastName": "Kowalska",
+  "FirstName": "Anna",
+  "Email": "e4102@slqms.example.com",
+  "Alias": "e4102",
+  "CommunityNickname": "e4102.demo",
+  "TimeZoneSidKey": "Europe/Warsaw",
+  "LocaleSidKey": "pl_PL",
+  "LanguageLocaleKey": "en_US",
+  "EmailEncodingKey": "UTF-8",
+  "profileName": "Standard User",
+  "FederationIdentifier": "E4102",
+  "EmployeeNo__c": "E4102",
+  "_demo": {
+    "priority": 35,
+    "create": false,
+    "mapToAdmin": false,
+    "permissionSetGroups": [
+      "QMS_PSG_QualityEngineer",
+      "QMS_PSG_SupplierQuality"
+    ],
+    "approvalRoles": [
+      "SUPPLIER_QUALITY@PL01"
+    ],
+    "nameKo": "Anna Kowalska",
+    "nameEn": "Anna Kowalska",
+    "dept": "D6100",
+    "plant": "PL01"
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "note": "Snowflake 데이터 작업 소유 CSV. load-plan.json에 합쳐 Salesforce 기준정보(사용자·특성·측정기·코드) 다음에 적재한다. 92u는 92 적재 후 계획의 CurrentLimit 갱신.",
+  "files": [
+    {
+      "order": 90,
+      "file": "90_CMN_KpiValue__c.csv",
+      "object": "CMN_KpiValue__c",
+      "externalId": "ExternalKey__c"
+    },
+    {
+      "order": 91,
+      "file": "91_QMS_SpcPlan__c.csv",
+      "object": "QMS_SpcPlan__c",
+      "externalId": "RecordNo__c"
+    },
+    {
+      "order": 92,
+      "file": "92_QMS_SpcLimit__c.csv",
+      "object": "QMS_SpcLimit__c",
+      "externalId": "ExternalKey__c"
+    },
+    {
+      "order": 92.5,
+      "file": "92u_QMS_SpcPlan__c.csv",
+      "object": "QMS_SpcPlan__c",
+      "externalId": "RecordNo__c"
+    },
+    {
+      "order": 93,
+      "file": "93_QMS_SpcAlarm__c.csv",
+      "object": "QMS_SpcAlarm__c",
+      "externalId": "RecordNo__c"
+    },
+    {
+      "order": 94,
+      "file": "94_QMS_MsaStudy__c.csv",
+      "object": "QMS_MsaStudy__c",
+      "externalId": "RecordNo__c"
+    },
+    {
+      "order": 95,
+      "file": "95_QMS_MsaAppraiser__c.csv",
+      "object": "QMS_MsaAppraiser__c",
+      "externalId": "ExternalKey__c"
+    },
+    {
+      "order": 96,
+      "file": "96_QMS_CustomerDefectMap__c.csv",
+      "object": "QMS_CustomerDefectMap__c",
+      "externalId": "ExternalKey__c"
+    },
+    {
+      "order": 97,
+      "file": "97_QMS_CustomerPartMap__c.csv",
+      "object": "QMS_CustomerPartMap__c",
+      "externalId": "ExternalKey__c"
+    }
+  ]
+}

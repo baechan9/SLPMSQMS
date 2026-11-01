@@ -1,0 +1,1396 @@
+{
+  "ppmMonthly": {
+    "BMW|63117-BE1L|2025-07-01": {
+      "qty": 0,
+      "shipped": 13612,
+      "ppm": 0.0
+    },
+    "BMW|63117-BE1L|2025-08-01": {
+      "qty": 1,
+      "shipped": 18576,
+      "ppm": 53.833
+    },
+    "BMW|63117-BE1L|2025-09-01": {
+      "qty": 0,
+      "shipped": 14797,
+      "ppm": 0.0
+    },
+    "BMW|63117-BE1L|2025-10-01": {
+      "qty": 1,
+      "shipped": 18565,
+      "ppm": 53.865
+    },
+    "BMW|63117-BE1L|2025-11-01": {
+      "qty": 0,
+      "shipped": 14837,
+      "ppm": 0.0
+    },
+    "BMW|63117-BE1L|2025-12-01": {
+      "qty": 0,
+      "shipped": 14923,
+      "ppm": 0.0
+    },
+    "BMW|63117-BE1L|2026-01-01": {
+      "qty": 1,
+      "shipped": 18620,
+      "ppm": 53.706
+    },
+    "BMW|63117-BE1L|2026-02-01": {
+      "qty": 0,
+      "shipped": 14901,
+      "ppm": 0.0
+    },
+    "BMW|63117-BE1L|2026-03-01": {
+      "qty": 0,
+      "shipped": 14840,
+      "ppm": 0.0
+    },
+    "BMW|63117-BE1L|2026-04-01": {
+      "qty": 0,
+      "shipped": 14861,
+      "ppm": 0.0
+    },
+    "BMW|63117-BE1L|2026-05-01": {
+      "qty": 1,
+      "shipped": 18485,
+      "ppm": 54.098
+    },
+    "BMW|63117-BE1L|2026-06-01": {
+      "qty": 1,
+      "shipped": 16933,
+      "ppm": 59.056
+    },
+    "BMW|63117-BE1L|2026-07-01": {
+      "qty": 1,
+      "shipped": 16695,
+      "ppm": 59.898
+    },
+    "BMW|63117-BE1L|2026-08-01": {
+      "qty": 0,
+      "shipped": 15871,
+      "ppm": 0.0
+    },
+    "BMW|63117-BE1L|2026-09-01": {
+      "qty": 1,
+      "shipped": 16160,
+      "ppm": 61.881
+    },
+    "BMW|63117-BE1L|2026-10-01": {
+      "qty": 2,
+      "shipped": 16051,
+      "ppm": 124.603
+    },
+    "BMW|63117-BE1L|2026-11-01": {
+      "qty": 3,
+      "shipped": 16150,
+      "ppm": 185.759
+    },
+    "BMW|63117-BE1R|2025-07-01": {
+      "qty": 0,
+      "shipped": 13640,
+      "ppm": 0.0
+    },
+    "BMW|63117-BE1R|2025-08-01": {
+      "qty": 1,
+      "shipped": 18479,
+      "ppm": 54.115
+    },
+    "BMW|63117-BE1R|2025-09-01": {
+      "qty": 0,
+      "shipped": 14759,
+      "ppm": 0.0
+    },
+    "BMW|63117-BE1R|2025-10-01": {
+      "qty": 1,
+      "shipped": 18493,
+      "ppm": 54.075
+    },
+    "BMW|63117-BE1R|2025-11-01": {
+      "qty": 0,
+      "shipped": 14841,
+      "ppm": 0.0
+    },
+    "BMW|63117-BE1R|2025-12-01": {
+      "qty": 0,
+      "shipped": 14801,
+      "ppm": 0.0
+    },
+    "BMW|63117-BE1R|2026-01-01": {
+      "qty": 1,
+      "shipped": 18708,
+      "ppm": 53.453
+    },
+    "BMW|63117-BE1R|2026-02-01": {
+      "qty": 0,
+      "shipped": 14826,
+      "ppm": 0.0
+    },
+    "BMW|63117-BE1R|2026-03-01": {
+      "qty": 0,
+      "shipped": 14681,
+      "ppm": 0.0
+    },
+    "BMW|63117-BE1R|2026-04-01": {
+      "qty": 0,
+      "shipped": 14919,
+      "ppm": 0.0
+    },
+    "BMW|63117-BE1R|2026-05-01": {
+      "qty": 1,
+      "shipped": 18748,
+      "ppm": 53.339
+    },
+    "BMW|63117-BE1R|2026-06-01": {
+      "qty": 0,
+      "shipped": 16487,
+      "ppm": 0.0
+    },
+    "BMW|63117-BE1R|2026-07-01": {
+      "qty": 0,
+      "shipped": 16511,
+      "ppm": 0.0
+    },
+    "BMW|63117-BE1R|2026-08-01": {
+      "qty": 0,
+      "shipped": 16084,
+      "ppm": 0.0
+    },
+    "BMW|63117-BE1R|2026-09-01": {
+      "qty": 1,
+      "shipped": 16079,
+      "ppm": 62.193
+    },
+    "BMW|63117-BE1R|2026-10-01": {
+      "qty": 2,
+      "shipped": 15987,
+      "ppm": 125.102
+    },
+    "BMW|63117-BE1R|2026-11-01": {
+      "qty": 3,
+      "shipped": 16024,
+      "ppm": 187.219
+    },
+    "FORD|84101-FE1L|2025-04-01": {
+      "qty": 1,
+      "shipped": 5284,
+      "ppm": 189.251
+    },
+    "FORD|84101-FE1L|2025-05-01": {
+      "qty": 0,
+      "shipped": 7165,
+      "ppm": 0.0
+    },
+    "FORD|84101-FE1L|2025-06-01": {
+      "qty": 0,
+      "shipped": 5803,
+      "ppm": 0.0
+    },
+    "FORD|84101-FE1L|2025-07-01": {
+      "qty": 0,
+      "shipped": 5724,
+      "ppm": 0.0
+    },
+    "FORD|84101-FE1L|2025-08-01": {
+      "qty": 1,
+      "shipped": 7235,
+      "ppm": 138.217
+    },
+    "FORD|84101-FE1L|2025-09-01": {
+      "qty": 0,
+      "shipped": 5730,
+      "ppm": 0.0
+    },
+    "FORD|84101-FE1L|2025-10-01": {
+      "qty": 0,
+      "shipped": 7142,
+      "ppm": 0.0
+    },
+    "FORD|84101-FE1L|2025-11-01": {
+      "qty": 0,
+      "shipped": 5828,
+      "ppm": 0.0
+    },
+    "FORD|84101-FE1L|2025-12-01": {
+      "qty": 0,
+      "shipped": 5642,
+      "ppm": 0.0
+    },
+    "FORD|84101-FE1L|2026-01-01": {
+      "qty": 1,
+      "shipped": 7175,
+      "ppm": 139.373
+    },
+    "FORD|84101-FE1L|2026-02-01": {
+      "qty": 0,
+      "shipped": 5788,
+      "ppm": 0.0
+    },
+    "FORD|84101-FE1L|2026-03-01": {
+      "qty": 0,
+      "shipped": 5720,
+      "ppm": 0.0
+    },
+    "FORD|84101-FE1L|2026-04-01": {
+      "qty": 0,
+      "shipped": 5672,
+      "ppm": 0.0
+    },
+    "FORD|84101-FE1L|2026-05-01": {
+      "qty": 0,
+      "shipped": 7195,
+      "ppm": 0.0
+    },
+    "FORD|84101-FE1L|2026-06-01": {
+      "qty": 0,
+      "shipped": 6540,
+      "ppm": 0.0
+    },
+    "FORD|84101-FE1L|2026-07-01": {
+      "qty": 0,
+      "shipped": 6517,
+      "ppm": 0.0
+    },
+    "FORD|84101-FE1L|2026-08-01": {
+      "qty": 0,
+      "shipped": 6309,
+      "ppm": 0.0
+    },
+    "FORD|84101-FE1L|2026-09-01": {
+      "qty": 0,
+      "shipped": 6272,
+      "ppm": 0.0
+    },
+    "FORD|84101-FE1L|2026-10-01": {
+      "qty": 0,
+      "shipped": 6245,
+      "ppm": 0.0
+    },
+    "FORD|84101-FE1L|2026-11-01": {
+      "qty": 0,
+      "shipped": 6189,
+      "ppm": 0.0
+    },
+    "GM|84001-GE1L|2024-12-01": {
+      "qty": 1,
+      "shipped": 5954,
+      "ppm": 167.954
+    },
+    "GM|84001-GE1L|2025-01-01": {
+      "qty": 0,
+      "shipped": 7687,
+      "ppm": 0.0
+    },
+    "GM|84001-GE1L|2025-02-01": {
+      "qty": 0,
+      "shipped": 6173,
+      "ppm": 0.0
+    },
+    "GM|84001-GE1L|2025-03-01": {
+      "qty": 1,
+      "shipped": 6228,
+      "ppm": 160.565
+    },
+    "GM|84001-GE1L|2025-04-01": {
+      "qty": 0,
+      "shipped": 6282,
+      "ppm": 0.0
+    },
+    "GM|84001-GE1L|2025-05-01": {
+      "qty": 0,
+      "shipped": 7751,
+      "ppm": 0.0
+    },
+    "GM|84001-GE1L|2025-06-01": {
+      "qty": 1,
+      "shipped": 6309,
+      "ppm": 158.504
+    },
+    "GM|84001-GE1L|2025-07-01": {
+      "qty": 0,
+      "shipped": 6230,
+      "ppm": 0.0
+    },
+    "GM|84001-GE1L|2025-08-01": {
+      "qty": 0,
+      "shipped": 7759,
+      "ppm": 0.0
+    },
+    "GM|84001-GE1L|2025-09-01": {
+      "qty": 0,
+      "shipped": 6229,
+      "ppm": 0.0
+    },
+    "GM|84001-GE1L|2025-10-01": {
+      "qty": 0,
+      "shipped": 7864,
+      "ppm": 0.0
+    },
+    "GM|84001-GE1L|2025-11-01": {
+      "qty": 0,
+      "shipped": 6253,
+      "ppm": 0.0
+    },
+    "GM|84001-GE1L|2025-12-01": {
+      "qty": 0,
+      "shipped": 6247,
+      "ppm": 0.0
+    },
+    "GM|84001-GE1L|2026-01-01": {
+      "qty": 0,
+      "shipped": 7795,
+      "ppm": 0.0
+    },
+    "GM|84001-GE1L|2026-02-01": {
+      "qty": 1,
+      "shipped": 6233,
+      "ppm": 160.436
+    },
+    "GM|84001-GE1L|2026-03-01": {
+      "qty": 2,
+      "shipped": 6202,
+      "ppm": 322.477
+    },
+    "GM|84001-GE1L|2026-04-01": {
+      "qty": 0,
+      "shipped": 6207,
+      "ppm": 0.0
+    },
+    "GM|84001-GE1L|2026-05-01": {
+      "qty": 1,
+      "shipped": 7757,
+      "ppm": 128.916
+    },
+    "GM|84001-GE1L|2026-06-01": {
+      "qty": 1,
+      "shipped": 7088,
+      "ppm": 141.084
+    },
+    "GM|84001-GE1L|2026-07-01": {
+      "qty": 0,
+      "shipped": 7101,
+      "ppm": 0.0
+    },
+    "GM|84001-GE1L|2026-08-01": {
+      "qty": 0,
+      "shipped": 6676,
+      "ppm": 0.0
+    },
+    "GM|84001-GE1L|2026-09-01": {
+      "qty": 0,
+      "shipped": 6665,
+      "ppm": 0.0
+    },
+    "GM|84001-GE1L|2026-10-01": {
+      "qty": 0,
+      "shipped": 6767,
+      "ppm": 0.0
+    },
+    "GM|84001-GE1L|2026-11-01": {
+      "qty": 0,
+      "shipped": 6820,
+      "ppm": 0.0
+    },
+    "HMC|92101-HE1L|2024-12-01": {
+      "qty": 0,
+      "shipped": 8831,
+      "ppm": 0.0
+    },
+    "HMC|92101-HE1L|2025-01-01": {
+      "qty": 2,
+      "shipped": 11338,
+      "ppm": 176.398
+    },
+    "HMC|92101-HE1L|2025-02-01": {
+      "qty": 1,
+      "shipped": 9064,
+      "ppm": 110.327
+    },
+    "HMC|92101-HE1L|2025-03-01": {
+      "qty": 0,
+      "shipped": 9131,
+      "ppm": 0.0
+    },
+    "HMC|92101-HE1L|2025-04-01": {
+      "qty": 0,
+      "shipped": 9082,
+      "ppm": 0.0
+    },
+    "HMC|92101-HE1L|2025-05-01": {
+      "qty": 0,
+      "shipped": 11424,
+      "ppm": 0.0
+    },
+    "HMC|92101-HE1L|2025-06-01": {
+      "qty": 0,
+      "shipped": 9273,
+      "ppm": 0.0
+    },
+    "HMC|92101-HE1L|2025-07-01": {
+      "qty": 1,
+      "shipped": 8993,
+      "ppm": 111.198
+    },
+    "HMC|92101-HE1L|2025-08-01": {
+      "qty": 2,
+      "shipped": 11451,
+      "ppm": 174.657
+    },
+    "HMC|92101-HE1L|2025-09-01": {
+      "qty": 0,
+      "shipped": 9130,
+      "ppm": 0.0
+    },
+    "HMC|92101-HE1L|2025-10-01": {
+      "qty": 0,
+      "shipped": 11265,
+      "ppm": 0.0
+    },
+    "HMC|92101-HE1L|2025-11-01": {
+      "qty": 0,
+      "shipped": 9111,
+      "ppm": 0.0
+    },
+    "HMC|92101-HE1L|2025-12-01": {
+      "qty": 0,
+      "shipped": 9090,
+      "ppm": 0.0
+    },
+    "HMC|92101-HE1L|2026-01-01": {
+      "qty": 1,
+      "shipped": 11484,
+      "ppm": 87.078
+    },
+    "HMC|92101-HE1L|2026-02-01": {
+      "qty": 0,
+      "shipped": 9175,
+      "ppm": 0.0
+    },
+    "HMC|92101-HE1L|2026-03-01": {
+      "qty": 0,
+      "shipped": 9219,
+      "ppm": 0.0
+    },
+    "HMC|92101-HE1L|2026-04-01": {
+      "qty": 0,
+      "shipped": 8949,
+      "ppm": 0.0
+    },
+    "HMC|92101-HE1L|2026-05-01": {
+      "qty": 0,
+      "shipped": 11282,
+      "ppm": 0.0
+    },
+    "HMC|92101-HE1L|2026-06-01": {
+      "qty": 1,
+      "shipped": 10325,
+      "ppm": 96.852
+    },
+    "HMC|92101-HE1L|2026-07-01": {
+      "qty": 0,
+      "shipped": 10247,
+      "ppm": 0.0
+    },
+    "HMC|92101-HE1L|2026-08-01": {
+      "qty": 2,
+      "shipped": 9852,
+      "ppm": 203.004
+    },
+    "HMC|92101-HE1L|2026-09-01": {
+      "qty": 1,
+      "shipped": 9910,
+      "ppm": 100.908
+    },
+    "HMC|92101-HE1L|2026-10-01": {
+      "qty": 1,
+      "shipped": 9792,
+      "ppm": 102.124
+    },
+    "HMC|92101-HE1L|2026-11-01": {
+      "qty": 2,
+      "shipped": 9783,
+      "ppm": 204.436
+    },
+    "HMC|92101-HE2L|2025-09-01": {
+      "qty": 1,
+      "shipped": 5906,
+      "ppm": 169.319
+    },
+    "HMC|92101-HE2L|2025-10-01": {
+      "qty": 1,
+      "shipped": 7724,
+      "ppm": 129.467
+    },
+    "HMC|92101-HE2L|2025-11-01": {
+      "qty": 0,
+      "shipped": 6286,
+      "ppm": 0.0
+    },
+    "HMC|92101-HE2L|2025-12-01": {
+      "qty": 0,
+      "shipped": 6199,
+      "ppm": 0.0
+    },
+    "HMC|92101-HE2L|2026-01-01": {
+      "qty": 0,
+      "shipped": 7866,
+      "ppm": 0.0
+    },
+    "HMC|92101-HE2L|2026-02-01": {
+      "qty": 0,
+      "shipped": 6150,
+      "ppm": 0.0
+    },
+    "HMC|92101-HE2L|2026-03-01": {
+      "qty": 0,
+      "shipped": 6227,
+      "ppm": 0.0
+    },
+    "HMC|92101-HE2L|2026-04-01": {
+      "qty": 0,
+      "shipped": 6288,
+      "ppm": 0.0
+    },
+    "HMC|92101-HE2L|2026-05-01": {
+      "qty": 0,
+      "shipped": 7845,
+      "ppm": 0.0
+    },
+    "HMC|92101-HE2L|2026-06-01": {
+      "qty": 0,
+      "shipped": 6995,
+      "ppm": 0.0
+    },
+    "HMC|92101-HE2L|2026-07-01": {
+      "qty": 0,
+      "shipped": 7032,
+      "ppm": 0.0
+    },
+    "HMC|92101-HE2L|2026-08-01": {
+      "qty": 0,
+      "shipped": 6777,
+      "ppm": 0.0
+    },
+    "HMC|92101-HE2L|2026-09-01": {
+      "qty": 0,
+      "shipped": 6749,
+      "ppm": 0.0
+    },
+    "HMC|92101-HE2L|2026-10-01": {
+      "qty": 2,
+      "shipped": 6820,
+      "ppm": 293.255
+    },
+    "HMC|92101-HE2L|2026-11-01": {
+      "qty": 1,
+      "shipped": 6813,
+      "ppm": 146.778
+    },
+    "HMC|92102-HE1R|2024-12-01": {
+      "qty": 0,
+      "shipped": 8753,
+      "ppm": 0.0
+    },
+    "HMC|92102-HE1R|2025-01-01": {
+      "qty": 0,
+      "shipped": 11318,
+      "ppm": 0.0
+    },
+    "HMC|92102-HE1R|2025-02-01": {
+      "qty": 0,
+      "shipped": 9212,
+      "ppm": 0.0
+    },
+    "HMC|92102-HE1R|2025-03-01": {
+      "qty": 0,
+      "shipped": 9113,
+      "ppm": 0.0
+    },
+    "HMC|92102-HE1R|2025-04-01": {
+      "qty": 0,
+      "shipped": 9066,
+      "ppm": 0.0
+    },
+    "HMC|92102-HE1R|2025-05-01": {
+      "qty": 0,
+      "shipped": 11402,
+      "ppm": 0.0
+    },
+    "HMC|92102-HE1R|2025-06-01": {
+      "qty": 0,
+      "shipped": 9143,
+      "ppm": 0.0
+    },
+    "HMC|92102-HE1R|2025-07-01": {
+      "qty": 0,
+      "shipped": 8978,
+      "ppm": 0.0
+    },
+    "HMC|92102-HE1R|2025-08-01": {
+      "qty": 1,
+      "shipped": 11520,
+      "ppm": 86.806
+    },
+    "HMC|92102-HE1R|2025-09-01": {
+      "qty": 1,
+      "shipped": 9011,
+      "ppm": 110.975
+    },
+    "HMC|92102-HE1R|2025-10-01": {
+      "qty": 0,
+      "shipped": 11374,
+      "ppm": 0.0
+    },
+    "HMC|92102-HE1R|2025-11-01": {
+      "qty": 1,
+      "shipped": 8991,
+      "ppm": 111.222
+    },
+    "HMC|92102-HE1R|2025-12-01": {
+      "qty": 0,
+      "shipped": 8972,
+      "ppm": 0.0
+    },
+    "HMC|92102-HE1R|2026-01-01": {
+      "qty": 0,
+      "shipped": 11499,
+      "ppm": 0.0
+    },
+    "HMC|92102-HE1R|2026-02-01": {
+      "qty": 0,
+      "shipped": 9192,
+      "ppm": 0.0
+    },
+    "HMC|92102-HE1R|2026-03-01": {
+      "qty": 1,
+      "shipped": 9081,
+      "ppm": 110.12
+    },
+    "HMC|92102-HE1R|2026-04-01": {
+      "qty": 1,
+      "shipped": 9127,
+      "ppm": 109.565
+    },
+    "HMC|92102-HE1R|2026-05-01": {
+      "qty": 0,
+      "shipped": 11226,
+      "ppm": 0.0
+    },
+    "HMC|92102-HE1R|2026-06-01": {
+      "qty": 3,
+      "shipped": 10274,
+      "ppm": 291.999
+    },
+    "HMC|92102-HE1R|2026-07-01": {
+      "qty": 0,
+      "shipped": 10152,
+      "ppm": 0.0
+    },
+    "HMC|92102-HE1R|2026-08-01": {
+      "qty": 0,
+      "shipped": 9686,
+      "ppm": 0.0
+    },
+    "HMC|92102-HE1R|2026-09-01": {
+      "qty": 0,
+      "shipped": 9855,
+      "ppm": 0.0
+    },
+    "HMC|92102-HE1R|2026-10-01": {
+      "qty": 0,
+      "shipped": 9776,
+      "ppm": 0.0
+    },
+    "HMC|92102-HE1R|2026-11-01": {
+      "qty": 0,
+      "shipped": 9635,
+      "ppm": 0.0
+    },
+    "HMC|92401-HE1L|2024-12-01": {
+      "qty": 0,
+      "shipped": 11422,
+      "ppm": 0.0
+    },
+    "HMC|92401-HE1L|2025-01-01": {
+      "qty": 0,
+      "shipped": 14847,
+      "ppm": 0.0
+    },
+    "HMC|92401-HE1L|2025-02-01": {
+      "qty": 1,
+      "shipped": 11992,
+      "ppm": 83.389
+    },
+    "HMC|92401-HE1L|2025-03-01": {
+      "qty": 1,
+      "shipped": 11998,
+      "ppm": 83.347
+    },
+    "HMC|92401-HE1L|2025-04-01": {
+      "qty": 1,
+      "shipped": 11963,
+      "ppm": 83.591
+    },
+    "HMC|92401-HE1L|2025-05-01": {
+      "qty": 0,
+      "shipped": 14868,
+      "ppm": 0.0
+    },
+    "HMC|92401-HE1L|2025-06-01": {
+      "qty": 1,
+      "shipped": 12033,
+      "ppm": 83.105
+    },
+    "HMC|92401-HE1L|2025-07-01": {
+      "qty": 0,
+      "shipped": 11735,
+      "ppm": 0.0
+    },
+    "HMC|92401-HE1L|2025-08-01": {
+      "qty": 0,
+      "shipped": 15250,
+      "ppm": 0.0
+    },
+    "HMC|92401-HE1L|2025-09-01": {
+      "qty": 0,
+      "shipped": 12025,
+      "ppm": 0.0
+    },
+    "HMC|92401-HE1L|2025-10-01": {
+      "qty": 0,
+      "shipped": 14890,
+      "ppm": 0.0
+    },
+    "HMC|92401-HE1L|2025-11-01": {
+      "qty": 0,
+      "shipped": 11902,
+      "ppm": 0.0
+    },
+    "HMC|92401-HE1L|2025-12-01": {
+      "qty": 1,
+      "shipped": 11994,
+      "ppm": 83.375
+    },
+    "HMC|92401-HE1L|2026-01-01": {
+      "qty": 1,
+      "shipped": 14977,
+      "ppm": 66.769
+    },
+    "HMC|92401-HE1L|2026-02-01": {
+      "qty": 1,
+      "shipped": 12110,
+      "ppm": 82.576
+    },
+    "HMC|92401-HE1L|2026-03-01": {
+      "qty": 0,
+      "shipped": 11855,
+      "ppm": 0.0
+    },
+    "HMC|92401-HE1L|2026-04-01": {
+      "qty": 0,
+      "shipped": 11981,
+      "ppm": 0.0
+    },
+    "HMC|92401-HE1L|2026-05-01": {
+      "qty": 1,
+      "shipped": 14915,
+      "ppm": 67.047
+    },
+    "HMC|92401-HE1L|2026-06-01": {
+      "qty": 0,
+      "shipped": 13670,
+      "ppm": 0.0
+    },
+    "HMC|92401-HE1L|2026-07-01": {
+      "qty": 0,
+      "shipped": 13390,
+      "ppm": 0.0
+    },
+    "HMC|92401-HE1L|2026-08-01": {
+      "qty": 1,
+      "shipped": 12917,
+      "ppm": 77.417
+    },
+    "HMC|92401-HE1L|2026-09-01": {
+      "qty": 0,
+      "shipped": 12954,
+      "ppm": 0.0
+    },
+    "HMC|92401-HE1L|2026-10-01": {
+      "qty": 1,
+      "shipped": 13082,
+      "ppm": 76.441
+    },
+    "HMC|92401-HE1L|2026-11-01": {
+      "qty": 1,
+      "shipped": 13014,
+      "ppm": 76.84
+    },
+    "KIA|92101-KC1L|2025-05-01": {
+      "qty": 0,
+      "shipped": 3935,
+      "ppm": 0.0
+    },
+    "KIA|92101-KC1L|2025-06-01": {
+      "qty": 0,
+      "shipped": 3579,
+      "ppm": 0.0
+    },
+    "KIA|92101-KC1L|2025-07-01": {
+      "qty": 0,
+      "shipped": 3586,
+      "ppm": 0.0
+    },
+    "KIA|92101-KC1L|2025-08-01": {
+      "qty": 1,
+      "shipped": 4525,
+      "ppm": 220.994
+    },
+    "KIA|92101-KC1L|2025-09-01": {
+      "qty": 0,
+      "shipped": 3584,
+      "ppm": 0.0
+    },
+    "KIA|92101-KC1L|2025-10-01": {
+      "qty": 0,
+      "shipped": 4458,
+      "ppm": 0.0
+    },
+    "KIA|92101-KC1L|2025-11-01": {
+      "qty": 0,
+      "shipped": 3591,
+      "ppm": 0.0
+    },
+    "KIA|92101-KC1L|2025-12-01": {
+      "qty": 0,
+      "shipped": 3588,
+      "ppm": 0.0
+    },
+    "KIA|92101-KC1L|2026-01-01": {
+      "qty": 0,
+      "shipped": 4445,
+      "ppm": 0.0
+    },
+    "KIA|92101-KC1L|2026-02-01": {
+      "qty": 0,
+      "shipped": 3586,
+      "ppm": 0.0
+    },
+    "KIA|92101-KC1L|2026-03-01": {
+      "qty": 0,
+      "shipped": 3575,
+      "ppm": 0.0
+    },
+    "KIA|92101-KC1L|2026-04-01": {
+      "qty": 0,
+      "shipped": 3585,
+      "ppm": 0.0
+    },
+    "KIA|92101-KC1L|2026-05-01": {
+      "qty": 0,
+      "shipped": 4535,
+      "ppm": 0.0
+    },
+    "KIA|92101-KC1L|2026-06-01": {
+      "qty": 0,
+      "shipped": 4025,
+      "ppm": 0.0
+    },
+    "KIA|92101-KC1L|2026-07-01": {
+      "qty": 0,
+      "shipped": 4095,
+      "ppm": 0.0
+    },
+    "KIA|92101-KC1L|2026-08-01": {
+      "qty": 0,
+      "shipped": 3901,
+      "ppm": 0.0
+    },
+    "KIA|92101-KC1L|2026-09-01": {
+      "qty": 0,
+      "shipped": 3878,
+      "ppm": 0.0
+    },
+    "KIA|92101-KC1L|2026-10-01": {
+      "qty": 0,
+      "shipped": 3927,
+      "ppm": 0.0
+    },
+    "KIA|92101-KC1L|2026-11-01": {
+      "qty": 0,
+      "shipped": 3861,
+      "ppm": 0.0
+    },
+    "KIA|92101-KE1L|2025-02-01": {
+      "qty": 0,
+      "shipped": 7211,
+      "ppm": 0.0
+    },
+    "KIA|92101-KE1L|2025-03-01": {
+      "qty": 0,
+      "shipped": 7154,
+      "ppm": 0.0
+    },
+    "KIA|92101-KE1L|2025-04-01": {
+      "qty": 0,
+      "shipped": 7077,
+      "ppm": 0.0
+    },
+    "KIA|92101-KE1L|2025-05-01": {
+      "qty": 0,
+      "shipped": 9080,
+      "ppm": 0.0
+    },
+    "KIA|92101-KE1L|2025-06-01": {
+      "qty": 1,
+      "shipped": 7173,
+      "ppm": 139.412
+    },
+    "KIA|92101-KE1L|2025-07-01": {
+      "qty": 0,
+      "shipped": 7276,
+      "ppm": 0.0
+    },
+    "KIA|92101-KE1L|2025-08-01": {
+      "qty": 0,
+      "shipped": 9017,
+      "ppm": 0.0
+    },
+    "KIA|92101-KE1L|2025-09-01": {
+      "qty": 0,
+      "shipped": 7186,
+      "ppm": 0.0
+    },
+    "KIA|92101-KE1L|2025-10-01": {
+      "qty": 0,
+      "shipped": 9056,
+      "ppm": 0.0
+    },
+    "KIA|92101-KE1L|2025-11-01": {
+      "qty": 0,
+      "shipped": 7180,
+      "ppm": 0.0
+    },
+    "KIA|92101-KE1L|2025-12-01": {
+      "qty": 1,
+      "shipped": 7281,
+      "ppm": 137.344
+    },
+    "KIA|92101-KE1L|2026-01-01": {
+      "qty": 0,
+      "shipped": 8981,
+      "ppm": 0.0
+    },
+    "KIA|92101-KE1L|2026-02-01": {
+      "qty": 1,
+      "shipped": 7287,
+      "ppm": 137.231
+    },
+    "KIA|92101-KE1L|2026-03-01": {
+      "qty": 0,
+      "shipped": 7243,
+      "ppm": 0.0
+    },
+    "KIA|92101-KE1L|2026-04-01": {
+      "qty": 0,
+      "shipped": 7249,
+      "ppm": 0.0
+    },
+    "KIA|92101-KE1L|2026-05-01": {
+      "qty": 0,
+      "shipped": 8918,
+      "ppm": 0.0
+    },
+    "KIA|92101-KE1L|2026-06-01": {
+      "qty": 0,
+      "shipped": 7980,
+      "ppm": 0.0
+    },
+    "KIA|92101-KE1L|2026-07-01": {
+      "qty": 0,
+      "shipped": 8141,
+      "ppm": 0.0
+    },
+    "KIA|92101-KE1L|2026-08-01": {
+      "qty": 0,
+      "shipped": 7726,
+      "ppm": 0.0
+    },
+    "KIA|92101-KE1L|2026-09-01": {
+      "qty": 0,
+      "shipped": 7859,
+      "ppm": 0.0
+    },
+    "KIA|92101-KE1L|2026-10-01": {
+      "qty": 2,
+      "shipped": 7806,
+      "ppm": 256.213
+    },
+    "KIA|92101-KE1L|2026-11-01": {
+      "qty": 0,
+      "shipped": 7775,
+      "ppm": 0.0
+    },
+    "STLA|98140-SE1L|2025-01-01": {
+      "qty": 0,
+      "shipped": 7550,
+      "ppm": 0.0
+    },
+    "STLA|98140-SE1L|2025-02-01": {
+      "qty": 0,
+      "shipped": 6702,
+      "ppm": 0.0
+    },
+    "STLA|98140-SE1L|2025-03-01": {
+      "qty": 0,
+      "shipped": 6679,
+      "ppm": 0.0
+    },
+    "STLA|98140-SE1L|2025-04-01": {
+      "qty": 0,
+      "shipped": 6705,
+      "ppm": 0.0
+    },
+    "STLA|98140-SE1L|2025-05-01": {
+      "qty": 0,
+      "shipped": 8298,
+      "ppm": 0.0
+    },
+    "STLA|98140-SE1L|2025-06-01": {
+      "qty": 2,
+      "shipped": 6692,
+      "ppm": 298.864
+    },
+    "STLA|98140-SE1L|2025-07-01": {
+      "qty": 0,
+      "shipped": 6777,
+      "ppm": 0.0
+    },
+    "STLA|98140-SE1L|2025-08-01": {
+      "qty": 0,
+      "shipped": 8393,
+      "ppm": 0.0
+    },
+    "STLA|98140-SE1L|2025-09-01": {
+      "qty": 0,
+      "shipped": 6772,
+      "ppm": 0.0
+    },
+    "STLA|98140-SE1L|2025-10-01": {
+      "qty": 1,
+      "shipped": 8427,
+      "ppm": 118.666
+    },
+    "STLA|98140-SE1L|2025-11-01": {
+      "qty": 0,
+      "shipped": 6732,
+      "ppm": 0.0
+    },
+    "STLA|98140-SE1L|2025-12-01": {
+      "qty": 0,
+      "shipped": 6752,
+      "ppm": 0.0
+    },
+    "STLA|98140-SE1L|2026-01-01": {
+      "qty": 0,
+      "shipped": 8361,
+      "ppm": 0.0
+    },
+    "STLA|98140-SE1L|2026-02-01": {
+      "qty": 1,
+      "shipped": 6735,
+      "ppm": 148.478
+    },
+    "STLA|98140-SE1L|2026-03-01": {
+      "qty": 0,
+      "shipped": 6665,
+      "ppm": 0.0
+    },
+    "STLA|98140-SE1L|2026-04-01": {
+      "qty": 0,
+      "shipped": 6741,
+      "ppm": 0.0
+    },
+    "STLA|98140-SE1L|2026-05-01": {
+      "qty": 0,
+      "shipped": 8383,
+      "ppm": 0.0
+    },
+    "STLA|98140-SE1L|2026-06-01": {
+      "qty": 0,
+      "shipped": 7513,
+      "ppm": 0.0
+    },
+    "STLA|98140-SE1L|2026-07-01": {
+      "qty": 0,
+      "shipped": 7522,
+      "ppm": 0.0
+    },
+    "STLA|98140-SE1L|2026-08-01": {
+      "qty": 0,
+      "shipped": 7283,
+      "ppm": 0.0
+    },
+    "STLA|98140-SE1L|2026-09-01": {
+      "qty": 1,
+      "shipped": 7231,
+      "ppm": 138.293
+    },
+    "STLA|98140-SE1L|2026-10-01": {
+      "qty": 0,
+      "shipped": 7205,
+      "ppm": 0.0
+    },
+    "STLA|98140-SE1L|2026-11-01": {
+      "qty": 1,
+      "shipped": 7192,
+      "ppm": 139.043
+    }
+  },
+  "BMW_BE1L_ppm": {
+    "2025-07-01": 0.0,
+    "2025-08-01": 53.833,
+    "2025-09-01": 0.0,
+    "2025-10-01": 53.865,
+    "2025-11-01": 0.0,
+    "2025-12-01": 0.0,
+    "2026-01-01": 53.706,
+    "2026-02-01": 0.0,
+    "2026-03-01": 0.0,
+    "2026-04-01": 0.0,
+    "2026-05-01": 54.098,
+    "2026-06-01": 59.056,
+    "2026-07-01": 59.898,
+    "2026-08-01": 0.0,
+    "2026-09-01": 61.881,
+    "2026-10-01": 124.603,
+    "2026-11-01": 185.759
+  },
+  "HMC_HE1_misCurve": {
+    "2026-05-01": [
+      {
+        "mis": 0,
+        "cumulativeClaims": 1,
+        "soldVehicles": 8681,
+        "cumR1000": 0.1152
+      },
+      {
+        "mis": 1,
+        "cumulativeClaims": 1,
+        "soldVehicles": 8681,
+        "cumR1000": 0.1152
+      },
+      {
+        "mis": 2,
+        "cumulativeClaims": 2,
+        "soldVehicles": 8681,
+        "cumR1000": 0.2304
+      },
+      {
+        "mis": 3,
+        "cumulativeClaims": 2,
+        "soldVehicles": 8681,
+        "cumR1000": 0.2304
+      },
+      {
+        "mis": 4,
+        "cumulativeClaims": 2,
+        "soldVehicles": 8681,
+        "cumR1000": 0.2304
+      },
+      {
+        "mis": 5,
+        "cumulativeClaims": 3,
+        "soldVehicles": 8681,
+        "cumR1000": 0.3456
+      },
+      {
+        "mis": 6,
+        "cumulativeClaims": 5,
+        "soldVehicles": 8681,
+        "cumR1000": 0.576
+      }
+    ],
+    "2026-06-01": [
+      {
+        "mis": 0,
+        "cumulativeClaims": 0,
+        "soldVehicles": 10944,
+        "cumR1000": 0.0
+      },
+      {
+        "mis": 1,
+        "cumulativeClaims": 0,
+        "soldVehicles": 10944,
+        "cumR1000": 0.0
+      },
+      {
+        "mis": 2,
+        "cumulativeClaims": 1,
+        "soldVehicles": 10944,
+        "cumR1000": 0.0914
+      },
+      {
+        "mis": 3,
+        "cumulativeClaims": 1,
+        "soldVehicles": 10944,
+        "cumR1000": 0.0914
+      },
+      {
+        "mis": 4,
+        "cumulativeClaims": 3,
+        "soldVehicles": 10944,
+        "cumR1000": 0.2741
+      },
+      {
+        "mis": 5,
+        "cumulativeClaims": 3,
+        "soldVehicles": 10944,
+        "cumR1000": 0.2741
+      }
+    ],
+    "2026-07-01": [
+      {
+        "mis": 0,
+        "cumulativeClaims": 1,
+        "soldVehicles": 10015,
+        "cumR1000": 0.0999
+      },
+      {
+        "mis": 1,
+        "cumulativeClaims": 6,
+        "soldVehicles": 10015,
+        "cumR1000": 0.5991
+      },
+      {
+        "mis": 2,
+        "cumulativeClaims": 10,
+        "soldVehicles": 10015,
+        "cumR1000": 0.9985
+      },
+      {
+        "mis": 3,
+        "cumulativeClaims": 14,
+        "soldVehicles": 10015,
+        "cumR1000": 1.3979
+      },
+      {
+        "mis": 4,
+        "cumulativeClaims": 14,
+        "soldVehicles": 10015,
+        "cumR1000": 1.3979
+      }
+    ],
+    "2026-08-01": [
+      {
+        "mis": 0,
+        "cumulativeClaims": 1,
+        "soldVehicles": 9940,
+        "cumR1000": 0.1006
+      },
+      {
+        "mis": 1,
+        "cumulativeClaims": 7,
+        "soldVehicles": 9940,
+        "cumR1000": 0.7042
+      },
+      {
+        "mis": 2,
+        "cumulativeClaims": 15,
+        "soldVehicles": 9940,
+        "cumR1000": 1.5091
+      },
+      {
+        "mis": 3,
+        "cumulativeClaims": 21,
+        "soldVehicles": 9940,
+        "cumR1000": 2.1127
+      }
+    ],
+    "2026-09-01": [
+      {
+        "mis": 0,
+        "cumulativeClaims": 0,
+        "soldVehicles": 9556,
+        "cumR1000": 0.0
+      },
+      {
+        "mis": 1,
+        "cumulativeClaims": 5,
+        "soldVehicles": 9556,
+        "cumR1000": 0.5232
+      },
+      {
+        "mis": 2,
+        "cumulativeClaims": 11,
+        "soldVehicles": 9556,
+        "cumR1000": 1.1511
+      }
+    ]
+  },
+  "demoRules": [
+    {
+      "ruleCode": "DEMO-0KM-CONSEC3",
+      "type": "CONSECUTIVE_INCREASE",
+      "dataType": "LINE_0KM",
+      "grain": "CUSTOMER,ITEM",
+      "consecutiveN": 3
+    },
+    {
+      "ruleCode": "DEMO-FIELD-MIS3",
+      "type": "MIS_LIMIT",
+      "dataType": "FIELD",
+      "grain": "CUSTOMER,VEHICLE,ITEM",
+      "misPoint": 3,
+      "misLimitR1000": 0.8
+    }
+  ],
+  "alerts": [
+    {
+      "ruleCode": "DEMO-0KM-CONSEC3",
+      "ruleType": "CONSECUTIVE_INCREASE",
+      "dataType": "LINE_0KM",
+      "metric": "PPM",
+      "customerCode": "BMW",
+      "itemNo": "63117-BE1L",
+      "periodStart": "2026-11-01",
+      "value": 185.759,
+      "baseline": 0.0,
+      "alertKey": "dd74ecbdbc9d3acbacda9b6316590f26afebbe4c7b031e4193d445e9e336e35c"
+    },
+    {
+      "ruleCode": "DEMO-FIELD-MIS3",
+      "ruleType": "MIS_LIMIT",
+      "dataType": "FIELD",
+      "metric": "R1000",
+      "customerCode": "HMC",
+      "vehicleCode": "HE1",
+      "itemNo": "92101-HE1L",
+      "cohort": "2026-07-01",
+      "misPoint": 3,
+      "value": 1.3979,
+      "threshold": 0.8,
+      "alertKey": "5aace692f30d7e949dee9e5fa44089e395881f25d265c1496b0565a822f41f98"
+    },
+    {
+      "ruleCode": "DEMO-FIELD-MIS3",
+      "ruleType": "MIS_LIMIT",
+      "dataType": "FIELD",
+      "metric": "R1000",
+      "customerCode": "HMC",
+      "vehicleCode": "HE1",
+      "itemNo": "92101-HE1L",
+      "cohort": "2026-08-01",
+      "misPoint": 3,
+      "value": 2.1127,
+      "threshold": 0.8,
+      "alertKey": "fb735b94152bed2ac4cc5a758bca79990cf8885cd2034bf9e3888525be348a5f"
+    }
+  ],
+  "eventCounts": {
+    "LINE_0KM": 83,
+    "FIELD": 463,
+    "RETURN": 74
+  },
+  "unmappedDefectEvents": 45,
+  "note": "BE1L은 출하 공장이 2곳(KR01·PL01)이라 PLANT_CODE NULL(B2B-001 BR-3). 규칙 값은 데모 가정(B2B-004 초기 규칙은 비활성 제공)."
+}
