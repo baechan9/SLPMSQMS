@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<PermissionSetGroup xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>현장 검사원(모바일 위주): 검사 결과 입력, NCR 등록, 한도견본 조회(CMN-00-SEC-001)</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>QMS 검사원</label>
+    <permissionSets>CMN_PS_AppQms_Read</permissionSets>
+    <status>Updated</status>
+</PermissionSetGroup>

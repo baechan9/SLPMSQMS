@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<PermissionSetGroup xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>공장 품질 엔지니어: NCR·4M·Claim·8D 생성/수정, 검사 판정(CMN-00-SEC-001)</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>QMS 품질 엔지니어</label>
+    <permissionSets>CMN_PS_AppQms_Read</permissionSets>
+    <status>Updated</status>
+</PermissionSetGroup>

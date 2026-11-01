@@ -10,7 +10,7 @@ scripts/dev/wi-check.sh <테스트 클래스>   # 생성·포맷·린트·분석
 
 ## 규칙
 
-- 생성기가 쓰는 폴더(`objects/`, `objectTranslations/`, `labels/`, `permissionsets/`, `translations/`, `customMetadata/`, `tabs/`)는 손으로 고치지 않는다. 정의 JSON을 고치고 다시 실행한다. Prettier도 이 폴더는 건드리지 않는다(`.prettierignore`).
+- 생성기가 쓰는 폴더(`objects/`, `objectTranslations/`, `labels/`, `permissionsets/`, `permissionsetgroups/`, `applications/`, `translations/`, `customMetadata/`, `tabs/`)는 손으로 고치지 않는다. 프로필(`profiles/`)은 `scripts/dev/profile-lockdown.py`가 만든다(`docs/dev/persona-psg.md`). 정의 JSON을 고치고 다시 실행한다. Prettier도 이 폴더는 건드리지 않는다(`.prettierignore`).
 - Org 기본 언어가 ko라서 정의의 `"ko"` 값이 기본 라벨이 되고, `en_US`·`zh_CN`은 번역 파일로 간다.
 - 조직 전체 번역 파일(`translations/{lang}.translation-meta.xml`)은 언어마다 하나라 `force-app-cmn`에 모은다(패키지마다 두면 배포가 충돌한다).
 - 권한 셋의 필드 권한은 정의에서 자동으로 만든다. 필수·주종 필드는 넣지 않고(넣으면 배포 오류), 수식·롤업은 읽기 전용, `"serviceOnly": true` 필드(상태처럼 서비스로만 바꾸는 필드)는 읽기 전용이다.
@@ -23,6 +23,8 @@ scripts/dev/wi-check.sh <테스트 클래스>   # 생성·포맷·린트·분석
 | `meta-src/{cmn,qms,pms}/<객체>.json` | 객체 | `object`, `package`, `kind`(object·mdt·event·setting), `label`, `plural`, `nameField`, `sharingModel`, `fields`, `recordTypes`, `validationRules`, `tab`, `records`(mdt) |
 | `meta-src/**/permissionsets/<이름>.json` | 권한 셋 | `permissionSet.objects`(read·edit·edit-delete·viewall·admin), `tabs`, `classes`, `customPermissions`, `apps`, `readOnlyFields` |
 | `meta-src/**/labels/<WI>.json` | Custom Label | `labels[].name`, `value{ko,en_US,zh_CN}`, `category` |
+| `meta-src/**/permissionsetgroups/<이름>.json` | 권한 셋 그룹 | `permissionSetGroup.permissionSets`(기능 WI가 자기 PS 이름을 더한다) |
+| `meta-src/cmn/applications/<이름>.json` | Lightning 앱 | `application.label`(문자열 또는 언어별), `tabs`, `headerColor`. 앱 라벨 번역은 조직 번역 파일로 간다 |
 | 표준 객체(Account·User 등) | 필드만 | `"standard": true` — 객체 파일은 만들지 않고 필드·레코드타입·번역만 |
 
 필드 `type`: Text, LongTextArea, Html, Number, Currency, Percent, Checkbox, Date, DateTime, Email, Phone, Url, Picklist, MultiselectPicklist, Lookup, MasterDetail, Formula(`returnType`), Summary. 선택 목록 값은 `values: [{"api": "...", "label": {"ko": ..., "en_US": ..., "zh_CN": ...}}]`.

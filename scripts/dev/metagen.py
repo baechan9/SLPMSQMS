@@ -202,6 +202,26 @@ def build_special(spec, base):
 
 
 label_trans = {lang: [] for lang in LANGS}
+app_trans = {lang: [] for lang in LANGS}
+
+
+def build_psg(g):
+    """권한 셋 그룹. 각 기능 WI가 자기 PS 이름을 permissionSets에 더한다(SEC-001 BR-2)."""
+    emit(f'{g["package"]}/main/default/permissionsetgroups/{g["name"]}.permissionsetgroup-meta.xml', doc('PermissionSetGroup', [
+        ('description', g.get('description')), ('hasActivationRequired', False), ('label', g['label']),
+        ('permissionSets', sorted(g.get('permissionSets', [])) or None), ('status', 'Updated')]))
+
+
+def build_app(a):
+    """Lightning 앱. 앱 할당은 PSG(권한 셋의 applicationVisibilities)가 결정한다(SEC-001 BR-4)."""
+    emit(f'{a["package"]}/main/default/applications/{a["name"]}.app-meta.xml', doc('CustomApplication', [
+        ('brand', {'headerColor': a.get('headerColor', '#0070D2'), 'shouldOverrideOrgTheme': False}),
+        ('description', a.get('description')),
+        ('formFactors', a.get('formFactors', ['Small', 'Large'])),
+        ('isNavAutoTempTabsDisabled', False), ('isNavPersonalizationDisabled', False), ('isNavTabPersistenceDisabled', False),
+        ('label', lbl(a['label'])), ('navType', 'Standard'), ('tabs', a.get('tabs', ['standard-home'])), ('uiType', 'Lightning')]))
+    for lang in LANGS:
+        app_trans[lang].append({'label': lbl(a['label'], lang) or lbl(a['label']), 'name': a['name']})
 
 
 def build_labels(spec):
@@ -217,10 +237,11 @@ def build_labels(spec):
 def build_translations():
     """조직 전체 Translations(언어별 1개)는 force-app-cmn에 모은다. 같은 언어 파일이 패키지마다 있으면 배포가 충돌한다."""
     for lang in LANGS:
+        apps = sorted(app_trans[lang], key=lambda d: d['name'])
         items = sorted(label_trans[lang], key=lambda d: d['name'])
-        if items:
+        if items or apps:
             emit(f'force-app-cmn/main/default/translations/{lang}.translation-meta.xml',
-                 doc('Translations', [('customLabels', items)]))
+                 doc('Translations', [('customApplications', apps or None), ('customLabels', items or None)]))
 
 
 def build_object(spec):
@@ -363,6 +384,10 @@ def main():
             build_permset(d['permissionSet'], objects)
         elif 'labels' in d:
             build_labels(d)
+        elif 'permissionSetGroup' in d:
+            build_psg(d['permissionSetGroup'])
+        elif 'application' in d:
+            build_app(d['application'])
     build_translations()
     if a.check:
         diff = [p for p, c in written.items() if not os.path.exists(p) or open(p, encoding='utf-8').read() != c]

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customPermissions>
+        <enabled>true</enabled>
+        <name>QMS_DashboardAllPlants</name>
+    </customPermissions>
+    <description>대시보드 전 공장 범위(Custom Permission QMS_DashboardAllPlants, DSH-002 BR-1). 품질본부장 개별 부여용(CMN-00-SEC-001)</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>QMS Dashboard All Plants</label>
+</PermissionSet>

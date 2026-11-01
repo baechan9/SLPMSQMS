@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<PermissionSetGroup xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>경영진: 대시보드·조회 전용(View All, 비용 필드 포함). 객체 View All은 각 기능 WI의 Read PS로 더한다(CMN-00-SEC-001)</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>CMN 경영진</label>
+    <permissionSets>CMN_PS_AppPms_Read</permissionSets>
+    <permissionSets>CMN_PS_AppQms_Read</permissionSets>
+    <permissionSets>QMS_PS_Dashboard_AllPlants</permissionSets>
+    <status>Updated</status>
+</PermissionSetGroup>

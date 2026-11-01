@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<PermissionSetGroup xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>IT 운영: 설정, 로그, 연계 모니터링. View All Data·Modify All Data를 줄 수 있는 유일한 PSG(CMN-00-SEC-001)</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>CMN 시스템 관리(IT 운영)</label>
+    <permissionSets>CMN_PS_Admin_Ops</permissionSets>
+    <permissionSets>CMN_PS_AppAdmin_Read</permissionSets>
+    <permissionSets>CMN_PS_AppPms_Read</permissionSets>
+    <permissionSets>CMN_PS_AppQms_Read</permissionSets>
+    <permissionSets>CMN_PS_Setup_Read</permissionSets>
+    <status>Updated</status>
+</PermissionSetGroup>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomPermission xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description
+  >대시보드에서 자기 공장 외 전 공장 데이터 조회(DSH-002 BR-1). CMN-00-SEC-001에서 정의</description>
+    <isLicensed>false</isLicensed>
+    <label>QMS 대시보드 전 공장</label>
+</CustomPermission>

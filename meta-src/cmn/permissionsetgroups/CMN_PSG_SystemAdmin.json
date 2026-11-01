@@ -1,0 +1,16 @@
+{
+  "permissionSetGroup": {
+    "wi": "CMN-00-SEC-001",
+    "name": "CMN_PSG_SystemAdmin",
+    "package": "force-app-cmn",
+    "label": "CMN 시스템 관리(IT 운영)",
+    "description": "IT 운영: 설정, 로그, 연계 모니터링. View All Data·Modify All Data를 줄 수 있는 유일한 PSG(CMN-00-SEC-001)",
+    "permissionSets": [
+      "CMN_PS_AppQms_Read",
+      "CMN_PS_AppPms_Read",
+      "CMN_PS_AppAdmin_Read",
+      "CMN_PS_Setup_Read",
+      "CMN_PS_Admin_Ops"
+    ]
+  }
+}

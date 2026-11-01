@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<PermissionSetGroup xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>신뢰성·광학 시험 담당과 분석실 분석자(CMN-00-SEC-001)</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>QMS 시험·분석 담당</label>
+    <permissionSets>CMN_PS_AppQms_Read</permissionSets>
+    <status>Updated</status>
+</PermissionSetGroup>

@@ -1,0 +1,14 @@
+{
+  "permissionSetGroup": {
+    "wi": "CMN-00-SEC-001",
+    "name": "QMS_PSG_QualityAdmin",
+    "package": "force-app-qms",
+    "label": "QMS 품질경영(관리자)",
+    "description": "품질경영팀: 코드·체크리스트·양식·LELE 마스터 관리, 심사 지적 수정, 전 공장 대시보드(CMN-00-SEC-001)",
+    "permissionSets": [
+      "CMN_PS_AppQms_Read",
+      "CMN_PS_AppAdmin_Read",
+      "QMS_PS_Dashboard_AllPlants"
+    ]
+  }
+}

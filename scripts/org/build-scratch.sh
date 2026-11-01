@@ -67,7 +67,11 @@ else
   echo "배포할 메타데이터 없음 — 건너뜀"
 fi
 
-step 4 "관리자 권한(CMN_PSG_SystemAdmin)"
+step 4 "배포 후 설정(SL 프로필 시스템 앱 숨김, 관리자 CMN_PSG_SystemAdmin)"
+if has_metadata && [ -f "force-app-cmn/main/default/profiles/SL Internal User.profile-meta.xml" ]; then
+  # Metadata API로 끌 수 없는 시스템 앱(Work 등)을 SL 프로필에서 숨긴다(CMN-00-SEC-001 AC-1)
+  python3 scripts/dev/profile-lockdown.py "$ALIAS" --hide-system-apps
+fi
 ADMIN_ID="$(sf org display user -o "$ALIAS" --json | python3 -c 'import json,sys; print(json.load(sys.stdin)["result"]["id"])')"
 PSG_ID="$(sf data query -o "$ALIAS" -q "SELECT Id FROM PermissionSetGroup WHERE DeveloperName = 'CMN_PSG_SystemAdmin'" --json \
   | python3 -c 'import json,sys; r=json.load(sys.stdin)["result"]["records"]; print(r[0]["Id"] if r else "")')"

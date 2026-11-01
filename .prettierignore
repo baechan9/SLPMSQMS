@@ -22,3 +22,6 @@ force-app-*/main/default/permissionsets/
 force-app-*/main/default/translations/
 force-app-*/main/default/customMetadata/
 force-app-*/main/default/tabs/
+force-app-*/main/default/permissionsetgroups/
+force-app-*/main/default/applications/
+force-app-*/main/default/profiles/

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <applicationVisibilities>
+        <application>SL_PMS</application>
+        <visible>true</visible>
+    </applicationVisibilities>
+    <description>SL PMS 앱 표시(CMN-00-SEC-001)</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>CMN App SL PMS Read</label>
+</PermissionSet>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<PermissionSetGroup xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>측정기·교정 담당(CMN-00-SEC-001)</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>QMS 측정·교정 담당</label>
+    <permissionSets>CMN_PS_AppQms_Read</permissionSets>
+    <status>Updated</status>
+</PermissionSetGroup>

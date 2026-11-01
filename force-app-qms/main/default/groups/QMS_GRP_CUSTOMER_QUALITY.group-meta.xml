@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Group xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description
+  >고객 품질 담당 전원(B2B 고객 포털 지적·클레임 알림 수신). 구성원은 품질경영팀이 관리한다(CMN-00-SEC-001, Vol.5 B2B-005·006, CLM-007)</description>
+    <doesIncludeBosses>false</doesIncludeBosses>
+    <name>QMS 고객 품질 담당</name>
+</Group>

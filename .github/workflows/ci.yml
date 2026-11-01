@@ -115,3 +115,4 @@ jobs:
           sf org login sfdx-url --sfdx-url-file "$RUNNER_TEMP/authurl" --alias qms-ci
           rm -f "$RUNNER_TEMP/authurl"
           sf project deploy start -o qms-ci --wait 60
+          python3 scripts/dev/profile-lockdown.py qms-ci --hide-system-apps

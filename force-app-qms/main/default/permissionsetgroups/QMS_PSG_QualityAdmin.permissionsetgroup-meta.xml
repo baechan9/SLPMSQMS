@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<PermissionSetGroup xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>품질경영팀: 코드·체크리스트·양식·LELE 마스터 관리, 심사 지적 수정, 전 공장 대시보드(CMN-00-SEC-001)</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>QMS 품질경영(관리자)</label>
+    <permissionSets>CMN_PS_AppAdmin_Read</permissionSets>
+    <permissionSets>CMN_PS_AppQms_Read</permissionSets>
+    <permissionSets>QMS_PS_Dashboard_AllPlants</permissionSets>
+    <status>Updated</status>
+</PermissionSetGroup>

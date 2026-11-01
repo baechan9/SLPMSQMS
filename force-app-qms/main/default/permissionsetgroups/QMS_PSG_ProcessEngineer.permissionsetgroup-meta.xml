@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<PermissionSetGroup xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>생산기술·공정 담당: SPC 알람·OCAP, 수평전개 실행(CMN-00-SEC-001)</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>QMS 공정 엔지니어</label>
+    <permissionSets>CMN_PS_AppQms_Read</permissionSets>
+    <status>Updated</status>
+</PermissionSetGroup>

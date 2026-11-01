@@ -35,10 +35,11 @@ PHASE_USERS = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'phase-us
 REF_RE = re.compile(r'\{\{ref:([A-Za-z0-9_]+)\.([A-Za-z0-9_]+)=([^}]*)\}\}')
 USER_RE = re.compile(r'\{\{user:([A-Z0-9]+)\}\}')
 ADMIN_EMP = 'E1901'
+# 라이선스별 프로필 우선순위: SL 프로필(CMN-00-SEC-001) → 표준 프로필.
 # 표준 프로필 이름은 Org 기본 언어로 바뀐다(ko Org에서 'Standard User' → '표준 사용자')
 PROFILE_NAMES = {
-    'Salesforce': ('Standard User', '표준 사용자', '标准用户'),
-    'Salesforce Platform': ('Standard Platform User', '표준 플랫폼 사용자', '标准平台用户'),
+    'Salesforce': ('SL Internal User', 'Standard User', '표준 사용자', '标准用户'),
+    'Salesforce Platform': ('SL Internal Platform User', 'Standard Platform User', '표준 플랫폼 사용자', '标准平台用户'),
 }
 csv.field_size_limit(10 ** 9)
 
@@ -202,8 +203,9 @@ class Loader:
         lic = {r['Name']: r['TotalLicenses'] - r['UsedLicenses'] for r in soql(
             self.org, f"SELECT Name, TotalLicenses, UsedLicenses FROM UserLicense WHERE Name IN ({quote_in(list(PROFILE_NAMES))})")}
         names = [n for ns in PROFILE_NAMES.values() for n in ns]
-        prof = {r['UserLicense']['Name']: r['Name'] for r in soql(
-            self.org, f"SELECT Name, UserLicense.Name FROM Profile WHERE Name IN ({quote_in(names)})")}
+        found = {r['Name'] for r in soql(self.org, f"SELECT Name FROM Profile WHERE Name IN ({quote_in(names)})")}
+        prof = {lic: next((n for n in ns if n in found), None) for lic, ns in PROFILE_NAMES.items()}
+        prof = {lic: n for lic, n in prof.items() if n}
         slots = [(name, prof[name]) for name in PROFILE_NAMES if name in prof for _ in range(max(lic.get(name, 0), 0))]
         print(f"  사용자 라이선스 여유: {', '.join(f'{n} {max(lic.get(n, 0), 0)}' for n in PROFILE_NAMES)}")
         return slots

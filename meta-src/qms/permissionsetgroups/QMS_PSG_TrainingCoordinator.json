@@ -1,0 +1,10 @@
+{
+  "permissionSetGroup": {
+    "wi": "CMN-00-SEC-001",
+    "name": "QMS_PSG_TrainingCoordinator",
+    "package": "force-app-qms",
+    "label": "QMS 교육 담당",
+    "description": "공장 교육 담당(CMN-00-SEC-001)",
+    "permissionSets": ["CMN_PS_AppQms_Read"]
+  }
+}

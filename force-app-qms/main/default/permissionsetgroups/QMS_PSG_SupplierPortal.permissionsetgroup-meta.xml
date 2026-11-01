@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<PermissionSetGroup xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>협력사 포털 사용자(Experience Cloud). 포털 객체 권한은 QMS-03-SPP WI가 더한다(CMN-00-SEC-001)</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>QMS 협력사 포털 사용자</label>
+    <status>Updated</status>
+</PermissionSetGroup>

@@ -1,0 +1,10 @@
+{
+  "permissionSetGroup": {
+    "wi": "CMN-00-SEC-001",
+    "name": "QMS_PSG_LabTester",
+    "package": "force-app-qms",
+    "label": "QMS 시험·분석 담당",
+    "description": "신뢰성·광학 시험 담당과 분석실 분석자(CMN-00-SEC-001)",
+    "permissionSets": ["CMN_PS_AppQms_Read"]
+  }
+}

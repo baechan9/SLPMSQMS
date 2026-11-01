@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomPermission xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description
+  >품질 비용(클레임·NCR 비용 등) 필드와 금액 화면 조회(NCR-007 BR-3). CMN-00-SEC-001에서 정의</description>
+    <isLicensed>false</isLicensed>
+    <label>QMS 품질 비용 조회</label>
+</CustomPermission>

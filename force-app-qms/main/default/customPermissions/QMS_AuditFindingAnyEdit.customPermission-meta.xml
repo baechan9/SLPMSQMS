@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomPermission xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description
+  >담당과 무관하게 심사 지적 사항 수정(IAU-004 BR-12). CMN-00-SEC-001에서 정의</description>
+    <isLicensed>false</isLicensed>
+    <label>QMS 심사 지적 전체 수정</label>
+</CustomPermission>

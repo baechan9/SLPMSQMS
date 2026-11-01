@@ -1,0 +1,10 @@
+{
+  "permissionSetGroup": {
+    "wi": "CMN-00-SEC-001",
+    "name": "QMS_PSG_Inspector",
+    "package": "force-app-qms",
+    "label": "QMS 검사원",
+    "description": "현장 검사원(모바일 위주): 검사 결과 입력, NCR 등록, 한도견본 조회(CMN-00-SEC-001)",
+    "permissionSets": ["CMN_PS_AppQms_Read"]
+  }
+}

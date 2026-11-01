@@ -1,0 +1,14 @@
+{
+  "permissionSetGroup": {
+    "wi": "CMN-00-SEC-001",
+    "name": "CMN_PSG_Executive",
+    "package": "force-app-cmn",
+    "label": "CMN 경영진",
+    "description": "경영진: 대시보드·조회 전용(View All, 비용 필드 포함). 객체 View All은 각 기능 WI의 Read PS로 더한다(CMN-00-SEC-001)",
+    "permissionSets": [
+      "CMN_PS_AppQms_Read",
+      "CMN_PS_AppPms_Read",
+      "QMS_PS_Dashboard_AllPlants"
+    ]
+  }
+}
