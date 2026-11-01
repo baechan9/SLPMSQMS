@@ -31,6 +31,7 @@ ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
 SF_DIR = os.path.join(ROOT, 'data', 'demo', 'salesforce')
 PHASE_MAP = os.path.join(ROOT, 'docs', 'docs', '30-dev', 'phase-map.csv')
 OWNER_MAP = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'object-owner.json')
+PHASE_USERS = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'phase-users.json')
 REF_RE = re.compile(r'\{\{ref:([A-Za-z0-9_]+)\.([A-Za-z0-9_]+)=([^}]*)\}\}')
 USER_RE = re.compile(r'\{\{user:([A-Z0-9]+)\}\}')
 ADMIN_EMP = 'E1901'
@@ -40,6 +41,10 @@ PROFILE_NAMES = {
     'Salesforce Platform': ('Standard Platform User', '표준 플랫폼 사용자', '标准平台用户'),
 }
 csv.field_size_limit(10 ** 9)
+
+
+class SkipFile(Exception):
+    """이 파일은 지금 적재할 수 없다(소유 WI 메타데이터 미배포). 요약에 사유를 남기고 다음 파일로 넘어간다."""
 
 
 def sf(args, org=None, check=True):
@@ -134,8 +139,18 @@ class Loader:
             with open(path, encoding='utf-8') as f:
                 defs.append(json.load(f))
         defs.sort(key=lambda d: d['_demo']['priority'])
+        limit = self.a.max_users
+        pick = self.pick_users()
+        if pick:
+            by_emp = {d['EmployeeNo__c']: d for d in defs}
+            unknown = [e for e in pick if e not in by_emp]
+            if unknown:
+                sys.exit(f'사용자 목록에 없는 사번: {unknown}')
+            defs = [by_emp[e] for e in pick] + [d for d in defs if d['EmployeeNo__c'] not in pick]
+            limit = min(limit, len(pick))
+            print(f"데모 사용자 선택: {', '.join(pick)}")
         if self.dry:
-            for d in defs[:self.a.max_users]:
+            for d in defs[:limit]:
                 self.users[d['EmployeeNo__c']] = '005DRYRUN' + d['EmployeeNo__c']
             self.users[ADMIN_EMP] = '005DRYRUNADMIN'
             print(f"[dry-run] 사용자 {len(self.users)}명 가정: {', '.join(sorted(self.users))}")
@@ -150,7 +165,7 @@ class Loader:
         made = 0
         for d in defs:
             emp = d['EmployeeNo__c']
-            if emp == ADMIN_EMP or emp in existing or made >= self.a.max_users:
+            if emp == ADMIN_EMP or emp in existing or made >= limit:
                 continue
             if not slots:
                 print(f"  남은 사용자 라이선스 없음 — {emp}부터는 만들지 않는다(onMissingUser 규칙 적용)")
@@ -171,6 +186,16 @@ class Loader:
         self.users = {r['EmployeeNo__c']: r['Id'] for r in soql(self.org, 'SELECT Id, EmployeeNo__c FROM User WHERE EmployeeNo__c != null')}
         self.assign_psg(defs)
         print(f"사용자 {len(self.users)}명(관리자 {ADMIN_EMP} 포함). 없는 사번 Lookup은 onMissingUser 규칙을 따른다.")
+
+    def pick_users(self):
+        """만들 데모 사용자: --users > phase-users.json의 페이즈 목록(--upto-phase) > 우선순위(없음)."""
+        if self.a.users:
+            return [u.strip() for u in self.a.users.split(',') if u.strip()]
+        if self.a.upto_phase is None:
+            return None
+        with open(PHASE_USERS, encoding='utf-8') as f:
+            sets = json.load(f)
+        return sets.get(str(self.a.upto_phase)) or sets.get('default')
 
     def license_slots(self):
         """남은 라이선스를 (라이선스, 표준 프로필 이름) 목록으로. Salesforce를 먼저 쓰고 Platform으로 채운다."""
@@ -286,7 +311,7 @@ class Loader:
                 if dn:
                     rid = self.rt.get((p['object'], dn)) if not self.dry else f'012DRY{dn}'
                     if not rid:
-                        raise RuntimeError(f"{p['file']}: RecordType {p['object']}.{dn} 없음 — 메타데이터 배포 확인")
+                        raise SkipFile(f"RecordType {p['object']}.{dn} 없음(소유 WI 미배포)")
                     r['RecordTypeId'] = rid
             out.append(r)
         return out, skipped
@@ -351,7 +376,14 @@ class Loader:
                 continue
             with open(os.path.join(SF_DIR, p['file']), encoding='utf-8') as f:
                 rows = list(csv.DictReader(f))
-            out, skipped = self.transform(p, rows)
+            mark = len(self.deferred)
+            try:
+                out, skipped = self.transform(p, rows)
+            except SkipFile as e:
+                # 표준 객체(Account 등)는 항상 배포돼 있어 레코드타입·필드로 소유 WI 배포 여부를 판단한다
+                del self.deferred[mark:]
+                self.skipped_files.append((p['file'], str(e)))
+                continue
             label = p['file'] + (f' (사용자 없음 {skipped}행 제외)' if skipped else '')
             self.upsert(p, out, label)
         self.fix_deferred()
@@ -414,7 +446,9 @@ def main():
     ap.add_argument('org', help='sf 별칭 또는 사용자 이름')
     ap.add_argument('--upto-phase', type=int, default=None,
                     help='개발 플랜 페이즈 N까지 소유 객체만 적재(docs/docs/30-dev/phase-map.csv). 다음 페이즈에서 다시 실행하면 빠진 연결을 채운다')
-    ap.add_argument('--max-users', type=int, default=8, help='만들 데모 사용자 수(우선순위 순, 기본 8). 실제 수는 남은 라이선스로 제한된다')
+    ap.add_argument('--users', default=None,
+                    help='만들 데모 사용자 사번(쉼표 구분, 이 순서로). 없으면 --upto-phase의 phase-users.json 목록, 그것도 없으면 우선순위 순')
+    ap.add_argument('--max-users', type=int, default=8, help='만들 데모 사용자 수 상한(기본 8). 실제 수는 남은 라이선스로 제한된다')
     ap.add_argument('--from', dest='from_order', type=float, default=0, help='이 order부터 적재(재시작)')
     ap.add_argument('--only', type=int, default=None, help='이 번호(NN) 파일만 적재')
     ap.add_argument('--strict', action='store_true', help='실패 행이 있으면 중단')
