@@ -89,6 +89,14 @@
         <name>CMN_Customer_DuplicateVehicleCode</name>
     </customLabels>
     <customLabels>
+        <label>Delete logs cannot be changed or removed.</label>
+        <name>CMN_Delete_LogReadOnly</name>
+    </customLabels>
+    <customLabels>
+        <label>Records in status {0} cannot be deleted. Close or cancel them, or follow the status rollback procedure.</label>
+        <name>CMN_Delete_NotAllowedStatus</name>
+    </customLabels>
+    <customLabels>
         <label>This item is already registered for the plant: {0}</label>
         <name>CMN_Item_DuplicateItemPlant</name>
     </customLabels>

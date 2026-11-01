@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_Delete_NotAllowedStatus</fullName>
+    <categories>CMN</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>삭제 불가 상태(BR-1). {0} = 현재 상태</shortDescription>
+    <value>{0} 상태인 레코드는 삭제할 수 없습니다. 종결·취소하거나 상태 되돌림 절차를 따르세요.</value>
+</CustomLabel>

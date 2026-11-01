@@ -72,6 +72,17 @@
         "zh_CN": "编号"
       },
       "description": "채번 서비스가 발행(ARC-003). 업무 객체의 RecordNo__c와 같은 규칙"
+    },
+    {
+      "name": "Status__c",
+      "type": "Text",
+      "length": 40,
+      "label": {
+        "ko": "상태",
+        "en_US": "Status",
+        "zh_CN": "状态"
+      },
+      "description": "삭제 통제 검증(SEC-003, DRAFT만 삭제)"
     }
   ],
   "validationRules": [

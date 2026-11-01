@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>삭제 기록 조회 전용(전체 보기, 편집·삭제 없음)과 탭(CMN-00-SEC-003). 품질경영·심사원·IT 운영</description>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>CMN_DeleteLog__c.DeletedBy__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>CMN_DeleteLog__c.Reason__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>CMN_DeleteLog__c.RecordNo__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>CMN_DeleteLog__c.Snapshot__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>CMN Delete Log Read</label>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <viewAllRecords>true</viewAllRecords>
+        <object>CMN_DeleteLog__c</object>
+    </objectPermissions>
+    <tabSettings>
+        <tab>CMN_DeleteLog__c</tab>
+        <visibility>Visible</visibility>
+    </tabSettings>
+</PermissionSet>

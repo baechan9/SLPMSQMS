@@ -1,0 +1,13 @@
+{
+  "permissionSet": {
+    "wi": "CMN-00-SEC-003",
+    "name": "CMN_PS_DeleteLog_Read",
+    "package": "force-app-cmn",
+    "label": "CMN Delete Log Read",
+    "description": "삭제 기록 조회 전용(전체 보기, 편집·삭제 없음)과 탭(CMN-00-SEC-003). 품질경영·심사원·IT 운영",
+    "objects": {
+      "CMN_DeleteLog__c": "viewall"
+    },
+    "tabs": ["CMN_DeleteLog__c"]
+  }
+}

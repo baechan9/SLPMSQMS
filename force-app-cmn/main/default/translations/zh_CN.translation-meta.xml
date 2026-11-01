@@ -89,6 +89,14 @@
         <name>CMN_Customer_DuplicateVehicleCode</name>
     </customLabels>
     <customLabels>
+        <label>删除记录不能修改或删除。</label>
+        <name>CMN_Delete_LogReadOnly</name>
+    </customLabels>
+    <customLabels>
+        <label>状态为{0}的记录不能删除。请关闭或取消，或按状态回退流程处理。</label>
+        <name>CMN_Delete_NotAllowedStatus</name>
+    </customLabels>
+    <customLabels>
         <label>该工厂已登记此物料: {0}</label>
         <name>CMN_Item_DuplicateItemPlant</name>
     </customLabels>

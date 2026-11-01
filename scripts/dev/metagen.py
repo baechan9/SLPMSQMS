@@ -249,6 +249,10 @@ def build_translations():
 
 def build_object(spec):
     obj, pkg = spec['object'], spec['package']
+    tracked = [f['name'] for f in spec.get('fields', []) if f.get('trackHistory')]
+    if len(tracked) > 20:
+        # 표준 Field History Tracking은 객체당 20필드까지(CMN-00-SEC-003 BR-3)
+        sys.exit(f'{obj}: 이력 추적 필드 {len(tracked)}개 — 객체당 최대 20개')
     base = f'{pkg}/main/default'
     std = spec.get('standard', False)
     if spec.get('kind', 'object') != 'object':

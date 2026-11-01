@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Snapshot__c</fullName>
+    <description>삭제 직전 레코드 JSON(전 필드). 명세 필수: 긴 텍스트는 DB 필수 대신 서비스가 항상 채움</description>
+    <label>스냅숏</label>
+    <length>131072</length>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>LongTextArea</type>
+    <visibleLines>10</visibleLines>
+</CustomField>

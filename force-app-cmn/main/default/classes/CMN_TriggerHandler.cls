@@ -53,6 +53,12 @@ public virtual with sharing class CMN_TriggerHandler {
       return;
     }
     String objectName = String.valueOf(records[0].getSObjectType());
+    // 삭제 통제(CMN-00-SEC-003)는 핸들러 비활성·우회·재진입과 무관하게 항상 적용한다(관리자 예외 없음)
+    if (operation == System.TriggerOperation.BEFORE_DELETE) {
+      CMN_DeleteGuardService.guard(oldRecords);
+    } else if (operation == System.TriggerOperation.AFTER_DELETE) {
+      CMN_DeleteGuardService.log(oldRecords);
+    }
     if (!isEnabled(objectName) || isReentry()) {
       return;
     }

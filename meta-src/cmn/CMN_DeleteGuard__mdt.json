@@ -1,0 +1,46 @@
+{
+  "wi": "CMN-00-SEC-003",
+  "object": "CMN_DeleteGuard__mdt",
+  "kind": "mdt",
+  "package": "force-app-cmn",
+  "description": "삭제 통제 대상 객체(SEC-003 BR-1). 상태가 DeletableValues에 없으면 삭제 차단(관리자 예외 없음), 삭제되면 CMN_DeleteLog__c 스냅숏. 각 업무 객체 WI가 레코드를 더한다",
+  "label": {
+    "ko": "삭제 통제"
+  },
+  "plural": {
+    "ko": "삭제 통제"
+  },
+  "fields": [
+    {
+      "name": "ObjectApiName__c",
+      "type": "Text",
+      "length": 80,
+      "label": "Object API Name"
+    },
+    {
+      "name": "StatusField__c",
+      "type": "Text",
+      "length": 80,
+      "label": "Status Field",
+      "description": "상태 필드 API 이름(예: Status__c)"
+    },
+    {
+      "name": "DeletableValues__c",
+      "type": "Text",
+      "length": 255,
+      "label": "Deletable Values",
+      "description": "삭제 가능한 상태 값(쉼표 구분, 예: DRAFT)"
+    }
+  ],
+  "records": [
+    {
+      "name": "CMN_TestRecord",
+      "label": "테스트 대상 객체(DEV-3)",
+      "values": {
+        "ObjectApiName__c": "CMN_TestRecord__c",
+        "StatusField__c": "Status__c",
+        "DeletableValues__c": "DRAFT"
+      }
+    }
+  ]
+}

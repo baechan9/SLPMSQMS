@@ -13,7 +13,8 @@
       "CMN_PS_Item_Read",
       "CMN_PS_Supplier_Read",
       "CMN_PS_Characteristic_Read",
-      "CMN_PS_Code_Read"
+      "CMN_PS_Code_Read",
+      "CMN_PS_DeleteLog_Read"
     ]
   }
 }

@@ -21,7 +21,8 @@
       "CMN_SupplierItem__c",
       "CMN_Characteristic__c",
       "CMN_CodeGroup__c",
-      "CMN_Code__c"
+      "CMN_Code__c",
+      "CMN_DeleteLog__c"
     ]
   }
 }

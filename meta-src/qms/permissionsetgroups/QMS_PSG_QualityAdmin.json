@@ -21,7 +21,8 @@
       "CMN_PS_Characteristic_Read",
       "CMN_PS_Characteristic_Edit",
       "CMN_PS_Code_Read",
-      "CMN_PS_Code_Admin"
+      "CMN_PS_Code_Admin",
+      "CMN_PS_DeleteLog_Read"
     ]
   }
 }

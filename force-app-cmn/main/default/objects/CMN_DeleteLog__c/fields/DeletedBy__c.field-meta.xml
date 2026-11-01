@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DeletedBy__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>명세 필수: User 조회는 Restrict를 쓸 수 없고 필수 조회는 SetNull이 안 돼 DB 필수 대신 서비스가 항상 채움(사용자는 삭제되지 않음)</description>
+    <label>삭제자</label>
+    <referenceTo>User</referenceTo>
+    <relationshipLabel>삭제 기록</relationshipLabel>
+    <relationshipName>DeleteLogs</relationshipName>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

@@ -1,0 +1,116 @@
+{
+  "wi": "CMN-00-SEC-003",
+  "object": "CMN_DeleteLog__c",
+  "package": "force-app-cmn",
+  "description": "삭제 기록(SEC-003 BR-2). 삭제 직전 레코드 JSON 스냅숏. 삭제 통제 서비스만 만들고 누구도 수정·삭제할 수 없다(트리거가 막음, 권한은 읽기만)",
+  "label": {
+    "ko": "삭제 기록",
+    "en_US": "Delete Log",
+    "zh_CN": "删除记录"
+  },
+  "plural": {
+    "ko": "삭제 기록",
+    "en_US": "Delete Logs",
+    "zh_CN": "删除记录"
+  },
+  "nameField": {
+    "type": "AutoNumber",
+    "format": "DL-{0000000000}",
+    "label": {
+      "ko": "기록 번호",
+      "en_US": "Log No.",
+      "zh_CN": "记录编号"
+    }
+  },
+  "sharingModel": "Private",
+  "tab": {
+    "motif": "Custom62: Chalkboard"
+  },
+  "fields": [
+    {
+      "name": "ObjectApiName__c",
+      "type": "Text",
+      "length": 80,
+      "required": true,
+      "label": {
+        "ko": "객체",
+        "en_US": "Object",
+        "zh_CN": "对象"
+      }
+    },
+    {
+      "name": "RecordIdText__c",
+      "type": "Text",
+      "length": 18,
+      "required": true,
+      "label": {
+        "ko": "레코드 Id",
+        "en_US": "Record Id",
+        "zh_CN": "记录Id"
+      }
+    },
+    {
+      "name": "RecordNo__c",
+      "type": "Text",
+      "length": 40,
+      "label": {
+        "ko": "업무 번호",
+        "en_US": "Record No.",
+        "zh_CN": "业务编号"
+      },
+      "description": "업무 번호(있으면)"
+    },
+    {
+      "name": "Snapshot__c",
+      "type": "LongTextArea",
+      "length": 131072,
+      "visibleLines": 10,
+      "label": {
+        "ko": "스냅숏",
+        "en_US": "Snapshot",
+        "zh_CN": "快照"
+      },
+      "description": "삭제 직전 레코드 JSON(전 필드). 명세 필수: 긴 텍스트는 DB 필수 대신 서비스가 항상 채움"
+    },
+    {
+      "name": "DeletedBy__c",
+      "type": "Lookup",
+      "referenceTo": "User",
+      "relationshipName": "DeleteLogs",
+      "relationshipLabel": {
+        "ko": "삭제 기록",
+        "en_US": "Delete Logs",
+        "zh_CN": "删除记录"
+      },
+      "required": false,
+      "label": {
+        "ko": "삭제자",
+        "en_US": "Deleted By",
+        "zh_CN": "删除人"
+      },
+      "description": "명세 필수: User 조회는 Restrict를 쓸 수 없고 필수 조회는 SetNull이 안 돼 DB 필수 대신 서비스가 항상 채움(사용자는 삭제되지 않음)"
+    },
+    {
+      "name": "DeletedAt__c",
+      "type": "DateTime",
+      "required": true,
+      "label": {
+        "ko": "삭제 일시",
+        "en_US": "Deleted At",
+        "zh_CN": "删除时间"
+      }
+    },
+    {
+      "name": "Reason__c",
+      "type": "Text",
+      "length": 255,
+      "label": {
+        "ko": "삭제 사유",
+        "en_US": "Reason",
+        "zh_CN": "删除原因"
+      },
+      "description": "UI에서 입력한 경우(CMN_DeleteGuardService.setReason)"
+    }
+  ],
+  "readOnlyLayout": true
+}

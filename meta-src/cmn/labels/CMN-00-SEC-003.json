@@ -1,0 +1,26 @@
+{
+  "wi": "CMN-00-SEC-003",
+  "package": "force-app-cmn",
+  "labels": [
+    {
+      "name": "CMN_Delete_NotAllowedStatus",
+      "category": "CMN",
+      "description": "삭제 불가 상태(BR-1). {0} = 현재 상태",
+      "value": {
+        "ko": "{0} 상태인 레코드는 삭제할 수 없습니다. 종결·취소하거나 상태 되돌림 절차를 따르세요.",
+        "en_US": "Records in status {0} cannot be deleted. Close or cancel them, or follow the status rollback procedure.",
+        "zh_CN": "状态为{0}的记录不能删除。请关闭或取消，或按状态回退流程处理。"
+      }
+    },
+    {
+      "name": "CMN_Delete_LogReadOnly",
+      "category": "CMN",
+      "description": "삭제 기록 수정·삭제·직접 생성 시도(BR-2)",
+      "value": {
+        "ko": "삭제 기록은 바꾸거나 지울 수 없습니다.",
+        "en_US": "Delete logs cannot be changed or removed.",
+        "zh_CN": "删除记录不能修改或删除。"
+      }
+    }
+  ]
+}

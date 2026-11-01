@@ -11,6 +11,7 @@
     <permissionSets>CMN_PS_Code_Read</permissionSets>
     <permissionSets>CMN_PS_Customer_Admin</permissionSets>
     <permissionSets>CMN_PS_Customer_Read</permissionSets>
+    <permissionSets>CMN_PS_DeleteLog_Read</permissionSets>
     <permissionSets>CMN_PS_Item_Admin</permissionSets>
     <permissionSets>CMN_PS_Item_Read</permissionSets>
     <permissionSets>CMN_PS_Org_Read</permissionSets>
