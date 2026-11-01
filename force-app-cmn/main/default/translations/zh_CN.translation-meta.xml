@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Translations xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customLabels>
+        <label>输入值无效。</label>
+        <name>CMN_Common_InvalidInput</name>
+    </customLabels>
+    <customLabels>
+        <label>您没有执行此操作的权限。</label>
+        <name>CMN_Common_NoPermission</name>
+    </customLabels>
+    <customLabels>
+        <label>处理时发生错误。请稍后重试或联系管理员。</label>
+        <name>CMN_Common_UnexpectedError</name>
+    </customLabels>
+</Translations>

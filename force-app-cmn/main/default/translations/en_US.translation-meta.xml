@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Translations xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customLabels>
+        <label>The input value is not valid.</label>
+        <name>CMN_Common_InvalidInput</name>
+    </customLabels>
+    <customLabels>
+        <label>You don't have permission to perform this action.</label>
+        <name>CMN_Common_NoPermission</name>
+    </customLabels>
+    <customLabels>
+        <label>An error occurred while processing your request. Try again later or contact your administrator.</label>
+        <name>CMN_Common_UnexpectedError</name>
+    </customLabels>
+</Translations>

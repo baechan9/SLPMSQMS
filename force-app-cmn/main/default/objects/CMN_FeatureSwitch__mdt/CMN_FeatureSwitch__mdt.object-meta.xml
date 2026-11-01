@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>기능 스위치(ARC-002 BR-6). DeveloperName이 키. 미등록 키는 꺼짐.</description>
+    <label>기능 스위치</label>
+    <pluralLabel>기능 스위치</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>

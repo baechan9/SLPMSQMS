@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>Hierarchy</customSettingsType>
+    <description>사용자·프로필별 최소 로그 수준(ARC-002). 값이 없으면 INFO.</description>
+    <enableFeeds>false</enableFeeds>
+    <label>로그 설정</label>
+    <visibility>Public</visibility>
+</CustomObject>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StaticResource xmlns="http://soap.sforce.com/2006/04/metadata">
+    <cacheControl>Private</cacheControl>
+    <contentType>application/json</contentType>
+    <description>테스트 데이터 픽스처(CMN_TestDataFactory). 원본 data/demo/fixtures/demo_fixtures.json — scripts/dev/sync-fixtures.sh로 복사. 데모 가상 데이터만 포함.</description>
+</StaticResource>

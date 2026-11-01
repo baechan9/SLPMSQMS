@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customPermissions>
+        <enabled>true</enabled>
+        <name>CMN_DataMigration</name>
+    </customPermissions>
+    <description>데이터 이관 모드(개발 플랜 CR-12). 데모·이관 적재 사용자에게만 적재 동안 할당한다</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>CMN Data Migration Mode</label>
+</PermissionSet>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_Common_UnexpectedError</fullName>
+    <categories>CMN</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>화면 공통: 예상하지 못한 오류</shortDescription>
+    <value>처리 중 오류가 발생했습니다. 잠시 후 다시 시도하거나 관리자에게 문의하세요.</value>
+</CustomLabel>

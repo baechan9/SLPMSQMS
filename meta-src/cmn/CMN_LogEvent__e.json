@@ -1,0 +1,40 @@
+{
+  "wi": "CMN-00-ARC-002",
+  "object": "CMN_LogEvent__e",
+  "kind": "event",
+  "package": "force-app-cmn",
+  "publishBehavior": "PublishImmediately",
+  "description": "로그 이벤트. 트랜잭션이 롤백돼도 로그가 남도록 즉시 발행한다(ARC-002 BR-4).",
+  "label": { "ko": "로그 이벤트" },
+  "plural": { "ko": "로그 이벤트" },
+  "fields": [
+    { "name": "Level__c", "type": "Text", "length": 10, "label": "Level" },
+    { "name": "Source__c", "type": "Text", "length": 255, "label": "Source" },
+    {
+      "name": "Message__c",
+      "type": "LongTextArea",
+      "length": 32768,
+      "visibleLines": 3,
+      "label": "Message"
+    },
+    {
+      "name": "RecordId__c",
+      "type": "Text",
+      "length": 18,
+      "label": "Record Id"
+    },
+    {
+      "name": "Payload__c",
+      "type": "LongTextArea",
+      "length": 131072,
+      "visibleLines": 3,
+      "label": "Payload"
+    },
+    {
+      "name": "TransactionId__c",
+      "type": "Text",
+      "length": 36,
+      "label": "Transaction Id"
+    }
+  ]
+}

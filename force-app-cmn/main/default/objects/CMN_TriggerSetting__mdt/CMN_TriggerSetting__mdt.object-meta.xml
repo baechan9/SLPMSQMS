@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>객체별 트리거 핸들러 활성·우회 권한(ARC-002 BR-2). 레코드가 없으면 활성.</description>
+    <label>트리거 설정</label>
+    <pluralLabel>트리거 설정</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>

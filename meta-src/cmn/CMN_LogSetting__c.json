@@ -1,0 +1,17 @@
+{
+  "wi": "CMN-00-ARC-002",
+  "object": "CMN_LogSetting__c",
+  "kind": "setting",
+  "package": "force-app-cmn",
+  "description": "사용자·프로필별 최소 로그 수준(ARC-002). 값이 없으면 INFO.",
+  "label": { "ko": "로그 설정" },
+  "fields": [
+    {
+      "name": "MinLevel__c",
+      "type": "Text",
+      "length": 10,
+      "label": "Minimum Level",
+      "description": "ERROR, WARN, INFO, DEBUG 중 하나"
+    }
+  ]
+}

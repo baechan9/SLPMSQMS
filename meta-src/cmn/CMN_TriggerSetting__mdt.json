@@ -1,0 +1,30 @@
+{
+  "wi": "CMN-00-ARC-002",
+  "object": "CMN_TriggerSetting__mdt",
+  "kind": "mdt",
+  "package": "force-app-cmn",
+  "description": "객체별 트리거 핸들러 활성·우회 권한(ARC-002 BR-2). 레코드가 없으면 활성.",
+  "label": { "ko": "트리거 설정" },
+  "plural": { "ko": "트리거 설정" },
+  "fields": [
+    {
+      "name": "ObjectApiName__c",
+      "type": "Text",
+      "length": 80,
+      "label": "Object API Name"
+    },
+    {
+      "name": "IsActive__c",
+      "type": "Checkbox",
+      "default": true,
+      "label": "Active"
+    },
+    {
+      "name": "BypassPermission__c",
+      "type": "Text",
+      "length": 80,
+      "label": "Bypass Custom Permission",
+      "description": "이 Custom Permission을 가진 사용자는 핸들러를 건너뛴다"
+    }
+  ]
+}

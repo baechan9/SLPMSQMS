@@ -36,6 +36,10 @@ jobs:
         with:
           python-version: "3.11"
       - run: npm ci
+      - name: 메타데이터 생성기·픽스처 최신 여부
+        run: |
+          python3 scripts/dev/metagen.py --check
+          scripts/dev/sync-fixtures.sh --check
       - run: npm run prettier:verify
       - run: npm run lint
       - run: npm run test:unit -- --coverage

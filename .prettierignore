@@ -14,3 +14,11 @@ coverage/
 docs/
 data/
 **/*.md
+# 메타데이터 생성기(scripts/dev/metagen.py) 산출물. 형식은 생성기가 정하고 CI가 최신 여부를 검사한다
+force-app-*/main/default/objects/
+force-app-*/main/default/objectTranslations/
+force-app-*/main/default/labels/
+force-app-*/main/default/permissionsets/
+force-app-*/main/default/translations/
+force-app-*/main/default/customMetadata/
+force-app-*/main/default/tabs/

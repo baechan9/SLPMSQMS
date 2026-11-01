@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomPermission xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description
+  >데이터 이관 모드(CMN-00-ARC-002, 개발 플랜 CR-12). 이 권한이 있으면 트리거 핸들러가 이관 적재를 허용한다(부수 효과 생략, 기존 RecordNo·상태 유지).</description>
+    <isLicensed>false</isLicensed>
+    <label>CMN Data Migration Mode</label>
+</CustomPermission>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>BypassPermission__c</fullName>
+    <description>이 Custom Permission을 가진 사용자는 핸들러를 건너뛴다</description>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>Bypass Custom Permission</label>
+    <length>80</length>
+    <required>false</required>
+    <type>Text</type>
+</CustomField>

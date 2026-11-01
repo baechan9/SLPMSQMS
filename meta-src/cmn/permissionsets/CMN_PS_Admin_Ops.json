@@ -1,0 +1,11 @@
+{
+  "permissionSet": {
+    "wi": "CMN-00-ARC-002",
+    "name": "CMN_PS_Admin_Ops",
+    "package": "force-app-cmn",
+    "label": "CMN Admin Ops",
+    "description": "운영 관리: 로그 조회(CMN-00-ARC-002). CMN_PSG_SystemAdmin에 포함",
+    "objects": { "CMN_Log__c": "viewall" },
+    "tabs": ["CMN_Log__c"]
+  }
+}

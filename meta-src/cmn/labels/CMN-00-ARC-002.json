@@ -1,0 +1,36 @@
+{
+  "wi": "CMN-00-ARC-002",
+  "package": "force-app-cmn",
+  "labels": [
+    {
+      "name": "CMN_Common_UnexpectedError",
+      "category": "CMN",
+      "description": "화면 공통: 예상하지 못한 오류",
+      "value": {
+        "ko": "처리 중 오류가 발생했습니다. 잠시 후 다시 시도하거나 관리자에게 문의하세요.",
+        "en_US": "An error occurred while processing your request. Try again later or contact your administrator.",
+        "zh_CN": "处理时发生错误。请稍后重试或联系管理员。"
+      }
+    },
+    {
+      "name": "CMN_Common_NoPermission",
+      "category": "CMN",
+      "description": "화면 공통: 권한 없음",
+      "value": {
+        "ko": "이 작업을 할 권한이 없습니다.",
+        "en_US": "You don't have permission to perform this action.",
+        "zh_CN": "您没有执行此操作的权限。"
+      }
+    },
+    {
+      "name": "CMN_Common_InvalidInput",
+      "category": "CMN",
+      "description": "화면 공통: 입력 값 오류",
+      "value": {
+        "ko": "입력 값이 올바르지 않습니다.",
+        "en_US": "The input value is not valid.",
+        "zh_CN": "输入值无效。"
+      }
+    }
+  ]
+}
