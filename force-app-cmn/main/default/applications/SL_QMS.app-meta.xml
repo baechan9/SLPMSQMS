@@ -15,4 +15,5 @@
     <tabs>standard-home</tabs>
     <tabs>CMN_Characteristic__c</tabs>
     <uiType>Lightning</uiType>
+    <utilityBar>SL_UtilityBar</utilityBar>
 </CustomApplication>

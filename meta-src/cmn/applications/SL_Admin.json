@@ -23,6 +23,7 @@
       "CMN_CodeGroup__c",
       "CMN_Code__c",
       "CMN_DeleteLog__c"
-    ]
+    ],
+    "utilityBar": "SL_UtilityBar"
   }
 }

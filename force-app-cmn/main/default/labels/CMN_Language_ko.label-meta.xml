@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_Language_ko</fullName>
+    <categories>CMN</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>언어 이름(ko) — 그 언어로 쓴 이름이라 모든 번역이 같다</shortDescription>
+    <value>한국어</value>
+</CustomLabel>

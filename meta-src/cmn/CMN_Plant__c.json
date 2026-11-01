@@ -315,5 +315,6 @@
         "fields": ["NAME", "LineCode__c", "ExternalKey__c", "IsActive__c"]
       }
     ]
-  }
+  },
+  "i18nName": true
 }

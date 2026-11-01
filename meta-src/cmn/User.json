@@ -87,6 +87,17 @@
           }
         }
       ]
+    },
+    {
+      "name": "LanguageOverride__c",
+      "type": "Checkbox",
+      "default": false,
+      "label": {
+        "ko": "언어 직접 지정",
+        "en_US": "Language Override",
+        "zh_CN": "手动指定语言"
+      },
+      "description": "true면 포털(SSO) 언어를 무시하고 사용자가 고른 언어 유지(CMN-00-I18N-001 BR-2·BR-4). cmnLanguageSwitcher가 바꾼다"
     }
   ]
 }

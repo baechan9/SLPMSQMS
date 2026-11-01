@@ -1,0 +1,136 @@
+{
+  "wi": "CMN-00-I18N-001",
+  "package": "force-app-cmn",
+  "labels": [
+    {
+      "name": "CMN_Language_ko",
+      "category": "CMN",
+      "description": "언어 이름(ko) — 그 언어로 쓴 이름이라 모든 번역이 같다",
+      "value": {
+        "ko": "한국어",
+        "en_US": "한국어",
+        "zh_CN": "한국어"
+      }
+    },
+    {
+      "name": "CMN_Language_en_US",
+      "category": "CMN",
+      "description": "언어 이름(en_US) — 그 언어로 쓴 이름이라 모든 번역이 같다",
+      "value": {
+        "ko": "English",
+        "en_US": "English",
+        "zh_CN": "English"
+      }
+    },
+    {
+      "name": "CMN_Language_zh_CN",
+      "category": "CMN",
+      "description": "언어 이름(zh_CN) — 그 언어로 쓴 이름이라 모든 번역이 같다",
+      "value": {
+        "ko": "中文(简体)",
+        "en_US": "中文(简体)",
+        "zh_CN": "中文(简体)"
+      }
+    },
+    {
+      "name": "CMN_Language_pl",
+      "category": "CMN",
+      "description": "언어 이름(pl) — 그 언어로 쓴 이름이라 모든 번역이 같다",
+      "value": {
+        "ko": "Polski",
+        "en_US": "Polski",
+        "zh_CN": "Polski"
+      }
+    },
+    {
+      "name": "CMN_Language_es",
+      "category": "CMN",
+      "description": "언어 이름(es) — 그 언어로 쓴 이름이라 모든 번역이 같다",
+      "value": {
+        "ko": "Español",
+        "en_US": "Español",
+        "zh_CN": "Español"
+      }
+    },
+    {
+      "name": "CMN_Language_pt_BR",
+      "category": "CMN",
+      "description": "언어 이름(pt_BR) — 그 언어로 쓴 이름이라 모든 번역이 같다",
+      "value": {
+        "ko": "Português (Brasil)",
+        "en_US": "Português (Brasil)",
+        "zh_CN": "Português (Brasil)"
+      }
+    },
+    {
+      "name": "CMN_LanguageSwitcher_Title",
+      "category": "CMN",
+      "description": "언어 스위처 제목",
+      "value": {
+        "ko": "표시 언어",
+        "en_US": "Display Language",
+        "zh_CN": "显示语言"
+      }
+    },
+    {
+      "name": "CMN_LanguageSwitcher_FollowPortal",
+      "category": "CMN",
+      "description": "포털(SSO) 언어 따르기 옵션",
+      "value": {
+        "ko": "포털 언어 따르기(다음 로그인부터)",
+        "en_US": "Follow portal language (from next login)",
+        "zh_CN": "跟随门户语言(下次登录起)"
+      }
+    },
+    {
+      "name": "CMN_LanguageSwitcher_Overridden",
+      "category": "CMN",
+      "description": "직접 지정 상태 안내",
+      "value": {
+        "ko": "직접 고른 언어를 유지합니다. 포털 언어로 바뀌지 않습니다.",
+        "en_US": "Your chosen language is kept and will not follow the portal.",
+        "zh_CN": "将保留您选择的语言，不跟随门户语言。"
+      }
+    },
+    {
+      "name": "CMN_LanguageSwitcher_Following",
+      "category": "CMN",
+      "description": "포털 언어 따름 상태 안내",
+      "value": {
+        "ko": "로그인할 때 포털 언어를 따릅니다.",
+        "en_US": "The portal language is applied at login.",
+        "zh_CN": "登录时跟随门户语言。"
+      }
+    },
+    {
+      "name": "CMN_LanguageSwitcher_Saved",
+      "category": "CMN",
+      "description": "저장 후 새로고침 안내",
+      "value": {
+        "ko": "언어를 바꿨습니다. 화면을 다시 불러옵니다.",
+        "en_US": "Language changed. Reloading the page.",
+        "zh_CN": "语言已更改。正在重新加载页面。"
+      }
+    },
+    {
+      "name": "CMN_LanguageSwitcher_Error",
+      "category": "CMN",
+      "description": "저장 실패",
+      "value": {
+        "ko": "언어를 바꾸지 못했습니다.",
+        "en_US": "The language could not be changed.",
+        "zh_CN": "无法更改语言。"
+      }
+    },
+    {
+      "name": "CMN_I18n_JitNoUserCreation",
+      "category": "CMN",
+      "description": "SSO JIT가 새 사용자를 만들려 할 때(사용자 생성은 HR 연계만)",
+      "value": {
+        "ko": "등록되지 않은 사용자입니다. 시스템 관리자에게 계정 생성을 요청하세요.",
+        "en_US": "This user is not registered. Ask your administrator to create the account.",
+        "zh_CN": "该用户未注册。请联系管理员创建账户。"
+      }
+    }
+  ]
+}

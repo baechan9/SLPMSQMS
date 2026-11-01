@@ -97,6 +97,10 @@
         <name>CMN_Delete_NotAllowedStatus</name>
     </customLabels>
     <customLabels>
+        <label>该用户未注册。请联系管理员创建账户。</label>
+        <name>CMN_I18n_JitNoUserCreation</name>
+    </customLabels>
+    <customLabels>
         <label>该工厂已登记此物料: {0}</label>
         <name>CMN_Item_DuplicateItemPlant</name>
     </customLabels>
@@ -107,6 +111,54 @@
     <customLabels>
         <label>含有下级的产品组不能置于其他产品组之下(最多两级)。</label>
         <name>CMN_Item_GroupHasChildren</name>
+    </customLabels>
+    <customLabels>
+        <label>无法更改语言。</label>
+        <name>CMN_LanguageSwitcher_Error</name>
+    </customLabels>
+    <customLabels>
+        <label>跟随门户语言(下次登录起)</label>
+        <name>CMN_LanguageSwitcher_FollowPortal</name>
+    </customLabels>
+    <customLabels>
+        <label>登录时跟随门户语言。</label>
+        <name>CMN_LanguageSwitcher_Following</name>
+    </customLabels>
+    <customLabels>
+        <label>将保留您选择的语言，不跟随门户语言。</label>
+        <name>CMN_LanguageSwitcher_Overridden</name>
+    </customLabels>
+    <customLabels>
+        <label>语言已更改。正在重新加载页面。</label>
+        <name>CMN_LanguageSwitcher_Saved</name>
+    </customLabels>
+    <customLabels>
+        <label>显示语言</label>
+        <name>CMN_LanguageSwitcher_Title</name>
+    </customLabels>
+    <customLabels>
+        <label>English</label>
+        <name>CMN_Language_en_US</name>
+    </customLabels>
+    <customLabels>
+        <label>Español</label>
+        <name>CMN_Language_es</name>
+    </customLabels>
+    <customLabels>
+        <label>한국어</label>
+        <name>CMN_Language_ko</name>
+    </customLabels>
+    <customLabels>
+        <label>Polski</label>
+        <name>CMN_Language_pl</name>
+    </customLabels>
+    <customLabels>
+        <label>Português (Brasil)</label>
+        <name>CMN_Language_pt_BR</name>
+    </customLabels>
+    <customLabels>
+        <label>中文(简体)</label>
+        <name>CMN_Language_zh_CN</name>
     </customLabels>
     <customLabels>
         <label>主数据不能删除。请取消“有效”以停用。</label>

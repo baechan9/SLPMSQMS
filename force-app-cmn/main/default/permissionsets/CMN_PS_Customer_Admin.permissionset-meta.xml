@@ -82,6 +82,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>CMN_Vehicle__c.DisplayName__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>CMN_Vehicle__c.EopDate__c</field>
         <readable>true</readable>
@@ -94,6 +99,16 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>CMN_Vehicle__c.IsActive__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>CMN_Vehicle__c.NameEn__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>CMN_Vehicle__c.NameZh__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>

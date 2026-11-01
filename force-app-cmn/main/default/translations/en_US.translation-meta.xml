@@ -97,6 +97,10 @@
         <name>CMN_Delete_NotAllowedStatus</name>
     </customLabels>
     <customLabels>
+        <label>This user is not registered. Ask your administrator to create the account.</label>
+        <name>CMN_I18n_JitNoUserCreation</name>
+    </customLabels>
+    <customLabels>
         <label>This item is already registered for the plant: {0}</label>
         <name>CMN_Item_DuplicateItemPlant</name>
     </customLabels>
@@ -107,6 +111,54 @@
     <customLabels>
         <label>A product group with sub-groups cannot be placed under another group (two levels at most).</label>
         <name>CMN_Item_GroupHasChildren</name>
+    </customLabels>
+    <customLabels>
+        <label>The language could not be changed.</label>
+        <name>CMN_LanguageSwitcher_Error</name>
+    </customLabels>
+    <customLabels>
+        <label>Follow portal language (from next login)</label>
+        <name>CMN_LanguageSwitcher_FollowPortal</name>
+    </customLabels>
+    <customLabels>
+        <label>The portal language is applied at login.</label>
+        <name>CMN_LanguageSwitcher_Following</name>
+    </customLabels>
+    <customLabels>
+        <label>Your chosen language is kept and will not follow the portal.</label>
+        <name>CMN_LanguageSwitcher_Overridden</name>
+    </customLabels>
+    <customLabels>
+        <label>Language changed. Reloading the page.</label>
+        <name>CMN_LanguageSwitcher_Saved</name>
+    </customLabels>
+    <customLabels>
+        <label>Display Language</label>
+        <name>CMN_LanguageSwitcher_Title</name>
+    </customLabels>
+    <customLabels>
+        <label>English</label>
+        <name>CMN_Language_en_US</name>
+    </customLabels>
+    <customLabels>
+        <label>Español</label>
+        <name>CMN_Language_es</name>
+    </customLabels>
+    <customLabels>
+        <label>한국어</label>
+        <name>CMN_Language_ko</name>
+    </customLabels>
+    <customLabels>
+        <label>Polski</label>
+        <name>CMN_Language_pl</name>
+    </customLabels>
+    <customLabels>
+        <label>Português (Brasil)</label>
+        <name>CMN_Language_pt_BR</name>
+    </customLabels>
+    <customLabels>
+        <label>中文(简体)</label>
+        <name>CMN_Language_zh_CN</name>
     </customLabels>
     <customLabels>
         <label>Master data cannot be deleted. Deactivate it by clearing Active.</label>

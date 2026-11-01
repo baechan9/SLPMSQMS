@@ -38,8 +38,6 @@
                 <behavior>Edit</behavior>
                 <field>Unit__c</field>
             </layoutItems>
-        </layoutColumns>
-        <layoutColumns>
             <layoutItems>
                 <behavior>Required</behavior>
                 <field>SpecialClass__c</field>
@@ -48,6 +46,8 @@
                 <behavior>Edit</behavior>
                 <field>CustomerSymbol__c</field>
             </layoutItems>
+        </layoutColumns>
+        <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>SpcRequired__c</field>
@@ -71,6 +71,18 @@
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>ExternalKey__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>NameEn__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>NameZh__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>DisplayName__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>

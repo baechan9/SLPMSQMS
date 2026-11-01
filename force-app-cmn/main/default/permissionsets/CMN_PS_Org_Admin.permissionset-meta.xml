@@ -3,6 +3,11 @@
     <description>부서 관리(Modify All, 삭제는 트리거가 막음)와 사용자 HR 필드 편집, 부서 탭(CMN-00-MDM-001). IT 운영 PSG(HR 동기화 정정용)</description>
     <fieldPermissions>
         <editable>false</editable>
+        <field>CMN_Department__c.DisplayName__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>CMN_Department__c.FullPath__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -14,6 +19,16 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>CMN_Department__c.Manager__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>CMN_Department__c.NameEn__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>CMN_Department__c.NameZh__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -44,6 +59,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>User.JobGradeCode__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>User.LanguageOverride__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>

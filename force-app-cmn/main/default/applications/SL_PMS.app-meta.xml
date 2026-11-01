@@ -14,4 +14,5 @@
     <navType>Standard</navType>
     <tabs>standard-home</tabs>
     <uiType>Lightning</uiType>
+    <utilityBar>SL_UtilityBar</utilityBar>
 </CustomApplication>

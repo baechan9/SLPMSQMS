@@ -1,5 +1,5 @@
 /**
- * @description cmnCodePicker 데이터(CMN-00-MDM-007). 사용자 언어로 이름을 고르고(영어 NameEn, 중국어 NameZh, 비면 Name — AC-1),
+ * @description cmnCodePicker 데이터(CMN-00-MDM-007). 사용자 언어로 이름을 고르고(I18N-001 BR-3 규칙 — MDM-007 AC-1, I18N-001 AC-3),
  * 비활성 코드와 그 하위는 빼고(AC-3) 돌려준다.
  * @group CMN-00-MDM-007
  */
@@ -82,15 +82,17 @@ public with sharing class CMN_CodePickerController {
     return data;
   }
 
+  /** I18N-001 BR-3과 같은 규칙: ko → 이름, zh → 중문·영문·이름, 그 외(en·pl·es·pt) → 영문·이름. */
   @TestVisible
   private static String localized(CMN_Code__c c, String lang) {
-    if (lang != null && lang.startsWith('en')) {
-      return String.isBlank(c.NameEn__c) ? c.Name : c.NameEn__c;
+    String prefix = lang?.left(2);
+    if (prefix == 'ko') {
+      return c.Name;
     }
-    if (lang != null && lang.startsWith('zh')) {
-      return String.isBlank(c.NameZh__c) ? c.Name : c.NameZh__c;
+    if (prefix == 'zh' && String.isNotBlank(c.NameZh__c)) {
+      return c.NameZh__c;
     }
-    return c.Name;
+    return String.isBlank(c.NameEn__c) ? c.Name : c.NameEn__c;
   }
 
   /** 자신과 모든 상위가 사용 중이어야 보인다(AC-3). */

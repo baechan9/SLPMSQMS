@@ -12,6 +12,21 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>CMN_CodeGroup__c.DisplayName__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>CMN_CodeGroup__c.NameEn__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>CMN_CodeGroup__c.NameZh__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>CMN_Code__c.Attribute1__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -23,6 +38,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>CMN_Code__c.Attribute3__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>CMN_Code__c.DisplayName__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>

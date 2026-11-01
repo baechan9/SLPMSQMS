@@ -11,6 +11,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>CMN_Characteristic__c.DisplayName__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>CMN_Characteristic__c.EffectiveFrom__c</field>
         <readable>true</readable>
@@ -28,6 +33,16 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>CMN_Characteristic__c.LSL__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>CMN_Characteristic__c.NameEn__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>CMN_Characteristic__c.NameZh__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -72,6 +87,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>CMN_Item__c.DisplayName__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>CMN_Item__c.DrawingNo__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -83,6 +103,16 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>CMN_Item__c.IsActive__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>CMN_Item__c.NameEn__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>CMN_Item__c.NameZh__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>

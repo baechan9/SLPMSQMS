@@ -1,0 +1,29 @@
+<template>
+  <div class="slds-p-around_small">
+    <template lwc:if={isLoading}>
+      <lightning-spinner
+        alternative-text={labels.loading}
+        size="small"
+      ></lightning-spinner>
+    </template>
+    <template lwc:elseif={isReady}>
+      <lightning-radio-group
+        name="language"
+        label={labels.title}
+        options={options}
+        value={value}
+        disabled={isSaving}
+        onchange={handleChange}
+      ></lightning-radio-group>
+      <p class="slds-text-color_weak slds-m-top_x-small">{status}</p>
+      <template lwc:if={notice}>
+        <p class="slds-m-top_x-small" role="status">{notice}</p>
+      </template>
+      <template lwc:if={errorMessage}>
+        <p class="slds-text-color_error slds-m-top_x-small" role="alert">
+          {errorMessage}
+        </p>
+      </template>
+    </template>
+  </div>
+</template>

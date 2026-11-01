@@ -27,6 +27,8 @@ scripts/dev/ensure-meta.sh
 step "Prettier"
 npx prettier --write "force-app-*/**/*.{cls,trigger,js,html,css,xml}" "meta-src/**/*.json" > /dev/null
 npm run --silent prettier:verify
+step "한글 문자열 리터럴(I18N-001 AC-4)"
+python3 scripts/ci/check-korean-literals.py
 step "ESLint·Jest"
 npm run --silent lint
 npm run --silent test:unit -- --coverage > build/jest.log 2>&1 || { tail -40 build/jest.log; exit 1; }
@@ -71,7 +73,7 @@ for _ in $(seq 1 36); do
   n=$(sf data query -o "$ORG" -q "SELECT COUNT() FROM PermissionSetGroup WHERE Status != 'Updated'" --json \
     | python3 -c 'import json,sys; print(json.load(sys.stdin)["result"]["totalSize"])')
   [ "$n" = "0" ] && break
-  echo "PSG 재계산 대기($n개)"; sleep 5
+  echo "PSG 재계산 대기(${n}개)"; sleep 5
 done
 step "Apex 테스트: $TESTS"
 sf apex run test -o "$ORG" -n "$TESTS" -c -w 30 --json > build/test-wi.json 2>/dev/null || true

@@ -222,7 +222,8 @@ def build_app(a):
         ('description', a.get('description')),
         ('formFactors', a.get('formFactors', ['Small', 'Large'])),
         ('isNavAutoTempTabsDisabled', False), ('isNavPersonalizationDisabled', False), ('isNavTabPersistenceDisabled', False),
-        ('label', lbl(a['label'])), ('navType', 'Standard'), ('tabs', a.get('tabs', ['standard-home'])), ('uiType', 'Lightning')]))
+        ('label', lbl(a['label'])), ('navType', 'Standard'), ('tabs', a.get('tabs', ['standard-home'])), ('uiType', 'Lightning'),
+        ('utilityBar', a.get('utilityBar'))]))
     for lang in LANGS:
         app_trans[lang].append({'label': lbl(a['label'], lang) or lbl(a['label']), 'name': a['name']})
 
@@ -453,6 +454,20 @@ def main():
                 merge_spec(objects[d['object']], d)
             else:
                 objects[d['object']] = d
+    missing = []
+    for name, spec in objects.items():
+        if spec.get('i18nName'):
+            add_i18n_names(spec)
+        missing += check_translations(spec, name)
+    for p in all_specs:
+        with open(p, encoding='utf-8') as f:
+            d = json.load(f)
+        for lb in d.get('labels', []):
+            v = lb.get('value')
+            if not (isinstance(v, dict) and all(v.get(k) for k in ('ko', 'en_US', 'zh_CN'))):
+                missing.append(f"label {lb.get('name')}")
+    if missing:
+        sys.exit('번역 누락(ko·en_US·zh_CN, I18N-001 BR-6): ' + ', '.join(missing))
     # 번역 파일은 모든 라벨을 모아야 하므로 항상 전체를 처리하고, 쓰기만 대상 파일로 한정하지 않는다
     targets = all_specs
     built = set()
@@ -489,6 +504,54 @@ def main():
         os.remove(p)
         print('삭제(정의에 없음):', os.path.relpath(p, ROOT))
     print(f'정의 {len(targets)}개 → 파일 {len(written)}개')
+
+
+I18N_WI = 'CMN-00-I18N-001'
+DISPLAY_FORMULA = ('CASE(LEFT(TEXT($User.LanguageLocaleKey), 2), "ko", Name, "zh", BLANKVALUE(NameZh__c, BLANKVALUE(NameEn__c, Name)), '
+                   'BLANKVALUE(NameEn__c, Name))')
+
+
+def add_i18n_names(spec):
+    """마스터 다국어 패턴(I18N-001 BR-3): NameEn__c·NameZh__c(Text 80)와 DisplayName__c 수식을 붙인다.
+    pl·es·pt 사용자는 영문, 중국어 사용자는 중문 → 영문 → 이름 순으로 대체한다."""
+    names = {f['name'] for f in spec.get('fields', [])}
+    extra = []
+    if 'NameEn__c' not in names:
+        extra.append({'name': 'NameEn__c', 'type': 'Text', 'length': 80, 'description': f'영문 표시명({I18N_WI})',
+                      'label': {'ko': '영문명', 'en_US': 'English Name', 'zh_CN': '英文名称'}})
+    if 'NameZh__c' not in names:
+        extra.append({'name': 'NameZh__c', 'type': 'Text', 'length': 80, 'description': f'중문 표시명({I18N_WI})',
+                      'label': {'ko': '중문명', 'en_US': 'Chinese Name', 'zh_CN': '中文名称'}})
+    if 'DisplayName__c' not in names:
+        extra.append({'name': 'DisplayName__c', 'type': 'Formula', 'returnType': 'Text', 'treatBlanksAs': 'BlankAsBlank',
+                      'formula': DISPLAY_FORMULA, 'description': f'사용자 언어 표시명(ko → Name, zh → 중문·영문·이름, 그 외 → 영문·이름, {I18N_WI} BR-3)',
+                      'label': {'ko': '표시명', 'en_US': 'Display Name', 'zh_CN': '显示名称'}})
+    spec['fields'] = spec.get('fields', []) + extra
+
+
+def check_translations(spec, where):
+    """화면 문구 번역 누락 검사(I18N-001 BR-6): 언어별 사전은 ko·en_US·zh_CN이 모두 있어야 한다.
+    문자열 하나는 언어 공통 값(코드·약어)으로 본다. Custom Metadata는 관리자용이라 검사하지 않는다."""
+    missing = []
+
+    def need(v, path):
+        if isinstance(v, dict) and not all(v.get(k) for k in ('ko', 'en_US', 'zh_CN')):
+            missing.append(path)
+    if spec.get('kind', 'object') != 'object':
+        return missing
+    if not spec.get('standard'):
+        need(spec.get('label'), f'{where}.label')
+        need(spec.get('plural'), f'{where}.plural')
+        need(spec.get('nameField', {}).get('label'), f'{where}.nameField')
+    for f in spec.get('fields', []):
+        need(f.get('label'), f"{where}.{f['name']}")
+        for v in f.get('values', []):
+            need(v.get('label'), f"{where}.{f['name']}.{v['api']}")
+    for vr in spec.get('validationRules', []):
+        need(vr.get('message'), f"{where}.{vr['name']}")
+    for rt in spec.get('recordTypes', []):
+        need(rt.get('label'), f"{where}.{rt['name']}")
+    return missing
 
 
 def merge_spec(base, extra):

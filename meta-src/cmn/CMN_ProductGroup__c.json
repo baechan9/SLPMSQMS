@@ -99,5 +99,6 @@
         "fields": ["NAME", "GroupCode__c", "IsActive__c"]
       }
     ]
-  }
+  },
+  "i18nName": true
 }

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LanguageOverride__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>true면 포털(SSO) 언어를 무시하고 사용자가 고른 언어 유지(CMN-00-I18N-001 BR-2·BR-4). cmnLanguageSwitcher가 바꾼다</description>
+    <label>언어 직접 지정</label>
+    <type>Checkbox</type>
+</CustomField>

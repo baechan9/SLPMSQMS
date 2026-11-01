@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_LanguageSwitcher_Following</fullName>
+    <categories>CMN</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>포털 언어 따름 상태 안내</shortDescription>
+    <value>로그인할 때 포털 언어를 따릅니다.</value>
+</CustomLabel>

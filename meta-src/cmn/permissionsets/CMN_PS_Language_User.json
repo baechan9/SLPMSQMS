@@ -1,0 +1,10 @@
+{
+  "permissionSet": {
+    "wi": "CMN-00-I18N-001",
+    "name": "CMN_PS_Language_User",
+    "package": "force-app-cmn",
+    "label": "CMN Language User",
+    "description": "표시 언어 스위처(cmnLanguageSwitcher) 사용(CMN-00-I18N-001). 사내 페르소나 PSG 전체",
+    "classes": ["CMN_LanguageController"]
+  }
+}

@@ -127,5 +127,6 @@
         "fields": ["NAME", "DeptCode__c", "Manager__c", "IsActive__c"]
       }
     ]
-  }
+  },
+  "i18nName": true
 }
