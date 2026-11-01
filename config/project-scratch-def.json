@@ -1,13 +1,34 @@
 {
-  "orgName": "baechangwook company",
+  "orgName": "SL QMS Dev",
   "edition": "Developer",
-  "features": ["EnableSetPasswordInApi"],
+  "language": "ko",
+  "country": "KR",
+  "features": [
+    "EnableSetPasswordInApi",
+    "Communities",
+    "Einstein1AIPlatform",
+    "ForceComPlatform"
+  ],
   "settings": {
     "lightningExperienceSettings": {
       "enableS1DesktopEnabled": true
     },
     "mobileSettings": {
       "enableS1EncryptedStoragePref2": false
+    },
+    "languageSettings": {
+      "enableTranslationWorkbench": true,
+      "enableEndUserLanguages": true
+    },
+    "communitiesSettings": {
+      "enableNetworksEnabled": true
+    },
+    "einsteinGptSettings": {
+      "enableEinsteinGptPlatform": true,
+      "enableEinsteinGptGlobalLangSupport": true
+    },
+    "agentPlatformSettings": {
+      "enableAgentPlatform": true
     }
   }
 }

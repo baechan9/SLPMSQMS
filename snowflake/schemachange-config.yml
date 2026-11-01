@@ -1,0 +1,10 @@
+# schemachange 설정(CMN-00-ARC-001 BR-4). 접속 정보는 환경 변수로만 받는다 — 값을 여기에 쓰지 않는다(BR-3).
+config-version: 1
+root-folder: "snowflake/migrations"
+snowflake-account: "{{ env_var('SNOWFLAKE_ACCOUNT') }}"
+snowflake-user: "{{ env_var('SNOWFLAKE_USER') }}"
+snowflake-role: "{{ env_var('SNOWFLAKE_ROLE', 'ROLE_DW_ADMIN') }}"
+snowflake-warehouse: "{{ env_var('SNOWFLAKE_WAREHOUSE', 'WH_TRANSFORM') }}"
+snowflake-database: "{{ env_var('QDW_DATABASE', 'SL_QDW_DEV') }}"
+change-history-table: "{{ env_var('QDW_DATABASE', 'SL_QDW_DEV') }}.PUBLIC.SCHEMACHANGE_HISTORY"
+create-change-history-table: true

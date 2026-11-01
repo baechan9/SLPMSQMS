@@ -47,5 +47,9 @@ $RECYCLE.BIN/
 **/.venv/
 **/venv/
 
+# Org 재현·CI 실행 결과(scripts/org/build-scratch.sh, scripts/ci)
+build/
+test-results/
+
 # RFP·분석 원천 자료(대외비, 비공식 입수) — 저장소에 올리지 않는다
 docs/docs/00-source/

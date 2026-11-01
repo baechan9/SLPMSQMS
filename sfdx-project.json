@@ -1,10 +1,17 @@
 {
   "packageDirectories": [
     {
-      "path": "force-app",
+      "path": "force-app-cmn",
       "default": true
+    },
+    {
+      "path": "force-app-qms"
+    },
+    {
+      "path": "force-app-pms"
     }
   ],
+  "sourceBehaviorOptions": ["decomposeCustomLabelsBeta2"],
   "name": "LSPMSQMS",
   "namespace": "",
   "sfdcLoginUrl": "https://login.salesforce.com",

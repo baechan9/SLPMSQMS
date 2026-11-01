@@ -1,0 +1,20 @@
+# Salesforce Code Analyzer v5 설정(CMN-00-ARC-001).
+# 실행: sf code-analyzer run --target <변경 경로> --rule-selector Recommended --severity-threshold 2
+# 병합 조건: 심각도 1~2 위반 0건(ARC-001 BR-1). 전체 기본값은 `sf code-analyzer config`로 확인한다.
+
+ignores:
+  files:
+    - "docs/**"
+    - "data/**"
+    - "scripts/**"
+    - "snowflake/**"
+    - "mule/**"
+    - "integration/**"
+    - "node_modules/**"
+    - ".sfdx/**"
+    - ".sf/**"
+
+engines:
+  eslint:
+    # 저장소의 ESLint 설정(LWC·Aura·Jest 규칙)을 그대로 쓴다
+    eslint_config_file: "eslint.config.js"

@@ -12,3 +12,6 @@ package.xml
 **/__tests__/**
 
 node_modules/
+
+# 빈 패키지 디렉터리를 Git에 남기기 위한 파일
+**/.gitkeep
