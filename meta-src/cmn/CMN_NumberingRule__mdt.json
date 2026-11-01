@@ -1,0 +1,76 @@
+{
+  "wi": "CMN-00-ARC-003",
+  "object": "CMN_NumberingRule__mdt",
+  "kind": "mdt",
+  "package": "force-app-cmn",
+  "description": "업무 문서 번호 규칙(ARC-003). 객체마다 1개. 각 업무 객체 WI가 자기 규칙 레코드를 더한다",
+  "label": {
+    "ko": "채번 규칙"
+  },
+  "plural": {
+    "ko": "채번 규칙"
+  },
+  "fields": [
+    {
+      "name": "ObjectApiName__c",
+      "type": "Text",
+      "length": 80,
+      "label": "Object API Name",
+      "description": "대상 객체(예: QMS_Ncr__c)"
+    },
+    {
+      "name": "Pattern__c",
+      "type": "Text",
+      "length": 80,
+      "label": "Pattern",
+      "description": "토큰 {PLANT} {YYYY} {YY} {MM} {SEQ:n}. 예: NCR-{PLANT}-{YYYY}-{SEQ:6}"
+    },
+    {
+      "name": "ScopeField__c",
+      "type": "Text",
+      "length": 80,
+      "label": "Scope Field",
+      "description": "{PLANT} 치환 필드(공장 Lookup이면 공장 코드). 비우면 전사 연번(예: LL-, LA-)"
+    },
+    {
+      "name": "ResetPolicy__c",
+      "type": "Picklist",
+      "label": "Reset Policy",
+      "default": "YEARLY",
+      "values": [
+        {
+          "api": "YEARLY",
+          "label": "YEARLY"
+        },
+        {
+          "api": "MONTHLY",
+          "label": "MONTHLY"
+        },
+        {
+          "api": "NEVER",
+          "label": "NEVER"
+        }
+      ]
+    },
+    {
+      "name": "NumberField__c",
+      "type": "Text",
+      "length": 80,
+      "label": "Number Field",
+      "description": "번호를 넣을 필드. 비우면 RecordNo__c"
+    }
+  ],
+  "records": [
+    {
+      "name": "CMN_TestRecord",
+      "label": "테스트 대상 객체(DEV-3)",
+      "values": {
+        "ObjectApiName__c": "CMN_TestRecord__c",
+        "Pattern__c": "TST-{PLANT}-{YYYY}-{SEQ:6}",
+        "ScopeField__c": "Plant__c",
+        "ResetPolicy__c": "YEARLY",
+        "NumberField__c": null
+      }
+    }
+  ]
+}

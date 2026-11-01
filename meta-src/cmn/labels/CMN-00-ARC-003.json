@@ -1,0 +1,36 @@
+{
+  "wi": "CMN-00-ARC-003",
+  "package": "force-app-cmn",
+  "labels": [
+    {
+      "name": "CMN_Numbering_NoRule",
+      "category": "CMN",
+      "description": "채번 규칙 없음(설정 오류). {0} = 객체",
+      "value": {
+        "ko": "{0}의 채번 규칙이 없습니다. 관리자에게 문의하세요.",
+        "en_US": "No numbering rule exists for {0}. Contact your administrator.",
+        "zh_CN": "{0} 没有编号规则。请联系管理员。"
+      }
+    },
+    {
+      "name": "CMN_Numbering_BadPattern",
+      "category": "CMN",
+      "description": "지원하지 않는 패턴 토큰. {0} = 토큰",
+      "value": {
+        "ko": "채번 패턴에 지원하지 않는 토큰이 있습니다: {0}",
+        "en_US": "The numbering pattern has an unsupported token: {0}",
+        "zh_CN": "编号模式包含不支持的标记: {0}"
+      }
+    },
+    {
+      "name": "CMN_Numbering_NoScope",
+      "category": "CMN",
+      "description": "공장 범위 채번인데 공장이 비어 있음",
+      "value": {
+        "ko": "번호를 발행하려면 공장이 필요합니다.",
+        "en_US": "A plant is required to issue a number.",
+        "zh_CN": "发放编号需要工厂。"
+      }
+    }
+  ]
+}

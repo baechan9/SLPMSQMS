@@ -58,6 +58,33 @@
         "zh_CN": "工厂"
       },
       "description": "채번·공장 공유 검증(ARC-003, SEC-002)"
+    },
+    {
+      "name": "RecordNo__c",
+      "type": "Text",
+      "length": 40,
+      "externalId": true,
+      "unique": true,
+      "serviceOnly": true,
+      "label": {
+        "ko": "번호",
+        "en_US": "Record No.",
+        "zh_CN": "编号"
+      },
+      "description": "채번 서비스가 발행(ARC-003). 업무 객체의 RecordNo__c와 같은 규칙"
+    }
+  ],
+  "validationRules": [
+    {
+      "name": "CMN_TestRecord_RecordNoImmutable",
+      "field": "RecordNo__c",
+      "formula": "AND(ISCHANGED(RecordNo__c), NOT(ISBLANK(PRIORVALUE(RecordNo__c))))",
+      "description": "BR-3: 발행 번호 변경 금지(관리자 예외 없음). 업무 객체 WI는 같은 규칙을 자기 객체에 만든다",
+      "message": {
+        "ko": "발행된 번호는 바꿀 수 없습니다.",
+        "en_US": "An issued number cannot be changed.",
+        "zh_CN": "已发放的编号不能修改。"
+      }
     }
   ]
 }

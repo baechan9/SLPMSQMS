@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ResetPolicy__c</fullName>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>Reset Policy</label>
+    <required>false</required>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>YEARLY</fullName>
+                <default>true</default>
+                <label>YEARLY</label>
+            </value>
+            <value>
+                <fullName>MONTHLY</fullName>
+                <default>false</default>
+                <label>MONTHLY</label>
+            </value>
+            <value>
+                <fullName>NEVER</fullName>
+                <default>false</default>
+                <label>NEVER</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

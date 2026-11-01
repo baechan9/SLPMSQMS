@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ScopeField__c</fullName>
+    <description>{PLANT} 치환 필드(공장 Lookup이면 공장 코드). 비우면 전사 연번(예: LL-, LA-)</description>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>Scope Field</label>
+    <length>80</length>
+    <required>false</required>
+    <type>Text</type>
+</CustomField>

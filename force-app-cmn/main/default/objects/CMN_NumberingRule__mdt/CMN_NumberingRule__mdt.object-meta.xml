@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>업무 문서 번호 규칙(ARC-003). 객체마다 1개. 각 업무 객체 WI가 자기 규칙 레코드를 더한다</description>
+    <label>채번 규칙</label>
+    <pluralLabel>채번 규칙</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>

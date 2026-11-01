@@ -105,6 +105,18 @@
         <name>CMN_Master_DeleteNotAllowed</name>
     </customLabels>
     <customLabels>
+        <label>The numbering pattern has an unsupported token: {0}</label>
+        <name>CMN_Numbering_BadPattern</name>
+    </customLabels>
+    <customLabels>
+        <label>No numbering rule exists for {0}. Contact your administrator.</label>
+        <name>CMN_Numbering_NoRule</name>
+    </customLabels>
+    <customLabels>
+        <label>A plant is required to issue a number.</label>
+        <name>CMN_Numbering_NoScope</name>
+    </customLabels>
+    <customLabels>
         <label>A department cannot be placed under itself or its sub-department (circular reference).</label>
         <name>CMN_Org_DepartmentCycle</name>
     </customLabels>

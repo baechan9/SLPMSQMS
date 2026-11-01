@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Number Counter</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Number Counters</value>
+    </caseValues>
+    <nameFieldLabel>Counter No.</nameFieldLabel>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

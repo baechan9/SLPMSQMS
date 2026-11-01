@@ -1,0 +1,57 @@
+{
+  "wi": "CMN-00-ARC-003",
+  "object": "CMN_NumberCounter__c",
+  "package": "force-app-cmn",
+  "description": "채번 카운터. Key = {객체}/{범위}/{기간}. 채번 서비스가 FOR UPDATE로 잠그고 묶음 단위로 증가한다. 사용자 접근 없음(운영 조회만)",
+  "label": {
+    "ko": "채번 카운터",
+    "en_US": "Number Counter",
+    "zh_CN": "编号计数器"
+  },
+  "plural": {
+    "ko": "채번 카운터",
+    "en_US": "Number Counters",
+    "zh_CN": "编号计数器"
+  },
+  "nameField": {
+    "type": "AutoNumber",
+    "format": "NC-{0000000}",
+    "label": {
+      "ko": "카운터 번호",
+      "en_US": "Counter No.",
+      "zh_CN": "计数器编号"
+    }
+  },
+  "sharingModel": "Private",
+  "enableSearch": false,
+  "fields": [
+    {
+      "name": "Key__c",
+      "type": "Text",
+      "length": 120,
+      "required": true,
+      "externalId": true,
+      "unique": true,
+      "caseSensitive": true,
+      "label": {
+        "ko": "키",
+        "en_US": "Key",
+        "zh_CN": "键"
+      },
+      "description": "예: QMS_Ncr__c/KR01/2027, 전사 연번은 범위 *"
+    },
+    {
+      "name": "LastValue__c",
+      "type": "Number",
+      "precision": 18,
+      "scale": 0,
+      "required": true,
+      "default": "0",
+      "label": {
+        "ko": "마지막 값",
+        "en_US": "Last Value",
+        "zh_CN": "最后值"
+      }
+    }
+  ]
+}

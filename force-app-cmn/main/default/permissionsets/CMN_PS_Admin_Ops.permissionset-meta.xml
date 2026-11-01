@@ -27,6 +27,15 @@
         <viewAllRecords>true</viewAllRecords>
         <object>CMN_Log__c</object>
     </objectPermissions>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <viewAllRecords>true</viewAllRecords>
+        <object>CMN_NumberCounter__c</object>
+    </objectPermissions>
     <tabSettings>
         <tab>CMN_Log__c</tab>
         <visibility>Visible</visibility>

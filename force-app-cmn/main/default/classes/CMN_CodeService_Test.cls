@@ -77,7 +77,8 @@ private class CMN_CodeService_Test {
     CMN_Code__c referenced = byKey('DEFECT_TYPE/APPEARANCE/FOREIGN/INNER');
     insert new CMN_TestRecord__c(
       Name = 'NCR stand-in',
-      Code__c = referenced.Id
+      Code__c = referenced.Id,
+      Plant__c = testPlant()
     );
     CMN_Code__c free = byKey('DEFECT_TYPE/APPEARANCE/HAZE/LENS_HAZE');
     CMN_Code__c parent = byKey('DEFECT_TYPE/APPEARANCE');
@@ -267,6 +268,26 @@ private class CMN_CodeService_Test {
       NameEn__c = nameEn,
       Parent__c = parent
     );
+  }
+
+  /** 테스트 대상 객체는 공장 범위로 채번된다(ARC-003) */
+  private static Id testPlant() {
+    CMN_Company__c c = new CMN_Company__c(
+      Name = 'SL',
+      CompanyCode__c = '1000',
+      Country__c = 'KR'
+    );
+    insert c;
+    CMN_Plant__c p = new CMN_Plant__c(
+      Name = 'KR01',
+      PlantCode__c = 'KR01',
+      Company__c = c.Id,
+      Region__c = 'KR',
+      TimeZone__c = 'Asia/Seoul',
+      DefaultLanguage__c = 'ko'
+    );
+    insert p;
+    return p.Id;
   }
 
   private static CMN_Code__c byKey(String key) {

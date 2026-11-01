@@ -105,6 +105,18 @@
         <name>CMN_Master_DeleteNotAllowed</name>
     </customLabels>
     <customLabels>
+        <label>编号模式包含不支持的标记: {0}</label>
+        <name>CMN_Numbering_BadPattern</name>
+    </customLabels>
+    <customLabels>
+        <label>{0} 没有编号规则。请联系管理员。</label>
+        <name>CMN_Numbering_NoRule</name>
+    </customLabels>
+    <customLabels>
+        <label>发放编号需要工厂。</label>
+        <name>CMN_Numbering_NoScope</name>
+    </customLabels>
+    <customLabels>
         <label>不能将部门的上级设为其自身或下级部门(循环引用)。</label>
         <name>CMN_Org_DepartmentCycle</name>
     </customLabels>

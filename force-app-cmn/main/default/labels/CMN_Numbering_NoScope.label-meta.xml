@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_Numbering_NoScope</fullName>
+    <categories>CMN</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>공장 범위 채번인데 공장이 비어 있음</shortDescription>
+    <value>번호를 발행하려면 공장이 필요합니다.</value>
+</CustomLabel>

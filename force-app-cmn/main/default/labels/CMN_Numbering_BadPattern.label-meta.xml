@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_Numbering_BadPattern</fullName>
+    <categories>CMN</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>지원하지 않는 패턴 토큰. {0} = 토큰</shortDescription>
+    <value>채번 패턴에 지원하지 않는 토큰이 있습니다: {0}</value>
+</CustomLabel>

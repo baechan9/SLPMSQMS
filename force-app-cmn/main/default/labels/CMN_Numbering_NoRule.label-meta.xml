@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_Numbering_NoRule</fullName>
+    <categories>CMN</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>채번 규칙 없음(설정 오류). {0} = 객체</shortDescription>
+    <value>{0}의 채번 규칙이 없습니다. 관리자에게 문의하세요.</value>
+</CustomLabel>

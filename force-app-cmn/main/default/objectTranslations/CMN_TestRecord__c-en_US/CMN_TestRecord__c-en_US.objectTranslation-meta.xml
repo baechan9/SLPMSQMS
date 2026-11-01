@@ -10,4 +10,8 @@
     </caseValues>
     <nameFieldLabel>Title</nameFieldLabel>
     <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage>An issued number cannot be changed.</errorMessage>
+        <name>CMN_TestRecord_RecordNoImmutable</name>
+    </validationRules>
 </CustomObjectTranslation>

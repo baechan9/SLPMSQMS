@@ -49,6 +49,16 @@ public with sharing class CMN_PlantService {
   }
 
   /**
+   * @description 공장 Id의 공장 코드(채번 {PLANT}).
+   * @param plantId 공장 Id
+   * @return 공장 코드
+   * @throws CMN_ValidationException 공장이 없을 때
+   */
+  public static String plantCodeOf(Id plantId) {
+    return plant(plantId).PlantCode__c;
+  }
+
+  /**
    * @description 여러 공장을 한 번에 읽어 캐시에 올린다(채번처럼 레코드 여러 건을 다룰 때 루프 전에 호출).
    * @param plantIds 공장 Id
    */
