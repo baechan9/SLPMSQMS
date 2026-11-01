@@ -6,14 +6,14 @@
 | Wave / 공수(계획 → 실제) | W0 / 4 M/D → 약 2 M/D(에이전트 작업, P0 스파이크·도구 준비 포함) |
 | 완료일 | — (일부 완료) |
 | 구현 | Claude Code(에이전트) |
-| 상태 | 일부 완료 — AC-1은 P1 게이트, AC-2는 GitHub CI 실제 실행, AC-3은 외부 트랙(Snowflake)에서 마저 확인 |
+| 상태 | 일부 완료 — AC-1은 P1 게이트(2026-11-02)에서 확인, AC-2는 GitHub CI 실제 실행, AC-3은 외부 트랙(Snowflake)에서 마저 확인 |
 | 명세 상태 | 검토 전 명세(2026-11-02 사용자가 검토 전 착수에 동의) |
 
 ## 1. AC 결과
 
 | AC | 확인 방법 | 결과 |
 | --- | --- | --- |
-| AC-1 새 Scratch Org 생성 → 소스 배포 → CMN 테스트 전부 통과 | `scripts/org/build-scratch.sh qms-int --hub LSPMSQMS --no-data`로 확정 정의 파일에서 Org 생성(5분 44초), 8단계 끝까지 수행. 정의 파일 설정이 모두 켜짐(번역 언어·Experience Cloud·Einstein·Agent·Platform 라이선스 4) | 일부 — CMN 메타데이터·테스트가 P1에서 생기므로 P1 게이트(G1-1)에서 최종 확인 |
+| AC-1 새 Scratch Org 생성 → 소스 배포 → CMN 테스트 전부 통과 | `scripts/org/build-scratch.sh qms-int --hub LSPMSQMS --no-data`로 확정 정의 파일에서 Org 생성(5분 44초), 8단계 끝까지 수행. 정의 파일 설정이 모두 켜짐(번역 언어·Experience Cloud·Einstein·Agent·Platform 라이선스 4) | 통과 — P1 게이트(2026-11-02): `qms-int`에 전체 배포 후 RunLocalTests 138건 통과, 저장소 클래스 전부 85% 이상(P1 문서 11절) |
 | AC-2 커버리지 80% 클래스 PR → 병합 차단 + 미달 클래스명 표시 | 실제 dry-run 배포 결과(`qms-spike`, RunLocalTests)와 `sf apex run test` 결과로 `scripts/ci/check-coverage.py` 확인: 62.5% 클래스 `TmpPartial` → 종료 코드 1, "커버리지 85% 미만 클래스 1개: TmpPartial" 출력. 100% 클래스는 통과 | 일부 — 검사기는 확인. GitHub Actions에서의 실제 차단은 원격 push·시크릿 등록 후(T0-7) |
 | AC-3 schemachange V002 → DEV 적용 → `SCHEMACHANGE_HISTORY` 기록 | `snowflake/schemachange-config.yml`, `V001__init.sql` 작성 | 미확인 — Snowflake DEV 계정 준비 후 외부 트랙에서(T0-8) |
 

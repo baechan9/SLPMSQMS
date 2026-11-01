@@ -155,4 +155,4 @@ P1~P3 공통 WI의 AC는 NCR·4M 같은 QMS 객체를 예로 든다(ARC-003 AC-1
 
 | 날짜 | Org | 결과 | 남은 문제 |
 | --- | --- | --- | --- |
-| | | | |
+| 2026-11-02 | `qms-int`(P0 이후 빈 Org, `build-scratch.sh qms-int --reuse --phase 1`) | **통과**. G1-1 전체 배포 + RunLocalTests 138건 통과(저장소 Apex 129건 + Experience Cloud 기본 9건), 저장소 클래스 전부 85% 이상(전체 97%). G1-2 P1 데모 16개 대상 건수가 CSV 고유 키와 같고 두 번째 적재 후 불변(`scripts/gate/p1-check.py --reload`). G1-6 E1104는 `SL Internal Platform User` + `QMS_PSG_Inspector`만, View Setup 없음. G1-9 한글 리터럴 0건. G1-3·4·5·7·8은 같은 실행의 Apex 테스트(MDM-007 AC-1, I18N-001 AC-3·AC-2·BR-4, ARC-003 AC-2·MDM-002 AC-2, MDM-006 AC-1·2)와 Jest 13건 | ① 새 내부 사용자는 실제 4명(5번째 Platform 생성 거부 — 새 Org에서 재현) → `phase-users.json` 순서 조정, dev-plan 8.4절 정정. ② 첫 실행에서 빌드 스크립트가 `set -o pipefail` + `find \| grep -q`로 메타데이터를 "없음"으로 판정해 배포 없이 성공 처리 → `find -print -quit`로 고침(CI 워크플로 같은 패턴도). ③ 화면 확인(앱 런처·언어 스위처·코드 피커 실제 렌더링)은 UI 세션이 필요해 사용자 확인으로 남김. ④ CI 실제 실행(ARC-001 AC-2)은 GitHub push·시크릿 등록 후 |

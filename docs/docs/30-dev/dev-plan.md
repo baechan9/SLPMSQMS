@@ -380,10 +380,10 @@ Scratch Org에서는 하지 않는다. D-4(Data Cloud 범위)·D8-1(Cortex Searc
 
 ### 8.4 데모 사용자
 
-P0 스파이크 결과 Developer Scratch Org에서 새로 만들 수 있는 내부 사용자는 **최대 5명**이다(Salesforce 1 + Platform 4, `ForceComPlatform` 포함). 데모 로더는 남은 라이선스를 보고 우선순위 순으로 Salesforce(표준 사용자) → Platform(표준 플랫폼 사용자)을 배정한다. 데모 사용자 정의의 우선순위대로면 E1101 품질팀장, E1102·E1103 품질 엔지니어, E1104 수입검사원, E1111 SQ 팀장까지 만들어지고, E1112 SQE·E1202 고객품질·E1151 계측은 빠져 해당 Lookup이 관리자 E1901로 대체된다(`onMissingUser`).
+P0 스파이크 결과 Developer Scratch Org의 라이선스는 Salesforce 1 + Platform 4(`ForceComPlatform` 포함)로 보이지만, P1 게이트(2026-11-02)에서 **실제로 만들 수 있는 새 내부 사용자는 4명**(Salesforce 1 + Platform 3)임을 새 Org에서 재현해 확인했다. 5번째 Platform 사용자는 남은 라이선스가 있다고 조회돼도 생성이 거부된다. 데모 로더는 남은 라이선스를 보고 우선순위 순으로 Salesforce(표준 사용자) → Platform(표준 플랫폼 사용자)을 배정한다. 데모 사용자 정의의 우선순위대로면 E1101 품질팀장, E1102·E1103 품질 엔지니어, E1104 수입검사원, E1111 SQ 팀장까지 만들어지고, E1112 SQE·E1202 고객품질·E1151 계측은 빠져 해당 Lookup이 관리자 E1901로 대체된다(`onMissingUser`).
 
 - 영향: 협력사 품질(S3·S9의 SQE 단계), 고객 클레임(S2), 측정기(S12)의 담당자 화면을 그 페르소나로 볼 수 없다. E1111은 SupplierQuality·QualityManager PSG를 함께 갖고 있어 SQE 단계 상당수는 E1111로 확인할 수 있다.
-- **DEV-4 결정(2026-11-02)**: 페이즈별로 그 페이즈 시나리오의 페르소나 5명을 고른다. 목록은 `scripts/demo/phase-users.json`이고, 데모 로더가 `--upto-phase N`에 맞춰 그 순서로 만든다(`--users`로 덮어쓸 수 있음, 생성기 데이터는 그대로). 데모 데이터에서 가장 많이 등장하는 SQE E1112는 모든 페이즈에 넣었다.
+- **DEV-4 결정(2026-11-02)**: 페이즈별로 그 페이즈 시나리오의 페르소나를 고른다(앞 4명이 실제 생성, 5번째는 여유분 — P1 게이트에서 순서 조정). 목록은 `scripts/demo/phase-users.json`이고, 데모 로더가 `--upto-phase N`에 맞춰 그 순서로 만든다(`--users`로 덮어쓸 수 있음, 생성기 데이터는 그대로). 데모 데이터에서 가장 많이 등장하는 SQE E1112는 모든 페이즈에 넣었다.
 
 | 페이즈 | 데모 사용자 | 이유 |
 | --- | --- | --- |
@@ -463,7 +463,7 @@ Wave 역전 41건은 이 플랜이 선행 WI를 앞으로 당겨 해소했다(�
 | 명세 미승인 상태로 착수 | 재작업 | 페이즈 순서로 검토(3.6절). P1 착수 전 Vol.0 W0 26건 승인이 최우선 |
 | Scratch Org 만료(30일) | 작업 손실 | 설정을 전부 메타데이터·스크립트로(3.3절), 재현 스크립트, 만료 전 재생성(5.4절) |
 | Dev Hub 한도(활성 3·일 6) | 병렬 개발·CI 막힘 | 5.2절 배분, CI는 상시 Org dry-run, 5명 이상이면 큰 Dev Hub |
-| Scratch Org 라이선스(내부 사용자 최대 5명) | 일부 페르소나(SQE·고객품질·계측)를 데모 사용자로 확인 못 함 | DEV-4 결정(8.4절). 포털 라이선스(Customer Community Plus 5 + Login 5)는 충분 |
+| Scratch Org 라이선스(내부 사용자 실제 4명) | 일부 페르소나(SQE·고객품질·계측)를 데모 사용자로 확인 못 함 | DEV-4 결정(8.4절). 포털 라이선스(Customer Community Plus 5 + Login 5)는 충분 |
 | Agentforce·Data Cloud를 Scratch Org에서 못 씀 | P3·P12 지연 | P0 스파이크, 7.5·7.6절 대안 Org 미리 확보 |
 | 외부 트랙(Snowflake·Mule) 지연 | 화면 L3 검증 지연, PoC 데이터 흐름. 특히 QMS-06-NCR-008은 임계 경로 위(P12 AI 선행) | L1·L2로 SF 트랙 완료 처리, L3는 별도 게이트(7.2절). 외부 트랙 인력·환경을 P2까지 확보하고 NCR-008을 외부 트랙 최우선으로 |
 | 공용 파일 병합 충돌(Custom Label, 번역, PSG) | PR 대기 | 분해 옵션(5.7절), 작은 PR, 병합 전 `main` 재반영 |

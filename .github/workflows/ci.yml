@@ -75,7 +75,7 @@ jobs:
           if [ -z "$SF_AUTH_URL_CI" ]; then
             echo "::notice::SF_AUTH_URL_CI 시크릿이 없어 배포 검증을 건너뜀(포크 PR 또는 시크릿 미등록)"
             echo "run=false" >> "$GITHUB_OUTPUT"
-          elif ! find force-app-cmn force-app-qms force-app-pms -type f ! -name .gitkeep | grep -q .; then
+          elif ! find force-app-cmn force-app-qms force-app-pms -type f ! -name .gitkeep -print -quit | grep -q .; then
             echo "::notice::배포할 메타데이터가 없어 배포 검증을 건너뜀"
             echo "run=false" >> "$GITHUB_OUTPUT"
           else
@@ -109,7 +109,7 @@ jobs:
           node-version: 22
       - name: 배포
         run: |
-          if [ -z "$SF_AUTH_URL_CI" ] || ! find force-app-cmn force-app-qms force-app-pms -type f ! -name .gitkeep | grep -q .; then
+          if [ -z "$SF_AUTH_URL_CI" ] || ! find force-app-cmn force-app-qms force-app-pms -type f ! -name .gitkeep -print -quit | grep -q .; then
             echo "::notice::시크릿 또는 메타데이터가 없어 건너뜀"; exit 0
           fi
           npm install --global @salesforce/cli

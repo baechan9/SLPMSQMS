@@ -35,8 +35,8 @@ LOG="build/org-${ALIAS}-$(date +%Y%m%d-%H%M%S).log"
 exec > >(tee -a "$LOG") 2>&1
 
 step() { printf '\n== [%s/8] %s\n' "$1" "$2"; }
-has_metadata() { find force-app-cmn force-app-qms force-app-pms -type f ! -name '.gitkeep' | grep -q .; }
-has_apex() { find force-app-cmn force-app-qms force-app-pms -type f \( -name '*.cls' -o -name '*.trigger' \) | grep -q .; }
+has_metadata() { find force-app-cmn force-app-qms force-app-pms -type f ! -name '.gitkeep' -print -quit | grep -q .; }
+has_apex() { find force-app-cmn force-app-qms force-app-pms -type f \( -name '*.cls' -o -name '*.trigger' \) -print -quit | grep -q .; }
 
 step 1 "Org 생성"
 if [ "$REUSE" -eq 1 ]; then
@@ -104,6 +104,16 @@ fi
 step 7 "Apex 테스트(RunLocalTests) + 커버리지 85%"
 if has_apex; then
   sf apex run test -o "$ALIAS" -l RunLocalTests -c -w 30 --json > "build/test-${ALIAS}.json" || true
+  python3 -c '
+import json, sys
+r = json.load(open(sys.argv[1])).get("result") or {}
+s = r.get("summary") or {}
+print("테스트", s.get("outcome"), "| 실행", s.get("testsRan"), "| 통과", s.get("passing"), "| 실패", s.get("failing"))
+for t in r.get("tests", []):
+    if t.get("Outcome") != "Pass":
+        print("FAIL", t.get("FullName"), (t.get("Message") or "")[:200])
+sys.exit(1 if s.get("failing") else 0)
+' "build/test-${ALIAS}.json"
   python3 scripts/ci/check-coverage.py "build/test-${ALIAS}.json"
 else
   echo "저장소에 Apex 코드 없음 — 건너뜀"
