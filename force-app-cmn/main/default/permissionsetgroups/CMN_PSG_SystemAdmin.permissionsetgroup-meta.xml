@@ -16,5 +16,7 @@
     <permissionSets>CMN_PS_Setup_Read</permissionSets>
     <permissionSets>CMN_PS_Site_Admin</permissionSets>
     <permissionSets>CMN_PS_Site_Read</permissionSets>
+    <permissionSets>CMN_PS_Supplier_Admin</permissionSets>
+    <permissionSets>CMN_PS_Supplier_Read</permissionSets>
     <status>Updated</status>
 </PermissionSetGroup>

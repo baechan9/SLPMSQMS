@@ -13,7 +13,11 @@ private class CMN_CustomerService_Test {
   static void setup() {
     insert new List<Account>{
       customer('HMC', 'Hyundai', 'HKMC'),
-      new Account(Name = 'Not a customer', RecordTypeId = SUPPLIER_RT)
+      new Account(
+        Name = 'Not a customer',
+        SapVendorNo__c = 'V99999',
+        RecordTypeId = SUPPLIER_RT
+      )
     };
     insert new CMN_Vehicle__c(
       Name = 'SUV',

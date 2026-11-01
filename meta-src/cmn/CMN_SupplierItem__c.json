@@ -1,0 +1,216 @@
+{
+  "wi": "CMN-00-MDM-005",
+  "object": "CMN_SupplierItem__c",
+  "package": "force-app-cmn",
+  "description": "협력사 × 품번 × 납품 공장. 수입검사 수준·부품 PPAP 승인 상태의 단위. ExternalKey = {VendorNo}-{ItemNo}-{PlantCode}(트리거). 상태 필드는 QMS-03 서비스만 변경",
+  "label": {
+    "ko": "협력사 품번",
+    "en_US": "Supplier Item",
+    "zh_CN": "供应商物料"
+  },
+  "plural": {
+    "ko": "협력사 품번",
+    "en_US": "Supplier Items",
+    "zh_CN": "供应商物料"
+  },
+  "nameField": {
+    "type": "AutoNumber",
+    "format": "SI-{0000000}",
+    "label": {
+      "ko": "연결 번호",
+      "en_US": "Link No.",
+      "zh_CN": "关联编号"
+    }
+  },
+  "sharingModel": "ControlledByParent",
+  "enableHistory": true,
+  "tab": {
+    "motif": "Custom20: Truck"
+  },
+  "fields": [
+    {
+      "name": "Supplier__c",
+      "type": "MasterDetail",
+      "referenceTo": "Account",
+      "relationshipName": "SupplierItems",
+      "relationshipLabel": {
+        "ko": "협력사 품번",
+        "en_US": "Supplier Items",
+        "zh_CN": "供应商物料"
+      },
+      "label": {
+        "ko": "협력사",
+        "en_US": "Supplier",
+        "zh_CN": "供应商"
+      },
+      "description": "협력사 레코드타입만(조회 필터 — 레코드타입 라벨 \"협력사\"로 비교). 포털 데이터 격리 단위",
+      "lookupFilter": {
+        "errorMessage": "협력사(CMN_Supplier) 계정만 선택할 수 있습니다.",
+        "items": [
+          {
+            "field": "Account.RecordTypeId",
+            "operation": "equals",
+            "value": "협력사"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Item__c",
+      "type": "Lookup",
+      "referenceTo": "CMN_Item__c",
+      "relationshipName": "SupplierItems",
+      "relationshipLabel": {
+        "ko": "협력사 품번",
+        "en_US": "Supplier Items",
+        "zh_CN": "供应商物料"
+      },
+      "required": true,
+      "deleteConstraint": "Restrict",
+      "label": {
+        "ko": "품번",
+        "en_US": "Item",
+        "zh_CN": "物料"
+      }
+    },
+    {
+      "name": "Plant__c",
+      "type": "Lookup",
+      "referenceTo": "CMN_Plant__c",
+      "relationshipName": "SupplierItems",
+      "relationshipLabel": {
+        "ko": "협력사 품번",
+        "en_US": "Supplier Items",
+        "zh_CN": "供应商物料"
+      },
+      "required": true,
+      "deleteConstraint": "Restrict",
+      "label": {
+        "ko": "납품 공장",
+        "en_US": "Delivery Plant",
+        "zh_CN": "交货工厂"
+      }
+    },
+    {
+      "name": "ExternalKey__c",
+      "type": "Text",
+      "length": 80,
+      "externalId": true,
+      "unique": true,
+      "serviceOnly": true,
+      "label": {
+        "ko": "외부 키",
+        "en_US": "External Key",
+        "zh_CN": "外部键"
+      },
+      "description": "{VendorNo}-{ItemNo}-{PlantCode}. 트리거가 설정(AC-1 중복 차단)"
+    },
+    {
+      "name": "PpapStatus__c",
+      "type": "Picklist",
+      "default": "NOT_SUBMITTED",
+      "serviceOnly": true,
+      "trackHistory": true,
+      "label": {
+        "ko": "PPAP 상태",
+        "en_US": "PPAP Status",
+        "zh_CN": "PPAP状态"
+      },
+      "description": "부품 PPAP 승인 상태. QMS-03 서비스만 변경(사용자 FLS 읽기, Vol.3 요청), 필드 이력. 명세 필수는 기본값 + 검증 규칙으로 보장(필수 필드는 FLS 읽기 전용이 될 수 없음)",
+      "values": [
+        {
+          "api": "NOT_SUBMITTED",
+          "label": {
+            "ko": "미제출",
+            "en_US": "Not Submitted",
+            "zh_CN": "未提交"
+          }
+        },
+        {
+          "api": "INTERIM",
+          "label": {
+            "ko": "잠정 승인",
+            "en_US": "Interim",
+            "zh_CN": "临时批准"
+          }
+        },
+        {
+          "api": "APPROVED",
+          "label": {
+            "ko": "승인",
+            "en_US": "Approved",
+            "zh_CN": "已批准"
+          }
+        },
+        {
+          "api": "REJECTED",
+          "label": {
+            "ko": "반려",
+            "en_US": "Rejected",
+            "zh_CN": "已驳回"
+          }
+        }
+      ]
+    },
+    {
+      "name": "InspectionLevel__c",
+      "type": "Picklist",
+      "default": "NORMAL",
+      "serviceOnly": true,
+      "trackHistory": true,
+      "label": {
+        "ko": "수입검사 수준",
+        "en_US": "Inspection Level",
+        "zh_CN": "来料检验水平"
+      },
+      "description": "수입검사 수준. 기본 NORMAL. 변경 이력(BR-1). QMS-03-IQC 서비스만 변경(사용자 FLS 읽기)",
+      "values": [
+        {
+          "api": "NORMAL",
+          "label": {
+            "ko": "정상",
+            "en_US": "Normal",
+            "zh_CN": "正常"
+          }
+        },
+        {
+          "api": "TIGHTENED",
+          "label": {
+            "ko": "강화",
+            "en_US": "Tightened",
+            "zh_CN": "加严"
+          }
+        },
+        {
+          "api": "REDUCED",
+          "label": {
+            "ko": "완화",
+            "en_US": "Reduced",
+            "zh_CN": "放宽"
+          }
+        },
+        {
+          "api": "SKIP",
+          "label": {
+            "ko": "무검사",
+            "en_US": "Skip",
+            "zh_CN": "免检"
+          }
+        }
+      ]
+    }
+  ],
+  "validationRules": [
+    {
+      "name": "CMN_SupplierItem_StatusRequired",
+      "field": "PpapStatus__c",
+      "formula": "OR(ISBLANK(TEXT(PpapStatus__c)), ISBLANK(TEXT(InspectionLevel__c)))",
+      "description": "PPAP 상태·검사 수준 필수(명세 Y). 서비스 전용 필드라 DB 필수 대신 검증 규칙",
+      "message": {
+        "ko": "PPAP 상태와 수입검사 수준이 필요합니다.",
+        "en_US": "PPAP status and inspection level are required.",
+        "zh_CN": "需要PPAP状态和来料检验水平。"
+      }
+    }
+  ]
+}

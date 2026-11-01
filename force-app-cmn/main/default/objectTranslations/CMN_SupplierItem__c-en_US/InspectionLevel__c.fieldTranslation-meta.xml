@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label>Inspection Level</label>
+    <name>InspectionLevel__c</name>
+    <picklistValues>
+        <masterLabel>정상</masterLabel>
+        <translation>Normal</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>강화</masterLabel>
+        <translation>Tightened</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>완화</masterLabel>
+        <translation>Reduced</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>무검사</masterLabel>
+        <translation>Skip</translation>
+    </picklistValues>
+</CustomFieldTranslation>

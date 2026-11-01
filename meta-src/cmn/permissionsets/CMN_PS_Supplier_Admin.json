@@ -1,0 +1,15 @@
+{
+  "permissionSet": {
+    "wi": "CMN-00-MDM-005",
+    "name": "CMN_PS_Supplier_Admin",
+    "package": "force-app-cmn",
+    "label": "CMN Supplier Admin",
+    "description": "협력사 등록·협력사 품번 관리(Modify All, 삭제는 트리거가 막음), 협력사 레코드타입·탭(CMN-00-MDM-005). PPAP 상태·검사 수준·등급은 읽기 전용(서비스만 변경). 품질경영·IT 운영 Account는 Modify All(공유 모델이 Public Read Only로 바뀌어도 하위 관리 가능), 고객·협력사 Account 삭제는 트리거가 막는다",
+    "objects": {
+      "Account": "admin",
+      "CMN_SupplierItem__c": "admin"
+    },
+    "recordTypes": ["Account.CMN_Supplier"],
+    "tabs": ["CMN_SupplierItem__c"]
+  }
+}

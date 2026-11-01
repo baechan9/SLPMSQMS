@@ -1,0 +1,13 @@
+{
+  "permissionSet": {
+    "wi": "CMN-00-MDM-005",
+    "name": "CMN_PS_Supplier_Read",
+    "package": "force-app-cmn",
+    "label": "CMN Supplier Read",
+    "description": "협력사(Account 협력사 필드)·협력사 품번 조회(CMN-00-MDM-005). 사내 페르소나 PSG 전체",
+    "objects": {
+      "Account": "read",
+      "CMN_SupplierItem__c": "read"
+    }
+  }
+}

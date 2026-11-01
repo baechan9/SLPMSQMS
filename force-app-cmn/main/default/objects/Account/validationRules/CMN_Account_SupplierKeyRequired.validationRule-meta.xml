@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_Account_SupplierKeyRequired</fullName>
+    <active>true</active>
+    <description>협력사는 SAP 공급업체 번호 필수(CMN-00-MDM-005)</description>
+    <errorConditionFormula>AND(RecordType.DeveloperName = 'CMN_Supplier', ISBLANK(SapVendorNo__c))</errorConditionFormula>
+    <errorDisplayField>SapVendorNo__c</errorDisplayField>
+    <errorMessage>협력사는 SAP 공급업체 번호가 필요합니다.</errorMessage>
+</ValidationRule>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
-    <description>고객 등록·CSR 수정과 차종 관리(Modify All, 삭제는 트리거가 막음), 고객 RecordType·차종 탭(CMN-00-MDM-003). 품질경영·IT 운영</description>
+    <description>고객 등록·CSR 수정과 차종 관리(Modify All, 삭제는 트리거가 막음), 고객 RecordType·차종 탭(CMN-00-MDM-003). 품질경영·IT 운영 Account는 Modify All(공유 모델이 Public Read Only로 바뀌어도 하위 관리 가능), 고객·협력사 Account 삭제는 트리거가 막는다</description>
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.AuditStandard__c</field>
@@ -38,7 +38,22 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Account.IatfCertified__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.IatfExpiry__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Account.OemCode__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.PortalEnabled__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -54,6 +69,16 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.SapCustomerNo__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.SapVendorNo__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.SupplierGrade__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -80,11 +105,11 @@
     <label>CMN Customer Admin</label>
     <objectPermissions>
         <allowCreate>true</allowCreate>
-        <allowDelete>false</allowDelete>
+        <allowDelete>true</allowDelete>
         <allowEdit>true</allowEdit>
         <allowRead>true</allowRead>
-        <modifyAllRecords>false</modifyAllRecords>
-        <viewAllRecords>false</viewAllRecords>
+        <modifyAllRecords>true</modifyAllRecords>
+        <viewAllRecords>true</viewAllRecords>
         <object>Account</object>
     </objectPermissions>
     <objectPermissions>

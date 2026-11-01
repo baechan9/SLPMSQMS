@@ -143,6 +143,8 @@ def field_xml(f, obj):
         # 표준 객체(User 등)에는 이 요소를 넣으면 '유효하지 않은 데이터 유형'으로 배포가 실패한다
         opt.append(('trackHistory', bool(f.get('trackHistory')) and bool(obj.get('enableHistory'))))
         opt.append(('trackTrending', False))
+    elif obj.get('standard') and f.get('trackHistory'):
+        opt.append(('trackHistory', True))  # 이력을 지원하는 표준 객체(Account 등)만 정의에서 켠다
     opt.append(('type', f['returnType'] if t == 'Formula' else t))
     return doc('CustomField', body + sorted(opt, key=lambda kv: kv[0]))
 
@@ -276,6 +278,10 @@ def build_object(spec):
         body += [('nameField', nfx), ('pluralLabel', lbl(spec['plural'])),
                  ('sharingModel', spec.get('sharingModel', 'Private')), ('visibility', 'Public')]
         emit(f'{base}/objects/{obj}/{obj}.object-meta.xml', doc('CustomObject', body))
+    elif spec.get('objectSettings'):
+        # 표준 객체는 정의가 지정한 설정만 쓴다(공유 모델 등은 소유 WI가 따로 정한다)
+        emit(f'{base}/objects/{obj}/{obj}.object-meta.xml',
+             doc('CustomObject', sorted(spec['objectSettings'].items())))
     for f in spec.get('fields', []):
         emit(f'{base}/objects/{obj}/fields/{f["name"]}.field-meta.xml', field_xml(f, spec))
     picks = [f for f in spec.get('fields', []) if f['type'] in ('Picklist', 'MultiselectPicklist') and not f.get('valueSetName')]
@@ -393,7 +399,8 @@ def build_permset(ps, spec_index):
         # 이관·데모 적재용: 정의된 모든 객체의 모든 필드를 편집(서비스 전용 필드 포함). 표준 객체는 필드만
         for obj, spec in spec_index.items():
             if spec.get('kind', 'object') == 'object':
-                wanted.setdefault(obj, None if spec.get('standard') else 'edit')
+                # User는 PS로 객체 권한을 줄 수 없다. 다른 표준 객체(Account 등)는 하위 객체 권한이 종속된다
+                wanted.setdefault(obj, None if obj == 'User' else 'edit')
     for obj, mode in sorted(wanted.items()):
         if mode is None:
             a = access['edit']
@@ -486,6 +493,7 @@ def merge_spec(base, extra):
         sys.exit(f"같은 객체 정의가 둘 이상: {base['object']} (표준 객체만 나눠 정의할 수 있다)")
     for key in ('fields', 'recordTypes', 'validationRules'):
         base[key] = base.get(key, []) + extra.get(key, [])
+    base['objectSettings'] = dict(base.get('objectSettings', {}), **extra.get('objectSettings', {}))
 
 
 # 생성기가 만드는 파일 종류. 이 폴더·확장자의 파일 중 이번 생성 결과에 없는 것은 정의가 사라진 찌꺼기다

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PpapStatus__c</fullName>
+    <description>부품 PPAP 승인 상태. QMS-03 서비스만 변경(사용자 FLS 읽기, Vol.3 요청), 필드 이력. 명세 필수는 기본값 + 검증 규칙으로 보장(필수 필드는 FLS 읽기 전용이 될 수 없음)</description>
+    <label>PPAP 상태</label>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>NOT_SUBMITTED</fullName>
+                <default>true</default>
+                <label>미제출</label>
+            </value>
+            <value>
+                <fullName>INTERIM</fullName>
+                <default>false</default>
+                <label>잠정 승인</label>
+            </value>
+            <value>
+                <fullName>APPROVED</fullName>
+                <default>false</default>
+                <label>승인</label>
+            </value>
+            <value>
+                <fullName>REJECTED</fullName>
+                <default>false</default>
+                <label>반려</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

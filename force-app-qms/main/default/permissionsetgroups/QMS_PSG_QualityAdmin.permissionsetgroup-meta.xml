@@ -12,6 +12,8 @@
     <permissionSets>CMN_PS_Org_Read</permissionSets>
     <permissionSets>CMN_PS_Site_Admin</permissionSets>
     <permissionSets>CMN_PS_Site_Read</permissionSets>
+    <permissionSets>CMN_PS_Supplier_Admin</permissionSets>
+    <permissionSets>CMN_PS_Supplier_Read</permissionSets>
     <permissionSets>QMS_PS_Dashboard_AllPlants</permissionSets>
     <status>Updated</status>
 </PermissionSetGroup>

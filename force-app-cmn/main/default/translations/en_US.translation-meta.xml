@@ -64,4 +64,8 @@
         <label>Plant {0} was not found.</label>
         <name>CMN_Site_UnknownPlant</name>
     </customLabels>
+    <customLabels>
+        <label>The same supplier, item and plant combination already exists: {0}</label>
+        <name>CMN_Supplier_DuplicateSupplierItem</name>
+    </customLabels>
 </Translations>

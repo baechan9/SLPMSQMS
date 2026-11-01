@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PortalEnabled__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>협력사 포털 사용 여부. 협력사 하위 Contact만 포털 사용자로 활성화(BR-2, QMS-03-SPP)</description>
+    <label>협력사 포털 사용</label>
+    <type>Checkbox</type>
+</CustomField>

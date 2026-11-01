@@ -16,4 +16,12 @@
         <errorMessage>代码创建后不可修改(用于权限、编号和外部集成的键)。</errorMessage>
         <name>CMN_Account_OemCodeImmutable</name>
     </validationRules>
+    <validationRules>
+        <errorMessage>供应商需要SAP供应商编号。</errorMessage>
+        <name>CMN_Account_SupplierKeyRequired</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>代码创建后不可修改(用于权限、编号和外部集成的键)。</errorMessage>
+        <name>CMN_Account_VendorNoImmutable</name>
+    </validationRules>
 </CustomObjectTranslation>

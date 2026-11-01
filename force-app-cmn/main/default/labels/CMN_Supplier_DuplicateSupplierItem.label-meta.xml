@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_Supplier_DuplicateSupplierItem</fullName>
+    <categories>CMN</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>같은 협력사·품번·공장 조합(AC-1). {0} = 외부 키</shortDescription>
+    <value>같은 협력사·품번·공장 조합이 이미 있습니다: {0}</value>
+</CustomLabel>

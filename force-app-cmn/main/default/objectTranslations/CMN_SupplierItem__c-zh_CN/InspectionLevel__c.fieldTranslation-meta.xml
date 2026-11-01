@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label>来料检验水平</label>
+    <name>InspectionLevel__c</name>
+    <picklistValues>
+        <masterLabel>정상</masterLabel>
+        <translation>正常</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>강화</masterLabel>
+        <translation>加严</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>완화</masterLabel>
+        <translation>放宽</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>무검사</masterLabel>
+        <translation>免检</translation>
+    </picklistValues>
+</CustomFieldTranslation>

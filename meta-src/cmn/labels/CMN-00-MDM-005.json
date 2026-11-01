@@ -1,0 +1,16 @@
+{
+  "wi": "CMN-00-MDM-005",
+  "package": "force-app-cmn",
+  "labels": [
+    {
+      "name": "CMN_Supplier_DuplicateSupplierItem",
+      "category": "CMN",
+      "description": "같은 협력사·품번·공장 조합(AC-1). {0} = 외부 키",
+      "value": {
+        "ko": "같은 협력사·품번·공장 조합이 이미 있습니다: {0}",
+        "en_US": "The same supplier, item and plant combination already exists: {0}",
+        "zh_CN": "已存在相同的供应商、物料和工厂组合: {0}"
+      }
+    }
+  ]
+}

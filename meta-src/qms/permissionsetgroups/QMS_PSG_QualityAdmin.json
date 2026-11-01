@@ -15,7 +15,9 @@
       "CMN_PS_Customer_Read",
       "CMN_PS_Customer_Admin",
       "CMN_PS_Item_Read",
-      "CMN_PS_Item_Admin"
+      "CMN_PS_Item_Admin",
+      "CMN_PS_Supplier_Read",
+      "CMN_PS_Supplier_Admin"
     ]
   }
 }

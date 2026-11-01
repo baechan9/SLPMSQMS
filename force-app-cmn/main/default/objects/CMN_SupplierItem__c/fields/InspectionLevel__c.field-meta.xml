@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>InspectionLevel__c</fullName>
+    <description>수입검사 수준. 기본 NORMAL. 변경 이력(BR-1). QMS-03-IQC 서비스만 변경(사용자 FLS 읽기)</description>
+    <label>수입검사 수준</label>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>NORMAL</fullName>
+                <default>true</default>
+                <label>정상</label>
+            </value>
+            <value>
+                <fullName>TIGHTENED</fullName>
+                <default>false</default>
+                <label>강화</label>
+            </value>
+            <value>
+                <fullName>REDUCED</fullName>
+                <default>false</default>
+                <label>완화</label>
+            </value>
+            <value>
+                <fullName>SKIP</fullName>
+                <default>false</default>
+                <label>무검사</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

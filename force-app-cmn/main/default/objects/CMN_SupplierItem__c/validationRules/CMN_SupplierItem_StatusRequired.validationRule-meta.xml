@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_SupplierItem_StatusRequired</fullName>
+    <active>true</active>
+    <description>PPAP 상태·검사 수준 필수(명세 Y). 서비스 전용 필드라 DB 필수 대신 검증 규칙</description>
+    <errorConditionFormula>OR(ISBLANK(TEXT(PpapStatus__c)), ISBLANK(TEXT(InspectionLevel__c)))</errorConditionFormula>
+    <errorDisplayField>PpapStatus__c</errorDisplayField>
+    <errorMessage>PPAP 상태와 수입검사 수준이 필요합니다.</errorMessage>
+</ValidationRule>

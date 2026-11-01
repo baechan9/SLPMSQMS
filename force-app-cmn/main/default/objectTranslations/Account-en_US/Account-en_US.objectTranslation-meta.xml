@@ -16,4 +16,12 @@
         <errorMessage>The code cannot be changed after creation (key for access, numbering and integration).</errorMessage>
         <name>CMN_Account_OemCodeImmutable</name>
     </validationRules>
+    <validationRules>
+        <errorMessage>A supplier requires an SAP vendor number.</errorMessage>
+        <name>CMN_Account_SupplierKeyRequired</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>The code cannot be changed after creation (key for access, numbering and integration).</errorMessage>
+        <name>CMN_Account_VendorNoImmutable</name>
+    </validationRules>
 </CustomObjectTranslation>

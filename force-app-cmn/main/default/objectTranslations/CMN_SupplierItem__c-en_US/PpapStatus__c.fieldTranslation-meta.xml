@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label>PPAP Status</label>
+    <name>PpapStatus__c</name>
+    <picklistValues>
+        <masterLabel>미제출</masterLabel>
+        <translation>Not Submitted</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>잠정 승인</masterLabel>
+        <translation>Interim</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>승인</masterLabel>
+        <translation>Approved</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>반려</masterLabel>
+        <translation>Rejected</translation>
+    </picklistValues>
+</CustomFieldTranslation>

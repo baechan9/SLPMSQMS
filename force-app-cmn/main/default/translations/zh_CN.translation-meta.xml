@@ -64,4 +64,8 @@
         <label>找不到工厂 {0}。</label>
         <name>CMN_Site_UnknownPlant</name>
     </customLabels>
+    <customLabels>
+        <label>已存在相同的供应商、物料和工厂组合: {0}</label>
+        <name>CMN_Supplier_DuplicateSupplierItem</name>
+    </customLabels>
 </Translations>

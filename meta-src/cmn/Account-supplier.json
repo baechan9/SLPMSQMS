@@ -3,7 +3,7 @@
   "object": "Account",
   "package": "force-app-cmn",
   "standard": true,
-  "description": "협력사(RecordType CMN_Supplier). 레코드타입은 MDM-003 AC-1(고객 조회 필터) 검증을 위해 먼저 만들었고, 협력사 필드·규칙은 MDM-005가 이 파일에 더한다",
+  "description": "협력사(RecordType CMN_Supplier)와 협력사 필드(CMN-00-MDM-005). 레코드타입은 MDM-003 AC-1 검증을 위해 먼저 만들었다",
   "recordTypes": [
     {
       "name": "CMN_Supplier",
@@ -15,5 +15,107 @@
       "description": "부품 협력사. 차종 고객 조회에서 제외(MDM-003 BR-1)"
     }
   ],
-  "fields": []
+  "fields": [
+    {
+      "name": "SapVendorNo__c",
+      "type": "Text",
+      "length": 20,
+      "externalId": true,
+      "unique": true,
+      "label": {
+        "ko": "SAP 공급업체 번호",
+        "en_US": "SAP Vendor No.",
+        "zh_CN": "SAP供应商编号"
+      },
+      "description": "협력사 RecordType에서 필수(검증 규칙). 협력사 품번 외부 키의 앞부분이라 바꾸지 않는다"
+    },
+    {
+      "name": "SupplierGrade__c",
+      "type": "Picklist",
+      "serviceOnly": true,
+      "trackHistory": true,
+      "label": {
+        "ko": "협력사 등급",
+        "en_US": "Supplier Grade",
+        "zh_CN": "供应商等级"
+      },
+      "description": "협력사 평가 등급. QMS-06-SQM-003 서비스만 변경(사용자 FLS 읽기, Vol.6c 요청), 필드 이력",
+      "values": [
+        {
+          "api": "A",
+          "label": "A"
+        },
+        {
+          "api": "B",
+          "label": "B"
+        },
+        {
+          "api": "C",
+          "label": "C"
+        },
+        {
+          "api": "D",
+          "label": "D"
+        }
+      ]
+    },
+    {
+      "name": "IatfCertified__c",
+      "type": "Checkbox",
+      "default": false,
+      "label": {
+        "ko": "IATF 16949 인증",
+        "en_US": "IATF 16949 Certified",
+        "zh_CN": "IATF 16949认证"
+      }
+    },
+    {
+      "name": "IatfExpiry__c",
+      "type": "Date",
+      "label": {
+        "ko": "IATF 인증 만료일",
+        "en_US": "IATF Expiry",
+        "zh_CN": "IATF认证到期日"
+      }
+    },
+    {
+      "name": "PortalEnabled__c",
+      "type": "Checkbox",
+      "default": false,
+      "label": {
+        "ko": "협력사 포털 사용",
+        "en_US": "Portal Enabled",
+        "zh_CN": "启用供应商门户"
+      },
+      "description": "협력사 포털 사용 여부. 협력사 하위 Contact만 포털 사용자로 활성화(BR-2, QMS-03-SPP)"
+    }
+  ],
+  "validationRules": [
+    {
+      "name": "CMN_Account_SupplierKeyRequired",
+      "field": "SapVendorNo__c",
+      "formula": "AND(RecordType.DeveloperName = 'CMN_Supplier', ISBLANK(SapVendorNo__c))",
+      "description": "협력사는 SAP 공급업체 번호 필수(CMN-00-MDM-005)",
+      "message": {
+        "ko": "협력사는 SAP 공급업체 번호가 필요합니다.",
+        "en_US": "A supplier requires an SAP vendor number.",
+        "zh_CN": "供应商需要SAP供应商编号。"
+      }
+    },
+    {
+      "name": "CMN_Account_VendorNoImmutable",
+      "field": "SapVendorNo__c",
+      "formula": "AND(ISCHANGED(SapVendorNo__c), NOT(ISBLANK(PRIORVALUE(SapVendorNo__c))), NOT($Permission.CMN_DataMigration))",
+      "description": "SAP 공급업체 번호는 협력사 품번 외부 키의 일부라 바꾸지 않는다(이관 모드 예외)",
+      "message": {
+        "ko": "코드는 만든 뒤 바꿀 수 없습니다(권한·채번·외부 연계의 키).",
+        "en_US": "The code cannot be changed after creation (key for access, numbering and integration).",
+        "zh_CN": "代码创建后不可修改(用于权限、编号和外部集成的键)。"
+      }
+    }
+  ],
+  "objectSettings": {
+    "enableHistory": true,
+    "enableFeeds": true
+  }
 }

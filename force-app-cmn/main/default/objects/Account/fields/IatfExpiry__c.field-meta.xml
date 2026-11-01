@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>IatfExpiry__c</fullName>
+    <label>IATF 인증 만료일</label>
+    <required>false</required>
+    <type>Date</type>
+</CustomField>
