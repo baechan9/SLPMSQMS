@@ -1,0 +1,30 @@
+<template>
+  <template lwc:if={isLoading}>
+    <lightning-spinner
+      alternative-text={labels.loading}
+      size="small"
+    ></lightning-spinner>
+  </template>
+  <template lwc:elseif={errorMessage}>
+    <p class="slds-text-color_error" role="alert">{errorMessage}</p>
+  </template>
+  <template lwc:elseif={isEmpty}>
+    <p class="slds-text-color_weak">{labels.empty}</p>
+  </template>
+  <template lwc:elseif={hasCodes}>
+    <template for:each={levels} for:item="lvl">
+      <lightning-combobox
+        key={lvl.key}
+        data-level={lvl.level}
+        label={lvl.label}
+        placeholder={labels.placeholder}
+        options={lvl.options}
+        value={lvl.value}
+        required={lvl.required}
+        disabled={disabled}
+        onchange={handleChange}
+        class="slds-m-bottom_x-small"
+      ></lightning-combobox>
+    </template>
+  </template>
+</template>

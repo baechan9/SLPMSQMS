@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>代码组</value>
+    </caseValues>
+    <nameFieldLabel>代码组名称</nameFieldLabel>
+    <validationRules>
+        <errorMessage>最大层级为1~4。</errorMessage>
+        <name>CMN_CodeGroup_MaxLevelRange</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>代码创建后不可修改(用于权限、编号和外部集成的键)。</errorMessage>
+        <name>CMN_CodeGroup_GroupCodeImmutable</name>
+    </validationRules>
+</CustomObjectTranslation>

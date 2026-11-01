@@ -334,7 +334,7 @@
         {
           "GroupCode__c": "CAUSE_5M1E",
           "Name": "CAUSE_5M1E",
-          "MaxLevel__c": 2
+          "MaxLevel__c": 3
         },
         {
           "GroupCode__c": "RESPONSIBILITY",
@@ -379,6 +379,16 @@
         {
           "GroupCode__c": "AI_EXCLUDE_REASON",
           "Name": "AI_EXCLUDE_REASON",
+          "MaxLevel__c": 1
+        },
+        {
+          "GroupCode__c": "ALERT_DISMISS_REASON",
+          "Name": "ALERT_DISMISS_REASON",
+          "MaxLevel__c": 1
+        },
+        {
+          "GroupCode__c": "QMS_PROCESS",
+          "Name": "QMS_PROCESS",
           "MaxLevel__c": 1
         },
         {
@@ -1247,6 +1257,424 @@
           "IsActive__c": "true"
         },
         {
+          "ExternalKey__c": "DOC_CLASS/TEST_PHOTO",
+          "CodeGroup__r.GroupCode__c": "DOC_CLASS",
+          "Code__c": "TEST_PHOTO",
+          "Parent__r.ExternalKey__c": null,
+          "Level__c": 1,
+          "Name": "TEST_PHOTO",
+          "NameEn__c": "Test Photo",
+          "SortOrder__c": 190,
+          "IsActive__c": "true"
+        },
+        {
+          "ExternalKey__c": "DOC_CLASS/OCAP_EVIDENCE",
+          "CodeGroup__r.GroupCode__c": "DOC_CLASS",
+          "Code__c": "OCAP_EVIDENCE",
+          "Parent__r.ExternalKey__c": null,
+          "Level__c": 1,
+          "Name": "OCAP_EVIDENCE",
+          "NameEn__c": "Ocap Evidence",
+          "SortOrder__c": 200,
+          "IsActive__c": "true"
+        },
+        {
+          "ExternalKey__c": "DOC_CLASS/CUSTOMER_COA",
+          "CodeGroup__r.GroupCode__c": "DOC_CLASS",
+          "Code__c": "CUSTOMER_COA",
+          "Parent__r.ExternalKey__c": null,
+          "Level__c": 1,
+          "Name": "CUSTOMER_COA",
+          "NameEn__c": "Customer Coa",
+          "SortOrder__c": 210,
+          "IsActive__c": "true"
+        },
+        {
+          "ExternalKey__c": "DOC_CLASS/HZD_EVIDENCE",
+          "CodeGroup__r.GroupCode__c": "DOC_CLASS",
+          "Code__c": "HZD_EVIDENCE",
+          "Parent__r.ExternalKey__c": null,
+          "Level__c": 1,
+          "Name": "HZD_EVIDENCE",
+          "NameEn__c": "Hzd Evidence",
+          "SortOrder__c": 220,
+          "IsActive__c": "true"
+        },
+        {
+          "ExternalKey__c": "DOC_CLASS/LELE_EVIDENCE",
+          "CodeGroup__r.GroupCode__c": "DOC_CLASS",
+          "Code__c": "LELE_EVIDENCE",
+          "Parent__r.ExternalKey__c": null,
+          "Level__c": 1,
+          "Name": "LELE_EVIDENCE",
+          "NameEn__c": "Lele Evidence",
+          "SortOrder__c": 230,
+          "IsActive__c": "true"
+        },
+        {
+          "ExternalKey__c": "DOC_CLASS/LELE_APPLY_EVIDENCE",
+          "CodeGroup__r.GroupCode__c": "DOC_CLASS",
+          "Code__c": "LELE_APPLY_EVIDENCE",
+          "Parent__r.ExternalKey__c": null,
+          "Level__c": 1,
+          "Name": "LELE_APPLY_EVIDENCE",
+          "NameEn__c": "Lele Apply Evidence",
+          "SortOrder__c": 240,
+          "IsActive__c": "true"
+        },
+        {
+          "ExternalKey__c": "DOC_CLASS/PPAP_PACKAGE",
+          "CodeGroup__r.GroupCode__c": "DOC_CLASS",
+          "Code__c": "PPAP_PACKAGE",
+          "Parent__r.ExternalKey__c": null,
+          "Level__c": 1,
+          "Name": "PPAP_PACKAGE",
+          "NameEn__c": "Ppap Package",
+          "SortOrder__c": 250,
+          "IsActive__c": "true"
+        },
+        {
+          "ExternalKey__c": "DOC_CLASS/PPAP_CUSTOMER_APPROVAL",
+          "CodeGroup__r.GroupCode__c": "DOC_CLASS",
+          "Code__c": "PPAP_CUSTOMER_APPROVAL",
+          "Parent__r.ExternalKey__c": null,
+          "Level__c": 1,
+          "Name": "PPAP_CUSTOMER_APPROVAL",
+          "NameEn__c": "Ppap Customer Approval",
+          "SortOrder__c": 260,
+          "IsActive__c": "true"
+        },
+        {
+          "ExternalKey__c": "DOC_CLASS/EIGHTD_REPORT",
+          "CodeGroup__r.GroupCode__c": "DOC_CLASS",
+          "Code__c": "EIGHTD_REPORT",
+          "Parent__r.ExternalKey__c": null,
+          "Level__c": 1,
+          "Name": "EIGHTD_REPORT",
+          "NameEn__c": "Eightd Report",
+          "SortOrder__c": 270,
+          "IsActive__c": "true"
+        },
+        {
+          "ExternalKey__c": "DOC_CLASS/EIGHTD_EVIDENCE",
+          "CodeGroup__r.GroupCode__c": "DOC_CLASS",
+          "Code__c": "EIGHTD_EVIDENCE",
+          "Parent__r.ExternalKey__c": null,
+          "Level__c": 1,
+          "Name": "EIGHTD_EVIDENCE",
+          "NameEn__c": "Eightd Evidence",
+          "SortOrder__c": 280,
+          "IsActive__c": "true"
+        },
+        {
+          "ExternalKey__c": "DOC_CLASS/EIGHTD_TEMPLATE",
+          "CodeGroup__r.GroupCode__c": "DOC_CLASS",
+          "Code__c": "EIGHTD_TEMPLATE",
+          "Parent__r.ExternalKey__c": null,
+          "Level__c": 1,
+          "Name": "EIGHTD_TEMPLATE",
+          "NameEn__c": "Eightd Template",
+          "SortOrder__c": 290,
+          "IsActive__c": "true"
+        },
+        {
+          "ExternalKey__c": "DOC_CLASS/CLAIM_CUSTOMER_DOC",
+          "CodeGroup__r.GroupCode__c": "DOC_CLASS",
+          "Code__c": "CLAIM_CUSTOMER_DOC",
+          "Parent__r.ExternalKey__c": null,
+          "Level__c": 1,
+          "Name": "CLAIM_CUSTOMER_DOC",
+          "NameEn__c": "Claim Customer Doc",
+          "SortOrder__c": 300,
+          "IsActive__c": "true"
+        },
+        {
+          "ExternalKey__c": "DOC_CLASS/CLAIM_COST_EVIDENCE",
+          "CodeGroup__r.GroupCode__c": "DOC_CLASS",
+          "Code__c": "CLAIM_COST_EVIDENCE",
+          "Parent__r.ExternalKey__c": null,
+          "Level__c": 1,
+          "Name": "CLAIM_COST_EVIDENCE",
+          "NameEn__c": "Claim Cost Evidence",
+          "SortOrder__c": 310,
+          "IsActive__c": "true"
+        },
+        {
+          "ExternalKey__c": "DOC_CLASS/B2B_SOURCE_FILE",
+          "CodeGroup__r.GroupCode__c": "DOC_CLASS",
+          "Code__c": "B2B_SOURCE_FILE",
+          "Parent__r.ExternalKey__c": null,
+          "Level__c": 1,
+          "Name": "B2B_SOURCE_FILE",
+          "NameEn__c": "B2B Source File",
+          "SortOrder__c": 320,
+          "IsActive__c": "true"
+        },
+        {
+          "ExternalKey__c": "DOC_CLASS/CUSTOMER_SCORECARD",
+          "CodeGroup__r.GroupCode__c": "DOC_CLASS",
+          "Code__c": "CUSTOMER_SCORECARD",
+          "Parent__r.ExternalKey__c": null,
+          "Level__c": 1,
+          "Name": "CUSTOMER_SCORECARD",
+          "NameEn__c": "Customer Scorecard",
+          "SortOrder__c": 330,
+          "IsActive__c": "true"
+        },
+        {
+          "ExternalKey__c": "DOC_CLASS/WORK_INSTRUCTION",
+          "CodeGroup__r.GroupCode__c": "DOC_CLASS",
+          "Code__c": "WORK_INSTRUCTION",
+          "Parent__r.ExternalKey__c": null,
+          "Level__c": 1,
+          "Name": "WORK_INSTRUCTION",
+          "NameEn__c": "Work Instruction",
+          "SortOrder__c": 340,
+          "IsActive__c": "true"
+        },
+        {
+          "ExternalKey__c": "DOC_CLASS/COMPANY_STANDARD",
+          "CodeGroup__r.GroupCode__c": "DOC_CLASS",
+          "Code__c": "COMPANY_STANDARD",
+          "Parent__r.ExternalKey__c": null,
+          "Level__c": 1,
+          "Name": "COMPANY_STANDARD",
+          "NameEn__c": "Company Standard",
+          "SortOrder__c": 350,
+          "IsActive__c": "true"
+        },
+        {
+          "ExternalKey__c": "DOC_CLASS/DESIGN_GUIDE",
+          "CodeGroup__r.GroupCode__c": "DOC_CLASS",
+          "Code__c": "DESIGN_GUIDE",
+          "Parent__r.ExternalKey__c": null,
+          "Level__c": 1,
+          "Name": "DESIGN_GUIDE",
+          "NameEn__c": "Design Guide",
+          "SortOrder__c": 360,
+          "IsActive__c": "true"
+        },
+        {
+          "ExternalKey__c": "DOC_CLASS/NCR_EVIDENCE",
+          "CodeGroup__r.GroupCode__c": "DOC_CLASS",
+          "Code__c": "NCR_EVIDENCE",
+          "Parent__r.ExternalKey__c": null,
+          "Level__c": 1,
+          "Name": "NCR_EVIDENCE",
+          "NameEn__c": "Ncr Evidence",
+          "SortOrder__c": 370,
+          "IsActive__c": "true"
+        },
+        {
+          "ExternalKey__c": "DOC_CLASS/LIMIT_SAMPLE_CUSTOMER_APPROVAL",
+          "CodeGroup__r.GroupCode__c": "DOC_CLASS",
+          "Code__c": "LIMIT_SAMPLE_CUSTOMER_APPROVAL",
+          "Parent__r.ExternalKey__c": null,
+          "Level__c": 1,
+          "Name": "LIMIT_SAMPLE_CUSTOMER_APPROVAL",
+          "NameEn__c": "Limit Sample Customer Approval",
+          "SortOrder__c": 380,
+          "IsActive__c": "true"
+        },
+        {
+          "ExternalKey__c": "DOC_CLASS/LIMIT_SAMPLE_CHECK_PHOTO",
+          "CodeGroup__r.GroupCode__c": "DOC_CLASS",
+          "Code__c": "LIMIT_SAMPLE_CHECK_PHOTO",
+          "Parent__r.ExternalKey__c": null,
+          "Level__c": 1,
+          "Name": "LIMIT_SAMPLE_CHECK_PHOTO",
+          "NameEn__c": "Limit Sample Check Photo",
+          "SortOrder__c": 390,
+          "IsActive__c": "true"
+        },
+        {
+          "ExternalKey__c": "DOC_CLASS/TRAINING_CERT",
+          "CodeGroup__r.GroupCode__c": "DOC_CLASS",
+          "Code__c": "TRAINING_CERT",
+          "Parent__r.ExternalKey__c": null,
+          "Level__c": 1,
+          "Name": "TRAINING_CERT",
+          "NameEn__c": "Training Cert",
+          "SortOrder__c": 400,
+          "IsActive__c": "true"
+        },
+        {
+          "ExternalKey__c": "DOC_CLASS/QUALIFICATION_CERT",
+          "CodeGroup__r.GroupCode__c": "DOC_CLASS",
+          "Code__c": "QUALIFICATION_CERT",
+          "Parent__r.ExternalKey__c": null,
+          "Level__c": 1,
+          "Name": "QUALIFICATION_CERT",
+          "NameEn__c": "Qualification Cert",
+          "SortOrder__c": 410,
+          "IsActive__c": "true"
+        },
+        {
+          "ExternalKey__c": "DOC_CLASS/GAUGE_DISPOSAL_CONSENT",
+          "CodeGroup__r.GroupCode__c": "DOC_CLASS",
+          "Code__c": "GAUGE_DISPOSAL_CONSENT",
+          "Parent__r.ExternalKey__c": null,
+          "Level__c": 1,
+          "Name": "GAUGE_DISPOSAL_CONSENT",
+          "NameEn__c": "Gauge Disposal Consent",
+          "SortOrder__c": 420,
+          "IsActive__c": "true"
+        },
+        {
+          "ExternalKey__c": "DOC_CLASS/MSA_CHART",
+          "CodeGroup__r.GroupCode__c": "DOC_CLASS",
+          "Code__c": "MSA_CHART",
+          "Parent__r.ExternalKey__c": null,
+          "Level__c": 1,
+          "Name": "MSA_CHART",
+          "NameEn__c": "Msa Chart",
+          "SortOrder__c": 430,
+          "IsActive__c": "true"
+        },
+        {
+          "ExternalKey__c": "DOC_CLASS/LAB_RAW_DATA",
+          "CodeGroup__r.GroupCode__c": "DOC_CLASS",
+          "Code__c": "LAB_RAW_DATA",
+          "Parent__r.ExternalKey__c": null,
+          "Level__c": 1,
+          "Name": "LAB_RAW_DATA",
+          "NameEn__c": "Lab Raw Data",
+          "SortOrder__c": 440,
+          "IsActive__c": "true"
+        },
+        {
+          "ExternalKey__c": "DOC_CLASS/LAB_IMAGE",
+          "CodeGroup__r.GroupCode__c": "DOC_CLASS",
+          "Code__c": "LAB_IMAGE",
+          "Parent__r.ExternalKey__c": null,
+          "Level__c": 1,
+          "Name": "LAB_IMAGE",
+          "NameEn__c": "Lab Image",
+          "SortOrder__c": 450,
+          "IsActive__c": "true"
+        },
+        {
+          "ExternalKey__c": "DOC_CLASS/LAB_EXTERNAL_REPORT",
+          "CodeGroup__r.GroupCode__c": "DOC_CLASS",
+          "Code__c": "LAB_EXTERNAL_REPORT",
+          "Parent__r.ExternalKey__c": null,
+          "Level__c": 1,
+          "Name": "LAB_EXTERNAL_REPORT",
+          "NameEn__c": "Lab External Report",
+          "SortOrder__c": 460,
+          "IsActive__c": "true"
+        },
+        {
+          "ExternalKey__c": "DOC_CLASS/AUDIT_EVIDENCE_PACKAGE",
+          "CodeGroup__r.GroupCode__c": "DOC_CLASS",
+          "Code__c": "AUDIT_EVIDENCE_PACKAGE",
+          "Parent__r.ExternalKey__c": null,
+          "Level__c": 1,
+          "Name": "AUDIT_EVIDENCE_PACKAGE",
+          "NameEn__c": "Audit Evidence Package",
+          "SortOrder__c": 470,
+          "IsActive__c": "true"
+        },
+        {
+          "ExternalKey__c": "DOC_CLASS/AUDIT_PREP_DOC",
+          "CodeGroup__r.GroupCode__c": "DOC_CLASS",
+          "Code__c": "AUDIT_PREP_DOC",
+          "Parent__r.ExternalKey__c": null,
+          "Level__c": 1,
+          "Name": "AUDIT_PREP_DOC",
+          "NameEn__c": "Audit Prep Doc",
+          "SortOrder__c": 480,
+          "IsActive__c": "true"
+        },
+        {
+          "ExternalKey__c": "DOC_CLASS/FINDING_EVIDENCE",
+          "CodeGroup__r.GroupCode__c": "DOC_CLASS",
+          "Code__c": "FINDING_EVIDENCE",
+          "Parent__r.ExternalKey__c": null,
+          "Level__c": 1,
+          "Name": "FINDING_EVIDENCE",
+          "NameEn__c": "Finding Evidence",
+          "SortOrder__c": 490,
+          "IsActive__c": "true"
+        },
+        {
+          "ExternalKey__c": "DOC_CLASS/CUSTOMER_AUDIT_REPORT",
+          "CodeGroup__r.GroupCode__c": "DOC_CLASS",
+          "Code__c": "CUSTOMER_AUDIT_REPORT",
+          "Parent__r.ExternalKey__c": null,
+          "Level__c": 1,
+          "Name": "CUSTOMER_AUDIT_REPORT",
+          "NameEn__c": "Customer Audit Report",
+          "SortOrder__c": 500,
+          "IsActive__c": "true"
+        },
+        {
+          "ExternalKey__c": "DOC_CLASS/CUSTOMER_AUDIT_RESPONSE",
+          "CodeGroup__r.GroupCode__c": "DOC_CLASS",
+          "Code__c": "CUSTOMER_AUDIT_RESPONSE",
+          "Parent__r.ExternalKey__c": null,
+          "Level__c": 1,
+          "Name": "CUSTOMER_AUDIT_RESPONSE",
+          "NameEn__c": "Customer Audit Response",
+          "SortOrder__c": 510,
+          "IsActive__c": "true"
+        },
+        {
+          "ExternalKey__c": "DOC_CLASS/CERT_SL",
+          "CodeGroup__r.GroupCode__c": "DOC_CLASS",
+          "Code__c": "CERT_SL",
+          "Parent__r.ExternalKey__c": null,
+          "Level__c": 1,
+          "Name": "CERT_SL",
+          "NameEn__c": "Cert Sl",
+          "SortOrder__c": 520,
+          "IsActive__c": "true"
+        },
+        {
+          "ExternalKey__c": "DOC_CLASS/CB_REPORT",
+          "CodeGroup__r.GroupCode__c": "DOC_CLASS",
+          "Code__c": "CB_REPORT",
+          "Parent__r.ExternalKey__c": null,
+          "Level__c": 1,
+          "Name": "CB_REPORT",
+          "NameEn__c": "Cb Report",
+          "SortOrder__c": 530,
+          "IsActive__c": "true"
+        },
+        {
+          "ExternalKey__c": "DOC_CLASS/CB_RESPONSE",
+          "CodeGroup__r.GroupCode__c": "DOC_CLASS",
+          "Code__c": "CB_RESPONSE",
+          "Parent__r.ExternalKey__c": null,
+          "Level__c": 1,
+          "Name": "CB_RESPONSE",
+          "NameEn__c": "Cb Response",
+          "SortOrder__c": 540,
+          "IsActive__c": "true"
+        },
+        {
+          "ExternalKey__c": "DOC_CLASS/MGMT_REVIEW_INPUT",
+          "CodeGroup__r.GroupCode__c": "DOC_CLASS",
+          "Code__c": "MGMT_REVIEW_INPUT",
+          "Parent__r.ExternalKey__c": null,
+          "Level__c": 1,
+          "Name": "MGMT_REVIEW_INPUT",
+          "NameEn__c": "Mgmt Review Input",
+          "SortOrder__c": 550,
+          "IsActive__c": "true"
+        },
+        {
+          "ExternalKey__c": "DOC_CLASS/IMP_DELIVERABLE",
+          "CodeGroup__r.GroupCode__c": "DOC_CLASS",
+          "Code__c": "IMP_DELIVERABLE",
+          "Parent__r.ExternalKey__c": null,
+          "Level__c": 1,
+          "Name": "IMP_DELIVERABLE",
+          "NameEn__c": "Imp Deliverable",
+          "SortOrder__c": 560,
+          "IsActive__c": "true"
+        },
+        {
           "ExternalKey__c": "DOC_CLASS/PPAP",
           "CodeGroup__r.GroupCode__c": "DOC_CLASS",
           "Code__c": "PPAP",
@@ -1254,7 +1682,7 @@
           "Level__c": 1,
           "Name": "PPAP",
           "NameEn__c": "Ppap",
-          "SortOrder__c": 190,
+          "SortOrder__c": 570,
           "IsActive__c": "true"
         },
         {
@@ -1357,8 +1785,63 @@
           "IsActive__c": "true"
         },
         {
+          "ExternalKey__c": "AI_EXCLUDE_REASON/NOT_APPLICABLE",
+          "CodeGroup__r.GroupCode__c": "AI_EXCLUDE_REASON",
+          "Code__c": "NOT_APPLICABLE",
+          "Parent__r.ExternalKey__c": null,
+          "Level__c": 1,
+          "Name": "NOT_APPLICABLE",
+          "NameEn__c": "Not Applicable",
+          "SortOrder__c": 40,
+          "IsActive__c": "true"
+        },
+        {
           "ExternalKey__c": "AI_EXCLUDE_REASON/OTHER",
           "CodeGroup__r.GroupCode__c": "AI_EXCLUDE_REASON",
+          "Code__c": "OTHER",
+          "Parent__r.ExternalKey__c": null,
+          "Level__c": 1,
+          "Name": "OTHER",
+          "NameEn__c": "Other",
+          "SortOrder__c": 50,
+          "IsActive__c": "true"
+        },
+        {
+          "ExternalKey__c": "ALERT_DISMISS_REASON/FALSE_ALARM",
+          "CodeGroup__r.GroupCode__c": "ALERT_DISMISS_REASON",
+          "Code__c": "FALSE_ALARM",
+          "Parent__r.ExternalKey__c": null,
+          "Level__c": 1,
+          "Name": "FALSE_ALARM",
+          "NameEn__c": "False Alarm",
+          "SortOrder__c": 10,
+          "IsActive__c": "true"
+        },
+        {
+          "ExternalKey__c": "ALERT_DISMISS_REASON/ALREADY_HANDLED",
+          "CodeGroup__r.GroupCode__c": "ALERT_DISMISS_REASON",
+          "Code__c": "ALREADY_HANDLED",
+          "Parent__r.ExternalKey__c": null,
+          "Level__c": 1,
+          "Name": "ALREADY_HANDLED",
+          "NameEn__c": "Already Handled",
+          "SortOrder__c": 20,
+          "IsActive__c": "true"
+        },
+        {
+          "ExternalKey__c": "ALERT_DISMISS_REASON/NOT_APPLICABLE",
+          "CodeGroup__r.GroupCode__c": "ALERT_DISMISS_REASON",
+          "Code__c": "NOT_APPLICABLE",
+          "Parent__r.ExternalKey__c": null,
+          "Level__c": 1,
+          "Name": "NOT_APPLICABLE",
+          "NameEn__c": "Not Applicable",
+          "SortOrder__c": 30,
+          "IsActive__c": "true"
+        },
+        {
+          "ExternalKey__c": "ALERT_DISMISS_REASON/OTHER",
+          "CodeGroup__r.GroupCode__c": "ALERT_DISMISS_REASON",
           "Code__c": "OTHER",
           "Parent__r.ExternalKey__c": null,
           "Level__c": 1,
@@ -2352,6 +2835,17 @@
           "Name": "PSW",
           "NameEn__c": "Psw",
           "SortOrder__c": 180,
+          "IsActive__c": "true"
+        },
+        {
+          "ExternalKey__c": "DOC_CLASS/PPAP/SUB_COMPONENT",
+          "CodeGroup__r.GroupCode__c": "DOC_CLASS",
+          "Code__c": "SUB_COMPONENT",
+          "Parent__r.ExternalKey__c": "DOC_CLASS/PPAP",
+          "Level__c": 2,
+          "Name": "SUB_COMPONENT",
+          "NameEn__c": "Sub Component",
+          "SortOrder__c": 190,
           "IsActive__c": "true"
         }
       ]

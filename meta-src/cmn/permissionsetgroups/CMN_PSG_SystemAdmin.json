@@ -22,7 +22,9 @@
       "CMN_PS_Supplier_Read",
       "CMN_PS_Supplier_Admin",
       "CMN_PS_Characteristic_Read",
-      "CMN_PS_Characteristic_Edit"
+      "CMN_PS_Characteristic_Edit",
+      "CMN_PS_Code_Read",
+      "CMN_PS_Code_Admin"
     ]
   }
 }

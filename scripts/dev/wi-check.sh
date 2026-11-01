@@ -39,7 +39,7 @@ import json
 for x in json.load(open('build/code-analyzer.json'))['violations']:
     if x['severity'] <= 2:
         l = x['locations'][0]
-        print(x['severity'], x['rule'], l['file'].split('force-app')[-1], l.get('startLine'), x['message'][:160])"
+        print(x['severity'], x['rule'], (l.get('file') or '-').split('force-app')[-1], l.get('startLine'), x['message'][:300])"
   exit 1
 }
 echo "위반 0건"
@@ -66,6 +66,13 @@ for x in (f if isinstance(f, list) else [f]):
   exit 1
 }
 echo "배포 성공"
+# PSG 구성이 바뀌면 서버가 비동기로 재계산한다. 그동안 PSG 할당 테스트가 실패하므로 끝날 때까지 기다린다(최대 3분)
+for _ in $(seq 1 36); do
+  n=$(sf data query -o "$ORG" -q "SELECT COUNT() FROM PermissionSetGroup WHERE Status != 'Updated'" --json \
+    | python3 -c 'import json,sys; print(json.load(sys.stdin)["result"]["totalSize"])')
+  [ "$n" = "0" ] && break
+  echo "PSG 재계산 대기($n개)"; sleep 5
+done
 step "Apex 테스트: $TESTS"
 sf apex run test -o "$ORG" -n "$TESTS" -c -w 30 --json > build/test-wi.json 2>/dev/null || true
 python3 - <<'EOF'

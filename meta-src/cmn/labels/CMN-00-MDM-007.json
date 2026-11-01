@@ -1,0 +1,96 @@
+{
+  "wi": "CMN-00-MDM-007",
+  "package": "force-app-cmn",
+  "labels": [
+    {
+      "name": "CMN_Code_InUse",
+      "category": "CMN",
+      "description": "참조 중 코드 삭제(BR-1, AC-2)",
+      "value": {
+        "ko": "업무 레코드나 하위 코드가 참조하는 코드는 삭제할 수 없습니다. 사용 여부를 해제해 비활성화하세요.",
+        "en_US": "A code referenced by records or sub-codes cannot be deleted. Deactivate it instead.",
+        "zh_CN": "被业务记录或下级代码引用的代码不能删除。请取消“有效”以停用。"
+      }
+    },
+    {
+      "name": "CMN_Code_LevelExceeded",
+      "category": "CMN",
+      "description": "그룹 최대 단계 초과(BR-2). {0} = 최대 단계",
+      "value": {
+        "ko": "이 코드 그룹은 {0}단계까지만 둘 수 있습니다.",
+        "en_US": "This code group allows up to {0} levels.",
+        "zh_CN": "此代码组最多允许{0}级。"
+      }
+    },
+    {
+      "name": "CMN_Code_ParentOtherGroup",
+      "category": "CMN",
+      "description": "상위 코드가 다른 그룹",
+      "value": {
+        "ko": "상위 코드는 같은 코드 그룹이어야 합니다.",
+        "en_US": "The parent code must belong to the same code group.",
+        "zh_CN": "上级代码必须属于同一代码组。"
+      }
+    },
+    {
+      "name": "CMN_Code_Duplicate",
+      "category": "CMN",
+      "description": "같은 상위 아래 같은 코드. {0} = 외부 키",
+      "value": {
+        "ko": "같은 코드가 이미 있습니다: {0}",
+        "en_US": "The code already exists: {0}",
+        "zh_CN": "代码已存在: {0}"
+      }
+    },
+    {
+      "name": "CMN_CodePicker_Level",
+      "category": "CMN",
+      "description": "코드 피커 단계 이름. {0} = 단계 번호",
+      "value": {
+        "ko": "{0}단계",
+        "en_US": "Level {0}",
+        "zh_CN": "第{0}级"
+      }
+    },
+    {
+      "name": "CMN_CodePicker_Placeholder",
+      "category": "CMN",
+      "description": "코드 피커 선택 안내",
+      "value": {
+        "ko": "선택하세요",
+        "en_US": "Select",
+        "zh_CN": "请选择"
+      }
+    },
+    {
+      "name": "CMN_CodePicker_Empty",
+      "category": "CMN",
+      "description": "코드 피커: 사용할 코드 없음",
+      "value": {
+        "ko": "사용 가능한 코드가 없습니다.",
+        "en_US": "No codes are available.",
+        "zh_CN": "没有可用的代码。"
+      }
+    },
+    {
+      "name": "CMN_CodePicker_LoadError",
+      "category": "CMN",
+      "description": "코드 피커: 불러오기 실패",
+      "value": {
+        "ko": "코드를 불러오지 못했습니다.",
+        "en_US": "Codes could not be loaded.",
+        "zh_CN": "无法加载代码。"
+      }
+    },
+    {
+      "name": "CMN_CodePicker_Loading",
+      "category": "CMN",
+      "description": "코드 피커: 불러오는 중",
+      "value": {
+        "ko": "불러오는 중",
+        "en_US": "Loading",
+        "zh_CN": "加载中"
+      }
+    }
+  ]
+}

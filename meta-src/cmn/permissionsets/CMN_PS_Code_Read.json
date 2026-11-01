@@ -1,0 +1,14 @@
+{
+  "permissionSet": {
+    "wi": "CMN-00-MDM-007",
+    "name": "CMN_PS_Code_Read",
+    "package": "force-app-cmn",
+    "label": "CMN Code Read",
+    "description": "코드 그룹·공통 코드 조회와 코드 피커(CMN-00-MDM-007). 사내 페르소나 PSG 전체",
+    "objects": {
+      "CMN_CodeGroup__c": "read",
+      "CMN_Code__c": "read"
+    },
+    "classes": ["CMN_CodePickerController"]
+  }
+}

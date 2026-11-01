@@ -1,0 +1,106 @@
+{
+  "wi": "CMN-00-MDM-007",
+  "object": "CMN_CodeGroup__c",
+  "package": "force-app-cmn",
+  "description": "코드 그룹(DEFECT_TYPE, CAUSE_5M1E, DOC_CLASS …). 현업이 추가·변경하고 계층·다국어·SAP 매핑이 필요한 분류. 개발자가 정하는 상태값은 Picklist(Global Value Set)",
+  "label": {
+    "ko": "코드 그룹",
+    "en_US": "Code Group",
+    "zh_CN": "代码组"
+  },
+  "plural": {
+    "ko": "코드 그룹",
+    "en_US": "Code Groups",
+    "zh_CN": "代码组"
+  },
+  "nameField": {
+    "label": {
+      "ko": "그룹명",
+      "en_US": "Group Name",
+      "zh_CN": "代码组名称"
+    }
+  },
+  "sharingModel": "Read",
+  "tab": {
+    "motif": "Custom55: Books"
+  },
+  "fields": [
+    {
+      "name": "GroupCode__c",
+      "type": "Text",
+      "length": 40,
+      "required": true,
+      "externalId": true,
+      "unique": true,
+      "label": {
+        "ko": "그룹 코드",
+        "en_US": "Group Code",
+        "zh_CN": "组代码"
+      }
+    },
+    {
+      "name": "MaxLevel__c",
+      "type": "Number",
+      "precision": 1,
+      "scale": 0,
+      "required": true,
+      "default": "1",
+      "label": {
+        "ko": "최대 단계",
+        "en_US": "Max Level",
+        "zh_CN": "最大层级"
+      },
+      "description": "1~4(BR-2)"
+    },
+    {
+      "name": "Description__c",
+      "type": "Text",
+      "length": 255,
+      "label": {
+        "ko": "설명",
+        "en_US": "Description",
+        "zh_CN": "说明"
+      },
+      "description": "용도·관리 주체(예: DEV_ACTIVITY_TYPE은 품질경영팀 + PMO)"
+    }
+  ],
+  "validationRules": [
+    {
+      "name": "CMN_CodeGroup_MaxLevelRange",
+      "field": "MaxLevel__c",
+      "formula": "OR(MaxLevel__c < 1, MaxLevel__c > 4)",
+      "description": "최대 단계 1~4",
+      "message": {
+        "ko": "최대 단계는 1~4입니다.",
+        "en_US": "Max level must be between 1 and 4.",
+        "zh_CN": "最大层级为1~4。"
+      }
+    },
+    {
+      "name": "CMN_CodeGroup_GroupCodeImmutable",
+      "field": "GroupCode__c",
+      "formula": "AND(ISCHANGED(GroupCode__c), NOT($Permission.CMN_DataMigration))",
+      "description": "그룹 코드는 코드 외부 키의 앞부분",
+      "message": {
+        "ko": "코드는 만든 뒤 바꿀 수 없습니다(권한·채번·외부 연계의 키).",
+        "en_US": "The code cannot be changed after creation (key for access, numbering and integration).",
+        "zh_CN": "代码创建后不可修改(用于权限、编号和外部集成的键)。"
+      }
+    }
+  ],
+  "layout": {
+    "relatedLists": [
+      {
+        "object": "CMN_Code__c",
+        "field": "CodeGroup__c",
+        "fields": [
+          "NAME",
+          "ExternalKey__c",
+          "Level__c",
+          "SortOrder__c",
+          "IsActive__c"
+        ]
+      }
+    ]
+  }
+}

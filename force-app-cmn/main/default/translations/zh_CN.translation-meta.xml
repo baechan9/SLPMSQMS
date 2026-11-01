@@ -37,6 +37,42 @@
         <name>CMN_Char_NotDraft</name>
     </customLabels>
     <customLabels>
+        <label>没有可用的代码。</label>
+        <name>CMN_CodePicker_Empty</name>
+    </customLabels>
+    <customLabels>
+        <label>第{0}级</label>
+        <name>CMN_CodePicker_Level</name>
+    </customLabels>
+    <customLabels>
+        <label>无法加载代码。</label>
+        <name>CMN_CodePicker_LoadError</name>
+    </customLabels>
+    <customLabels>
+        <label>加载中</label>
+        <name>CMN_CodePicker_Loading</name>
+    </customLabels>
+    <customLabels>
+        <label>请选择</label>
+        <name>CMN_CodePicker_Placeholder</name>
+    </customLabels>
+    <customLabels>
+        <label>代码已存在: {0}</label>
+        <name>CMN_Code_Duplicate</name>
+    </customLabels>
+    <customLabels>
+        <label>被业务记录或下级代码引用的代码不能删除。请取消“有效”以停用。</label>
+        <name>CMN_Code_InUse</name>
+    </customLabels>
+    <customLabels>
+        <label>此代码组最多允许{0}级。</label>
+        <name>CMN_Code_LevelExceeded</name>
+    </customLabels>
+    <customLabels>
+        <label>上级代码必须属于同一代码组。</label>
+        <name>CMN_Code_ParentOtherGroup</name>
+    </customLabels>
+    <customLabels>
         <label>输入值无效。</label>
         <name>CMN_Common_InvalidInput</name>
     </customLabels>

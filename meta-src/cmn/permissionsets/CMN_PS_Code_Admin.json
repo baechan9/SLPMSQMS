@@ -1,0 +1,15 @@
+{
+  "permissionSet": {
+    "wi": "CMN-00-MDM-007",
+    "name": "CMN_PS_Code_Admin",
+    "package": "force-app-cmn",
+    "label": "CMN Code Admin",
+    "description": "코드 그룹·공통 코드 관리(Modify All, 참조 중 코드 삭제는 트리거가 막음)와 탭(CMN-00-MDM-007). 품질경영·IT 운영",
+    "objects": {
+      "CMN_CodeGroup__c": "admin",
+      "CMN_Code__c": "admin"
+    },
+    "tabs": ["CMN_CodeGroup__c", "CMN_Code__c"],
+    "classes": ["CMN_CodePickerController"]
+  }
+}

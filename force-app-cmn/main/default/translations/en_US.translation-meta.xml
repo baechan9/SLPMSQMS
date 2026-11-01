@@ -37,6 +37,42 @@
         <name>CMN_Char_NotDraft</name>
     </customLabels>
     <customLabels>
+        <label>No codes are available.</label>
+        <name>CMN_CodePicker_Empty</name>
+    </customLabels>
+    <customLabels>
+        <label>Level {0}</label>
+        <name>CMN_CodePicker_Level</name>
+    </customLabels>
+    <customLabels>
+        <label>Codes could not be loaded.</label>
+        <name>CMN_CodePicker_LoadError</name>
+    </customLabels>
+    <customLabels>
+        <label>Loading</label>
+        <name>CMN_CodePicker_Loading</name>
+    </customLabels>
+    <customLabels>
+        <label>Select</label>
+        <name>CMN_CodePicker_Placeholder</name>
+    </customLabels>
+    <customLabels>
+        <label>The code already exists: {0}</label>
+        <name>CMN_Code_Duplicate</name>
+    </customLabels>
+    <customLabels>
+        <label>A code referenced by records or sub-codes cannot be deleted. Deactivate it instead.</label>
+        <name>CMN_Code_InUse</name>
+    </customLabels>
+    <customLabels>
+        <label>This code group allows up to {0} levels.</label>
+        <name>CMN_Code_LevelExceeded</name>
+    </customLabels>
+    <customLabels>
+        <label>The parent code must belong to the same code group.</label>
+        <name>CMN_Code_ParentOtherGroup</name>
+    </customLabels>
+    <customLabels>
         <label>The input value is not valid.</label>
         <name>CMN_Common_InvalidInput</name>
     </customLabels>

@@ -222,9 +222,16 @@ class Gen:
         self.org_people()
 
     def codes(self):
+        # DOC_CLASS 검토 반영 값(review-pack Vol.2·3·4·5·6a·6b·6c). 기존 데모 값(8D_REPORT 등)은 다른 데이터가 참조해 유지한다
+        DOC_CLASS_CR = ['TEST_PHOTO', 'OCAP_EVIDENCE', 'CUSTOMER_COA', 'HZD_EVIDENCE', 'LELE_EVIDENCE', 'LELE_APPLY_EVIDENCE', 'PPAP_PACKAGE',
+                        'PPAP_CUSTOMER_APPROVAL', 'EIGHTD_REPORT', 'EIGHTD_EVIDENCE', 'EIGHTD_TEMPLATE', 'CLAIM_CUSTOMER_DOC', 'CLAIM_COST_EVIDENCE',
+                        'B2B_SOURCE_FILE', 'CUSTOMER_SCORECARD', 'WORK_INSTRUCTION', 'COMPANY_STANDARD', 'DESIGN_GUIDE', 'NCR_EVIDENCE',
+                        'LIMIT_SAMPLE_CUSTOMER_APPROVAL', 'LIMIT_SAMPLE_CHECK_PHOTO', 'TRAINING_CERT', 'QUALIFICATION_CERT', 'GAUGE_DISPOSAL_CONSENT',
+                        'MSA_CHART', 'LAB_RAW_DATA', 'LAB_IMAGE', 'LAB_EXTERNAL_REPORT', 'AUDIT_EVIDENCE_PACKAGE', 'AUDIT_PREP_DOC', 'FINDING_EVIDENCE',
+                        'CUSTOMER_AUDIT_REPORT', 'CUSTOMER_AUDIT_RESPONSE', 'CERT_SL', 'CB_REPORT', 'CB_RESPONSE', 'MGMT_REVIEW_INPUT', 'IMP_DELIVERABLE']
         o, m = self.out, self.m
         groups = {
-            'DEFECT_TYPE': (3, m['codes']['DEFECT_TYPE']), 'CAUSE_5M1E': (2, m['codes']['CAUSE_5M1E']),
+            'DEFECT_TYPE': (3, m['codes']['DEFECT_TYPE']), 'CAUSE_5M1E': (3, m['codes']['CAUSE_5M1E']),  # 3단계 운영(Vol.5 요청)
             'RESPONSIBILITY': (1, [{'code': c} for c in m['codes']['RESPONSIBILITY']]),
             'DISPOSITION': (1, [{'code': c} for c in m['codes']['DISPOSITION']]),
             'CHANGE_TYPE': (3, self._change_tree(m['codes']['CHANGE_TYPE'])),
@@ -235,10 +242,14 @@ class Gen:
                                                         'METROLOGY_LEAD', 'LAB_MANAGER', 'TRAINING_COORDINATOR', 'CQ_MANAGER', 'QMS_MANAGER', 'LELE_OWNER']]),
             'DOC_CLASS': (2, [{'code': c} for c in ['TEST_REPORT', 'DVPR', '8D_REPORT', 'SUPPLIER_COA', 'IQC_PHOTO', 'NCR_PHOTO', 'NCR_NOTICE',
                                                     'LAB_REPORT', 'CALIBRATION_CERT', 'CERT_SUPPLIER', 'LIMIT_SAMPLE_PHOTO', 'AUDIT_REPORT', 'AUDIT_EVIDENCE',
-                                                    'FOURM_REQUEST', 'FOURM_EVIDENCE', 'PPAP_APPROVAL_NOTICE', 'MSA_REPORT', 'TRAINING_MATERIAL']]
-                          + [{'code': 'PPAP', 'children': [{'code': e[1]} for e in C.PPAP_ELEMENTS]}]),
+                                                    'FOURM_REQUEST', 'FOURM_EVIDENCE', 'PPAP_APPROVAL_NOTICE', 'MSA_REPORT', 'TRAINING_MATERIAL']
+                                                   + DOC_CLASS_CR]
+                          + [{'code': 'PPAP', 'children': [{'code': e[1]} for e in C.PPAP_ELEMENTS] + [{'code': 'SUB_COMPONENT'}]}]),
             'DEFECT_LOCATION': (1, [{'code': c} for c in ['LENS_INNER', 'LENS_OUTER', 'HOUSING', 'SEAL_LINE', 'CONNECTOR_AREA', 'BEZEL']]),
-            'AI_EXCLUDE_REASON': (1, [{'code': c} for c in ['NOT_RELEVANT', 'ALREADY_REVIEWED', 'WEAK_EVIDENCE', 'OTHER']]),
+            'AI_EXCLUDE_REASON': (1, [{'code': c} for c in ['NOT_RELEVANT', 'ALREADY_REVIEWED', 'WEAK_EVIDENCE', 'NOT_APPLICABLE', 'OTHER']]),
+            # 검토 반영(review-pack Vol.5 B2B-005, Vol.6c IAU-001): 그룹만 먼저 두고 QMS_PROCESS 값(책임 부서 속성)은 IAU WI가 채운다
+            'ALERT_DISMISS_REASON': (1, [{'code': c} for c in ['FALSE_ALARM', 'ALREADY_HANDLED', 'NOT_APPLICABLE', 'OTHER']]),
+            'QMS_PROCESS': (1, []),
             'IQC_COMMON_CHECK': (1, [{'code': c} for c in ['PACKAGING', 'LABEL', 'QUANTITY', 'CONTAMINATION']]),
             'GAUGE_TYPE': (1, [{'code': c} for c in ['MICROMETER', 'CALIPER', 'HEIGHT_GAUGE', 'AIMING_TESTER', 'LEAK_TESTER', 'VISION',
                                                      'SPECTROPHOTOMETER', 'PIN_GAUGE', 'CHECKING_FIXTURE', 'CMM', 'XRAY', 'FTIR', 'DSC',

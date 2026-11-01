@@ -1,0 +1,63 @@
+{
+  "wi": "CMN-00-ARC-003",
+  "object": "CMN_TestRecord__c",
+  "package": "force-app-cmn",
+  "description": "테스트 전용 객체(개발 플랜 DEV-3). 공통 기능(코드 참조 삭제 차단, 채번, 공유, 결재 …)의 AC를 업무 객체 없이 검증한다. 탭·권한 없음(관리자·테스트만). 필드는 공통 WI가 필요할 때 더한다",
+  "label": {
+    "ko": "테스트 레코드",
+    "en_US": "Test Record",
+    "zh_CN": "测试记录"
+  },
+  "plural": {
+    "ko": "테스트 레코드",
+    "en_US": "Test Records",
+    "zh_CN": "测试记录"
+  },
+  "nameField": {
+    "label": {
+      "ko": "제목",
+      "en_US": "Title",
+      "zh_CN": "标题"
+    }
+  },
+  "sharingModel": "Private",
+  "enableSearch": false,
+  "enableReports": false,
+  "layout": false,
+  "fields": [
+    {
+      "name": "Code__c",
+      "type": "Lookup",
+      "referenceTo": "CMN_Code__c",
+      "relationshipName": "TestRecords",
+      "relationshipLabel": {
+        "ko": "테스트 레코드",
+        "en_US": "Test Records",
+        "zh_CN": "测试记录"
+      },
+      "label": {
+        "ko": "코드",
+        "en_US": "Code",
+        "zh_CN": "代码"
+      },
+      "description": "MDM-007 AC-2(참조 중 코드 삭제 차단). 업무 객체처럼 리프 코드 Lookup"
+    },
+    {
+      "name": "Plant__c",
+      "type": "Lookup",
+      "referenceTo": "CMN_Plant__c",
+      "relationshipName": "TestRecords",
+      "relationshipLabel": {
+        "ko": "테스트 레코드",
+        "en_US": "Test Records",
+        "zh_CN": "测试记录"
+      },
+      "label": {
+        "ko": "공장",
+        "en_US": "Plant",
+        "zh_CN": "工厂"
+      },
+      "description": "채번·공장 공유 검증(ARC-003, SEC-002)"
+    }
+  ]
+}

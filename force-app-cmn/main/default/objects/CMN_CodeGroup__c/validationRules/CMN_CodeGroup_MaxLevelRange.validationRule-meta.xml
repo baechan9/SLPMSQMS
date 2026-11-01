@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_CodeGroup_MaxLevelRange</fullName>
+    <active>true</active>
+    <description>최대 단계 1~4</description>
+    <errorConditionFormula>OR(MaxLevel__c &lt; 1, MaxLevel__c &gt; 4)</errorConditionFormula>
+    <errorDisplayField>MaxLevel__c</errorDisplayField>
+    <errorMessage>최대 단계는 1~4입니다.</errorMessage>
+</ValidationRule>

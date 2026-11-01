@@ -9,6 +9,8 @@
     <permissionSets>CMN_PS_AppQms_Read</permissionSets>
     <permissionSets>CMN_PS_Characteristic_Edit</permissionSets>
     <permissionSets>CMN_PS_Characteristic_Read</permissionSets>
+    <permissionSets>CMN_PS_Code_Admin</permissionSets>
+    <permissionSets>CMN_PS_Code_Read</permissionSets>
     <permissionSets>CMN_PS_Customer_Admin</permissionSets>
     <permissionSets>CMN_PS_Customer_Read</permissionSets>
     <permissionSets>CMN_PS_Item_Admin</permissionSets>

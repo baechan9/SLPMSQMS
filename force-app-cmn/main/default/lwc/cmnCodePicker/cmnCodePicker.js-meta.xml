@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>66.0</apiVersion>
+    <isExposed>false</isExposed>
+    <description
+  >계층형 공통 코드 연쇄 선택(CMN-00-MDM-007). 다른 LWC가 자식으로 쓴다</description>
+</LightningComponentBundle>

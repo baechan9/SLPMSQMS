@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_Code_CodeImmutable</fullName>
+    <active>true</active>
+    <description>코드는 외부 키의 일부</description>
+    <errorConditionFormula>AND(ISCHANGED(Code__c), NOT($Permission.CMN_DataMigration))</errorConditionFormula>
+    <errorDisplayField>Code__c</errorDisplayField>
+    <errorMessage>코드는 만든 뒤 바꿀 수 없습니다(권한·채번·외부 연계의 키).</errorMessage>
+</ValidationRule>

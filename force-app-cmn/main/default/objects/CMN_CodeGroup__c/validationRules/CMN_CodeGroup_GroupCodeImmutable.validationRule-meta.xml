@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_CodeGroup_GroupCodeImmutable</fullName>
+    <active>true</active>
+    <description>그룹 코드는 코드 외부 키의 앞부분</description>
+    <errorConditionFormula>AND(ISCHANGED(GroupCode__c), NOT($Permission.CMN_DataMigration))</errorConditionFormula>
+    <errorDisplayField>GroupCode__c</errorDisplayField>
+    <errorMessage>코드는 만든 뒤 바꿀 수 없습니다(권한·채번·외부 연계의 키).</errorMessage>
+</ValidationRule>

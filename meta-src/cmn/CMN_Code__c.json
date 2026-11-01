@@ -1,0 +1,204 @@
+{
+  "wi": "CMN-00-MDM-007",
+  "object": "CMN_Code__c",
+  "package": "force-app-cmn",
+  "description": "계층형 공통 코드. Level·ExternalKey(그룹/코드 경로 전체)·Path(이름 경로)는 트리거가 만든다. 업무 레코드는 리프 Lookup 1개 + Path 사본을 저장. 참조 중 코드는 삭제 금지(BR-1)",
+  "label": {
+    "ko": "공통 코드",
+    "en_US": "Code",
+    "zh_CN": "通用代码"
+  },
+  "plural": {
+    "ko": "공통 코드",
+    "en_US": "Codes",
+    "zh_CN": "通用代码"
+  },
+  "nameField": {
+    "label": {
+      "ko": "코드명",
+      "en_US": "Code Name",
+      "zh_CN": "代码名称"
+    }
+  },
+  "sharingModel": "ControlledByParent",
+  "enableHistory": true,
+  "tab": {
+    "motif": "Custom57: Building"
+  },
+  "fields": [
+    {
+      "name": "CodeGroup__c",
+      "type": "MasterDetail",
+      "referenceTo": "CMN_CodeGroup__c",
+      "relationshipName": "Codes",
+      "writeRequiresMasterRead": true,
+      "relationshipLabel": {
+        "ko": "공통 코드",
+        "en_US": "Codes",
+        "zh_CN": "通用代码"
+      },
+      "label": {
+        "ko": "코드 그룹",
+        "en_US": "Code Group",
+        "zh_CN": "代码组"
+      }
+    },
+    {
+      "name": "Code__c",
+      "type": "Text",
+      "length": 40,
+      "required": true,
+      "label": {
+        "ko": "코드",
+        "en_US": "Code",
+        "zh_CN": "代码"
+      }
+    },
+    {
+      "name": "Parent__c",
+      "type": "Lookup",
+      "referenceTo": "CMN_Code__c",
+      "relationshipName": "ChildCodes",
+      "relationshipLabel": {
+        "ko": "하위 코드",
+        "en_US": "Sub-codes",
+        "zh_CN": "下级代码"
+      },
+      "label": {
+        "ko": "상위 코드",
+        "en_US": "Parent Code",
+        "zh_CN": "上级代码"
+      },
+      "description": "같은 그룹. 2단계 이상이면 필수(상위 없으면 1단계)"
+    },
+    {
+      "name": "Level__c",
+      "type": "Number",
+      "precision": 1,
+      "scale": 0,
+      "serviceOnly": true,
+      "label": {
+        "ko": "단계",
+        "en_US": "Level",
+        "zh_CN": "层级"
+      },
+      "description": "Parent.Level + 1(트리거). 그룹 최대 단계 이하(BR-2)"
+    },
+    {
+      "name": "NameEn__c",
+      "type": "Text",
+      "length": 80,
+      "label": {
+        "ko": "영문명",
+        "en_US": "English Name",
+        "zh_CN": "英文名称"
+      },
+      "description": "영어 사용자 표시명. 비면 Name(AC-1)"
+    },
+    {
+      "name": "NameZh__c",
+      "type": "Text",
+      "length": 80,
+      "label": {
+        "ko": "중문명",
+        "en_US": "Chinese Name",
+        "zh_CN": "中文名称"
+      },
+      "description": "중국어 사용자 표시명. 비면 Name"
+    },
+    {
+      "name": "SortOrder__c",
+      "type": "Number",
+      "precision": 4,
+      "scale": 0,
+      "label": {
+        "ko": "정렬 순서",
+        "en_US": "Sort Order",
+        "zh_CN": "排序"
+      }
+    },
+    {
+      "name": "IsActive__c",
+      "type": "Checkbox",
+      "default": true,
+      "trackHistory": true,
+      "label": {
+        "ko": "사용",
+        "en_US": "Active",
+        "zh_CN": "有效"
+      },
+      "description": "비활성 코드와 그 하위는 피커에 나오지 않는다(AC-3)"
+    },
+    {
+      "name": "Attribute1__c",
+      "type": "Text",
+      "length": 255,
+      "label": {
+        "ko": "속성 1",
+        "en_US": "Attribute 1",
+        "zh_CN": "属性1"
+      },
+      "description": "그룹별 확장 속성(예: SAP 결함 코드, DEFECT_TYPE = SAFETY, GAUGE_TYPE 교정 주기)"
+    },
+    {
+      "name": "Attribute2__c",
+      "type": "Text",
+      "length": 255,
+      "label": {
+        "ko": "속성 2",
+        "en_US": "Attribute 2",
+        "zh_CN": "属性2"
+      },
+      "description": "그룹별 확장 속성(예: DOC_CLASS INDEX_SCOPE)"
+    },
+    {
+      "name": "Attribute3__c",
+      "type": "Text",
+      "length": 255,
+      "label": {
+        "ko": "속성 3",
+        "en_US": "Attribute 3",
+        "zh_CN": "属性3"
+      }
+    },
+    {
+      "name": "ExternalKey__c",
+      "type": "Text",
+      "length": 255,
+      "externalId": true,
+      "unique": true,
+      "serviceOnly": true,
+      "label": {
+        "ko": "외부 키",
+        "en_US": "External Key",
+        "zh_CN": "外部键"
+      },
+      "description": "{GroupCode}/{상위 코드…}/{Code} 경로 전체(데모 보강 CR — 명세 {GroupCode}/{Code}는 단계가 다른 같은 코드가 충돌). 트리거가 설정"
+    },
+    {
+      "name": "Path__c",
+      "type": "Text",
+      "length": 255,
+      "serviceOnly": true,
+      "label": {
+        "ko": "경로",
+        "en_US": "Path",
+        "zh_CN": "路径"
+      },
+      "description": "\"외관 > 이물 > 렌즈 내부\" 자동"
+    }
+  ],
+  "validationRules": [
+    {
+      "name": "CMN_Code_CodeImmutable",
+      "field": "Code__c",
+      "formula": "AND(ISCHANGED(Code__c), NOT($Permission.CMN_DataMigration))",
+      "description": "코드는 외부 키의 일부",
+      "message": {
+        "ko": "코드는 만든 뒤 바꿀 수 없습니다(권한·채번·외부 연계의 키).",
+        "en_US": "The code cannot be changed after creation (key for access, numbering and integration).",
+        "zh_CN": "代码创建后不可修改(用于权限、编号和外部集成的键)。"
+      }
+    }
+  ]
+}

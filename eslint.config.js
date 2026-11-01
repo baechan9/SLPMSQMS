@@ -6,6 +6,13 @@ const lwcConfig = require("@salesforce/eslint-config-lwc/recommended");
 const globals = require("globals");
 
 module.exports = defineConfig([
+  // Code Analyzer의 ESLint 엔진은 다른 위치에서 실행돼 Jest 버전을 찾지 못한다(jest/no-deprecated-functions). 고정한다
+  {
+    settings: {
+      jest: { version: 29 }
+    }
+  },
+
   // Aura configuration
   {
     files: ["**/aura/**/*.js"],

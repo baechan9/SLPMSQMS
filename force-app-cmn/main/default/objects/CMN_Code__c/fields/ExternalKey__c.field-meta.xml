@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ExternalKey__c</fullName>
+    <caseSensitive>false</caseSensitive>
+    <description>{GroupCode}/{상위 코드…}/{Code} 경로 전체(데모 보강 CR — 명세 {GroupCode}/{Code}는 단계가 다른 같은 코드가 충돌). 트리거가 설정</description>
+    <externalId>true</externalId>
+    <label>외부 키</label>
+    <length>255</length>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>true</unique>
+</CustomField>

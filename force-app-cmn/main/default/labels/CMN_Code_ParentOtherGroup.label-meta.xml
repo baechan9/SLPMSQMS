@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_Code_ParentOtherGroup</fullName>
+    <categories>CMN</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>상위 코드가 다른 그룹</shortDescription>
+    <value>상위 코드는 같은 코드 그룹이어야 합니다.</value>
+</CustomLabel>
