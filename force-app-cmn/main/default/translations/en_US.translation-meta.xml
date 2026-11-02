@@ -565,6 +565,18 @@ Open: {Url}</label>
         <name>CMN_Site_UnknownPlant</name>
     </customLabels>
     <customLabels>
+        <label>Contact: Quality Management Team</label>
+        <name>CMN_Sso_NoAccessContact</name>
+    </customLabels>
+    <customLabels>
+        <label>You do not have access to QMS, or your account is inactive.</label>
+        <name>CMN_Sso_NoAccessMessage</name>
+    </customLabels>
+    <customLabels>
+        <label>No access to QMS</label>
+        <name>CMN_Sso_NoAccessTitle</name>
+    </customLabels>
+    <customLabels>
         <label>No status flow is configured for this record.</label>
         <name>CMN_StatusPath_NotConfigured</name>
     </customLabels>

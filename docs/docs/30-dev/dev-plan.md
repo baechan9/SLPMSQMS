@@ -218,7 +218,7 @@ P0 스파이크에서 메타데이터·CLI로 자동화할 수 있는지 확인�
 | Platform Cache 파티션 | P7 | **확인됨**: PlatformCachePartition 메타데이터 배포 |
 | Experience Cloud 사이트 생성·게시 | P4 | **확인됨**: `sf community create`(비동기 — `BackgroundOperation`으로 완료 확인), `sf community publish`. 같은 이름으로 두 번 요청하면 두 번째가 오류 |
 | 메일 발송 수준(Deliverability) | P2 | 메타데이터(EmailAdministrationSettings)에 항목이 없어 Setup에서 확인·변경(수동) |
-| SSO 테스트 IdP 연결(다른 Org를 IdP로) | P2 | 미확인(P2 TDO-002 착수 때). SAML 설정 메타데이터 + IdP 측 Connected App |
+| SSO 테스트 IdP 연결(다른 Org를 IdP로) | P2 | 불가(2026-11-02 확인): IdP 인증서·활성화·메타데이터는 되지만 신규 Org는 연결된 앱(SAML) 생성이 막혀 SP 등록 불가. SP 설정 배포까지만 확인(`scripts/org/sso-sp-config.py`), AC는 SIT에서 포털 IdP로(docs/dev/sso-setup.md) |
 | External Credential 주체·인증 값 입력(Mule DEV 주소) | P3 | 비밀값이라 저장소에 두지 않음. 사용자별 입력 절차만 기록 |
 | Agentforce 에이전트 활성화 | P12 | `sf agent` 명령 사용 가능 확인, 활성화 절차는 P12에서 |
 

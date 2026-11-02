@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_Sso_NoAccessTitle</fullName>
+    <categories>CMN</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>SSO 권한 없음 안내 제목</shortDescription>
+    <value>QMS 사용 권한 없음</value>
+</CustomLabel>

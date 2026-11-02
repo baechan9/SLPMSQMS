@@ -565,6 +565,18 @@
         <name>CMN_Site_UnknownPlant</name>
     </customLabels>
     <customLabels>
+        <label>联系: 质量管理团队</label>
+        <name>CMN_Sso_NoAccessContact</name>
+    </customLabels>
+    <customLabels>
+        <label>您没有 QMS 使用权限,或账户已停用。</label>
+        <name>CMN_Sso_NoAccessMessage</name>
+    </customLabels>
+    <customLabels>
+        <label>无 QMS 使用权限</label>
+        <name>CMN_Sso_NoAccessTitle</name>
+    </customLabels>
+    <customLabels>
         <label>未为此记录配置状态流程。</label>
         <name>CMN_StatusPath_NotConfigured</name>
     </customLabels>

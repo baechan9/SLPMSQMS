@@ -1,0 +1,24 @@
+<apex:page
+  showHeader="false"
+  sidebar="false"
+  standardStylesheets="false"
+  applyHtmlTag="true"
+  applyBodyTag="true"
+  docType="html-5.0"
+  language="{!$CurrentPage.parameters.lang}"
+  title="{!$Label.CMN_Sso_NoAccessTitle}"
+>
+  <!-- CMN-00-TDO-002 BR-3·AC-3: SSO 매칭 사용자가 없거나 비활성일 때 SAML 사용자 지정 오류 URL로 보이는 공개 안내 페이지 -->
+  <main
+    style="
+      max-width: 40rem;
+      margin: 4rem auto;
+      padding: 0 1rem;
+      font-family: sans-serif;
+    "
+  >
+    <h1>{!$Label.CMN_Sso_NoAccessTitle}</h1>
+    <p>{!$Label.CMN_Sso_NoAccessMessage}</p>
+    <p>{!$Label.CMN_Sso_NoAccessContact}</p>
+  </main>
+</apex:page>

@@ -1,0 +1,36 @@
+{
+  "wi": "CMN-00-TDO-002",
+  "package": "force-app-cmn",
+  "labels": [
+    {
+      "name": "CMN_Sso_NoAccessTitle",
+      "category": "CMN",
+      "description": "SSO 권한 없음 안내 제목",
+      "value": {
+        "ko": "QMS 사용 권한 없음",
+        "en_US": "No access to QMS",
+        "zh_CN": "无 QMS 使用权限"
+      }
+    },
+    {
+      "name": "CMN_Sso_NoAccessMessage",
+      "category": "CMN",
+      "description": "SSO 권한 없음 안내 본문",
+      "value": {
+        "ko": "QMS를 사용할 권한이 없거나 계정이 비활성 상태입니다.",
+        "en_US": "You do not have access to QMS, or your account is inactive.",
+        "zh_CN": "您没有 QMS 使用权限,或账户已停用。"
+      }
+    },
+    {
+      "name": "CMN_Sso_NoAccessContact",
+      "category": "CMN",
+      "description": "SSO 권한 없음 담당",
+      "value": {
+        "ko": "담당: 품질경영팀",
+        "en_US": "Contact: Quality Management Team",
+        "zh_CN": "联系: 质量管理团队"
+      }
+    }
+  ]
+}
