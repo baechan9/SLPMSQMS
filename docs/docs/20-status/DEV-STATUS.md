@@ -4,6 +4,8 @@
 
 **상태 값**: 대기 → 개발 중 → 개발 완료 / 보류(사유)
 
+**개발 전략 변경(2026-11-02)**: 중단점 p1(`docs/docs/30-dev/checkpoint-p1.md`) 이후 남은 WI는 화면 우선 개발 플랜(`docs/docs/30-dev/screen-first-plan.md`)을 따른다: A단계 1차 화면 → R1 화면 검토·승인 → B단계 상세 기능. A단계 진행은 이 표가 아니라 `docs/docs/30-dev/screen-map.csv`의 화면상태 열로 관리하고, 이 표의 상태는 B단계(상세 기능) 기준으로 갱신한다.
+
 **개발 순서 원칙**: 개발 플랜(`docs/docs/30-dev/dev-plan.md`) 3절을 따른다. 착수 순서는 Wave가 아니라 선행 관계로 정한 페이즈·레인이다. 선행 WI가 모두 `개발 완료`이면 다음 페이즈 WI도 한 페이즈 앞까지 당겨 착수할 수 있다. W0 공통 기반(P1·P2)이 끝나기 전에는 QMS 메뉴 WI를 착수하지 않는다.
 
 **표 갱신**: 제목·페이즈·레인·Wave 열과 요약 표는 `cd docs && python3 scripts/build_dev_plan.py`가 배정표(`docs/docs/30-dev/phase-map.csv`)로 다시 쓴다. 상태·시작일·완료일·보고서·비고 열은 스크립트가 보존하므로 그 열만 손으로(또는 `/implement-wi`가) 고친다.
