@@ -99,6 +99,16 @@
         "BodyLabel__c": "CMN_Ntf_InterfaceFailed_Body",
         "IsActive__c": true
       }
+    },
+    {
+      "name": "CMN_EMPLOYEE_RETIRED",
+      "label": "퇴직자 업무 이관(INT-002 BR-2)",
+      "values": {
+        "Channels__c": "EMAIL,BELL",
+        "SubjectLabel__c": "CMN_Ntf_EmployeeRetired_Subject",
+        "BodyLabel__c": "CMN_Ntf_EmployeeRetired_Body",
+        "IsActive__c": true
+      }
     }
   ]
 }

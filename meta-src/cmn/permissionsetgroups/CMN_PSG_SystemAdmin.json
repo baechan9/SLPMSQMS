@@ -36,7 +36,9 @@
       "CMN_PS_Comment_User",
       "CMN_PS_Document_User",
       "CMN_PS_Document_Admin",
-      "CMN_PS_InterfaceLog_Read"
+      "CMN_PS_InterfaceLog_Read",
+      "CMN_PS_Employee_Read",
+      "CMN_PS_Employee_Admin"
     ]
   }
 }

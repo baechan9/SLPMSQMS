@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_Ntf_EmployeeRetired_Body</fullName>
+    <categories>CMN</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>퇴직자 업무 이관 알림 본문</shortDescription>
+    <value>{EmployeeName}({EmployeeNo})님이 퇴직해 QMS 계정을 비활성화했습니다.
+진행 중 To-Do {OpenTodos}건, 결재 대기 {PendingApprovals}건을 다른 담당자에게 이관하세요.
+바로 가기: {Url}</value>
+</CustomLabel>

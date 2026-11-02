@@ -18,6 +18,7 @@
     <permissionSets>CMN_PS_DeleteLog_Read</permissionSets>
     <permissionSets>CMN_PS_Document_Admin</permissionSets>
     <permissionSets>CMN_PS_Document_User</permissionSets>
+    <permissionSets>CMN_PS_Employee_Read</permissionSets>
     <permissionSets>CMN_PS_Item_Admin</permissionSets>
     <permissionSets>CMN_PS_Item_Read</permissionSets>
     <permissionSets>CMN_PS_Language_User</permissionSets>

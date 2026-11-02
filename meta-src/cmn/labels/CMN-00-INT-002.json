@@ -1,0 +1,26 @@
+{
+  "wi": "CMN-00-INT-002",
+  "package": "force-app-cmn",
+  "labels": [
+    {
+      "name": "CMN_Ntf_EmployeeRetired_Subject",
+      "category": "CMN",
+      "description": "퇴직자 업무 이관 알림 제목",
+      "value": {
+        "ko": "[업무 이관 필요] {EmployeeName}({EmployeeNo}) 퇴직",
+        "en_US": "[Handover Needed] {EmployeeName} ({EmployeeNo}) retired",
+        "zh_CN": "[需要交接] {EmployeeName}({EmployeeNo}) 离职"
+      }
+    },
+    {
+      "name": "CMN_Ntf_EmployeeRetired_Body",
+      "category": "CMN",
+      "description": "퇴직자 업무 이관 알림 본문",
+      "value": {
+        "ko": "{EmployeeName}({EmployeeNo})님이 퇴직해 QMS 계정을 비활성화했습니다.\n진행 중 To-Do {OpenTodos}건, 결재 대기 {PendingApprovals}건을 다른 담당자에게 이관하세요.\n바로 가기: {Url}",
+        "en_US": "{EmployeeName} ({EmployeeNo}) has retired and the QMS account was deactivated.\nReassign {OpenTodos} open To-Dos and {PendingApprovals} pending approvals.\nOpen: {Url}",
+        "zh_CN": "{EmployeeName}({EmployeeNo})已离职,QMS 账户已停用。\n请将进行中的待办 {OpenTodos} 条、待审批 {PendingApprovals} 条转交他人。\n链接: {Url}"
+      }
+    }
+  ]
+}

@@ -515,6 +515,16 @@ Open: {Url}</label>
         <name>CMN_Ntf_CommentMention_Subject</name>
     </customLabels>
     <customLabels>
+        <label>{EmployeeName} ({EmployeeNo}) has retired and the QMS account was deactivated.
+Reassign {OpenTodos} open To-Dos and {PendingApprovals} pending approvals.
+Open: {Url}</label>
+        <name>CMN_Ntf_EmployeeRetired_Body</name>
+    </customLabels>
+    <customLabels>
+        <label>[Handover Needed] {EmployeeName} ({EmployeeNo}) retired</label>
+        <name>CMN_Ntf_EmployeeRetired_Subject</name>
+    </customLabels>
+    <customLabels>
         <label>{InterfaceId} run failed ({RecordCount} records, {ErrorCount} errors).
 Correlation Id: {CorrelationId}
 Open: {Url}</label>

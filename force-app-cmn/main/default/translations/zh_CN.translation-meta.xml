@@ -515,6 +515,16 @@
         <name>CMN_Ntf_CommentMention_Subject</name>
     </customLabels>
     <customLabels>
+        <label>{EmployeeName}({EmployeeNo})已离职,QMS 账户已停用。
+请将进行中的待办 {OpenTodos} 条、待审批 {PendingApprovals} 条转交他人。
+链接: {Url}</label>
+        <name>CMN_Ntf_EmployeeRetired_Body</name>
+    </customLabels>
+    <customLabels>
+        <label>[需要交接] {EmployeeName}({EmployeeNo}) 离职</label>
+        <name>CMN_Ntf_EmployeeRetired_Subject</name>
+    </customLabels>
+    <customLabels>
         <label>{InterfaceId} 执行失败(处理 {RecordCount} 条,错误 {ErrorCount} 条)。
 关联 ID: {CorrelationId}
 链接: {Url}</label>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_Ntf_EmployeeRetired_Subject</fullName>
+    <categories>CMN</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>퇴직자 업무 이관 알림 제목</shortDescription>
+    <value>[업무 이관 필요] {EmployeeName}({EmployeeNo}) 퇴직</value>
+</CustomLabel>

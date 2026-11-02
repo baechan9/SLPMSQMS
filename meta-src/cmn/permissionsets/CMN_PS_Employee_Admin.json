@@ -1,0 +1,13 @@
+{
+  "permissionSet": {
+    "wi": "CMN-00-INT-002",
+    "name": "CMN_PS_Employee_Admin",
+    "package": "force-app-cmn",
+    "label": "CMN Employee Admin",
+    "description": "임직원 탭·사용자 연결 수정(관리자)(CMN-00-INT-002)",
+    "objects": {
+      "CMN_Employee__c": "edit"
+    },
+    "tabs": ["CMN_Employee__c"]
+  }
+}

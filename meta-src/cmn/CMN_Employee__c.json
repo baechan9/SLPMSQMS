@@ -1,0 +1,147 @@
+{
+  "wi": "CMN-00-INT-002",
+  "object": "CMN_Employee__c",
+  "package": "force-app-cmn",
+  "description": "임직원(INT-002, HR 연계). 전 임직원을 동기화하고 라이선스 사용자는 User__c로 연결(사번 일치 시 자동). 성명·사번·부서·직급·메일 외 개인정보는 받지 않는다(BR-4)",
+  "label": {
+    "ko": "임직원",
+    "en_US": "Employee",
+    "zh_CN": "员工"
+  },
+  "plural": {
+    "ko": "임직원",
+    "en_US": "Employees",
+    "zh_CN": "员工"
+  },
+  "nameField": {
+    "label": {
+      "ko": "성명",
+      "en_US": "Name",
+      "zh_CN": "姓名"
+    }
+  },
+  "sharingModel": "Read",
+  "tab": {
+    "motif": "Custom24: Bell"
+  },
+  "enableHistory": true,
+  "fields": [
+    {
+      "name": "EmployeeNo__c",
+      "type": "Text",
+      "length": 20,
+      "required": true,
+      "externalId": true,
+      "unique": true,
+      "label": {
+        "ko": "사번",
+        "en_US": "Employee No.",
+        "zh_CN": "工号"
+      }
+    },
+    {
+      "name": "NameEn__c",
+      "type": "Text",
+      "length": 80,
+      "label": {
+        "ko": "영문 성명",
+        "en_US": "English Name",
+        "zh_CN": "英文姓名"
+      }
+    },
+    {
+      "name": "Email__c",
+      "type": "Email",
+      "label": {
+        "ko": "메일",
+        "en_US": "Email",
+        "zh_CN": "邮箱"
+      }
+    },
+    {
+      "name": "Department__c",
+      "type": "Lookup",
+      "referenceTo": "CMN_Department__c",
+      "relationshipName": "Employees",
+      "relationshipLabel": {
+        "ko": "임직원",
+        "en_US": "Employees",
+        "zh_CN": "员工"
+      },
+      "required": true,
+      "deleteConstraint": "Restrict",
+      "label": {
+        "ko": "부서",
+        "en_US": "Department",
+        "zh_CN": "部门"
+      },
+      "trackHistory": true
+    },
+    {
+      "name": "JobGradeCode__c",
+      "type": "Text",
+      "length": 10,
+      "label": {
+        "ko": "직급 코드",
+        "en_US": "Job Grade",
+        "zh_CN": "职级"
+      },
+      "trackHistory": true
+    },
+    {
+      "name": "HrStatus__c",
+      "type": "Picklist",
+      "required": true,
+      "default": "ACTIVE",
+      "label": {
+        "ko": "재직 상태",
+        "en_US": "HR Status",
+        "zh_CN": "在职状态"
+      },
+      "trackHistory": true,
+      "values": [
+        {
+          "api": "ACTIVE",
+          "label": {
+            "ko": "재직",
+            "en_US": "Active",
+            "zh_CN": "在职"
+          }
+        },
+        {
+          "api": "LEAVE",
+          "label": {
+            "ko": "휴직",
+            "en_US": "On Leave",
+            "zh_CN": "休假"
+          }
+        },
+        {
+          "api": "RETIRED",
+          "label": {
+            "ko": "퇴직",
+            "en_US": "Retired",
+            "zh_CN": "离职"
+          }
+        }
+      ]
+    },
+    {
+      "name": "User__c",
+      "type": "Lookup",
+      "referenceTo": "User",
+      "relationshipName": "Employees",
+      "relationshipLabel": {
+        "ko": "임직원",
+        "en_US": "Employees",
+        "zh_CN": "员工"
+      },
+      "label": {
+        "ko": "사용자",
+        "en_US": "User",
+        "zh_CN": "用户"
+      },
+      "description": "라이선스 사용자. 비우면 같은 사번의 사용자를 트리거가 연결"
+    }
+  ]
+}

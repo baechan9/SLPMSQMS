@@ -1,0 +1,13 @@
+{
+  "permissionSet": {
+    "wi": "CMN-00-INT-002",
+    "name": "CMN_PS_Employee_Read",
+    "package": "force-app-cmn",
+    "label": "CMN Employee Read",
+    "description": "임직원 조회(조직도·CFT 후보·귀책자 지정)(CMN-00-INT-002). 사내 페르소나 PSG 전체",
+    "objects": {
+      "CMN_Employee__c": "read",
+      "CMN_Department__c": "read"
+    }
+  }
+}
