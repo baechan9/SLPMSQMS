@@ -19,6 +19,9 @@ public with sharing class CMN_NotificationJob implements Queueable {
   private static List<CMN_NotificationService.Message> chained;
 
   private List<CMN_NotificationService.Message> messages;
+  /** 이번 실행의 경고·오류. 반복문 안에서 로그 이벤트를 발행하지 않도록 모아서 한 번에 남긴다 */
+  private static List<String> warnings = new List<String>();
+  private static List<String> errors = new List<String>();
 
   /** @description 발송 기록 한 건. */
   public class Delivery {
@@ -73,6 +76,7 @@ public with sharing class CMN_NotificationJob implements Queueable {
         e
       );
     }
+    flushLogs(now.isEmpty() ? null : now[0].recordId);
     if (!rest.isEmpty()) {
       if (Test.isRunningTest()) {
         chained = rest;
@@ -119,6 +123,7 @@ public with sharing class CMN_NotificationJob implements Queueable {
       ]
     );
     Map<Id, Map<String, String>> recordTokens = recordTokens(recordIds);
+    Map<Id, Map<Id, String>> portalUrls = portalUrls(batch, users);
     Id notificationTypeId = notificationTypeId();
     Id fromAddressId = fromAddressId();
     List<Messaging.SingleEmailMessage> emails = new List<Messaging.SingleEmailMessage>();
@@ -130,7 +135,7 @@ public with sharing class CMN_NotificationJob implements Queueable {
       Set<String> channels = new Set<String>(
         (rule.Channels__c ?? '').toUpperCase().deleteWhitespace().split(',')
       );
-      Map<Id, String> urls = urls(m, users);
+      Map<Id, String> urls = urls(m, users, portalUrls);
       Map<String, Delivery> bellByLanguage = new Map<String, Delivery>();
       for (Id userId : m.recipientIds) {
         User u = users.get(userId);
@@ -154,11 +159,7 @@ public with sharing class CMN_NotificationJob implements Queueable {
           tokens
         );
         if (subject == null || body == null) {
-          CMN_Logger.warn(
-            'CMN_NotificationJob',
-            'Missing label for notification event: ' + m.eventCode,
-            m.recordId
-          );
+          warnings.add('Missing label for notification event: ' + m.eventCode);
           break;
         }
         if (channels.contains(CMN_NotificationService.CHANNEL_EMAIL)) {
@@ -263,11 +264,24 @@ public with sharing class CMN_NotificationJob implements Queueable {
     return out;
   }
 
-  /** 수신자별 링크: 사내 = Lightning 레코드 URL, 포털 = 등록된 변환 클래스(없으면 사내 링크). */
+  /** 수신자별 링크(한 알림만, 테스트용). */
   @TestVisible
   private static Map<Id, String> urls(
     CMN_NotificationService.Message m,
     Map<Id, User> users
+  ) {
+    return urls(
+      m,
+      users,
+      portalUrls(new List<CMN_NotificationService.Message>{ m }, users)
+    );
+  }
+
+  /** 수신자별 링크: 사내 = Lightning 레코드 URL, 포털 = 변환 클래스 결과(없으면 사내 링크). */
+  private static Map<Id, String> urls(
+    CMN_NotificationService.Message m,
+    Map<Id, User> users,
+    Map<Id, Map<Id, String>> portal
   ) {
     Map<Id, String> out = new Map<Id, String>();
     if (m.recordId == null) {
@@ -280,36 +294,66 @@ public with sharing class CMN_NotificationJob implements Queueable {
       '/' +
       m.recordId +
       '/view';
-    Set<Id> portal = new Set<Id>();
+    Map<Id, String> resolved = portal.get(m.recordId) ?? new Map<Id, String>();
     for (Id userId : m.recipientIds) {
-      out.put(userId, internal);
-      if (
-        users.get(userId)?.UserType != null &&
-        users.get(userId).UserType != 'Standard'
-      ) {
-        portal.add(userId);
+      out.put(userId, resolved.get(userId) ?? internal);
+    }
+    return out;
+  }
+
+  /** 포털 수신자 링크를 묶음 전체에 대해 변환 클래스로 한 번에 구한다(BR-5, 검토 반영 Vol.3). */
+  private static Map<Id, Map<Id, String>> portalUrls(
+    List<CMN_NotificationService.Message> batch,
+    Map<Id, User> users
+  ) {
+    Map<Id, Set<Id>> byRecord = new Map<Id, Set<Id>>();
+    for (CMN_NotificationService.Message m : batch) {
+      if (m.recordId == null) {
+        continue;
+      }
+      for (Id userId : m.recipientIds) {
+        String type = users.get(userId)?.UserType;
+        if (type != null && type != 'Standard') {
+          if (!byRecord.containsKey(m.recordId)) {
+            byRecord.put(m.recordId, new Set<Id>());
+          }
+          byRecord.get(m.recordId).add(userId);
+        }
       }
     }
     String resolverClass = CMN_Settings.getString(
       'CMN_NTF_PORTAL_URL_RESOLVER',
       null
     );
-    if (!portal.isEmpty() && resolverClass != null) {
-      Type t = Type.forName(resolverClass);
-      if (t == null) {
-        CMN_Logger.warn(
-          'CMN_NotificationJob',
-          'Portal URL resolver not found: ' + resolverClass,
-          m.recordId
-        );
-      } else {
-        out.putAll(
-          ((CMN_RecipientUrlResolver) t.newInstance())
-            .urlsFor(m.recordId, portal)
-        );
-      }
+    if (byRecord.isEmpty() || resolverClass == null) {
+      return new Map<Id, Map<Id, String>>();
     }
-    return out;
+    System.Type t = System.Type.forName(resolverClass);
+    if (t == null) {
+      warnings.add('Portal URL resolver not found: ' + resolverClass);
+      return new Map<Id, Map<Id, String>>();
+    }
+    return ((CMN_RecipientUrlResolver) t.newInstance()).urlsFor(byRecord) ??
+      new Map<Id, Map<Id, String>>();
+  }
+
+  private static void flushLogs(Id recordId) {
+    if (!warnings.isEmpty()) {
+      CMN_Logger.warn(
+        'CMN_NotificationJob',
+        String.join(warnings, '\n'),
+        recordId
+      );
+    }
+    if (!errors.isEmpty()) {
+      CMN_Logger.error(
+        'CMN_NotificationJob',
+        String.join(errors, '\n'),
+        recordId
+      );
+    }
+    warnings.clear();
+    errors.clear();
   }
 
   private static Messaging.SingleEmailMessage email(
@@ -354,21 +398,18 @@ public with sharing class CMN_NotificationJob implements Queueable {
     try {
       for (Messaging.SendEmailResult r : Messaging.sendEmail(emails, false)) {
         if (!r.isSuccess()) {
-          CMN_Logger.error(
-            'CMN_NotificationJob.sendEmails',
-            String.valueOf(r.getErrors()[0].getMessage()),
-            r.getErrors()[0].getTargetObjectId()
+          // 오류 문구에 메일 주소가 들어갈 수 있어 상태 코드·사용자 Id만 남긴다
+          errors.add(
+            'email ' +
+              r.getErrors()[0].getStatusCode() +
+              ' ' +
+              r.getErrors()[0].getTargetObjectId()
           );
         }
       }
     } catch (System.EmailException e) {
       // 메일 발송 비활성(Deliverability) 등 Org 설정 문제. 벨 알림은 계속 보낸다.
-      CMN_Logger.error(
-        'CMN_NotificationJob.sendEmails',
-        e.getMessage(),
-        null,
-        e
-      );
+      errors.add('sendEmail ' + e.getTypeName());
     }
   }
 
@@ -387,12 +428,7 @@ public with sharing class CMN_NotificationJob implements Queueable {
         n.send(recipients);
         delivered.add(d);
       } catch (Exception e) {
-        CMN_Logger.error(
-          'CMN_NotificationJob.sendBells',
-          e.getMessage(),
-          d.recordId,
-          e
-        );
+        errors.add('bell ' + d.recordId + ' ' + e.getTypeName());
       }
     }
   }

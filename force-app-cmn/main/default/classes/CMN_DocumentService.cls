@@ -80,7 +80,11 @@ public with sharing class CMN_DocumentService {
     if (files.size() != new Set<Id>(contentDocumentIds).size()) {
       throw new CMN_ValidationException(Label.CMN_Common_InvalidInput);
     }
-    enforceSize(files);
+    String sizeError = sizeError(oversized(files));
+    if (sizeError != null) {
+      // 파일 삭제는 예외로 되돌려지므로 호출 측이 먼저 rejectOversized로 지운다(CMN_DocumentController)
+      throw new CMN_ValidationException(sizeError);
+    }
 
     List<Result> out = new List<Result>();
     List<CMN_DocumentRevision__c> revisions = new List<CMN_DocumentRevision__c>();
@@ -90,11 +94,12 @@ public with sharing class CMN_DocumentService {
       files,
       supplierVisible
     );
+    Map<Id, Integer> lastNo = new Map<Id, Integer>();
     for (ContentVersion v : files) {
       CMN_Document__c doc = docs.get(
         keyOf(docClass, v.PathOnClient ?? v.Title, multi)
       );
-      CMN_DocumentRevision__c r = newRevision(doc, changeNote);
+      CMN_DocumentRevision__c r = newRevision(doc, changeNote, lastNo);
       r.StorageType__c = 'SF_FILE';
       r.ContentDocumentId__c = v.ContentDocumentId;
       r.FileName__c = (v.PathOnClient ?? v.Title)?.left(255);
@@ -145,8 +150,14 @@ public with sharing class CMN_DocumentService {
       new List<ContentVersion>{ new ContentVersion(PathOnClient = name) },
       false
     );
-    CMN_Document__c doc = docs.values()[0];
-    CMN_DocumentRevision__c r = newRevision(doc, changeNote);
+    CMN_Document__c doc = docs.get(
+      keyOf(docClass, name, docClass.Attribute2__c == MULTI_FILE)
+    );
+    CMN_DocumentRevision__c r = newRevision(
+      doc,
+      changeNote,
+      new Map<Id, Integer>()
+    );
     r.StorageType__c = storageType;
     r.ExternalUrl__c = url?.left(255);
     r.ExternalRef__c = externalRef?.left(255);
@@ -178,6 +189,13 @@ public with sharing class CMN_DocumentService {
     if (doc == null || doc.DeliverableType__c != 'APPROVAL') {
       throw new CMN_ValidationException(Label.CMN_Doc_NotApprovalType);
     }
+    Id parentId = Id.valueOf(doc.ParentRecordId__c);
+    if (
+      !CMN_DocumentSelector.editableParents(new Set<Id>{ parentId })
+        .contains(parentId)
+    ) {
+      throw new CMN_ValidationException(Label.CMN_Doc_NoAccess);
+    }
     return CMN_ApprovalService.submit(
       documentId,
       String.isBlank(typeCode) ? RELEASE_TYPE : typeCode,
@@ -191,16 +209,34 @@ public with sharing class CMN_DocumentService {
    * @param revisionIds 공개할 리비전(문서당 1건)
    */
   public static void release(Set<Id> revisionIds) {
-    List<CMN_DocumentRevision__c> targets = CMN_DocumentSelector.revisionsById(
-      revisionIds
-    );
-    Set<Id> docIds = new Set<Id>();
-    for (CMN_DocumentRevision__c r : targets) {
-      docIds.add(r.Document__c);
+    // 문서마다 번호가 가장 높은 리비전만 공개하고, 같이 넘어온 낮은 번호는 대체한다
+    Map<Id, CMN_DocumentRevision__c> latest = new Map<Id, CMN_DocumentRevision__c>();
+    for (
+      CMN_DocumentRevision__c r : CMN_DocumentSelector.revisionsById(
+        revisionIds
+      )
+    ) {
+      CMN_DocumentRevision__c cur = latest.get(r.Document__c);
+      if (cur == null || r.RevisionNo__c > cur.RevisionNo__c) {
+        latest.put(r.Document__c, r);
+      }
+    }
+    Set<Id> releasing = new Set<Id>();
+    for (CMN_DocumentRevision__c r : latest.values()) {
+      releasing.add(r.Id);
     }
     List<SObject> updates = new List<SObject>();
+    for (Id i : revisionIds) {
+      if (!releasing.contains(i)) {
+        updates.add(
+          new CMN_DocumentRevision__c(Id = i, Status__c = SUPERSEDED)
+        );
+      }
+    }
     for (
-      CMN_DocumentRevision__c old : CMN_DocumentSelector.releasedOf(docIds)
+      CMN_DocumentRevision__c old : CMN_DocumentSelector.releasedOf(
+        latest.keySet()
+      )
     ) {
       if (!revisionIds.contains(old.Id)) {
         updates.add(
@@ -209,7 +245,7 @@ public with sharing class CMN_DocumentService {
       }
     }
     List<CMN_Document__c> docs = new List<CMN_Document__c>();
-    for (CMN_DocumentRevision__c r : targets) {
+    for (CMN_DocumentRevision__c r : latest.values()) {
       updates.add(
         new CMN_DocumentRevision__c(
           Id = r.Id,
@@ -300,29 +336,47 @@ public with sharing class CMN_DocumentService {
   }
 
   /**
-   * @description Salesforce 파일 크기 한도(BR-4). 넘으면 올린 파일을 지우고 오류.
-   * @param files 최신 버전
-   * @throws CMN_ValidationException 크기 초과
+   * @description 크기 한도(BR-4)를 넘은 업로드 파일을 지운다. 등록 전에 호출 측(화면 컨트롤러)이 부르고, 오류 문구를
+   * 예외가 아니라 반환값으로 받아야 삭제가 유지된다(예외는 트랜잭션 전체를 되돌린다).
+   * @param contentDocumentIds 업로드한 파일
+   * @return 크기 초과 안내 문구(넘은 파일이 없으면 null)
    */
+  public static String rejectOversized(List<Id> contentDocumentIds) {
+    return discard(
+      CMN_DocumentSelector.latestVersions(new Set<Id>(contentDocumentIds))
+    );
+  }
+
   @TestVisible
-  private static void enforceSize(List<ContentVersion> files) {
+  private static String discard(List<ContentVersion> files) {
+    List<ContentDocument> over = oversized(files);
+    if (!over.isEmpty()) {
+      // 사용자가 방금 올린 개인 파일만 지운다(문서에 연결되기 전)
+      Database.delete(over, AccessLevel.USER_MODE);
+    }
+    return sizeError(over);
+  }
+
+  private static List<ContentDocument> oversized(List<ContentVersion> files) {
     Integer maxMb = CMN_Settings.getInteger('CMN_DOC_MAX_FILE_MB', 50);
-    List<ContentDocument> oversized = new List<ContentDocument>();
+    List<ContentDocument> out = new List<ContentDocument>();
     for (ContentVersion v : files) {
       if (tooLarge(v.ContentSize, maxMb)) {
-        oversized.add(new ContentDocument(Id = v.ContentDocumentId));
+        out.add(new ContentDocument(Id = v.ContentDocumentId));
       }
     }
-    if (!oversized.isEmpty()) {
-      // 사용자가 방금 올린 개인 파일만 지운다(문서에 연결되기 전)
-      Database.delete(oversized, AccessLevel.USER_MODE);
-      throw new CMN_ValidationException(
-        String.format(
+    return out;
+  }
+
+  private static String sizeError(List<ContentDocument> over) {
+    return over.isEmpty()
+      ? null
+      : String.format(
           Label.CMN_Doc_TooLarge,
-          new List<Object>{ String.valueOf(maxMb) }
-        )
-      );
-    }
+          new List<Object>{
+            String.valueOf(CMN_Settings.getInteger('CMN_DOC_MAX_FILE_MB', 50))
+          }
+        );
   }
 
   /**
@@ -418,17 +472,23 @@ public with sharing class CMN_DocumentService {
     return out;
   }
 
+  /** 다음 리비전 번호. 같은 요청에서 같은 문서에 여러 파일이 오면(MULTI_FILE 같은 이름) 이어서 매긴다. */
   private static CMN_DocumentRevision__c newRevision(
     CMN_Document__c doc,
-    String changeNote
+    String changeNote,
+    Map<Id, Integer> lastNo
   ) {
-    Integer last = 0;
-    for (
-      CMN_DocumentRevision__c r : doc.Revisions__r ??
-        new List<CMN_DocumentRevision__c>()
-    ) {
-      last = Math.max(last, r.RevisionNo__c?.intValue() ?? 0);
+    Integer last = lastNo.get(doc.Id);
+    if (last == null) {
+      last = 0;
+      for (
+        CMN_DocumentRevision__c r : doc.Revisions__r ??
+          new List<CMN_DocumentRevision__c>()
+      ) {
+        last = Math.max(last, r.RevisionNo__c?.intValue() ?? 0);
+      }
     }
+    lastNo.put(doc.Id, last + 1);
     return new CMN_DocumentRevision__c(
       Document__c = doc.Id,
       Name = ('Rev.' + (last + 1)),
@@ -501,8 +561,43 @@ public with sharing class CMN_DocumentService {
     for (CMN_Document__c d : docs.values()) {
       byId.put(d.Id, d);
     }
-    Set<Id> toRelease = new Set<Id>();
+    // 문서마다 새 리비전 중 가장 높은 번호만 남기고, 그보다 앞선 작성 중 리비전(이전 업로드·같은 요청의 낮은 번호)은 대체한다.
+    // 결재형 문서에 작성 중 리비전이 둘 이상 남아 함께 결재되는 일을 막는다
+    Map<Id, CMN_DocumentRevision__c> newest = new Map<Id, CMN_DocumentRevision__c>();
     for (CMN_DocumentRevision__c r : revisions) {
+      CMN_DocumentRevision__c cur = newest.get(r.Document__c);
+      if (cur == null || r.RevisionNo__c > cur.RevisionNo__c) {
+        newest.put(r.Document__c, r);
+      }
+    }
+    Set<Id> kept = new Set<Id>();
+    for (CMN_DocumentRevision__c r : newest.values()) {
+      kept.add(r.Id);
+    }
+    List<SObject> toSupersede = new List<SObject>();
+    for (CMN_DocumentRevision__c r : revisions) {
+      if (!kept.contains(r.Id)) {
+        r.Status__c = SUPERSEDED;
+        toSupersede.add(
+          new CMN_DocumentRevision__c(Id = r.Id, Status__c = SUPERSEDED)
+        );
+      }
+    }
+    for (Id docId : newest.keySet()) {
+      for (
+        CMN_DocumentRevision__c old : byId.get(docId)?.Revisions__r ??
+          new List<CMN_DocumentRevision__c>()
+      ) {
+        if (old.Status__c == DRAFT) {
+          toSupersede.add(
+            new CMN_DocumentRevision__c(Id = old.Id, Status__c = SUPERSEDED)
+          );
+        }
+      }
+    }
+    CMN_DocumentWriter.save(toSupersede);
+    Set<Id> toRelease = new Set<Id>();
+    for (CMN_DocumentRevision__c r : newest.values()) {
       if (byId.get(r.Document__c).DeliverableType__c != 'APPROVAL') {
         toRelease.add(r.Id);
       }
@@ -515,7 +610,9 @@ public with sharing class CMN_DocumentService {
       res.documentId = r.Document__c;
       res.revisionId = r.Id;
       res.revisionNo = r.RevisionNo__c.intValue();
-      res.status = toRelease.contains(r.Id) ? RELEASED : DRAFT;
+      res.status = toRelease.contains(r.Id)
+        ? RELEASED
+        : (kept.contains(r.Id) ? DRAFT : SUPERSEDED);
       res.duplicate = r.IsDuplicateFile__c;
       out.add(res);
     }

@@ -40,14 +40,21 @@ public with sharing class CMN_EmployeeUserSyncJob implements Queueable {
       false,
       AccessLevel.SYSTEM_MODE
     );
+    List<String> failures = new List<String>();
     for (Integer i = 0; i < results.size(); i++) {
       if (!results[i].isSuccess()) {
-        CMN_Logger.error(
-          'CMN_EmployeeUserSyncJob',
-          results[i].getErrors()[0].getMessage(),
-          users[i].Id
+        // 오류 문구에는 메일 주소가 들어갈 수 있어 사용자 Id·상태 코드만 남긴다
+        failures.add(
+          users[i].Id + ' ' + results[i].getErrors()[0].getStatusCode()
         );
       }
+    }
+    if (!failures.isEmpty()) {
+      CMN_Logger.error(
+        'CMN_EmployeeUserSyncJob',
+        'User sync failed: ' + String.join(failures, ', '),
+        null
+      );
     }
   }
 }

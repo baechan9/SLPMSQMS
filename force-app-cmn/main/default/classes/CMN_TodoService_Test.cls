@@ -218,6 +218,35 @@ private class CMN_TodoService_Test {
   }
 
   @IsTest
+  static void test_review_inactiveApproverDoesNotBlockOtherTodos() {
+    // Given: 검토(tdo1) → 승인(tdo3), tdo3은 상신 뒤 퇴직(비활성)
+    User a1 = user('tdo1');
+    User a3 = user('tdo3');
+    Id target = [SELECT Id FROM CMN_TestRecord__c].Id;
+    CMN_ApprovalService.submit(
+      target,
+      TYPE_CODE,
+      new List<CMN_ApprovalStepSpec>{
+        new CMN_ApprovalStepSpec(1, 'REVIEW', a1.Id, null),
+        new CMN_ApprovalStepSpec(2, 'APPROVE', a3.Id, null)
+      },
+      null
+    );
+    Test.getEventBus().deliver();
+    System.runAs(new User(Id = UserInfo.getUserId())) {
+      update new User(Id = a3.Id, IsActive = false);
+    }
+
+    // When: tdo1 승인 → 같은 이벤트 묶음에 STEP_DONE(tdo1)과 STEP_PENDING(비활성 tdo3)
+    approve(a1, todoOf(a1.Id).SourceRecordId__c);
+    Test.getEventBus().deliver();
+
+    // Then: tdo1 To-Do는 닫히고, 비활성 결재자 To-Do는 만들지 않는다(묶음 전체 실패 없음)
+    Assert.areEqual('DONE', todoOf(a1.Id).Status__c);
+    Assert.isNull(todoOf(a3.Id));
+  }
+
+  @IsTest
   static void test_AC03_chineseAssigneeGetsChineseTitle() {
     // Given: 중국어 사용자에게 번호 치환값이 있는 To-Do
     User zh = user('tdo2');

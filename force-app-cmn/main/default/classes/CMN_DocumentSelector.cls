@@ -161,7 +161,7 @@ public without sharing class CMN_DocumentSelector {
    */
   public static List<CMN_DocumentRevision__c> revisionsOf(Set<Id> documentIds) {
     return [
-      SELECT Id, Document__c, Status__c
+      SELECT Id, Document__c, Status__c, RevisionNo__c
       FROM CMN_DocumentRevision__c
       WHERE Document__c IN :documentIds
       WITH SYSTEM_MODE
@@ -200,7 +200,7 @@ public without sharing class CMN_DocumentSelector {
     Set<Id> revisionIds
   ) {
     return [
-      SELECT Id, Document__c, Status__c
+      SELECT Id, Document__c, Status__c, RevisionNo__c
       FROM CMN_DocumentRevision__c
       WHERE Id IN :revisionIds
       WITH SYSTEM_MODE

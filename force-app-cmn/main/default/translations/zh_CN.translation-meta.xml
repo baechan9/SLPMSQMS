@@ -61,6 +61,10 @@
         <name>CMN_Approval_NoSteps</name>
     </customLabels>
     <customLabels>
+        <label>您无权访问此记录,无法提交审批。</label>
+        <name>CMN_Approval_NoTargetAccess</name>
+    </customLabels>
+    <customLabels>
         <label>审批类型 {0} 不存在。</label>
         <name>CMN_Approval_NoType</name>
     </customLabels>

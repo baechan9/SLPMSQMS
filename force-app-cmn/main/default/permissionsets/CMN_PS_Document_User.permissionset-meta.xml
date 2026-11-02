@@ -26,7 +26,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>CMN_DocumentRevision__c.ContentDocumentId__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -41,12 +41,12 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>CMN_DocumentRevision__c.ExternalRef__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>CMN_DocumentRevision__c.ExternalUrl__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -56,7 +56,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>CMN_DocumentRevision__c.FileName__c</field>
         <readable>true</readable>
     </fieldPermissions>

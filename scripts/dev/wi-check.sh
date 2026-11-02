@@ -47,7 +47,7 @@ for x in json.load(open('build/code-analyzer.json'))['violations']:
 echo "위반 0건"
 [ "$DEPLOY" -eq 1 ] || exit 0
 step "dry-run → 배포($ORG)"
-sf project deploy start --dry-run -o "$ORG" --wait 30 --json > build/deploy-dry.json 2>/dev/null || {
+sf project deploy start --dry-run -o "$ORG" --wait 30 --ignore-conflicts --json > build/deploy-dry.json 2>/dev/null || {
   python3 -c "
 import json
 r = json.load(open('build/deploy-dry.json')).get('result') or {}

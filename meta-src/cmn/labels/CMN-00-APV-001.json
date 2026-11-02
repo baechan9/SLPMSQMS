@@ -131,6 +131,16 @@
         "en_US": "Cannot submit: {0}",
         "zh_CN": "无法提交: {0}"
       }
+    },
+    {
+      "name": "CMN_Approval_NoTargetAccess",
+      "category": "CMN",
+      "description": "상신 대상 접근 권한 없음(보안 리뷰 반영)",
+      "value": {
+        "ko": "이 레코드를 볼 권한이 없어 결재를 상신할 수 없습니다.",
+        "en_US": "You cannot submit this record for approval because you do not have access to it.",
+        "zh_CN": "您无权访问此记录,无法提交审批。"
+      }
     }
   ]
 }

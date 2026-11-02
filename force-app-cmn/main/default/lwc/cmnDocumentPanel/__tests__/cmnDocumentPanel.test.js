@@ -173,7 +173,7 @@ describe("c-cmn-document-panel", () => {
     );
     await flush();
     expect(q(el, "lightning-file-upload").disabled).toBe(false);
-    registerFiles.mockResolvedValue([]);
+    registerFiles.mockResolvedValue({ results: [] });
     q(el, "lightning-file-upload").dispatchEvent(
       new CustomEvent("uploadfinished", {
         detail: { files: [{ documentId: "069000000000005AAA" }] }
@@ -188,6 +188,40 @@ describe("c-cmn-document-panel", () => {
       supplierVisible: false
     });
     expect(getPanel).toHaveBeenCalledTimes(2);
+  });
+
+  it("크기 초과 응답은 등록 없이 안내한다", async () => {
+    const el = await mount();
+    const handler = jest.fn();
+    el.addEventListener("lightning__showtoast", handler);
+    registerFiles.mockResolvedValue({ results: [], error: "over 50MB" });
+    q(el, "lightning-file-upload").dispatchEvent(
+      new CustomEvent("uploadfinished", {
+        detail: { files: [{ documentId: "069000000000005AAA" }] }
+      })
+    );
+    await flush();
+    expect(handler.mock.calls[0][0].detail.message).toBe("over 50MB");
+    expect(getPanel).toHaveBeenCalledTimes(1);
+  });
+
+  it("https가 아닌 링크는 링크로 그리지 않는다", async () => {
+    const bad = JSON.parse(JSON.stringify(PANEL));
+    bad.classes[1].documents[0].current = {
+      id: "a0R000000000009AAA",
+      revisionNo: 1,
+      status: "RELEASED",
+      storageType: "URL",
+      // 악성 링크 입력 예시(렌더링되지 않아야 한다)
+      // eslint-disable-next-line no-script-url
+      url: "javascript:alert(1)",
+      fileName: "x"
+    };
+    bad.classes[1].documents[0].revisions = [
+      bad.classes[1].documents[0].current
+    ];
+    const el = await mount(bad);
+    expect(q(el, "a[target=_blank]")).toBeNull();
   });
 
   it("크기 초과 등 서버 오류는 토스트로 알린다", async () => {

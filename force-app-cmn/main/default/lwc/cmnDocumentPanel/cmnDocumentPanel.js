@@ -135,7 +135,8 @@ export default class CmnDocumentPanel extends NavigationMixin(
       ...r,
       label: REVISION.replace("{0}", r.revisionNo),
       isFile: r.storageType === "SF_FILE",
-      isLink: r.storageType !== "SF_FILE" && !!r.url,
+      // 서버도 https만 내보내지만 화면에서 한 번 더 확인한다(javascript: 링크 방지)
+      isLink: r.storageType !== "SF_FILE" && /^https:\/\//i.test(r.url ?? ""),
       displayName: r.fileName || r.externalRef || r.url
     }));
     const current =
@@ -198,13 +199,18 @@ export default class CmnDocumentPanel extends NavigationMixin(
     }
     this.isSaving = true;
     try {
-      await registerFiles({
+      const res = await registerFiles({
         parentId: this.recordId,
         docClassId: this.selectedClassId,
         contentDocumentIds: ids,
         changeNote: this.changeNote,
         supplierVisible: this.supplierVisible
       });
+      if (res?.error) {
+        // 크기 초과: 서버가 올린 파일을 지우고 외부 링크 등록을 안내한다
+        this.toast(res.error, "error");
+        return;
+      }
       this.changeNote = "";
       this.toast(REGISTERED, "success");
       await this.load();

@@ -71,14 +71,13 @@ public with sharing class CMN_NotificationService {
    */
   public static void send(List<Message> messages) {
     List<Message> active = new List<Message>();
+    Set<String> skipped = new Set<String>();
+    Id skippedRecord;
     for (Message m : messages ?? new List<Message>()) {
       CMN_NotificationRule__mdt rule = ruleOf(m.eventCode);
       if (rule == null || !rule.IsActive__c) {
-        CMN_Logger.warn(
-          'CMN_NotificationService.send',
-          'Inactive or unknown notification event: ' + m.eventCode,
-          m.recordId
-        );
+        skipped.add(m.eventCode);
+        skippedRecord = skippedRecord ?? m.recordId;
         continue;
       }
       Set<Id> recipients = new Set<Id>(m.recipientIds);
@@ -87,6 +86,15 @@ public with sharing class CMN_NotificationService {
       if (!m.recipientIds.isEmpty()) {
         active.add(m);
       }
+    }
+    if (!skipped.isEmpty()) {
+      // 반복문 안에서 로그 이벤트를 발행하지 않도록 한 번에 남긴다
+      CMN_Logger.warn(
+        'CMN_NotificationService.send',
+        'Inactive or unknown notification event: ' +
+        String.join(new List<String>(skipped), ', '),
+        skippedRecord
+      );
     }
     if (active.isEmpty()) {
       return;

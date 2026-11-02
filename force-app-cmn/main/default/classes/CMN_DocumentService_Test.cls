@@ -165,20 +165,120 @@ private class CMN_DocumentService_Test {
       ContentVersion.class
     );
 
-    // When / Then: 차단 + 외부 링크 안내, 올린 파일은 지운다
-    try {
-      CMN_DocumentService.enforceSize(new List<ContentVersion>{ big });
-      Assert.fail('크기 초과');
-    } catch (CMN_ValidationException e) {
-      Assert.areEqual(
-        String.format(Label.CMN_Doc_TooLarge, new List<Object>{ '50' }),
-        e.getMessage()
-      );
-    }
+    // When / Then: 외부 링크 안내 문구를 예외가 아닌 값으로 돌려줘 삭제가 유지된다(보안 리뷰 반영)
+    Assert.areEqual(
+      String.format(Label.CMN_Doc_TooLarge, new List<Object>{ '50' }),
+      CMN_DocumentService.discard(new List<ContentVersion>{ big })
+    );
     Assert.areEqual(
       0,
       [SELECT COUNT() FROM ContentDocument WHERE Id = :contentDocumentId]
     );
+    // 화면 경로: 한도 안 파일은 오류 없이 등록
+    CMN_DocumentController.Registration ok = CMN_DocumentController.registerFiles(
+      parent('ncr-1'),
+      classId('8D_REPORT'),
+      new List<Id>{ newFile('small.pdf', 'small') },
+      null,
+      false
+    );
+    Assert.isNull(ok.error);
+    Assert.areEqual(1, ok.results.size());
+  }
+
+  @IsTest
+  static void test_review_newDraftSupersedesOlderDraftAndApprovesOnce() {
+    // Given: 결재형 문서에 작성 중 리비전 2개(v1 → v2)
+    Id ncr = parent('ncr-1');
+    User approver = [SELECT Id FROM User WHERE Alias = 'docapv' LIMIT 1];
+    CMN_DocumentService.Result r1 = upload(ncr, 'PSW', 'psw-v1.pdf', 'v1')[0];
+    CMN_DocumentService.Result r2 = upload(ncr, 'PSW', 'psw-v2.pdf', 'v2')[0];
+
+    // Then: 이전 작성 중 리비전은 대체, 상신·승인은 최신 1건만
+    Assert.areEqual('SUPERSEDED', statusOf(r1.revisionId));
+    Id req = CMN_DocumentService.submitForApproval(
+      r2.documentId,
+      null,
+      line(approver.Id),
+      null
+    );
+    System.runAs(approver) {
+      CMN_ApprovalService.approve(
+        [SELECT Id FROM CMN_ApprovalStep__c WHERE Request__c = :req].Id,
+        'ok'
+      );
+    }
+    Assert.areEqual('RELEASED', statusOf(r2.revisionId));
+    Assert.areEqual('SUPERSEDED', statusOf(r1.revisionId));
+    // 작성 중 리비전의 파일·링크도 바꿀 수 없다(유효성 규칙)
+    Database.SaveResult sr = Database.update(
+      new CMN_DocumentRevision__c(Id = r1.revisionId, FileName__c = 'x.pdf'),
+      false
+    );
+    Assert.isFalse(sr.isSuccess());
+  }
+
+  @IsTest
+  static void test_review_submitRequiresAccess() {
+    // Given: 부모 접근이 없는 사용자
+    Id ncr = parent('ncr-1');
+    CMN_DocumentService.Result r = upload(ncr, 'PSW', 'psw.pdf', 'psw')[0];
+    User outsider = [SELECT Id FROM User WHERE Alias = 'docapv' LIMIT 1];
+
+    // When / Then: 문서 상신도, 결재 엔진 직접 상신도 막힌다
+    System.runAs(outsider) {
+      try {
+        CMN_DocumentService.submitForApproval(
+          r.documentId,
+          null,
+          line(UserInfo.getUserId()),
+          null
+        );
+        Assert.fail('부모 편집 권한 필요');
+      } catch (CMN_ValidationException e) {
+        Assert.areEqual(Label.CMN_Doc_NoAccess, e.getMessage());
+      }
+      try {
+        CMN_ApprovalService.submit(
+          r.documentId,
+          'CMN_DOC_RELEASE',
+          line(UserInfo.getUserId()),
+          null
+        );
+        Assert.fail('대상 읽기 권한 필요');
+      } catch (CMN_ValidationException e) {
+        Assert.areEqual(Label.CMN_Approval_NoTargetAccess, e.getMessage());
+      }
+    }
+  }
+
+  @IsTest
+  static void test_review_linkGoesToItsOwnMultiFileDocument() {
+    // Given: 사진 분류(MULTI_FILE)에 기존 문서 1개
+    Id ncr = parent('ncr-1');
+    CMN_DocumentService.Result photo = CMN_DocumentService.registerFiles(
+      ncr,
+      classId('NCR_PHOTO'),
+      new List<Id>{ newFile('p1.jpg', '1') },
+      null,
+      false
+    )[0];
+
+    // When: 다른 이름의 링크 등록
+    CMN_DocumentService.Result link = CMN_DocumentService.registerLink(
+      ncr,
+      classId('NCR_PHOTO'),
+      'URL',
+      'https://share.example.com/p2.jpg',
+      null,
+      'p2.jpg',
+      null
+    );
+
+    // Then: 새 문서의 Rev1, 기존 사진은 그대로 공개 상태
+    Assert.areNotEqual(photo.documentId, link.documentId);
+    Assert.areEqual(1, link.revisionNo);
+    Assert.areEqual('RELEASED', statusOf(photo.revisionId));
   }
 
   @IsTest

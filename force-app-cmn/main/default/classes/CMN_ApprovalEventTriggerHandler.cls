@@ -54,26 +54,12 @@ public with sharing class CMN_ApprovalEventTriggerHandler extends CMN_TriggerHan
       pending,
       requests
     );
-    try {
-      syncTodos(steps);
-    } catch (Exception ex) {
-      // 구독 실패가 결재 처리 자체를 되돌리지 않는다. 원문은 로그로 남기고 재처리는 운영자가 한다.
-      CMN_Logger.error(
-        'CMN_ApprovalEventTriggerHandler.todo',
-        ex.getMessage(),
-        null,
-        ex
-      );
-    }
+    // 구독 실패가 결재 처리 자체를 되돌리지 않는다. 원문은 로그로 남기고 재처리는 운영자가 한다
+    syncTodos(steps);
     try {
       notify(steps);
     } catch (Exception ex) {
-      CMN_Logger.error(
-        'CMN_ApprovalEventTriggerHandler.notify',
-        ex.getMessage(),
-        null,
-        ex
-      );
+      logFailure('notify', ex);
     }
   }
 
@@ -82,7 +68,8 @@ public with sharing class CMN_ApprovalEventTriggerHandler extends CMN_TriggerHan
     Set<Id> closeSteps = new Set<Id>(done);
     Set<Id> cancelSteps = new Set<Id>();
     for (CMN_ApprovalStep__c s : steps) {
-      if (isPending(s)) {
+      // 단계 사이에 비활성화된 결재자(퇴직 등)는 To-Do를 만들지 않는다(한 명 때문에 묶음 전체가 실패하지 않게)
+      if (isPending(s) && s.Approver__r?.IsActive == true) {
         specs.add(specOf(s));
       }
       if (approved.contains(s.Request__c)) {
@@ -92,9 +79,22 @@ public with sharing class CMN_ApprovalEventTriggerHandler extends CMN_TriggerHan
         cancelSteps.add(s.Id);
       }
     }
-    CMN_TodoService.open(specs);
-    CMN_TodoService.close(CMN_TodoService.SOURCE_APPROVAL, closeSteps, null);
-    CMN_TodoService.cancel(CMN_TodoService.SOURCE_APPROVAL, cancelSteps);
+    // 열기·닫기·취소는 서로의 실패에 영향받지 않는다
+    try {
+      CMN_TodoService.open(specs);
+    } catch (Exception ex) {
+      logFailure('open', ex);
+    }
+    try {
+      CMN_TodoService.close(CMN_TodoService.SOURCE_APPROVAL, closeSteps, null);
+    } catch (Exception ex) {
+      logFailure('close', ex);
+    }
+    try {
+      CMN_TodoService.cancel(CMN_TodoService.SOURCE_APPROVAL, cancelSteps);
+    } catch (Exception ex) {
+      logFailure('cancel', ex);
+    }
   }
 
   private void notify(List<CMN_ApprovalStep__c> steps) {
@@ -137,6 +137,16 @@ public with sharing class CMN_ApprovalEventTriggerHandler extends CMN_TriggerHan
       }
     }
     CMN_NotificationService.send(messages);
+  }
+
+  /** 구독 단계별 실패 기록(결재 처리 자체는 되돌리지 않는다, 재처리는 운영자). */
+  private static void logFailure(String step, Exception ex) {
+    CMN_Logger.error(
+      'CMN_ApprovalEventTriggerHandler.' + step,
+      ex.getMessage(),
+      null,
+      ex
+    );
   }
 
   private Boolean isPending(CMN_ApprovalStep__c s) {

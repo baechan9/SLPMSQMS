@@ -11,7 +11,7 @@
     <nameFieldLabel>Revision</nameFieldLabel>
     <startsWith>Consonant</startsWith>
     <validationRules>
-        <errorMessage>Files and links of a released revision cannot be changed. Upload a new revision.</errorMessage>
+        <errorMessage>Files and links of a registered revision cannot be changed. Upload a new revision.</errorMessage>
         <name>CMN_DocumentRevision_ReleasedLocked</name>
     </validationRules>
 </CustomObjectTranslation>

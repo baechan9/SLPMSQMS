@@ -159,7 +159,8 @@
         "ko": "파일 Id",
         "en_US": "File Id",
         "zh_CN": "文件 Id"
-      }
+      },
+      "serviceOnly": true
     },
     {
       "name": "ExternalUrl__c",
@@ -168,7 +169,8 @@
         "ko": "외부 링크",
         "en_US": "External URL",
         "zh_CN": "外部链接"
-      }
+      },
+      "serviceOnly": true
     },
     {
       "name": "ExternalRef__c",
@@ -179,7 +181,8 @@
         "en_US": "External Ref",
         "zh_CN": "外部文档编号"
       },
-      "description": "외부 저장소 키(도면 번호 등). 명세 ExternalKey__c를 데모 업서트 키와 구분해 이름 변경(CR-6)"
+      "description": "외부 저장소 키(도면 번호 등). 명세 ExternalKey__c를 데모 업서트 키와 구분해 이름 변경(CR-6)",
+      "serviceOnly": true
     },
     {
       "name": "FileName__c",
@@ -189,7 +192,8 @@
         "ko": "파일명",
         "en_US": "File Name",
         "zh_CN": "文件名"
-      }
+      },
+      "serviceOnly": true
     },
     {
       "name": "FileSize__c",
@@ -344,12 +348,12 @@
   "validationRules": [
     {
       "name": "CMN_DocumentRevision_ReleasedLocked",
-      "formula": "AND(OR(ISPICKVAL(PRIORVALUE(Status__c), 'RELEASED'), ISPICKVAL(PRIORVALUE(Status__c), 'SUPERSEDED')), OR(ISCHANGED(StorageType__c), ISCHANGED(ContentDocumentId__c), ISCHANGED(ExternalUrl__c), ISCHANGED(ExternalRef__c), ISCHANGED(FileName__c), ISCHANGED(FileSize__c), ISCHANGED(FileHash__c), ISCHANGED(RevisionNo__c)))",
-      "description": "BR-2·AC-2: 공개·대체된 리비전의 파일·링크 변경 금지(관리자·자동화 포함). 상태 변경(RELEASED → SUPERSEDED)은 허용",
+      "formula": "OR(ISCHANGED(StorageType__c), ISCHANGED(ContentDocumentId__c), ISCHANGED(ExternalUrl__c), ISCHANGED(ExternalRef__c), ISCHANGED(FileName__c), ISCHANGED(FileSize__c), ISCHANGED(FileHash__c), ISCHANGED(RevisionNo__c))",
+      "description": "BR-2·AC-2(보안 리뷰 반영): 리비전의 파일·링크·번호는 등록 후 바꿀 수 없다(상태와 무관, 관리자·자동화 포함). 새 내용은 새 리비전으로. 상태 변경은 허용",
       "message": {
-        "ko": "공개된 리비전의 파일·링크는 바꿀 수 없습니다. 새 리비전으로 올리세요.",
-        "en_US": "Files and links of a released revision cannot be changed. Upload a new revision.",
-        "zh_CN": "已发布修订的文件和链接不能修改,请上传新修订。"
+        "ko": "등록된 리비전의 파일·링크는 바꿀 수 없습니다. 새 리비전으로 올리세요.",
+        "en_US": "Files and links of a registered revision cannot be changed. Upload a new revision.",
+        "zh_CN": "已登记修订的文件和链接不能修改,请上传新修订。"
       }
     }
   ]

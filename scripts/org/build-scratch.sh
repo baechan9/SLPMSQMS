@@ -55,14 +55,14 @@ if not any(o.get("alias") == alias or o.get("username") == alias for o in orgs):
 
 step 2 "배포 확인(dry-run)"
 if has_metadata; then
-  sf project deploy start --dry-run -o "$ALIAS" --wait 60
+  sf project deploy start --dry-run -o "$ALIAS" --wait 60 --ignore-conflicts
 else
   echo "배포할 메타데이터 없음 — 건너뜀"
 fi
 
 step 3 "배포"
 if has_metadata; then
-  sf project deploy start -o "$ALIAS" --wait 60
+  sf project deploy start -o "$ALIAS" --wait 60 --ignore-conflicts
 else
   echo "배포할 메타데이터 없음 — 건너뜀"
 fi

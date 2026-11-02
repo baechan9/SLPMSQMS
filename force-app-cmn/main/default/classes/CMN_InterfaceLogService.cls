@@ -18,6 +18,7 @@ public with sharing class CMN_InterfaceLogService {
    */
   public static void prepare(List<CMN_InterfaceLog__c> logs) {
     Set<String> known = knownInterfaces();
+    Set<String> unknown = new Set<String>();
     for (CMN_InterfaceLog__c l : logs) {
       if (
         l.StartedAt__c != null &&
@@ -40,12 +41,17 @@ public with sharing class CMN_InterfaceLogService {
         .left(NAME_MAX);
       l.ErrorSummary__c = l.ErrorSummary__c?.abbreviate(SUMMARY_MAX);
       if (!known.contains(l.InterfaceId__c)) {
-        CMN_Logger.warn(
-          'CMN_InterfaceLogService',
-          'Interface not in catalog: ' + l.InterfaceId__c,
-          null
-        );
+        unknown.add(l.InterfaceId__c);
       }
+    }
+    if (!unknown.isEmpty()) {
+      // 묶음당 한 번만 남긴다(행마다 로그 이벤트를 발행하지 않는다)
+      CMN_Logger.warn(
+        'CMN_InterfaceLogService',
+        'Interface not in catalog: ' +
+        String.join(new List<String>(unknown), ', '),
+        null
+      );
     }
   }
 

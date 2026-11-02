@@ -2,7 +2,7 @@
  * @description 코멘트 업무 규칙(CMN-00-UX-003 BR-2·BR-3).
  * - 쓰기: 부모 레코드를 읽을 수 있는 사용자만. 수정·삭제는 작성자 본인만, 작성 후 CMN_COMMENT_EDIT_HOURS(기본 24)시간 안에서만.
  *   같은 규칙을 트리거(CMN_CommentTriggerHandler)가 강제하므로 API·화면 어디서 바꿔도 같다.
- * - 멘션: 새로 멘션한 활성 사용자(작성자 제외)에게 NTF-001 `CMN_COMMENT_MENTION` 알림. 멘션이 부모 접근 권한을 주지는 않는다.
+ * - 멘션: 새로 멘션한 사내 사용자(작성자·포털 사용자 제외)에게 NTF-001 `CMN_COMMENT_MENTION` 알림. 멘션이 부모 접근 권한을 주지는 않는다.
  * - 조회: 부모 접근(UserRecordAccess)을 확인한 레코드의 코멘트만 돌려준다.
  * @group CMN-00-UX-003
  */
@@ -129,11 +129,29 @@ public with sharing class CMN_CommentService {
     List<CMN_Comment__c> comments,
     Map<Id, Set<Id>> oldMentions
   ) {
-    List<CMN_NotificationService.Message> messages = new List<CMN_NotificationService.Message>();
+    Map<Id, Set<Id>> targetsByComment = new Map<Id, Set<Id>>();
+    Set<Id> all = new Set<Id>();
     for (CMN_Comment__c c : comments) {
       Set<Id> targets = parseIds(c.MentionedUserIds__c);
       targets.removeAll(oldMentions.get(c.Id) ?? new Set<Id>());
       targets.remove(UserInfo.getUserId());
+      if (!targets.isEmpty()) {
+        targetsByComment.put(c.Id, targets);
+        all.addAll(targets);
+      }
+    }
+    if (all.isEmpty()) {
+      return;
+    }
+    // 포털(협력사) 사용자는 멘션 알림을 받지 않는다: 알림에 사내 레코드 번호·제목·코멘트 일부가 들어간다
+    Set<Id> internal = CMN_CommentSelector.internalUsers(all);
+    List<CMN_NotificationService.Message> messages = new List<CMN_NotificationService.Message>();
+    for (CMN_Comment__c c : comments) {
+      Set<Id> targets = targetsByComment.get(c.Id);
+      if (targets == null) {
+        continue;
+      }
+      targets.retainAll(internal);
       if (targets.isEmpty()) {
         continue;
       }

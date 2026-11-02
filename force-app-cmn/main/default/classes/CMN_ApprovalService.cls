@@ -54,6 +54,11 @@ public with sharing class CMN_ApprovalService {
     if (approvalType.TargetObject__c != targetObject) {
       throw new CMN_ValidationException(Label.CMN_Approval_TargetMismatch);
     }
+    // 볼 수 없는 레코드를 Id만으로 상신하지 못하게 한다(요청 Summary에 대상 전체 필드가 복사되고 결재자에게 공유된다).
+    // 더 엄격한 조건(작성자·편집 권한)은 유형별 콜백 canSubmit이 정한다
+    if (!canRead(targetId)) {
+      throw new CMN_ValidationException(Label.CMN_Approval_NoTargetAccess);
+    }
     Id drafter = UserInfo.getUserId();
     validateSteps(steps, approvalType, drafter);
     // 템플릿 규칙(필수 단계·편집 허용, APV-002 BR-3)과 Role 미지정(AC-2)을 상신 때 서버에서 확인한다
@@ -576,6 +581,18 @@ public with sharing class CMN_ApprovalService {
       }
     }
     return null;
+  }
+
+  private static Boolean canRead(Id recordId) {
+    for (UserRecordAccess a : [
+      SELECT RecordId, HasReadAccess
+      FROM UserRecordAccess
+      WHERE UserId = :UserInfo.getUserId() AND RecordId = :recordId
+      WITH SYSTEM_MODE
+    ]) {
+      return a.HasReadAccess;
+    }
+    return false;
   }
 
   private static CMN_ApprovalType__mdt typeOf(String typeCode) {

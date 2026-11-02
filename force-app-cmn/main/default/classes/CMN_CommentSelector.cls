@@ -49,6 +49,23 @@ public without sharing class CMN_CommentSelector {
   }
 
   /**
+   * @description 사내 사용자(UserType Standard)만 고른다(멘션 알림 대상).
+   * @param userIds 사용자
+   * @return 사내 사용자 Id
+   */
+  public static Set<Id> internalUsers(Set<Id> userIds) {
+    return new Map<Id, User>(
+        [
+          SELECT Id
+          FROM User
+          WHERE Id IN :userIds AND UserType = 'Standard'
+          WITH SYSTEM_MODE
+        ]
+      )
+      .keySet();
+  }
+
+  /**
    * @description 사용자 이름(멘션 표시).
    * @param userIds 사용자
    * @return 사용자

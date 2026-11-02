@@ -345,10 +345,16 @@ private class CMN_NotificationService_Test {
 
   /** 포털 링크 변환 예(QMS-03-SPP-001이 실제 구현). */
   public class PortalResolver implements CMN_RecipientUrlResolver {
-    public Map<Id, String> urlsFor(Id recordId, Set<Id> portalUserIds) {
-      Map<Id, String> out = new Map<Id, String>();
-      for (Id u : portalUserIds) {
-        out.put(u, 'https://portal.example.com/supplier/' + recordId);
+    public Map<Id, Map<Id, String>> urlsFor(
+      Map<Id, Set<Id>> portalUsersByRecord
+    ) {
+      Map<Id, Map<Id, String>> out = new Map<Id, Map<Id, String>>();
+      for (Id recordId : portalUsersByRecord.keySet()) {
+        Map<Id, String> urls = new Map<Id, String>();
+        for (Id u : portalUsersByRecord.get(recordId)) {
+          urls.put(u, 'https://portal.example.com/supplier/' + recordId);
+        }
+        out.put(recordId, urls);
       }
       return out;
     }

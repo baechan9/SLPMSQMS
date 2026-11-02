@@ -4,6 +4,8 @@
  * @group CMN-00-DOC-001
  */
 public with sharing class CMN_DocumentController {
+  /** 이번 요청에서 사용자가 읽을 수 있는 중복 원본 부모 */
+  private static Set<Id> readableDuplicates = new Set<Id>();
   private static final Pattern CODE_LIST = Pattern.compile(
     '^[A-Za-z0-9_, ]{0,2000}$'
   );
@@ -18,6 +20,14 @@ public with sharing class CMN_DocumentController {
     public Integer maxFileMb;
     @AuraEnabled
     public List<ClassGroup> classes = new List<ClassGroup>();
+  }
+
+  /** @description 업로드 등록 응답. 크기 초과는 예외 대신 error로 돌려준다(예외는 초과 파일 삭제까지 되돌린다). */
+  public class Registration {
+    @AuraEnabled
+    public List<CMN_DocumentService.Result> results = new List<CMN_DocumentService.Result>();
+    @AuraEnabled
+    public String error;
   }
 
   /** @description 문서 분류 하나. */
@@ -139,9 +149,27 @@ public with sharing class CMN_DocumentController {
       }
       List<CMN_Code__c> classes = CMN_DocumentSelector.docClasses(wanted);
       Map<Id, List<CMN_Document__c>> docsByClass = new Map<Id, List<CMN_Document__c>>();
+      // 포털(협력사) 사용자에게는 협력사 공개 문서만(검토 반영 Vol.3 BR-4)
+      Boolean portal = UserInfo.getUserType() != 'Standard';
+      List<CMN_Document__c> parentDocs = new List<CMN_Document__c>();
+      Set<Id> dupParents = new Set<Id>();
       for (
         CMN_Document__c d : CMN_DocumentSelector.documentsOf(parentId, null)
       ) {
+        if (portal && !d.SupplierVisible__c) {
+          continue;
+        }
+        parentDocs.add(d);
+        for (CMN_DocumentRevision__c r : d.Revisions__r) {
+          String dup = r.DuplicateOfRevision__r?.Document__r?.ParentRecordId__c;
+          if (dup != null) {
+            dupParents.add(Id.valueOf(dup));
+          }
+        }
+      }
+      // 중복 원본 레코드는 사용자가 볼 수 있을 때만 알려 준다
+      readableDuplicates = CMN_CommentService.readableParents(dupParents);
+      for (CMN_Document__c d : parentDocs) {
         if (!docsByClass.containsKey(d.DocClass__c)) {
           docsByClass.put(d.DocClass__c, new List<CMN_Document__c>());
         }
@@ -190,11 +218,11 @@ public with sharing class CMN_DocumentController {
    * @param contentDocumentIds 업로드한 파일
    * @param changeNote 변경 사유
    * @param supplierVisible 협력사 공개
-   * @return 결과
+   * @return 결과(크기 초과면 error만)
    * @throws AuraHandledException 검증 오류
    */
   @AuraEnabled
-  public static List<CMN_DocumentService.Result> registerFiles(
+  public static Registration registerFiles(
     Id parentId,
     Id docClassId,
     List<Id> contentDocumentIds,
@@ -207,13 +235,21 @@ public with sharing class CMN_DocumentController {
           throw new CMN_ValidationException(Label.CMN_Common_InvalidInput);
         }
       }
-      return CMN_DocumentService.registerFiles(
+      Registration r = new Registration();
+      r.error = CMN_DocumentService.rejectOversized(
+        contentDocumentIds ?? new List<Id>()
+      );
+      if (r.error != null) {
+        return r;
+      }
+      r.results = CMN_DocumentService.registerFiles(
         parentId,
         docClassId,
         contentDocumentIds,
         changeNote,
         supplierVisible
       );
+      return r;
     } catch (Exception e) {
       throw toAura(e, 'CMN_DocumentController.registerFiles');
     }
@@ -311,15 +347,23 @@ public with sharing class CMN_DocumentController {
       rev.fileName = r.FileName__c;
       rev.fileSize = r.FileSize__c;
       rev.contentDocumentId = r.ContentDocumentId__c;
-      rev.url = r.ExternalUrl__c;
+      // 링크는 https만 내보낸다(javascript: 등 저장형 XSS 방지)
+      rev.url = r.ExternalUrl__c?.startsWithIgnoreCase('https://') == true
+        ? r.ExternalUrl__c
+        : null;
       rev.externalRef = r.ExternalRef__c;
       rev.duplicate = r.IsDuplicateFile__c;
-      rev.duplicateParentId = r.DuplicateOfRevision__r
+      String dupParent = r.DuplicateOfRevision__r
         ?.Document__r
         ?.ParentRecordId__c;
-      rev.duplicateParentObject = r.DuplicateOfRevision__r
-        ?.Document__r
-        ?.ParentObject__c;
+      if (
+        dupParent != null && readableDuplicates.contains(Id.valueOf(dupParent))
+      ) {
+        rev.duplicateParentId = dupParent;
+        rev.duplicateParentObject = r.DuplicateOfRevision__r
+          ?.Document__r
+          ?.ParentObject__c;
+      }
       rev.changeNote = r.ChangeNote__c;
       rev.releasedAt = r.ReleasedAt__c;
       rev.createdByName = r.CreatedBy?.Name;

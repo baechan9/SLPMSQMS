@@ -71,7 +71,18 @@ public with sharing class CMN_EmployeeService {
       notifyRetired(newlyRetired);
     }
     if (!sync.isEmpty()) {
-      System.enqueueJob(new CMN_EmployeeUserSyncJob(sync));
+      if (Limits.getQueueableJobs() < Limits.getLimitQueueableJobs()) {
+        System.enqueueJob(new CMN_EmployeeUserSyncJob(sync));
+      } else {
+        // 비동기 문맥(한도 1)에서 이미 큐를 썼으면 임직원 저장은 살리고 사용자 갱신 누락만 남긴다(다음 HR 동기화에서 다시 맞춘다)
+        CMN_Logger.error(
+          'CMN_EmployeeService',
+          'Queueable limit reached, user sync skipped for ' +
+            sync.size() +
+            ' employees',
+          null
+        );
+      }
     }
   }
 
