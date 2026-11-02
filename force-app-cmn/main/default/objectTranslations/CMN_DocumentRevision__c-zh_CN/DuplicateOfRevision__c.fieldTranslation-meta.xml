@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label>原始修订</label>
+    <name>DuplicateOfRevision__c</name>
+    <relationshipLabel>重复修订</relationshipLabel>
+</CustomFieldTranslation>

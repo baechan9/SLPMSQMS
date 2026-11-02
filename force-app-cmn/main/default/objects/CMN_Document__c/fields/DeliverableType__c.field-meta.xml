@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DeliverableType__c</fullName>
+    <label>산출물 유형</label>
+    <required>true</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>ATTACHMENT</fullName>
+                <default>true</default>
+                <label>일반 첨부</label>
+            </value>
+            <value>
+                <fullName>STD_FORM</fullName>
+                <default>false</default>
+                <label>표준 양식</label>
+            </value>
+            <value>
+                <fullName>LINK</fullName>
+                <default>false</default>
+                <label>링크</label>
+            </value>
+            <value>
+                <fullName>APPROVAL</fullName>
+                <default>false</default>
+                <label>결재</label>
+            </value>
+            <value>
+                <fullName>SYSTEM_LINK</fullName>
+                <default>false</default>
+                <label>시스템 링크</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

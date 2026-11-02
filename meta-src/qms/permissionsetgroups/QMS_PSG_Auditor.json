@@ -19,7 +19,8 @@
       "CMN_PS_Approval_User",
       "CMN_PS_Approval_Admin",
       "CMN_PS_Todo_User",
-      "CMN_PS_Comment_User"
+      "CMN_PS_Comment_User",
+      "CMN_PS_Document_User"
     ]
   }
 }

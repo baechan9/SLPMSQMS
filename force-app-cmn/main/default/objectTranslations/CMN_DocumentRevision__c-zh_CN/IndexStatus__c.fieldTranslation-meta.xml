@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label>索引状态</label>
+    <name>IndexStatus__c</name>
+    <picklistValues>
+        <masterLabel>대기</masterLabel>
+        <translation>待处理</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>색인됨</masterLabel>
+        <translation>已索引</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>실패</masterLabel>
+        <translation>失败</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>제외</masterLabel>
+        <translation>排除</translation>
+    </picklistValues>
+</CustomFieldTranslation>

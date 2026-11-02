@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_DocumentRevision_ReleasedLocked</fullName>
+    <active>true</active>
+    <description>BR-2·AC-2: 공개·대체된 리비전의 파일·링크 변경 금지(관리자·자동화 포함). 상태 변경(RELEASED → SUPERSEDED)은 허용</description>
+    <errorConditionFormula>AND(OR(ISPICKVAL(PRIORVALUE(Status__c), 'RELEASED'), ISPICKVAL(PRIORVALUE(Status__c), 'SUPERSEDED')), OR(ISCHANGED(StorageType__c), ISCHANGED(ContentDocumentId__c), ISCHANGED(ExternalUrl__c), ISCHANGED(ExternalRef__c), ISCHANGED(FileName__c), ISCHANGED(FileSize__c), ISCHANGED(FileHash__c), ISCHANGED(RevisionNo__c)))</errorConditionFormula>
+    <errorMessage>공개된 리비전의 파일·링크는 바꿀 수 없습니다. 새 리비전으로 올리세요.</errorMessage>
+</ValidationRule>

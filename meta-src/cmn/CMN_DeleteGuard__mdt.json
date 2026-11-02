@@ -50,6 +50,15 @@
         "StatusField__c": "Status__c",
         "DeletableValues__c": "DRAFT"
       }
+    },
+    {
+      "name": "CMN_DocumentRevision",
+      "label": "문서 리비전(DOC-001 BR-2)",
+      "values": {
+        "ObjectApiName__c": "CMN_DocumentRevision__c",
+        "StatusField__c": "Status__c",
+        "DeletableValues__c": "DRAFT,REJECTED"
+      }
     }
   ]
 }

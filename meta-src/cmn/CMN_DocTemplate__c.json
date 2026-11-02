@@ -1,0 +1,117 @@
+{
+  "wi": "CMN-00-DOC-001",
+  "object": "CMN_DocTemplate__c",
+  "package": "force-app-cmn",
+  "description": "표준 양식(DOC-001 BR-7, P-36). 사용자 언어 → en_US → ko 순으로 찾는다",
+  "label": {
+    "ko": "문서 양식",
+    "en_US": "Document Template",
+    "zh_CN": "文档模板"
+  },
+  "plural": {
+    "ko": "문서 양식",
+    "en_US": "Document Templates",
+    "zh_CN": "文档模板"
+  },
+  "nameField": {
+    "label": {
+      "ko": "양식명",
+      "en_US": "Template Name",
+      "zh_CN": "模板名称"
+    }
+  },
+  "sharingModel": "Read",
+  "tab": {
+    "motif": "Custom43: Compass"
+  },
+  "fields": [
+    {
+      "name": "DocClass__c",
+      "type": "Lookup",
+      "referenceTo": "CMN_Code__c",
+      "relationshipName": "DocTemplates",
+      "relationshipLabel": {
+        "ko": "문서 양식",
+        "en_US": "Document Templates",
+        "zh_CN": "文档模板"
+      },
+      "required": true,
+      "deleteConstraint": "Restrict",
+      "label": {
+        "ko": "문서 분류",
+        "en_US": "Document Class",
+        "zh_CN": "文档分类"
+      }
+    },
+    {
+      "name": "Language__c",
+      "type": "Picklist",
+      "required": true,
+      "default": "ko",
+      "label": {
+        "ko": "언어",
+        "en_US": "Language",
+        "zh_CN": "语言"
+      },
+      "values": [
+        {
+          "api": "ko",
+          "label": "한국어"
+        },
+        {
+          "api": "en_US",
+          "label": "English"
+        },
+        {
+          "api": "zh_CN",
+          "label": "中文"
+        },
+        {
+          "api": "pl",
+          "label": "Polski"
+        },
+        {
+          "api": "es",
+          "label": "Español"
+        },
+        {
+          "api": "pt_BR",
+          "label": "Português"
+        }
+      ]
+    },
+    {
+      "name": "ContentDocumentId__c",
+      "type": "Text",
+      "length": 18,
+      "required": true,
+      "label": {
+        "ko": "파일 Id",
+        "en_US": "File Id",
+        "zh_CN": "文件 Id"
+      }
+    },
+    {
+      "name": "Version__c",
+      "type": "Number",
+      "precision": 4,
+      "scale": 0,
+      "default": "1",
+      "label": {
+        "ko": "버전",
+        "en_US": "Version",
+        "zh_CN": "版本"
+      }
+    },
+    {
+      "name": "IsActive__c",
+      "type": "Checkbox",
+      "default": true,
+      "label": {
+        "ko": "사용",
+        "en_US": "Active",
+        "zh_CN": "启用"
+      }
+    }
+  ]
+}

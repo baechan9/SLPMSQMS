@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_Doc_InvalidClass</fullName>
+    <categories>CMN</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>분류 오류</shortDescription>
+    <value>사용 중인 문서 분류(DOC_CLASS)를 선택하세요.</value>
+</CustomLabel>

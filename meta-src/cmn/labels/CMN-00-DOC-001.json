@@ -1,0 +1,356 @@
+{
+  "wi": "CMN-00-DOC-001",
+  "package": "force-app-cmn",
+  "labels": [
+    {
+      "name": "CMN_Doc_LinkOnly",
+      "category": "CMN",
+      "description": "링크 전용 분류",
+      "value": {
+        "ko": "이 문서 분류는 외부 저장소 링크로만 등록할 수 있습니다.",
+        "en_US": "This document class accepts external links only.",
+        "zh_CN": "此文档分类只能登记外部链接。"
+      }
+    },
+    {
+      "name": "CMN_Doc_OneFileOnly",
+      "category": "CMN",
+      "description": "단일 파일",
+      "value": {
+        "ko": "이 문서 분류는 파일을 하나씩 올립니다. 새 파일은 새 리비전이 됩니다.",
+        "en_US": "Upload one file at a time for this class. A new file becomes a new revision.",
+        "zh_CN": "此分类一次上传一个文件,新文件将成为新修订。"
+      }
+    },
+    {
+      "name": "CMN_Doc_InvalidLink",
+      "category": "CMN",
+      "description": "링크 오류",
+      "value": {
+        "ko": "저장소와 https 링크 또는 외부 문서 번호를 입력하세요.",
+        "en_US": "Enter a storage type and an https link or external reference.",
+        "zh_CN": "请输入存储位置以及 https 链接或外部文档编号。"
+      }
+    },
+    {
+      "name": "CMN_Doc_NotApprovalType",
+      "category": "CMN",
+      "description": "결재형 아님",
+      "value": {
+        "ko": "결재형 문서가 아닙니다.",
+        "en_US": "This document does not require approval.",
+        "zh_CN": "此文档不需要审批。"
+      }
+    },
+    {
+      "name": "CMN_Doc_NoDraftRevision",
+      "category": "CMN",
+      "description": "상신할 리비전 없음",
+      "value": {
+        "ko": "결재할 작성 중 리비전이 없습니다.",
+        "en_US": "There is no draft revision to submit.",
+        "zh_CN": "没有可提交审批的草稿修订。"
+      }
+    },
+    {
+      "name": "CMN_Doc_TooLarge",
+      "category": "CMN",
+      "description": "크기 초과",
+      "value": {
+        "ko": "파일이 {0}MB를 넘어 올릴 수 없습니다. 외부 저장소에 올린 뒤 링크로 등록하세요.",
+        "en_US": "Files over {0} MB cannot be uploaded. Upload to an external repository and register the link.",
+        "zh_CN": "文件超过 {0}MB,无法上传。请上传到外部存储后登记链接。"
+      }
+    },
+    {
+      "name": "CMN_Doc_NoAccess",
+      "category": "CMN",
+      "description": "부모 편집 권한 없음",
+      "value": {
+        "ko": "이 레코드에 문서를 등록할 권한이 없습니다.",
+        "en_US": "You do not have permission to add documents to this record.",
+        "zh_CN": "您无权为此记录登记文档。"
+      }
+    },
+    {
+      "name": "CMN_Doc_InvalidClass",
+      "category": "CMN",
+      "description": "분류 오류",
+      "value": {
+        "ko": "사용 중인 문서 분류(DOC_CLASS)를 선택하세요.",
+        "en_US": "Select an active document class.",
+        "zh_CN": "请选择启用的文档分类。"
+      }
+    },
+    {
+      "name": "CMN_Doc_InApproval",
+      "category": "CMN",
+      "description": "결재 중",
+      "value": {
+        "ko": "결재 중인 리비전이 있어 새 리비전을 올릴 수 없습니다.",
+        "en_US": "A revision is in approval. You cannot add a new revision now.",
+        "zh_CN": "有修订正在审批,不能上传新修订。"
+      }
+    },
+    {
+      "name": "CMN_Doc_CannotDelete",
+      "category": "CMN",
+      "description": "삭제 불가",
+      "value": {
+        "ko": "공개·대체·결재 중 리비전이 있는 문서는 삭제할 수 없습니다.",
+        "en_US": "Documents with released, superseded, or in-approval revisions cannot be deleted.",
+        "zh_CN": "含已发布、已替代或审批中修订的文档不能删除。"
+      }
+    },
+    {
+      "name": "CMN_Doc_ReleasedLocked",
+      "category": "CMN",
+      "description": "공개 리비전 잠금",
+      "value": {
+        "ko": "공개된 리비전의 파일·링크는 바꿀 수 없습니다. 새 리비전으로 올리세요.",
+        "en_US": "Files and links of a released revision cannot be changed. Upload a new revision.",
+        "zh_CN": "已发布修订的文件和链接不能修改,请上传新修订。"
+      }
+    },
+    {
+      "name": "CMN_Doc_NoApprovalLine",
+      "category": "CMN",
+      "description": "결재선 템플릿 없음",
+      "value": {
+        "ko": "문서 결재선 템플릿이 없습니다. 관리자에게 문의하세요.",
+        "en_US": "No approval line template is set up for documents. Contact your administrator.",
+        "zh_CN": "未配置文档审批线模板,请联系管理员。"
+      }
+    },
+    {
+      "name": "CMN_Doc_Title",
+      "category": "CMN",
+      "description": "패널 제목",
+      "value": {
+        "ko": "문서",
+        "en_US": "Documents",
+        "zh_CN": "文档"
+      }
+    },
+    {
+      "name": "CMN_Doc_Upload",
+      "category": "CMN",
+      "description": "파일 올리기",
+      "value": {
+        "ko": "파일 올리기",
+        "en_US": "Upload Files",
+        "zh_CN": "上传文件"
+      }
+    },
+    {
+      "name": "CMN_Doc_Class",
+      "category": "CMN",
+      "description": "문서 분류",
+      "value": {
+        "ko": "문서 분류",
+        "en_US": "Document Class",
+        "zh_CN": "文档分类"
+      }
+    },
+    {
+      "name": "CMN_Doc_ChangeNote",
+      "category": "CMN",
+      "description": "변경 사유",
+      "value": {
+        "ko": "변경 사유",
+        "en_US": "Change Note",
+        "zh_CN": "变更原因"
+      }
+    },
+    {
+      "name": "CMN_Doc_SupplierVisible",
+      "category": "CMN",
+      "description": "협력사 공개",
+      "value": {
+        "ko": "협력사에 공개",
+        "en_US": "Visible to supplier",
+        "zh_CN": "对供应商公开"
+      }
+    },
+    {
+      "name": "CMN_Doc_AddLink",
+      "category": "CMN",
+      "description": "링크 등록",
+      "value": {
+        "ko": "링크 등록",
+        "en_US": "Add Link",
+        "zh_CN": "登记链接"
+      }
+    },
+    {
+      "name": "CMN_Doc_Storage",
+      "category": "CMN",
+      "description": "저장소",
+      "value": {
+        "ko": "저장소",
+        "en_US": "Storage",
+        "zh_CN": "存储位置"
+      }
+    },
+    {
+      "name": "CMN_Doc_Url",
+      "category": "CMN",
+      "description": "링크 주소",
+      "value": {
+        "ko": "링크 주소(https)",
+        "en_US": "Link (https)",
+        "zh_CN": "链接(https)"
+      }
+    },
+    {
+      "name": "CMN_Doc_ExternalRef",
+      "category": "CMN",
+      "description": "외부 문서 번호",
+      "value": {
+        "ko": "외부 문서 번호",
+        "en_US": "External Reference",
+        "zh_CN": "外部文档编号"
+      }
+    },
+    {
+      "name": "CMN_Doc_LinkTitle",
+      "category": "CMN",
+      "description": "표시 이름",
+      "value": {
+        "ko": "표시 이름",
+        "en_US": "Display Name",
+        "zh_CN": "显示名称"
+      }
+    },
+    {
+      "name": "CMN_Doc_Save",
+      "category": "CMN",
+      "description": "저장",
+      "value": {
+        "ko": "저장",
+        "en_US": "Save",
+        "zh_CN": "保存"
+      }
+    },
+    {
+      "name": "CMN_Doc_Cancel",
+      "category": "CMN",
+      "description": "취소",
+      "value": {
+        "ko": "취소",
+        "en_US": "Cancel",
+        "zh_CN": "取消"
+      }
+    },
+    {
+      "name": "CMN_Doc_Template",
+      "category": "CMN",
+      "description": "양식 내려받기",
+      "value": {
+        "ko": "양식 내려받기",
+        "en_US": "Download Template",
+        "zh_CN": "下载模板"
+      }
+    },
+    {
+      "name": "CMN_Doc_History",
+      "category": "CMN",
+      "description": "리비전 이력",
+      "value": {
+        "ko": "리비전 이력",
+        "en_US": "Revision History",
+        "zh_CN": "修订历史"
+      }
+    },
+    {
+      "name": "CMN_Doc_Required",
+      "category": "CMN",
+      "description": "필수",
+      "value": {
+        "ko": "필수",
+        "en_US": "Required",
+        "zh_CN": "必需"
+      }
+    },
+    {
+      "name": "CMN_Doc_Missing",
+      "category": "CMN",
+      "description": "필수 문서 없음",
+      "value": {
+        "ko": "필수 문서가 아직 없습니다.",
+        "en_US": "Required document is missing.",
+        "zh_CN": "缺少必需文档。"
+      }
+    },
+    {
+      "name": "CMN_Doc_Duplicate",
+      "category": "CMN",
+      "description": "중복 파일 경고",
+      "value": {
+        "ko": "같은 파일이 다른 레코드에도 있습니다.",
+        "en_US": "The same file exists on another record.",
+        "zh_CN": "相同文件已存在于其他记录。"
+      }
+    },
+    {
+      "name": "CMN_Doc_Empty",
+      "category": "CMN",
+      "description": "문서 없음",
+      "value": {
+        "ko": "등록된 문서가 없습니다.",
+        "en_US": "No documents yet.",
+        "zh_CN": "暂无文档。"
+      }
+    },
+    {
+      "name": "CMN_Doc_Registered",
+      "category": "CMN",
+      "description": "등록 완료",
+      "value": {
+        "ko": "문서를 등록했습니다.",
+        "en_US": "Document registered.",
+        "zh_CN": "文档已登记。"
+      }
+    },
+    {
+      "name": "CMN_Doc_Submit",
+      "category": "CMN",
+      "description": "결재 상신",
+      "value": {
+        "ko": "결재 상신",
+        "en_US": "Submit for Approval",
+        "zh_CN": "提交审批"
+      }
+    },
+    {
+      "name": "CMN_Doc_Submitted",
+      "category": "CMN",
+      "description": "상신 완료",
+      "value": {
+        "ko": "결재를 상신했습니다.",
+        "en_US": "Submitted for approval.",
+        "zh_CN": "已提交审批。"
+      }
+    },
+    {
+      "name": "CMN_Doc_Revision",
+      "category": "CMN",
+      "description": "리비전 표기",
+      "value": {
+        "ko": "Rev.{0}",
+        "en_US": "Rev.{0}",
+        "zh_CN": "Rev.{0}"
+      }
+    },
+    {
+      "name": "CMN_Doc_NoReadAccess",
+      "category": "CMN",
+      "description": "부모 읽기 권한 없음",
+      "value": {
+        "ko": "이 레코드의 문서를 볼 권한이 없습니다.",
+        "en_US": "You do not have access to documents of this record.",
+        "zh_CN": "您无权查看此记录的文档。"
+      }
+    }
+  ]
+}

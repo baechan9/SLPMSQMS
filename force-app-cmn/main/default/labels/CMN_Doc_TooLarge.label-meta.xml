@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_Doc_TooLarge</fullName>
+    <categories>CMN</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>크기 초과</shortDescription>
+    <value>파일이 {0}MB를 넘어 올릴 수 없습니다. 외부 저장소에 올린 뒤 링크로 등록하세요.</value>
+</CustomLabel>

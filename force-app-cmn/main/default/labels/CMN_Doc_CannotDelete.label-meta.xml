@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_Doc_CannotDelete</fullName>
+    <categories>CMN</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>삭제 불가</shortDescription>
+    <value>공개·대체·결재 중 리비전이 있는 문서는 삭제할 수 없습니다.</value>
+</CustomLabel>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label>交付物类型</label>
+    <name>DeliverableType__c</name>
+    <picklistValues>
+        <masterLabel>일반 첨부</masterLabel>
+        <translation>附件</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>표준 양식</masterLabel>
+        <translation>标准表单</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>링크</masterLabel>
+        <translation>链接</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>결재</masterLabel>
+        <translation>审批</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>시스템 링크</masterLabel>
+        <translation>系统链接</translation>
+    </picklistValues>
+</CustomFieldTranslation>

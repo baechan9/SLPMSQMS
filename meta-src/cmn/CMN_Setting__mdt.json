@@ -98,6 +98,14 @@
         "Value__c": "20",
         "Note__c": "UX-003. 알림 남용 방지"
       }
+    },
+    {
+      "name": "CMN_DOC_MAX_FILE_MB",
+      "label": "Salesforce 파일 최대 크기(MB)",
+      "values": {
+        "Value__c": "50",
+        "Note__c": "DOC-001 BR-4. 넘으면 업로드 차단 후 외부 저장소 링크 등록 안내"
+      }
     }
   ]
 }

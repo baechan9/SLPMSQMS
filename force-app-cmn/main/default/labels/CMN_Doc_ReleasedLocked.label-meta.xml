@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_Doc_ReleasedLocked</fullName>
+    <categories>CMN</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>공개 리비전 잠금</shortDescription>
+    <value>공개된 리비전의 파일·링크는 바꿀 수 없습니다. 새 리비전으로 올리세요.</value>
+</CustomLabel>

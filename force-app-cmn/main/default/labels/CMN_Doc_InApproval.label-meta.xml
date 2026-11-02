@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_Doc_InApproval</fullName>
+    <categories>CMN</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>결재 중</shortDescription>
+    <value>결재 중인 리비전이 있어 새 리비전을 올릴 수 없습니다.</value>
+</CustomLabel>

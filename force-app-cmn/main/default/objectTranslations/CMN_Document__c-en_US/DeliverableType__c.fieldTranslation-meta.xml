@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label>Deliverable Type</label>
+    <name>DeliverableType__c</name>
+    <picklistValues>
+        <masterLabel>일반 첨부</masterLabel>
+        <translation>Attachment</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>표준 양식</masterLabel>
+        <translation>Standard Form</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>링크</masterLabel>
+        <translation>Link</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>결재</masterLabel>
+        <translation>Approval</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>시스템 링크</masterLabel>
+        <translation>System Link</translation>
+    </picklistValues>
+</CustomFieldTranslation>

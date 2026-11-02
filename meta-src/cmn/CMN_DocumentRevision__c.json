@@ -1,0 +1,356 @@
+{
+  "wi": "CMN-00-DOC-001",
+  "object": "CMN_DocumentRevision__c",
+  "package": "force-app-cmn",
+  "description": "문서 리비전(DOC-001). RELEASED는 파일·링크 변경 불가, 새 RELEASED가 나오면 이전 RELEASED는 SUPERSEDED(BR-2). 상태는 CMN_DocumentService만 바꾼다",
+  "label": {
+    "ko": "문서 리비전",
+    "en_US": "Document Revision",
+    "zh_CN": "文档修订"
+  },
+  "plural": {
+    "ko": "문서 리비전",
+    "en_US": "Document Revisions",
+    "zh_CN": "文档修订"
+  },
+  "nameField": {
+    "label": {
+      "ko": "리비전",
+      "en_US": "Revision",
+      "zh_CN": "修订"
+    }
+  },
+  "sharingModel": "ControlledByParent",
+  "readOnlyLayout": true,
+  "fields": [
+    {
+      "name": "Document__c",
+      "type": "MasterDetail",
+      "referenceTo": "CMN_Document__c",
+      "relationshipName": "Revisions",
+      "relationshipLabel": {
+        "ko": "리비전",
+        "en_US": "Revisions",
+        "zh_CN": "修订"
+      },
+      "label": {
+        "ko": "문서",
+        "en_US": "Document",
+        "zh_CN": "文档"
+      }
+    },
+    {
+      "name": "RevisionNo__c",
+      "type": "Number",
+      "precision": 4,
+      "scale": 0,
+      "required": true,
+      "serviceOnly": true,
+      "label": {
+        "ko": "리비전 번호",
+        "en_US": "Revision No.",
+        "zh_CN": "修订号"
+      }
+    },
+    {
+      "name": "Status__c",
+      "type": "Picklist",
+      "required": true,
+      "default": "DRAFT",
+      "serviceOnly": true,
+      "label": {
+        "ko": "상태",
+        "en_US": "Status",
+        "zh_CN": "状态"
+      },
+      "values": [
+        {
+          "api": "DRAFT",
+          "label": {
+            "ko": "작성 중",
+            "en_US": "Draft",
+            "zh_CN": "草稿"
+          }
+        },
+        {
+          "api": "IN_APPROVAL",
+          "label": {
+            "ko": "결재 중",
+            "en_US": "In Approval",
+            "zh_CN": "审批中"
+          }
+        },
+        {
+          "api": "RELEASED",
+          "label": {
+            "ko": "유효",
+            "en_US": "Released",
+            "zh_CN": "已发布"
+          }
+        },
+        {
+          "api": "SUPERSEDED",
+          "label": {
+            "ko": "대체됨",
+            "en_US": "Superseded",
+            "zh_CN": "已替代"
+          }
+        },
+        {
+          "api": "REJECTED",
+          "label": {
+            "ko": "반려",
+            "en_US": "Rejected",
+            "zh_CN": "已驳回"
+          }
+        }
+      ]
+    },
+    {
+      "name": "StorageType__c",
+      "type": "Picklist",
+      "required": true,
+      "default": "SF_FILE",
+      "label": {
+        "ko": "저장소",
+        "en_US": "Storage",
+        "zh_CN": "存储位置"
+      },
+      "values": [
+        {
+          "api": "SF_FILE",
+          "label": {
+            "ko": "Salesforce 파일",
+            "en_US": "Salesforce File",
+            "zh_CN": "Salesforce 文件"
+          }
+        },
+        {
+          "api": "SHAREPOINT",
+          "label": "SharePoint"
+        },
+        {
+          "api": "PDM",
+          "label": "PDM"
+        },
+        {
+          "api": "DMS",
+          "label": "DMS"
+        },
+        {
+          "api": "URL",
+          "label": "URL"
+        },
+        {
+          "api": "SF_RECORD",
+          "label": {
+            "ko": "Salesforce 레코드",
+            "en_US": "Salesforce Record",
+            "zh_CN": "Salesforce 记录"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ContentDocumentId__c",
+      "type": "Text",
+      "length": 18,
+      "label": {
+        "ko": "파일 Id",
+        "en_US": "File Id",
+        "zh_CN": "文件 Id"
+      }
+    },
+    {
+      "name": "ExternalUrl__c",
+      "type": "Url",
+      "label": {
+        "ko": "외부 링크",
+        "en_US": "External URL",
+        "zh_CN": "外部链接"
+      }
+    },
+    {
+      "name": "ExternalRef__c",
+      "type": "Text",
+      "length": 255,
+      "label": {
+        "ko": "외부 문서 번호",
+        "en_US": "External Ref",
+        "zh_CN": "外部文档编号"
+      },
+      "description": "외부 저장소 키(도면 번호 등). 명세 ExternalKey__c를 데모 업서트 키와 구분해 이름 변경(CR-6)"
+    },
+    {
+      "name": "FileName__c",
+      "type": "Text",
+      "length": 255,
+      "label": {
+        "ko": "파일명",
+        "en_US": "File Name",
+        "zh_CN": "文件名"
+      }
+    },
+    {
+      "name": "FileSize__c",
+      "type": "Number",
+      "precision": 12,
+      "scale": 0,
+      "serviceOnly": true,
+      "label": {
+        "ko": "파일 크기(바이트)",
+        "en_US": "File Size (bytes)",
+        "zh_CN": "文件大小(字节)"
+      }
+    },
+    {
+      "name": "FileHash__c",
+      "type": "Text",
+      "length": 64,
+      "serviceOnly": true,
+      "label": {
+        "ko": "파일 해시",
+        "en_US": "File Hash",
+        "zh_CN": "文件哈希"
+      },
+      "description": "플랫폼 체크섬(ContentVersion.Checksum, MD5). 50MB 파일 SHA-256은 Apex 힙 한도로 계산 불가"
+    },
+    {
+      "name": "IsDuplicateFile__c",
+      "type": "Checkbox",
+      "default": false,
+      "serviceOnly": true,
+      "label": {
+        "ko": "중복 파일",
+        "en_US": "Duplicate File",
+        "zh_CN": "重复文件"
+      },
+      "description": "BR-5: 같은 해시가 다른 부모 레코드에 있음(차단하지 않음)"
+    },
+    {
+      "name": "DuplicateOfRevision__c",
+      "type": "Lookup",
+      "referenceTo": "CMN_DocumentRevision__c",
+      "relationshipName": "Duplicates",
+      "relationshipLabel": {
+        "ko": "같은 파일 리비전",
+        "en_US": "Duplicate Revisions",
+        "zh_CN": "重复修订"
+      },
+      "serviceOnly": true,
+      "label": {
+        "ko": "원본 리비전",
+        "en_US": "Original Revision",
+        "zh_CN": "原始修订"
+      }
+    },
+    {
+      "name": "ChangeNote__c",
+      "type": "LongTextArea",
+      "length": 1000,
+      "visibleLines": 3,
+      "label": {
+        "ko": "변경 사유",
+        "en_US": "Change Note",
+        "zh_CN": "变更原因"
+      },
+      "description": "명세 Text(1000) → Long Text Area(1000)(Text 최대 255)"
+    },
+    {
+      "name": "AiChangeSummary__c",
+      "type": "LongTextArea",
+      "length": 32768,
+      "visibleLines": 5,
+      "serviceOnly": true,
+      "label": {
+        "ko": "AI 변경 요약",
+        "en_US": "AI Change Summary",
+        "zh_CN": "AI 变更摘要"
+      },
+      "description": "AI-003이 채움"
+    },
+    {
+      "name": "IndexStatus__c",
+      "type": "Picklist",
+      "required": true,
+      "default": "PENDING",
+      "serviceOnly": true,
+      "label": {
+        "ko": "색인 상태",
+        "en_US": "Index Status",
+        "zh_CN": "索引状态"
+      },
+      "values": [
+        {
+          "api": "PENDING",
+          "label": {
+            "ko": "대기",
+            "en_US": "Pending",
+            "zh_CN": "待处理"
+          }
+        },
+        {
+          "api": "INDEXED",
+          "label": {
+            "ko": "색인됨",
+            "en_US": "Indexed",
+            "zh_CN": "已索引"
+          }
+        },
+        {
+          "api": "FAILED",
+          "label": {
+            "ko": "실패",
+            "en_US": "Failed",
+            "zh_CN": "失败"
+          }
+        },
+        {
+          "api": "EXCLUDED",
+          "label": {
+            "ko": "제외",
+            "en_US": "Excluded",
+            "zh_CN": "排除"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ReleasedAt__c",
+      "type": "DateTime",
+      "serviceOnly": true,
+      "label": {
+        "ko": "공개 일시",
+        "en_US": "Released At",
+        "zh_CN": "发布时间"
+      },
+      "description": "RELEASED 된 시각(Vol.6c 공개일 기준)"
+    },
+    {
+      "name": "ExternalKey__c",
+      "type": "Text",
+      "length": 120,
+      "externalId": true,
+      "unique": true,
+      "serviceOnly": true,
+      "label": {
+        "ko": "외부 키",
+        "en_US": "External Key",
+        "zh_CN": "外部键"
+      },
+      "description": "데모·이관 업서트 키(CR-6)"
+    }
+  ],
+  "validationRules": [
+    {
+      "name": "CMN_DocumentRevision_ReleasedLocked",
+      "formula": "AND(OR(ISPICKVAL(PRIORVALUE(Status__c), 'RELEASED'), ISPICKVAL(PRIORVALUE(Status__c), 'SUPERSEDED')), OR(ISCHANGED(StorageType__c), ISCHANGED(ContentDocumentId__c), ISCHANGED(ExternalUrl__c), ISCHANGED(ExternalRef__c), ISCHANGED(FileName__c), ISCHANGED(FileSize__c), ISCHANGED(FileHash__c), ISCHANGED(RevisionNo__c)))",
+      "description": "BR-2·AC-2: 공개·대체된 리비전의 파일·링크 변경 금지(관리자·자동화 포함). 상태 변경(RELEASED → SUPERSEDED)은 허용",
+      "message": {
+        "ko": "공개된 리비전의 파일·링크는 바꿀 수 없습니다. 새 리비전으로 올리세요.",
+        "en_US": "Files and links of a released revision cannot be changed. Upload a new revision.",
+        "zh_CN": "已发布修订的文件和链接不能修改,请上传新修订。"
+      }
+    }
+  ]
+}

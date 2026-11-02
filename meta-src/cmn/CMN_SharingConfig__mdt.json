@@ -58,6 +58,16 @@
         "SupplierField__c": null,
         "IsActive__c": true
       }
+    },
+    {
+      "name": "CMN_Document",
+      "label": "문서(DOC-001)",
+      "values": {
+        "ObjectApiName__c": "CMN_Document__c",
+        "PlantField__c": "Plant__c",
+        "SupplierField__c": "Supplier__c",
+        "IsActive__c": true
+      }
     }
   ]
 }

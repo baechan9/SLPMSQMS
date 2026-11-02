@@ -1,0 +1,230 @@
+{
+  "wi": "CMN-00-DOC-001",
+  "object": "CMN_Document__c",
+  "package": "force-app-cmn",
+  "description": "업무 레코드에 붙은 리비전 관리 문서(DOC-001). 같은 부모·같은 DocClass = 한 문서, 다시 올리면 새 리비전(BR-1). 공유는 공장·협력사(SEC-002) + 조회 시 부모 접근 확인(BR-6)",
+  "label": {
+    "ko": "문서",
+    "en_US": "Document",
+    "zh_CN": "文档"
+  },
+  "plural": {
+    "ko": "문서",
+    "en_US": "Documents",
+    "zh_CN": "文档"
+  },
+  "nameField": {
+    "label": {
+      "ko": "문서명",
+      "en_US": "Document Name",
+      "zh_CN": "文档名称"
+    }
+  },
+  "sharingModel": "Private",
+  "enableHistory": true,
+  "tab": {
+    "motif": "Custom55: Books"
+  },
+  "sharingReasons": [
+    {
+      "name": "CMN_Plant__c",
+      "label": {
+        "ko": "공장 공유",
+        "en_US": "Plant Sharing",
+        "zh_CN": "工厂共享"
+      }
+    },
+    {
+      "name": "CMN_Supplier__c",
+      "label": {
+        "ko": "협력사 공유",
+        "en_US": "Supplier Sharing",
+        "zh_CN": "供应商共享"
+      }
+    },
+    {
+      "name": "CMN_Approval__c",
+      "label": {
+        "ko": "결재자 공유",
+        "en_US": "Approver Sharing",
+        "zh_CN": "审批人共享"
+      }
+    }
+  ],
+  "fields": [
+    {
+      "name": "ParentRecordId__c",
+      "type": "Text",
+      "length": 18,
+      "required": true,
+      "label": {
+        "ko": "소속 레코드",
+        "en_US": "Parent Record",
+        "zh_CN": "所属记录"
+      }
+    },
+    {
+      "name": "ParentObject__c",
+      "type": "Text",
+      "length": 80,
+      "required": true,
+      "serviceOnly": true,
+      "label": {
+        "ko": "소속 객체",
+        "en_US": "Parent Object",
+        "zh_CN": "所属对象"
+      }
+    },
+    {
+      "name": "DocClass__c",
+      "type": "Lookup",
+      "referenceTo": "CMN_Code__c",
+      "relationshipName": "Documents",
+      "relationshipLabel": {
+        "ko": "문서",
+        "en_US": "Documents",
+        "zh_CN": "文档"
+      },
+      "required": true,
+      "deleteConstraint": "Restrict",
+      "label": {
+        "ko": "문서 분류",
+        "en_US": "Document Class",
+        "zh_CN": "文档分类"
+      },
+      "description": "코드 그룹 DOC_CLASS(트리거 확인)"
+    },
+    {
+      "name": "DeliverableType__c",
+      "type": "Picklist",
+      "required": true,
+      "default": "ATTACHMENT",
+      "label": {
+        "ko": "산출물 유형",
+        "en_US": "Deliverable Type",
+        "zh_CN": "交付物类型"
+      },
+      "values": [
+        {
+          "api": "ATTACHMENT",
+          "label": {
+            "ko": "일반 첨부",
+            "en_US": "Attachment",
+            "zh_CN": "附件"
+          }
+        },
+        {
+          "api": "STD_FORM",
+          "label": {
+            "ko": "표준 양식",
+            "en_US": "Standard Form",
+            "zh_CN": "标准表单"
+          }
+        },
+        {
+          "api": "LINK",
+          "label": {
+            "ko": "링크",
+            "en_US": "Link",
+            "zh_CN": "链接"
+          }
+        },
+        {
+          "api": "APPROVAL",
+          "label": {
+            "ko": "결재",
+            "en_US": "Approval",
+            "zh_CN": "审批"
+          }
+        },
+        {
+          "api": "SYSTEM_LINK",
+          "label": {
+            "ko": "시스템 링크",
+            "en_US": "System Link",
+            "zh_CN": "系统链接"
+          }
+        }
+      ]
+    },
+    {
+      "name": "CurrentRevision__c",
+      "type": "Lookup",
+      "referenceTo": "CMN_DocumentRevision__c",
+      "relationshipName": "CurrentOf",
+      "relationshipLabel": {
+        "ko": "현재 리비전 문서",
+        "en_US": "Documents (Current)",
+        "zh_CN": "当前修订文档"
+      },
+      "serviceOnly": true,
+      "label": {
+        "ko": "현재 리비전",
+        "en_US": "Current Revision",
+        "zh_CN": "当前修订"
+      },
+      "description": "최신 RELEASED 리비전"
+    },
+    {
+      "name": "Plant__c",
+      "type": "Lookup",
+      "referenceTo": "CMN_Plant__c",
+      "relationshipName": "Documents",
+      "relationshipLabel": {
+        "ko": "문서",
+        "en_US": "Documents",
+        "zh_CN": "文档"
+      },
+      "label": {
+        "ko": "공장",
+        "en_US": "Plant",
+        "zh_CN": "工厂"
+      },
+      "description": "공유 기준(부모에서 복사)",
+      "trackHistory": true
+    },
+    {
+      "name": "Supplier__c",
+      "type": "Lookup",
+      "referenceTo": "Account",
+      "relationshipName": "CmnDocuments",
+      "relationshipLabel": {
+        "ko": "문서",
+        "en_US": "Documents",
+        "zh_CN": "文档"
+      },
+      "label": {
+        "ko": "협력사",
+        "en_US": "Supplier",
+        "zh_CN": "供应商"
+      },
+      "description": "검토 반영 Vol.3: 협력사 공유 기준"
+    },
+    {
+      "name": "SupplierVisible__c",
+      "type": "Checkbox",
+      "default": false,
+      "label": {
+        "ko": "협력사 공개",
+        "en_US": "Visible to Supplier",
+        "zh_CN": "对供应商可见"
+      },
+      "description": "검토 반영 Vol.3: 파일 링크 Visibility = AllUsers",
+      "trackHistory": true
+    },
+    {
+      "name": "ExternalKey__c",
+      "type": "Text",
+      "length": 120,
+      "externalId": true,
+      "unique": true,
+      "serviceOnly": true,
+      "label": {
+        "ko": "외부 키",
+        "en_US": "External Key",
+        "zh_CN": "外部键"
+      },
+      "description": "데모·이관 업서트 키(개발 플랜 CR-6)"
+    }
+  ]
+}

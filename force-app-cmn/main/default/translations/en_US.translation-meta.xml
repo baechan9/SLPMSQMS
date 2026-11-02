@@ -269,6 +269,146 @@
         <name>CMN_Delete_NotAllowedStatus</name>
     </customLabels>
     <customLabels>
+        <label>Add Link</label>
+        <name>CMN_Doc_AddLink</name>
+    </customLabels>
+    <customLabels>
+        <label>Cancel</label>
+        <name>CMN_Doc_Cancel</name>
+    </customLabels>
+    <customLabels>
+        <label>Documents with released, superseded, or in-approval revisions cannot be deleted.</label>
+        <name>CMN_Doc_CannotDelete</name>
+    </customLabels>
+    <customLabels>
+        <label>Change Note</label>
+        <name>CMN_Doc_ChangeNote</name>
+    </customLabels>
+    <customLabels>
+        <label>Document Class</label>
+        <name>CMN_Doc_Class</name>
+    </customLabels>
+    <customLabels>
+        <label>The same file exists on another record.</label>
+        <name>CMN_Doc_Duplicate</name>
+    </customLabels>
+    <customLabels>
+        <label>No documents yet.</label>
+        <name>CMN_Doc_Empty</name>
+    </customLabels>
+    <customLabels>
+        <label>External Reference</label>
+        <name>CMN_Doc_ExternalRef</name>
+    </customLabels>
+    <customLabels>
+        <label>Revision History</label>
+        <name>CMN_Doc_History</name>
+    </customLabels>
+    <customLabels>
+        <label>A revision is in approval. You cannot add a new revision now.</label>
+        <name>CMN_Doc_InApproval</name>
+    </customLabels>
+    <customLabels>
+        <label>Select an active document class.</label>
+        <name>CMN_Doc_InvalidClass</name>
+    </customLabels>
+    <customLabels>
+        <label>Enter a storage type and an https link or external reference.</label>
+        <name>CMN_Doc_InvalidLink</name>
+    </customLabels>
+    <customLabels>
+        <label>This document class accepts external links only.</label>
+        <name>CMN_Doc_LinkOnly</name>
+    </customLabels>
+    <customLabels>
+        <label>Display Name</label>
+        <name>CMN_Doc_LinkTitle</name>
+    </customLabels>
+    <customLabels>
+        <label>Required document is missing.</label>
+        <name>CMN_Doc_Missing</name>
+    </customLabels>
+    <customLabels>
+        <label>You do not have permission to add documents to this record.</label>
+        <name>CMN_Doc_NoAccess</name>
+    </customLabels>
+    <customLabels>
+        <label>No approval line template is set up for documents. Contact your administrator.</label>
+        <name>CMN_Doc_NoApprovalLine</name>
+    </customLabels>
+    <customLabels>
+        <label>There is no draft revision to submit.</label>
+        <name>CMN_Doc_NoDraftRevision</name>
+    </customLabels>
+    <customLabels>
+        <label>You do not have access to documents of this record.</label>
+        <name>CMN_Doc_NoReadAccess</name>
+    </customLabels>
+    <customLabels>
+        <label>This document does not require approval.</label>
+        <name>CMN_Doc_NotApprovalType</name>
+    </customLabels>
+    <customLabels>
+        <label>Upload one file at a time for this class. A new file becomes a new revision.</label>
+        <name>CMN_Doc_OneFileOnly</name>
+    </customLabels>
+    <customLabels>
+        <label>Document registered.</label>
+        <name>CMN_Doc_Registered</name>
+    </customLabels>
+    <customLabels>
+        <label>Files and links of a released revision cannot be changed. Upload a new revision.</label>
+        <name>CMN_Doc_ReleasedLocked</name>
+    </customLabels>
+    <customLabels>
+        <label>Required</label>
+        <name>CMN_Doc_Required</name>
+    </customLabels>
+    <customLabels>
+        <label>Rev.{0}</label>
+        <name>CMN_Doc_Revision</name>
+    </customLabels>
+    <customLabels>
+        <label>Save</label>
+        <name>CMN_Doc_Save</name>
+    </customLabels>
+    <customLabels>
+        <label>Storage</label>
+        <name>CMN_Doc_Storage</name>
+    </customLabels>
+    <customLabels>
+        <label>Submit for Approval</label>
+        <name>CMN_Doc_Submit</name>
+    </customLabels>
+    <customLabels>
+        <label>Submitted for approval.</label>
+        <name>CMN_Doc_Submitted</name>
+    </customLabels>
+    <customLabels>
+        <label>Visible to supplier</label>
+        <name>CMN_Doc_SupplierVisible</name>
+    </customLabels>
+    <customLabels>
+        <label>Download Template</label>
+        <name>CMN_Doc_Template</name>
+    </customLabels>
+    <customLabels>
+        <label>Documents</label>
+        <name>CMN_Doc_Title</name>
+    </customLabels>
+    <customLabels>
+        <label>Files over {0} MB cannot be uploaded. Upload to an external repository and register the link.</label>
+        <name>CMN_Doc_TooLarge</name>
+    </customLabels>
+    <customLabels>
+        <label>Upload Files</label>
+        <name>CMN_Doc_Upload</name>
+    </customLabels>
+    <customLabels>
+        <label>Link (https)</label>
+        <name>CMN_Doc_Url</name>
+    </customLabels>
+    <customLabels>
         <label>This user is not registered. Ask your administrator to create the account.</label>
         <name>CMN_I18n_JitNoUserCreation</name>
     </customLabels>

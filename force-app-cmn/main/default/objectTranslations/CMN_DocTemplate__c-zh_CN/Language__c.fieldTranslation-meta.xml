@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label>语言</label>
+    <name>Language__c</name>
+    <picklistValues>
+        <masterLabel>한국어</masterLabel>
+        <translation>한국어</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>English</masterLabel>
+        <translation>English</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>中文</masterLabel>
+        <translation>中文</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Polski</masterLabel>
+        <translation>Polski</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Español</masterLabel>
+        <translation>Español</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Português</masterLabel>
+        <translation>Português</translation>
+    </picklistValues>
+</CustomFieldTranslation>

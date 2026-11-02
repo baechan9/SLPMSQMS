@@ -4,6 +4,7 @@
  *              Org에 아직 없는 객체·필드의 단계·열은 건너뛰므로 페이즈가 진행돼 객체가 늘어도 그대로 쓴다.
  *              - 관계 열 `Field__r.ExtField`(표준 관계는 `Account.ExtField`)는 앞 단계에서 만든 레코드 Id로 바꾼다.
  *              - `{{ref:객체.외부키필드=값}}`, `{{user:사번}}` 토큰, RecordTypeDeveloperName 열을 바꾼다.
+ *                참조를 풀 수 없는 행(아직 배포되지 않은 다른 메뉴 레코드, 건너뛴 상위 행)은 넣지 않는다.
  *              - 이관 모드로 적재해 업무 핸들러가 기존 번호·상태를 유지한다(CMN_TriggerHandler.isMigrationMode).
  *              프로필은 이름이 아니라 라이선스로 찾는다(ko Org는 표준 프로필 이름이 한국어).
  * @group CMN-00-ARC-002
@@ -271,6 +272,7 @@ public class CMN_TestDataFactory {
     List<String> insertKeys = new List<String>();
     for (Object o : rows) {
       Map<String, Object> row = (Map<String, Object>) o;
+      unresolved = false;
       String ext = String.valueOf(row.get(extField));
       String key = obj + '|' + extField + '|' + ext;
       SObject rec = t.newSObject();
@@ -299,6 +301,11 @@ public class CMN_TestDataFactory {
           continue;
         }
         rec.put(f, convert(fd.getType(), substitute(raw)));
+      }
+      // 앞 단계에서 건너뛴 행의 후속 단계(예: 문서 현재 리비전 채우기)도 건너뛴다
+      if (unresolved || SKIPPED.contains(key)) {
+        SKIPPED.add(key);
+        continue;
       }
       if (isUpdate) {
         updates.add(rec);
@@ -376,6 +383,9 @@ public class CMN_TestDataFactory {
       : REFS.get(target + '|' + extField + '|' + raw);
     if (refId != null) {
       rec.put(f, refId);
+    } else if (!fd.isNillable()) {
+      // 주종·필수 참조 대상이 없으면(상위 행을 건너뜀) 이 행도 넣지 않는다
+      unresolved = true;
     }
   }
 
@@ -394,6 +404,12 @@ public class CMN_TestDataFactory {
     return !(isUpdate && fd.getRelationshipOrder() != null);
   }
 
+  /** 참조를 풀 수 없어 건너뛴 행(객체|외부키 필드|값) */
+  private static final Set<String> SKIPPED = new Set<String>();
+
+  /** 현재 행에 풀 수 없는 참조(아직 배포·적재되지 않은 다른 메뉴 레코드)가 있는지. 그런 행은 건너뛴다. */
+  private static Boolean unresolved = false;
+
   private static Object substitute(Object raw) {
     if (!(raw instanceof String) || !((String) raw).contains('{{')) {
       return raw;
@@ -402,6 +418,7 @@ public class CMN_TestDataFactory {
     Matcher m = REF.matcher(s);
     while (m.find()) {
       Id refId = REFS.get(m.group(1) + '|' + m.group(2) + '|' + m.group(3));
+      unresolved = unresolved || refId == null;
       s = s.replace(m.group(0), refId == null ? '' : String.valueOf(refId));
       m = REF.matcher(s);
     }

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Document Revision</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Document Revisions</value>
+    </caseValues>
+    <nameFieldLabel>Revision</nameFieldLabel>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage>Files and links of a released revision cannot be changed. Upload a new revision.</errorMessage>
+        <name>CMN_DocumentRevision_ReleasedLocked</name>
+    </validationRules>
+</CustomObjectTranslation>

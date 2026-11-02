@@ -78,6 +78,20 @@
         "EscalationDays__c": null,
         "LineContributorClass__c": null
       }
+    },
+    {
+      "name": "CMN_DOC_RELEASE",
+      "label": "문서 리비전 공개 결재(DOC-001 BR-3)",
+      "values": {
+        "TargetObject__c": "CMN_Document__c",
+        "CallbackClass__c": "CMN_DocumentApprovalCallback",
+        "LockOnSubmit__c": false,
+        "KeepLockedAfterApproval__c": false,
+        "RequireDrafterManager__c": false,
+        "ReminderDays__c": null,
+        "EscalationDays__c": null,
+        "LineContributorClass__c": null
+      }
     }
   ]
 }
