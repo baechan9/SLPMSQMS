@@ -502,6 +502,16 @@
         <name>CMN_Ntf_ApvApproved_Subject</name>
     </customLabels>
     <customLabels>
+        <label>{ApproverName} 的审批已 {Days} 天未处理。
+文件: {Title}
+链接: {Url}</label>
+        <name>CMN_Ntf_ApvEscalation_Body</name>
+    </customLabels>
+    <customLabels>
+        <label>[审批延迟] {ApproverName} - {Title}</label>
+        <name>CMN_Ntf_ApvEscalation_Subject</name>
+    </customLabels>
+    <customLabels>
         <label>{Actor} 驳回了审批。
 链接: {Url}</label>
         <name>CMN_Ntf_ApvRejected_Body</name>
@@ -509,6 +519,16 @@
     <customLabels>
         <label>[审批驳回] {Title}</label>
         <name>CMN_Ntf_ApvRejected_Subject</name>
+    </customLabels>
+    <customLabels>
+        <label>审批已等待 {Days} 天。
+文件: {Title}
+链接: {Url}</label>
+        <name>CMN_Ntf_ApvReminder_Body</name>
+    </customLabels>
+    <customLabels>
+        <label>[审批催办] {Title}</label>
+        <name>CMN_Ntf_ApvReminder_Subject</name>
     </customLabels>
     <customLabels>
         <label>{Actor} 请求您审批。

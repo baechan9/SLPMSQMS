@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_Ntf_ApvReminder_Body</fullName>
+    <categories>CMN</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>결재 독촉 본문</shortDescription>
+    <value>결재 요청이 {Days}일째 대기 중입니다.
+문서: {Title}
+바로 가기: {Url}</value>
+</CustomLabel>

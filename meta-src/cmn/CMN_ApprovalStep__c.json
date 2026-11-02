@@ -249,6 +249,42 @@
         "zh_CN": "外部键"
       },
       "description": "{결재 번호}-S{StepNo}(병렬 둘째부터 -{순번}). 데모 보강 CR-6"
+    },
+    {
+      "name": "PendingAt__c",
+      "type": "DateTime",
+      "serviceOnly": true,
+      "label": {
+        "ko": "대기 시작",
+        "en_US": "Pending Since",
+        "zh_CN": "待处理开始"
+      },
+      "description": "PENDING이 된 시각(APV-005 체류일수 기준)",
+      "wi": "CMN-00-APV-005"
+    },
+    {
+      "name": "LastReminderOn__c",
+      "type": "Date",
+      "serviceOnly": true,
+      "label": {
+        "ko": "마지막 독촉일",
+        "en_US": "Last Reminder",
+        "zh_CN": "最近催办日"
+      },
+      "description": "공장 현지 날짜. 하루 1회(APV-005 BR-2)",
+      "wi": "CMN-00-APV-005"
+    },
+    {
+      "name": "LastEscalationOn__c",
+      "type": "Date",
+      "serviceOnly": true,
+      "label": {
+        "ko": "마지막 에스컬레이션일",
+        "en_US": "Last Escalation",
+        "zh_CN": "最近升级日"
+      },
+      "description": "공장 현지 날짜. 하루 1회(APV-005 BR-2)",
+      "wi": "CMN-00-APV-005"
     }
   ],
   "readOnlyLayout": true

@@ -1,0 +1,46 @@
+{
+  "wi": "CMN-00-APV-005",
+  "package": "force-app-cmn",
+  "labels": [
+    {
+      "name": "CMN_Ntf_ApvReminder_Subject",
+      "category": "CMN",
+      "description": "결재 독촉 제목",
+      "value": {
+        "ko": "[결재 독촉] {Title}",
+        "en_US": "[Approval Reminder] {Title}",
+        "zh_CN": "[审批催办] {Title}"
+      }
+    },
+    {
+      "name": "CMN_Ntf_ApvReminder_Body",
+      "category": "CMN",
+      "description": "결재 독촉 본문",
+      "value": {
+        "ko": "결재 요청이 {Days}일째 대기 중입니다.\n문서: {Title}\n바로 가기: {Url}",
+        "en_US": "This approval has been waiting for {Days} days.\nDocument: {Title}\nOpen: {Url}",
+        "zh_CN": "审批已等待 {Days} 天。\n文件: {Title}\n链接: {Url}"
+      }
+    },
+    {
+      "name": "CMN_Ntf_ApvEscalation_Subject",
+      "category": "CMN",
+      "description": "결재 에스컬레이션 제목",
+      "value": {
+        "ko": "[결재 지연] {ApproverName} - {Title}",
+        "en_US": "[Approval Overdue] {ApproverName} - {Title}",
+        "zh_CN": "[审批延迟] {ApproverName} - {Title}"
+      }
+    },
+    {
+      "name": "CMN_Ntf_ApvEscalation_Body",
+      "category": "CMN",
+      "description": "결재 에스컬레이션 본문",
+      "value": {
+        "ko": "{ApproverName}님의 결재가 {Days}일째 처리되지 않았습니다.\n문서: {Title}\n바로 가기: {Url}",
+        "en_US": "{ApproverName} has not acted on this approval for {Days} days.\nDocument: {Title}\nOpen: {Url}",
+        "zh_CN": "{ApproverName} 的审批已 {Days} 天未处理。\n文件: {Title}\n链接: {Url}"
+      }
+    }
+  ]
+}

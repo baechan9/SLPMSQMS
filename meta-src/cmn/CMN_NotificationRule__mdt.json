@@ -119,6 +119,26 @@
         "BodyLabel__c": "CMN_Ntf_DelegationNeeded_Body",
         "IsActive__c": true
       }
+    },
+    {
+      "name": "APV_REMINDER",
+      "label": "결재 독촉(APV-005)",
+      "values": {
+        "Channels__c": "EMAIL,BELL",
+        "SubjectLabel__c": "CMN_Ntf_ApvReminder_Subject",
+        "BodyLabel__c": "CMN_Ntf_ApvReminder_Body",
+        "IsActive__c": true
+      }
+    },
+    {
+      "name": "APV_ESCALATION",
+      "label": "결재 에스컬레이션(APV-005)",
+      "values": {
+        "Channels__c": "EMAIL,BELL",
+        "SubjectLabel__c": "CMN_Ntf_ApvEscalation_Subject",
+        "BodyLabel__c": "CMN_Ntf_ApvEscalation_Body",
+        "IsActive__c": true
+      }
     }
   ]
 }

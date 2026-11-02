@@ -104,6 +104,10 @@ else
     sf apex run -o "$ALIAS" -f scripts/org/recalc-sharing.apex > /dev/null && echo "공유 재계산 배치 실행"
   fi
 fi
+if [ -f force-app-cmn/main/default/classes/CMN_ApprovalReminderJob.cls ]; then
+  # 공통 스케줄 잡(결재 독촉 등) 예약, 이미 예약된 것은 건너뜀
+  sf apex run -o "$ALIAS" -f scripts/apex/schedule-jobs.apex > /dev/null && echo "스케줄 잡 예약 확인"
+fi
 
 step 7 "Apex 테스트(RunLocalTests) + 커버리지 85%"
 if has_apex; then

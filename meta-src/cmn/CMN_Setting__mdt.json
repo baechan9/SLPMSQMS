@@ -106,6 +106,22 @@
         "Value__c": "50",
         "Note__c": "DOC-001 BR-4. 넘으면 업로드 차단 후 외부 저장소 링크 등록 안내"
       }
+    },
+    {
+      "name": "CMN_APV_REMINDER_HOUR",
+      "label": "결재 독촉 실행 시각(공장 현지)",
+      "values": {
+        "Value__c": "9",
+        "Note__c": "APV-005 BR-1. 매시 잡이 이 현지 시각인 공장만 처리"
+      }
+    },
+    {
+      "name": "CMN_DEFAULT_TIMEZONE",
+      "label": "공장 없는 결재의 기준 시간대",
+      "values": {
+        "Value__c": "Asia/Seoul",
+        "Note__c": "APV-005. 결재 요청에 공장이 없을 때"
+      }
     }
   ]
 }

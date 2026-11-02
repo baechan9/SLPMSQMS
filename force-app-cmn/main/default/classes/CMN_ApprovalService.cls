@@ -380,6 +380,7 @@ public with sharing class CMN_ApprovalService {
           s.Status__c = NOTIFIED;
         } else {
           s.Status__c = PENDING;
+          s.PendingAt__c = Datetime.now();
           actionable = true;
           events.add(event(request, s.Id, 'STEP_PENDING', s.Approver__c));
         }

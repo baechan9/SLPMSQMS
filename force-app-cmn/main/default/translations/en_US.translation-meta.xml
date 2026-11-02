@@ -502,6 +502,16 @@ Open: {Url}</label>
         <name>CMN_Ntf_ApvApproved_Subject</name>
     </customLabels>
     <customLabels>
+        <label>{ApproverName} has not acted on this approval for {Days} days.
+Document: {Title}
+Open: {Url}</label>
+        <name>CMN_Ntf_ApvEscalation_Body</name>
+    </customLabels>
+    <customLabels>
+        <label>[Approval Overdue] {ApproverName} - {Title}</label>
+        <name>CMN_Ntf_ApvEscalation_Subject</name>
+    </customLabels>
+    <customLabels>
         <label>{Actor} rejected the approval.
 Open: {Url}</label>
         <name>CMN_Ntf_ApvRejected_Body</name>
@@ -509,6 +519,16 @@ Open: {Url}</label>
     <customLabels>
         <label>[Rejected] {Title}</label>
         <name>CMN_Ntf_ApvRejected_Subject</name>
+    </customLabels>
+    <customLabels>
+        <label>This approval has been waiting for {Days} days.
+Document: {Title}
+Open: {Url}</label>
+        <name>CMN_Ntf_ApvReminder_Body</name>
+    </customLabels>
+    <customLabels>
+        <label>[Approval Reminder] {Title}</label>
+        <name>CMN_Ntf_ApvReminder_Subject</name>
     </customLabels>
     <customLabels>
         <label>{Actor} requested your approval.

@@ -30,12 +30,12 @@
                 <behavior>Readonly</behavior>
                 <field>RoleCode__c</field>
             </layoutItems>
-        </layoutColumns>
-        <layoutColumns>
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Status__c</field>
             </layoutItems>
+        </layoutColumns>
+        <layoutColumns>
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>ActedBy__c</field>
@@ -51,6 +51,18 @@
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>ExternalKey__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>PendingAt__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>LastReminderOn__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>LastEscalationOn__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
