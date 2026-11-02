@@ -62,7 +62,7 @@ public without sharing class CMN_TodoSelector {
   }
 
   /**
-   * @description 결재 이벤트 구독용 단계(요청 정보 포함). 단계 Id 또는 요청 Id로 찾는다.
+   * @description 결재 이벤트 구독용 단계(요청 정보·기안자 포함, To-Do·알림 공용). 단계 Id 또는 요청 Id로 찾는다.
    * @param stepIds 단계
    * @param requestIds 요청(요청의 모든 단계)
    * @return 단계
@@ -77,6 +77,7 @@ public without sharing class CMN_TodoSelector {
         Status__c,
         Approver__c,
         Request__c,
+        Request__r.CreatedById,
         Request__r.Title__c,
         Request__r.RecordNo__c,
         Request__r.TargetRecordId__c,

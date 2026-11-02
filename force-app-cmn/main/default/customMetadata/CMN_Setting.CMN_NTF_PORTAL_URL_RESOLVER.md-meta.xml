@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>포털 수신자 링크 변환 클래스</label>
+    <protected>false</protected>
+    <values>
+        <field>Value__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Note__c</field>
+        <value xsi:type="xsd:string">NTF-001 BR-5. CMN_RecipientUrlResolver 구현(QMS-03-SPP-001 QMS_PortalUrlResolver)</value>
+    </values>
+</CustomMetadata>

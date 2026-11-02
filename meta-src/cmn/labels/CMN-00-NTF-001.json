@@ -1,0 +1,66 @@
+{
+  "wi": "CMN-00-NTF-001",
+  "package": "force-app-cmn",
+  "labels": [
+    {
+      "name": "CMN_Ntf_ApvStepPending_Subject",
+      "category": "CMN",
+      "description": "결재 요청 알림 제목",
+      "value": {
+        "ko": "[결재 요청] {Title}",
+        "en_US": "[Approval Request] {Title}",
+        "zh_CN": "[审批请求] {Title}"
+      }
+    },
+    {
+      "name": "CMN_Ntf_ApvStepPending_Body",
+      "category": "CMN",
+      "description": "결재 요청 알림 본문",
+      "value": {
+        "ko": "{Actor}님이 결재를 요청했습니다.\n문서: {Title}\n바로 가기: {Url}",
+        "en_US": "{Actor} requested your approval.\nDocument: {Title}\nOpen: {Url}",
+        "zh_CN": "{Actor} 请求您审批。\n文件: {Title}\n链接: {Url}"
+      }
+    },
+    {
+      "name": "CMN_Ntf_ApvApproved_Subject",
+      "category": "CMN",
+      "description": "결재 승인 알림 제목",
+      "value": {
+        "ko": "[결재 승인] {Title}",
+        "en_US": "[Approved] {Title}",
+        "zh_CN": "[审批通过] {Title}"
+      }
+    },
+    {
+      "name": "CMN_Ntf_ApvApproved_Body",
+      "category": "CMN",
+      "description": "결재 승인 알림 본문",
+      "value": {
+        "ko": "결재가 최종 승인되었습니다.\n바로 가기: {Url}",
+        "en_US": "The approval has been completed.\nOpen: {Url}",
+        "zh_CN": "审批已最终通过。\n链接: {Url}"
+      }
+    },
+    {
+      "name": "CMN_Ntf_ApvRejected_Subject",
+      "category": "CMN",
+      "description": "결재 반려 알림 제목",
+      "value": {
+        "ko": "[결재 반려] {Title}",
+        "en_US": "[Rejected] {Title}",
+        "zh_CN": "[审批驳回] {Title}"
+      }
+    },
+    {
+      "name": "CMN_Ntf_ApvRejected_Body",
+      "category": "CMN",
+      "description": "결재 반려 알림 본문",
+      "value": {
+        "ko": "{Actor}님이 결재를 반려했습니다.\n바로 가기: {Url}",
+        "en_US": "{Actor} rejected the approval.\nOpen: {Url}",
+        "zh_CN": "{Actor} 驳回了审批。\n链接: {Url}"
+      }
+    }
+  ]
+}

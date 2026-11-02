@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomNotificationType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customNotifTypeName>CMN General</customNotifTypeName>
+    <description
+  >CMN-00-NTF-001 공통 알림(벨·모바일 푸시). 문구는 CMN_NotificationRule__mdt의 Custom Label</description>
+    <desktop>true</desktop>
+    <masterLabel>CMN General</masterLabel>
+    <mobile>true</mobile>
+</CustomNotificationType>

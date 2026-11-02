@@ -253,6 +253,34 @@
         <name>CMN_Master_DeleteNotAllowed</name>
     </customLabels>
     <customLabels>
+        <label>审批已最终通过。
+链接: {Url}</label>
+        <name>CMN_Ntf_ApvApproved_Body</name>
+    </customLabels>
+    <customLabels>
+        <label>[审批通过] {Title}</label>
+        <name>CMN_Ntf_ApvApproved_Subject</name>
+    </customLabels>
+    <customLabels>
+        <label>{Actor} 驳回了审批。
+链接: {Url}</label>
+        <name>CMN_Ntf_ApvRejected_Body</name>
+    </customLabels>
+    <customLabels>
+        <label>[审批驳回] {Title}</label>
+        <name>CMN_Ntf_ApvRejected_Subject</name>
+    </customLabels>
+    <customLabels>
+        <label>{Actor} 请求您审批。
+文件: {Title}
+链接: {Url}</label>
+        <name>CMN_Ntf_ApvStepPending_Body</name>
+    </customLabels>
+    <customLabels>
+        <label>[审批请求] {Title}</label>
+        <name>CMN_Ntf_ApvStepPending_Subject</name>
+    </customLabels>
+    <customLabels>
         <label>编号模式包含不支持的标记: {0}</label>
         <name>CMN_Numbering_BadPattern</name>
     </customLabels>

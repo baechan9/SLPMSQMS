@@ -1,0 +1,84 @@
+{
+  "wi": "CMN-00-NTF-001",
+  "object": "CMN_NotificationRule__mdt",
+  "kind": "mdt",
+  "package": "force-app-cmn",
+  "description": "알림 규칙(NTF-001). DeveloperName = EventCode. 각 업무 WI가 레코드와 제목·본문 라벨을 더한다",
+  "label": {
+    "ko": "알림 규칙"
+  },
+  "plural": {
+    "ko": "알림 규칙"
+  },
+  "fields": [
+    {
+      "name": "Channels__c",
+      "type": "Text",
+      "length": 80,
+      "label": "Channels",
+      "description": "EMAIL, BELL(쉼표). BELL은 모바일 푸시 포함"
+    },
+    {
+      "name": "SubjectLabel__c",
+      "type": "Text",
+      "length": 80,
+      "label": "Subject Label",
+      "description": "Custom Label 이름. 토큰 {RecordNo} {Title} {Url} {DueDate} {Actor} 및 업무별 토큰"
+    },
+    {
+      "name": "BodyLabel__c",
+      "type": "Text",
+      "length": 80,
+      "label": "Body Label",
+      "description": "Custom Label 이름(본문, 일반 텍스트)"
+    },
+    {
+      "name": "IsActive__c",
+      "type": "Checkbox",
+      "default": true,
+      "label": "Is Active"
+    }
+  ],
+  "records": [
+    {
+      "name": "APV_STEP_PENDING",
+      "label": "결재 요청(결재자)",
+      "values": {
+        "Channels__c": "EMAIL,BELL",
+        "SubjectLabel__c": "CMN_Ntf_ApvStepPending_Subject",
+        "BodyLabel__c": "CMN_Ntf_ApvStepPending_Body",
+        "IsActive__c": true
+      }
+    },
+    {
+      "name": "APV_APPROVED",
+      "label": "결재 승인(기안자)",
+      "values": {
+        "Channels__c": "BELL",
+        "SubjectLabel__c": "CMN_Ntf_ApvApproved_Subject",
+        "BodyLabel__c": "CMN_Ntf_ApvApproved_Body",
+        "IsActive__c": true
+      }
+    },
+    {
+      "name": "APV_REJECTED",
+      "label": "결재 반려(기안자)",
+      "values": {
+        "Channels__c": "EMAIL,BELL",
+        "SubjectLabel__c": "CMN_Ntf_ApvRejected_Subject",
+        "BodyLabel__c": "CMN_Ntf_ApvRejected_Body",
+        "IsActive__c": true
+      }
+    },
+    {
+      "name": "CMN_TEST_INACTIVE",
+      "label": "테스트용 비활성 규칙(AC-2)",
+      "values": {
+        "Channels__c": "EMAIL,BELL",
+        "SubjectLabel__c": "CMN_Ntf_ApvApproved_Subject",
+        "BodyLabel__c": "CMN_Ntf_ApvApproved_Body",
+        "IsActive__c": false
+      }
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_Ntf_ApvApproved_Body</fullName>
+    <categories>CMN</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>결재 승인 알림 본문</shortDescription>
+    <value>결재가 최종 승인되었습니다.
+바로 가기: {Url}</value>
+</CustomLabel>

@@ -253,6 +253,34 @@
         <name>CMN_Master_DeleteNotAllowed</name>
     </customLabels>
     <customLabels>
+        <label>The approval has been completed.
+Open: {Url}</label>
+        <name>CMN_Ntf_ApvApproved_Body</name>
+    </customLabels>
+    <customLabels>
+        <label>[Approved] {Title}</label>
+        <name>CMN_Ntf_ApvApproved_Subject</name>
+    </customLabels>
+    <customLabels>
+        <label>{Actor} rejected the approval.
+Open: {Url}</label>
+        <name>CMN_Ntf_ApvRejected_Body</name>
+    </customLabels>
+    <customLabels>
+        <label>[Rejected] {Title}</label>
+        <name>CMN_Ntf_ApvRejected_Subject</name>
+    </customLabels>
+    <customLabels>
+        <label>{Actor} requested your approval.
+Document: {Title}
+Open: {Url}</label>
+        <name>CMN_Ntf_ApvStepPending_Body</name>
+    </customLabels>
+    <customLabels>
+        <label>[Approval Request] {Title}</label>
+        <name>CMN_Ntf_ApvStepPending_Subject</name>
+    </customLabels>
+    <customLabels>
         <label>The numbering pattern has an unsupported token: {0}</label>
         <name>CMN_Numbering_BadPattern</name>
     </customLabels>

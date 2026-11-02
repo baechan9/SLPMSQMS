@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>알림 규칙(NTF-001). DeveloperName = EventCode. 각 업무 WI가 레코드와 제목·본문 라벨을 더한다</description>
+    <label>알림 규칙</label>
+    <pluralLabel>알림 규칙</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>

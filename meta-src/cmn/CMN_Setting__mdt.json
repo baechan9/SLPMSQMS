@@ -58,6 +58,30 @@
         "Value__c": "ko",
         "Note__c": "TDO-001 TitleFallback 렌더링 언어. Org 기본 언어와 같게"
       }
+    },
+    {
+      "name": "CMN_NTF_CHUNK_SIZE",
+      "label": "알림 Queueable 1회 수신자 수",
+      "values": {
+        "Value__c": "100",
+        "Note__c": "NTF-001 AC-3. 넘으면 다음 Queueable로 이어서 보낸다"
+      }
+    },
+    {
+      "name": "CMN_NTF_FROM_ADDRESS",
+      "label": "알림 발신 Org-Wide 주소",
+      "values": {
+        "Value__c": null,
+        "Note__c": "NTF-001. SL 확인 후 등록. 비우면 실행 사용자 주소"
+      }
+    },
+    {
+      "name": "CMN_NTF_PORTAL_URL_RESOLVER",
+      "label": "포털 수신자 링크 변환 클래스",
+      "values": {
+        "Value__c": null,
+        "Note__c": "NTF-001 BR-5. CMN_RecipientUrlResolver 구현(QMS-03-SPP-001 QMS_PortalUrlResolver)"
+      }
     }
   ]
 }

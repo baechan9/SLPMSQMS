@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_Ntf_ApvRejected_Body</fullName>
+    <categories>CMN</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>결재 반려 알림 본문</shortDescription>
+    <value>{Actor}님이 결재를 반려했습니다.
+바로 가기: {Url}</value>
+</CustomLabel>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>BodyLabel__c</fullName>
+    <description>Custom Label 이름(본문, 일반 텍스트)</description>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>Body Label</label>
+    <length>80</length>
+    <required>false</required>
+    <type>Text</type>
+</CustomField>

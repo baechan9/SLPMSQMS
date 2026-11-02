@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_Ntf_ApvStepPending_Body</fullName>
+    <categories>CMN</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>결재 요청 알림 본문</shortDescription>
+    <value>{Actor}님이 결재를 요청했습니다.
+문서: {Title}
+바로 가기: {Url}</value>
+</CustomLabel>
