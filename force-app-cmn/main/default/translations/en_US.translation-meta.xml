@@ -265,6 +265,18 @@
         <name>CMN_Customer_DuplicateVehicleCode</name>
     </customLabels>
     <customLabels>
+        <label>The delegate must be an active user other than the delegator.</label>
+        <name>CMN_Delegation_InvalidDelegate</name>
+    </customLabels>
+    <customLabels>
+        <label>The end must be after the start.</label>
+        <name>CMN_Delegation_InvalidPeriod</name>
+    </customLabels>
+    <customLabels>
+        <label>Only the delegator or the delegator's department manager can register a delegation.</label>
+        <name>CMN_Delegation_NotAllowed</name>
+    </customLabels>
+    <customLabels>
         <label>Delete logs cannot be changed or removed.</label>
         <name>CMN_Delete_LogReadOnly</name>
     </customLabels>
@@ -517,6 +529,16 @@ Open: {Url}</label>
     <customLabels>
         <label>[Mention] {Title}</label>
         <name>CMN_Ntf_CommentMention_Subject</name>
+    </customLabels>
+    <customLabels>
+        <label>{UserName} is now on leave with {PendingApprovals} pending approvals.
+Register an approval delegation.
+Open: {Url}</label>
+        <name>CMN_Ntf_DelegationNeeded_Body</name>
+    </customLabels>
+    <customLabels>
+        <label>[Delegate Needed] {UserName}</label>
+        <name>CMN_Ntf_DelegationNeeded_Subject</name>
     </customLabels>
     <customLabels>
         <label>{EmployeeName} ({EmployeeNo}) has retired and the QMS account was deactivated.

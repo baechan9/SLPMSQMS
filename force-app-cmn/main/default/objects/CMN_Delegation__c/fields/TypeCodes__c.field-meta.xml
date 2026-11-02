@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>TypeCodes__c</fullName>
+    <description>공란 = 전체, 지정 시 쉼표 구분 TypeCode. 명세 Text(1000)은 Text 최대 255라 Long Text Area(1000)</description>
+    <label>결재 유형</label>
+    <length>1000</length>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>LongTextArea</type>
+    <visibleLines>2</visibleLines>
+</CustomField>

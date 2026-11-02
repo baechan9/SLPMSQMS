@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Delegator__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>부재자. 필수는 트리거 확인(User Lookup은 필수 지정 불가)</description>
+    <label>위임자</label>
+    <referenceTo>User</referenceTo>
+    <relationshipLabel>위임(위임자)</relationshipLabel>
+    <relationshipName>DelegationsGiven</relationshipName>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

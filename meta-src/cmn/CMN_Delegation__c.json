@@ -1,0 +1,142 @@
+{
+  "wi": "CMN-00-APV-004",
+  "object": "CMN_Delegation__c",
+  "package": "force-app-cmn",
+  "description": "대리결재 위임(APV-004). 위임자 본인 또는 부서장이 등록. 대결은 1단계만(대리인의 위임은 전달되지 않음)",
+  "label": {
+    "ko": "결재 위임",
+    "en_US": "Approval Delegation",
+    "zh_CN": "审批委托"
+  },
+  "plural": {
+    "ko": "결재 위임",
+    "en_US": "Approval Delegations",
+    "zh_CN": "审批委托"
+  },
+  "nameField": {
+    "label": {
+      "ko": "위임",
+      "en_US": "Delegation",
+      "zh_CN": "委托"
+    }
+  },
+  "sharingModel": "Read",
+  "tab": {
+    "motif": "Custom19: Wrench"
+  },
+  "enableHistory": true,
+  "fields": [
+    {
+      "name": "Delegator__c",
+      "type": "Lookup",
+      "referenceTo": "User",
+      "relationshipName": "DelegationsGiven",
+      "relationshipLabel": {
+        "ko": "위임(위임자)",
+        "en_US": "Delegations Given",
+        "zh_CN": "委托(委托人)"
+      },
+      "label": {
+        "ko": "위임자",
+        "en_US": "Delegator",
+        "zh_CN": "委托人"
+      },
+      "description": "부재자. 필수는 트리거 확인(User Lookup은 필수 지정 불가)",
+      "trackHistory": true
+    },
+    {
+      "name": "Delegate__c",
+      "type": "Lookup",
+      "referenceTo": "User",
+      "relationshipName": "DelegationsReceived",
+      "relationshipLabel": {
+        "ko": "위임(대리인)",
+        "en_US": "Delegations Received",
+        "zh_CN": "委托(代理人)"
+      },
+      "label": {
+        "ko": "대리인",
+        "en_US": "Delegate",
+        "zh_CN": "代理人"
+      },
+      "trackHistory": true
+    },
+    {
+      "name": "StartAt__c",
+      "type": "DateTime",
+      "required": true,
+      "label": {
+        "ko": "시작",
+        "en_US": "Start",
+        "zh_CN": "开始"
+      },
+      "trackHistory": true
+    },
+    {
+      "name": "EndAt__c",
+      "type": "DateTime",
+      "required": true,
+      "label": {
+        "ko": "종료",
+        "en_US": "End",
+        "zh_CN": "结束"
+      },
+      "trackHistory": true
+    },
+    {
+      "name": "TypeCodes__c",
+      "type": "LongTextArea",
+      "length": 1000,
+      "visibleLines": 2,
+      "label": {
+        "ko": "결재 유형",
+        "en_US": "Approval Types",
+        "zh_CN": "审批类型"
+      },
+      "description": "공란 = 전체, 지정 시 쉼표 구분 TypeCode. 명세 Text(1000)은 Text 최대 255라 Long Text Area(1000)"
+    },
+    {
+      "name": "Reason__c",
+      "type": "Text",
+      "length": 255,
+      "required": true,
+      "label": {
+        "ko": "사유",
+        "en_US": "Reason",
+        "zh_CN": "原因"
+      }
+    },
+    {
+      "name": "IsActiveNow__c",
+      "type": "Formula",
+      "returnType": "Checkbox",
+      "treatBlanksAs": "BlankAsZero",
+      "formula": "AND(StartAt__c <= NOW(), EndAt__c > NOW())",
+      "label": {
+        "ko": "현재 유효",
+        "en_US": "Active Now",
+        "zh_CN": "当前有效"
+      }
+    },
+    {
+      "name": "ExternalKey__c",
+      "type": "Text",
+      "length": 80,
+      "externalId": true,
+      "unique": true,
+      "serviceOnly": true,
+      "label": {
+        "ko": "외부 키",
+        "en_US": "External Key",
+        "zh_CN": "外部键"
+      },
+      "description": "DLG-{위임자 사번}-{시작일 yyyyMMdd}(데모·이관, 개발 플랜 CR-6). 비우면 트리거가 채운다"
+    }
+  ],
+  "layout": {
+    "columns": [
+      ["Name", "Delegator__c", "Delegate__c", "Reason__c"],
+      ["StartAt__c", "EndAt__c", "IsActiveNow__c", "TypeCodes__c"]
+    ]
+  }
+}

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_Delegation_InvalidDelegate</fullName>
+    <categories>CMN</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>대리인 오류</shortDescription>
+    <value>대리인은 위임자가 아닌 활성 사용자여야 합니다.</value>
+</CustomLabel>

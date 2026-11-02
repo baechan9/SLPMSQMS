@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_Ntf_DelegationNeeded_Body</fullName>
+    <categories>CMN</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>대리인 지정 필요 알림 본문</shortDescription>
+    <value>{UserName}님이 휴직 상태가 되었고 결재 대기 {PendingApprovals}건이 있습니다.
+결재 위임(대리인)을 등록하세요.
+바로 가기: {Url}</value>
+</CustomLabel>

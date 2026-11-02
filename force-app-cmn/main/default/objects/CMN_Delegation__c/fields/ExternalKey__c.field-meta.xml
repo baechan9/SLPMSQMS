@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ExternalKey__c</fullName>
+    <caseSensitive>false</caseSensitive>
+    <description>DLG-{위임자 사번}-{시작일 yyyyMMdd}(데모·이관, 개발 플랜 CR-6). 비우면 트리거가 채운다</description>
+    <externalId>true</externalId>
+    <label>외부 키</label>
+    <length>80</length>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>true</unique>
+</CustomField>

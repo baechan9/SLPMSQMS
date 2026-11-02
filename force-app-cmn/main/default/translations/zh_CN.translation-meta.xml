@@ -265,6 +265,18 @@
         <name>CMN_Customer_DuplicateVehicleCode</name>
     </customLabels>
     <customLabels>
+        <label>代理人必须是委托人以外的有效用户。</label>
+        <name>CMN_Delegation_InvalidDelegate</name>
+    </customLabels>
+    <customLabels>
+        <label>结束时间必须晚于开始时间。</label>
+        <name>CMN_Delegation_InvalidPeriod</name>
+    </customLabels>
+    <customLabels>
+        <label>只有委托人本人或其部门负责人可以登记委托。</label>
+        <name>CMN_Delegation_NotAllowed</name>
+    </customLabels>
+    <customLabels>
         <label>删除记录不能修改或删除。</label>
         <name>CMN_Delete_LogReadOnly</name>
     </customLabels>
@@ -517,6 +529,16 @@
     <customLabels>
         <label>[提及] {Title}</label>
         <name>CMN_Ntf_CommentMention_Subject</name>
+    </customLabels>
+    <customLabels>
+        <label>{UserName} 已休假,有 {PendingApprovals} 条待审批。
+请登记审批委托(代理人)。
+链接: {Url}</label>
+        <name>CMN_Ntf_DelegationNeeded_Body</name>
+    </customLabels>
+    <customLabels>
+        <label>[需要指定代理人] {UserName}</label>
+        <name>CMN_Ntf_DelegationNeeded_Subject</name>
     </customLabels>
     <customLabels>
         <label>{EmployeeName}({EmployeeNo})已离职,QMS 账户已停用。

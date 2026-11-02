@@ -1,0 +1,56 @@
+{
+  "wi": "CMN-00-APV-004",
+  "package": "force-app-cmn",
+  "labels": [
+    {
+      "name": "CMN_Delegation_NotAllowed",
+      "category": "CMN",
+      "description": "위임 등록 권한 없음",
+      "value": {
+        "ko": "위임자 본인 또는 위임자의 부서장만 위임을 등록할 수 있습니다.",
+        "en_US": "Only the delegator or the delegator's department manager can register a delegation.",
+        "zh_CN": "只有委托人本人或其部门负责人可以登记委托。"
+      }
+    },
+    {
+      "name": "CMN_Delegation_InvalidDelegate",
+      "category": "CMN",
+      "description": "대리인 오류",
+      "value": {
+        "ko": "대리인은 위임자가 아닌 활성 사용자여야 합니다.",
+        "en_US": "The delegate must be an active user other than the delegator.",
+        "zh_CN": "代理人必须是委托人以外的有效用户。"
+      }
+    },
+    {
+      "name": "CMN_Delegation_InvalidPeriod",
+      "category": "CMN",
+      "description": "기간 오류",
+      "value": {
+        "ko": "종료 일시는 시작 일시 이후여야 합니다.",
+        "en_US": "The end must be after the start.",
+        "zh_CN": "结束时间必须晚于开始时间。"
+      }
+    },
+    {
+      "name": "CMN_Ntf_DelegationNeeded_Subject",
+      "category": "CMN",
+      "description": "대리인 지정 필요 알림 제목",
+      "value": {
+        "ko": "[대리인 지정 필요] {UserName}",
+        "en_US": "[Delegate Needed] {UserName}",
+        "zh_CN": "[需要指定代理人] {UserName}"
+      }
+    },
+    {
+      "name": "CMN_Ntf_DelegationNeeded_Body",
+      "category": "CMN",
+      "description": "대리인 지정 필요 알림 본문",
+      "value": {
+        "ko": "{UserName}님이 휴직 상태가 되었고 결재 대기 {PendingApprovals}건이 있습니다.\n결재 위임(대리인)을 등록하세요.\n바로 가기: {Url}",
+        "en_US": "{UserName} is now on leave with {PendingApprovals} pending approvals.\nRegister an approval delegation.\nOpen: {Url}",
+        "zh_CN": "{UserName} 已休假,有 {PendingApprovals} 条待审批。\n请登记审批委托(代理人)。\n链接: {Url}"
+      }
+    }
+  ]
+}

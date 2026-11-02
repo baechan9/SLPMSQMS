@@ -109,6 +109,16 @@
         "BodyLabel__c": "CMN_Ntf_EmployeeRetired_Body",
         "IsActive__c": true
       }
+    },
+    {
+      "name": "CMN_DELEGATION_NEEDED",
+      "label": "대리인 지정 필요(APV-004 BR-6)",
+      "values": {
+        "Channels__c": "EMAIL,BELL",
+        "SubjectLabel__c": "CMN_Ntf_DelegationNeeded_Subject",
+        "BodyLabel__c": "CMN_Ntf_DelegationNeeded_Body",
+        "IsActive__c": true
+      }
     }
   ]
 }

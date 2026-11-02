@@ -1,0 +1,13 @@
+{
+  "permissionSet": {
+    "wi": "CMN-00-APV-004",
+    "name": "CMN_PS_Delegation_User",
+    "package": "force-app-cmn",
+    "label": "CMN Delegation User",
+    "description": "결재 위임 등록·본인 위임 수정(등록 규칙은 트리거), 탭(CMN-00-APV-004). 사내 페르소나 PSG 전체",
+    "objects": {
+      "CMN_Delegation__c": "edit"
+    },
+    "tabs": ["CMN_Delegation__c"]
+  }
+}

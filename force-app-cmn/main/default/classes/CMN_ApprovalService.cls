@@ -279,9 +279,21 @@ public with sharing class CMN_ApprovalService {
     if (request.Status__c != IN_PROGRESS || step.Status__c != PENDING) {
       throw new CMN_ValidationException(Label.CMN_Approval_NotPending);
     }
+    // 결재자 본인 또는 그 시점에 유효한 대리인(APV-004 BR-4, 1단계 위임만)
+    Boolean delegated = false;
     if (step.Approver__c != UserInfo.getUserId()) {
-      throw new CMN_ValidationException(Label.CMN_Approval_NotApprover);
+      if (
+        !CMN_DelegationService.isDelegate(
+          step.Approver__c,
+          UserInfo.getUserId(),
+          request.TypeCode__c
+        )
+      ) {
+        throw new CMN_ValidationException(Label.CMN_Approval_NotApprover);
+      }
+      delegated = true;
     }
+    step.IsDelegated__c = delegated;
     step.Status__c = approve ? APPROVED : REJECTED;
     step.ActedBy__c = UserInfo.getUserId();
     step.ActedAt__c = Datetime.now();
@@ -510,6 +522,19 @@ public with sharing class CMN_ApprovalService {
     Set<Id> users = new Set<Id>();
     for (CMN_ApprovalStep__c s : steps) {
       users.add(s.Approver__c);
+    }
+    grantRead(targetId, requestId, users);
+  }
+
+  /**
+   * @description 대상·요청 읽기 공유를 준다(BR-6, APV-004 BR-4 대리인).
+   * @param targetId 결재 대상
+   * @param requestId 결재 요청
+   * @param users 공유받을 사용자
+   */
+  public static void grantRead(Id targetId, Id requestId, Set<Id> users) {
+    if (users == null || users.isEmpty()) {
+      return;
     }
     List<SObject> rows = new List<SObject>();
     String targetObject = String.valueOf(targetId.getSObjectType());

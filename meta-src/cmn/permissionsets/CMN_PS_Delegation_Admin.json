@@ -1,0 +1,13 @@
+{
+  "permissionSet": {
+    "wi": "CMN-00-APV-004",
+    "name": "CMN_PS_Delegation_Admin",
+    "package": "force-app-cmn",
+    "label": "CMN Delegation Admin",
+    "description": "모든 위임 수정·삭제(관리자 대리 등록)(CMN-00-APV-004)",
+    "objects": {
+      "CMN_Delegation__c": "admin"
+    },
+    "customPermissions": ["CMN_DelegationAdmin"]
+  }
+}

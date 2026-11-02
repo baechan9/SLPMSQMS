@@ -4,7 +4,8 @@
  * - STEP_PENDING: 결재자 APPROVAL To-Do open(원천 = 결재 단계). 구독 시점에 이미 처리된 단계는 열지 않는다.
  * - STEP_DONE: 그 단계 To-Do close. APPROVED: 요청의 남은 To-Do close. REJECTED·RECALLED: 남은 To-Do cancel.
  * 이벤트는 요청 안에서 순서대로 쌓이므로(단계는 다시 열리지 않고 재상신은 새 요청) open → close → cancel 순으로 처리한다.
- * 대리인 To-Do(BR-2 "+유효 대리인")는 CMN-00-APV-004가 위임 정보로 추가한다. 닫기는 처리자 구분 없이 단계 전체라 대리인 To-Do도 함께 닫힌다.
+ * 대리인(BR-2 "+유효 대리인", CMN-00-APV-004): 결재자에게 유효한 위임이 있으면 대리인 To-Do(대결 표시)·읽기 공유·알림도 만든다.
+ * 닫기는 처리자 구분 없이 단계 전체라 대리인 To-Do도 함께 닫힌다.
  * 알림(규칙 코드)
  * - STEP_PENDING → 결재자 APV_STEP_PENDING(보낸 사람 = 기안자), APPROVED → 기안자 APV_APPROVED, REJECTED → 기안자 APV_REJECTED(보낸 사람 = 반려자).
  * 링크는 결재 대상 업무 레코드다. To-Do와 알림은 서로의 실패에 영향받지 않는다.
@@ -16,6 +17,8 @@ public with sharing class CMN_ApprovalEventTriggerHandler extends CMN_TriggerHan
   private Set<Id> approved = new Set<Id>();
   private Set<Id> rejected = new Set<Id>();
   private Set<Id> recalled = new Set<Id>();
+  /** 단계 Id → 유효 대리인 */
+  private Map<Id, Set<Id>> delegatesByStep = new Map<Id, Set<Id>>();
   /** 승인·반려한 사용자(알림 보낸 사람) */
   private Map<Id, Id> actorByRequest = new Map<Id, Id>();
 
@@ -54,6 +57,7 @@ public with sharing class CMN_ApprovalEventTriggerHandler extends CMN_TriggerHan
       pending,
       requests
     );
+    loadDelegates(steps);
     // 구독 실패가 결재 처리 자체를 되돌리지 않는다. 원문은 로그로 남기고 재처리는 운영자가 한다
     syncTodos(steps);
     try {
@@ -71,6 +75,11 @@ public with sharing class CMN_ApprovalEventTriggerHandler extends CMN_TriggerHan
       // 단계 사이에 비활성화된 결재자(퇴직 등)는 To-Do를 만들지 않는다(한 명 때문에 묶음 전체가 실패하지 않게)
       if (isPending(s) && s.Approver__r?.IsActive == true) {
         specs.add(specOf(s));
+      }
+      // 유효한 위임이 있으면 대리인 To-Do(대결 표시)도 만든다(APV-004 BR-3). 원천이 같은 단계라 단계가 끝나면 함께 닫힌다
+      Set<Id> delegates = delegatesOf(s);
+      if (!delegates.isEmpty()) {
+        specs.addAll(CMN_DelegationService.delegateSpecs(s, delegates));
       }
       if (approved.contains(s.Request__c)) {
         closeSteps.add(s.Id);
@@ -112,6 +121,11 @@ public with sharing class CMN_ApprovalEventTriggerHandler extends CMN_TriggerHan
           )
         );
       }
+      for (Id d : delegatesOf(s)) {
+        messages.add(
+          message('APV_STEP_PENDING', d, s.Request__r, s.Request__r.CreatedById)
+        );
+      }
     }
     for (Id requestId : requests.keySet()) {
       CMN_ApprovalRequest__c r = requests.get(requestId);
@@ -147,6 +161,47 @@ public with sharing class CMN_ApprovalEventTriggerHandler extends CMN_TriggerHan
       null,
       ex
     );
+  }
+
+  /** 새로 PENDING이 된 단계 결재자의 유효 대리인(1단계) — 대상·요청 읽기 공유도 준다(APV-004 BR-4). */
+  private void loadDelegates(List<CMN_ApprovalStep__c> steps) {
+    Set<Id> approvers = new Set<Id>();
+    for (CMN_ApprovalStep__c s : steps) {
+      if (isPending(s)) {
+        approvers.add(s.Approver__c);
+      }
+    }
+    if (approvers.isEmpty()) {
+      return;
+    }
+    try {
+      Map<Id, List<CMN_Delegation__c>> active = CMN_DelegationService.activeFor(
+        approvers
+      );
+      for (CMN_ApprovalStep__c s : steps) {
+        if (!isPending(s) || !active.containsKey(s.Approver__c)) {
+          continue;
+        }
+        Set<Id> delegates = CMN_DelegationService.delegatesFor(
+          active.get(s.Approver__c),
+          s.Request__r.TypeCode__c
+        );
+        if (!delegates.isEmpty()) {
+          delegatesByStep.put(s.Id, delegates);
+          CMN_ApprovalService.grantRead(
+            s.Request__r.TargetRecordId__c,
+            s.Request__c,
+            delegates
+          );
+        }
+      }
+    } catch (Exception ex) {
+      logFailure('delegate', ex);
+    }
+  }
+
+  private Set<Id> delegatesOf(CMN_ApprovalStep__c s) {
+    return delegatesByStep.get(s.Id) ?? new Set<Id>();
   }
 
   private Boolean isPending(CMN_ApprovalStep__c s) {

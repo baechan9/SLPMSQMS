@@ -79,6 +79,7 @@ public without sharing class CMN_TodoSelector {
         Approver__r.IsActive,
         Request__c,
         Request__r.CreatedById,
+        Request__r.TypeCode__c,
         Request__r.Title__c,
         Request__r.RecordNo__c,
         Request__r.TargetRecordId__c,
