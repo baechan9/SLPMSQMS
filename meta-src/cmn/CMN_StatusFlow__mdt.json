@@ -1,0 +1,46 @@
+{
+  "wi": "CMN-00-UX-003",
+  "object": "CMN_StatusFlow__mdt",
+  "kind": "mdt",
+  "package": "force-app-cmn",
+  "description": "상태 흐름(UX-003). DeveloperName = 객체 이름(접미사 제외). 각 업무 객체 WI가 레코드와 단계를 더한다",
+  "label": {
+    "ko": "상태 흐름"
+  },
+  "plural": {
+    "ko": "상태 흐름"
+  },
+  "fields": [
+    {
+      "name": "ObjectApiName__c",
+      "type": "Text",
+      "length": 80,
+      "label": "Object API Name"
+    },
+    {
+      "name": "StatusField__c",
+      "type": "Text",
+      "length": 80,
+      "label": "Status Field",
+      "description": "상태 필드 API명(예: Status__c, CurrentStep__c)"
+    }
+  ],
+  "records": [
+    {
+      "name": "CMN_TestRecord",
+      "label": "테스트 대상 객체(DEV-3)",
+      "values": {
+        "ObjectApiName__c": "CMN_TestRecord__c",
+        "StatusField__c": "Status__c"
+      }
+    },
+    {
+      "name": "CMN_ApprovalRequest",
+      "label": "결재 요청",
+      "values": {
+        "ObjectApiName__c": "CMN_ApprovalRequest__c",
+        "StatusField__c": "Status__c"
+      }
+    }
+  ]
+}

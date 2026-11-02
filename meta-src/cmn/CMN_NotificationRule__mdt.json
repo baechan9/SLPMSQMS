@@ -79,6 +79,16 @@
         "BodyLabel__c": "CMN_Ntf_ApvApproved_Body",
         "IsActive__c": false
       }
+    },
+    {
+      "name": "CMN_COMMENT_MENTION",
+      "label": "코멘트 멘션(UX-003)",
+      "values": {
+        "Channels__c": "EMAIL,BELL",
+        "SubjectLabel__c": "CMN_Ntf_CommentMention_Subject",
+        "BodyLabel__c": "CMN_Ntf_CommentMention_Body",
+        "IsActive__c": true
+      }
     }
   ]
 }

@@ -1,0 +1,35 @@
+<template>
+  <div class="slds-card slds-p-around_small">
+    <template lwc:if={isLoading}>
+      <div class="slds-is-relative slds-p-around_medium">
+        <lightning-spinner
+          alternative-text={labels.loading}
+          size="small"
+        ></lightning-spinner>
+      </div>
+    </template>
+    <template lwc:elseif={errorMessage}>
+      <p class="slds-text-color_error" role="alert">{errorMessage}</p>
+    </template>
+    <template lwc:elseif={isNotConfigured}>
+      <p class="slds-text-color_weak">{labels.notConfigured}</p>
+    </template>
+    <template lwc:elseif={hasPath}>
+      <lightning-progress-indicator
+        type="path"
+        variant="base"
+        current-step={currentStep}
+        has-error={hasError}
+        aria-label={labels.title}
+      >
+        <template for:each={visibleSteps} for:item="step">
+          <lightning-progress-step
+            key={step.value}
+            label={step.label}
+            value={step.value}
+          ></lightning-progress-step>
+        </template>
+      </lightning-progress-indicator>
+    </template>
+  </div>
+</template>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_Comment_NotAuthor</fullName>
+    <categories>CMN</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>작성자만</shortDescription>
+    <value>작성자만 수정하거나 삭제할 수 있습니다.</value>
+</CustomLabel>

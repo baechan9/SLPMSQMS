@@ -1,0 +1,13 @@
+{
+  "permissionSet": {
+    "wi": "CMN-00-UX-003",
+    "name": "CMN_PS_Comment_User",
+    "package": "force-app-cmn",
+    "label": "CMN Comment User",
+    "description": "코멘트 작성·본인 코멘트 수정·삭제(조회는 부모 접근 확인 Apex)(CMN-00-UX-003). 사내 페르소나 PSG 전체",
+    "objects": {
+      "CMN_Comment__c": "edit-delete"
+    },
+    "classes": ["CMN_CommentController", "CMN_StatusPathController"]
+  }
+}

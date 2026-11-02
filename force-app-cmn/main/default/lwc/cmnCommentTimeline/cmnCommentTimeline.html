@@ -1,0 +1,155 @@
+<template>
+  <lightning-card title={labels.title} icon-name="standard:feedback">
+    <div class="slds-p-horizontal_small">
+      <lightning-textarea
+        label={labels.placeholder}
+        variant="label-hidden"
+        placeholder={labels.placeholder}
+        value={draft}
+        max-length="32768"
+        onchange={handleDraft}
+        data-id="draft"
+      ></lightning-textarea>
+      <lightning-record-picker
+        label={labels.mention}
+        placeholder={labels.mention}
+        object-api-name="User"
+        filter={userFilter}
+        data-target="draft"
+        onchange={handlePick}
+      ></lightning-record-picker>
+      <template lwc:if={mentions.length}>
+        <lightning-pill-container
+          items={mentionPills}
+          onitemremove={handleRemoveMention}
+          data-id="mentions"
+        ></lightning-pill-container>
+      </template>
+      <div class="slds-text-align_right slds-m-top_x-small">
+        <lightning-button
+          variant="brand"
+          label={labels.post}
+          disabled={postDisabled}
+          onclick={handlePost}
+          data-id="post"
+        ></lightning-button>
+      </div>
+    </div>
+
+    <div class="slds-p-around_small">
+      <template lwc:if={isLoading}>
+        <div class="slds-is-relative slds-p-around_medium">
+          <lightning-spinner
+            alternative-text={labels.loading}
+            size="small"
+          ></lightning-spinner>
+        </div>
+      </template>
+      <template lwc:elseif={errorMessage}>
+        <p class="slds-text-color_error" role="alert">{errorMessage}</p>
+      </template>
+      <template lwc:elseif={isEmpty}>
+        <p class="slds-text-color_weak" data-id="empty">{labels.empty}</p>
+      </template>
+      <template lwc:else>
+        <ul class="slds-timeline">
+          <template for:each={items} for:item="c">
+            <li key={c.id} class="slds-m-bottom_small" data-comment={c.id}>
+              <div class="slds-media">
+                <div class="slds-media__body">
+                  <p class="slds-text-title_bold">
+                    {c.authorName}
+                    <span class="slds-text-body_small slds-m-left_x-small">
+                      <lightning-formatted-date-time
+                        value={c.createdDate}
+                        year="numeric"
+                        month="2-digit"
+                        day="2-digit"
+                        hour="2-digit"
+                        minute="2-digit"
+                      ></lightning-formatted-date-time>
+                    </span>
+                    <template lwc:if={c.isEdited}>
+                      <lightning-badge
+                        class="slds-m-left_x-small"
+                        label={labels.edited}
+                      ></lightning-badge>
+                    </template>
+                  </p>
+                  <template lwc:if={c.isEditing}>
+                    <lightning-textarea
+                      label={labels.edit}
+                      variant="label-hidden"
+                      value={editDraft}
+                      max-length="32768"
+                      onchange={handleEditDraft}
+                      data-id="editDraft"
+                    ></lightning-textarea>
+                    <lightning-record-picker
+                      label={labels.mention}
+                      placeholder={labels.mention}
+                      object-api-name="User"
+                      filter={userFilter}
+                      data-target="edit"
+                      onchange={handlePick}
+                    ></lightning-record-picker>
+                    <lightning-pill-container
+                      items={editMentionPills}
+                      onitemremove={handleRemoveEditMention}
+                    ></lightning-pill-container>
+                    <lightning-button-group class="slds-m-top_x-small">
+                      <lightning-button
+                        label={labels.cancel}
+                        onclick={handleCancelEdit}
+                      ></lightning-button>
+                      <lightning-button
+                        variant="brand"
+                        label={labels.save}
+                        disabled={isSaving}
+                        onclick={handleSave}
+                        data-id="save"
+                      ></lightning-button>
+                    </lightning-button-group>
+                  </template>
+                  <template lwc:else>
+                    <p class="slds-m-top_xx-small">
+                      <lightning-formatted-text
+                        value={c.body}
+                        linkify
+                      ></lightning-formatted-text>
+                    </p>
+                    <template lwc:if={c.mentionNames}>
+                      <p class="slds-text-body_small slds-text-color_weak">
+                        {labels.mentioned}: {c.mentionNames}
+                      </p>
+                    </template>
+                    <template lwc:if={c.canEdit}>
+                      <div class="slds-m-top_xx-small">
+                        <lightning-button
+                          variant="base"
+                          label={labels.edit}
+                          data-id={c.id}
+                          data-action="edit"
+                          onclick={handleEdit}
+                        ></lightning-button>
+                        <lightning-button
+                          class="slds-m-left_small"
+                          variant="base"
+                          label={labels.delete}
+                          data-id={c.id}
+                          data-action="delete"
+                          disabled={isSaving}
+                          onclick={handleDelete}
+                        ></lightning-button>
+                      </div>
+                    </template>
+                  </template>
+                </div>
+              </div>
+            </li>
+          </template>
+        </ul>
+      </template>
+    </div>
+  </lightning-card>
+</template>

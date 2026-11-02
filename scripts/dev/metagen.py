@@ -106,6 +106,11 @@ def field_xml(f, obj):
                                  'valueField': i.get('valueField')} for i in lf['items']],
                 'isOptional': lf.get('isOptional', False),
             }))
+    if t == 'MetadataRelationship':
+        # Custom Metadata 간 관계(예: 상태 단계 → 상태 흐름). 레코드 값은 상대 DeveloperName
+        opt.append(('referenceTo', f['referenceTo']))
+        opt.append(('relationshipLabel', lbl(f.get('relationshipLabel') or obj['plural'])))
+        opt.append(('relationshipName', f['relationshipName']))
     if t == 'Formula':
         opt.append(('formula', f['formula']))
         opt.append(('formulaTreatBlanksAs', f.get('treatBlanksAs', 'BlankAsZero')))

@@ -161,8 +161,92 @@
         <name>CMN_Code_ParentOtherGroup</name>
     </customLabels>
     <customLabels>
+        <label>请输入评论内容。</label>
+        <name>CMN_Comment_BodyRequired</name>
+    </customLabels>
+    <customLabels>
+        <label>取消</label>
+        <name>CMN_Comment_Cancel</name>
+    </customLabels>
+    <customLabels>
+        <label>删除</label>
+        <name>CMN_Comment_Delete</name>
+    </customLabels>
+    <customLabels>
+        <label>要删除此评论吗?</label>
+        <name>CMN_Comment_DeleteConfirm</name>
+    </customLabels>
+    <customLabels>
+        <label>评论已删除。</label>
+        <name>CMN_Comment_Deleted</name>
+    </customLabels>
+    <customLabels>
+        <label>编辑</label>
+        <name>CMN_Comment_Edit</name>
+    </customLabels>
+    <customLabels>
+        <label>评论发布超过 {0} 小时后不能编辑或删除。</label>
+        <name>CMN_Comment_EditExpired</name>
+    </customLabels>
+    <customLabels>
+        <label>已编辑</label>
+        <name>CMN_Comment_Edited</name>
+    </customLabels>
+    <customLabels>
+        <label>暂无评论。</label>
+        <name>CMN_Comment_Empty</name>
+    </customLabels>
+    <customLabels>
+        <label>提及用户</label>
+        <name>CMN_Comment_Mention</name>
+    </customLabels>
+    <customLabels>
+        <label>提及</label>
+        <name>CMN_Comment_Mentioned</name>
+    </customLabels>
+    <customLabels>
+        <label>您无权评论此记录。</label>
+        <name>CMN_Comment_NoAccess</name>
+    </customLabels>
+    <customLabels>
+        <label>只有作者可以编辑或删除此评论。</label>
+        <name>CMN_Comment_NotAuthor</name>
+    </customLabels>
+    <customLabels>
+        <label>输入评论</label>
+        <name>CMN_Comment_Placeholder</name>
+    </customLabels>
+    <customLabels>
+        <label>发布</label>
+        <name>CMN_Comment_Post</name>
+    </customLabels>
+    <customLabels>
+        <label>评论已发布。</label>
+        <name>CMN_Comment_Posted</name>
+    </customLabels>
+    <customLabels>
+        <label>保存</label>
+        <name>CMN_Comment_Save</name>
+    </customLabels>
+    <customLabels>
+        <label>评论已更新。</label>
+        <name>CMN_Comment_Saved</name>
+    </customLabels>
+    <customLabels>
+        <label>评论</label>
+        <name>CMN_Comment_Title</name>
+    </customLabels>
+    <customLabels>
+        <label>最多可提及 {0} 位用户。</label>
+        <name>CMN_Comment_TooManyMentions</name>
+    </customLabels>
+    <customLabels>
         <label>输入值无效。</label>
         <name>CMN_Common_InvalidInput</name>
+    </customLabels>
+    <customLabels>
+        <label>加载中</label>
+        <name>CMN_Common_Loading</name>
     </customLabels>
     <customLabels>
         <label>您没有执行此操作的权限。</label>
@@ -281,6 +365,16 @@
         <name>CMN_Ntf_ApvStepPending_Subject</name>
     </customLabels>
     <customLabels>
+        <label>{Actor} 在评论中提及了您。
+{Comment}
+链接: {Url}</label>
+        <name>CMN_Ntf_CommentMention_Body</name>
+    </customLabels>
+    <customLabels>
+        <label>[提及] {Title}</label>
+        <name>CMN_Ntf_CommentMention_Subject</name>
+    </customLabels>
+    <customLabels>
         <label>编号模式包含不支持的标记: {0}</label>
         <name>CMN_Numbering_BadPattern</name>
     </customLabels>
@@ -319,6 +413,30 @@
     <customLabels>
         <label>找不到工厂 {0}。</label>
         <name>CMN_Site_UnknownPlant</name>
+    </customLabels>
+    <customLabels>
+        <label>未为此记录配置状态流程。</label>
+        <name>CMN_StatusPath_NotConfigured</name>
+    </customLabels>
+    <customLabels>
+        <label>进度</label>
+        <name>CMN_StatusPath_Title</name>
+    </customLabels>
+    <customLabels>
+        <label>已取消</label>
+        <name>CMN_Status_Cancelled</name>
+    </customLabels>
+    <customLabels>
+        <label>已完成</label>
+        <name>CMN_Status_Done</name>
+    </customLabels>
+    <customLabels>
+        <label>草稿</label>
+        <name>CMN_Status_Draft</name>
+    </customLabels>
+    <customLabels>
+        <label>进行中</label>
+        <name>CMN_Status_InProgress</name>
     </customLabels>
     <customLabels>
         <label>已存在相同的供应商、物料和工厂组合: {0}</label>

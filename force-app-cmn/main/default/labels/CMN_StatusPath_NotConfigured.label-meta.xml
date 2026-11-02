@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_StatusPath_NotConfigured</fullName>
+    <categories>CMN</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>상태 흐름 미설정</shortDescription>
+    <value>이 레코드의 상태 흐름이 설정되지 않았습니다.</value>
+</CustomLabel>

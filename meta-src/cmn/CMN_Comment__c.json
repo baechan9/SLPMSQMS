@@ -1,0 +1,86 @@
+{
+  "wi": "CMN-00-UX-003",
+  "object": "CMN_Comment__c",
+  "package": "force-app-cmn",
+  "description": "코멘트(UX-003). 부모 레코드 접근을 따른다(조회 Apex가 UserRecordAccess 확인). OWD Private, Owner = 작성자. 작성자 본인만 24시간 내 수정·삭제",
+  "label": {
+    "ko": "코멘트",
+    "en_US": "Comment",
+    "zh_CN": "评论"
+  },
+  "plural": {
+    "ko": "코멘트",
+    "en_US": "Comments",
+    "zh_CN": "评论"
+  },
+  "nameField": {
+    "label": {
+      "ko": "요약",
+      "en_US": "Summary",
+      "zh_CN": "摘要"
+    }
+  },
+  "sharingModel": "Private",
+  "fields": [
+    {
+      "name": "ParentRecordId__c",
+      "type": "Text",
+      "length": 18,
+      "required": true,
+      "label": {
+        "ko": "대상 레코드",
+        "en_US": "Parent Record",
+        "zh_CN": "所属记录"
+      }
+    },
+    {
+      "name": "ParentObject__c",
+      "type": "Text",
+      "length": 80,
+      "required": true,
+      "serviceOnly": true,
+      "label": {
+        "ko": "대상 객체",
+        "en_US": "Parent Object",
+        "zh_CN": "所属对象"
+      },
+      "description": "트리거가 ParentRecordId에서 채운다"
+    },
+    {
+      "name": "Body__c",
+      "type": "LongTextArea",
+      "length": 32768,
+      "visibleLines": 5,
+      "label": {
+        "ko": "본문",
+        "en_US": "Body",
+        "zh_CN": "内容"
+      },
+      "description": "일반 텍스트(@멘션 표기 포함). Long Text Area는 DB 필수 지정 불가라 트리거가 필수 확인"
+    },
+    {
+      "name": "MentionedUserIds__c",
+      "type": "LongTextArea",
+      "length": 1000,
+      "visibleLines": 2,
+      "label": {
+        "ko": "멘션 사용자",
+        "en_US": "Mentioned Users",
+        "zh_CN": "提及用户"
+      },
+      "description": "사용자 Id(쉼표). 명세 Text(1000)은 Text 최대 255라 Long Text Area(1000)"
+    },
+    {
+      "name": "IsEdited__c",
+      "type": "Checkbox",
+      "default": false,
+      "serviceOnly": true,
+      "label": {
+        "ko": "수정됨",
+        "en_US": "Edited",
+        "zh_CN": "已编辑"
+      }
+    }
+  ],
+  "readOnlyLayout": true
+}

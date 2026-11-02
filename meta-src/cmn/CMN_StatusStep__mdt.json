@@ -1,0 +1,153 @@
+{
+  "wi": "CMN-00-UX-003",
+  "object": "CMN_StatusStep__mdt",
+  "kind": "mdt",
+  "package": "force-app-cmn",
+  "description": "상태 흐름 단계(UX-003). 표시 순서 = Sequence. 종료 단계 중 순서가 가장 앞선 것이 정상 완료, 나머지 종료는 오류 표시",
+  "label": {
+    "ko": "상태 단계"
+  },
+  "plural": {
+    "ko": "상태 단계"
+  },
+  "fields": [
+    {
+      "name": "StatusFlow__c",
+      "type": "MetadataRelationship",
+      "referenceTo": "CMN_StatusFlow__mdt",
+      "relationshipName": "Steps",
+      "relationshipLabel": {
+        "ko": "상태 단계"
+      },
+      "label": "Status Flow"
+    },
+    {
+      "name": "Value__c",
+      "type": "Text",
+      "length": 80,
+      "label": "Value",
+      "description": "상태 값(선택 목록 API 값)"
+    },
+    {
+      "name": "Sequence__c",
+      "type": "Number",
+      "precision": 4,
+      "scale": 0,
+      "label": "Sequence"
+    },
+    {
+      "name": "LabelKey__c",
+      "type": "Text",
+      "length": 80,
+      "label": "Label Key",
+      "description": "Custom Label 이름. 비우면 선택 목록 라벨(사용자 언어), 그것도 없으면 값"
+    },
+    {
+      "name": "IsTerminal__c",
+      "type": "Checkbox",
+      "default": false,
+      "label": "Is Terminal"
+    }
+  ],
+  "records": [
+    {
+      "name": "CMN_ApprovalRequest_DRAFT",
+      "label": "CMN_ApprovalRequest DRAFT",
+      "values": {
+        "StatusFlow__c": "CMN_ApprovalRequest",
+        "Value__c": "DRAFT",
+        "Sequence__c": 10,
+        "LabelKey__c": null,
+        "IsTerminal__c": false
+      }
+    },
+    {
+      "name": "CMN_ApprovalRequest_IN_PROGRESS",
+      "label": "CMN_ApprovalRequest IN_PROGRESS",
+      "values": {
+        "StatusFlow__c": "CMN_ApprovalRequest",
+        "Value__c": "IN_PROGRESS",
+        "Sequence__c": 20,
+        "LabelKey__c": null,
+        "IsTerminal__c": false
+      }
+    },
+    {
+      "name": "CMN_ApprovalRequest_APPROVED",
+      "label": "CMN_ApprovalRequest APPROVED",
+      "values": {
+        "StatusFlow__c": "CMN_ApprovalRequest",
+        "Value__c": "APPROVED",
+        "Sequence__c": 30,
+        "LabelKey__c": null,
+        "IsTerminal__c": true
+      }
+    },
+    {
+      "name": "CMN_ApprovalRequest_REJECTED",
+      "label": "CMN_ApprovalRequest REJECTED",
+      "values": {
+        "StatusFlow__c": "CMN_ApprovalRequest",
+        "Value__c": "REJECTED",
+        "Sequence__c": 40,
+        "LabelKey__c": null,
+        "IsTerminal__c": true
+      }
+    },
+    {
+      "name": "CMN_ApprovalRequest_RECALLED",
+      "label": "CMN_ApprovalRequest RECALLED",
+      "values": {
+        "StatusFlow__c": "CMN_ApprovalRequest",
+        "Value__c": "RECALLED",
+        "Sequence__c": 50,
+        "LabelKey__c": null,
+        "IsTerminal__c": true
+      }
+    },
+    {
+      "name": "CMN_TestRecord_DRAFT",
+      "label": "CMN_TestRecord DRAFT",
+      "values": {
+        "StatusFlow__c": "CMN_TestRecord",
+        "Value__c": "DRAFT",
+        "Sequence__c": 10,
+        "LabelKey__c": "CMN_Status_Draft",
+        "IsTerminal__c": false
+      }
+    },
+    {
+      "name": "CMN_TestRecord_IN_PROGRESS",
+      "label": "CMN_TestRecord IN_PROGRESS",
+      "values": {
+        "StatusFlow__c": "CMN_TestRecord",
+        "Value__c": "IN_PROGRESS",
+        "Sequence__c": 20,
+        "LabelKey__c": "CMN_Status_InProgress",
+        "IsTerminal__c": false
+      }
+    },
+    {
+      "name": "CMN_TestRecord_DONE",
+      "label": "CMN_TestRecord DONE",
+      "values": {
+        "StatusFlow__c": "CMN_TestRecord",
+        "Value__c": "DONE",
+        "Sequence__c": 30,
+        "LabelKey__c": "CMN_Status_Done",
+        "IsTerminal__c": true
+      }
+    },
+    {
+      "name": "CMN_TestRecord_CANCELLED",
+      "label": "CMN_TestRecord CANCELLED",
+      "values": {
+        "StatusFlow__c": "CMN_TestRecord",
+        "Value__c": "CANCELLED",
+        "Sequence__c": 40,
+        "LabelKey__c": "CMN_Status_Cancelled",
+        "IsTerminal__c": true
+      }
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_Ntf_CommentMention_Body</fullName>
+    <categories>CMN</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>멘션 알림 본문</shortDescription>
+    <value>{Actor}님이 코멘트에서 회원님을 언급했습니다.
+{Comment}
+바로 가기: {Url}</value>
+</CustomLabel>

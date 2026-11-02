@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_Comment_TooManyMentions</fullName>
+    <categories>CMN</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>멘션 수 초과</shortDescription>
+    <value>멘션은 최대 {0}명까지 가능합니다.</value>
+</CustomLabel>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_Comment_NoAccess</fullName>
+    <categories>CMN</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>부모 레코드 접근 없음</shortDescription>
+    <value>이 레코드에 코멘트를 쓸 권한이 없습니다.</value>
+</CustomLabel>

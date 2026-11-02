@@ -82,6 +82,22 @@
         "Value__c": null,
         "Note__c": "NTF-001 BR-5. CMN_RecipientUrlResolver 구현(QMS-03-SPP-001 QMS_PortalUrlResolver)"
       }
+    },
+    {
+      "name": "CMN_COMMENT_EDIT_HOURS",
+      "label": "코멘트 수정·삭제 가능 시간",
+      "values": {
+        "Value__c": "24",
+        "Note__c": "UX-003 BR-2. 작성 후 이 시간까지만 작성자가 수정·삭제"
+      }
+    },
+    {
+      "name": "CMN_COMMENT_MAX_MENTIONS",
+      "label": "코멘트 멘션 최대 인원",
+      "values": {
+        "Value__c": "20",
+        "Note__c": "UX-003. 알림 남용 방지"
+      }
     }
   ]
 }

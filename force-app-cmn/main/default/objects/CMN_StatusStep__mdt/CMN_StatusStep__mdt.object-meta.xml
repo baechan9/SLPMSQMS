@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>상태 흐름 단계(UX-003). 표시 순서 = Sequence. 종료 단계 중 순서가 가장 앞선 것이 정상 완료, 나머지 종료는 오류 표시</description>
+    <label>상태 단계</label>
+    <pluralLabel>상태 단계</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>

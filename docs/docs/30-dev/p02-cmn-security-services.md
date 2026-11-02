@@ -48,7 +48,7 @@ WI 13건 · 68 M/D · W0 13 · SF 트랙 12건 · 외부 트랙 1건
 
 1. **TDO-001**: `CMN_Todo__c`(ExternalKey `{SourceType}/{SourceRecordId}/{AssigneeId}`), `CMN_TodoService.open/close/cancel`, 결재 단계 이벤트 → APPROVAL To-Do(AC-2는 APV-001 머지 후), 언어별 제목 렌더링. 이후 모든 "사람에게 시키는 일"이 이 서비스를 쓴다.
 2. **NTF-001**: `CMN_NotificationService.send`, `CMN_NotificationRule__mdt`, 메일·벨(Custom Notification Type)·모바일 푸시, Queueable 분할. 문구는 Custom Label.
-3. **UX-003**: `CMN_StatusFlow__mdt` + `cmnStatusPath`, `CMN_Comment__c` + `cmnCommentTimeline`(멘션 알림 → NTF-001, 25시간 수정 제한, 접근 권한 없는 레코드 코멘트 숨김).
+3. **UX-003**: `CMN_StatusFlow__mdt` + `cmnStatusPath`, `CMN_Comment__c` + `cmnCommentTimeline`(멘션 알림 → NTF-001, 24시간 수정 제한(BR-2), 접근 권한 없는 레코드 코멘트 숨김).
 4. **DOC-001**(SEC-002 머지 후): `CMN_Document__c`·`CMN_DocumentRevision__c`·`CMN_DocTemplate__c`, `cmnDocumentPanel`, 리비전 RELEASED·SUPERSEDED, 크기 제한, 해시 중복 경고. 데모 보강: `CMN_Document__c.ExternalKey__c`(업서트 키), 리비전의 외부 저장소 키는 `ExternalRef__c`로 이름 변경, `Supplier__c`·`SupplierVisible__c`(Vol.3 요청).
 
 ### 레인 C — 플랫폼 보안·SSO·연계 표준(SEC-004 → TDO-002, INT-001 → INT-002, INT-003)

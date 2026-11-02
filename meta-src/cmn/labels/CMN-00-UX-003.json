@@ -1,0 +1,296 @@
+{
+  "wi": "CMN-00-UX-003",
+  "package": "force-app-cmn",
+  "labels": [
+    {
+      "name": "CMN_Status_Draft",
+      "category": "CMN",
+      "description": "상태: 작성 중",
+      "value": {
+        "ko": "작성 중",
+        "en_US": "Draft",
+        "zh_CN": "草稿"
+      }
+    },
+    {
+      "name": "CMN_Status_InProgress",
+      "category": "CMN",
+      "description": "상태: 진행 중",
+      "value": {
+        "ko": "진행 중",
+        "en_US": "In Progress",
+        "zh_CN": "进行中"
+      }
+    },
+    {
+      "name": "CMN_Status_Done",
+      "category": "CMN",
+      "description": "상태: 완료",
+      "value": {
+        "ko": "완료",
+        "en_US": "Done",
+        "zh_CN": "已完成"
+      }
+    },
+    {
+      "name": "CMN_Status_Cancelled",
+      "category": "CMN",
+      "description": "상태: 취소",
+      "value": {
+        "ko": "취소",
+        "en_US": "Cancelled",
+        "zh_CN": "已取消"
+      }
+    },
+    {
+      "name": "CMN_StatusPath_NotConfigured",
+      "category": "CMN",
+      "description": "상태 흐름 미설정",
+      "value": {
+        "ko": "이 레코드의 상태 흐름이 설정되지 않았습니다.",
+        "en_US": "No status flow is configured for this record.",
+        "zh_CN": "未为此记录配置状态流程。"
+      }
+    },
+    {
+      "name": "CMN_StatusPath_Title",
+      "category": "CMN",
+      "description": "상태 진행바 제목",
+      "value": {
+        "ko": "진행 상태",
+        "en_US": "Progress",
+        "zh_CN": "进度"
+      }
+    },
+    {
+      "name": "CMN_Common_Loading",
+      "category": "CMN",
+      "description": "공통: 로딩",
+      "value": {
+        "ko": "불러오는 중",
+        "en_US": "Loading",
+        "zh_CN": "加载中"
+      }
+    },
+    {
+      "name": "CMN_Comment_Title",
+      "category": "CMN",
+      "description": "코멘트 카드 제목",
+      "value": {
+        "ko": "코멘트",
+        "en_US": "Comments",
+        "zh_CN": "评论"
+      }
+    },
+    {
+      "name": "CMN_Comment_Placeholder",
+      "category": "CMN",
+      "description": "코멘트 입력 안내",
+      "value": {
+        "ko": "코멘트를 입력하세요",
+        "en_US": "Write a comment",
+        "zh_CN": "输入评论"
+      }
+    },
+    {
+      "name": "CMN_Comment_Post",
+      "category": "CMN",
+      "description": "코멘트 등록 버튼",
+      "value": {
+        "ko": "등록",
+        "en_US": "Post",
+        "zh_CN": "发布"
+      }
+    },
+    {
+      "name": "CMN_Comment_Save",
+      "category": "CMN",
+      "description": "코멘트 저장 버튼",
+      "value": {
+        "ko": "저장",
+        "en_US": "Save",
+        "zh_CN": "保存"
+      }
+    },
+    {
+      "name": "CMN_Comment_Cancel",
+      "category": "CMN",
+      "description": "코멘트 취소 버튼",
+      "value": {
+        "ko": "취소",
+        "en_US": "Cancel",
+        "zh_CN": "取消"
+      }
+    },
+    {
+      "name": "CMN_Comment_Edit",
+      "category": "CMN",
+      "description": "코멘트 수정 버튼",
+      "value": {
+        "ko": "수정",
+        "en_US": "Edit",
+        "zh_CN": "编辑"
+      }
+    },
+    {
+      "name": "CMN_Comment_Delete",
+      "category": "CMN",
+      "description": "코멘트 삭제 버튼",
+      "value": {
+        "ko": "삭제",
+        "en_US": "Delete",
+        "zh_CN": "删除"
+      }
+    },
+    {
+      "name": "CMN_Comment_Edited",
+      "category": "CMN",
+      "description": "수정됨 표시",
+      "value": {
+        "ko": "수정됨",
+        "en_US": "Edited",
+        "zh_CN": "已编辑"
+      }
+    },
+    {
+      "name": "CMN_Comment_Empty",
+      "category": "CMN",
+      "description": "코멘트 없음",
+      "value": {
+        "ko": "아직 코멘트가 없습니다.",
+        "en_US": "No comments yet.",
+        "zh_CN": "暂无评论。"
+      }
+    },
+    {
+      "name": "CMN_Comment_Mention",
+      "category": "CMN",
+      "description": "멘션 사용자 선택",
+      "value": {
+        "ko": "멘션할 사용자",
+        "en_US": "Mention a user",
+        "zh_CN": "提及用户"
+      }
+    },
+    {
+      "name": "CMN_Comment_Mentioned",
+      "category": "CMN",
+      "description": "멘션 목록 제목",
+      "value": {
+        "ko": "멘션",
+        "en_US": "Mentions",
+        "zh_CN": "提及"
+      }
+    },
+    {
+      "name": "CMN_Comment_BodyRequired",
+      "category": "CMN",
+      "description": "본문 필수",
+      "value": {
+        "ko": "코멘트 내용을 입력하세요.",
+        "en_US": "Enter a comment.",
+        "zh_CN": "请输入评论内容。"
+      }
+    },
+    {
+      "name": "CMN_Comment_EditExpired",
+      "category": "CMN",
+      "description": "수정 기한 경과",
+      "value": {
+        "ko": "작성 후 {0}시간이 지나 수정하거나 삭제할 수 없습니다.",
+        "en_US": "Comments can only be edited or deleted within {0} hours of posting.",
+        "zh_CN": "评论发布超过 {0} 小时后不能编辑或删除。"
+      }
+    },
+    {
+      "name": "CMN_Comment_NotAuthor",
+      "category": "CMN",
+      "description": "작성자만",
+      "value": {
+        "ko": "작성자만 수정하거나 삭제할 수 있습니다.",
+        "en_US": "Only the author can edit or delete this comment.",
+        "zh_CN": "只有作者可以编辑或删除此评论。"
+      }
+    },
+    {
+      "name": "CMN_Comment_NoAccess",
+      "category": "CMN",
+      "description": "부모 레코드 접근 없음",
+      "value": {
+        "ko": "이 레코드에 코멘트를 쓸 권한이 없습니다.",
+        "en_US": "You do not have access to comment on this record.",
+        "zh_CN": "您无权评论此记录。"
+      }
+    },
+    {
+      "name": "CMN_Comment_TooManyMentions",
+      "category": "CMN",
+      "description": "멘션 수 초과",
+      "value": {
+        "ko": "멘션은 최대 {0}명까지 가능합니다.",
+        "en_US": "You can mention up to {0} users.",
+        "zh_CN": "最多可提及 {0} 位用户。"
+      }
+    },
+    {
+      "name": "CMN_Comment_Deleted",
+      "category": "CMN",
+      "description": "삭제 완료",
+      "value": {
+        "ko": "코멘트를 삭제했습니다.",
+        "en_US": "Comment deleted.",
+        "zh_CN": "评论已删除。"
+      }
+    },
+    {
+      "name": "CMN_Ntf_CommentMention_Subject",
+      "category": "CMN",
+      "description": "멘션 알림 제목",
+      "value": {
+        "ko": "[멘션] {Title}",
+        "en_US": "[Mention] {Title}",
+        "zh_CN": "[提及] {Title}"
+      }
+    },
+    {
+      "name": "CMN_Ntf_CommentMention_Body",
+      "category": "CMN",
+      "description": "멘션 알림 본문",
+      "value": {
+        "ko": "{Actor}님이 코멘트에서 회원님을 언급했습니다.\n{Comment}\n바로 가기: {Url}",
+        "en_US": "{Actor} mentioned you in a comment.\n{Comment}\nOpen: {Url}",
+        "zh_CN": "{Actor} 在评论中提及了您。\n{Comment}\n链接: {Url}"
+      }
+    },
+    {
+      "name": "CMN_Comment_Posted",
+      "category": "CMN",
+      "description": "등록 완료",
+      "value": {
+        "ko": "코멘트를 등록했습니다.",
+        "en_US": "Comment posted.",
+        "zh_CN": "评论已发布。"
+      }
+    },
+    {
+      "name": "CMN_Comment_Saved",
+      "category": "CMN",
+      "description": "수정 완료",
+      "value": {
+        "ko": "코멘트를 수정했습니다.",
+        "en_US": "Comment updated.",
+        "zh_CN": "评论已更新。"
+      }
+    },
+    {
+      "name": "CMN_Comment_DeleteConfirm",
+      "category": "CMN",
+      "description": "삭제 확인",
+      "value": {
+        "ko": "이 코멘트를 삭제할까요?",
+        "en_US": "Delete this comment?",
+        "zh_CN": "要删除此评论吗?"
+      }
+    }
+  ]
+}
