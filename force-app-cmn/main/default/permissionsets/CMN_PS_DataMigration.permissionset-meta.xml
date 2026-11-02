@@ -1052,6 +1052,26 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>CMN_UserDashboard__c.LayoutJson__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>CMN_UserDashboard__c.SourceTemplate__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>CMN_UserDashboard__c.UniqueKey__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>CMN_UserDashboard__c.User__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>CMN_UserPlantAccess__c.ExternalKey__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -1432,6 +1452,15 @@
         <modifyAllRecords>false</modifyAllRecords>
         <viewAllRecords>false</viewAllRecords>
         <object>CMN_Todo__c</object>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <viewAllRecords>false</viewAllRecords>
+        <object>CMN_UserDashboard__c</object>
     </objectPermissions>
     <objectPermissions>
         <allowCreate>true</allowCreate>

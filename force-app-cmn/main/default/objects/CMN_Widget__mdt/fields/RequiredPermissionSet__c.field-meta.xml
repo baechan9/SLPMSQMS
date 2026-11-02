@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>RequiredPermissionSet__c</fullName>
+    <description>이 PS(PSG 포함)를 가진 사용자에게만 갤러리 노출(BR-2). 비우면 전원</description>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>Required Permission Set</label>
+    <length>80</length>
+    <required>false</required>
+    <type>Text</type>
+</CustomField>

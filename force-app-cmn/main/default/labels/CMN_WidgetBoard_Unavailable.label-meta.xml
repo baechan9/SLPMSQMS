@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_WidgetBoard_Unavailable</fullName>
+    <categories>CMN</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>비활성·미배포 위젯 자리표시</shortDescription>
+    <value>사용할 수 없는 위젯입니다.</value>
+</CustomLabel>

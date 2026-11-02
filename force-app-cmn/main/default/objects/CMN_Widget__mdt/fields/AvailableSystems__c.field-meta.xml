@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AvailableSystems__c</fullName>
+    <description>쉼표 목록(QMS,PMS). 비우면 System 기준(CMN = 둘 다)</description>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>Available Systems</label>
+    <length>40</length>
+    <required>false</required>
+    <type>Text</type>
+</CustomField>

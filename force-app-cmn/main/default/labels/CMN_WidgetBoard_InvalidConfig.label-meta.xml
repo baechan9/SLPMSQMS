@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_WidgetBoard_InvalidConfig</fullName>
+    <categories>CMN</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>위젯 설정 검증 오류. {0} = 위젯 제목</shortDescription>
+    <value>위젯 설정이 올바르지 않습니다: {0}</value>
+</CustomLabel>

@@ -1,0 +1,137 @@
+{
+  "wi": "CMN-00-DSH-001",
+  "object": "CMN_DashboardTemplateItem__mdt",
+  "kind": "mdt",
+  "package": "force-app-cmn",
+  "description": "템플릿 위젯 구성(DSH-001). 콘텐츠 WI(QMS-07-DSH-013 등)가 품질 위젯 항목을 더한다",
+  "label": {
+    "ko": "대시보드 템플릿 항목"
+  },
+  "plural": {
+    "ko": "대시보드 템플릿 항목"
+  },
+  "fields": [
+    {
+      "name": "Template__c",
+      "type": "MetadataRelationship",
+      "referenceTo": "CMN_DashboardTemplate__mdt",
+      "relationshipName": "Items",
+      "relationshipLabel": {
+        "ko": "템플릿 항목"
+      },
+      "label": "Template"
+    },
+    {
+      "name": "Widget__c",
+      "type": "MetadataRelationship",
+      "referenceTo": "CMN_Widget__mdt",
+      "relationshipName": "TemplateItems",
+      "relationshipLabel": {
+        "ko": "템플릿 항목"
+      },
+      "label": "Widget"
+    },
+    {
+      "name": "Order__c",
+      "type": "Number",
+      "precision": 3,
+      "scale": 0,
+      "label": "Order"
+    },
+    {
+      "name": "Size__c",
+      "type": "Picklist",
+      "label": "Size",
+      "default": "M",
+      "values": [
+        {
+          "api": "S",
+          "label": "S"
+        },
+        {
+          "api": "M",
+          "label": "M"
+        },
+        {
+          "api": "L",
+          "label": "L"
+        }
+      ]
+    },
+    {
+      "name": "Config__c",
+      "type": "LongTextArea",
+      "length": 32768,
+      "label": "Config",
+      "description": "위젯 설정 JSON(비우면 위젯 DefaultConfig). {userPlantId} 등 토큰은 해석기가 치환"
+    }
+  ],
+  "records": [
+    {
+      "name": "QMS_DEFAULT_TODO",
+      "label": "QMS 기본 To-Do",
+      "values": {
+        "Template__c": "QMS_DEFAULT",
+        "Widget__c": "CMN_W_TODO_SUMMARY",
+        "Order__c": 1,
+        "Size__c": "S",
+        "Config__c": null
+      }
+    },
+    {
+      "name": "QMS_DEFAULT_APPROVAL",
+      "label": "QMS 기본 결재",
+      "values": {
+        "Template__c": "QMS_DEFAULT",
+        "Widget__c": "CMN_W_APPROVAL_PENDING",
+        "Order__c": 2,
+        "Size__c": "S",
+        "Config__c": null
+      }
+    },
+    {
+      "name": "QMS_QM_APPROVAL",
+      "label": "QMS 품질팀장 결재",
+      "values": {
+        "Template__c": "QMS_QUALITY_MANAGER",
+        "Widget__c": "CMN_W_APPROVAL_PENDING",
+        "Order__c": 1,
+        "Size__c": "M",
+        "Config__c": "{\"maxRows\":10}"
+      }
+    },
+    {
+      "name": "QMS_QM_TODO",
+      "label": "QMS 품질팀장 To-Do",
+      "values": {
+        "Template__c": "QMS_QUALITY_MANAGER",
+        "Widget__c": "CMN_W_TODO_SUMMARY",
+        "Order__c": 2,
+        "Size__c": "S",
+        "Config__c": null
+      }
+    },
+    {
+      "name": "PMS_DEFAULT_TODO",
+      "label": "PMS 기본 To-Do",
+      "values": {
+        "Template__c": "PMS_DEFAULT",
+        "Widget__c": "CMN_W_TODO_SUMMARY",
+        "Order__c": 1,
+        "Size__c": "S",
+        "Config__c": null
+      }
+    },
+    {
+      "name": "PMS_DEFAULT_APPROVAL",
+      "label": "PMS 기본 결재",
+      "values": {
+        "Template__c": "PMS_DEFAULT",
+        "Widget__c": "CMN_W_APPROVAL_PENDING",
+        "Order__c": 2,
+        "Size__c": "S",
+        "Config__c": null
+      }
+    }
+  ]
+}

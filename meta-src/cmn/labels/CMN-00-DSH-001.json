@@ -1,0 +1,476 @@
+{
+  "wi": "CMN-00-DSH-001",
+  "package": "force-app-cmn",
+  "labels": [
+    {
+      "name": "CMN_WidgetBoard_Title",
+      "category": "CMN",
+      "description": "보드 제목",
+      "value": {
+        "ko": "대시보드",
+        "en_US": "Dashboard",
+        "zh_CN": "仪表板"
+      }
+    },
+    {
+      "name": "CMN_WidgetBoard_Edit",
+      "category": "CMN",
+      "description": "편집 모드",
+      "value": {
+        "ko": "편집",
+        "en_US": "Edit",
+        "zh_CN": "编辑"
+      }
+    },
+    {
+      "name": "CMN_WidgetBoard_Save",
+      "category": "CMN",
+      "description": "저장",
+      "value": {
+        "ko": "저장",
+        "en_US": "Save",
+        "zh_CN": "保存"
+      }
+    },
+    {
+      "name": "CMN_WidgetBoard_Cancel",
+      "category": "CMN",
+      "description": "취소",
+      "value": {
+        "ko": "취소",
+        "en_US": "Cancel",
+        "zh_CN": "取消"
+      }
+    },
+    {
+      "name": "CMN_WidgetBoard_Reset",
+      "category": "CMN",
+      "description": "템플릿으로 초기화(BR-3)",
+      "value": {
+        "ko": "템플릿으로 초기화",
+        "en_US": "Reset to Template",
+        "zh_CN": "重置为模板"
+      }
+    },
+    {
+      "name": "CMN_WidgetBoard_ResetConfirm",
+      "category": "CMN",
+      "description": "초기화 확인",
+      "value": {
+        "ko": "현재 배치를 지우고 추천 템플릿으로 되돌릴까요?",
+        "en_US": "Discard the current layout and restore the recommended template?",
+        "zh_CN": "是否放弃当前布局并恢复推荐模板?"
+      }
+    },
+    {
+      "name": "CMN_WidgetBoard_AddWidget",
+      "category": "CMN",
+      "description": "위젯 추가",
+      "value": {
+        "ko": "위젯 추가",
+        "en_US": "Add Widget",
+        "zh_CN": "添加小组件"
+      }
+    },
+    {
+      "name": "CMN_WidgetBoard_GalleryEmpty",
+      "category": "CMN",
+      "description": "갤러리 비어 있음",
+      "value": {
+        "ko": "추가할 수 있는 위젯이 없습니다.",
+        "en_US": "No widgets available to add.",
+        "zh_CN": "没有可添加的小组件。"
+      }
+    },
+    {
+      "name": "CMN_WidgetBoard_Remove",
+      "category": "CMN",
+      "description": "위젯 제거",
+      "value": {
+        "ko": "제거",
+        "en_US": "Remove",
+        "zh_CN": "移除"
+      }
+    },
+    {
+      "name": "CMN_WidgetBoard_MoveUp",
+      "category": "CMN",
+      "description": "앞으로",
+      "value": {
+        "ko": "앞으로",
+        "en_US": "Move Up",
+        "zh_CN": "上移"
+      }
+    },
+    {
+      "name": "CMN_WidgetBoard_MoveDown",
+      "category": "CMN",
+      "description": "뒤로",
+      "value": {
+        "ko": "뒤로",
+        "en_US": "Move Down",
+        "zh_CN": "下移"
+      }
+    },
+    {
+      "name": "CMN_WidgetBoard_Size",
+      "category": "CMN",
+      "description": "크기",
+      "value": {
+        "ko": "크기",
+        "en_US": "Size",
+        "zh_CN": "大小"
+      }
+    },
+    {
+      "name": "CMN_WidgetBoard_SizeS",
+      "category": "CMN",
+      "description": "작게(4열)",
+      "value": {
+        "ko": "작게",
+        "en_US": "Small",
+        "zh_CN": "小"
+      }
+    },
+    {
+      "name": "CMN_WidgetBoard_SizeM",
+      "category": "CMN",
+      "description": "보통(6열)",
+      "value": {
+        "ko": "보통",
+        "en_US": "Medium",
+        "zh_CN": "中"
+      }
+    },
+    {
+      "name": "CMN_WidgetBoard_SizeL",
+      "category": "CMN",
+      "description": "크게(12열)",
+      "value": {
+        "ko": "크게",
+        "en_US": "Large",
+        "zh_CN": "大"
+      }
+    },
+    {
+      "name": "CMN_WidgetBoard_Settings",
+      "category": "CMN",
+      "description": "위젯 설정",
+      "value": {
+        "ko": "설정",
+        "en_US": "Settings",
+        "zh_CN": "设置"
+      }
+    },
+    {
+      "name": "CMN_WidgetBoard_ConfigJson",
+      "category": "CMN",
+      "description": "설정 JSON 입력",
+      "value": {
+        "ko": "설정(JSON)",
+        "en_US": "Settings (JSON)",
+        "zh_CN": "设置(JSON)"
+      }
+    },
+    {
+      "name": "CMN_WidgetBoard_Apply",
+      "category": "CMN",
+      "description": "설정 적용",
+      "value": {
+        "ko": "적용",
+        "en_US": "Apply",
+        "zh_CN": "应用"
+      }
+    },
+    {
+      "name": "CMN_WidgetBoard_Plant",
+      "category": "CMN",
+      "description": "공통 필터 공장(BR-6)",
+      "value": {
+        "ko": "공장",
+        "en_US": "Plant",
+        "zh_CN": "工厂"
+      }
+    },
+    {
+      "name": "CMN_WidgetBoard_Period",
+      "category": "CMN",
+      "description": "공통 필터 기간(BR-6)",
+      "value": {
+        "ko": "기간",
+        "en_US": "Period",
+        "zh_CN": "期间"
+      }
+    },
+    {
+      "name": "CMN_WidgetBoard_PeriodAll",
+      "category": "CMN",
+      "description": "기간 전체",
+      "value": {
+        "ko": "전체",
+        "en_US": "All",
+        "zh_CN": "全部"
+      }
+    },
+    {
+      "name": "CMN_WidgetBoard_Period30",
+      "category": "CMN",
+      "description": "최근 30일",
+      "value": {
+        "ko": "최근 30일",
+        "en_US": "Last 30 Days",
+        "zh_CN": "最近30天"
+      }
+    },
+    {
+      "name": "CMN_WidgetBoard_Period90",
+      "category": "CMN",
+      "description": "최근 3개월",
+      "value": {
+        "ko": "최근 3개월",
+        "en_US": "Last 3 Months",
+        "zh_CN": "最近3个月"
+      }
+    },
+    {
+      "name": "CMN_WidgetBoard_Period365",
+      "category": "CMN",
+      "description": "최근 12개월",
+      "value": {
+        "ko": "최근 12개월",
+        "en_US": "Last 12 Months",
+        "zh_CN": "最近12个月"
+      }
+    },
+    {
+      "name": "CMN_WidgetBoard_Empty",
+      "category": "CMN",
+      "description": "위젯 없음",
+      "value": {
+        "ko": "위젯이 없습니다. 편집에서 위젯을 추가하세요.",
+        "en_US": "No widgets. Add widgets in edit mode.",
+        "zh_CN": "没有小组件。请在编辑模式中添加。"
+      }
+    },
+    {
+      "name": "CMN_WidgetBoard_Saved",
+      "category": "CMN",
+      "description": "저장 완료",
+      "value": {
+        "ko": "대시보드를 저장했습니다.",
+        "en_US": "Dashboard saved.",
+        "zh_CN": "仪表板已保存。"
+      }
+    },
+    {
+      "name": "CMN_WidgetBoard_NoAccess",
+      "category": "CMN",
+      "description": "권한 없는 위젯 자리표시(BR-2)",
+      "value": {
+        "ko": "이 위젯을 볼 권한이 없습니다.",
+        "en_US": "You do not have access to this widget.",
+        "zh_CN": "您无权查看此小组件。"
+      }
+    },
+    {
+      "name": "CMN_WidgetBoard_Unavailable",
+      "category": "CMN",
+      "description": "비활성·미배포 위젯 자리표시",
+      "value": {
+        "ko": "사용할 수 없는 위젯입니다.",
+        "en_US": "This widget is not available.",
+        "zh_CN": "此小组件不可用。"
+      }
+    },
+    {
+      "name": "CMN_WidgetBoard_WidgetError",
+      "category": "CMN",
+      "description": "위젯 오류(AC-3)",
+      "value": {
+        "ko": "위젯을 표시하지 못했습니다.",
+        "en_US": "The widget could not be displayed.",
+        "zh_CN": "无法显示该小组件。"
+      }
+    },
+    {
+      "name": "CMN_WidgetBoard_Retry",
+      "category": "CMN",
+      "description": "다시 시도",
+      "value": {
+        "ko": "다시 시도",
+        "en_US": "Retry",
+        "zh_CN": "重试"
+      }
+    },
+    {
+      "name": "CMN_WidgetBoard_NotOnMobile",
+      "category": "CMN",
+      "description": "모바일 미지원 위젯",
+      "value": {
+        "ko": "모바일에서 지원하지 않는 위젯입니다.",
+        "en_US": "This widget is not supported on mobile.",
+        "zh_CN": "此小组件不支持移动端。"
+      }
+    },
+    {
+      "name": "CMN_WidgetBoard_InvalidLayout",
+      "category": "CMN",
+      "description": "배치 검증 오류",
+      "value": {
+        "ko": "대시보드 배치가 올바르지 않습니다.",
+        "en_US": "The dashboard layout is invalid.",
+        "zh_CN": "仪表板布局无效。"
+      }
+    },
+    {
+      "name": "CMN_WidgetBoard_InvalidConfig",
+      "category": "CMN",
+      "description": "위젯 설정 검증 오류. {0} = 위젯 제목",
+      "value": {
+        "ko": "위젯 설정이 올바르지 않습니다: {0}",
+        "en_US": "Invalid widget settings: {0}",
+        "zh_CN": "小组件设置无效: {0}"
+      }
+    },
+    {
+      "name": "CMN_WidgetBoard_TooManyWidgets",
+      "category": "CMN",
+      "description": "위젯 수 초과. {0} = 최대",
+      "value": {
+        "ko": "위젯은 최대 {0}개까지 둘 수 있습니다.",
+        "en_US": "You can place up to {0} widgets.",
+        "zh_CN": "最多可放置 {0} 个小组件。"
+      }
+    },
+    {
+      "name": "CMN_DashboardTemplate_QmsDefault",
+      "category": "CMN",
+      "description": "템플릿 QMS 기본",
+      "value": {
+        "ko": "QMS 기본",
+        "en_US": "QMS Default",
+        "zh_CN": "QMS 默认"
+      }
+    },
+    {
+      "name": "CMN_DashboardTemplate_QmsQualityManager",
+      "category": "CMN",
+      "description": "템플릿 QMS 품질팀장",
+      "value": {
+        "ko": "품질팀장",
+        "en_US": "Quality Manager",
+        "zh_CN": "质量经理"
+      }
+    },
+    {
+      "name": "CMN_DashboardTemplate_PmsDefault",
+      "category": "CMN",
+      "description": "템플릿 PMS 기본",
+      "value": {
+        "ko": "PMS 기본",
+        "en_US": "PMS Default",
+        "zh_CN": "PMS 默认"
+      }
+    },
+    {
+      "name": "CMN_Widget_TodoSummary_Title",
+      "category": "CMN",
+      "description": "위젯 내 To-Do 제목",
+      "value": {
+        "ko": "내 To-Do",
+        "en_US": "My To-Dos",
+        "zh_CN": "我的待办"
+      }
+    },
+    {
+      "name": "CMN_Widget_TodoSummary_Desc",
+      "category": "CMN",
+      "description": "위젯 내 To-Do 설명",
+      "value": {
+        "ko": "열린 할 일·결재 건수와 기한 경과",
+        "en_US": "Open tasks and approvals, overdue count",
+        "zh_CN": "未完成任务与审批数量及逾期"
+      }
+    },
+    {
+      "name": "CMN_Widget_TodoSummary_Task",
+      "category": "CMN",
+      "description": "할 일 건수",
+      "value": {
+        "ko": "할 일",
+        "en_US": "Tasks",
+        "zh_CN": "任务"
+      }
+    },
+    {
+      "name": "CMN_Widget_TodoSummary_Approval",
+      "category": "CMN",
+      "description": "결재 건수",
+      "value": {
+        "ko": "결재",
+        "en_US": "Approvals",
+        "zh_CN": "审批"
+      }
+    },
+    {
+      "name": "CMN_Widget_TodoSummary_Overdue",
+      "category": "CMN",
+      "description": "기한 경과 건수",
+      "value": {
+        "ko": "기한 경과",
+        "en_US": "Overdue",
+        "zh_CN": "已逾期"
+      }
+    },
+    {
+      "name": "CMN_Widget_ApprovalPending_Title",
+      "category": "CMN",
+      "description": "위젯 내 결재 대기 제목",
+      "value": {
+        "ko": "내 결재 대기",
+        "en_US": "My Pending Approvals",
+        "zh_CN": "我的待审批"
+      }
+    },
+    {
+      "name": "CMN_Widget_ApprovalPending_Desc",
+      "category": "CMN",
+      "description": "위젯 내 결재 대기 설명",
+      "value": {
+        "ko": "처리할 결재와 대기 일수",
+        "en_US": "Approvals awaiting you and days pending",
+        "zh_CN": "待您处理的审批及等待天数"
+      }
+    },
+    {
+      "name": "CMN_Widget_ApprovalPending_Days",
+      "category": "CMN",
+      "description": "대기 일수. {0} = 일수",
+      "value": {
+        "ko": "{0}일 대기",
+        "en_US": "{0} days pending",
+        "zh_CN": "已等待 {0} 天"
+      }
+    },
+    {
+      "name": "CMN_Widget_ApprovalPending_Empty",
+      "category": "CMN",
+      "description": "결재 대기 없음",
+      "value": {
+        "ko": "대기 중인 결재가 없습니다.",
+        "en_US": "No approvals are waiting for you.",
+        "zh_CN": "没有待处理的审批。"
+      }
+    },
+    {
+      "name": "CMN_Widget_ApprovalPending_Total",
+      "category": "CMN",
+      "description": "대기 건수",
+      "value": {
+        "ko": "대기",
+        "en_US": "Pending",
+        "zh_CN": "待处理"
+      }
+    }
+  ]
+}

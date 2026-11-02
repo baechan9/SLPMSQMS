@@ -481,6 +481,18 @@
         <name>CMN_Customer_DuplicateVehicleCode</name>
     </customLabels>
     <customLabels>
+        <label>PMS Default</label>
+        <name>CMN_DashboardTemplate_PmsDefault</name>
+    </customLabels>
+    <customLabels>
+        <label>QMS Default</label>
+        <name>CMN_DashboardTemplate_QmsDefault</name>
+    </customLabels>
+    <customLabels>
+        <label>Quality Manager</label>
+        <name>CMN_DashboardTemplate_QmsQualityManager</name>
+    </customLabels>
+    <customLabels>
         <label>The delegate must be an active user other than the delegator.</label>
         <name>CMN_Delegation_InvalidDelegate</name>
     </customLabels>
@@ -1005,6 +1017,182 @@ Open: {Url}</label>
     <customLabels>
         <label>[Approval] {0}</label>
         <name>CMN_Todo_CMN_APPROVAL</name>
+    </customLabels>
+    <customLabels>
+        <label>Add Widget</label>
+        <name>CMN_WidgetBoard_AddWidget</name>
+    </customLabels>
+    <customLabels>
+        <label>Apply</label>
+        <name>CMN_WidgetBoard_Apply</name>
+    </customLabels>
+    <customLabels>
+        <label>Cancel</label>
+        <name>CMN_WidgetBoard_Cancel</name>
+    </customLabels>
+    <customLabels>
+        <label>Settings (JSON)</label>
+        <name>CMN_WidgetBoard_ConfigJson</name>
+    </customLabels>
+    <customLabels>
+        <label>Edit</label>
+        <name>CMN_WidgetBoard_Edit</name>
+    </customLabels>
+    <customLabels>
+        <label>No widgets. Add widgets in edit mode.</label>
+        <name>CMN_WidgetBoard_Empty</name>
+    </customLabels>
+    <customLabels>
+        <label>No widgets available to add.</label>
+        <name>CMN_WidgetBoard_GalleryEmpty</name>
+    </customLabels>
+    <customLabels>
+        <label>Invalid widget settings: {0}</label>
+        <name>CMN_WidgetBoard_InvalidConfig</name>
+    </customLabels>
+    <customLabels>
+        <label>The dashboard layout is invalid.</label>
+        <name>CMN_WidgetBoard_InvalidLayout</name>
+    </customLabels>
+    <customLabels>
+        <label>Move Down</label>
+        <name>CMN_WidgetBoard_MoveDown</name>
+    </customLabels>
+    <customLabels>
+        <label>Move Up</label>
+        <name>CMN_WidgetBoard_MoveUp</name>
+    </customLabels>
+    <customLabels>
+        <label>You do not have access to this widget.</label>
+        <name>CMN_WidgetBoard_NoAccess</name>
+    </customLabels>
+    <customLabels>
+        <label>This widget is not supported on mobile.</label>
+        <name>CMN_WidgetBoard_NotOnMobile</name>
+    </customLabels>
+    <customLabels>
+        <label>Period</label>
+        <name>CMN_WidgetBoard_Period</name>
+    </customLabels>
+    <customLabels>
+        <label>Last 30 Days</label>
+        <name>CMN_WidgetBoard_Period30</name>
+    </customLabels>
+    <customLabels>
+        <label>Last 12 Months</label>
+        <name>CMN_WidgetBoard_Period365</name>
+    </customLabels>
+    <customLabels>
+        <label>Last 3 Months</label>
+        <name>CMN_WidgetBoard_Period90</name>
+    </customLabels>
+    <customLabels>
+        <label>All</label>
+        <name>CMN_WidgetBoard_PeriodAll</name>
+    </customLabels>
+    <customLabels>
+        <label>Plant</label>
+        <name>CMN_WidgetBoard_Plant</name>
+    </customLabels>
+    <customLabels>
+        <label>Remove</label>
+        <name>CMN_WidgetBoard_Remove</name>
+    </customLabels>
+    <customLabels>
+        <label>Reset to Template</label>
+        <name>CMN_WidgetBoard_Reset</name>
+    </customLabels>
+    <customLabels>
+        <label>Discard the current layout and restore the recommended template?</label>
+        <name>CMN_WidgetBoard_ResetConfirm</name>
+    </customLabels>
+    <customLabels>
+        <label>Retry</label>
+        <name>CMN_WidgetBoard_Retry</name>
+    </customLabels>
+    <customLabels>
+        <label>Save</label>
+        <name>CMN_WidgetBoard_Save</name>
+    </customLabels>
+    <customLabels>
+        <label>Dashboard saved.</label>
+        <name>CMN_WidgetBoard_Saved</name>
+    </customLabels>
+    <customLabels>
+        <label>Settings</label>
+        <name>CMN_WidgetBoard_Settings</name>
+    </customLabels>
+    <customLabels>
+        <label>Size</label>
+        <name>CMN_WidgetBoard_Size</name>
+    </customLabels>
+    <customLabels>
+        <label>Large</label>
+        <name>CMN_WidgetBoard_SizeL</name>
+    </customLabels>
+    <customLabels>
+        <label>Medium</label>
+        <name>CMN_WidgetBoard_SizeM</name>
+    </customLabels>
+    <customLabels>
+        <label>Small</label>
+        <name>CMN_WidgetBoard_SizeS</name>
+    </customLabels>
+    <customLabels>
+        <label>Dashboard</label>
+        <name>CMN_WidgetBoard_Title</name>
+    </customLabels>
+    <customLabels>
+        <label>You can place up to {0} widgets.</label>
+        <name>CMN_WidgetBoard_TooManyWidgets</name>
+    </customLabels>
+    <customLabels>
+        <label>This widget is not available.</label>
+        <name>CMN_WidgetBoard_Unavailable</name>
+    </customLabels>
+    <customLabels>
+        <label>The widget could not be displayed.</label>
+        <name>CMN_WidgetBoard_WidgetError</name>
+    </customLabels>
+    <customLabels>
+        <label>{0} days pending</label>
+        <name>CMN_Widget_ApprovalPending_Days</name>
+    </customLabels>
+    <customLabels>
+        <label>Approvals awaiting you and days pending</label>
+        <name>CMN_Widget_ApprovalPending_Desc</name>
+    </customLabels>
+    <customLabels>
+        <label>No approvals are waiting for you.</label>
+        <name>CMN_Widget_ApprovalPending_Empty</name>
+    </customLabels>
+    <customLabels>
+        <label>My Pending Approvals</label>
+        <name>CMN_Widget_ApprovalPending_Title</name>
+    </customLabels>
+    <customLabels>
+        <label>Pending</label>
+        <name>CMN_Widget_ApprovalPending_Total</name>
+    </customLabels>
+    <customLabels>
+        <label>Approvals</label>
+        <name>CMN_Widget_TodoSummary_Approval</name>
+    </customLabels>
+    <customLabels>
+        <label>Open tasks and approvals, overdue count</label>
+        <name>CMN_Widget_TodoSummary_Desc</name>
+    </customLabels>
+    <customLabels>
+        <label>Overdue</label>
+        <name>CMN_Widget_TodoSummary_Overdue</name>
+    </customLabels>
+    <customLabels>
+        <label>Tasks</label>
+        <name>CMN_Widget_TodoSummary_Task</name>
+    </customLabels>
+    <customLabels>
+        <label>My To-Dos</label>
+        <name>CMN_Widget_TodoSummary_Title</name>
     </customLabels>
     <customTabs>
         <label>Approvals</label>

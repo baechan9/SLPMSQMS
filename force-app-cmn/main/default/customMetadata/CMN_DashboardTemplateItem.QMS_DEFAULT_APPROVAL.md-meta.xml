@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>QMS 기본 결재</label>
+    <protected>false</protected>
+    <values>
+        <field>Template__c</field>
+        <value xsi:type="xsd:string">QMS_DEFAULT</value>
+    </values>
+    <values>
+        <field>Widget__c</field>
+        <value xsi:type="xsd:string">CMN_W_APPROVAL_PENDING</value>
+    </values>
+    <values>
+        <field>Order__c</field>
+        <value xsi:type="xsd:double">2</value>
+    </values>
+    <values>
+        <field>Size__c</field>
+        <value xsi:type="xsd:string">S</value>
+    </values>
+    <values>
+        <field>Config__c</field>
+        <value xsi:nil="true"/>
+    </values>
+</CustomMetadata>

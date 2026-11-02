@@ -21,7 +21,8 @@
       "CMN_PS_Document_User",
       "CMN_PS_Employee_Read",
       "CMN_PS_Delegation_User",
-      "CMN_PS_Meeting_User"
+      "CMN_PS_Meeting_User",
+      "CMN_PS_Dashboard_User"
     ]
   }
 }

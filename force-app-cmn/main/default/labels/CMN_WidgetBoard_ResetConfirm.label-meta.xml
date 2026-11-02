@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_WidgetBoard_ResetConfirm</fullName>
+    <categories>CMN</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>초기화 확인</shortDescription>
+    <value>현재 배치를 지우고 추천 템플릿으로 되돌릴까요?</value>
+</CustomLabel>

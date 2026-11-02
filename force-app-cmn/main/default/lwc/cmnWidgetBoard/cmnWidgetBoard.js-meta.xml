@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>66.0</apiVersion>
+    <isExposed>true</isExposed>
+    <masterLabel>CMN Widget Board</masterLabel>
+    <description
+  >위젯 대시보드(CMN-00-DSH-001): 역할 템플릿으로 시작, 위젯 추가·순서·크기·설정 편집과 저장, 공통 필터(공장·기간)</description>
+    <targets>
+        <target>lightning__HomePage</target>
+        <target>lightning__AppPage</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightning__HomePage,lightning__AppPage">
+            <property
+        name="systemCode"
+        type="String"
+        label="System"
+        datasource="QMS,PMS"
+        default="QMS"
+      />
+            <supportedFormFactors>
+                <supportedFormFactor type="Large" />
+                <supportedFormFactor type="Small" />
+            </supportedFormFactors>
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

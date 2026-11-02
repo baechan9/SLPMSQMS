@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_WidgetBoard_NoAccess</fullName>
+    <categories>CMN</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>권한 없는 위젯 자리표시(BR-2)</shortDescription>
+    <value>이 위젯을 볼 권한이 없습니다.</value>
+</CustomLabel>

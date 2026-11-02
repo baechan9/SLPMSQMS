@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>66.0</apiVersion>
+    <isExposed>false</isExposed>
+    <description
+  >공통 기본 위젯(CMN-00-DSH-001). 계약: @api config, @api size. cmnWidgetBoard가 동적으로 로드한다</description>
+</LightningComponentBundle>

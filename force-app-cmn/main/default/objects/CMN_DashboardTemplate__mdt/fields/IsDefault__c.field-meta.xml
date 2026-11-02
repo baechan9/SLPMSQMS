@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>IsDefault__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>시스템 기본(맞는 PSG가 없을 때)</description>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>Default</label>
+    <type>Checkbox</type>
+</CustomField>

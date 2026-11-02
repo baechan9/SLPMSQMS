@@ -1,0 +1,41 @@
+<template>
+  <article class="slds-card slds-card_boundary">
+    <div class="slds-card__header slds-grid">
+      <h2 class="slds-card__header-title slds-truncate" title={widget.title}>
+        {widget.title}
+      </h2>
+    </div>
+    <div class="slds-card__body slds-card__body_inner">
+      <template lwc:if={placeholder}>
+        <p class="slds-text-color_weak" data-id="placeholder">{placeholder}</p>
+      </template>
+      <template lwc:elseif={hasError}>
+        <div role="alert" data-id="error">
+          <p class="slds-text-color_error">{errorText}</p>
+          <lightning-button
+            variant="base"
+            label={labels.retry}
+            onclick={handleRetry}
+            data-id="retry"
+          ></lightning-button>
+        </div>
+      </template>
+      <template lwc:elseif={showWidget}>
+        <lwc:component
+          lwc:is={ctor}
+          config={config}
+          size={widget.size}
+          data-id="widget"
+        ></lwc:component>
+      </template>
+      <template lwc:else>
+        <div class="slds-is-relative slds-p-around_medium">
+          <lightning-spinner
+            alternative-text={labels.loading}
+            size="small"
+          ></lightning-spinner>
+        </div>
+      </template>
+    </div>
+  </article>
+</template>

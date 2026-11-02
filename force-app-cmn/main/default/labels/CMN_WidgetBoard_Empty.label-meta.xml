@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_WidgetBoard_Empty</fullName>
+    <categories>CMN</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>위젯 없음</shortDescription>
+    <value>위젯이 없습니다. 편집에서 위젯을 추가하세요.</value>
+</CustomLabel>

@@ -1,0 +1,145 @@
+{
+  "wi": "CMN-00-DSH-001",
+  "object": "CMN_DashboardTemplate__mdt",
+  "kind": "mdt",
+  "package": "force-app-cmn",
+  "description": "역할별 추천 대시보드 템플릿(DSH-001 BR-3). DeveloperName = TemplateKey. 사용자 PSG가 PermissionSetGroups__c에 있으면 그 템플릿(Priority 낮은 것 먼저), 없으면 시스템 기본(IsDefault). 해석기(CMN_DashboardResolver__mdt)가 있으면 먼저 묻는다",
+  "label": {
+    "ko": "대시보드 템플릿"
+  },
+  "plural": {
+    "ko": "대시보드 템플릿"
+  },
+  "fields": [
+    {
+      "name": "System__c",
+      "type": "Picklist",
+      "label": "System",
+      "default": "QMS",
+      "values": [
+        {
+          "api": "QMS",
+          "label": "QMS"
+        },
+        {
+          "api": "PMS",
+          "label": "PMS"
+        }
+      ]
+    },
+    {
+      "name": "Persona__c",
+      "type": "Picklist",
+      "label": "Persona",
+      "default": "VIEWER",
+      "values": [
+        {
+          "api": "EXECUTIVE",
+          "label": "EXECUTIVE"
+        },
+        {
+          "api": "QM_HEAD",
+          "label": "QM_HEAD"
+        },
+        {
+          "api": "PM",
+          "label": "PM"
+        },
+        {
+          "api": "MDT",
+          "label": "MDT"
+        },
+        {
+          "api": "QUALITY_MANAGER",
+          "label": "QUALITY_MANAGER"
+        },
+        {
+          "api": "QUALITY_ENGINEER",
+          "label": "QUALITY_ENGINEER"
+        },
+        {
+          "api": "INSPECTOR",
+          "label": "INSPECTOR"
+        },
+        {
+          "api": "SUPPLIER_QUALITY",
+          "label": "SUPPLIER_QUALITY"
+        },
+        {
+          "api": "VIEWER",
+          "label": "VIEWER"
+        },
+        {
+          "api": "SYSTEM_ADMIN",
+          "label": "SYSTEM_ADMIN"
+        }
+      ]
+    },
+    {
+      "name": "TitleLabel__c",
+      "type": "Text",
+      "length": 80,
+      "label": "Title Label"
+    },
+    {
+      "name": "PermissionSetGroups__c",
+      "type": "Text",
+      "length": 255,
+      "label": "Permission Set Groups",
+      "description": "이 템플릿을 받을 PSG DeveloperName 쉼표 목록"
+    },
+    {
+      "name": "Priority__c",
+      "type": "Number",
+      "precision": 3,
+      "scale": 0,
+      "label": "Priority",
+      "description": "여러 템플릿이 맞으면 작은 값 우선"
+    },
+    {
+      "name": "IsDefault__c",
+      "type": "Checkbox",
+      "default": false,
+      "label": "Default",
+      "description": "시스템 기본(맞는 PSG가 없을 때)"
+    }
+  ],
+  "records": [
+    {
+      "name": "QMS_DEFAULT",
+      "label": "QMS 기본",
+      "values": {
+        "System__c": "QMS",
+        "Persona__c": "VIEWER",
+        "TitleLabel__c": "CMN_DashboardTemplate_QmsDefault",
+        "PermissionSetGroups__c": null,
+        "Priority__c": 999,
+        "IsDefault__c": true
+      }
+    },
+    {
+      "name": "QMS_QUALITY_MANAGER",
+      "label": "QMS 품질팀장",
+      "values": {
+        "System__c": "QMS",
+        "Persona__c": "QUALITY_MANAGER",
+        "TitleLabel__c": "CMN_DashboardTemplate_QmsQualityManager",
+        "PermissionSetGroups__c": "QMS_PSG_QualityManager",
+        "Priority__c": 10,
+        "IsDefault__c": false
+      }
+    },
+    {
+      "name": "PMS_DEFAULT",
+      "label": "PMS 기본",
+      "values": {
+        "System__c": "PMS",
+        "Persona__c": "PM",
+        "TitleLabel__c": "CMN_DashboardTemplate_PmsDefault",
+        "PermissionSetGroups__c": null,
+        "Priority__c": 999,
+        "IsDefault__c": true
+      }
+    }
+  ]
+}

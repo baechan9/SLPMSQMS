@@ -1,0 +1,13 @@
+{
+  "permissionSet": {
+    "wi": "CMN-00-DSH-001",
+    "name": "CMN_PS_Dashboard_User",
+    "package": "force-app-cmn",
+    "label": "CMN Dashboard User",
+    "description": "내 대시보드 배치 저장(본인 것만 — OWD Private), 보드·기본 위젯 Apex(CMN-00-DSH-001). 사내 페르소나 PSG 전체",
+    "objects": {
+      "CMN_UserDashboard__c": "edit"
+    },
+    "classes": ["CMN_DashboardController", "CMN_CoreWidgetController"]
+  }
+}

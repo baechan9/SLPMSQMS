@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>66.0</apiVersion>
+    <isExposed>false</isExposed>
+    <description
+  >위젯 한 칸(CMN-00-DSH-001): 동적 로드, 화면에 보일 때 로드, 위젯 단위 오류 격리, 권한 없음·사용 불가 자리표시</description>
+    <capabilities>
+        <capability>lightning__dynamicComponent</capability>
+    </capabilities>
+</LightningComponentBundle>

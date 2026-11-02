@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>대시보드 위젯 등록(DSH-001). DeveloperName = WidgetKey. 위젯 콘텐츠 WI(QMS-07, PMS 대시보드)가 레코드를 더한다. 등록 체크리스트는 QMS-07-DSH-004 BR-4</description>
+    <label>대시보드 위젯</label>
+    <pluralLabel>대시보드 위젯</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>

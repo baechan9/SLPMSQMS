@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>User__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>필수는 서비스 확인(User Lookup은 필수 지정 불가)</description>
+    <label>사용자</label>
+    <referenceTo>User</referenceTo>
+    <relationshipLabel>대시보드</relationshipLabel>
+    <relationshipName>Dashboards</relationshipName>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

@@ -1,0 +1,161 @@
+{
+  "wi": "CMN-00-DSH-001",
+  "object": "CMN_Widget__mdt",
+  "kind": "mdt",
+  "package": "force-app-cmn",
+  "description": "대시보드 위젯 등록(DSH-001). DeveloperName = WidgetKey. 위젯 콘텐츠 WI(QMS-07, PMS 대시보드)가 레코드를 더한다. 등록 체크리스트는 QMS-07-DSH-004 BR-4",
+  "label": {
+    "ko": "대시보드 위젯"
+  },
+  "plural": {
+    "ko": "대시보드 위젯"
+  },
+  "fields": [
+    {
+      "name": "ComponentName__c",
+      "type": "Text",
+      "length": 80,
+      "label": "Component Name",
+      "description": "위젯 LWC 이름(c 네임스페이스, 예: cmnWidgetTodoSummary). 계약: @api config, @api size"
+    },
+    {
+      "name": "System__c",
+      "type": "Picklist",
+      "label": "System",
+      "default": "CMN",
+      "values": [
+        {
+          "api": "QMS",
+          "label": "QMS"
+        },
+        {
+          "api": "PMS",
+          "label": "PMS"
+        },
+        {
+          "api": "CMN",
+          "label": "CMN"
+        }
+      ],
+      "description": "소유 시스템. CMN은 QMS·PMS 보드 모두에 노출"
+    },
+    {
+      "name": "AvailableSystems__c",
+      "type": "Text",
+      "length": 40,
+      "label": "Available Systems",
+      "description": "쉼표 목록(QMS,PMS). 비우면 System 기준(CMN = 둘 다)"
+    },
+    {
+      "name": "Category__c",
+      "type": "Text",
+      "length": 40,
+      "label": "Category"
+    },
+    {
+      "name": "TitleLabel__c",
+      "type": "Text",
+      "length": 80,
+      "label": "Title Label",
+      "description": "제목 Custom Label 이름(ko·en_US·zh_CN)"
+    },
+    {
+      "name": "DescLabel__c",
+      "type": "Text",
+      "length": 80,
+      "label": "Description Label"
+    },
+    {
+      "name": "DefaultSize__c",
+      "type": "Picklist",
+      "label": "Default Size",
+      "default": "M",
+      "values": [
+        {
+          "api": "S",
+          "label": "S"
+        },
+        {
+          "api": "M",
+          "label": "M"
+        },
+        {
+          "api": "L",
+          "label": "L"
+        }
+      ]
+    },
+    {
+      "name": "RequiredPermissionSet__c",
+      "type": "Text",
+      "length": 80,
+      "label": "Required Permission Set",
+      "description": "이 PS(PSG 포함)를 가진 사용자에게만 갤러리 노출(BR-2). 비우면 전원"
+    },
+    {
+      "name": "DefaultConfig__c",
+      "type": "LongTextArea",
+      "length": 32768,
+      "label": "Default Config",
+      "description": "기본 설정 JSON 객체"
+    },
+    {
+      "name": "ConfigSchema__c",
+      "type": "LongTextArea",
+      "length": 32768,
+      "label": "Config Schema",
+      "description": "설정 스키마 JSON(QMS-07-DSH-004 규약). 없으면 편집 모드 설정 버튼 숨김"
+    },
+    {
+      "name": "MobileSupported__c",
+      "type": "Checkbox",
+      "default": true,
+      "label": "Mobile Supported"
+    },
+    {
+      "name": "IsActive__c",
+      "type": "Checkbox",
+      "default": true,
+      "label": "Active",
+      "description": "비활성 위젯은 갤러리·템플릿 복사에서 제외, 보드에는 '사용 불가' 자리표시"
+    }
+  ],
+  "records": [
+    {
+      "name": "CMN_W_TODO_SUMMARY",
+      "label": "내 To-Do 요약",
+      "values": {
+        "ComponentName__c": "cmnWidgetTodoSummary",
+        "System__c": "CMN",
+        "AvailableSystems__c": null,
+        "Category__c": "WORK",
+        "TitleLabel__c": "CMN_Widget_TodoSummary_Title",
+        "DescLabel__c": "CMN_Widget_TodoSummary_Desc",
+        "DefaultSize__c": "S",
+        "RequiredPermissionSet__c": "CMN_PS_Todo_User",
+        "DefaultConfig__c": "{}",
+        "ConfigSchema__c": null,
+        "MobileSupported__c": true,
+        "IsActive__c": true
+      }
+    },
+    {
+      "name": "CMN_W_APPROVAL_PENDING",
+      "label": "내 결재 대기",
+      "values": {
+        "ComponentName__c": "cmnWidgetApprovalPending",
+        "System__c": "CMN",
+        "AvailableSystems__c": null,
+        "Category__c": "WORK",
+        "TitleLabel__c": "CMN_Widget_ApprovalPending_Title",
+        "DescLabel__c": "CMN_Widget_ApprovalPending_Desc",
+        "DefaultSize__c": "S",
+        "RequiredPermissionSet__c": "CMN_PS_Approval_User",
+        "DefaultConfig__c": "{\"maxRows\":5}",
+        "ConfigSchema__c": "{\"fields\":[{\"key\":\"maxRows\",\"type\":\"number\",\"min\":1,\"max\":20}]}",
+        "MobileSupported__c": true,
+        "IsActive__c": true
+      }
+    }
+  ]
+}

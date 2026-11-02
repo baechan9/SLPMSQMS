@@ -1,0 +1,45 @@
+<template>
+  <template lwc:if={isLoading}>
+    <div class="slds-is-relative slds-p-around_medium">
+      <lightning-spinner
+        alternative-text={labels.loading}
+        size="small"
+      ></lightning-spinner>
+    </div>
+  </template>
+  <template lwc:elseif={errorMessage}>
+    <div role="alert">
+      <p class="slds-text-color_error">{errorMessage}</p>
+      <lightning-button
+        variant="base"
+        label={labels.retry}
+        onclick={load}
+        data-id="retry"
+      ></lightning-button>
+    </div>
+  </template>
+  <template lwc:elseif={isEmpty}>
+    <p class="slds-text-color_weak" data-id="empty">{labels.empty}</p>
+  </template>
+  <template lwc:else>
+    <p class="slds-text-body_small slds-text-color_weak" data-id="total">
+      {labels.total} {total}
+    </p>
+    <ul class="slds-has-dividers_bottom-space">
+      <template for:each={rows} for:item="r">
+        <li key={r.requestId} class="slds-item">
+          <lightning-button
+            variant="base"
+            label={r.recordNo}
+            onclick={open}
+            data-id={r.requestId}
+          ></lightning-button>
+          <span class="slds-m-left_x-small slds-truncate">{r.title}</span>
+          <span class="slds-m-left_x-small slds-text-color_weak"
+            >{r.daysText}</span
+          >
+        </li>
+      </template>
+    </ul>
+  </template>
+</template>

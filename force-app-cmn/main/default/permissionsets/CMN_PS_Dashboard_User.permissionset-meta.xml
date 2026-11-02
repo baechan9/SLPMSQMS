@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <classAccesses>
+        <apexClass>CMN_CoreWidgetController</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>CMN_DashboardController</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <description>내 대시보드 배치 저장(본인 것만 — OWD Private), 보드·기본 위젯 Apex(CMN-00-DSH-001). 사내 페르소나 PSG 전체</description>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>CMN_UserDashboard__c.LayoutJson__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>CMN_UserDashboard__c.SourceTemplate__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>CMN_UserDashboard__c.UniqueKey__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>CMN_UserDashboard__c.User__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>CMN Dashboard User</label>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <viewAllRecords>false</viewAllRecords>
+        <object>CMN_UserDashboard__c</object>
+    </objectPermissions>
+</PermissionSet>

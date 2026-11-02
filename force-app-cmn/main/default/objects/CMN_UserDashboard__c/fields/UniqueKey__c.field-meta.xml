@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>UniqueKey__c</fullName>
+    <caseSensitive>false</caseSensitive>
+    <description>{UserId}:{System}. 서비스가 채운다(사용자 모드 저장이라 편집 FLS 필요)</description>
+    <externalId>true</externalId>
+    <label>고유 키</label>
+    <length>40</length>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>true</unique>
+</CustomField>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_Widget_TodoSummary_Desc</fullName>
+    <categories>CMN</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>위젯 내 To-Do 설명</shortDescription>
+    <value>열린 할 일·결재 건수와 기한 경과</value>
+</CustomLabel>

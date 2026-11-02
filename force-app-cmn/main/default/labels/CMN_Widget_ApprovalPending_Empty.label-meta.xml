@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_Widget_ApprovalPending_Empty</fullName>
+    <categories>CMN</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>결재 대기 없음</shortDescription>
+    <value>대기 중인 결재가 없습니다.</value>
+</CustomLabel>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>QMS 품질팀장</label>
+    <protected>false</protected>
+    <values>
+        <field>System__c</field>
+        <value xsi:type="xsd:string">QMS</value>
+    </values>
+    <values>
+        <field>Persona__c</field>
+        <value xsi:type="xsd:string">QUALITY_MANAGER</value>
+    </values>
+    <values>
+        <field>TitleLabel__c</field>
+        <value xsi:type="xsd:string">CMN_DashboardTemplate_QmsQualityManager</value>
+    </values>
+    <values>
+        <field>PermissionSetGroups__c</field>
+        <value xsi:type="xsd:string">QMS_PSG_QualityManager</value>
+    </values>
+    <values>
+        <field>Priority__c</field>
+        <value xsi:type="xsd:double">10</value>
+    </values>
+    <values>
+        <field>IsDefault__c</field>
+        <value xsi:type="xsd:boolean">false</value>
+    </values>
+</CustomMetadata>

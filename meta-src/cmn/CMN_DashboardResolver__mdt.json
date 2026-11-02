@@ -1,0 +1,71 @@
+{
+  "wi": "CMN-00-DSH-001",
+  "object": "CMN_DashboardResolver__mdt",
+  "kind": "mdt",
+  "package": "force-app-cmn",
+  "description": "대시보드 확장 등록(DSH-001 변경 요청 Vol.7): TEMPLATE_RESOLVER = CMN_DashboardTemplateResolver(템플릿 선택·config 토큰 치환), CONFIG_VALIDATOR = CMN_WidgetConfigValidator(저장 시 위젯 설정 검증). Order 작은 것부터",
+  "label": {
+    "ko": "대시보드 확장"
+  },
+  "plural": {
+    "ko": "대시보드 확장"
+  },
+  "fields": [
+    {
+      "name": "Kind__c",
+      "type": "Picklist",
+      "label": "Kind",
+      "default": "TEMPLATE_RESOLVER",
+      "values": [
+        {
+          "api": "TEMPLATE_RESOLVER",
+          "label": "TEMPLATE_RESOLVER"
+        },
+        {
+          "api": "CONFIG_VALIDATOR",
+          "label": "CONFIG_VALIDATOR"
+        }
+      ]
+    },
+    {
+      "name": "ClassName__c",
+      "type": "Text",
+      "length": 120,
+      "label": "Class Name"
+    },
+    {
+      "name": "System__c",
+      "type": "Picklist",
+      "label": "System",
+      "default": "QMS",
+      "values": [
+        {
+          "api": "QMS",
+          "label": "QMS"
+        },
+        {
+          "api": "PMS",
+          "label": "PMS"
+        },
+        {
+          "api": "CMN",
+          "label": "CMN"
+        }
+      ]
+    },
+    {
+      "name": "Order__c",
+      "type": "Number",
+      "precision": 3,
+      "scale": 0,
+      "label": "Order"
+    },
+    {
+      "name": "IsActive__c",
+      "type": "Checkbox",
+      "default": true,
+      "label": "Active"
+    }
+  ],
+  "records": []
+}

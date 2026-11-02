@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>IsActive__c</fullName>
+    <defaultValue>true</defaultValue>
+    <description>비활성 위젯은 갤러리·템플릿 복사에서 제외, 보드에는 '사용 불가' 자리표시</description>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>Active</label>
+    <type>Checkbox</type>
+</CustomField>

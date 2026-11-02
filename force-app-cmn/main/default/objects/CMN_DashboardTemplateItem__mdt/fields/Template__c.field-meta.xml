@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Template__c</fullName>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>Template</label>
+    <referenceTo>CMN_DashboardTemplate__mdt</referenceTo>
+    <relationshipLabel>템플릿 항목</relationshipLabel>
+    <relationshipName>Items</relationshipName>
+    <required>false</required>
+    <type>MetadataRelationship</type>
+</CustomField>

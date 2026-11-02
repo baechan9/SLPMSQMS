@@ -1,0 +1,106 @@
+{
+  "wi": "CMN-00-DSH-001",
+  "object": "CMN_UserDashboard__c",
+  "package": "force-app-cmn",
+  "description": "사용자별 대시보드 배치(DSH-001). 사용자·시스템당 1건(UniqueKey = 사용자Id:시스템). OWD Private, Owner = 사용자. 저장은 CMN_DashboardService(사용자 모드)",
+  "label": {
+    "ko": "사용자 대시보드",
+    "en_US": "User Dashboard",
+    "zh_CN": "用户仪表板"
+  },
+  "plural": {
+    "ko": "사용자 대시보드",
+    "en_US": "User Dashboards",
+    "zh_CN": "用户仪表板"
+  },
+  "nameField": {
+    "label": {
+      "ko": "이름",
+      "en_US": "Name",
+      "zh_CN": "名称"
+    }
+  },
+  "sharingModel": "Private",
+  "readOnlyLayout": true,
+  "fields": [
+    {
+      "name": "User__c",
+      "type": "Lookup",
+      "referenceTo": "User",
+      "relationshipName": "Dashboards",
+      "relationshipLabel": {
+        "ko": "대시보드",
+        "en_US": "Dashboards",
+        "zh_CN": "仪表板"
+      },
+      "label": {
+        "ko": "사용자",
+        "en_US": "User",
+        "zh_CN": "用户"
+      },
+      "description": "필수는 서비스 확인(User Lookup은 필수 지정 불가)"
+    },
+    {
+      "name": "System__c",
+      "type": "Picklist",
+      "required": true,
+      "label": {
+        "ko": "시스템",
+        "en_US": "System",
+        "zh_CN": "系统"
+      },
+      "values": [
+        {
+          "api": "QMS",
+          "label": {
+            "ko": "QMS",
+            "en_US": "QMS",
+            "zh_CN": "QMS"
+          }
+        },
+        {
+          "api": "PMS",
+          "label": {
+            "ko": "PMS",
+            "en_US": "PMS",
+            "zh_CN": "PMS"
+          }
+        }
+      ]
+    },
+    {
+      "name": "LayoutJson__c",
+      "type": "LongTextArea",
+      "length": 32768,
+      "label": {
+        "ko": "배치",
+        "en_US": "Layout",
+        "zh_CN": "布局"
+      },
+      "description": "[{widgetKey, size, order, config}]"
+    },
+    {
+      "name": "SourceTemplate__c",
+      "type": "Text",
+      "length": 80,
+      "label": {
+        "ko": "시작 템플릿",
+        "en_US": "Source Template",
+        "zh_CN": "来源模板"
+      }
+    },
+    {
+      "name": "UniqueKey__c",
+      "type": "Text",
+      "length": 40,
+      "externalId": true,
+      "unique": true,
+      "label": {
+        "ko": "고유 키",
+        "en_US": "Unique Key",
+        "zh_CN": "唯一键"
+      },
+      "description": "{UserId}:{System}. 서비스가 채운다(사용자 모드 저장이라 편집 FLS 필요)"
+    }
+  ]
+}
