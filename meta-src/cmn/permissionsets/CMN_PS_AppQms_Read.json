@@ -4,7 +4,14 @@
     "name": "CMN_PS_AppQms_Read",
     "package": "force-app-cmn",
     "label": "CMN App SL QMS Read",
-    "description": "SL QMS 앱 표시(CMN-00-SEC-001)",
-    "apps": ["SL_QMS"]
+    "description": "SL QMS 앱 표시(CMN-00-SEC-001), 홈·내 대시보드 탭(TDO-004), 공통 메뉴 허브 탭(A0 앱 내비게이션 골격)",
+    "apps": ["SL_QMS"],
+    "tabs": [
+      "CMN_MenuMaster",
+      "CMN_MenuWork",
+      "CMN_QMS_Dashboard",
+      "CMN_QMS_Home"
+    ],
+    "classes": ["CMN_AppMenuController"]
   }
 }

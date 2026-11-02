@@ -1,0 +1,15 @@
+{
+  "pageTab": {
+    "wi": "CMN-00-TDO-004",
+    "name": "CMN_QMS_Home",
+    "package": "force-app-cmn",
+    "flexiPage": "CMN_QMS_Home",
+    "label": {
+      "ko": "홈",
+      "en_US": "Home",
+      "zh_CN": "首页"
+    },
+    "motif": "Custom57: Building",
+    "description": "SL QMS 메인 홈(TDO-004): To-Do 목록 + 위젯 보드"
+  }
+}

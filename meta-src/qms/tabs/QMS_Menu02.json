@@ -1,0 +1,15 @@
+{
+  "pageTab": {
+    "wi": "A0-PROTO-KIT",
+    "name": "QMS_Menu02",
+    "package": "force-app-qms",
+    "flexiPage": "QMS_Menu02",
+    "label": {
+      "ko": "개발 품질",
+      "en_US": "Development Quality",
+      "zh_CN": "开发质量"
+    },
+    "motif": "Custom39: Telescope",
+    "description": "메뉴 허브 QMS-02(A0)"
+  }
+}

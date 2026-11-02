@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>QMS_AppMenu_Item_CLM_Title</fullName>
+    <categories>QMS</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>메뉴 기능 QMS_05.CLM 제목</shortDescription>
+    <value>고객 클레임·8D</value>
+</CustomLabel>

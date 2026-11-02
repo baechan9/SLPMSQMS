@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>QMS_AppMenu_Item_LMS_Desc</fullName>
+    <categories>QMS</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>메뉴 기능 QMS_06.LMS 설명</shortDescription>
+    <value>관능 검사 조건·한도견본 등록·개정, 실물 견본 보관·점검, 검사 화면 연결</value>
+</CustomLabel>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>TargetType__c</fullName>
+    <description>OBJECT = 객체 목록(Target = 객체 API명, 읽기 권한 없으면 숨김), PAGE = 앱 페이지 탭(Target = 탭 API명), NONE = 준비 중</description>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>Target Type</label>
+    <required>false</required>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>OBJECT</fullName>
+                <default>false</default>
+                <label>OBJECT</label>
+            </value>
+            <value>
+                <fullName>PAGE</fullName>
+                <default>false</default>
+                <label>PAGE</label>
+            </value>
+            <value>
+                <fullName>NONE</fullName>
+                <default>true</default>
+                <label>NONE</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

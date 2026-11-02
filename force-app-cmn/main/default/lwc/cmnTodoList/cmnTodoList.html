@@ -1,0 +1,105 @@
+<template>
+  <lightning-card title={labels.title} icon-name="standard:task">
+    <div slot="actions" class="slds-grid slds-grid_vertical-align-end">
+      <lightning-combobox
+        class="system"
+        label={labels.system}
+        variant="label-hidden"
+        options={systemOptions}
+        value={systemFilter}
+        onchange={handleSystem}
+        data-id="system"
+      ></lightning-combobox>
+      <lightning-button
+        class="slds-m-left_x-small"
+        icon-name="utility:refresh"
+        label={labels.refresh}
+        onclick={load}
+        data-id="refresh"
+      ></lightning-button>
+    </div>
+    <div class="slds-p-horizontal_medium">
+      <lightning-tabset active-tab-value={category}>
+        <lightning-tab
+          label={taskTabLabel}
+          value="TASK"
+          onactive={handleTab}
+          data-id="tab-task"
+        ></lightning-tab>
+        <lightning-tab
+          label={approvalTabLabel}
+          value="APPROVAL"
+          onactive={handleTab}
+          data-id="tab-approval"
+        ></lightning-tab>
+      </lightning-tabset>
+      <template lwc:if={isLoading}>
+        <div class="slds-is-relative slds-p-around_large">
+          <lightning-spinner
+            alternative-text={labels.loading}
+            size="small"
+          ></lightning-spinner>
+        </div>
+      </template>
+      <template lwc:elseif={errorMessage}>
+        <div role="alert" data-id="error">
+          <p class="slds-text-color_error">{errorMessage}</p>
+          <lightning-button
+            variant="base"
+            label={labels.retry}
+            onclick={load}
+            data-id="retry"
+          ></lightning-button>
+        </div>
+      </template>
+      <template lwc:elseif={isEmpty}>
+        <p class="slds-text-color_weak slds-p-vertical_small" data-id="empty">
+          {labels.empty}
+        </p>
+      </template>
+      <template lwc:else>
+        <ul class="slds-has-dividers_bottom-space">
+          <template for:each={items} for:item="t">
+            <li key={t.id} class="slds-item" data-id="item">
+              <lightning-button
+                variant="base"
+                label={t.title}
+                onclick={open}
+                data-id={t.navigationId}
+                class="slds-truncate"
+              ></lightning-button>
+              <div class="slds-text-body_small">
+                <span class="slds-text-color_weak">{t.meta}</span>
+                <span class="slds-m-left_x-small" data-id="due">
+                  <span class={t.dueClass}>{t.dueText}</span>
+                  <template lwc:if={t.isOverdue}>
+                    <span
+                      class="slds-badge slds-theme_error slds-m-left_xx-small"
+                      data-id="overdue"
+                      >{labels.overdue}</span
+                    >
+                  </template>
+                </span>
+                <template lwc:if={t.isDelegated}>
+                  <span class="slds-badge slds-m-left_xx-small"
+                    >{labels.delegated}</span
+                  >
+                </template>
+              </div>
+            </li>
+          </template>
+        </ul>
+        <template lwc:if={hasMore}>
+          <div class="slds-align_absolute-center slds-p-vertical_small">
+            <lightning-button
+              label={labels.loadMore}
+              onclick={handleLoadMore}
+              disabled={isLoadingMore}
+              data-id="more"
+            ></lightning-button>
+          </div>
+        </template>
+      </template>
+    </div>
+  </lightning-card>
+</template>

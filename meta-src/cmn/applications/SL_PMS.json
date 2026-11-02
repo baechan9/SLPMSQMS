@@ -7,10 +7,11 @@
     "description": "프로젝트 관리 앱. PMS PSG·경영진·IT 운영에 배정(CMN-00-SEC-001 BR-4)",
     "headerColor": "#2E844A",
     "tabs": [
-      "standard-home",
-      "CMN_Todo__c",
+      "CMN_PMS_Home",
       "CMN_ApprovalMonitor",
-      "CMN_ApprovalRequest__c"
+      "CMN_MenuWork",
+      "CMN_MenuMaster",
+      "CMN_PMS_Dashboard"
     ],
     "utilityBar": "SL_UtilityBar"
   }

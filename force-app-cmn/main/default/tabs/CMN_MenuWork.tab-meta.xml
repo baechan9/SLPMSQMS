@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomTab xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>메뉴 허브: 결재·To-Do·회의·문서(A0 앱 내비게이션 골격)</description>
+    <flexiPage>CMN_MenuWork</flexiPage>
+    <label>공통 업무</label>
+    <motif>Custom18: Form</motif>
+</CustomTab>

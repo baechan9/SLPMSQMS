@@ -1,5 +1,6 @@
 import { LightningElement, api } from "lwc";
 import LightningConfirm from "lightning/confirm";
+import FORM_FACTOR from "@salesforce/client/formFactor";
 import { ShowToastEvent } from "lightning/platformShowToastEvent";
 import getBoard from "@salesforce/apex/CMN_DashboardController.getBoard";
 import saveBoard from "@salesforce/apex/CMN_DashboardController.saveBoard";
@@ -44,6 +45,8 @@ let seq = 0;
  */
 export default class CmnWidgetBoard extends LightningElement {
   @api systemCode = "QMS";
+  /** 휴대폰에서는 그리지 않는다(메인 홈 TDO-004 BR-3: 모바일 홈은 To-Do만, 위젯은 대시보드 탭) */
+  @api hideOnPhone = false;
 
   labels = {
     title: TITLE,
@@ -86,7 +89,14 @@ export default class CmnWidgetBoard extends LightningElement {
   errorMessage;
   filters = { plantId: null, period: "" };
 
+  get isVisible() {
+    return !(this.hideOnPhone === true && FORM_FACTOR === "Small");
+  }
+
   connectedCallback() {
+    if (!this.isVisible) {
+      return;
+    }
     this.run(() => getBoard({ systemCode: this.systemCode }));
   }
 

@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
-    <description>본인 To-Do 조회(OWD Private, 상태는 서비스만), To-Do 탭(CMN-00-TDO-001). 사내 페르소나 PSG 전체</description>
+    <classAccesses>
+        <apexClass>CMN_TodoListController</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <description>본인 To-Do 조회(OWD Private, 상태는 서비스만), To-Do 탭(CMN-00-TDO-001), 홈 To-Do 목록(TDO-004). 사내 페르소나 PSG 전체</description>
     <fieldPermissions>
         <editable>false</editable>
         <field>CMN_Todo__c.Assignee__c</field>

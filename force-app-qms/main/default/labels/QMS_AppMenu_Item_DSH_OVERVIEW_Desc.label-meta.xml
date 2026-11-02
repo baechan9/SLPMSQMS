@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>QMS_AppMenu_Item_DSH_OVERVIEW_Desc</fullName>
+    <categories>QMS</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>메뉴 기능 QMS_07.DSH_OVERVIEW 설명</shortDescription>
+    <value>공장·고객·협력사 품질 현황을 한 화면에</value>
+</CustomLabel>

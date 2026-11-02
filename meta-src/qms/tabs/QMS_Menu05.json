@@ -1,0 +1,15 @@
+{
+  "pageTab": {
+    "wi": "A0-PROTO-KIT",
+    "name": "QMS_Menu05",
+    "package": "force-app-qms",
+    "flexiPage": "QMS_Menu05",
+    "label": {
+      "ko": "고객 품질",
+      "en_US": "Customer Quality",
+      "zh_CN": "客户质量"
+    },
+    "motif": "Custom84: Hands",
+    "description": "메뉴 허브 QMS-05(A0)"
+  }
+}

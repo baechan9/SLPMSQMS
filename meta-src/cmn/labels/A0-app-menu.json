@@ -1,0 +1,76 @@
+{
+  "wi": "A0-PROTO-KIT",
+  "package": "force-app-cmn",
+  "labels": [
+    {
+      "name": "CMN_AppMenu_Ready",
+      "category": "CMN",
+      "description": "타일 상태: 화면 있음",
+      "value": {
+        "ko": "사용 가능",
+        "en_US": "Available",
+        "zh_CN": "可用"
+      }
+    },
+    {
+      "name": "CMN_AppMenu_Planned",
+      "category": "CMN",
+      "description": "타일 상태: 화면 없음",
+      "value": {
+        "ko": "준비 중",
+        "en_US": "Coming soon",
+        "zh_CN": "筹备中"
+      }
+    },
+    {
+      "name": "CMN_AppMenu_PlannedIn",
+      "category": "CMN",
+      "description": "준비 중 기능의 1차 화면 묶음({0} = A1 등)",
+      "value": {
+        "ko": "1차 화면 {0} 묶음",
+        "en_US": "First screens: bundle {0}",
+        "zh_CN": "首版界面：{0}批次"
+      }
+    },
+    {
+      "name": "CMN_AppMenu_Open",
+      "category": "CMN",
+      "description": "타일 열기 버튼",
+      "value": {
+        "ko": "열기",
+        "en_US": "Open",
+        "zh_CN": "打开"
+      }
+    },
+    {
+      "name": "CMN_AppMenu_Summary",
+      "category": "CMN",
+      "description": "허브 머리글 요약",
+      "value": {
+        "ko": "기능 {0}개 · 사용 가능 {1}개",
+        "en_US": "{0} functions · {1} available",
+        "zh_CN": "功能{0}个 · 可用{1}个"
+      }
+    },
+    {
+      "name": "CMN_AppMenu_Empty",
+      "category": "CMN",
+      "description": "타일 없음",
+      "value": {
+        "ko": "이 메뉴에서 볼 수 있는 기능이 없습니다.",
+        "en_US": "No functions in this menu are available to you.",
+        "zh_CN": "此菜单中没有您可用的功能。"
+      }
+    },
+    {
+      "name": "CMN_AppMenu_NotFound",
+      "category": "CMN",
+      "description": "메뉴 키 없음·비활성",
+      "value": {
+        "ko": "메뉴 설정을 찾을 수 없습니다. 관리자에게 문의하세요.",
+        "en_US": "Menu configuration not found. Contact your administrator.",
+        "zh_CN": "未找到菜单配置。请联系管理员。"
+      }
+    }
+  ]
+}

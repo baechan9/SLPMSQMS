@@ -4,7 +4,14 @@
     "name": "CMN_PS_AppPms_Read",
     "package": "force-app-cmn",
     "label": "CMN App SL PMS Read",
-    "description": "SL PMS 앱 표시(CMN-00-SEC-001)",
-    "apps": ["SL_PMS"]
+    "description": "SL PMS 앱 표시(CMN-00-SEC-001), 홈·내 대시보드 탭(TDO-004), 공통 메뉴 허브 탭(A0 앱 내비게이션 골격)",
+    "apps": ["SL_PMS"],
+    "tabs": [
+      "CMN_MenuMaster",
+      "CMN_MenuWork",
+      "CMN_PMS_Dashboard",
+      "CMN_PMS_Home"
+    ],
+    "classes": ["CMN_AppMenuController"]
   }
 }

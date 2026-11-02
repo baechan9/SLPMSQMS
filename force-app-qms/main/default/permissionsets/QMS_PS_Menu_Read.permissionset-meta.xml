@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>SL QMS 메뉴 허브 탭(QMS-02~09, 화면 우선 플랜 A0 앱 내비게이션 골격). 사내 QMS 페르소나 PSG 전체</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>QMS Menu Read</label>
+    <tabSettings>
+        <tab>QMS_Menu02</tab>
+        <visibility>Visible</visibility>
+    </tabSettings>
+    <tabSettings>
+        <tab>QMS_Menu03</tab>
+        <visibility>Visible</visibility>
+    </tabSettings>
+    <tabSettings>
+        <tab>QMS_Menu04</tab>
+        <visibility>Visible</visibility>
+    </tabSettings>
+    <tabSettings>
+        <tab>QMS_Menu05</tab>
+        <visibility>Visible</visibility>
+    </tabSettings>
+    <tabSettings>
+        <tab>QMS_Menu06</tab>
+        <visibility>Visible</visibility>
+    </tabSettings>
+    <tabSettings>
+        <tab>QMS_Menu07</tab>
+        <visibility>Visible</visibility>
+    </tabSettings>
+    <tabSettings>
+        <tab>QMS_Menu08</tab>
+        <visibility>Visible</visibility>
+    </tabSettings>
+    <tabSettings>
+        <tab>QMS_Menu09</tab>
+        <visibility>Visible</visibility>
+    </tabSettings>
+</PermissionSet>

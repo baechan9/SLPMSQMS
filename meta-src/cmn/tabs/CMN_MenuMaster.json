@@ -1,0 +1,15 @@
+{
+  "pageTab": {
+    "wi": "A0-PROTO-KIT",
+    "name": "CMN_MenuMaster",
+    "package": "force-app-cmn",
+    "flexiPage": "CMN_MenuMaster",
+    "label": {
+      "ko": "기준정보",
+      "en_US": "Master Data",
+      "zh_CN": "基础数据"
+    },
+    "motif": "Custom55: Books",
+    "description": "메뉴 허브: 조직·공장·품번·협력사·특성·코드(A0)"
+  }
+}

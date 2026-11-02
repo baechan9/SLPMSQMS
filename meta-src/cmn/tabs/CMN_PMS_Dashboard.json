@@ -1,0 +1,15 @@
+{
+  "pageTab": {
+    "wi": "CMN-00-TDO-004",
+    "name": "CMN_PMS_Dashboard",
+    "package": "force-app-cmn",
+    "flexiPage": "CMN_PMS_Dashboard",
+    "label": {
+      "ko": "내 대시보드",
+      "en_US": "My Dashboard",
+      "zh_CN": "我的仪表板"
+    },
+    "motif": "Custom68: Presenter",
+    "description": "PMS 위젯 보드(TDO-004 BR-3)"
+  }
+}

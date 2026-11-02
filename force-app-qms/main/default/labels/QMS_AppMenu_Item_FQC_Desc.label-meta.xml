@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>QMS_AppMenu_Item_FQC_Desc</fullName>
+    <categories>QMS</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>메뉴 기능 QMS_04.FQC 설명</shortDescription>
+    <value>출하검사 기준서·로트 판정, 출하 보류·차단, EOL 전수 시험, 고객 성적서</value>
+</CustomLabel>

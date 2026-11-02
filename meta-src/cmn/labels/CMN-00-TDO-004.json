@@ -1,0 +1,136 @@
+{
+  "wi": "CMN-00-TDO-004",
+  "package": "force-app-cmn",
+  "labels": [
+    {
+      "name": "CMN_TodoList_Title",
+      "category": "CMN",
+      "description": "홈 To-Do 목록 제목",
+      "value": {
+        "ko": "내 할 일",
+        "en_US": "My To-Dos",
+        "zh_CN": "我的待办"
+      }
+    },
+    {
+      "name": "CMN_TodoList_TabTask",
+      "category": "CMN",
+      "description": "탭: 업무",
+      "value": {
+        "ko": "업무",
+        "en_US": "Tasks",
+        "zh_CN": "任务"
+      }
+    },
+    {
+      "name": "CMN_TodoList_TabApproval",
+      "category": "CMN",
+      "description": "탭: 결재",
+      "value": {
+        "ko": "결재",
+        "en_US": "Approvals",
+        "zh_CN": "审批"
+      }
+    },
+    {
+      "name": "CMN_TodoList_System",
+      "category": "CMN",
+      "description": "시스템 필터 라벨",
+      "value": {
+        "ko": "시스템",
+        "en_US": "System",
+        "zh_CN": "系统"
+      }
+    },
+    {
+      "name": "CMN_TodoList_SystemAll",
+      "category": "CMN",
+      "description": "시스템 필터: 전체",
+      "value": {
+        "ko": "전체",
+        "en_US": "All",
+        "zh_CN": "全部"
+      }
+    },
+    {
+      "name": "CMN_TodoList_Due",
+      "category": "CMN",
+      "description": "기한 표시({0} = 날짜)",
+      "value": {
+        "ko": "기한 {0}",
+        "en_US": "Due {0}",
+        "zh_CN": "截止 {0}"
+      }
+    },
+    {
+      "name": "CMN_TodoList_NoDue",
+      "category": "CMN",
+      "description": "기한 없음",
+      "value": {
+        "ko": "기한 없음",
+        "en_US": "No due date",
+        "zh_CN": "无截止日期"
+      }
+    },
+    {
+      "name": "CMN_TodoList_Overdue",
+      "category": "CMN",
+      "description": "기한 경과 표시(색과 함께 문구)",
+      "value": {
+        "ko": "기한 경과",
+        "en_US": "Overdue",
+        "zh_CN": "已逾期"
+      }
+    },
+    {
+      "name": "CMN_TodoList_Delegated",
+      "category": "CMN",
+      "description": "대리결재로 받은 To-Do",
+      "value": {
+        "ko": "대결",
+        "en_US": "Delegated",
+        "zh_CN": "代理"
+      }
+    },
+    {
+      "name": "CMN_TodoList_Empty",
+      "category": "CMN",
+      "description": "빈 목록",
+      "value": {
+        "ko": "처리할 일이 없습니다.",
+        "en_US": "You have nothing to do.",
+        "zh_CN": "没有待办事项。"
+      }
+    },
+    {
+      "name": "CMN_TodoList_LoadMore",
+      "category": "CMN",
+      "description": "다음 20건",
+      "value": {
+        "ko": "더 보기",
+        "en_US": "Load more",
+        "zh_CN": "加载更多"
+      }
+    },
+    {
+      "name": "CMN_TodoList_Refresh",
+      "category": "CMN",
+      "description": "새로 고침 버튼",
+      "value": {
+        "ko": "새로 고침",
+        "en_US": "Refresh",
+        "zh_CN": "刷新"
+      }
+    },
+    {
+      "name": "CMN_TodoList_Retry",
+      "category": "CMN",
+      "description": "오류 후 다시 시도",
+      "value": {
+        "ko": "다시 시도",
+        "en_US": "Try again",
+        "zh_CN": "重试"
+      }
+    }
+  ]
+}

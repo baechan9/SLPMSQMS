@@ -1,189 +1,195 @@
 <template>
-  <lightning-card title={labels.title} icon-name="standard:dashboard">
-    <div slot="actions">
-      <template lwc:if={isEditing}>
-        <lightning-button
-          label={labels.cancel}
-          onclick={handleCancel}
-          disabled={isSaving}
-          data-id="cancel"
-        ></lightning-button>
-        <lightning-button
-          class="slds-m-left_x-small"
-          variant="brand"
-          label={labels.save}
-          onclick={handleSave}
-          disabled={isSaving}
-          data-id="save"
-        ></lightning-button>
-      </template>
-      <template lwc:else>
-        <lightning-button
-          label={labels.reset}
-          onclick={handleReset}
-          disabled={isSaving}
-          data-id="reset"
-        ></lightning-button>
-        <lightning-button
-          class="slds-m-left_x-small"
-          label={labels.edit}
-          onclick={handleEdit}
-          disabled={isLoading}
-          data-id="edit"
-        ></lightning-button>
-      </template>
-    </div>
-    <div class="slds-p-horizontal_small">
-      <div class="slds-grid slds-wrap slds-gutters_x-small slds-m-bottom_small">
-        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-3">
-          <lightning-record-picker
-            label={labels.plant}
-            object-api-name="CMN_Plant__c"
-            onchange={handlePlant}
-            data-id="plant"
-          ></lightning-record-picker>
-        </div>
-        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-3">
-          <lightning-combobox
-            label={labels.period}
-            value={filters.period}
-            options={periodOptions}
-            onchange={handlePeriod}
-            data-id="period"
-          ></lightning-combobox>
-        </div>
+  <template lwc:if={isVisible}>
+    <lightning-card title={labels.title} icon-name="standard:dashboard">
+      <div slot="actions">
         <template lwc:if={isEditing}>
+          <lightning-button
+            label={labels.cancel}
+            onclick={handleCancel}
+            disabled={isSaving}
+            data-id="cancel"
+          ></lightning-button>
+          <lightning-button
+            class="slds-m-left_x-small"
+            variant="brand"
+            label={labels.save}
+            onclick={handleSave}
+            disabled={isSaving}
+            data-id="save"
+          ></lightning-button>
+        </template>
+        <template lwc:else>
+          <lightning-button
+            label={labels.reset}
+            onclick={handleReset}
+            disabled={isSaving}
+            data-id="reset"
+          ></lightning-button>
+          <lightning-button
+            class="slds-m-left_x-small"
+            label={labels.edit}
+            onclick={handleEdit}
+            disabled={isLoading}
+            data-id="edit"
+          ></lightning-button>
+        </template>
+      </div>
+      <div class="slds-p-horizontal_small">
+        <div
+          class="slds-grid slds-wrap slds-gutters_x-small slds-m-bottom_small"
+        >
           <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-3">
-            <template lwc:if={hasGallery}>
-              <div class="slds-grid slds-grid_vertical-align-end">
-                <lightning-combobox
-                  class="slds-col"
-                  label={labels.addWidget}
-                  value={selectedWidget}
-                  options={galleryOptions}
-                  onchange={handleSelectWidget}
-                  data-id="gallery"
-                ></lightning-combobox>
-                <lightning-button-icon
-                  class="slds-m-left_x-small"
-                  icon-name="utility:add"
-                  alternative-text={labels.addWidget}
-                  title={labels.addWidget}
-                  disabled={addDisabled}
-                  onclick={handleAdd}
-                  data-id="add"
-                ></lightning-button-icon>
+            <lightning-record-picker
+              label={labels.plant}
+              object-api-name="CMN_Plant__c"
+              onchange={handlePlant}
+              data-id="plant"
+            ></lightning-record-picker>
+          </div>
+          <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-3">
+            <lightning-combobox
+              label={labels.period}
+              value={filters.period}
+              options={periodOptions}
+              onchange={handlePeriod}
+              data-id="period"
+            ></lightning-combobox>
+          </div>
+          <template lwc:if={isEditing}>
+            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-3">
+              <template lwc:if={hasGallery}>
+                <div class="slds-grid slds-grid_vertical-align-end">
+                  <lightning-combobox
+                    class="slds-col"
+                    label={labels.addWidget}
+                    value={selectedWidget}
+                    options={galleryOptions}
+                    onchange={handleSelectWidget}
+                    data-id="gallery"
+                  ></lightning-combobox>
+                  <lightning-button-icon
+                    class="slds-m-left_x-small"
+                    icon-name="utility:add"
+                    alternative-text={labels.addWidget}
+                    title={labels.addWidget}
+                    disabled={addDisabled}
+                    onclick={handleAdd}
+                    data-id="add"
+                  ></lightning-button-icon>
+                </div>
+              </template>
+              <template lwc:else>
+                <p class="slds-text-color_weak" data-id="gallery-empty">
+                  {labels.galleryEmpty}
+                </p>
+              </template>
+            </div>
+          </template>
+        </div>
+        <template lwc:if={isLoading}>
+          <div class="slds-is-relative slds-p-around_large">
+            <lightning-spinner
+              alternative-text={labels.loading}
+              size="small"
+            ></lightning-spinner>
+          </div>
+        </template>
+        <template lwc:elseif={errorMessage}>
+          <p class="slds-text-color_error" role="alert">{errorMessage}</p>
+        </template>
+        <template lwc:elseif={isEmpty}>
+          <p class="slds-text-color_weak" data-id="empty">{labels.empty}</p>
+        </template>
+        <template lwc:else>
+          <div class="slds-grid slds-wrap slds-gutters_x-small" data-id="grid">
+            <template for:each={shown} for:item="w">
+              <div key={w.key} class={w.cls} data-widget={w.widgetKey}>
+                <template lwc:if={isEditing}>
+                  <div
+                    class="slds-box slds-box_x-small slds-m-bottom_xx-small slds-grid slds-wrap slds-grid_vertical-align-center"
+                  >
+                    <span class="slds-col slds-truncate slds-text-title_bold"
+                      >{w.title}</span
+                    >
+                    <lightning-combobox
+                      class="slds-m-right_x-small"
+                      label={labels.size}
+                      variant="label-hidden"
+                      value={w.size}
+                      options={sizeOptions}
+                      onchange={handleSize}
+                      data-key={w.key}
+                      data-id="size"
+                    ></lightning-combobox>
+                    <lightning-button-icon
+                      icon-name="utility:chevronup"
+                      alternative-text={labels.moveUp}
+                      title={labels.moveUp}
+                      disabled={w.isFirst}
+                      onclick={handleMove}
+                      data-key={w.key}
+                      data-dir="up"
+                      data-id="up"
+                    ></lightning-button-icon>
+                    <lightning-button-icon
+                      icon-name="utility:chevrondown"
+                      alternative-text={labels.moveDown}
+                      title={labels.moveDown}
+                      disabled={w.isLast}
+                      onclick={handleMove}
+                      data-key={w.key}
+                      data-dir="down"
+                      data-id="down"
+                    ></lightning-button-icon>
+                    <template lwc:if={w.hasSchema}>
+                      <lightning-button-icon
+                        icon-name="utility:settings"
+                        alternative-text={labels.settings}
+                        title={labels.settings}
+                        onclick={handleToggleConfig}
+                        data-key={w.key}
+                        data-id="settings"
+                      ></lightning-button-icon>
+                    </template>
+                    <lightning-button-icon
+                      icon-name="utility:delete"
+                      alternative-text={labels.remove}
+                      title={labels.remove}
+                      onclick={handleRemove}
+                      data-key={w.key}
+                      data-id="remove"
+                    ></lightning-button-icon>
+                  </div>
+                  <template lwc:if={w.showConfig}>
+                    <div
+                      class="slds-box slds-box_x-small slds-m-bottom_xx-small"
+                    >
+                      <lightning-textarea
+                        label={labels.configJson}
+                        value={w.configDraft}
+                        onchange={handleConfigInput}
+                        data-key={w.key}
+                        data-id="config"
+                      ></lightning-textarea>
+                      <lightning-button
+                        label={labels.apply}
+                        onclick={handleApplyConfig}
+                        data-key={w.key}
+                        data-id="apply"
+                      ></lightning-button>
+                    </div>
+                  </template>
+                </template>
+                <c-cmn-widget-frame
+                  widget={w}
+                  system-code={systemCode}
+                  filters={filters}
+                ></c-cmn-widget-frame>
               </div>
-            </template>
-            <template lwc:else>
-              <p class="slds-text-color_weak" data-id="gallery-empty">
-                {labels.galleryEmpty}
-              </p>
             </template>
           </div>
         </template>
       </div>
-      <template lwc:if={isLoading}>
-        <div class="slds-is-relative slds-p-around_large">
-          <lightning-spinner
-            alternative-text={labels.loading}
-            size="small"
-          ></lightning-spinner>
-        </div>
-      </template>
-      <template lwc:elseif={errorMessage}>
-        <p class="slds-text-color_error" role="alert">{errorMessage}</p>
-      </template>
-      <template lwc:elseif={isEmpty}>
-        <p class="slds-text-color_weak" data-id="empty">{labels.empty}</p>
-      </template>
-      <template lwc:else>
-        <div class="slds-grid slds-wrap slds-gutters_x-small" data-id="grid">
-          <template for:each={shown} for:item="w">
-            <div key={w.key} class={w.cls} data-widget={w.widgetKey}>
-              <template lwc:if={isEditing}>
-                <div
-                  class="slds-box slds-box_x-small slds-m-bottom_xx-small slds-grid slds-wrap slds-grid_vertical-align-center"
-                >
-                  <span class="slds-col slds-truncate slds-text-title_bold"
-                    >{w.title}</span
-                  >
-                  <lightning-combobox
-                    class="slds-m-right_x-small"
-                    label={labels.size}
-                    variant="label-hidden"
-                    value={w.size}
-                    options={sizeOptions}
-                    onchange={handleSize}
-                    data-key={w.key}
-                    data-id="size"
-                  ></lightning-combobox>
-                  <lightning-button-icon
-                    icon-name="utility:chevronup"
-                    alternative-text={labels.moveUp}
-                    title={labels.moveUp}
-                    disabled={w.isFirst}
-                    onclick={handleMove}
-                    data-key={w.key}
-                    data-dir="up"
-                    data-id="up"
-                  ></lightning-button-icon>
-                  <lightning-button-icon
-                    icon-name="utility:chevrondown"
-                    alternative-text={labels.moveDown}
-                    title={labels.moveDown}
-                    disabled={w.isLast}
-                    onclick={handleMove}
-                    data-key={w.key}
-                    data-dir="down"
-                    data-id="down"
-                  ></lightning-button-icon>
-                  <template lwc:if={w.hasSchema}>
-                    <lightning-button-icon
-                      icon-name="utility:settings"
-                      alternative-text={labels.settings}
-                      title={labels.settings}
-                      onclick={handleToggleConfig}
-                      data-key={w.key}
-                      data-id="settings"
-                    ></lightning-button-icon>
-                  </template>
-                  <lightning-button-icon
-                    icon-name="utility:delete"
-                    alternative-text={labels.remove}
-                    title={labels.remove}
-                    onclick={handleRemove}
-                    data-key={w.key}
-                    data-id="remove"
-                  ></lightning-button-icon>
-                </div>
-                <template lwc:if={w.showConfig}>
-                  <div class="slds-box slds-box_x-small slds-m-bottom_xx-small">
-                    <lightning-textarea
-                      label={labels.configJson}
-                      value={w.configDraft}
-                      onchange={handleConfigInput}
-                      data-key={w.key}
-                      data-id="config"
-                    ></lightning-textarea>
-                    <lightning-button
-                      label={labels.apply}
-                      onclick={handleApplyConfig}
-                      data-key={w.key}
-                      data-id="apply"
-                    ></lightning-button>
-                  </div>
-                </template>
-              </template>
-              <c-cmn-widget-frame
-                widget={w}
-                system-code={systemCode}
-                filters={filters}
-              ></c-cmn-widget-frame>
-            </div>
-          </template>
-        </div>
-      </template>
-    </div>
-  </lightning-card>
+    </lightning-card>
+  </template>
 </template>

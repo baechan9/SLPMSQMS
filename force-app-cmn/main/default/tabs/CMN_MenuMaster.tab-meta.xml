@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomTab xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>메뉴 허브: 조직·공장·품번·협력사·특성·코드(A0)</description>
+    <flexiPage>CMN_MenuMaster</flexiPage>
+    <label>기준정보</label>
+    <motif>Custom55: Books</motif>
+</CustomTab>

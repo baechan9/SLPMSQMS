@@ -1,0 +1,15 @@
+{
+  "pageTab": {
+    "wi": "A0-PROTO-KIT",
+    "name": "QMS_Menu08",
+    "package": "force-app-qms",
+    "flexiPage": "QMS_Menu08",
+    "label": {
+      "ko": "품질 AI",
+      "en_US": "Quality AI",
+      "zh_CN": "质量AI"
+    },
+    "motif": "Custom63: Computer",
+    "description": "메뉴 허브 QMS-08(A0)"
+  }
+}

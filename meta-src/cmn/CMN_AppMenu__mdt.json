@@ -1,0 +1,193 @@
+{
+  "wi": "A0-PROTO-KIT",
+  "object": "CMN_AppMenu__mdt",
+  "kind": "mdt",
+  "package": "force-app-cmn",
+  "description": "앱 메뉴 허브(화면 우선 플랜 A0 앱 내비게이션 골격). DeveloperName = 메뉴 키(QMS_02 등). 허브 페이지(cmnAppMenuHub)가 menuKey로 읽는다",
+  "label": {
+    "ko": "앱 메뉴"
+  },
+  "plural": {
+    "ko": "앱 메뉴"
+  },
+  "fields": [
+    {
+      "name": "System__c",
+      "type": "Picklist",
+      "label": "System",
+      "default": "QMS",
+      "values": [
+        {
+          "api": "QMS",
+          "label": "QMS"
+        },
+        {
+          "api": "PMS",
+          "label": "PMS"
+        },
+        {
+          "api": "CMN",
+          "label": "CMN"
+        }
+      ],
+      "description": "소유 시스템. CMN 메뉴(공통 업무·기준정보)는 QMS·PMS 앱 모두에 둔다"
+    },
+    {
+      "name": "Order__c",
+      "type": "Number",
+      "precision": 3,
+      "scale": 0,
+      "label": "Order",
+      "description": "메뉴 순서(QMS 메뉴는 RFP 모듈 번호)"
+    },
+    {
+      "name": "TitleLabel__c",
+      "type": "Text",
+      "length": 80,
+      "label": "Title Label",
+      "description": "제목 Custom Label 이름(ko·en_US·zh_CN)"
+    },
+    {
+      "name": "DescLabel__c",
+      "type": "Text",
+      "length": 80,
+      "label": "Description Label",
+      "description": "설명 Custom Label 이름"
+    },
+    {
+      "name": "IconName__c",
+      "type": "Text",
+      "length": 80,
+      "label": "Icon Name",
+      "description": "SLDS 아이콘(예: standard:product)"
+    },
+    {
+      "name": "IsActive__c",
+      "type": "Checkbox",
+      "default": true,
+      "label": "Active"
+    }
+  ],
+  "records": [
+    {
+      "name": "QMS_02",
+      "label": "개발 품질",
+      "values": {
+        "System__c": "QMS",
+        "Order__c": 2,
+        "TitleLabel__c": "QMS_AppMenu_02_Title",
+        "DescLabel__c": "QMS_AppMenu_02_Desc",
+        "IconName__c": "standard:service_report",
+        "IsActive__c": true
+      }
+    },
+    {
+      "name": "QMS_03",
+      "label": "부품/협력사 품질",
+      "values": {
+        "System__c": "QMS",
+        "Order__c": 3,
+        "TitleLabel__c": "QMS_AppMenu_03_Title",
+        "DescLabel__c": "QMS_AppMenu_03_Desc",
+        "IconName__c": "standard:partners",
+        "IsActive__c": true
+      }
+    },
+    {
+      "name": "QMS_04",
+      "label": "제품/공정 품질",
+      "values": {
+        "System__c": "QMS",
+        "Order__c": 4,
+        "TitleLabel__c": "QMS_AppMenu_04_Title",
+        "DescLabel__c": "QMS_AppMenu_04_Desc",
+        "IconName__c": "standard:product",
+        "IsActive__c": true
+      }
+    },
+    {
+      "name": "QMS_05",
+      "label": "고객 품질",
+      "values": {
+        "System__c": "QMS",
+        "Order__c": 5,
+        "TitleLabel__c": "QMS_AppMenu_05_Title",
+        "DescLabel__c": "QMS_AppMenu_05_Desc",
+        "IconName__c": "standard:customers",
+        "IsActive__c": true
+      }
+    },
+    {
+      "name": "QMS_06",
+      "label": "품질 운영 지원",
+      "values": {
+        "System__c": "QMS",
+        "Order__c": 6,
+        "TitleLabel__c": "QMS_AppMenu_06_Title",
+        "DescLabel__c": "QMS_AppMenu_06_Desc",
+        "IconName__c": "standard:settings",
+        "IsActive__c": true
+      }
+    },
+    {
+      "name": "QMS_07",
+      "label": "품질 대시보드",
+      "values": {
+        "System__c": "QMS",
+        "Order__c": 7,
+        "TitleLabel__c": "QMS_AppMenu_07_Title",
+        "DescLabel__c": "QMS_AppMenu_07_Desc",
+        "IconName__c": "standard:dashboard",
+        "IsActive__c": true
+      }
+    },
+    {
+      "name": "QMS_08",
+      "label": "품질 AI",
+      "values": {
+        "System__c": "QMS",
+        "Order__c": 8,
+        "TitleLabel__c": "QMS_AppMenu_08_Title",
+        "DescLabel__c": "QMS_AppMenu_08_Desc",
+        "IconName__c": "standard:bot",
+        "IsActive__c": true
+      }
+    },
+    {
+      "name": "QMS_09",
+      "label": "연계",
+      "values": {
+        "System__c": "QMS",
+        "Order__c": 9,
+        "TitleLabel__c": "QMS_AppMenu_09_Title",
+        "DescLabel__c": "QMS_AppMenu_09_Desc",
+        "IconName__c": "standard:connected_apps",
+        "IsActive__c": true
+      }
+    },
+    {
+      "name": "CMN_WORK",
+      "label": "공통 업무",
+      "values": {
+        "System__c": "CMN",
+        "Order__c": 90,
+        "TitleLabel__c": "CMN_AppMenu_WORK_Title",
+        "DescLabel__c": "CMN_AppMenu_WORK_Desc",
+        "IconName__c": "standard:task",
+        "IsActive__c": true
+      }
+    },
+    {
+      "name": "CMN_MASTER",
+      "label": "기준정보",
+      "values": {
+        "System__c": "CMN",
+        "Order__c": 91,
+        "TitleLabel__c": "CMN_AppMenu_MASTER_Title",
+        "DescLabel__c": "CMN_AppMenu_MASTER_Desc",
+        "IconName__c": "standard:entity",
+        "IsActive__c": true
+      }
+    }
+  ]
+}

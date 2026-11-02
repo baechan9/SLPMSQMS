@@ -1,0 +1,15 @@
+{
+  "pageTab": {
+    "wi": "A0-PROTO-KIT",
+    "name": "QMS_Menu09",
+    "package": "force-app-qms",
+    "flexiPage": "QMS_Menu09",
+    "label": {
+      "ko": "연계",
+      "en_US": "Integration",
+      "zh_CN": "接口"
+    },
+    "motif": "Custom98: Puzzle",
+    "description": "메뉴 허브 QMS-09(A0)"
+  }
+}

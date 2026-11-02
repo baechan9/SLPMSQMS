@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomTab xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>QMS 위젯 보드(TDO-004 BR-3: 모바일은 홈에서 위젯을 분리)</description>
+    <flexiPage>CMN_QMS_Dashboard</flexiPage>
+    <label>내 대시보드</label>
+    <motif>Custom68: Presenter</motif>
+</CustomTab>

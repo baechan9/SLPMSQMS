@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>QMS_AppMenu_Item_EFC_Desc</fullName>
+    <categories>QMS</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>메뉴 기능 QMS_04.EFC 설명</shortDescription>
+    <value>초기유동 계획·강화 조치, 실적 집계·관리 검사, 해제 판정</value>
+</CustomLabel>

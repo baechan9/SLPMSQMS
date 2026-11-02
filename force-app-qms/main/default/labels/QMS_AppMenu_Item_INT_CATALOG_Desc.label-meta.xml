@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>QMS_AppMenu_Item_INT_CATALOG_Desc</fullName>
+    <categories>QMS</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>메뉴 기능 QMS_09.INT_CATALOG 설명</shortDescription>
+    <value>QMS 연계 목록, 시스템 간 코드 매핑</value>
+</CustomLabel>

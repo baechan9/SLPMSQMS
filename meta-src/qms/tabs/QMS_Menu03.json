@@ -1,0 +1,15 @@
+{
+  "pageTab": {
+    "wi": "A0-PROTO-KIT",
+    "name": "QMS_Menu03",
+    "package": "force-app-qms",
+    "flexiPage": "QMS_Menu03",
+    "label": {
+      "ko": "부품/협력사 품질",
+      "en_US": "Parts & Supplier Quality",
+      "zh_CN": "零部件/供应商质量"
+    },
+    "motif": "Custom20: Truck",
+    "description": "메뉴 허브 QMS-03(A0)"
+  }
+}

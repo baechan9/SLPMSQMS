@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>품질 AI</label>
+    <protected>false</protected>
+    <values>
+        <field>System__c</field>
+        <value xsi:type="xsd:string">QMS</value>
+    </values>
+    <values>
+        <field>Order__c</field>
+        <value xsi:type="xsd:double">8</value>
+    </values>
+    <values>
+        <field>TitleLabel__c</field>
+        <value xsi:type="xsd:string">QMS_AppMenu_08_Title</value>
+    </values>
+    <values>
+        <field>DescLabel__c</field>
+        <value xsi:type="xsd:string">QMS_AppMenu_08_Desc</value>
+    </values>
+    <values>
+        <field>IconName__c</field>
+        <value xsi:type="xsd:string">standard:bot</value>
+    </values>
+    <values>
+        <field>IsActive__c</field>
+        <value xsi:type="xsd:boolean">true</value>
+    </values>
+</CustomMetadata>

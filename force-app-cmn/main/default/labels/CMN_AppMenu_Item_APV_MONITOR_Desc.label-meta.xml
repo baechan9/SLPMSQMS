@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_AppMenu_Item_APV_MONITOR_Desc</fullName>
+    <categories>CMN</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>메뉴 기능 CMN_WORK.APV_MONITOR 설명</shortDescription>
+    <value>내가 상신한·내가 처리한·진행 중 결재</value>
+</CustomLabel>

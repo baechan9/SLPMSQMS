@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>QMS_AppMenu_Item_4MC_Desc</fullName>
+    <categories>QMS</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>메뉴 기능 QMS_06.4MC 설명</shortDescription>
+    <value>변경 유형 기준·리스크 평가, 4M 신청(협력사 포함), 검증 계획·적용 승인, 적용 시점·변경 이력</value>
+</CustomLabel>

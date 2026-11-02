@@ -1,0 +1,116 @@
+{
+  "wi": "A0-PROTO-KIT",
+  "package": "force-app-cmn",
+  "labels": [
+    {
+      "name": "CMN_AppMenu_WORK_Title",
+      "category": "CMN",
+      "description": "메뉴 CMN_WORK 제목",
+      "value": {
+        "ko": "공통 업무",
+        "en_US": "Common Work",
+        "zh_CN": "通用业务"
+      }
+    },
+    {
+      "name": "CMN_AppMenu_WORK_Desc",
+      "category": "CMN",
+      "description": "메뉴 CMN_WORK 설명",
+      "value": {
+        "ko": "결재·To-Do·회의·문서 등 모든 메뉴가 함께 쓰는 업무",
+        "en_US": "Approvals, To-Dos, meetings and documents shared by all menus",
+        "zh_CN": "所有菜单共用的审批、待办、会议与文件"
+      }
+    },
+    {
+      "name": "CMN_AppMenu_MASTER_Title",
+      "category": "CMN",
+      "description": "메뉴 CMN_MASTER 제목",
+      "value": {
+        "ko": "기준정보",
+        "en_US": "Master Data",
+        "zh_CN": "基础数据"
+      }
+    },
+    {
+      "name": "CMN_AppMenu_MASTER_Desc",
+      "category": "CMN",
+      "description": "메뉴 CMN_MASTER 설명",
+      "value": {
+        "ko": "조직·공장·품번·협력사·품질 특성·공통 코드",
+        "en_US": "Organization, plants, items, suppliers, quality characteristics and codes",
+        "zh_CN": "组织、工厂、物料、供应商、质量特性与通用代码"
+      }
+    },
+    {
+      "name": "CMN_AppMenu_Item_APV_MONITOR_Title",
+      "category": "CMN",
+      "description": "메뉴 기능 CMN_WORK.APV_MONITOR 제목",
+      "value": {
+        "ko": "결재 현황",
+        "en_US": "Approvals",
+        "zh_CN": "审批状态"
+      }
+    },
+    {
+      "name": "CMN_AppMenu_Item_APV_MONITOR_Desc",
+      "category": "CMN",
+      "description": "메뉴 기능 CMN_WORK.APV_MONITOR 설명",
+      "value": {
+        "ko": "내가 상신한·내가 처리한·진행 중 결재",
+        "en_US": "Approvals I submitted, processed or have in progress",
+        "zh_CN": "我提交的、我处理的与进行中的审批"
+      }
+    },
+    {
+      "name": "CMN_AppMenu_Item_DOC_SEARCH_Title",
+      "category": "CMN",
+      "description": "메뉴 기능 CMN_WORK.DOC_SEARCH 제목",
+      "value": {
+        "ko": "문서 통합 검색",
+        "en_US": "Document Search",
+        "zh_CN": "文件统一检索"
+      }
+    },
+    {
+      "name": "CMN_AppMenu_Item_DOC_SEARCH_Desc",
+      "category": "CMN",
+      "description": "메뉴 기능 CMN_WORK.DOC_SEARCH 설명",
+      "value": {
+        "ko": "문서 내용 검색·요약과 버전 비교",
+        "en_US": "Search and summarize documents, compare versions",
+        "zh_CN": "文件内容检索、摘要与版本比较"
+      }
+    },
+    {
+      "name": "CMN_AppMenu_Item_SCREEN_GUIDE_Title",
+      "category": "CMN",
+      "description": "메뉴 기능 CMN_WORK.SCREEN_GUIDE 제목",
+      "value": {
+        "ko": "화면 사용 가이드",
+        "en_US": "Screen Guides",
+        "zh_CN": "界面使用指南"
+      }
+    },
+    {
+      "name": "CMN_AppMenu_Item_SCREEN_GUIDE_Desc",
+      "category": "CMN",
+      "description": "메뉴 기능 CMN_WORK.SCREEN_GUIDE 설명",
+      "value": {
+        "ko": "화면별 사용 방법 안내",
+        "en_US": "How to use each screen",
+        "zh_CN": "各界面使用方法说明"
+      }
+    },
+    {
+      "name": "CMN_AppMenu_Item_ACCOUNT_Title",
+      "category": "CMN",
+      "description": "메뉴 기능 CMN_MASTER.ACCOUNT 제목",
+      "value": {
+        "ko": "고객·협력사",
+        "en_US": "Customers & Suppliers",
+        "zh_CN": "客户与供应商"
+      }
+    }
+  ]
+}

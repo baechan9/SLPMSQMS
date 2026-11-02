@@ -4,7 +4,27 @@
         <application>SL_PMS</application>
         <visible>true</visible>
     </applicationVisibilities>
-    <description>SL PMS 앱 표시(CMN-00-SEC-001)</description>
+    <classAccesses>
+        <apexClass>CMN_AppMenuController</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <description>SL PMS 앱 표시(CMN-00-SEC-001), 홈·내 대시보드 탭(TDO-004), 공통 메뉴 허브 탭(A0 앱 내비게이션 골격)</description>
     <hasActivationRequired>false</hasActivationRequired>
     <label>CMN App SL PMS Read</label>
+    <tabSettings>
+        <tab>CMN_MenuMaster</tab>
+        <visibility>Visible</visibility>
+    </tabSettings>
+    <tabSettings>
+        <tab>CMN_MenuWork</tab>
+        <visibility>Visible</visibility>
+    </tabSettings>
+    <tabSettings>
+        <tab>CMN_PMS_Dashboard</tab>
+        <visibility>Visible</visibility>
+    </tabSettings>
+    <tabSettings>
+        <tab>CMN_PMS_Home</tab>
+        <visibility>Visible</visibility>
+    </tabSettings>
 </PermissionSet>

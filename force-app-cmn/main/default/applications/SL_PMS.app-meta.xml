@@ -12,10 +12,11 @@
     <isNavTabPersistenceDisabled>false</isNavTabPersistenceDisabled>
     <label>SL PMS</label>
     <navType>Standard</navType>
-    <tabs>standard-home</tabs>
-    <tabs>CMN_Todo__c</tabs>
+    <tabs>CMN_PMS_Home</tabs>
     <tabs>CMN_ApprovalMonitor</tabs>
-    <tabs>CMN_ApprovalRequest__c</tabs>
+    <tabs>CMN_MenuWork</tabs>
+    <tabs>CMN_MenuMaster</tabs>
+    <tabs>CMN_PMS_Dashboard</tabs>
     <uiType>Lightning</uiType>
     <utilityBar>SL_UtilityBar</utilityBar>
 </CustomApplication>

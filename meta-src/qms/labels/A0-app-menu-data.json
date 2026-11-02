@@ -1,0 +1,976 @@
+{
+  "wi": "A0-PROTO-KIT",
+  "package": "force-app-qms",
+  "labels": [
+    {
+      "name": "QMS_AppMenu_02_Title",
+      "category": "QMS",
+      "description": "메뉴 QMS_02 제목",
+      "value": {
+        "ko": "개발 품질",
+        "en_US": "Development Quality",
+        "zh_CN": "开发质量"
+      }
+    },
+    {
+      "name": "QMS_AppMenu_02_Desc",
+      "category": "QMS",
+      "description": "메뉴 QMS_02 설명",
+      "value": {
+        "ko": "신제품 개발 단계의 인정시험 계획·진행·판정과 시험 보고서",
+        "en_US": "Qualification test planning, execution, judgment and reports during new product development",
+        "zh_CN": "新产品开发阶段认可试验的计划、执行、判定及试验报告"
+      }
+    },
+    {
+      "name": "QMS_AppMenu_03_Title",
+      "category": "QMS",
+      "description": "메뉴 QMS_03 제목",
+      "value": {
+        "ko": "부품/협력사 품질",
+        "en_US": "Parts & Supplier Quality",
+        "zh_CN": "零部件/供应商质量"
+      }
+    },
+    {
+      "name": "QMS_AppMenu_03_Desc",
+      "category": "QMS",
+      "description": "메뉴 QMS_03 설명",
+      "value": {
+        "ko": "협력사 포털, 수입검사, 부품 보증시험·PPAP·초기안정화",
+        "en_US": "Supplier portal, incoming inspection, part warranty tests, PPAP and initial stabilization",
+        "zh_CN": "供应商门户、进货检验、零部件保证试验、PPAP及初期稳定化"
+      }
+    },
+    {
+      "name": "QMS_AppMenu_04_Title",
+      "category": "QMS",
+      "description": "메뉴 QMS_04 제목",
+      "value": {
+        "ko": "제품/공정 품질",
+        "en_US": "Product & Process Quality",
+        "zh_CN": "产品/过程质量"
+      }
+    },
+    {
+      "name": "QMS_AppMenu_04_Desc",
+      "category": "QMS",
+      "description": "메뉴 QMS_04 설명",
+      "value": {
+        "ko": "초기유동, SPC, 제품·출하 검사, 수평전개, 레슨런, 고객 PPAP",
+        "en_US": "Early production containment, SPC, final and outgoing inspection, horizontal deployment, lessons learned, customer PPAP",
+        "zh_CN": "初期流动、SPC、成品与出货检验、横向展开、经验教训、客户PPAP"
+      }
+    },
+    {
+      "name": "QMS_AppMenu_05_Title",
+      "category": "QMS",
+      "description": "메뉴 QMS_05 제목",
+      "value": {
+        "ko": "고객 품질",
+        "en_US": "Customer Quality",
+        "zh_CN": "客户质量"
+      }
+    },
+    {
+      "name": "QMS_AppMenu_05_Desc",
+      "category": "QMS",
+      "description": "메뉴 QMS_05 설명",
+      "value": {
+        "ko": "고객 품질 데이터 수집·분석, 고객 클레임과 8D",
+        "en_US": "Customer quality data collection and analysis, customer claims and 8D",
+        "zh_CN": "客户质量数据收集与分析、客户索赔与8D"
+      }
+    },
+    {
+      "name": "QMS_AppMenu_06_Title",
+      "category": "QMS",
+      "description": "메뉴 QMS_06 제목",
+      "value": {
+        "ko": "품질 운영 지원",
+        "en_US": "Quality Operations",
+        "zh_CN": "质量运营支持"
+      }
+    },
+    {
+      "name": "QMS_AppMenu_06_Desc",
+      "category": "QMS",
+      "description": "메뉴 QMS_06 설명",
+      "value": {
+        "ko": "4M 변경, 부적합, 한도견본, 교육·자격, 측정기·MSA, 분석실, 심사·인증, 협력사 실적, 개선 과제",
+        "en_US": "4M changes, nonconformance, limit samples, training, gauges and MSA, laboratory, audits and certification, supplier performance, improvement projects",
+        "zh_CN": "4M变更、不合格、限度样件、培训与资格、量具与MSA、实验室、审核与认证、供应商绩效、改进课题"
+      }
+    },
+    {
+      "name": "QMS_AppMenu_07_Title",
+      "category": "QMS",
+      "description": "메뉴 QMS_07 제목",
+      "value": {
+        "ko": "품질 대시보드",
+        "en_US": "Quality Dashboard",
+        "zh_CN": "质量仪表板"
+      }
+    },
+    {
+      "name": "QMS_AppMenu_07_Desc",
+      "category": "QMS",
+      "description": "메뉴 QMS_07 설명",
+      "value": {
+        "ko": "역할별 품질 대시보드와 KPI, 메뉴별 품질 위젯",
+        "en_US": "Role-based quality dashboards, KPIs and widgets per menu",
+        "zh_CN": "按角色的质量仪表板、KPI与各菜单组件"
+      }
+    },
+    {
+      "name": "QMS_AppMenu_08_Title",
+      "category": "QMS",
+      "description": "메뉴 QMS_08 제목",
+      "value": {
+        "ko": "품질 AI",
+        "en_US": "Quality AI",
+        "zh_CN": "质量AI"
+      }
+    },
+    {
+      "name": "QMS_AppMenu_08_Desc",
+      "category": "QMS",
+      "description": "메뉴 QMS_08 설명",
+      "value": {
+        "ko": "원인 추천, 품질 Q&A, 조기경보, 문서 검색. AI는 추천하고 확정은 사람이 합니다",
+        "en_US": "Root-cause suggestions, quality Q&A, early warning and document search. AI suggests, people decide",
+        "zh_CN": "原因推荐、质量问答、早期预警与文件检索。AI推荐，由人确认"
+      }
+    },
+    {
+      "name": "QMS_AppMenu_09_Title",
+      "category": "QMS",
+      "description": "메뉴 QMS_09 제목",
+      "value": {
+        "ko": "연계",
+        "en_US": "Integration",
+        "zh_CN": "接口"
+      }
+    },
+    {
+      "name": "QMS_AppMenu_09_Desc",
+      "category": "QMS",
+      "description": "메뉴 QMS_09 설명",
+      "value": {
+        "ko": "SAP·MES·고객사·Snowflake 연계 현황과 재전송",
+        "en_US": "Integration status and resend for SAP, MES, customers and Snowflake",
+        "zh_CN": "SAP、MES、客户与Snowflake接口状态与重发"
+      }
+    },
+    {
+      "name": "QMS_AppMenu_Item_DVQ_Title",
+      "category": "QMS",
+      "description": "메뉴 기능 QMS_02.DVQ 제목",
+      "value": {
+        "ko": "인정시험",
+        "en_US": "Qualification Test",
+        "zh_CN": "认可试验"
+      }
+    },
+    {
+      "name": "QMS_AppMenu_Item_DVQ_Desc",
+      "category": "QMS",
+      "description": "메뉴 기능 QMS_02.DVQ 설명",
+      "value": {
+        "ko": "시험 항목·기준 템플릿, 인정시험 계획·의뢰·결과 판정, DVP&R 보고서, 협력사 시험 성적서",
+        "en_US": "Test item library and templates, qualification plans, requests and result judgment, DVP&R reports, supplier test reports",
+        "zh_CN": "试验项目库与模板、认可试验计划、委托与结果判定、DVP&R报告、供应商试验报告"
+      }
+    },
+    {
+      "name": "QMS_AppMenu_Item_SPP_Title",
+      "category": "QMS",
+      "description": "메뉴 기능 QMS_03.SPP 제목",
+      "value": {
+        "ko": "협력사 포털",
+        "en_US": "Supplier Portal",
+        "zh_CN": "供应商门户"
+      }
+    },
+    {
+      "name": "QMS_AppMenu_Item_SPP_Desc",
+      "category": "QMS",
+      "description": "메뉴 기능 QMS_03.SPP 설명",
+      "value": {
+        "ko": "협력사 포털 사이트·사용자, 포털 홈·To-Do·문서 제출, 협력사 인증서",
+        "en_US": "Supplier portal site and users, portal home, To-Dos and document submission, supplier certificates",
+        "zh_CN": "供应商门户站点与用户、门户首页、待办与文件提交、供应商证书"
+      }
+    },
+    {
+      "name": "QMS_AppMenu_Item_IQC_Title",
+      "category": "QMS",
+      "description": "메뉴 기능 QMS_03.IQC 제목",
+      "value": {
+        "ko": "수입검사",
+        "en_US": "Incoming Inspection",
+        "zh_CN": "进货检验"
+      }
+    },
+    {
+      "name": "QMS_AppMenu_Item_IQC_Desc",
+      "category": "QMS",
+      "description": "메뉴 기능 QMS_03.IQC 설명",
+      "value": {
+        "ko": "기준서·샘플링 계획, 검사 로트 판정(모바일), 검사 수준 자동 전환, 협력사 성적서(COA) 점검",
+        "en_US": "Inspection standards and sampling plans, lot judgment (mobile), automatic inspection level switching, supplier COA checks",
+        "zh_CN": "检验标准与抽样计划、批次判定(移动端)、检验水平自动切换、供应商COA检查"
+      }
+    },
+    {
+      "name": "QMS_AppMenu_Item_PWT_Title",
+      "category": "QMS",
+      "description": "메뉴 기능 QMS_03.PWT 제목",
+      "value": {
+        "ko": "부품 보증시험",
+        "en_US": "Part Warranty Test",
+        "zh_CN": "零部件保证试验"
+      }
+    },
+    {
+      "name": "QMS_AppMenu_Item_PWT_Desc",
+      "category": "QMS",
+      "description": "메뉴 기능 QMS_03.PWT 설명",
+      "value": {
+        "ko": "보증시험 주기 계획 자동 생성, 준수 현황·불합격 연계",
+        "en_US": "Periodic warranty test plans, compliance status and failure follow-up",
+        "zh_CN": "保证试验周期计划自动生成、遵守现状与不合格联动"
+      }
+    },
+    {
+      "name": "QMS_AppMenu_Item_PPA_Title",
+      "category": "QMS",
+      "description": "메뉴 기능 QMS_03.PPA 제목",
+      "value": {
+        "ko": "부품 PPAP",
+        "en_US": "Part PPAP",
+        "zh_CN": "零部件PPAP"
+      }
+    },
+    {
+      "name": "QMS_AppMenu_Item_PPA_Desc",
+      "category": "QMS",
+      "description": "메뉴 기능 QMS_03.PPA 설명",
+      "value": {
+        "ko": "PPAP 요소·제출 레벨 규칙, 협력사 제출·요소별 검토, PSW 승인·잠정 승인 관리",
+        "en_US": "PPAP elements and submission level rules, supplier submissions and element review, PSW and interim approvals",
+        "zh_CN": "PPAP要素与提交等级规则、供应商提交与要素评审、PSW与临时批准管理"
+      }
+    },
+    {
+      "name": "QMS_AppMenu_Item_PIS_Title",
+      "category": "QMS",
+      "description": "메뉴 기능 QMS_03.PIS 제목",
+      "value": {
+        "ko": "부품 초기안정화",
+        "en_US": "Part Initial Stabilization",
+        "zh_CN": "零部件初期稳定化"
+      }
+    },
+    {
+      "name": "QMS_AppMenu_Item_PIS_Desc",
+      "category": "QMS",
+      "description": "메뉴 기능 QMS_03.PIS 설명",
+      "value": {
+        "ko": "안정화 계획·목표·해제 기준, 실적 집계·강화 검사, 해제 판정·연장",
+        "en_US": "Stabilization plans, targets and exit criteria, results and tightened inspection, exit decision and extension",
+        "zh_CN": "稳定化计划、目标与解除标准、实绩汇总与加严检验、解除判定与延期"
+      }
+    },
+    {
+      "name": "QMS_AppMenu_Item_EFC_Title",
+      "category": "QMS",
+      "description": "메뉴 기능 QMS_04.EFC 제목",
+      "value": {
+        "ko": "초기유동",
+        "en_US": "Early Production Containment",
+        "zh_CN": "初期流动"
+      }
+    },
+    {
+      "name": "QMS_AppMenu_Item_EFC_Desc",
+      "category": "QMS",
+      "description": "메뉴 기능 QMS_04.EFC 설명",
+      "value": {
+        "ko": "초기유동 계획·강화 조치, 실적 집계·관리 검사, 해제 판정",
+        "en_US": "Containment plans and tightened controls, results and control inspections, exit decision",
+        "zh_CN": "初期流动计划与加强措施、实绩汇总与管理检验、解除判定"
+      }
+    },
+    {
+      "name": "QMS_AppMenu_Item_SPC_Title",
+      "category": "QMS",
+      "description": "메뉴 기능 QMS_04.SPC 제목",
+      "value": {
+        "ko": "SPC",
+        "en_US": "SPC",
+        "zh_CN": "SPC"
+      }
+    },
+    {
+      "name": "QMS_AppMenu_Item_SPC_Desc",
+      "category": "QMS",
+      "description": "메뉴 기능 QMS_04.SPC 설명",
+      "value": {
+        "ko": "관리도 설정, 관리 한계·이상 판정, 공정능력(Cpk), 알람·OCAP 조치",
+        "en_US": "Control chart setup, control limits and out-of-control rules, process capability (Cpk), alarms and OCAP",
+        "zh_CN": "控制图设置、控制限与异常判定、过程能力(Cpk)、报警与OCAP"
+      }
+    },
+    {
+      "name": "QMS_AppMenu_Item_FQC_Title",
+      "category": "QMS",
+      "description": "메뉴 기능 QMS_04.FQC 제목",
+      "value": {
+        "ko": "제품/출하 검사",
+        "en_US": "Final & Outgoing Inspection",
+        "zh_CN": "成品/出货检验"
+      }
+    },
+    {
+      "name": "QMS_AppMenu_Item_FQC_Desc",
+      "category": "QMS",
+      "description": "메뉴 기능 QMS_04.FQC 설명",
+      "value": {
+        "ko": "출하검사 기준서·로트 판정, 출하 보류·차단, EOL 전수 시험, 고객 성적서",
+        "en_US": "Outgoing inspection standards and lot judgment, shipment hold and block, EOL 100% test, customer inspection reports",
+        "zh_CN": "出货检验标准与批次判定、出货冻结与拦截、EOL全检、客户检验报告"
+      }
+    },
+    {
+      "name": "QMS_AppMenu_Item_HZD_Title",
+      "category": "QMS",
+      "description": "메뉴 기능 QMS_04.HZD 제목",
+      "value": {
+        "ko": "수평전개",
+        "en_US": "Horizontal Deployment",
+        "zh_CN": "横向展开"
+      }
+    },
+    {
+      "name": "QMS_AppMenu_Item_HZD_Desc",
+      "category": "QMS",
+      "description": "메뉴 기능 QMS_04.HZD 설명",
+      "value": {
+        "ko": "수평전개 건·대상 선정, 대상별 실행·확인, 지연 관리·효과 점검",
+        "en_US": "Deployment cases and target selection, execution and confirmation per target, delay tracking and effectiveness checks",
+        "zh_CN": "横向展开案件与对象选定、按对象执行与确认、延迟管理与效果检查"
+      }
+    },
+    {
+      "name": "QMS_AppMenu_Item_LEL_Title",
+      "category": "QMS",
+      "description": "메뉴 기능 QMS_04.LEL 제목",
+      "value": {
+        "ko": "레슨런",
+        "en_US": "Lessons Learned",
+        "zh_CN": "经验教训"
+      }
+    },
+    {
+      "name": "QMS_AppMenu_Item_LEL_Desc",
+      "category": "QMS",
+      "description": "메뉴 기능 QMS_04.LEL 설명",
+      "value": {
+        "ko": "레슨런 등록·게시, 라이브러리 검색, 체크포인트, 후속 모델 반영",
+        "en_US": "Lesson registration and publishing, library search, checkpoints, application to next models",
+        "zh_CN": "经验教训登记与发布、库检索、检查点、后续车型应用"
+      }
+    },
+    {
+      "name": "QMS_AppMenu_Item_RPP_Title",
+      "category": "QMS",
+      "description": "메뉴 기능 QMS_04.RPP 제목",
+      "value": {
+        "ko": "제품 Re-PPAP",
+        "en_US": "Product Re-PPAP",
+        "zh_CN": "产品Re-PPAP"
+      }
+    },
+    {
+      "name": "QMS_AppMenu_Item_RPP_Desc",
+      "category": "QMS",
+      "description": "메뉴 기능 QMS_04.RPP 설명",
+      "value": {
+        "ko": "고객 PPAP 요소 배정, 내부 증빙 수집, PSW 결재·제출 패키지, 고객 판정 추적",
+        "en_US": "Customer PPAP element assignment, internal evidence collection, PSW approval and submission package, customer decision tracking",
+        "zh_CN": "客户PPAP要素分配、内部证据收集、PSW审批与提交包、客户判定跟踪"
+      }
+    },
+    {
+      "name": "QMS_AppMenu_Item_B2B_Title",
+      "category": "QMS",
+      "description": "메뉴 기능 QMS_05.B2B 제목",
+      "value": {
+        "ko": "고객 품질 데이터",
+        "en_US": "Customer Quality Data",
+        "zh_CN": "客户质量数据"
+      }
+    },
+    {
+      "name": "QMS_AppMenu_Item_B2B_Desc",
+      "category": "QMS",
+      "description": "메뉴 기능 QMS_05.B2B 설명",
+      "value": {
+        "ko": "고객 데이터 수집·코드 매핑, 품질 KPI·추세 경보, 분석·드릴다운, OEM 평가",
+        "en_US": "Customer data collection and code mapping, quality KPIs and trend alerts, analysis and drill-down, OEM scorecards",
+        "zh_CN": "客户数据收集与代码映射、质量KPI与趋势预警、分析与钻取、OEM评价"
+      }
+    },
+    {
+      "name": "QMS_AppMenu_Item_CLM_Title",
+      "category": "QMS",
+      "description": "메뉴 기능 QMS_05.CLM 제목",
+      "value": {
+        "ko": "고객 클레임·8D",
+        "en_US": "Customer Claims & 8D",
+        "zh_CN": "客户索赔·8D"
+      }
+    },
+    {
+      "name": "QMS_AppMenu_Item_CLM_Desc",
+      "category": "QMS",
+      "description": "메뉴 기능 QMS_05.CLM 설명",
+      "value": {
+        "ko": "클레임 접수·기한, 봉쇄·초기 대응, 8D 작성·액션 추적, 반품 분석·귀책, 비용·구상, 고객 회신",
+        "en_US": "Claim intake and deadlines, containment and initial response, 8D and action tracking, return analysis and responsibility, cost recovery, customer replies",
+        "zh_CN": "索赔受理与期限、遏制与初期应对、8D与措施跟踪、退货分析与责任判定、费用与追偿、客户回复"
+      }
+    },
+    {
+      "name": "QMS_AppMenu_Item_4MC_Title",
+      "category": "QMS",
+      "description": "메뉴 기능 QMS_06.4MC 제목",
+      "value": {
+        "ko": "4M 변경",
+        "en_US": "4M Change",
+        "zh_CN": "4M变更"
+      }
+    },
+    {
+      "name": "QMS_AppMenu_Item_4MC_Desc",
+      "category": "QMS",
+      "description": "메뉴 기능 QMS_06.4MC 설명",
+      "value": {
+        "ko": "변경 유형 기준·리스크 평가, 4M 신청(협력사 포함), 검증 계획·적용 승인, 적용 시점·변경 이력",
+        "en_US": "Change type criteria and risk assessment, 4M requests incl. suppliers, verification plan and release approval, cut-in and change history",
+        "zh_CN": "变更类型标准与风险评估、4M申请(含供应商)、验证计划与适用批准、切换时点与变更履历"
+      }
+    },
+    {
+      "name": "QMS_AppMenu_Item_NCR_Title",
+      "category": "QMS",
+      "description": "메뉴 기능 QMS_06.NCR 제목",
+      "value": {
+        "ko": "부적합(NCR)",
+        "en_US": "Nonconformance (NCR)",
+        "zh_CN": "不合格(NCR)"
+      }
+    },
+    {
+      "name": "QMS_AppMenu_Item_NCR_Desc",
+      "category": "QMS",
+      "description": "메뉴 기능 QMS_06.NCR 설명",
+      "value": {
+        "ko": "부적합 등록(모바일), 봉쇄·처분·특채, 원인·대책(8D), 귀책·비용(COPQ)·구상",
+        "en_US": "Nonconformance entry (mobile), containment, disposition and concessions, root cause and actions (8D), responsibility, COPQ and recovery",
+        "zh_CN": "不合格登记(移动端)、遏制、处置与让步、原因与对策(8D)、责任、COPQ与追偿"
+      }
+    },
+    {
+      "name": "QMS_AppMenu_Item_LMS_Title",
+      "category": "QMS",
+      "description": "메뉴 기능 QMS_06.LMS 제목",
+      "value": {
+        "ko": "한도견본",
+        "en_US": "Limit Samples",
+        "zh_CN": "限度样件"
+      }
+    },
+    {
+      "name": "QMS_AppMenu_Item_LMS_Desc",
+      "category": "QMS",
+      "description": "메뉴 기능 QMS_06.LMS 설명",
+      "value": {
+        "ko": "관능 검사 조건·한도견본 등록·개정, 실물 견본 보관·점검, 검사 화면 연결",
+        "en_US": "Appearance criteria and limit sample registration and revision, physical sample storage and checks, link to inspection screens",
+        "zh_CN": "外观检验条件与限度样件登记与修订、实物样件保管与点检、与检验界面关联"
+      }
+    },
+    {
+      "name": "QMS_AppMenu_Item_TRN_Title",
+      "category": "QMS",
+      "description": "메뉴 기능 QMS_06.TRN 제목",
+      "value": {
+        "ko": "교육·자격",
+        "en_US": "Training & Qualification",
+        "zh_CN": "培训·资格"
+      }
+    },
+    {
+      "name": "QMS_AppMenu_Item_TRN_Desc",
+      "category": "QMS",
+      "description": "메뉴 기능 QMS_06.TRN 설명",
+      "value": {
+        "ko": "교육 계획·차수·이수, 자격 인증·매트릭스·재인증",
+        "en_US": "Training plans, sessions and completion, qualifications, matrix and recertification",
+        "zh_CN": "培训计划、场次与完成、资格认证、矩阵与再认证"
+      }
+    },
+    {
+      "name": "QMS_AppMenu_Item_GAU_Title",
+      "category": "QMS",
+      "description": "메뉴 기능 QMS_06.GAU 제목",
+      "value": {
+        "ko": "측정기",
+        "en_US": "Gauges",
+        "zh_CN": "量具"
+      }
+    },
+    {
+      "name": "QMS_AppMenu_Item_GAU_Desc",
+      "category": "QMS",
+      "description": "메뉴 기능 QMS_06.GAU 설명",
+      "value": {
+        "ko": "측정기 등록·QR 라벨, 교정 계획·실행·판정, 사용 통제·수리·폐기, 교정 불합격 영향 분석",
+        "en_US": "Gauge registry and QR labels, calibration planning, execution and judgment, usage control, repair and disposal, impact of failed calibration",
+        "zh_CN": "量具登记与QR标签、校准计划、执行与判定、使用管控、维修与报废、校准不合格影响分析"
+      }
+    },
+    {
+      "name": "QMS_AppMenu_Item_MSA_Title",
+      "category": "QMS",
+      "description": "메뉴 기능 QMS_06.MSA 제목",
+      "value": {
+        "ko": "MSA",
+        "en_US": "MSA",
+        "zh_CN": "MSA"
+      }
+    },
+    {
+      "name": "QMS_AppMenu_Item_MSA_Desc",
+      "category": "QMS",
+      "description": "메뉴 기능 QMS_06.MSA 설명",
+      "value": {
+        "ko": "MSA 대상·계획, 측정 입력, Gage R&R·편의·직선성·안정성 판정, 보고서",
+        "en_US": "MSA scope and plans, measurement entry, Gage R&R, bias, linearity and stability evaluation, reports",
+        "zh_CN": "MSA对象与计划、测量录入、Gage R&R、偏倚、线性与稳定性判定、报告"
+      }
+    },
+    {
+      "name": "QMS_AppMenu_Item_LAB_Title",
+      "category": "QMS",
+      "description": "메뉴 기능 QMS_06.LAB 제목",
+      "value": {
+        "ko": "분석실",
+        "en_US": "Laboratory",
+        "zh_CN": "实验室"
+      }
+    },
+    {
+      "name": "QMS_AppMenu_Item_LAB_Desc",
+      "category": "QMS",
+      "description": "메뉴 기능 QMS_06.LAB 설명",
+      "value": {
+        "ko": "분석 의뢰·시료 접수, 대기열·결과 입력·보고서, 정기 분석 일정",
+        "en_US": "Analysis requests and sample intake, queue, results and reports, periodic analysis schedules",
+        "zh_CN": "分析委托与样品接收、队列、结果录入与报告、定期分析计划"
+      }
+    },
+    {
+      "name": "QMS_AppMenu_Item_IAU_Title",
+      "category": "QMS",
+      "description": "메뉴 기능 QMS_06.IAU 제목",
+      "value": {
+        "ko": "내부심사",
+        "en_US": "Internal Audit",
+        "zh_CN": "内部审核"
+      }
+    },
+    {
+      "name": "QMS_AppMenu_Item_IAU_Desc",
+      "category": "QMS",
+      "description": "메뉴 기능 QMS_06.IAU 설명",
+      "value": {
+        "ko": "질문지·점수 체계, 심사 계획·팀 배정, 심사 수행(모바일)·보고서, 지적·시정 조치",
+        "en_US": "Checklists and scoring, audit plans and team assignment, audit execution (mobile) and reports, findings and corrective actions",
+        "zh_CN": "审核问卷与评分体系、审核计划与团队分配、审核执行(移动端)与报告、发现项与纠正措施"
+      }
+    },
+    {
+      "name": "QMS_AppMenu_Item_SAU_Title",
+      "category": "QMS",
+      "description": "메뉴 기능 QMS_06.SAU 제목",
+      "value": {
+        "ko": "협력사 심사",
+        "en_US": "Supplier Audit",
+        "zh_CN": "供应商审核"
+      }
+    },
+    {
+      "name": "QMS_AppMenu_Item_SAU_Desc",
+      "category": "QMS",
+      "description": "메뉴 기능 QMS_06.SAU 설명",
+      "value": {
+        "ko": "위험 기반 심사 계획, 포털 통보·시정 계획, 등급 반영·재심사",
+        "en_US": "Risk-based audit planning, portal notification and corrective action plans, rating update and re-audits",
+        "zh_CN": "基于风险的审核计划、门户通知与纠正计划、等级反映与复审"
+      }
+    },
+    {
+      "name": "QMS_AppMenu_Item_CAU_Title",
+      "category": "QMS",
+      "description": "메뉴 기능 QMS_06.CAU 제목",
+      "value": {
+        "ko": "고객 심사(VDA 6.3)",
+        "en_US": "Customer Audit (VDA 6.3)",
+        "zh_CN": "客户审核(VDA 6.3)"
+      }
+    },
+    {
+      "name": "QMS_AppMenu_Item_CAU_Desc",
+      "category": "QMS",
+      "description": "메뉴 기능 QMS_06.CAU 설명",
+      "value": {
+        "ko": "고객 심사 일정·준비, VDA 6.3 점수·등급 계산, 지적 대응·회신",
+        "en_US": "Customer audit schedule and preparation, VDA 6.3 scoring and rating, finding responses and replies",
+        "zh_CN": "客户审核日程与准备、VDA 6.3评分与等级计算、发现项应对与回复"
+      }
+    },
+    {
+      "name": "QMS_AppMenu_Item_CER_Title",
+      "category": "QMS",
+      "description": "메뉴 기능 QMS_06.CER 제목",
+      "value": {
+        "ko": "인증 관리",
+        "en_US": "Certification",
+        "zh_CN": "认证管理"
+      }
+    },
+    {
+      "name": "QMS_AppMenu_Item_CER_Desc",
+      "category": "QMS",
+      "description": "메뉴 기능 QMS_06.CER 설명",
+      "value": {
+        "ko": "사업장 인증·심사 주기·준비도, 인증 기관 지적 종결",
+        "en_US": "Site certifications, audit cycles and readiness, closure of certification body findings",
+        "zh_CN": "工厂认证、审核周期与准备度、认证机构发现项关闭"
+      }
+    },
+    {
+      "name": "QMS_AppMenu_Item_SQM_Title",
+      "category": "QMS",
+      "description": "메뉴 기능 QMS_06.SQM 제목",
+      "value": {
+        "ko": "협력사 품질 목표·실적",
+        "en_US": "Supplier Quality Performance",
+        "zh_CN": "供应商质量目标·绩效"
+      }
+    },
+    {
+      "name": "QMS_AppMenu_Item_SQM_Desc",
+      "category": "QMS",
+      "description": "메뉴 기능 QMS_06.SQM 설명",
+      "value": {
+        "ko": "협력사 목표 합의, 월간 스코어카드·분기 등급, 저성과 협력사 개선",
+        "en_US": "Supplier targets and agreement, monthly scorecards and quarterly ratings, improvement of low performers",
+        "zh_CN": "供应商目标与协议、月度记分卡与季度等级、低绩效供应商改进"
+      }
+    },
+    {
+      "name": "QMS_AppMenu_Item_IMP_Title",
+      "category": "QMS",
+      "description": "메뉴 기능 QMS_06.IMP 제목",
+      "value": {
+        "ko": "개선 과제",
+        "en_US": "Improvement Projects",
+        "zh_CN": "改进课题"
+      }
+    },
+    {
+      "name": "QMS_AppMenu_Item_IMP_Desc",
+      "category": "QMS",
+      "description": "메뉴 기능 QMS_06.IMP 설명",
+      "value": {
+        "ko": "과제 단계·게이트 승인, 원천 연계, KPI 추적·효과 확인",
+        "en_US": "Project stages and gate approvals, source linkage, KPI tracking and effectiveness checks",
+        "zh_CN": "课题阶段与关口审批、来源关联、KPI跟踪与效果确认"
+      }
+    },
+    {
+      "name": "QMS_AppMenu_Item_DSH_MY_Title",
+      "category": "QMS",
+      "description": "메뉴 기능 QMS_07.DSH_MY 제목",
+      "value": {
+        "ko": "내 대시보드",
+        "en_US": "My Dashboard",
+        "zh_CN": "我的仪表板"
+      }
+    },
+    {
+      "name": "QMS_AppMenu_Item_DSH_MY_Desc",
+      "category": "QMS",
+      "description": "메뉴 기능 QMS_07.DSH_MY 설명",
+      "value": {
+        "ko": "내 위젯 보드: 위젯 추가·배치·크기 편집과 저장",
+        "en_US": "My widget board: add, arrange, resize and save widgets",
+        "zh_CN": "我的组件看板：添加、排列、调整大小并保存"
+      }
+    },
+    {
+      "name": "QMS_AppMenu_Item_DSH_OVERVIEW_Title",
+      "category": "QMS",
+      "description": "메뉴 기능 QMS_07.DSH_OVERVIEW 제목",
+      "value": {
+        "ko": "품질 종합 대시보드",
+        "en_US": "Quality Overview",
+        "zh_CN": "质量综合仪表板"
+      }
+    },
+    {
+      "name": "QMS_AppMenu_Item_DSH_OVERVIEW_Desc",
+      "category": "QMS",
+      "description": "메뉴 기능 QMS_07.DSH_OVERVIEW 설명",
+      "value": {
+        "ko": "공장·고객·협력사 품질 현황을 한 화면에",
+        "en_US": "Plant, customer and supplier quality at a glance",
+        "zh_CN": "一屏掌握工厂、客户与供应商质量现状"
+      }
+    },
+    {
+      "name": "QMS_AppMenu_Item_DSH_WIDGETS_Title",
+      "category": "QMS",
+      "description": "메뉴 기능 QMS_07.DSH_WIDGETS 제목",
+      "value": {
+        "ko": "품질 위젯·역할 템플릿",
+        "en_US": "Quality Widgets & Role Templates",
+        "zh_CN": "质量组件与角色模板"
+      }
+    },
+    {
+      "name": "QMS_AppMenu_Item_DSH_WIDGETS_Desc",
+      "category": "QMS",
+      "description": "메뉴 기능 QMS_07.DSH_WIDGETS 설명",
+      "value": {
+        "ko": "수입검사·공정·고객·부적합 등 메뉴별 위젯과 역할별 기본 배치",
+        "en_US": "Widgets per menu (incoming, process, customer, nonconformance) and role-based layouts",
+        "zh_CN": "各菜单组件(进货、过程、客户、不合格等)与按角色的默认布局"
+      }
+    },
+    {
+      "name": "QMS_AppMenu_Item_DSH_KPI_Title",
+      "category": "QMS",
+      "description": "메뉴 기능 QMS_07.DSH_KPI 제목",
+      "value": {
+        "ko": "KPI 정의·판정 기준",
+        "en_US": "KPI Registry & RAG Rules",
+        "zh_CN": "KPI定义与判定标准"
+      }
+    },
+    {
+      "name": "QMS_AppMenu_Item_DSH_KPI_Desc",
+      "category": "QMS",
+      "description": "메뉴 기능 QMS_07.DSH_KPI 설명",
+      "value": {
+        "ko": "KPI 정의 레지스트리와 RAG 기준, KPI 신선도·위젯 성능",
+        "en_US": "KPI registry and RAG rules, KPI freshness and widget performance",
+        "zh_CN": "KPI定义注册与RAG规则、KPI新鲜度与组件性能"
+      }
+    },
+    {
+      "name": "QMS_AppMenu_Item_DSH_PORTAL_Title",
+      "category": "QMS",
+      "description": "메뉴 기능 QMS_07.DSH_PORTAL 제목",
+      "value": {
+        "ko": "협력사 포털 품질 요약",
+        "en_US": "Supplier Portal Quality Summary",
+        "zh_CN": "供应商门户质量摘要"
+      }
+    },
+    {
+      "name": "QMS_AppMenu_Item_DSH_PORTAL_Desc",
+      "category": "QMS",
+      "description": "메뉴 기능 QMS_07.DSH_PORTAL 설명",
+      "value": {
+        "ko": "협력사가 보는 품질 실적 요약",
+        "en_US": "Quality performance summary shown to suppliers",
+        "zh_CN": "供应商可见的质量绩效摘要"
+      }
+    },
+    {
+      "name": "QMS_AppMenu_Item_AIQ_ASSIST_Title",
+      "category": "QMS",
+      "description": "메뉴 기능 QMS_08.AIQ_ASSIST 제목",
+      "value": {
+        "ko": "품질 어시스턴트·Q&A",
+        "en_US": "Quality Assistant & Q&A",
+        "zh_CN": "质量助手与问答"
+      }
+    },
+    {
+      "name": "QMS_AppMenu_Item_AIQ_ASSIST_Desc",
+      "category": "QMS",
+      "description": "메뉴 기능 QMS_08.AIQ_ASSIST 설명",
+      "value": {
+        "ko": "업무 현황·추세 질문에 답하는 품질 어시스턴트",
+        "en_US": "Quality assistant answering status and trend questions",
+        "zh_CN": "回答业务现状与趋势问题的质量助手"
+      }
+    },
+    {
+      "name": "QMS_AppMenu_Item_AIQ_CAUSE_Title",
+      "category": "QMS",
+      "description": "메뉴 기능 QMS_08.AIQ_CAUSE 제목",
+      "value": {
+        "ko": "원인 추천·8D 초안",
+        "en_US": "Root-Cause Suggestions & 8D Drafts",
+        "zh_CN": "原因推荐与8D草稿"
+      }
+    },
+    {
+      "name": "QMS_AppMenu_Item_AIQ_CAUSE_Desc",
+      "category": "QMS",
+      "description": "메뉴 기능 QMS_08.AIQ_CAUSE 설명",
+      "value": {
+        "ko": "유사 사례 기반 원인 후보와 8D 초안",
+        "en_US": "Root-cause candidates from similar cases and 8D drafts",
+        "zh_CN": "基于相似案例的原因候选与8D草稿"
+      }
+    },
+    {
+      "name": "QMS_AppMenu_Item_AIQ_LELE_Title",
+      "category": "QMS",
+      "description": "메뉴 기능 QMS_08.AIQ_LELE 제목",
+      "value": {
+        "ko": "레슨런 추천",
+        "en_US": "Lesson Recommendations",
+        "zh_CN": "经验教训推荐"
+      }
+    },
+    {
+      "name": "QMS_AppMenu_Item_AIQ_LELE_Desc",
+      "category": "QMS",
+      "description": "메뉴 기능 QMS_08.AIQ_LELE 설명",
+      "value": {
+        "ko": "개발 단계별로 적용할 레슨런 추천",
+        "en_US": "Lessons to apply in each development phase",
+        "zh_CN": "按开发阶段推荐应用的经验教训"
+      }
+    },
+    {
+      "name": "QMS_AppMenu_Item_AIQ_RISK_Title",
+      "category": "QMS",
+      "description": "메뉴 기능 QMS_08.AIQ_RISK 제목",
+      "value": {
+        "ko": "조기경보·위험 점수",
+        "en_US": "Early Warning & Risk Score",
+        "zh_CN": "早期预警与风险评分"
+      }
+    },
+    {
+      "name": "QMS_AppMenu_Item_AIQ_RISK_Desc",
+      "category": "QMS",
+      "description": "메뉴 기능 QMS_08.AIQ_RISK 설명",
+      "value": {
+        "ko": "품질 위험 점수와 이상 징후 경보",
+        "en_US": "Quality risk scores and anomaly alerts",
+        "zh_CN": "质量风险评分与异常预警"
+      }
+    },
+    {
+      "name": "QMS_AppMenu_Item_AIQ_SEARCH_Title",
+      "category": "QMS",
+      "description": "메뉴 기능 QMS_08.AIQ_SEARCH 제목",
+      "value": {
+        "ko": "품질 문서 검색",
+        "en_US": "Quality Document Search",
+        "zh_CN": "质量文件检索"
+      }
+    },
+    {
+      "name": "QMS_AppMenu_Item_AIQ_SEARCH_Desc",
+      "category": "QMS",
+      "description": "메뉴 기능 QMS_08.AIQ_SEARCH 설명",
+      "value": {
+        "ko": "문서 통합 검색·요약, 리비전 비교",
+        "en_US": "Unified document search, summaries and revision comparison",
+        "zh_CN": "文件统一检索、摘要与版本比较"
+      }
+    },
+    {
+      "name": "QMS_AppMenu_Item_AIQ_RECORD_Title",
+      "category": "QMS",
+      "description": "메뉴 기능 QMS_08.AIQ_RECORD 제목",
+      "value": {
+        "ko": "AI 추천 기록",
+        "en_US": "AI Recommendation Log",
+        "zh_CN": "AI推荐记录"
+      }
+    },
+    {
+      "name": "QMS_AppMenu_Item_AIQ_RECORD_Desc",
+      "category": "QMS",
+      "description": "메뉴 기능 QMS_08.AIQ_RECORD 설명",
+      "value": {
+        "ko": "추천·채택 이력과 정확도",
+        "en_US": "Recommendation and adoption history with accuracy",
+        "zh_CN": "推荐与采纳记录及准确率"
+      }
+    },
+    {
+      "name": "QMS_AppMenu_Item_INT_LOG_Desc",
+      "category": "QMS",
+      "description": "메뉴 기능 QMS_09.INT_LOG 설명",
+      "value": {
+        "ko": "인터페이스 호출 이력과 실패 확인",
+        "en_US": "Interface call history and failures",
+        "zh_CN": "接口调用记录与失败确认"
+      }
+    },
+    {
+      "name": "QMS_AppMenu_Item_INT_CATALOG_Title",
+      "category": "QMS",
+      "description": "메뉴 기능 QMS_09.INT_CATALOG 제목",
+      "value": {
+        "ko": "연계 카탈로그·코드 매핑",
+        "en_US": "Interface Catalog & Code Mapping",
+        "zh_CN": "接口目录与代码映射"
+      }
+    },
+    {
+      "name": "QMS_AppMenu_Item_INT_CATALOG_Desc",
+      "category": "QMS",
+      "description": "메뉴 기능 QMS_09.INT_CATALOG 설명",
+      "value": {
+        "ko": "QMS 연계 목록, 시스템 간 코드 매핑",
+        "en_US": "QMS interface list and code mapping between systems",
+        "zh_CN": "QMS接口清单与系统间代码映射"
+      }
+    },
+    {
+      "name": "QMS_AppMenu_Item_INT_MONITOR_Title",
+      "category": "QMS",
+      "description": "메뉴 기능 QMS_09.INT_MONITOR 제목",
+      "value": {
+        "ko": "동기화 상태·재전송",
+        "en_US": "Sync Status & Resend",
+        "zh_CN": "同步状态与重发"
+      }
+    },
+    {
+      "name": "QMS_AppMenu_Item_INT_MONITOR_Desc",
+      "category": "QMS",
+      "description": "메뉴 기능 QMS_09.INT_MONITOR 설명",
+      "value": {
+        "ko": "외부 요청 수신 상태 모니터와 재전송",
+        "en_US": "Monitor of inbound requests and resend",
+        "zh_CN": "外部请求接收状态监控与重发"
+      }
+    }
+  ]
+}

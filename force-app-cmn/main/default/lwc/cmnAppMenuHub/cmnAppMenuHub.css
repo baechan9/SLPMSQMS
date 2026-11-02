@@ -1,0 +1,9 @@
+.tile {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.description {
+  flex-grow: 1;
+}

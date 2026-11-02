@@ -1,0 +1,19 @@
+{
+  "permissionSet": {
+    "wi": "A0-PROTO-KIT",
+    "name": "QMS_PS_Menu_Read",
+    "package": "force-app-qms",
+    "label": "QMS Menu Read",
+    "description": "SL QMS 메뉴 허브 탭(QMS-02~09, 화면 우선 플랜 A0 앱 내비게이션 골격). 사내 QMS 페르소나 PSG 전체",
+    "tabs": [
+      "QMS_Menu02",
+      "QMS_Menu03",
+      "QMS_Menu04",
+      "QMS_Menu05",
+      "QMS_Menu06",
+      "QMS_Menu07",
+      "QMS_Menu08",
+      "QMS_Menu09"
+    ]
+  }
+}

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomTab xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>메뉴 허브 QMS-07(A0)</description>
+    <flexiPage>QMS_Menu07</flexiPage>
+    <label>품질 대시보드</label>
+    <motif>Custom62: Chalkboard</motif>
+</CustomTab>

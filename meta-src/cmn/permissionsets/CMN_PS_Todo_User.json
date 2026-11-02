@@ -4,10 +4,11 @@
     "name": "CMN_PS_Todo_User",
     "package": "force-app-cmn",
     "label": "CMN Todo User",
-    "description": "본인 To-Do 조회(OWD Private, 상태는 서비스만), To-Do 탭(CMN-00-TDO-001). 사내 페르소나 PSG 전체",
+    "description": "본인 To-Do 조회(OWD Private, 상태는 서비스만), To-Do 탭(CMN-00-TDO-001), 홈 To-Do 목록(TDO-004). 사내 페르소나 PSG 전체",
     "objects": {
       "CMN_Todo__c": "read"
     },
-    "tabs": ["CMN_Todo__c"]
+    "tabs": ["CMN_Todo__c"],
+    "classes": ["CMN_TodoListController"]
   }
 }

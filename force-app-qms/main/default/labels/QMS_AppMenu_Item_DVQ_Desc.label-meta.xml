@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>QMS_AppMenu_Item_DVQ_Desc</fullName>
+    <categories>QMS</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>메뉴 기능 QMS_02.DVQ 설명</shortDescription>
+    <value>시험 항목·기준 템플릿, 인정시험 계획·의뢰·결과 판정, DVP&amp;R 보고서, 협력사 시험 성적서</value>
+</CustomLabel>

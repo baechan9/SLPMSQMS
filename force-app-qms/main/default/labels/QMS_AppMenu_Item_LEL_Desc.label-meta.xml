@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>QMS_AppMenu_Item_LEL_Desc</fullName>
+    <categories>QMS</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>메뉴 기능 QMS_04.LEL 설명</shortDescription>
+    <value>레슨런 등록·게시, 라이브러리 검색, 체크포인트, 후속 모델 반영</value>
+</CustomLabel>

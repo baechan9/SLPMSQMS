@@ -1,0 +1,1189 @@
+{
+  "wi": "A0-PROTO-KIT",
+  "object": "CMN_AppMenuItem__mdt",
+  "kind": "mdt",
+  "package": "force-app-cmn",
+  "description": "앱 메뉴 허브의 기능 타일(A0 앱 내비게이션 골격). 화면이 아직 없으면 TargetType NONE + Bundle(1차 화면 묶음)로 '준비 중'을 보이고, 각 묶음이 화면을 만들면 Target을 채운다",
+  "label": {
+    "ko": "앱 메뉴 항목"
+  },
+  "plural": {
+    "ko": "앱 메뉴 항목"
+  },
+  "fields": [
+    {
+      "name": "Menu__c",
+      "type": "MetadataRelationship",
+      "referenceTo": "CMN_AppMenu__mdt",
+      "relationshipName": "Items",
+      "relationshipLabel": {
+        "ko": "메뉴 항목"
+      },
+      "label": "Menu"
+    },
+    {
+      "name": "Order__c",
+      "type": "Number",
+      "precision": 3,
+      "scale": 0,
+      "label": "Order"
+    },
+    {
+      "name": "FeatureCode__c",
+      "type": "Text",
+      "length": 20,
+      "label": "Feature Code",
+      "description": "WI 기능 코드(IQC, NCR 등). 타일에 표시"
+    },
+    {
+      "name": "TitleLabel__c",
+      "type": "Text",
+      "length": 80,
+      "label": "Title Label",
+      "description": "제목 Custom Label 이름. 비우면 OBJECT 대상 객체의 복수 라벨"
+    },
+    {
+      "name": "DescLabel__c",
+      "type": "Text",
+      "length": 80,
+      "label": "Description Label",
+      "description": "설명 Custom Label 이름(선택)"
+    },
+    {
+      "name": "IconName__c",
+      "type": "Text",
+      "length": 80,
+      "label": "Icon Name"
+    },
+    {
+      "name": "TargetType__c",
+      "type": "Picklist",
+      "label": "Target Type",
+      "default": "NONE",
+      "values": [
+        {
+          "api": "OBJECT",
+          "label": "OBJECT"
+        },
+        {
+          "api": "PAGE",
+          "label": "PAGE"
+        },
+        {
+          "api": "NONE",
+          "label": "NONE"
+        }
+      ],
+      "description": "OBJECT = 객체 목록(Target = 객체 API명, 읽기 권한 없으면 숨김), PAGE = 앱 페이지 탭(Target = 탭 API명), NONE = 준비 중"
+    },
+    {
+      "name": "Target__c",
+      "type": "Text",
+      "length": 80,
+      "label": "Target"
+    },
+    {
+      "name": "Bundle__c",
+      "type": "Text",
+      "length": 10,
+      "label": "Bundle",
+      "description": "준비 중 기능의 1차 화면 묶음(A0~A7, screen-first-plan 5절)"
+    },
+    {
+      "name": "IsActive__c",
+      "type": "Checkbox",
+      "default": true,
+      "label": "Active"
+    }
+  ],
+  "records": [
+    {
+      "name": "QMS_02_DVQ",
+      "label": "인정시험",
+      "values": {
+        "Menu__c": "QMS_02",
+        "Order__c": 10,
+        "FeatureCode__c": "DVQ",
+        "TitleLabel__c": "QMS_AppMenu_Item_DVQ_Title",
+        "DescLabel__c": "QMS_AppMenu_Item_DVQ_Desc",
+        "IconName__c": "standard:work_order",
+        "TargetType__c": "NONE",
+        "Target__c": null,
+        "Bundle__c": "A1",
+        "IsActive__c": true
+      }
+    },
+    {
+      "name": "QMS_03_SPP",
+      "label": "협력사 포털",
+      "values": {
+        "Menu__c": "QMS_03",
+        "Order__c": 10,
+        "FeatureCode__c": "SPP",
+        "TitleLabel__c": "QMS_AppMenu_Item_SPP_Title",
+        "DescLabel__c": "QMS_AppMenu_Item_SPP_Desc",
+        "IconName__c": "standard:partners",
+        "TargetType__c": "NONE",
+        "Target__c": null,
+        "Bundle__c": "A1",
+        "IsActive__c": true
+      }
+    },
+    {
+      "name": "QMS_03_IQC",
+      "label": "수입검사",
+      "values": {
+        "Menu__c": "QMS_03",
+        "Order__c": 20,
+        "FeatureCode__c": "IQC",
+        "TitleLabel__c": "QMS_AppMenu_Item_IQC_Title",
+        "DescLabel__c": "QMS_AppMenu_Item_IQC_Desc",
+        "IconName__c": "standard:scan_card",
+        "TargetType__c": "NONE",
+        "Target__c": null,
+        "Bundle__c": "A1",
+        "IsActive__c": true
+      }
+    },
+    {
+      "name": "QMS_03_PWT",
+      "label": "부품 보증시험",
+      "values": {
+        "Menu__c": "QMS_03",
+        "Order__c": 30,
+        "FeatureCode__c": "PWT",
+        "TitleLabel__c": "QMS_AppMenu_Item_PWT_Title",
+        "DescLabel__c": "QMS_AppMenu_Item_PWT_Desc",
+        "IconName__c": "standard:maintenance_plan",
+        "TargetType__c": "NONE",
+        "Target__c": null,
+        "Bundle__c": "A1",
+        "IsActive__c": true
+      }
+    },
+    {
+      "name": "QMS_03_PPA",
+      "label": "부품 PPAP",
+      "values": {
+        "Menu__c": "QMS_03",
+        "Order__c": 40,
+        "FeatureCode__c": "PPA",
+        "TitleLabel__c": "QMS_AppMenu_Item_PPA_Title",
+        "DescLabel__c": "QMS_AppMenu_Item_PPA_Desc",
+        "IconName__c": "standard:approval",
+        "TargetType__c": "NONE",
+        "Target__c": null,
+        "Bundle__c": "A1",
+        "IsActive__c": true
+      }
+    },
+    {
+      "name": "QMS_03_PIS",
+      "label": "부품 초기안정화",
+      "values": {
+        "Menu__c": "QMS_03",
+        "Order__c": 50,
+        "FeatureCode__c": "PIS",
+        "TitleLabel__c": "QMS_AppMenu_Item_PIS_Title",
+        "DescLabel__c": "QMS_AppMenu_Item_PIS_Desc",
+        "IconName__c": "standard:metrics",
+        "TargetType__c": "NONE",
+        "Target__c": null,
+        "Bundle__c": "A1",
+        "IsActive__c": true
+      }
+    },
+    {
+      "name": "QMS_04_EFC",
+      "label": "초기유동",
+      "values": {
+        "Menu__c": "QMS_04",
+        "Order__c": 10,
+        "FeatureCode__c": "EFC",
+        "TitleLabel__c": "QMS_AppMenu_Item_EFC_Title",
+        "DescLabel__c": "QMS_AppMenu_Item_EFC_Desc",
+        "IconName__c": "standard:process",
+        "TargetType__c": "NONE",
+        "Target__c": null,
+        "Bundle__c": "A2",
+        "IsActive__c": true
+      }
+    },
+    {
+      "name": "QMS_04_SPC",
+      "label": "SPC",
+      "values": {
+        "Menu__c": "QMS_04",
+        "Order__c": 20,
+        "FeatureCode__c": "SPC",
+        "TitleLabel__c": "QMS_AppMenu_Item_SPC_Title",
+        "DescLabel__c": "QMS_AppMenu_Item_SPC_Desc",
+        "IconName__c": "standard:report",
+        "TargetType__c": "NONE",
+        "Target__c": null,
+        "Bundle__c": "A2",
+        "IsActive__c": true
+      }
+    },
+    {
+      "name": "QMS_04_FQC",
+      "label": "제품/출하 검사",
+      "values": {
+        "Menu__c": "QMS_04",
+        "Order__c": 30,
+        "FeatureCode__c": "FQC",
+        "TitleLabel__c": "QMS_AppMenu_Item_FQC_Title",
+        "DescLabel__c": "QMS_AppMenu_Item_FQC_Desc",
+        "IconName__c": "standard:shipment",
+        "TargetType__c": "NONE",
+        "Target__c": null,
+        "Bundle__c": "A2",
+        "IsActive__c": true
+      }
+    },
+    {
+      "name": "QMS_04_HZD",
+      "label": "수평전개",
+      "values": {
+        "Menu__c": "QMS_04",
+        "Order__c": 40,
+        "FeatureCode__c": "HZD",
+        "TitleLabel__c": "QMS_AppMenu_Item_HZD_Title",
+        "DescLabel__c": "QMS_AppMenu_Item_HZD_Desc",
+        "IconName__c": "standard:hierarchy",
+        "TargetType__c": "NONE",
+        "Target__c": null,
+        "Bundle__c": "A2",
+        "IsActive__c": true
+      }
+    },
+    {
+      "name": "QMS_04_LEL",
+      "label": "레슨런",
+      "values": {
+        "Menu__c": "QMS_04",
+        "Order__c": 50,
+        "FeatureCode__c": "LEL",
+        "TitleLabel__c": "QMS_AppMenu_Item_LEL_Title",
+        "DescLabel__c": "QMS_AppMenu_Item_LEL_Desc",
+        "IconName__c": "standard:knowledge",
+        "TargetType__c": "NONE",
+        "Target__c": null,
+        "Bundle__c": "A2",
+        "IsActive__c": true
+      }
+    },
+    {
+      "name": "QMS_04_RPP",
+      "label": "제품 Re-PPAP",
+      "values": {
+        "Menu__c": "QMS_04",
+        "Order__c": 60,
+        "FeatureCode__c": "RPP",
+        "TitleLabel__c": "QMS_AppMenu_Item_RPP_Title",
+        "DescLabel__c": "QMS_AppMenu_Item_RPP_Desc",
+        "IconName__c": "standard:contract",
+        "TargetType__c": "NONE",
+        "Target__c": null,
+        "Bundle__c": "A2",
+        "IsActive__c": true
+      }
+    },
+    {
+      "name": "QMS_05_B2B",
+      "label": "고객 품질 데이터",
+      "values": {
+        "Menu__c": "QMS_05",
+        "Order__c": 10,
+        "FeatureCode__c": "B2B",
+        "TitleLabel__c": "QMS_AppMenu_Item_B2B_Title",
+        "DescLabel__c": "QMS_AppMenu_Item_B2B_Desc",
+        "IconName__c": "standard:metrics",
+        "TargetType__c": "NONE",
+        "Target__c": null,
+        "Bundle__c": "A3",
+        "IsActive__c": true
+      }
+    },
+    {
+      "name": "QMS_05_CLM",
+      "label": "고객 클레임·8D",
+      "values": {
+        "Menu__c": "QMS_05",
+        "Order__c": 20,
+        "FeatureCode__c": "CLM",
+        "TitleLabel__c": "QMS_AppMenu_Item_CLM_Title",
+        "DescLabel__c": "QMS_AppMenu_Item_CLM_Desc",
+        "IconName__c": "standard:case",
+        "TargetType__c": "NONE",
+        "Target__c": null,
+        "Bundle__c": "A3",
+        "IsActive__c": true
+      }
+    },
+    {
+      "name": "QMS_06_4MC",
+      "label": "4M 변경",
+      "values": {
+        "Menu__c": "QMS_06",
+        "Order__c": 10,
+        "FeatureCode__c": "4MC",
+        "TitleLabel__c": "QMS_AppMenu_Item_4MC_Title",
+        "DescLabel__c": "QMS_AppMenu_Item_4MC_Desc",
+        "IconName__c": "standard:flow",
+        "TargetType__c": "NONE",
+        "Target__c": null,
+        "Bundle__c": "A4",
+        "IsActive__c": true
+      }
+    },
+    {
+      "name": "QMS_06_NCR",
+      "label": "부적합(NCR)",
+      "values": {
+        "Menu__c": "QMS_06",
+        "Order__c": 20,
+        "FeatureCode__c": "NCR",
+        "TitleLabel__c": "QMS_AppMenu_Item_NCR_Title",
+        "DescLabel__c": "QMS_AppMenu_Item_NCR_Desc",
+        "IconName__c": "standard:incident",
+        "TargetType__c": "NONE",
+        "Target__c": null,
+        "Bundle__c": "A4",
+        "IsActive__c": true
+      }
+    },
+    {
+      "name": "QMS_06_LMS",
+      "label": "한도견본",
+      "values": {
+        "Menu__c": "QMS_06",
+        "Order__c": 30,
+        "FeatureCode__c": "LMS",
+        "TitleLabel__c": "QMS_AppMenu_Item_LMS_Title",
+        "DescLabel__c": "QMS_AppMenu_Item_LMS_Desc",
+        "IconName__c": "standard:asset_object",
+        "TargetType__c": "NONE",
+        "Target__c": null,
+        "Bundle__c": "A5",
+        "IsActive__c": true
+      }
+    },
+    {
+      "name": "QMS_06_TRN",
+      "label": "교육·자격",
+      "values": {
+        "Menu__c": "QMS_06",
+        "Order__c": 40,
+        "FeatureCode__c": "TRN",
+        "TitleLabel__c": "QMS_AppMenu_Item_TRN_Title",
+        "DescLabel__c": "QMS_AppMenu_Item_TRN_Desc",
+        "IconName__c": "standard:education",
+        "TargetType__c": "NONE",
+        "Target__c": null,
+        "Bundle__c": "A5",
+        "IsActive__c": true
+      }
+    },
+    {
+      "name": "QMS_06_GAU",
+      "label": "측정기",
+      "values": {
+        "Menu__c": "QMS_06",
+        "Order__c": 50,
+        "FeatureCode__c": "GAU",
+        "TitleLabel__c": "QMS_AppMenu_Item_GAU_Title",
+        "DescLabel__c": "QMS_AppMenu_Item_GAU_Desc",
+        "IconName__c": "standard:work_order",
+        "TargetType__c": "NONE",
+        "Target__c": null,
+        "Bundle__c": "A5",
+        "IsActive__c": true
+      }
+    },
+    {
+      "name": "QMS_06_MSA",
+      "label": "MSA",
+      "values": {
+        "Menu__c": "QMS_06",
+        "Order__c": 60,
+        "FeatureCode__c": "MSA",
+        "TitleLabel__c": "QMS_AppMenu_Item_MSA_Title",
+        "DescLabel__c": "QMS_AppMenu_Item_MSA_Desc",
+        "IconName__c": "standard:survey",
+        "TargetType__c": "NONE",
+        "Target__c": null,
+        "Bundle__c": "A5",
+        "IsActive__c": true
+      }
+    },
+    {
+      "name": "QMS_06_LAB",
+      "label": "분석실",
+      "values": {
+        "Menu__c": "QMS_06",
+        "Order__c": 70,
+        "FeatureCode__c": "LAB",
+        "TitleLabel__c": "QMS_AppMenu_Item_LAB_Title",
+        "DescLabel__c": "QMS_AppMenu_Item_LAB_Desc",
+        "IconName__c": "standard:topic",
+        "TargetType__c": "NONE",
+        "Target__c": null,
+        "Bundle__c": "A5",
+        "IsActive__c": true
+      }
+    },
+    {
+      "name": "QMS_06_IAU",
+      "label": "내부심사",
+      "values": {
+        "Menu__c": "QMS_06",
+        "Order__c": 80,
+        "FeatureCode__c": "IAU",
+        "TitleLabel__c": "QMS_AppMenu_Item_IAU_Title",
+        "DescLabel__c": "QMS_AppMenu_Item_IAU_Desc",
+        "IconName__c": "standard:task",
+        "TargetType__c": "NONE",
+        "Target__c": null,
+        "Bundle__c": "A6",
+        "IsActive__c": true
+      }
+    },
+    {
+      "name": "QMS_06_SAU",
+      "label": "협력사 심사",
+      "values": {
+        "Menu__c": "QMS_06",
+        "Order__c": 90,
+        "FeatureCode__c": "SAU",
+        "TitleLabel__c": "QMS_AppMenu_Item_SAU_Title",
+        "DescLabel__c": "QMS_AppMenu_Item_SAU_Desc",
+        "IconName__c": "standard:account",
+        "TargetType__c": "NONE",
+        "Target__c": null,
+        "Bundle__c": "A6",
+        "IsActive__c": true
+      }
+    },
+    {
+      "name": "QMS_06_CAU",
+      "label": "고객 심사(VDA 6.3)",
+      "values": {
+        "Menu__c": "QMS_06",
+        "Order__c": 100,
+        "FeatureCode__c": "CAU",
+        "TitleLabel__c": "QMS_AppMenu_Item_CAU_Title",
+        "DescLabel__c": "QMS_AppMenu_Item_CAU_Desc",
+        "IconName__c": "standard:contact",
+        "TargetType__c": "NONE",
+        "Target__c": null,
+        "Bundle__c": "A6",
+        "IsActive__c": true
+      }
+    },
+    {
+      "name": "QMS_06_CER",
+      "label": "인증 관리",
+      "values": {
+        "Menu__c": "QMS_06",
+        "Order__c": 110,
+        "FeatureCode__c": "CER",
+        "TitleLabel__c": "QMS_AppMenu_Item_CER_Title",
+        "DescLabel__c": "QMS_AppMenu_Item_CER_Desc",
+        "IconName__c": "standard:document",
+        "TargetType__c": "NONE",
+        "Target__c": null,
+        "Bundle__c": "A6",
+        "IsActive__c": true
+      }
+    },
+    {
+      "name": "QMS_06_SQM",
+      "label": "협력사 품질 목표·실적",
+      "values": {
+        "Menu__c": "QMS_06",
+        "Order__c": 120,
+        "FeatureCode__c": "SQM",
+        "TitleLabel__c": "QMS_AppMenu_Item_SQM_Title",
+        "DescLabel__c": "QMS_AppMenu_Item_SQM_Desc",
+        "IconName__c": "standard:goals",
+        "TargetType__c": "NONE",
+        "Target__c": null,
+        "Bundle__c": "A6",
+        "IsActive__c": true
+      }
+    },
+    {
+      "name": "QMS_06_IMP",
+      "label": "개선 과제",
+      "values": {
+        "Menu__c": "QMS_06",
+        "Order__c": 130,
+        "FeatureCode__c": "IMP",
+        "TitleLabel__c": "QMS_AppMenu_Item_IMP_Title",
+        "DescLabel__c": "QMS_AppMenu_Item_IMP_Desc",
+        "IconName__c": "standard:feedback",
+        "TargetType__c": "NONE",
+        "Target__c": null,
+        "Bundle__c": "A6",
+        "IsActive__c": true
+      }
+    },
+    {
+      "name": "QMS_07_DSH_MY",
+      "label": "내 대시보드",
+      "values": {
+        "Menu__c": "QMS_07",
+        "Order__c": 10,
+        "FeatureCode__c": "DSH",
+        "TitleLabel__c": "QMS_AppMenu_Item_DSH_MY_Title",
+        "DescLabel__c": "QMS_AppMenu_Item_DSH_MY_Desc",
+        "IconName__c": "standard:dashboard",
+        "TargetType__c": "PAGE",
+        "Target__c": "CMN_QMS_Dashboard",
+        "Bundle__c": null,
+        "IsActive__c": true
+      }
+    },
+    {
+      "name": "QMS_07_DSH_OVERVIEW",
+      "label": "품질 종합 대시보드",
+      "values": {
+        "Menu__c": "QMS_07",
+        "Order__c": 20,
+        "FeatureCode__c": "DSH",
+        "TitleLabel__c": "QMS_AppMenu_Item_DSH_OVERVIEW_Title",
+        "DescLabel__c": "QMS_AppMenu_Item_DSH_OVERVIEW_Desc",
+        "IconName__c": "standard:dashboard",
+        "TargetType__c": "NONE",
+        "Target__c": null,
+        "Bundle__c": "A7",
+        "IsActive__c": true
+      }
+    },
+    {
+      "name": "QMS_07_DSH_WIDGETS",
+      "label": "품질 위젯·역할 템플릿",
+      "values": {
+        "Menu__c": "QMS_07",
+        "Order__c": 30,
+        "FeatureCode__c": "DSH",
+        "TitleLabel__c": "QMS_AppMenu_Item_DSH_WIDGETS_Title",
+        "DescLabel__c": "QMS_AppMenu_Item_DSH_WIDGETS_Desc",
+        "IconName__c": "standard:metrics",
+        "TargetType__c": "NONE",
+        "Target__c": null,
+        "Bundle__c": "A7",
+        "IsActive__c": true
+      }
+    },
+    {
+      "name": "QMS_07_DSH_KPI",
+      "label": "KPI 정의·판정 기준",
+      "values": {
+        "Menu__c": "QMS_07",
+        "Order__c": 40,
+        "FeatureCode__c": "DSH",
+        "TitleLabel__c": "QMS_AppMenu_Item_DSH_KPI_Title",
+        "DescLabel__c": "QMS_AppMenu_Item_DSH_KPI_Desc",
+        "IconName__c": "standard:goals",
+        "TargetType__c": "NONE",
+        "Target__c": null,
+        "Bundle__c": "A7",
+        "IsActive__c": true
+      }
+    },
+    {
+      "name": "QMS_07_DSH_PORTAL",
+      "label": "협력사 포털 품질 요약",
+      "values": {
+        "Menu__c": "QMS_07",
+        "Order__c": 50,
+        "FeatureCode__c": "DSH",
+        "TitleLabel__c": "QMS_AppMenu_Item_DSH_PORTAL_Title",
+        "DescLabel__c": "QMS_AppMenu_Item_DSH_PORTAL_Desc",
+        "IconName__c": "standard:partners",
+        "TargetType__c": "NONE",
+        "Target__c": null,
+        "Bundle__c": "A7",
+        "IsActive__c": true
+      }
+    },
+    {
+      "name": "QMS_08_AIQ_ASSIST",
+      "label": "품질 어시스턴트·Q&A",
+      "values": {
+        "Menu__c": "QMS_08",
+        "Order__c": 10,
+        "FeatureCode__c": "AIQ",
+        "TitleLabel__c": "QMS_AppMenu_Item_AIQ_ASSIST_Title",
+        "DescLabel__c": "QMS_AppMenu_Item_AIQ_ASSIST_Desc",
+        "IconName__c": "standard:bot",
+        "TargetType__c": "NONE",
+        "Target__c": null,
+        "Bundle__c": "A7",
+        "IsActive__c": true
+      }
+    },
+    {
+      "name": "QMS_08_AIQ_CAUSE",
+      "label": "원인 추천·8D 초안",
+      "values": {
+        "Menu__c": "QMS_08",
+        "Order__c": 20,
+        "FeatureCode__c": "AIQ",
+        "TitleLabel__c": "QMS_AppMenu_Item_AIQ_CAUSE_Title",
+        "DescLabel__c": "QMS_AppMenu_Item_AIQ_CAUSE_Desc",
+        "IconName__c": "standard:case",
+        "TargetType__c": "NONE",
+        "Target__c": null,
+        "Bundle__c": "A7",
+        "IsActive__c": true
+      }
+    },
+    {
+      "name": "QMS_08_AIQ_LELE",
+      "label": "레슨런 추천",
+      "values": {
+        "Menu__c": "QMS_08",
+        "Order__c": 30,
+        "FeatureCode__c": "AIQ",
+        "TitleLabel__c": "QMS_AppMenu_Item_AIQ_LELE_Title",
+        "DescLabel__c": "QMS_AppMenu_Item_AIQ_LELE_Desc",
+        "IconName__c": "standard:knowledge",
+        "TargetType__c": "NONE",
+        "Target__c": null,
+        "Bundle__c": "A7",
+        "IsActive__c": true
+      }
+    },
+    {
+      "name": "QMS_08_AIQ_RISK",
+      "label": "조기경보·위험 점수",
+      "values": {
+        "Menu__c": "QMS_08",
+        "Order__c": 40,
+        "FeatureCode__c": "AIQ",
+        "TitleLabel__c": "QMS_AppMenu_Item_AIQ_RISK_Title",
+        "DescLabel__c": "QMS_AppMenu_Item_AIQ_RISK_Desc",
+        "IconName__c": "standard:incident",
+        "TargetType__c": "NONE",
+        "Target__c": null,
+        "Bundle__c": "A7",
+        "IsActive__c": true
+      }
+    },
+    {
+      "name": "QMS_08_AIQ_SEARCH",
+      "label": "품질 문서 검색",
+      "values": {
+        "Menu__c": "QMS_08",
+        "Order__c": 50,
+        "FeatureCode__c": "AIQ",
+        "TitleLabel__c": "QMS_AppMenu_Item_AIQ_SEARCH_Title",
+        "DescLabel__c": "QMS_AppMenu_Item_AIQ_SEARCH_Desc",
+        "IconName__c": "standard:file",
+        "TargetType__c": "NONE",
+        "Target__c": null,
+        "Bundle__c": "A0",
+        "IsActive__c": true
+      }
+    },
+    {
+      "name": "QMS_08_AIQ_RECORD",
+      "label": "AI 추천 기록",
+      "values": {
+        "Menu__c": "QMS_08",
+        "Order__c": 60,
+        "FeatureCode__c": "AIQ",
+        "TitleLabel__c": "QMS_AppMenu_Item_AIQ_RECORD_Title",
+        "DescLabel__c": "QMS_AppMenu_Item_AIQ_RECORD_Desc",
+        "IconName__c": "standard:report",
+        "TargetType__c": "NONE",
+        "Target__c": null,
+        "Bundle__c": "A0",
+        "IsActive__c": true
+      }
+    },
+    {
+      "name": "QMS_09_INT_LOG",
+      "label": "CMN_InterfaceLog__c",
+      "values": {
+        "Menu__c": "QMS_09",
+        "Order__c": 10,
+        "FeatureCode__c": "INT",
+        "TitleLabel__c": null,
+        "DescLabel__c": "QMS_AppMenu_Item_INT_LOG_Desc",
+        "IconName__c": "standard:connected_apps",
+        "TargetType__c": "OBJECT",
+        "Target__c": "CMN_InterfaceLog__c",
+        "Bundle__c": null,
+        "IsActive__c": true
+      }
+    },
+    {
+      "name": "QMS_09_INT_CATALOG",
+      "label": "연계 카탈로그·코드 매핑",
+      "values": {
+        "Menu__c": "QMS_09",
+        "Order__c": 20,
+        "FeatureCode__c": "INT",
+        "TitleLabel__c": "QMS_AppMenu_Item_INT_CATALOG_Title",
+        "DescLabel__c": "QMS_AppMenu_Item_INT_CATALOG_Desc",
+        "IconName__c": "standard:hierarchy",
+        "TargetType__c": "NONE",
+        "Target__c": null,
+        "Bundle__c": "A7",
+        "IsActive__c": true
+      }
+    },
+    {
+      "name": "QMS_09_INT_MONITOR",
+      "label": "동기화 상태·재전송",
+      "values": {
+        "Menu__c": "QMS_09",
+        "Order__c": 30,
+        "FeatureCode__c": "INT",
+        "TitleLabel__c": "QMS_AppMenu_Item_INT_MONITOR_Title",
+        "DescLabel__c": "QMS_AppMenu_Item_INT_MONITOR_Desc",
+        "IconName__c": "standard:flow",
+        "TargetType__c": "NONE",
+        "Target__c": null,
+        "Bundle__c": "A7",
+        "IsActive__c": true
+      }
+    },
+    {
+      "name": "CMN_WORK_TODO",
+      "label": "CMN_Todo__c",
+      "values": {
+        "Menu__c": "CMN_WORK",
+        "Order__c": 10,
+        "FeatureCode__c": "TODO",
+        "TitleLabel__c": null,
+        "DescLabel__c": null,
+        "IconName__c": "standard:task",
+        "TargetType__c": "OBJECT",
+        "Target__c": "CMN_Todo__c",
+        "Bundle__c": null,
+        "IsActive__c": true
+      }
+    },
+    {
+      "name": "CMN_WORK_APV_MONITOR",
+      "label": "결재 현황",
+      "values": {
+        "Menu__c": "CMN_WORK",
+        "Order__c": 20,
+        "FeatureCode__c": "APV",
+        "TitleLabel__c": "CMN_AppMenu_Item_APV_MONITOR_Title",
+        "DescLabel__c": "CMN_AppMenu_Item_APV_MONITOR_Desc",
+        "IconName__c": "standard:approval",
+        "TargetType__c": "PAGE",
+        "Target__c": "CMN_ApprovalMonitor",
+        "Bundle__c": null,
+        "IsActive__c": true
+      }
+    },
+    {
+      "name": "CMN_WORK_APV_REQUEST",
+      "label": "CMN_ApprovalRequest__c",
+      "values": {
+        "Menu__c": "CMN_WORK",
+        "Order__c": 30,
+        "FeatureCode__c": "APV",
+        "TitleLabel__c": null,
+        "DescLabel__c": null,
+        "IconName__c": "standard:approval",
+        "TargetType__c": "OBJECT",
+        "Target__c": "CMN_ApprovalRequest__c",
+        "Bundle__c": null,
+        "IsActive__c": true
+      }
+    },
+    {
+      "name": "CMN_WORK_APV_TEMPLATE",
+      "label": "CMN_ApprovalTemplate__c",
+      "values": {
+        "Menu__c": "CMN_WORK",
+        "Order__c": 40,
+        "FeatureCode__c": "APV",
+        "TitleLabel__c": null,
+        "DescLabel__c": null,
+        "IconName__c": "standard:hierarchy",
+        "TargetType__c": "OBJECT",
+        "Target__c": "CMN_ApprovalTemplate__c",
+        "Bundle__c": null,
+        "IsActive__c": true
+      }
+    },
+    {
+      "name": "CMN_WORK_APV_DELEGATION",
+      "label": "CMN_Delegation__c",
+      "values": {
+        "Menu__c": "CMN_WORK",
+        "Order__c": 50,
+        "FeatureCode__c": "APV",
+        "TitleLabel__c": null,
+        "DescLabel__c": null,
+        "IconName__c": "standard:people",
+        "TargetType__c": "OBJECT",
+        "Target__c": "CMN_Delegation__c",
+        "Bundle__c": null,
+        "IsActive__c": true
+      }
+    },
+    {
+      "name": "CMN_WORK_MEETING",
+      "label": "CMN_Meeting__c",
+      "values": {
+        "Menu__c": "CMN_WORK",
+        "Order__c": 60,
+        "FeatureCode__c": "MEETING",
+        "TitleLabel__c": null,
+        "DescLabel__c": null,
+        "IconName__c": "standard:event",
+        "TargetType__c": "OBJECT",
+        "Target__c": "CMN_Meeting__c",
+        "Bundle__c": null,
+        "IsActive__c": true
+      }
+    },
+    {
+      "name": "CMN_WORK_ACTION",
+      "label": "CMN_ActionItem__c",
+      "values": {
+        "Menu__c": "CMN_WORK",
+        "Order__c": 70,
+        "FeatureCode__c": "ACTION",
+        "TitleLabel__c": null,
+        "DescLabel__c": null,
+        "IconName__c": "standard:task",
+        "TargetType__c": "OBJECT",
+        "Target__c": "CMN_ActionItem__c",
+        "Bundle__c": null,
+        "IsActive__c": true
+      }
+    },
+    {
+      "name": "CMN_WORK_DOCUMENT",
+      "label": "CMN_Document__c",
+      "values": {
+        "Menu__c": "CMN_WORK",
+        "Order__c": 80,
+        "FeatureCode__c": "DOCUMENT",
+        "TitleLabel__c": null,
+        "DescLabel__c": null,
+        "IconName__c": "standard:file",
+        "TargetType__c": "OBJECT",
+        "Target__c": "CMN_Document__c",
+        "Bundle__c": null,
+        "IsActive__c": true
+      }
+    },
+    {
+      "name": "CMN_WORK_DOC_TEMPLATE",
+      "label": "CMN_DocTemplate__c",
+      "values": {
+        "Menu__c": "CMN_WORK",
+        "Order__c": 90,
+        "FeatureCode__c": "DOC",
+        "TitleLabel__c": null,
+        "DescLabel__c": null,
+        "IconName__c": "standard:document",
+        "TargetType__c": "OBJECT",
+        "Target__c": "CMN_DocTemplate__c",
+        "Bundle__c": null,
+        "IsActive__c": true
+      }
+    },
+    {
+      "name": "CMN_WORK_DOC_SEARCH",
+      "label": "문서 통합 검색",
+      "values": {
+        "Menu__c": "CMN_WORK",
+        "Order__c": 100,
+        "FeatureCode__c": "DOC",
+        "TitleLabel__c": "CMN_AppMenu_Item_DOC_SEARCH_Title",
+        "DescLabel__c": "CMN_AppMenu_Item_DOC_SEARCH_Desc",
+        "IconName__c": "standard:knowledge",
+        "TargetType__c": "NONE",
+        "Target__c": null,
+        "Bundle__c": "A0",
+        "IsActive__c": true
+      }
+    },
+    {
+      "name": "CMN_WORK_SCREEN_GUIDE",
+      "label": "화면 사용 가이드",
+      "values": {
+        "Menu__c": "CMN_WORK",
+        "Order__c": 110,
+        "FeatureCode__c": "SCREEN",
+        "TitleLabel__c": "CMN_AppMenu_Item_SCREEN_GUIDE_Title",
+        "DescLabel__c": "CMN_AppMenu_Item_SCREEN_GUIDE_Desc",
+        "IconName__c": "standard:knowledge",
+        "TargetType__c": "NONE",
+        "Target__c": null,
+        "Bundle__c": "A0",
+        "IsActive__c": true
+      }
+    },
+    {
+      "name": "CMN_MASTER_COMPANY",
+      "label": "CMN_Company__c",
+      "values": {
+        "Menu__c": "CMN_MASTER",
+        "Order__c": 10,
+        "FeatureCode__c": "COMPANY",
+        "TitleLabel__c": null,
+        "DescLabel__c": null,
+        "IconName__c": "standard:account",
+        "TargetType__c": "OBJECT",
+        "Target__c": "CMN_Company__c",
+        "Bundle__c": null,
+        "IsActive__c": true
+      }
+    },
+    {
+      "name": "CMN_MASTER_PLANT",
+      "label": "CMN_Plant__c",
+      "values": {
+        "Menu__c": "CMN_MASTER",
+        "Order__c": 20,
+        "FeatureCode__c": "PLANT",
+        "TitleLabel__c": null,
+        "DescLabel__c": null,
+        "IconName__c": "standard:location",
+        "TargetType__c": "OBJECT",
+        "Target__c": "CMN_Plant__c",
+        "Bundle__c": null,
+        "IsActive__c": true
+      }
+    },
+    {
+      "name": "CMN_MASTER_LINE",
+      "label": "CMN_Line__c",
+      "values": {
+        "Menu__c": "CMN_MASTER",
+        "Order__c": 30,
+        "FeatureCode__c": "LINE",
+        "TitleLabel__c": null,
+        "DescLabel__c": null,
+        "IconName__c": "standard:process",
+        "TargetType__c": "OBJECT",
+        "Target__c": "CMN_Line__c",
+        "Bundle__c": null,
+        "IsActive__c": true
+      }
+    },
+    {
+      "name": "CMN_MASTER_OPERATION",
+      "label": "CMN_Operation__c",
+      "values": {
+        "Menu__c": "CMN_MASTER",
+        "Order__c": 40,
+        "FeatureCode__c": "OPERATION",
+        "TitleLabel__c": null,
+        "DescLabel__c": null,
+        "IconName__c": "standard:process",
+        "TargetType__c": "OBJECT",
+        "Target__c": "CMN_Operation__c",
+        "Bundle__c": null,
+        "IsActive__c": true
+      }
+    },
+    {
+      "name": "CMN_MASTER_DEPARTMENT",
+      "label": "CMN_Department__c",
+      "values": {
+        "Menu__c": "CMN_MASTER",
+        "Order__c": 50,
+        "FeatureCode__c": "DEPARTMENT",
+        "TitleLabel__c": null,
+        "DescLabel__c": null,
+        "IconName__c": "standard:hierarchy",
+        "TargetType__c": "OBJECT",
+        "Target__c": "CMN_Department__c",
+        "Bundle__c": null,
+        "IsActive__c": true
+      }
+    },
+    {
+      "name": "CMN_MASTER_EMPLOYEE",
+      "label": "CMN_Employee__c",
+      "values": {
+        "Menu__c": "CMN_MASTER",
+        "Order__c": 60,
+        "FeatureCode__c": "EMPLOYEE",
+        "TitleLabel__c": null,
+        "DescLabel__c": null,
+        "IconName__c": "standard:people",
+        "TargetType__c": "OBJECT",
+        "Target__c": "CMN_Employee__c",
+        "Bundle__c": null,
+        "IsActive__c": true
+      }
+    },
+    {
+      "name": "CMN_MASTER_ACCOUNT",
+      "label": "고객·협력사",
+      "values": {
+        "Menu__c": "CMN_MASTER",
+        "Order__c": 70,
+        "FeatureCode__c": "ACCOUNT",
+        "TitleLabel__c": "CMN_AppMenu_Item_ACCOUNT_Title",
+        "DescLabel__c": null,
+        "IconName__c": "standard:account",
+        "TargetType__c": "OBJECT",
+        "Target__c": "Account",
+        "Bundle__c": null,
+        "IsActive__c": true
+      }
+    },
+    {
+      "name": "CMN_MASTER_VEHICLE",
+      "label": "CMN_Vehicle__c",
+      "values": {
+        "Menu__c": "CMN_MASTER",
+        "Order__c": 80,
+        "FeatureCode__c": "VEHICLE",
+        "TitleLabel__c": null,
+        "DescLabel__c": null,
+        "IconName__c": "standard:asset_object",
+        "TargetType__c": "OBJECT",
+        "Target__c": "CMN_Vehicle__c",
+        "Bundle__c": null,
+        "IsActive__c": true
+      }
+    },
+    {
+      "name": "CMN_MASTER_PRODUCT_GROUP",
+      "label": "CMN_ProductGroup__c",
+      "values": {
+        "Menu__c": "CMN_MASTER",
+        "Order__c": 90,
+        "FeatureCode__c": "PRODUCT",
+        "TitleLabel__c": null,
+        "DescLabel__c": null,
+        "IconName__c": "standard:product",
+        "TargetType__c": "OBJECT",
+        "Target__c": "CMN_ProductGroup__c",
+        "Bundle__c": null,
+        "IsActive__c": true
+      }
+    },
+    {
+      "name": "CMN_MASTER_ITEM",
+      "label": "CMN_Item__c",
+      "values": {
+        "Menu__c": "CMN_MASTER",
+        "Order__c": 100,
+        "FeatureCode__c": "ITEM",
+        "TitleLabel__c": null,
+        "DescLabel__c": null,
+        "IconName__c": "standard:product",
+        "TargetType__c": "OBJECT",
+        "Target__c": "CMN_Item__c",
+        "Bundle__c": null,
+        "IsActive__c": true
+      }
+    },
+    {
+      "name": "CMN_MASTER_SUPPLIER_ITEM",
+      "label": "CMN_SupplierItem__c",
+      "values": {
+        "Menu__c": "CMN_MASTER",
+        "Order__c": 110,
+        "FeatureCode__c": "SUPPLIER",
+        "TitleLabel__c": null,
+        "DescLabel__c": null,
+        "IconName__c": "standard:product",
+        "TargetType__c": "OBJECT",
+        "Target__c": "CMN_SupplierItem__c",
+        "Bundle__c": null,
+        "IsActive__c": true
+      }
+    },
+    {
+      "name": "CMN_MASTER_CHARACTERISTIC",
+      "label": "CMN_Characteristic__c",
+      "values": {
+        "Menu__c": "CMN_MASTER",
+        "Order__c": 120,
+        "FeatureCode__c": "CHARACTERISTIC",
+        "TitleLabel__c": null,
+        "DescLabel__c": null,
+        "IconName__c": "standard:metrics",
+        "TargetType__c": "OBJECT",
+        "Target__c": "CMN_Characteristic__c",
+        "Bundle__c": null,
+        "IsActive__c": true
+      }
+    },
+    {
+      "name": "CMN_MASTER_CODE_GROUP",
+      "label": "CMN_CodeGroup__c",
+      "values": {
+        "Menu__c": "CMN_MASTER",
+        "Order__c": 130,
+        "FeatureCode__c": "CODE",
+        "TitleLabel__c": null,
+        "DescLabel__c": null,
+        "IconName__c": "standard:custom",
+        "TargetType__c": "OBJECT",
+        "Target__c": "CMN_CodeGroup__c",
+        "Bundle__c": null,
+        "IsActive__c": true
+      }
+    },
+    {
+      "name": "CMN_MASTER_CODE",
+      "label": "CMN_Code__c",
+      "values": {
+        "Menu__c": "CMN_MASTER",
+        "Order__c": 140,
+        "FeatureCode__c": "CODE",
+        "TitleLabel__c": null,
+        "DescLabel__c": null,
+        "IconName__c": "standard:custom",
+        "TargetType__c": "OBJECT",
+        "Target__c": "CMN_Code__c",
+        "Bundle__c": null,
+        "IsActive__c": true
+      }
+    },
+    {
+      "name": "CMN_MASTER_PLANT_ACCESS",
+      "label": "CMN_UserPlantAccess__c",
+      "values": {
+        "Menu__c": "CMN_MASTER",
+        "Order__c": 150,
+        "FeatureCode__c": "PLANT",
+        "TitleLabel__c": null,
+        "DescLabel__c": null,
+        "IconName__c": "standard:user",
+        "TargetType__c": "OBJECT",
+        "Target__c": "CMN_UserPlantAccess__c",
+        "Bundle__c": null,
+        "IsActive__c": true
+      }
+    },
+    {
+      "name": "CMN_MASTER_ROLE_ASSIGNMENT",
+      "label": "CMN_RoleAssignment__c",
+      "values": {
+        "Menu__c": "CMN_MASTER",
+        "Order__c": 160,
+        "FeatureCode__c": "ROLE",
+        "TitleLabel__c": null,
+        "DescLabel__c": null,
+        "IconName__c": "standard:people",
+        "TargetType__c": "OBJECT",
+        "Target__c": "CMN_RoleAssignment__c",
+        "Bundle__c": null,
+        "IsActive__c": true
+      }
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "pageTab": {
+    "wi": "A0-PROTO-KIT",
+    "name": "QMS_Menu07",
+    "package": "force-app-qms",
+    "flexiPage": "QMS_Menu07",
+    "label": {
+      "ko": "품질 대시보드",
+      "en_US": "Quality Dashboard",
+      "zh_CN": "质量仪表板"
+    },
+    "motif": "Custom62: Chalkboard",
+    "description": "메뉴 허브 QMS-07(A0)"
+  }
+}

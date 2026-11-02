@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>앱 메뉴 허브의 기능 타일(A0 앱 내비게이션 골격). 화면이 아직 없으면 TargetType NONE + Bundle(1차 화면 묶음)로 '준비 중'을 보이고, 각 묶음이 화면을 만들면 Target을 채운다</description>
+    <label>앱 메뉴 항목</label>
+    <pluralLabel>앱 메뉴 항목</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>

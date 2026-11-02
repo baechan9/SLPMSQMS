@@ -1,0 +1,15 @@
+{
+  "pageTab": {
+    "wi": "A0-PROTO-KIT",
+    "name": "QMS_Menu06",
+    "package": "force-app-qms",
+    "flexiPage": "QMS_Menu06",
+    "label": {
+      "ko": "품질 운영 지원",
+      "en_US": "Quality Operations",
+      "zh_CN": "质量运营支持"
+    },
+    "motif": "Custom67: Gears",
+    "description": "메뉴 허브 QMS-06(A0)"
+  }
+}

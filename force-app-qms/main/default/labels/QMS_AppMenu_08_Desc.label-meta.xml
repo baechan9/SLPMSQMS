@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>QMS_AppMenu_08_Desc</fullName>
+    <categories>QMS</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>메뉴 QMS_08 설명</shortDescription>
+    <value>원인 추천, 품질 Q&amp;A, 조기경보, 문서 검색. AI는 추천하고 확정은 사람이 합니다</value>
+</CustomLabel>

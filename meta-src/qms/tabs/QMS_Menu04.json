@@ -1,0 +1,15 @@
+{
+  "pageTab": {
+    "wi": "A0-PROTO-KIT",
+    "name": "QMS_Menu04",
+    "package": "force-app-qms",
+    "flexiPage": "QMS_Menu04",
+    "label": {
+      "ko": "제품/공정 품질",
+      "en_US": "Product & Process Quality",
+      "zh_CN": "产品/过程质量"
+    },
+    "motif": "Custom32: Factory",
+    "description": "메뉴 허브 QMS-04(A0)"
+  }
+}

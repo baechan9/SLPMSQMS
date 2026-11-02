@@ -17,6 +17,78 @@
         <name>CMN_Action_OwnerRequired</name>
     </customLabels>
     <customLabels>
+        <label>No functions in this menu are available to you.</label>
+        <name>CMN_AppMenu_Empty</name>
+    </customLabels>
+    <customLabels>
+        <label>Customers &amp; Suppliers</label>
+        <name>CMN_AppMenu_Item_ACCOUNT_Title</name>
+    </customLabels>
+    <customLabels>
+        <label>Approvals I submitted, processed or have in progress</label>
+        <name>CMN_AppMenu_Item_APV_MONITOR_Desc</name>
+    </customLabels>
+    <customLabels>
+        <label>Approvals</label>
+        <name>CMN_AppMenu_Item_APV_MONITOR_Title</name>
+    </customLabels>
+    <customLabels>
+        <label>Search and summarize documents, compare versions</label>
+        <name>CMN_AppMenu_Item_DOC_SEARCH_Desc</name>
+    </customLabels>
+    <customLabels>
+        <label>Document Search</label>
+        <name>CMN_AppMenu_Item_DOC_SEARCH_Title</name>
+    </customLabels>
+    <customLabels>
+        <label>How to use each screen</label>
+        <name>CMN_AppMenu_Item_SCREEN_GUIDE_Desc</name>
+    </customLabels>
+    <customLabels>
+        <label>Screen Guides</label>
+        <name>CMN_AppMenu_Item_SCREEN_GUIDE_Title</name>
+    </customLabels>
+    <customLabels>
+        <label>Organization, plants, items, suppliers, quality characteristics and codes</label>
+        <name>CMN_AppMenu_MASTER_Desc</name>
+    </customLabels>
+    <customLabels>
+        <label>Master Data</label>
+        <name>CMN_AppMenu_MASTER_Title</name>
+    </customLabels>
+    <customLabels>
+        <label>Menu configuration not found. Contact your administrator.</label>
+        <name>CMN_AppMenu_NotFound</name>
+    </customLabels>
+    <customLabels>
+        <label>Open</label>
+        <name>CMN_AppMenu_Open</name>
+    </customLabels>
+    <customLabels>
+        <label>Coming soon</label>
+        <name>CMN_AppMenu_Planned</name>
+    </customLabels>
+    <customLabels>
+        <label>First screens: bundle {0}</label>
+        <name>CMN_AppMenu_PlannedIn</name>
+    </customLabels>
+    <customLabels>
+        <label>Available</label>
+        <name>CMN_AppMenu_Ready</name>
+    </customLabels>
+    <customLabels>
+        <label>{0} functions · {1} available</label>
+        <name>CMN_AppMenu_Summary</name>
+    </customLabels>
+    <customLabels>
+        <label>Approvals, To-Dos, meetings and documents shared by all menus</label>
+        <name>CMN_AppMenu_WORK_Desc</name>
+    </customLabels>
+    <customLabels>
+        <label>Common Work</label>
+        <name>CMN_AppMenu_WORK_Title</name>
+    </customLabels>
+    <customLabels>
         <label>Approve</label>
         <name>CMN_ApprovalAction_Approve</name>
     </customLabels>
@@ -1007,6 +1079,58 @@ Open: {Url}</label>
         <name>CMN_Supplier_DuplicateSupplierItem</name>
     </customLabels>
     <customLabels>
+        <label>Delegated</label>
+        <name>CMN_TodoList_Delegated</name>
+    </customLabels>
+    <customLabels>
+        <label>Due {0}</label>
+        <name>CMN_TodoList_Due</name>
+    </customLabels>
+    <customLabels>
+        <label>You have nothing to do.</label>
+        <name>CMN_TodoList_Empty</name>
+    </customLabels>
+    <customLabels>
+        <label>Load more</label>
+        <name>CMN_TodoList_LoadMore</name>
+    </customLabels>
+    <customLabels>
+        <label>No due date</label>
+        <name>CMN_TodoList_NoDue</name>
+    </customLabels>
+    <customLabels>
+        <label>Overdue</label>
+        <name>CMN_TodoList_Overdue</name>
+    </customLabels>
+    <customLabels>
+        <label>Refresh</label>
+        <name>CMN_TodoList_Refresh</name>
+    </customLabels>
+    <customLabels>
+        <label>Try again</label>
+        <name>CMN_TodoList_Retry</name>
+    </customLabels>
+    <customLabels>
+        <label>System</label>
+        <name>CMN_TodoList_System</name>
+    </customLabels>
+    <customLabels>
+        <label>All</label>
+        <name>CMN_TodoList_SystemAll</name>
+    </customLabels>
+    <customLabels>
+        <label>Approvals</label>
+        <name>CMN_TodoList_TabApproval</name>
+    </customLabels>
+    <customLabels>
+        <label>Tasks</label>
+        <name>CMN_TodoList_TabTask</name>
+    </customLabels>
+    <customLabels>
+        <label>My To-Dos</label>
+        <name>CMN_TodoList_Title</name>
+    </customLabels>
+    <customLabels>
         <label>A To-Do requires an assignee.</label>
         <name>CMN_Todo_AssigneeRequired</name>
     </customLabels>
@@ -1194,8 +1318,452 @@ Open: {Url}</label>
         <label>My To-Dos</label>
         <name>CMN_Widget_TodoSummary_Title</name>
     </customLabels>
+    <customLabels>
+        <label>Qualification test planning, execution, judgment and reports during new product development</label>
+        <name>QMS_AppMenu_02_Desc</name>
+    </customLabels>
+    <customLabels>
+        <label>Development Quality</label>
+        <name>QMS_AppMenu_02_Title</name>
+    </customLabels>
+    <customLabels>
+        <label>Supplier portal, incoming inspection, part warranty tests, PPAP and initial stabilization</label>
+        <name>QMS_AppMenu_03_Desc</name>
+    </customLabels>
+    <customLabels>
+        <label>Parts &amp; Supplier Quality</label>
+        <name>QMS_AppMenu_03_Title</name>
+    </customLabels>
+    <customLabels>
+        <label>Early production containment, SPC, final and outgoing inspection, horizontal deployment, lessons learned, customer PPAP</label>
+        <name>QMS_AppMenu_04_Desc</name>
+    </customLabels>
+    <customLabels>
+        <label>Product &amp; Process Quality</label>
+        <name>QMS_AppMenu_04_Title</name>
+    </customLabels>
+    <customLabels>
+        <label>Customer quality data collection and analysis, customer claims and 8D</label>
+        <name>QMS_AppMenu_05_Desc</name>
+    </customLabels>
+    <customLabels>
+        <label>Customer Quality</label>
+        <name>QMS_AppMenu_05_Title</name>
+    </customLabels>
+    <customLabels>
+        <label>4M changes, nonconformance, limit samples, training, gauges and MSA, laboratory, audits and certification, supplier performance, improvement projects</label>
+        <name>QMS_AppMenu_06_Desc</name>
+    </customLabels>
+    <customLabels>
+        <label>Quality Operations</label>
+        <name>QMS_AppMenu_06_Title</name>
+    </customLabels>
+    <customLabels>
+        <label>Role-based quality dashboards, KPIs and widgets per menu</label>
+        <name>QMS_AppMenu_07_Desc</name>
+    </customLabels>
+    <customLabels>
+        <label>Quality Dashboard</label>
+        <name>QMS_AppMenu_07_Title</name>
+    </customLabels>
+    <customLabels>
+        <label>Root-cause suggestions, quality Q&amp;A, early warning and document search. AI suggests, people decide</label>
+        <name>QMS_AppMenu_08_Desc</name>
+    </customLabels>
+    <customLabels>
+        <label>Quality AI</label>
+        <name>QMS_AppMenu_08_Title</name>
+    </customLabels>
+    <customLabels>
+        <label>Integration status and resend for SAP, MES, customers and Snowflake</label>
+        <name>QMS_AppMenu_09_Desc</name>
+    </customLabels>
+    <customLabels>
+        <label>Integration</label>
+        <name>QMS_AppMenu_09_Title</name>
+    </customLabels>
+    <customLabels>
+        <label>Change type criteria and risk assessment, 4M requests incl. suppliers, verification plan and release approval, cut-in and change history</label>
+        <name>QMS_AppMenu_Item_4MC_Desc</name>
+    </customLabels>
+    <customLabels>
+        <label>4M Change</label>
+        <name>QMS_AppMenu_Item_4MC_Title</name>
+    </customLabels>
+    <customLabels>
+        <label>Quality assistant answering status and trend questions</label>
+        <name>QMS_AppMenu_Item_AIQ_ASSIST_Desc</name>
+    </customLabels>
+    <customLabels>
+        <label>Quality Assistant &amp; Q&amp;A</label>
+        <name>QMS_AppMenu_Item_AIQ_ASSIST_Title</name>
+    </customLabels>
+    <customLabels>
+        <label>Root-cause candidates from similar cases and 8D drafts</label>
+        <name>QMS_AppMenu_Item_AIQ_CAUSE_Desc</name>
+    </customLabels>
+    <customLabels>
+        <label>Root-Cause Suggestions &amp; 8D Drafts</label>
+        <name>QMS_AppMenu_Item_AIQ_CAUSE_Title</name>
+    </customLabels>
+    <customLabels>
+        <label>Lessons to apply in each development phase</label>
+        <name>QMS_AppMenu_Item_AIQ_LELE_Desc</name>
+    </customLabels>
+    <customLabels>
+        <label>Lesson Recommendations</label>
+        <name>QMS_AppMenu_Item_AIQ_LELE_Title</name>
+    </customLabels>
+    <customLabels>
+        <label>Recommendation and adoption history with accuracy</label>
+        <name>QMS_AppMenu_Item_AIQ_RECORD_Desc</name>
+    </customLabels>
+    <customLabels>
+        <label>AI Recommendation Log</label>
+        <name>QMS_AppMenu_Item_AIQ_RECORD_Title</name>
+    </customLabels>
+    <customLabels>
+        <label>Quality risk scores and anomaly alerts</label>
+        <name>QMS_AppMenu_Item_AIQ_RISK_Desc</name>
+    </customLabels>
+    <customLabels>
+        <label>Early Warning &amp; Risk Score</label>
+        <name>QMS_AppMenu_Item_AIQ_RISK_Title</name>
+    </customLabels>
+    <customLabels>
+        <label>Unified document search, summaries and revision comparison</label>
+        <name>QMS_AppMenu_Item_AIQ_SEARCH_Desc</name>
+    </customLabels>
+    <customLabels>
+        <label>Quality Document Search</label>
+        <name>QMS_AppMenu_Item_AIQ_SEARCH_Title</name>
+    </customLabels>
+    <customLabels>
+        <label>Customer data collection and code mapping, quality KPIs and trend alerts, analysis and drill-down, OEM scorecards</label>
+        <name>QMS_AppMenu_Item_B2B_Desc</name>
+    </customLabels>
+    <customLabels>
+        <label>Customer Quality Data</label>
+        <name>QMS_AppMenu_Item_B2B_Title</name>
+    </customLabels>
+    <customLabels>
+        <label>Customer audit schedule and preparation, VDA 6.3 scoring and rating, finding responses and replies</label>
+        <name>QMS_AppMenu_Item_CAU_Desc</name>
+    </customLabels>
+    <customLabels>
+        <label>Customer Audit (VDA 6.3)</label>
+        <name>QMS_AppMenu_Item_CAU_Title</name>
+    </customLabels>
+    <customLabels>
+        <label>Site certifications, audit cycles and readiness, closure of certification body findings</label>
+        <name>QMS_AppMenu_Item_CER_Desc</name>
+    </customLabels>
+    <customLabels>
+        <label>Certification</label>
+        <name>QMS_AppMenu_Item_CER_Title</name>
+    </customLabels>
+    <customLabels>
+        <label>Claim intake and deadlines, containment and initial response, 8D and action tracking, return analysis and responsibility, cost recovery, customer replies</label>
+        <name>QMS_AppMenu_Item_CLM_Desc</name>
+    </customLabels>
+    <customLabels>
+        <label>Customer Claims &amp; 8D</label>
+        <name>QMS_AppMenu_Item_CLM_Title</name>
+    </customLabels>
+    <customLabels>
+        <label>KPI registry and RAG rules, KPI freshness and widget performance</label>
+        <name>QMS_AppMenu_Item_DSH_KPI_Desc</name>
+    </customLabels>
+    <customLabels>
+        <label>KPI Registry &amp; RAG Rules</label>
+        <name>QMS_AppMenu_Item_DSH_KPI_Title</name>
+    </customLabels>
+    <customLabels>
+        <label>My widget board: add, arrange, resize and save widgets</label>
+        <name>QMS_AppMenu_Item_DSH_MY_Desc</name>
+    </customLabels>
+    <customLabels>
+        <label>My Dashboard</label>
+        <name>QMS_AppMenu_Item_DSH_MY_Title</name>
+    </customLabels>
+    <customLabels>
+        <label>Plant, customer and supplier quality at a glance</label>
+        <name>QMS_AppMenu_Item_DSH_OVERVIEW_Desc</name>
+    </customLabels>
+    <customLabels>
+        <label>Quality Overview</label>
+        <name>QMS_AppMenu_Item_DSH_OVERVIEW_Title</name>
+    </customLabels>
+    <customLabels>
+        <label>Quality performance summary shown to suppliers</label>
+        <name>QMS_AppMenu_Item_DSH_PORTAL_Desc</name>
+    </customLabels>
+    <customLabels>
+        <label>Supplier Portal Quality Summary</label>
+        <name>QMS_AppMenu_Item_DSH_PORTAL_Title</name>
+    </customLabels>
+    <customLabels>
+        <label>Widgets per menu (incoming, process, customer, nonconformance) and role-based layouts</label>
+        <name>QMS_AppMenu_Item_DSH_WIDGETS_Desc</name>
+    </customLabels>
+    <customLabels>
+        <label>Quality Widgets &amp; Role Templates</label>
+        <name>QMS_AppMenu_Item_DSH_WIDGETS_Title</name>
+    </customLabels>
+    <customLabels>
+        <label>Test item library and templates, qualification plans, requests and result judgment, DVP&amp;R reports, supplier test reports</label>
+        <name>QMS_AppMenu_Item_DVQ_Desc</name>
+    </customLabels>
+    <customLabels>
+        <label>Qualification Test</label>
+        <name>QMS_AppMenu_Item_DVQ_Title</name>
+    </customLabels>
+    <customLabels>
+        <label>Containment plans and tightened controls, results and control inspections, exit decision</label>
+        <name>QMS_AppMenu_Item_EFC_Desc</name>
+    </customLabels>
+    <customLabels>
+        <label>Early Production Containment</label>
+        <name>QMS_AppMenu_Item_EFC_Title</name>
+    </customLabels>
+    <customLabels>
+        <label>Outgoing inspection standards and lot judgment, shipment hold and block, EOL 100% test, customer inspection reports</label>
+        <name>QMS_AppMenu_Item_FQC_Desc</name>
+    </customLabels>
+    <customLabels>
+        <label>Final &amp; Outgoing Inspection</label>
+        <name>QMS_AppMenu_Item_FQC_Title</name>
+    </customLabels>
+    <customLabels>
+        <label>Gauge registry and QR labels, calibration planning, execution and judgment, usage control, repair and disposal, impact of failed calibration</label>
+        <name>QMS_AppMenu_Item_GAU_Desc</name>
+    </customLabels>
+    <customLabels>
+        <label>Gauges</label>
+        <name>QMS_AppMenu_Item_GAU_Title</name>
+    </customLabels>
+    <customLabels>
+        <label>Deployment cases and target selection, execution and confirmation per target, delay tracking and effectiveness checks</label>
+        <name>QMS_AppMenu_Item_HZD_Desc</name>
+    </customLabels>
+    <customLabels>
+        <label>Horizontal Deployment</label>
+        <name>QMS_AppMenu_Item_HZD_Title</name>
+    </customLabels>
+    <customLabels>
+        <label>Checklists and scoring, audit plans and team assignment, audit execution (mobile) and reports, findings and corrective actions</label>
+        <name>QMS_AppMenu_Item_IAU_Desc</name>
+    </customLabels>
+    <customLabels>
+        <label>Internal Audit</label>
+        <name>QMS_AppMenu_Item_IAU_Title</name>
+    </customLabels>
+    <customLabels>
+        <label>Project stages and gate approvals, source linkage, KPI tracking and effectiveness checks</label>
+        <name>QMS_AppMenu_Item_IMP_Desc</name>
+    </customLabels>
+    <customLabels>
+        <label>Improvement Projects</label>
+        <name>QMS_AppMenu_Item_IMP_Title</name>
+    </customLabels>
+    <customLabels>
+        <label>QMS interface list and code mapping between systems</label>
+        <name>QMS_AppMenu_Item_INT_CATALOG_Desc</name>
+    </customLabels>
+    <customLabels>
+        <label>Interface Catalog &amp; Code Mapping</label>
+        <name>QMS_AppMenu_Item_INT_CATALOG_Title</name>
+    </customLabels>
+    <customLabels>
+        <label>Interface call history and failures</label>
+        <name>QMS_AppMenu_Item_INT_LOG_Desc</name>
+    </customLabels>
+    <customLabels>
+        <label>Monitor of inbound requests and resend</label>
+        <name>QMS_AppMenu_Item_INT_MONITOR_Desc</name>
+    </customLabels>
+    <customLabels>
+        <label>Sync Status &amp; Resend</label>
+        <name>QMS_AppMenu_Item_INT_MONITOR_Title</name>
+    </customLabels>
+    <customLabels>
+        <label>Inspection standards and sampling plans, lot judgment (mobile), automatic inspection level switching, supplier COA checks</label>
+        <name>QMS_AppMenu_Item_IQC_Desc</name>
+    </customLabels>
+    <customLabels>
+        <label>Incoming Inspection</label>
+        <name>QMS_AppMenu_Item_IQC_Title</name>
+    </customLabels>
+    <customLabels>
+        <label>Analysis requests and sample intake, queue, results and reports, periodic analysis schedules</label>
+        <name>QMS_AppMenu_Item_LAB_Desc</name>
+    </customLabels>
+    <customLabels>
+        <label>Laboratory</label>
+        <name>QMS_AppMenu_Item_LAB_Title</name>
+    </customLabels>
+    <customLabels>
+        <label>Lesson registration and publishing, library search, checkpoints, application to next models</label>
+        <name>QMS_AppMenu_Item_LEL_Desc</name>
+    </customLabels>
+    <customLabels>
+        <label>Lessons Learned</label>
+        <name>QMS_AppMenu_Item_LEL_Title</name>
+    </customLabels>
+    <customLabels>
+        <label>Appearance criteria and limit sample registration and revision, physical sample storage and checks, link to inspection screens</label>
+        <name>QMS_AppMenu_Item_LMS_Desc</name>
+    </customLabels>
+    <customLabels>
+        <label>Limit Samples</label>
+        <name>QMS_AppMenu_Item_LMS_Title</name>
+    </customLabels>
+    <customLabels>
+        <label>MSA scope and plans, measurement entry, Gage R&amp;R, bias, linearity and stability evaluation, reports</label>
+        <name>QMS_AppMenu_Item_MSA_Desc</name>
+    </customLabels>
+    <customLabels>
+        <label>MSA</label>
+        <name>QMS_AppMenu_Item_MSA_Title</name>
+    </customLabels>
+    <customLabels>
+        <label>Nonconformance entry (mobile), containment, disposition and concessions, root cause and actions (8D), responsibility, COPQ and recovery</label>
+        <name>QMS_AppMenu_Item_NCR_Desc</name>
+    </customLabels>
+    <customLabels>
+        <label>Nonconformance (NCR)</label>
+        <name>QMS_AppMenu_Item_NCR_Title</name>
+    </customLabels>
+    <customLabels>
+        <label>Stabilization plans, targets and exit criteria, results and tightened inspection, exit decision and extension</label>
+        <name>QMS_AppMenu_Item_PIS_Desc</name>
+    </customLabels>
+    <customLabels>
+        <label>Part Initial Stabilization</label>
+        <name>QMS_AppMenu_Item_PIS_Title</name>
+    </customLabels>
+    <customLabels>
+        <label>PPAP elements and submission level rules, supplier submissions and element review, PSW and interim approvals</label>
+        <name>QMS_AppMenu_Item_PPA_Desc</name>
+    </customLabels>
+    <customLabels>
+        <label>Part PPAP</label>
+        <name>QMS_AppMenu_Item_PPA_Title</name>
+    </customLabels>
+    <customLabels>
+        <label>Periodic warranty test plans, compliance status and failure follow-up</label>
+        <name>QMS_AppMenu_Item_PWT_Desc</name>
+    </customLabels>
+    <customLabels>
+        <label>Part Warranty Test</label>
+        <name>QMS_AppMenu_Item_PWT_Title</name>
+    </customLabels>
+    <customLabels>
+        <label>Customer PPAP element assignment, internal evidence collection, PSW approval and submission package, customer decision tracking</label>
+        <name>QMS_AppMenu_Item_RPP_Desc</name>
+    </customLabels>
+    <customLabels>
+        <label>Product Re-PPAP</label>
+        <name>QMS_AppMenu_Item_RPP_Title</name>
+    </customLabels>
+    <customLabels>
+        <label>Risk-based audit planning, portal notification and corrective action plans, rating update and re-audits</label>
+        <name>QMS_AppMenu_Item_SAU_Desc</name>
+    </customLabels>
+    <customLabels>
+        <label>Supplier Audit</label>
+        <name>QMS_AppMenu_Item_SAU_Title</name>
+    </customLabels>
+    <customLabels>
+        <label>Control chart setup, control limits and out-of-control rules, process capability (Cpk), alarms and OCAP</label>
+        <name>QMS_AppMenu_Item_SPC_Desc</name>
+    </customLabels>
+    <customLabels>
+        <label>SPC</label>
+        <name>QMS_AppMenu_Item_SPC_Title</name>
+    </customLabels>
+    <customLabels>
+        <label>Supplier portal site and users, portal home, To-Dos and document submission, supplier certificates</label>
+        <name>QMS_AppMenu_Item_SPP_Desc</name>
+    </customLabels>
+    <customLabels>
+        <label>Supplier Portal</label>
+        <name>QMS_AppMenu_Item_SPP_Title</name>
+    </customLabels>
+    <customLabels>
+        <label>Supplier targets and agreement, monthly scorecards and quarterly ratings, improvement of low performers</label>
+        <name>QMS_AppMenu_Item_SQM_Desc</name>
+    </customLabels>
+    <customLabels>
+        <label>Supplier Quality Performance</label>
+        <name>QMS_AppMenu_Item_SQM_Title</name>
+    </customLabels>
+    <customLabels>
+        <label>Training plans, sessions and completion, qualifications, matrix and recertification</label>
+        <name>QMS_AppMenu_Item_TRN_Desc</name>
+    </customLabels>
+    <customLabels>
+        <label>Training &amp; Qualification</label>
+        <name>QMS_AppMenu_Item_TRN_Title</name>
+    </customLabels>
     <customTabs>
         <label>Approvals</label>
         <name>CMN_ApprovalMonitor</name>
+    </customTabs>
+    <customTabs>
+        <label>Master Data</label>
+        <name>CMN_MenuMaster</name>
+    </customTabs>
+    <customTabs>
+        <label>Common Work</label>
+        <name>CMN_MenuWork</name>
+    </customTabs>
+    <customTabs>
+        <label>My Dashboard</label>
+        <name>CMN_PMS_Dashboard</name>
+    </customTabs>
+    <customTabs>
+        <label>Home</label>
+        <name>CMN_PMS_Home</name>
+    </customTabs>
+    <customTabs>
+        <label>My Dashboard</label>
+        <name>CMN_QMS_Dashboard</name>
+    </customTabs>
+    <customTabs>
+        <label>Home</label>
+        <name>CMN_QMS_Home</name>
+    </customTabs>
+    <customTabs>
+        <label>Development Quality</label>
+        <name>QMS_Menu02</name>
+    </customTabs>
+    <customTabs>
+        <label>Parts &amp; Supplier Quality</label>
+        <name>QMS_Menu03</name>
+    </customTabs>
+    <customTabs>
+        <label>Product &amp; Process Quality</label>
+        <name>QMS_Menu04</name>
+    </customTabs>
+    <customTabs>
+        <label>Customer Quality</label>
+        <name>QMS_Menu05</name>
+    </customTabs>
+    <customTabs>
+        <label>Quality Operations</label>
+        <name>QMS_Menu06</name>
+    </customTabs>
+    <customTabs>
+        <label>Quality Dashboard</label>
+        <name>QMS_Menu07</name>
+    </customTabs>
+    <customTabs>
+        <label>Quality AI</label>
+        <name>QMS_Menu08</name>
+    </customTabs>
+    <customTabs>
+        <label>Integration</label>
+        <name>QMS_Menu09</name>
     </customTabs>
 </Translations>

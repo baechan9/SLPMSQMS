@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>QMS_AppMenu_06_Desc</fullName>
+    <categories>QMS</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>메뉴 QMS_06 설명</shortDescription>
+    <value>4M 변경, 부적합, 한도견본, 교육·자격, 측정기·MSA, 분석실, 심사·인증, 협력사 실적, 개선 과제</value>
+</CustomLabel>

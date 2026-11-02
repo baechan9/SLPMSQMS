@@ -12,11 +12,19 @@
     <isNavTabPersistenceDisabled>false</isNavTabPersistenceDisabled>
     <label>SL QMS</label>
     <navType>Standard</navType>
-    <tabs>standard-home</tabs>
-    <tabs>CMN_Todo__c</tabs>
+    <tabs>CMN_QMS_Home</tabs>
     <tabs>CMN_ApprovalMonitor</tabs>
-    <tabs>CMN_Characteristic__c</tabs>
-    <tabs>CMN_ApprovalRequest__c</tabs>
+    <tabs>QMS_Menu02</tabs>
+    <tabs>QMS_Menu03</tabs>
+    <tabs>QMS_Menu04</tabs>
+    <tabs>QMS_Menu05</tabs>
+    <tabs>QMS_Menu06</tabs>
+    <tabs>QMS_Menu07</tabs>
+    <tabs>QMS_Menu08</tabs>
+    <tabs>QMS_Menu09</tabs>
+    <tabs>CMN_MenuWork</tabs>
+    <tabs>CMN_MenuMaster</tabs>
+    <tabs>CMN_QMS_Dashboard</tabs>
     <uiType>Lightning</uiType>
     <utilityBar>SL_UtilityBar</utilityBar>
 </CustomApplication>

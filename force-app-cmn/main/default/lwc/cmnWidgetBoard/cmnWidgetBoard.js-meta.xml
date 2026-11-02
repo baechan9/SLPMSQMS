@@ -18,6 +18,13 @@
         datasource="QMS,PMS"
         default="QMS"
       />
+            <property
+        name="hideOnPhone"
+        type="Boolean"
+        label="Hide on Phone"
+        description="휴대폰에서 숨김(메인 홈 TDO-004 BR-3)"
+        default="false"
+      />
             <supportedFormFactors>
                 <supportedFormFactor type="Large" />
                 <supportedFormFactor type="Small" />

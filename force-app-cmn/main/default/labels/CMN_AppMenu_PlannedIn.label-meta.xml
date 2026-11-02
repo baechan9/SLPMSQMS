@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_AppMenu_PlannedIn</fullName>
+    <categories>CMN</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>준비 중 기능의 1차 화면 묶음({0} = A1 등)</shortDescription>
+    <value>1차 화면 {0} 묶음</value>
+</CustomLabel>

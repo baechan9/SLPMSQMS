@@ -1,0 +1,15 @@
+{
+  "pageTab": {
+    "wi": "A0-PROTO-KIT",
+    "name": "CMN_MenuWork",
+    "package": "force-app-cmn",
+    "flexiPage": "CMN_MenuWork",
+    "label": {
+      "ko": "공통 업무",
+      "en_US": "Common Work",
+      "zh_CN": "通用业务"
+    },
+    "motif": "Custom18: Form",
+    "description": "메뉴 허브: 결재·To-Do·회의·문서(A0 앱 내비게이션 골격)"
+  }
+}

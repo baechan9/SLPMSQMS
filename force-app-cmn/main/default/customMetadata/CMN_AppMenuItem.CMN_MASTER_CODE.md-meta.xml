@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>CMN_Code__c</label>
+    <protected>false</protected>
+    <values>
+        <field>Menu__c</field>
+        <value xsi:type="xsd:string">CMN_MASTER</value>
+    </values>
+    <values>
+        <field>Order__c</field>
+        <value xsi:type="xsd:double">140</value>
+    </values>
+    <values>
+        <field>FeatureCode__c</field>
+        <value xsi:type="xsd:string">CODE</value>
+    </values>
+    <values>
+        <field>TitleLabel__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>DescLabel__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>IconName__c</field>
+        <value xsi:type="xsd:string">standard:custom</value>
+    </values>
+    <values>
+        <field>TargetType__c</field>
+        <value xsi:type="xsd:string">OBJECT</value>
+    </values>
+    <values>
+        <field>Target__c</field>
+        <value xsi:type="xsd:string">CMN_Code__c</value>
+    </values>
+    <values>
+        <field>Bundle__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>IsActive__c</field>
+        <value xsi:type="xsd:boolean">true</value>
+    </values>
+</CustomMetadata>

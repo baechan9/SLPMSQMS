@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>QMS_AppMenu_Item_AIQ_ASSIST_Desc</fullName>
+    <categories>QMS</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>메뉴 기능 QMS_08.AIQ_ASSIST 설명</shortDescription>
+    <value>업무 현황·추세 질문에 답하는 품질 어시스턴트</value>
+</CustomLabel>

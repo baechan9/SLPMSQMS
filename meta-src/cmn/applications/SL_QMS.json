@@ -7,11 +7,19 @@
     "description": "품질 업무 앱. 사내 프로필 기본 앱이며 QMS 업무 탭은 각 기능 WI가 추가한다(CMN-00-SEC-001 BR-4)",
     "headerColor": "#0B5CAB",
     "tabs": [
-      "standard-home",
-      "CMN_Todo__c",
+      "CMN_QMS_Home",
       "CMN_ApprovalMonitor",
-      "CMN_Characteristic__c",
-      "CMN_ApprovalRequest__c"
+      "QMS_Menu02",
+      "QMS_Menu03",
+      "QMS_Menu04",
+      "QMS_Menu05",
+      "QMS_Menu06",
+      "QMS_Menu07",
+      "QMS_Menu08",
+      "QMS_Menu09",
+      "CMN_MenuWork",
+      "CMN_MenuMaster",
+      "CMN_QMS_Dashboard"
     ],
     "utilityBar": "SL_UtilityBar"
   }

@@ -22,5 +22,6 @@
     <permissionSets>CMN_PS_Site_Read</permissionSets>
     <permissionSets>CMN_PS_Supplier_Read</permissionSets>
     <permissionSets>CMN_PS_Todo_User</permissionSets>
+    <permissionSets>QMS_PS_Menu_Read</permissionSets>
     <status>Updated</status>
 </PermissionSetGroup>

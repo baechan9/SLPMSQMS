@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_AppMenu_WORK_Desc</fullName>
+    <categories>CMN</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>메뉴 CMN_WORK 설명</shortDescription>
+    <value>결재·To-Do·회의·문서 등 모든 메뉴가 함께 쓰는 업무</value>
+</CustomLabel>

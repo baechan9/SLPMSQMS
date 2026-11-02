@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_AppMenu_NotFound</fullName>
+    <categories>CMN</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>메뉴 키 없음·비활성</shortDescription>
+    <value>메뉴 설정을 찾을 수 없습니다. 관리자에게 문의하세요.</value>
+</CustomLabel>
