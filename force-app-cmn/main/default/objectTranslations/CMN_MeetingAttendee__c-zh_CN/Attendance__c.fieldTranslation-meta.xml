@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label>出席</label>
+    <name>Attendance__c</name>
+    <picklistValues>
+        <masterLabel>미정</masterLabel>
+        <translation>未定</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>참석</masterLabel>
+        <translation>出席</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>불참</masterLabel>
+        <translation>缺席</translation>
+    </picklistValues>
+</CustomFieldTranslation>

@@ -2,10 +2,13 @@
 // 실행: sf apex run -o <alias> -f scripts/apex/schedule-jobs.apex
 Map<String, Schedulable> jobs = new Map<String, Schedulable>{
   // CMN-00-APV-005: 매시 정각, 공장 현지 09:00인 공장만 처리
-  'CMN_ApprovalReminderJob' => new CMN_ApprovalReminderJob()
+  'CMN_ApprovalReminderJob' => new CMN_ApprovalReminderJob(),
+  // CMN-00-MTG-001: 매일 09:00(예약 사용자 시간대) 조치 항목 기한 알림
+  'CMN_ActionItemReminderJob' => new CMN_ActionItemReminderJob()
 };
 Map<String, String> crons = new Map<String, String>{
-  'CMN_ApprovalReminderJob' => '0 0 * * * ?'
+  'CMN_ApprovalReminderJob' => '0 0 * * * ?',
+  'CMN_ActionItemReminderJob' => '0 0 9 * * ?'
 };
 Set<String> existing = new Set<String>();
 for (CronTrigger t : [SELECT CronJobDetail.Name FROM CronTrigger]) {

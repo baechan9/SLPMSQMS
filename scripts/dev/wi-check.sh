@@ -29,6 +29,9 @@ npx prettier --write "force-app-*/**/*.{cls,trigger,js,html,css,xml}" "meta-src/
 npm run --silent prettier:verify
 step "한글 문자열 리터럴(I18N-001 AC-4)"
 python3 scripts/ci/check-korean-literals.py
+step "Apex 이름 가림(경고, 변경 파일)"
+CHANGED_CLS=$(git ls-files -m -o --exclude-standard -- 'force-app-*/main/default/classes/*.cls')
+[ -n "$CHANGED_CLS" ] && python3 scripts/ci/check-apex-shadowing.py $CHANGED_CLS || true
 step "ESLint·Jest"
 npm run --silent lint
 npm run --silent test:unit -- --coverage > build/jest.log 2>&1 || { tail -40 build/jest.log; exit 1; }

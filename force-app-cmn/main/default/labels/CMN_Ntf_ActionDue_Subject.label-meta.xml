@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_Ntf_ActionDue_Subject</fullName>
+    <categories>CMN</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>조치 기한 임박 제목</shortDescription>
+    <value>[조치 기한 내일] {Title}</value>
+</CustomLabel>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label>会议</label>
+    <name>Meeting__c</name>
+    <relationshipLabel>措施项</relationshipLabel>
+</CustomFieldTranslation>

@@ -1,0 +1,195 @@
+{
+  "wi": "CMN-00-MTG-001",
+  "object": "CMN_ActionItem__c",
+  "package": "force-app-cmn",
+  "description": "공통 조치 항목(MTG-001). 회의 외 업무에서도 재사용. 담당자(Owner__c) To-Do(SourceType CMN_ACTION_ITEM), 완료 시 To-Do 종료",
+  "label": {
+    "ko": "조치 항목",
+    "en_US": "Action Item",
+    "zh_CN": "措施项"
+  },
+  "plural": {
+    "ko": "조치 항목",
+    "en_US": "Action Items",
+    "zh_CN": "措施项"
+  },
+  "nameField": {
+    "label": {
+      "ko": "조치",
+      "en_US": "Action",
+      "zh_CN": "措施"
+    }
+  },
+  "sharingModel": "Private",
+  "enableHistory": true,
+  "tab": {
+    "motif": "Custom62: Clock"
+  },
+  "sharingReasons": [
+    {
+      "name": "CMN_Plant__c",
+      "label": {
+        "ko": "공장 공유",
+        "en_US": "Plant Sharing",
+        "zh_CN": "工厂共享"
+      }
+    },
+    {
+      "name": "CMN_Attendee__c",
+      "label": {
+        "ko": "담당자 공유",
+        "en_US": "Owner Sharing",
+        "zh_CN": "负责人共享"
+      }
+    }
+  ],
+  "fields": [
+    {
+      "name": "Meeting__c",
+      "type": "Lookup",
+      "referenceTo": "CMN_Meeting__c",
+      "relationshipName": "ActionItems",
+      "relationshipLabel": {
+        "ko": "조치 항목",
+        "en_US": "Action Items",
+        "zh_CN": "措施项"
+      },
+      "label": {
+        "ko": "회의",
+        "en_US": "Meeting",
+        "zh_CN": "会议"
+      }
+    },
+    {
+      "name": "Description__c",
+      "type": "LongTextArea",
+      "length": 32768,
+      "visibleLines": 4,
+      "label": {
+        "ko": "내용",
+        "en_US": "Description",
+        "zh_CN": "内容"
+      }
+    },
+    {
+      "name": "Owner__c",
+      "type": "Lookup",
+      "referenceTo": "User",
+      "relationshipName": "ActionItemsOwned",
+      "relationshipLabel": {
+        "ko": "담당 조치",
+        "en_US": "Owned Actions",
+        "zh_CN": "负责措施"
+      },
+      "label": {
+        "ko": "담당자",
+        "en_US": "Owner",
+        "zh_CN": "负责人"
+      },
+      "description": "필수는 트리거 확인(User Lookup 필수 불가)",
+      "trackHistory": true
+    },
+    {
+      "name": "DueDate__c",
+      "type": "Date",
+      "required": true,
+      "label": {
+        "ko": "기한",
+        "en_US": "Due Date",
+        "zh_CN": "期限"
+      },
+      "trackHistory": true
+    },
+    {
+      "name": "Status__c",
+      "type": "Picklist",
+      "required": true,
+      "default": "OPEN",
+      "label": {
+        "ko": "상태",
+        "en_US": "Status",
+        "zh_CN": "状态"
+      },
+      "trackHistory": true,
+      "values": [
+        {
+          "api": "OPEN",
+          "label": {
+            "ko": "진행",
+            "en_US": "Open",
+            "zh_CN": "进行中"
+          }
+        },
+        {
+          "api": "DONE",
+          "label": {
+            "ko": "완료",
+            "en_US": "Done",
+            "zh_CN": "已完成"
+          }
+        },
+        {
+          "api": "CANCELLED",
+          "label": {
+            "ko": "취소",
+            "en_US": "Cancelled",
+            "zh_CN": "已取消"
+          }
+        }
+      ]
+    },
+    {
+      "name": "SourceRecordId__c",
+      "type": "Text",
+      "length": 18,
+      "label": {
+        "ko": "원천 업무",
+        "en_US": "Source Record",
+        "zh_CN": "来源业务"
+      }
+    },
+    {
+      "name": "Plant__c",
+      "type": "Lookup",
+      "referenceTo": "CMN_Plant__c",
+      "relationshipName": "ActionItems",
+      "relationshipLabel": {
+        "ko": "조치 항목",
+        "en_US": "Action Items",
+        "zh_CN": "措施项"
+      },
+      "label": {
+        "ko": "공장",
+        "en_US": "Plant",
+        "zh_CN": "工厂"
+      }
+    },
+    {
+      "name": "CompletedAt__c",
+      "type": "DateTime",
+      "serviceOnly": true,
+      "label": {
+        "ko": "완료 일시",
+        "en_US": "Completed At",
+        "zh_CN": "完成时间"
+      }
+    },
+    {
+      "name": "LastDueAlertOn__c",
+      "type": "Date",
+      "serviceOnly": true,
+      "label": {
+        "ko": "마지막 기한 알림일",
+        "en_US": "Last Due Alert",
+        "zh_CN": "最近期限提醒日"
+      },
+      "description": "BR-3 하루 1회"
+    }
+  ],
+  "layout": {
+    "columns": [
+      ["Name", "Owner__c", "DueDate__c", "Status__c"],
+      ["Meeting__c", "Plant__c", "SourceRecordId__c", "CompletedAt__c"]
+    ]
+  }
+}

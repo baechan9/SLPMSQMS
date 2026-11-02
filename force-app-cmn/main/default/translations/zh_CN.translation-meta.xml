@@ -13,6 +13,10 @@
         <name>SL_QMS</name>
     </customApplications>
     <customLabels>
+        <label>请指定措施负责人。</label>
+        <name>CMN_Action_OwnerRequired</name>
+    </customLabels>
+    <customLabels>
         <label>此记录已有进行中的审批。</label>
         <name>CMN_Approval_AlreadyInProgress</name>
     </customLabels>
@@ -493,6 +497,88 @@
         <name>CMN_Master_DeleteNotAllowed</name>
     </customLabels>
     <customLabels>
+        <label>完成</label>
+        <name>CMN_Meeting_ActionDone</name>
+    </customLabels>
+    <customLabels>
+        <label>期限</label>
+        <name>CMN_Meeting_ActionDue</name>
+    </customLabels>
+    <customLabels>
+        <label>负责人</label>
+        <name>CMN_Meeting_ActionOwner</name>
+    </customLabels>
+    <customLabels>
+        <label>措施内容</label>
+        <name>CMN_Meeting_ActionTitle</name>
+    </customLabels>
+    <customLabels>
+        <label>措施项</label>
+        <name>CMN_Meeting_Actions</name>
+    </customLabels>
+    <customLabels>
+        <label>添加措施</label>
+        <name>CMN_Meeting_AddAction</name>
+    </customLabels>
+    <customLabels>
+        <label>只能确认已召开或纪要草稿状态的会议。</label>
+        <name>CMN_Meeting_CannotConfirm</name>
+    </customLabels>
+    <customLabels>
+        <label>确认纪要</label>
+        <name>CMN_Meeting_Confirm</name>
+    </customLabels>
+    <customLabels>
+        <label>只能通过会议面板的确认按钮确认纪要。</label>
+        <name>CMN_Meeting_ConfirmOnlyByService</name>
+    </customLabels>
+    <customLabels>
+        <label>纪要已确认。</label>
+        <name>CMN_Meeting_Confirmed</name>
+    </customLabels>
+    <customLabels>
+        <label>请选择会议类型代码。</label>
+        <name>CMN_Meeting_InvalidCategory</name>
+    </customLabels>
+    <customLabels>
+        <label>结束时间必须晚于开始时间。</label>
+        <name>CMN_Meeting_InvalidPeriod</name>
+    </customLabels>
+    <customLabels>
+        <label>已确认的会议纪要不能修改,请用评论更正。</label>
+        <name>CMN_Meeting_MinutesLocked</name>
+    </customLabels>
+    <customLabels>
+        <label>暂无措施项。</label>
+        <name>CMN_Meeting_NoActions</name>
+    </customLabels>
+    <customLabels>
+        <label>已保存。</label>
+        <name>CMN_Meeting_Saved</name>
+    </customLabels>
+    <customLabels>
+        <label>会议进行</label>
+        <name>CMN_Meeting_Title</name>
+    </customLabels>
+    <customLabels>
+        <label>措施项明天({DueDate})到期。
+链接: {Url}</label>
+        <name>CMN_Ntf_ActionDue_Body</name>
+    </customLabels>
+    <customLabels>
+        <label>[措施明天到期] {Title}</label>
+        <name>CMN_Ntf_ActionDue_Subject</name>
+    </customLabels>
+    <customLabels>
+        <label>措施项已过期限({DueDate})。
+链接: {Url}</label>
+        <name>CMN_Ntf_ActionOverdue_Body</name>
+    </customLabels>
+    <customLabels>
+        <label>[措施已逾期] {Title}</label>
+        <name>CMN_Ntf_ActionOverdue_Subject</name>
+    </customLabels>
+    <customLabels>
         <label>审批已最终通过。
 链接: {Url}</label>
         <name>CMN_Ntf_ApvApproved_Body</name>
@@ -581,6 +667,26 @@
         <name>CMN_Ntf_InterfaceFailed_Subject</name>
     </customLabels>
     <customLabels>
+        <label>会议纪要已确认,措施项 {ActionCount} 条。
+链接: {Url}</label>
+        <name>CMN_Ntf_MeetingMinutes_Body</name>
+    </customLabels>
+    <customLabels>
+        <label>[会议纪要] {Title}</label>
+        <name>CMN_Ntf_MeetingMinutes_Subject</name>
+    </customLabels>
+    <customLabels>
+        <label>{Actor} 邀请您参加会议。
+时间: {When}
+地点: {Location}
+链接: {Url}</label>
+        <name>CMN_Ntf_MeetingScheduled_Body</name>
+    </customLabels>
+    <customLabels>
+        <label>[会议] {Title} {When}</label>
+        <name>CMN_Ntf_MeetingScheduled_Subject</name>
+    </customLabels>
+    <customLabels>
         <label>编号模式包含不支持的标记: {0}</label>
         <name>CMN_Numbering_BadPattern</name>
     </customLabels>
@@ -663,6 +769,10 @@
     <customLabels>
         <label>待办需要处理人。</label>
         <name>CMN_Todo_AssigneeRequired</name>
+    </customLabels>
+    <customLabels>
+        <label>[措施] {0}</label>
+        <name>CMN_Todo_CMN_ACTION_ITEM</name>
     </customLabels>
     <customLabels>
         <label>[审批] {0}</label>

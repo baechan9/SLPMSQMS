@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_Ntf_ActionOverdue_Body</fullName>
+    <categories>CMN</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>조치 기한 경과 본문</shortDescription>
+    <value>조치 항목 기한({DueDate})이 지났습니다.
+바로 가기: {Url}</value>
+</CustomLabel>

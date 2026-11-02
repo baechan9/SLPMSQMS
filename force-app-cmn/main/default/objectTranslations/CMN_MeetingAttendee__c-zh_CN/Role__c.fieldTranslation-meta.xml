@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label>角色</label>
+    <name>Role__c</name>
+    <picklistValues>
+        <masterLabel>주관</masterLabel>
+        <translation>主持</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>필수</masterLabel>
+        <translation>必需</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>선택</masterLabel>
+        <translation>可选</translation>
+    </picklistValues>
+</CustomFieldTranslation>

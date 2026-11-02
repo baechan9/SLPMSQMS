@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label>Recurrence</label>
+    <name>Recurrence__c</name>
+    <picklistValues>
+        <masterLabel>없음</masterLabel>
+        <translation>None</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>매주</masterLabel>
+        <translation>Weekly</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>매월</masterLabel>
+        <translation>Monthly</translation>
+    </picklistValues>
+</CustomFieldTranslation>

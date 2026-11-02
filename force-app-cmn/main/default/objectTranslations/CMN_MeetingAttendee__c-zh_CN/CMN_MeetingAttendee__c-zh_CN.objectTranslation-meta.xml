@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>参会人</value>
+    </caseValues>
+    <nameFieldLabel>参会人</nameFieldLabel>
+    <validationRules>
+        <errorMessage>请输入用户或外部邮箱。</errorMessage>
+        <name>CMN_MeetingAttendee_UserOrEmail</name>
+    </validationRules>
+</CustomObjectTranslation>

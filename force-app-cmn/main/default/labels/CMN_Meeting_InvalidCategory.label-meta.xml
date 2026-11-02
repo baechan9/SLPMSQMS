@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_Meeting_InvalidCategory</fullName>
+    <categories>CMN</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>회의 유형 오류</shortDescription>
+    <value>회의 유형(MEETING_TYPE) 코드를 선택하세요.</value>
+</CustomLabel>

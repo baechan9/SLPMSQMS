@@ -251,6 +251,9 @@ class Gen:
             'ALERT_DISMISS_REASON': (1, [{'code': c} for c in ['FALSE_ALARM', 'ALREADY_HANDLED', 'NOT_APPLICABLE', 'OTHER']]),
             'QMS_PROCESS': (1, []),
             'IQC_COMMON_CHECK': (1, [{'code': c} for c in ['PACKAGING', 'LABEL', 'QUANTITY', 'CONTAMINATION']]),
+            # CMN-00-MTG-001 회의 유형(검토 반영 Vol.6c: MANAGEMENT_REVIEW)
+            'MEETING_TYPE': (1, [{'code': c} for c in ['QUALITY_MEETING', 'HORIZONTAL_DEPLOYMENT', 'GATE_REVIEW', 'CUSTOMER_RESPONSE',
+                                                       'MANAGEMENT_REVIEW']]),
             'GAUGE_TYPE': (1, [{'code': c} for c in ['MICROMETER', 'CALIPER', 'HEIGHT_GAUGE', 'AIMING_TESTER', 'LEAK_TESTER', 'VISION',
                                                      'SPECTROPHOTOMETER', 'PIN_GAUGE', 'CHECKING_FIXTURE', 'CMM', 'XRAY', 'FTIR', 'DSC',
                                                      'DIAL_GAUGE', 'HARDNESS_TESTER', 'MOISTURE_ANALYZER', 'MICROSCOPE']]),
@@ -264,6 +267,8 @@ class Gen:
             walk(m['codes'][grp])
         for n in m['codes']['DEV_PHASE']:
             names[n['code']] = n['name']
+        names.update({'QUALITY_MEETING': '품질회의', 'HORIZONTAL_DEPLOYMENT': '수평전개 회의', 'GATE_REVIEW': '게이트 리뷰',
+                      'CUSTOMER_RESPONSE': '고객 대응 회의', 'MANAGEMENT_REVIEW': '경영검토'})
         names.update(C.CHANGE_TYPE_NAMES)
         names.update(C.DEV_NAMES)
         fg = o.file('CMN_CodeGroup__c', 'GroupCode__c')

@@ -1,0 +1,18 @@
+{
+  "permissionSet": {
+    "wi": "CMN-00-MTG-001",
+    "name": "CMN_PS_Meeting_User",
+    "package": "force-app-cmn",
+    "label": "CMN Meeting User",
+    "description": "회의·참석자·조치 항목 작성·수정, 회의 패널(CMN-00-MTG-001). 사내 페르소나 PSG 전체",
+    "objects": {
+      "CMN_Meeting__c": "edit",
+      "CMN_MeetingAttendee__c": "edit-delete",
+      "CMN_ActionItem__c": "edit",
+      "CMN_Code__c": "read",
+      "CMN_CodeGroup__c": "read"
+    },
+    "tabs": ["CMN_Meeting__c", "CMN_ActionItem__c"],
+    "classes": ["CMN_MeetingController"]
+  }
+}

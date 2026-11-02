@@ -1,0 +1,87 @@
+<template>
+  <lightning-card title={labels.title} icon-name="standard:event">
+    <div class="slds-p-horizontal_small">
+      <template lwc:if={isLoading}>
+        <div class="slds-is-relative slds-p-around_medium">
+          <lightning-spinner
+            alternative-text={labels.loading}
+            size="small"
+          ></lightning-spinner>
+        </div>
+      </template>
+      <template lwc:elseif={errorMessage}>
+        <p class="slds-text-color_error" role="alert">{errorMessage}</p>
+      </template>
+      <template lwc:else>
+        <template lwc:if={panel.canConfirm}>
+          <lightning-button
+            variant="brand"
+            label={labels.confirm}
+            disabled={isSaving}
+            onclick={handleConfirm}
+            data-id="confirm"
+          ></lightning-button>
+        </template>
+        <h3 class="slds-text-heading_small slds-m-top_small">
+          {labels.actions}
+        </h3>
+        <template lwc:if={hasActions}>
+          <ul>
+            <template for:each={actions} for:item="a">
+              <li key={a.id} class="slds-m-top_xx-small" data-action={a.id}>
+                <span class="slds-m-right_x-small">{a.name}</span>
+                <span class="slds-text-color_weak slds-m-right_x-small"
+                  >{a.ownerName} · {a.dueDate}</span
+                >
+                <lightning-badge label={a.statusLabel}></lightning-badge>
+                <template lwc:if={a.canComplete}>
+                  <lightning-button
+                    class="slds-m-left_x-small"
+                    variant="base"
+                    label={labels.done}
+                    data-id={a.id}
+                    disabled={isSaving}
+                    onclick={handleDone}
+                  ></lightning-button>
+                </template>
+              </li>
+            </template>
+          </ul>
+        </template>
+        <template lwc:else>
+          <p class="slds-text-color_weak" data-id="empty">{labels.empty}</p>
+        </template>
+        <template lwc:if={canEdit}>
+          <div class="slds-box slds-box_x-small slds-m-top_small" data-id="add">
+            <lightning-input
+              label={labels.actionTitle}
+              value={draft.title}
+              max-length="80"
+              onchange={handleTitle}
+              data-field="title"
+            ></lightning-input>
+            <lightning-record-picker
+              label={labels.owner}
+              object-api-name="User"
+              onchange={handleOwner}
+            ></lightning-record-picker>
+            <lightning-input
+              type="date"
+              label={labels.due}
+              value={draft.dueDate}
+              onchange={handleDue}
+              data-field="due"
+            ></lightning-input>
+            <lightning-button
+              class="slds-m-top_x-small"
+              label={labels.addAction}
+              disabled={addDisabled}
+              onclick={handleAdd}
+              data-id="add-button"
+            ></lightning-button>
+          </div>
+        </template>
+      </template>
+    </div>
+  </lightning-card>
+</template>

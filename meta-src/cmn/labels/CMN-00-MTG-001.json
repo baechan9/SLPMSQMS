@@ -1,0 +1,266 @@
+{
+  "wi": "CMN-00-MTG-001",
+  "package": "force-app-cmn",
+  "labels": [
+    {
+      "name": "CMN_Ntf_MeetingScheduled_Subject",
+      "category": "CMN",
+      "description": "회의 공지 제목",
+      "value": {
+        "ko": "[회의] {Title} {When}",
+        "en_US": "[Meeting] {Title} {When}",
+        "zh_CN": "[会议] {Title} {When}"
+      }
+    },
+    {
+      "name": "CMN_Ntf_MeetingScheduled_Body",
+      "category": "CMN",
+      "description": "회의 공지 본문",
+      "value": {
+        "ko": "{Actor}님이 회의에 초대했습니다.\n일시: {When}\n장소: {Location}\n바로 가기: {Url}",
+        "en_US": "{Actor} invited you to a meeting.\nWhen: {When}\nWhere: {Location}\nOpen: {Url}",
+        "zh_CN": "{Actor} 邀请您参加会议。\n时间: {When}\n地点: {Location}\n链接: {Url}"
+      }
+    },
+    {
+      "name": "CMN_Ntf_MeetingMinutes_Subject",
+      "category": "CMN",
+      "description": "회의록 확정 제목",
+      "value": {
+        "ko": "[회의록] {Title}",
+        "en_US": "[Minutes] {Title}",
+        "zh_CN": "[会议纪要] {Title}"
+      }
+    },
+    {
+      "name": "CMN_Ntf_MeetingMinutes_Body",
+      "category": "CMN",
+      "description": "회의록 확정 본문",
+      "value": {
+        "ko": "회의록이 확정되었습니다. 조치 항목 {ActionCount}건.\n바로 가기: {Url}",
+        "en_US": "The minutes have been confirmed with {ActionCount} action items.\nOpen: {Url}",
+        "zh_CN": "会议纪要已确认,措施项 {ActionCount} 条。\n链接: {Url}"
+      }
+    },
+    {
+      "name": "CMN_Ntf_ActionDue_Subject",
+      "category": "CMN",
+      "description": "조치 기한 임박 제목",
+      "value": {
+        "ko": "[조치 기한 내일] {Title}",
+        "en_US": "[Action Due Tomorrow] {Title}",
+        "zh_CN": "[措施明天到期] {Title}"
+      }
+    },
+    {
+      "name": "CMN_Ntf_ActionDue_Body",
+      "category": "CMN",
+      "description": "조치 기한 임박 본문",
+      "value": {
+        "ko": "조치 항목 기한이 내일({DueDate})입니다.\n바로 가기: {Url}",
+        "en_US": "This action item is due tomorrow ({DueDate}).\nOpen: {Url}",
+        "zh_CN": "措施项明天({DueDate})到期。\n链接: {Url}"
+      }
+    },
+    {
+      "name": "CMN_Ntf_ActionOverdue_Subject",
+      "category": "CMN",
+      "description": "조치 기한 경과 제목",
+      "value": {
+        "ko": "[조치 기한 경과] {Title}",
+        "en_US": "[Action Overdue] {Title}",
+        "zh_CN": "[措施已逾期] {Title}"
+      }
+    },
+    {
+      "name": "CMN_Ntf_ActionOverdue_Body",
+      "category": "CMN",
+      "description": "조치 기한 경과 본문",
+      "value": {
+        "ko": "조치 항목 기한({DueDate})이 지났습니다.\n바로 가기: {Url}",
+        "en_US": "This action item is past its due date ({DueDate}).\nOpen: {Url}",
+        "zh_CN": "措施项已过期限({DueDate})。\n链接: {Url}"
+      }
+    },
+    {
+      "name": "CMN_Todo_CMN_ACTION_ITEM",
+      "category": "CMN",
+      "description": "조치 항목 To-Do 제목",
+      "value": {
+        "ko": "[조치] {0}",
+        "en_US": "[Action] {0}",
+        "zh_CN": "[措施] {0}"
+      }
+    },
+    {
+      "name": "CMN_Meeting_MinutesLocked",
+      "category": "CMN",
+      "description": "회의록 잠금",
+      "value": {
+        "ko": "확정된 회의록은 수정할 수 없습니다. 정정은 코멘트로 남기세요.",
+        "en_US": "Confirmed minutes cannot be changed. Add a comment for corrections.",
+        "zh_CN": "已确认的会议纪要不能修改,请用评论更正。"
+      }
+    },
+    {
+      "name": "CMN_Meeting_InvalidCategory",
+      "category": "CMN",
+      "description": "회의 유형 오류",
+      "value": {
+        "ko": "회의 유형(MEETING_TYPE) 코드를 선택하세요.",
+        "en_US": "Select a meeting type code.",
+        "zh_CN": "请选择会议类型代码。"
+      }
+    },
+    {
+      "name": "CMN_Meeting_InvalidPeriod",
+      "category": "CMN",
+      "description": "회의 시간 오류",
+      "value": {
+        "ko": "종료 일시는 시작 일시 이후여야 합니다.",
+        "en_US": "The end must be after the start.",
+        "zh_CN": "结束时间必须晚于开始时间。"
+      }
+    },
+    {
+      "name": "CMN_Meeting_ConfirmOnlyByService",
+      "category": "CMN",
+      "description": "확정은 버튼으로",
+      "value": {
+        "ko": "회의록 확정은 회의 패널의 확정 버튼으로만 할 수 있습니다.",
+        "en_US": "Confirm minutes with the Confirm button on the meeting panel.",
+        "zh_CN": "只能通过会议面板的确认按钮确认纪要。"
+      }
+    },
+    {
+      "name": "CMN_Meeting_CannotConfirm",
+      "category": "CMN",
+      "description": "확정 불가",
+      "value": {
+        "ko": "개최되었거나 회의록 작성 중인 회의만 확정할 수 있습니다.",
+        "en_US": "Only held meetings or meetings with draft minutes can be confirmed.",
+        "zh_CN": "只能确认已召开或纪要草稿状态的会议。"
+      }
+    },
+    {
+      "name": "CMN_Action_OwnerRequired",
+      "category": "CMN",
+      "description": "조치 담당자 필수",
+      "value": {
+        "ko": "조치 담당자를 지정하세요.",
+        "en_US": "Assign an owner to the action item.",
+        "zh_CN": "请指定措施负责人。"
+      }
+    },
+    {
+      "name": "CMN_Meeting_Title",
+      "category": "CMN",
+      "description": "패널 제목",
+      "value": {
+        "ko": "회의 진행",
+        "en_US": "Meeting",
+        "zh_CN": "会议进行"
+      }
+    },
+    {
+      "name": "CMN_Meeting_Confirm",
+      "category": "CMN",
+      "description": "확정 버튼",
+      "value": {
+        "ko": "회의록 확정",
+        "en_US": "Confirm Minutes",
+        "zh_CN": "确认纪要"
+      }
+    },
+    {
+      "name": "CMN_Meeting_Confirmed",
+      "category": "CMN",
+      "description": "확정 완료",
+      "value": {
+        "ko": "회의록을 확정했습니다.",
+        "en_US": "Minutes confirmed.",
+        "zh_CN": "纪要已确认。"
+      }
+    },
+    {
+      "name": "CMN_Meeting_Actions",
+      "category": "CMN",
+      "description": "조치 목록",
+      "value": {
+        "ko": "조치 항목",
+        "en_US": "Action Items",
+        "zh_CN": "措施项"
+      }
+    },
+    {
+      "name": "CMN_Meeting_AddAction",
+      "category": "CMN",
+      "description": "조치 추가",
+      "value": {
+        "ko": "조치 추가",
+        "en_US": "Add Action",
+        "zh_CN": "添加措施"
+      }
+    },
+    {
+      "name": "CMN_Meeting_ActionDone",
+      "category": "CMN",
+      "description": "조치 완료 버튼",
+      "value": {
+        "ko": "완료",
+        "en_US": "Done",
+        "zh_CN": "完成"
+      }
+    },
+    {
+      "name": "CMN_Meeting_ActionTitle",
+      "category": "CMN",
+      "description": "조치 제목 입력",
+      "value": {
+        "ko": "조치 내용",
+        "en_US": "Action",
+        "zh_CN": "措施内容"
+      }
+    },
+    {
+      "name": "CMN_Meeting_ActionOwner",
+      "category": "CMN",
+      "description": "조치 담당자 입력",
+      "value": {
+        "ko": "담당자",
+        "en_US": "Owner",
+        "zh_CN": "负责人"
+      }
+    },
+    {
+      "name": "CMN_Meeting_ActionDue",
+      "category": "CMN",
+      "description": "조치 기한 입력",
+      "value": {
+        "ko": "기한",
+        "en_US": "Due Date",
+        "zh_CN": "期限"
+      }
+    },
+    {
+      "name": "CMN_Meeting_NoActions",
+      "category": "CMN",
+      "description": "조치 없음",
+      "value": {
+        "ko": "조치 항목이 없습니다.",
+        "en_US": "No action items.",
+        "zh_CN": "暂无措施项。"
+      }
+    },
+    {
+      "name": "CMN_Meeting_Saved",
+      "category": "CMN",
+      "description": "저장 완료",
+      "value": {
+        "ko": "저장했습니다.",
+        "en_US": "Saved.",
+        "zh_CN": "已保存。"
+      }
+    }
+  ]
+}

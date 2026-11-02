@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Recurrence__c</fullName>
+    <description>BR-4 정기 회의 반복 규칙</description>
+    <label>반복</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>NONE</fullName>
+                <default>true</default>
+                <label>없음</label>
+            </value>
+            <value>
+                <fullName>WEEKLY</fullName>
+                <default>false</default>
+                <label>매주</label>
+            </value>
+            <value>
+                <fullName>MONTHLY</fullName>
+                <default>false</default>
+                <label>매월</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

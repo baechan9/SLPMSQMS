@@ -40,7 +40,8 @@
       "CMN_PS_Employee_Read",
       "CMN_PS_Employee_Admin",
       "CMN_PS_Delegation_User",
-      "CMN_PS_Delegation_Admin"
+      "CMN_PS_Delegation_Admin",
+      "CMN_PS_Meeting_User"
     ]
   }
 }

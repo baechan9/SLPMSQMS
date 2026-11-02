@@ -139,6 +139,46 @@
         "BodyLabel__c": "CMN_Ntf_ApvEscalation_Body",
         "IsActive__c": true
       }
+    },
+    {
+      "name": "CMN_MEETING_SCHEDULED",
+      "label": "회의 공지(MTG-001 BR-1)",
+      "values": {
+        "Channels__c": "BELL",
+        "SubjectLabel__c": "CMN_Ntf_MeetingScheduled_Subject",
+        "BodyLabel__c": "CMN_Ntf_MeetingScheduled_Body",
+        "IsActive__c": true
+      }
+    },
+    {
+      "name": "CMN_MEETING_MINUTES",
+      "label": "회의록 확정(MTG-001 BR-2)",
+      "values": {
+        "Channels__c": "EMAIL,BELL",
+        "SubjectLabel__c": "CMN_Ntf_MeetingMinutes_Subject",
+        "BodyLabel__c": "CMN_Ntf_MeetingMinutes_Body",
+        "IsActive__c": true
+      }
+    },
+    {
+      "name": "CMN_ACTION_DUE",
+      "label": "조치 기한 하루 전(MTG-001 BR-3)",
+      "values": {
+        "Channels__c": "EMAIL,BELL",
+        "SubjectLabel__c": "CMN_Ntf_ActionDue_Subject",
+        "BodyLabel__c": "CMN_Ntf_ActionDue_Body",
+        "IsActive__c": true
+      }
+    },
+    {
+      "name": "CMN_ACTION_OVERDUE",
+      "label": "조치 기한 경과(MTG-001 BR-3)",
+      "values": {
+        "Channels__c": "EMAIL,BELL",
+        "SubjectLabel__c": "CMN_Ntf_ActionOverdue_Subject",
+        "BodyLabel__c": "CMN_Ntf_ActionOverdue_Body",
+        "IsActive__c": true
+      }
     }
   ]
 }

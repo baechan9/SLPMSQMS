@@ -68,6 +68,26 @@
         "SupplierField__c": "Supplier__c",
         "IsActive__c": true
       }
+    },
+    {
+      "name": "CMN_Meeting",
+      "label": "CMN_Meeting(MTG-001)",
+      "values": {
+        "ObjectApiName__c": "CMN_Meeting__c",
+        "PlantField__c": "Plant__c",
+        "SupplierField__c": null,
+        "IsActive__c": true
+      }
+    },
+    {
+      "name": "CMN_ActionItem",
+      "label": "CMN_ActionItem(MTG-001)",
+      "values": {
+        "ObjectApiName__c": "CMN_ActionItem__c",
+        "PlantField__c": "Plant__c",
+        "SupplierField__c": null,
+        "IsActive__c": true
+      }
     }
   ]
 }

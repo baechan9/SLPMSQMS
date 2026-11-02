@@ -1,0 +1,318 @@
+{
+  "wi": "CMN-00-MTG-001",
+  "object": "CMN_Meeting__c",
+  "package": "force-app-cmn",
+  "description": "회의(MTG-001). 공지 → 회의록 → 후속 조치. 회의록 확정 후 수정 불가(정정은 코멘트). 공유: 공장 + 참석자",
+  "label": {
+    "ko": "회의",
+    "en_US": "Meeting",
+    "zh_CN": "会议"
+  },
+  "plural": {
+    "ko": "회의",
+    "en_US": "Meetings",
+    "zh_CN": "会议"
+  },
+  "nameField": {
+    "label": {
+      "ko": "회의명",
+      "en_US": "Meeting Title",
+      "zh_CN": "会议名称"
+    }
+  },
+  "sharingModel": "Private",
+  "enableHistory": true,
+  "tab": {
+    "motif": "Custom68: Presenter"
+  },
+  "sharingReasons": [
+    {
+      "name": "CMN_Plant__c",
+      "label": {
+        "ko": "공장 공유",
+        "en_US": "Plant Sharing",
+        "zh_CN": "工厂共享"
+      }
+    },
+    {
+      "name": "CMN_Attendee__c",
+      "label": {
+        "ko": "참석자 공유",
+        "en_US": "Attendee Sharing",
+        "zh_CN": "参会人共享"
+      }
+    }
+  ],
+  "fields": [
+    {
+      "name": "Category__c",
+      "type": "Lookup",
+      "referenceTo": "CMN_Code__c",
+      "relationshipName": "Meetings",
+      "relationshipLabel": {
+        "ko": "회의",
+        "en_US": "Meetings",
+        "zh_CN": "会议"
+      },
+      "required": true,
+      "deleteConstraint": "Restrict",
+      "label": {
+        "ko": "회의 유형",
+        "en_US": "Meeting Type",
+        "zh_CN": "会议类型"
+      },
+      "description": "코드 그룹 MEETING_TYPE(트리거 확인)"
+    },
+    {
+      "name": "IsRegular__c",
+      "type": "Checkbox",
+      "default": false,
+      "label": {
+        "ko": "정기 회의",
+        "en_US": "Regular",
+        "zh_CN": "定期会议"
+      }
+    },
+    {
+      "name": "Recurrence__c",
+      "type": "Picklist",
+      "default": "NONE",
+      "label": {
+        "ko": "반복",
+        "en_US": "Recurrence",
+        "zh_CN": "重复"
+      },
+      "description": "BR-4 정기 회의 반복 규칙",
+      "values": [
+        {
+          "api": "NONE",
+          "label": {
+            "ko": "없음",
+            "en_US": "None",
+            "zh_CN": "无"
+          }
+        },
+        {
+          "api": "WEEKLY",
+          "label": {
+            "ko": "매주",
+            "en_US": "Weekly",
+            "zh_CN": "每周"
+          }
+        },
+        {
+          "api": "MONTHLY",
+          "label": {
+            "ko": "매월",
+            "en_US": "Monthly",
+            "zh_CN": "每月"
+          }
+        }
+      ]
+    },
+    {
+      "name": "StartAt__c",
+      "type": "DateTime",
+      "required": true,
+      "label": {
+        "ko": "시작",
+        "en_US": "Start",
+        "zh_CN": "开始"
+      },
+      "trackHistory": true
+    },
+    {
+      "name": "EndAt__c",
+      "type": "DateTime",
+      "required": true,
+      "label": {
+        "ko": "종료",
+        "en_US": "End",
+        "zh_CN": "结束"
+      },
+      "trackHistory": true
+    },
+    {
+      "name": "Location__c",
+      "type": "Text",
+      "length": 255,
+      "label": {
+        "ko": "장소",
+        "en_US": "Location",
+        "zh_CN": "地点"
+      }
+    },
+    {
+      "name": "OnlineUrl__c",
+      "type": "Url",
+      "label": {
+        "ko": "온라인 회의 주소",
+        "en_US": "Online URL",
+        "zh_CN": "在线会议地址"
+      }
+    },
+    {
+      "name": "RelatedRecordId__c",
+      "type": "Text",
+      "length": 18,
+      "label": {
+        "ko": "연관 업무",
+        "en_US": "Related Record",
+        "zh_CN": "相关业务"
+      }
+    },
+    {
+      "name": "RelatedObject__c",
+      "type": "Text",
+      "length": 80,
+      "serviceOnly": true,
+      "label": {
+        "ko": "연관 객체",
+        "en_US": "Related Object",
+        "zh_CN": "相关对象"
+      }
+    },
+    {
+      "name": "Plant__c",
+      "type": "Lookup",
+      "referenceTo": "CMN_Plant__c",
+      "relationshipName": "Meetings",
+      "relationshipLabel": {
+        "ko": "회의",
+        "en_US": "Meetings",
+        "zh_CN": "会议"
+      },
+      "label": {
+        "ko": "공장",
+        "en_US": "Plant",
+        "zh_CN": "工厂"
+      }
+    },
+    {
+      "name": "Status__c",
+      "type": "Picklist",
+      "required": true,
+      "default": "SCHEDULED",
+      "label": {
+        "ko": "상태",
+        "en_US": "Status",
+        "zh_CN": "状态"
+      },
+      "trackHistory": true,
+      "description": "MINUTES_CONFIRMED는 회의록 확정 서비스만(트리거가 직접 변경 차단)",
+      "values": [
+        {
+          "api": "SCHEDULED",
+          "label": {
+            "ko": "예정",
+            "en_US": "Scheduled",
+            "zh_CN": "已安排"
+          }
+        },
+        {
+          "api": "HELD",
+          "label": {
+            "ko": "개최",
+            "en_US": "Held",
+            "zh_CN": "已召开"
+          }
+        },
+        {
+          "api": "MINUTES_DRAFT",
+          "label": {
+            "ko": "회의록 작성 중",
+            "en_US": "Minutes Draft",
+            "zh_CN": "纪要草稿"
+          }
+        },
+        {
+          "api": "MINUTES_CONFIRMED",
+          "label": {
+            "ko": "회의록 확정",
+            "en_US": "Minutes Confirmed",
+            "zh_CN": "纪要已确认"
+          }
+        },
+        {
+          "api": "CANCELLED",
+          "label": {
+            "ko": "취소",
+            "en_US": "Cancelled",
+            "zh_CN": "已取消"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Minutes__c",
+      "type": "Html",
+      "length": 131072,
+      "visibleLines": 20,
+      "label": {
+        "ko": "회의록",
+        "en_US": "Minutes",
+        "zh_CN": "会议纪要"
+      }
+    },
+    {
+      "name": "MinutesConfirmedAt__c",
+      "type": "DateTime",
+      "serviceOnly": true,
+      "label": {
+        "ko": "회의록 확정 일시",
+        "en_US": "Minutes Confirmed At",
+        "zh_CN": "纪要确认时间"
+      }
+    },
+    {
+      "name": "NextMeeting__c",
+      "type": "Lookup",
+      "referenceTo": "CMN_Meeting__c",
+      "relationshipName": "PreviousMeetings",
+      "relationshipLabel": {
+        "ko": "이전 회차",
+        "en_US": "Previous Meetings",
+        "zh_CN": "上一期"
+      },
+      "serviceOnly": true,
+      "label": {
+        "ko": "다음 회차",
+        "en_US": "Next Meeting",
+        "zh_CN": "下一期"
+      },
+      "description": "BR-4 자동 생성한 다음 회차(중복 생성 방지)"
+    }
+  ],
+  "layout": {
+    "columns": [
+      [
+        "Name",
+        "Category__c",
+        "Status__c",
+        "IsRegular__c",
+        "Recurrence__c",
+        "Plant__c"
+      ],
+      [
+        "StartAt__c",
+        "EndAt__c",
+        "Location__c",
+        "OnlineUrl__c",
+        "RelatedRecordId__c",
+        "NextMeeting__c"
+      ]
+    ],
+    "relatedLists": [
+      {
+        "object": "CMN_MeetingAttendee__c",
+        "field": "Meeting__c",
+        "fields": ["User__c", "ExternalEmail__c", "Role__c", "Attendance__c"]
+      },
+      {
+        "object": "CMN_ActionItem__c",
+        "field": "Meeting__c",
+        "fields": ["NAME", "Owner__c", "DueDate__c", "Status__c"]
+      }
+    ]
+  }
+}

@@ -1,0 +1,152 @@
+{
+  "wi": "CMN-00-MTG-001",
+  "object": "CMN_MeetingAttendee__c",
+  "package": "force-app-cmn",
+  "description": "회의 참석자(MTG-001). 사내 사용자 또는 외부 메일 중 하나",
+  "label": {
+    "ko": "참석자",
+    "en_US": "Attendee",
+    "zh_CN": "参会人"
+  },
+  "plural": {
+    "ko": "참석자",
+    "en_US": "Attendees",
+    "zh_CN": "参会人"
+  },
+  "nameField": {
+    "label": {
+      "ko": "참석자",
+      "en_US": "Attendee",
+      "zh_CN": "参会人"
+    }
+  },
+  "sharingModel": "ControlledByParent",
+  "fields": [
+    {
+      "name": "Meeting__c",
+      "type": "MasterDetail",
+      "referenceTo": "CMN_Meeting__c",
+      "relationshipName": "Attendees",
+      "relationshipLabel": {
+        "ko": "참석자",
+        "en_US": "Attendees",
+        "zh_CN": "参会人"
+      },
+      "label": {
+        "ko": "회의",
+        "en_US": "Meeting",
+        "zh_CN": "会议"
+      }
+    },
+    {
+      "name": "User__c",
+      "type": "Lookup",
+      "referenceTo": "User",
+      "relationshipName": "MeetingAttendances",
+      "relationshipLabel": {
+        "ko": "회의 참석",
+        "en_US": "Meeting Attendances",
+        "zh_CN": "参会"
+      },
+      "label": {
+        "ko": "사용자",
+        "en_US": "User",
+        "zh_CN": "用户"
+      }
+    },
+    {
+      "name": "ExternalEmail__c",
+      "type": "Email",
+      "label": {
+        "ko": "외부 메일",
+        "en_US": "External Email",
+        "zh_CN": "外部邮箱"
+      }
+    },
+    {
+      "name": "Role__c",
+      "type": "Picklist",
+      "required": true,
+      "default": "REQUIRED",
+      "label": {
+        "ko": "역할",
+        "en_US": "Role",
+        "zh_CN": "角色"
+      },
+      "values": [
+        {
+          "api": "CHAIR",
+          "label": {
+            "ko": "주관",
+            "en_US": "Chair",
+            "zh_CN": "主持"
+          }
+        },
+        {
+          "api": "REQUIRED",
+          "label": {
+            "ko": "필수",
+            "en_US": "Required",
+            "zh_CN": "必需"
+          }
+        },
+        {
+          "api": "OPTIONAL",
+          "label": {
+            "ko": "선택",
+            "en_US": "Optional",
+            "zh_CN": "可选"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Attendance__c",
+      "type": "Picklist",
+      "default": "UNKNOWN",
+      "label": {
+        "ko": "참석 여부",
+        "en_US": "Attendance",
+        "zh_CN": "出席"
+      },
+      "values": [
+        {
+          "api": "UNKNOWN",
+          "label": {
+            "ko": "미정",
+            "en_US": "Unknown",
+            "zh_CN": "未定"
+          }
+        },
+        {
+          "api": "ATTENDED",
+          "label": {
+            "ko": "참석",
+            "en_US": "Attended",
+            "zh_CN": "出席"
+          }
+        },
+        {
+          "api": "ABSENT",
+          "label": {
+            "ko": "불참",
+            "en_US": "Absent",
+            "zh_CN": "缺席"
+          }
+        }
+      ]
+    }
+  ],
+  "validationRules": [
+    {
+      "name": "CMN_MeetingAttendee_UserOrEmail",
+      "formula": "AND(ISBLANK(User__c), ISBLANK(ExternalEmail__c))",
+      "description": "사내 사용자 또는 외부 메일 중 하나",
+      "message": {
+        "ko": "사용자 또는 외부 메일을 입력하세요.",
+        "en_US": "Enter a user or an external email.",
+        "zh_CN": "请输入用户或外部邮箱。"
+      }
+    }
+  ]
+}

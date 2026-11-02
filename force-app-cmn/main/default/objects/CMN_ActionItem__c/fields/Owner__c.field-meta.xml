@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Owner__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>필수는 트리거 확인(User Lookup 필수 불가)</description>
+    <label>담당자</label>
+    <referenceTo>User</referenceTo>
+    <relationshipLabel>담당 조치</relationshipLabel>
+    <relationshipName>ActionItemsOwned</relationshipName>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Status__c</fullName>
+    <description>MINUTES_CONFIRMED는 회의록 확정 서비스만(트리거가 직접 변경 차단)</description>
+    <label>상태</label>
+    <required>true</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>SCHEDULED</fullName>
+                <default>true</default>
+                <label>예정</label>
+            </value>
+            <value>
+                <fullName>HELD</fullName>
+                <default>false</default>
+                <label>개최</label>
+            </value>
+            <value>
+                <fullName>MINUTES_DRAFT</fullName>
+                <default>false</default>
+                <label>회의록 작성 중</label>
+            </value>
+            <value>
+                <fullName>MINUTES_CONFIRMED</fullName>
+                <default>false</default>
+                <label>회의록 확정</label>
+            </value>
+            <value>
+                <fullName>CANCELLED</fullName>
+                <default>false</default>
+                <label>취소</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

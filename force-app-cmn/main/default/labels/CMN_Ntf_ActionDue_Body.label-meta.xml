@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_Ntf_ActionDue_Body</fullName>
+    <categories>CMN</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>조치 기한 임박 본문</shortDescription>
+    <value>조치 항목 기한이 내일({DueDate})입니다.
+바로 가기: {Url}</value>
+</CustomLabel>

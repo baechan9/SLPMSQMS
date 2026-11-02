@@ -397,6 +397,11 @@
           "MaxLevel__c": 1
         },
         {
+          "GroupCode__c": "MEETING_TYPE",
+          "Name": "MEETING_TYPE",
+          "MaxLevel__c": 1
+        },
+        {
           "GroupCode__c": "GAUGE_TYPE",
           "Name": "GAUGE_TYPE",
           "MaxLevel__c": 1
@@ -1892,6 +1897,61 @@
           "Name": "CONTAMINATION",
           "NameEn__c": "Contamination",
           "SortOrder__c": 40,
+          "IsActive__c": "true"
+        },
+        {
+          "ExternalKey__c": "MEETING_TYPE/QUALITY_MEETING",
+          "CodeGroup__r.GroupCode__c": "MEETING_TYPE",
+          "Code__c": "QUALITY_MEETING",
+          "Parent__r.ExternalKey__c": null,
+          "Level__c": 1,
+          "Name": "품질회의",
+          "NameEn__c": "Quality Meeting",
+          "SortOrder__c": 10,
+          "IsActive__c": "true"
+        },
+        {
+          "ExternalKey__c": "MEETING_TYPE/HORIZONTAL_DEPLOYMENT",
+          "CodeGroup__r.GroupCode__c": "MEETING_TYPE",
+          "Code__c": "HORIZONTAL_DEPLOYMENT",
+          "Parent__r.ExternalKey__c": null,
+          "Level__c": 1,
+          "Name": "수평전개 회의",
+          "NameEn__c": "Horizontal Deployment",
+          "SortOrder__c": 20,
+          "IsActive__c": "true"
+        },
+        {
+          "ExternalKey__c": "MEETING_TYPE/GATE_REVIEW",
+          "CodeGroup__r.GroupCode__c": "MEETING_TYPE",
+          "Code__c": "GATE_REVIEW",
+          "Parent__r.ExternalKey__c": null,
+          "Level__c": 1,
+          "Name": "게이트 리뷰",
+          "NameEn__c": "Gate Review",
+          "SortOrder__c": 30,
+          "IsActive__c": "true"
+        },
+        {
+          "ExternalKey__c": "MEETING_TYPE/CUSTOMER_RESPONSE",
+          "CodeGroup__r.GroupCode__c": "MEETING_TYPE",
+          "Code__c": "CUSTOMER_RESPONSE",
+          "Parent__r.ExternalKey__c": null,
+          "Level__c": 1,
+          "Name": "고객 대응 회의",
+          "NameEn__c": "Customer Response",
+          "SortOrder__c": 40,
+          "IsActive__c": "true"
+        },
+        {
+          "ExternalKey__c": "MEETING_TYPE/MANAGEMENT_REVIEW",
+          "CodeGroup__r.GroupCode__c": "MEETING_TYPE",
+          "Code__c": "MANAGEMENT_REVIEW",
+          "Parent__r.ExternalKey__c": null,
+          "Level__c": 1,
+          "Name": "경영검토",
+          "NameEn__c": "Management Review",
+          "SortOrder__c": 50,
           "IsActive__c": "true"
         },
         {

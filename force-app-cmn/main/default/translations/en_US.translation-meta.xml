@@ -13,6 +13,10 @@
         <name>SL_QMS</name>
     </customApplications>
     <customLabels>
+        <label>Assign an owner to the action item.</label>
+        <name>CMN_Action_OwnerRequired</name>
+    </customLabels>
+    <customLabels>
         <label>An approval is already in progress for this record.</label>
         <name>CMN_Approval_AlreadyInProgress</name>
     </customLabels>
@@ -493,6 +497,88 @@
         <name>CMN_Master_DeleteNotAllowed</name>
     </customLabels>
     <customLabels>
+        <label>Done</label>
+        <name>CMN_Meeting_ActionDone</name>
+    </customLabels>
+    <customLabels>
+        <label>Due Date</label>
+        <name>CMN_Meeting_ActionDue</name>
+    </customLabels>
+    <customLabels>
+        <label>Owner</label>
+        <name>CMN_Meeting_ActionOwner</name>
+    </customLabels>
+    <customLabels>
+        <label>Action</label>
+        <name>CMN_Meeting_ActionTitle</name>
+    </customLabels>
+    <customLabels>
+        <label>Action Items</label>
+        <name>CMN_Meeting_Actions</name>
+    </customLabels>
+    <customLabels>
+        <label>Add Action</label>
+        <name>CMN_Meeting_AddAction</name>
+    </customLabels>
+    <customLabels>
+        <label>Only held meetings or meetings with draft minutes can be confirmed.</label>
+        <name>CMN_Meeting_CannotConfirm</name>
+    </customLabels>
+    <customLabels>
+        <label>Confirm Minutes</label>
+        <name>CMN_Meeting_Confirm</name>
+    </customLabels>
+    <customLabels>
+        <label>Confirm minutes with the Confirm button on the meeting panel.</label>
+        <name>CMN_Meeting_ConfirmOnlyByService</name>
+    </customLabels>
+    <customLabels>
+        <label>Minutes confirmed.</label>
+        <name>CMN_Meeting_Confirmed</name>
+    </customLabels>
+    <customLabels>
+        <label>Select a meeting type code.</label>
+        <name>CMN_Meeting_InvalidCategory</name>
+    </customLabels>
+    <customLabels>
+        <label>The end must be after the start.</label>
+        <name>CMN_Meeting_InvalidPeriod</name>
+    </customLabels>
+    <customLabels>
+        <label>Confirmed minutes cannot be changed. Add a comment for corrections.</label>
+        <name>CMN_Meeting_MinutesLocked</name>
+    </customLabels>
+    <customLabels>
+        <label>No action items.</label>
+        <name>CMN_Meeting_NoActions</name>
+    </customLabels>
+    <customLabels>
+        <label>Saved.</label>
+        <name>CMN_Meeting_Saved</name>
+    </customLabels>
+    <customLabels>
+        <label>Meeting</label>
+        <name>CMN_Meeting_Title</name>
+    </customLabels>
+    <customLabels>
+        <label>This action item is due tomorrow ({DueDate}).
+Open: {Url}</label>
+        <name>CMN_Ntf_ActionDue_Body</name>
+    </customLabels>
+    <customLabels>
+        <label>[Action Due Tomorrow] {Title}</label>
+        <name>CMN_Ntf_ActionDue_Subject</name>
+    </customLabels>
+    <customLabels>
+        <label>This action item is past its due date ({DueDate}).
+Open: {Url}</label>
+        <name>CMN_Ntf_ActionOverdue_Body</name>
+    </customLabels>
+    <customLabels>
+        <label>[Action Overdue] {Title}</label>
+        <name>CMN_Ntf_ActionOverdue_Subject</name>
+    </customLabels>
+    <customLabels>
         <label>The approval has been completed.
 Open: {Url}</label>
         <name>CMN_Ntf_ApvApproved_Body</name>
@@ -581,6 +667,26 @@ Open: {Url}</label>
         <name>CMN_Ntf_InterfaceFailed_Subject</name>
     </customLabels>
     <customLabels>
+        <label>The minutes have been confirmed with {ActionCount} action items.
+Open: {Url}</label>
+        <name>CMN_Ntf_MeetingMinutes_Body</name>
+    </customLabels>
+    <customLabels>
+        <label>[Minutes] {Title}</label>
+        <name>CMN_Ntf_MeetingMinutes_Subject</name>
+    </customLabels>
+    <customLabels>
+        <label>{Actor} invited you to a meeting.
+When: {When}
+Where: {Location}
+Open: {Url}</label>
+        <name>CMN_Ntf_MeetingScheduled_Body</name>
+    </customLabels>
+    <customLabels>
+        <label>[Meeting] {Title} {When}</label>
+        <name>CMN_Ntf_MeetingScheduled_Subject</name>
+    </customLabels>
+    <customLabels>
         <label>The numbering pattern has an unsupported token: {0}</label>
         <name>CMN_Numbering_BadPattern</name>
     </customLabels>
@@ -663,6 +769,10 @@ Open: {Url}</label>
     <customLabels>
         <label>A To-Do requires an assignee.</label>
         <name>CMN_Todo_AssigneeRequired</name>
+    </customLabels>
+    <customLabels>
+        <label>[Action] {0}</label>
+        <name>CMN_Todo_CMN_ACTION_ITEM</name>
     </customLabels>
     <customLabels>
         <label>[Approval] {0}</label>
