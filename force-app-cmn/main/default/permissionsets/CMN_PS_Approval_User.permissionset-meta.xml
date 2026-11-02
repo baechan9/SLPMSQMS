@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <classAccesses>
+        <apexClass>CMN_ApprovalController</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
     <description>결재 요청·단계 조회(상신·처리는 서비스가 시스템 모드로), 결재선 템플릿 조회·개인 템플릿 작성(본인만 — OWD Private, 시스템 템플릿은 조건 공유 읽기), Role 배정 조회, 결재 탭(CMN-00-APV-001·002). 사내 페르소나 PSG 전체</description>
     <fieldPermissions>
         <editable>false</editable>
@@ -225,6 +229,10 @@
     </objectPermissions>
     <tabSettings>
         <tab>CMN_ApprovalRequest__c</tab>
+        <visibility>Visible</visibility>
+    </tabSettings>
+    <tabSettings>
+        <tab>CMN_ApprovalMonitor</tab>
         <visibility>Visible</visibility>
     </tabSettings>
 </PermissionSet>

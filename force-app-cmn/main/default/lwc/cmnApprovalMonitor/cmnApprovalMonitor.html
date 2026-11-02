@@ -1,0 +1,96 @@
+<template>
+  <lightning-card title={labels.title} icon-name="standard:approval">
+    <div class="slds-p-horizontal_small">
+      <lightning-tabset active-tab-value={view}>
+        <lightning-tab
+          label={labels.submitted}
+          value="SUBMITTED"
+          onactive={handleView}
+          data-id="tab-submitted"
+        ></lightning-tab>
+        <lightning-tab
+          label={labels.acted}
+          value="ACTED"
+          onactive={handleView}
+          data-id="tab-acted"
+        ></lightning-tab>
+        <lightning-tab
+          label={labels.inProgress}
+          value="IN_PROGRESS"
+          onactive={handleView}
+          data-id="tab-progress"
+        ></lightning-tab>
+      </lightning-tabset>
+      <div
+        class="slds-grid slds-wrap slds-gutters_x-small slds-grid_vertical-align-end"
+      >
+        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-4">
+          <lightning-combobox
+            label={labels.typeFilter}
+            value={typeCode}
+            options={typeOptions}
+            onchange={handleType}
+            data-id="type"
+          ></lightning-combobox>
+        </div>
+        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-4">
+          <lightning-record-picker
+            label={labels.plant}
+            object-api-name="CMN_Plant__c"
+            onchange={handlePlant}
+            data-id="plant"
+          ></lightning-record-picker>
+        </div>
+        <div class="slds-col slds-size_1-of-2 slds-medium-size_1-of-6">
+          <lightning-input
+            type="date"
+            label={labels.from}
+            value={fromDate}
+            onchange={handleFrom}
+            data-id="from"
+          ></lightning-input>
+        </div>
+        <div class="slds-col slds-size_1-of-2 slds-medium-size_1-of-6">
+          <lightning-input
+            type="date"
+            label={labels.to}
+            value={toDate}
+            onchange={handleTo}
+            data-id="to"
+          ></lightning-input>
+        </div>
+        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-6">
+          <lightning-button
+            label={labels.search}
+            onclick={handleSearch}
+            data-id="search"
+          ></lightning-button>
+        </div>
+      </div>
+      <div class="slds-m-top_small slds-is-relative">
+        <template lwc:if={isLoading}>
+          <lightning-spinner
+            alternative-text={labels.loading}
+            size="small"
+          ></lightning-spinner>
+        </template>
+        <template lwc:if={errorMessage}>
+          <p class="slds-text-color_error" role="alert">{errorMessage}</p>
+        </template>
+        <template lwc:elseif={isEmpty}>
+          <p class="slds-text-color_weak" data-id="empty">{labels.empty}</p>
+        </template>
+        <template lwc:elseif={hasRows}>
+          <lightning-datatable
+            key-field="id"
+            data={rows}
+            columns={columns}
+            hide-checkbox-column
+            onrowaction={handleRowAction}
+            data-id="table"
+          ></lightning-datatable>
+        </template>
+      </div>
+    </div>
+  </lightning-card>
+</template>

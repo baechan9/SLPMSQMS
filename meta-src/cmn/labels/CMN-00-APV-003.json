@@ -1,0 +1,506 @@
+{
+  "wi": "CMN-00-APV-003",
+  "package": "force-app-cmn",
+  "labels": [
+    {
+      "name": "CMN_Approval_DelegatedActor",
+      "category": "CMN",
+      "description": "대결 처리자 표시",
+      "value": {
+        "ko": "{0}(대결: {1})",
+        "en_US": "{0} (on behalf of {1})",
+        "zh_CN": "{0}(代理: {1})"
+      }
+    },
+    {
+      "name": "CMN_ApprovalLine_Title",
+      "category": "CMN",
+      "description": "결재선 카드",
+      "value": {
+        "ko": "결재선",
+        "en_US": "Approval Line",
+        "zh_CN": "审批线"
+      }
+    },
+    {
+      "name": "CMN_ApprovalLine_Step",
+      "category": "CMN",
+      "description": "단계 열",
+      "value": {
+        "ko": "단계",
+        "en_US": "Step",
+        "zh_CN": "步骤"
+      }
+    },
+    {
+      "name": "CMN_ApprovalLine_Type",
+      "category": "CMN",
+      "description": "구분 열",
+      "value": {
+        "ko": "구분",
+        "en_US": "Type",
+        "zh_CN": "类型"
+      }
+    },
+    {
+      "name": "CMN_ApprovalLine_Approver",
+      "category": "CMN",
+      "description": "결재자 열",
+      "value": {
+        "ko": "결재자",
+        "en_US": "Approver",
+        "zh_CN": "审批人"
+      }
+    },
+    {
+      "name": "CMN_ApprovalLine_Mandatory",
+      "category": "CMN",
+      "description": "필수 표시",
+      "value": {
+        "ko": "필수",
+        "en_US": "Required",
+        "zh_CN": "必需"
+      }
+    },
+    {
+      "name": "CMN_ApprovalLine_Add",
+      "category": "CMN",
+      "description": "결재자 추가",
+      "value": {
+        "ko": "결재자 추가",
+        "en_US": "Add Approver",
+        "zh_CN": "添加审批人"
+      }
+    },
+    {
+      "name": "CMN_ApprovalLine_Search",
+      "category": "CMN",
+      "description": "결재자 검색",
+      "value": {
+        "ko": "이름·사번·부서명으로 검색",
+        "en_US": "Search by name, employee no., or department",
+        "zh_CN": "按姓名、工号或部门搜索"
+      }
+    },
+    {
+      "name": "CMN_ApprovalLine_Remove",
+      "category": "CMN",
+      "description": "단계 삭제",
+      "value": {
+        "ko": "삭제",
+        "en_US": "Remove",
+        "zh_CN": "删除"
+      }
+    },
+    {
+      "name": "CMN_ApprovalLine_Comment",
+      "category": "CMN",
+      "description": "상신 의견",
+      "value": {
+        "ko": "상신 의견",
+        "en_US": "Comment",
+        "zh_CN": "提交意见"
+      }
+    },
+    {
+      "name": "CMN_ApprovalLine_Submit",
+      "category": "CMN",
+      "description": "상신 버튼",
+      "value": {
+        "ko": "상신",
+        "en_US": "Submit",
+        "zh_CN": "提交"
+      }
+    },
+    {
+      "name": "CMN_ApprovalLine_Recall",
+      "category": "CMN",
+      "description": "회수 버튼",
+      "value": {
+        "ko": "회수",
+        "en_US": "Recall",
+        "zh_CN": "撤回"
+      }
+    },
+    {
+      "name": "CMN_ApprovalLine_Submitted",
+      "category": "CMN",
+      "description": "상신 완료",
+      "value": {
+        "ko": "결재를 상신했습니다.",
+        "en_US": "Submitted for approval.",
+        "zh_CN": "已提交审批。"
+      }
+    },
+    {
+      "name": "CMN_ApprovalLine_Recalled",
+      "category": "CMN",
+      "description": "회수 완료",
+      "value": {
+        "ko": "결재를 회수했습니다.",
+        "en_US": "Approval recalled.",
+        "zh_CN": "已撤回审批。"
+      }
+    },
+    {
+      "name": "CMN_ApprovalLine_LoadPersonal",
+      "category": "CMN",
+      "description": "개인 결재선 불러오기",
+      "value": {
+        "ko": "내 결재선 불러오기",
+        "en_US": "Load My Line",
+        "zh_CN": "加载我的审批线"
+      }
+    },
+    {
+      "name": "CMN_ApprovalLine_SavePersonal",
+      "category": "CMN",
+      "description": "개인 결재선 저장",
+      "value": {
+        "ko": "내 결재선으로 저장",
+        "en_US": "Save as My Line",
+        "zh_CN": "保存为我的审批线"
+      }
+    },
+    {
+      "name": "CMN_ApprovalLine_PersonalName",
+      "category": "CMN",
+      "description": "개인 결재선 이름",
+      "value": {
+        "ko": "결재선 이름",
+        "en_US": "Line Name",
+        "zh_CN": "审批线名称"
+      }
+    },
+    {
+      "name": "CMN_ApprovalLine_Saved",
+      "category": "CMN",
+      "description": "저장 완료",
+      "value": {
+        "ko": "저장했습니다.",
+        "en_US": "Saved.",
+        "zh_CN": "已保存。"
+      }
+    },
+    {
+      "name": "CMN_ApprovalLine_Empty",
+      "category": "CMN",
+      "description": "결재선 없음",
+      "value": {
+        "ko": "결재선이 없습니다. 결재자를 추가하세요.",
+        "en_US": "No approval line. Add approvers.",
+        "zh_CN": "暂无审批线,请添加审批人。"
+      }
+    },
+    {
+      "name": "CMN_ApprovalLine_InProgress",
+      "category": "CMN",
+      "description": "진행 중",
+      "value": {
+        "ko": "결재 진행 중",
+        "en_US": "Approval in progress",
+        "zh_CN": "审批进行中"
+      }
+    },
+    {
+      "name": "CMN_ApprovalAction_Title",
+      "category": "CMN",
+      "description": "처리 카드",
+      "value": {
+        "ko": "결재 처리",
+        "en_US": "Approval",
+        "zh_CN": "审批处理"
+      }
+    },
+    {
+      "name": "CMN_ApprovalAction_Approve",
+      "category": "CMN",
+      "description": "승인 버튼",
+      "value": {
+        "ko": "승인",
+        "en_US": "Approve",
+        "zh_CN": "批准"
+      }
+    },
+    {
+      "name": "CMN_ApprovalAction_Reject",
+      "category": "CMN",
+      "description": "반려 버튼",
+      "value": {
+        "ko": "반려",
+        "en_US": "Reject",
+        "zh_CN": "驳回"
+      }
+    },
+    {
+      "name": "CMN_ApprovalAction_Comment",
+      "category": "CMN",
+      "description": "의견 입력",
+      "value": {
+        "ko": "의견",
+        "en_US": "Comment",
+        "zh_CN": "意见"
+      }
+    },
+    {
+      "name": "CMN_ApprovalAction_RejectNeedsComment",
+      "category": "CMN",
+      "description": "반려 의견 필수 안내",
+      "value": {
+        "ko": "반려하려면 의견을 입력하세요.",
+        "en_US": "Enter a comment to reject.",
+        "zh_CN": "驳回前请输入意见。"
+      }
+    },
+    {
+      "name": "CMN_ApprovalAction_Delegated",
+      "category": "CMN",
+      "description": "대결 안내",
+      "value": {
+        "ko": "대결: {0}님 대신 처리합니다.",
+        "en_US": "Acting on behalf of {0}.",
+        "zh_CN": "代理: 代 {0} 处理。"
+      }
+    },
+    {
+      "name": "CMN_ApprovalAction_OpenTarget",
+      "category": "CMN",
+      "description": "대상 열기",
+      "value": {
+        "ko": "결재 대상 열기",
+        "en_US": "Open Record",
+        "zh_CN": "打开审批对象"
+      }
+    },
+    {
+      "name": "CMN_ApprovalAction_Done",
+      "category": "CMN",
+      "description": "처리 완료",
+      "value": {
+        "ko": "처리했습니다.",
+        "en_US": "Done.",
+        "zh_CN": "已处理。"
+      }
+    },
+    {
+      "name": "CMN_ApprovalAction_NotMyTurn",
+      "category": "CMN",
+      "description": "처리 차례 아님",
+      "value": {
+        "ko": "지금 처리할 결재 단계가 없습니다.",
+        "en_US": "There is no step for you to act on now.",
+        "zh_CN": "当前没有需要您处理的步骤。"
+      }
+    },
+    {
+      "name": "CMN_ApprovalAction_Summary",
+      "category": "CMN",
+      "description": "스냅숏 제목",
+      "value": {
+        "ko": "상신 시점 내용",
+        "en_US": "Submitted Snapshot",
+        "zh_CN": "提交时内容"
+      }
+    },
+    {
+      "name": "CMN_ApprovalHistory_Title",
+      "category": "CMN",
+      "description": "이력 카드",
+      "value": {
+        "ko": "결재 이력",
+        "en_US": "Approval History",
+        "zh_CN": "审批历史"
+      }
+    },
+    {
+      "name": "CMN_ApprovalHistory_Version",
+      "category": "CMN",
+      "description": "버전 표시",
+      "value": {
+        "ko": "{0}차",
+        "en_US": "Version {0}",
+        "zh_CN": "第 {0} 次"
+      }
+    },
+    {
+      "name": "CMN_ApprovalHistory_Empty",
+      "category": "CMN",
+      "description": "이력 없음",
+      "value": {
+        "ko": "결재 이력이 없습니다.",
+        "en_US": "No approval history.",
+        "zh_CN": "暂无审批历史。"
+      }
+    },
+    {
+      "name": "CMN_ApprovalMonitor_Title",
+      "category": "CMN",
+      "description": "모니터 카드",
+      "value": {
+        "ko": "결재 현황",
+        "en_US": "Approvals",
+        "zh_CN": "审批状态"
+      }
+    },
+    {
+      "name": "CMN_ApprovalMonitor_Submitted",
+      "category": "CMN",
+      "description": "내가 상신 탭",
+      "value": {
+        "ko": "내가 상신",
+        "en_US": "Submitted by Me",
+        "zh_CN": "我提交的"
+      }
+    },
+    {
+      "name": "CMN_ApprovalMonitor_Acted",
+      "category": "CMN",
+      "description": "내가 처리 탭",
+      "value": {
+        "ko": "내가 처리",
+        "en_US": "Acted by Me",
+        "zh_CN": "我处理的"
+      }
+    },
+    {
+      "name": "CMN_ApprovalMonitor_InProgress",
+      "category": "CMN",
+      "description": "진행 중 탭",
+      "value": {
+        "ko": "진행 중",
+        "en_US": "In Progress",
+        "zh_CN": "进行中"
+      }
+    },
+    {
+      "name": "CMN_ApprovalMonitor_TypeFilter",
+      "category": "CMN",
+      "description": "유형 필터",
+      "value": {
+        "ko": "결재 유형",
+        "en_US": "Approval Type",
+        "zh_CN": "审批类型"
+      }
+    },
+    {
+      "name": "CMN_ApprovalMonitor_From",
+      "category": "CMN",
+      "description": "시작일",
+      "value": {
+        "ko": "상신일부터",
+        "en_US": "Submitted From",
+        "zh_CN": "提交起始日"
+      }
+    },
+    {
+      "name": "CMN_ApprovalMonitor_To",
+      "category": "CMN",
+      "description": "종료일",
+      "value": {
+        "ko": "상신일까지",
+        "en_US": "Submitted To",
+        "zh_CN": "提交截止日"
+      }
+    },
+    {
+      "name": "CMN_ApprovalMonitor_Search",
+      "category": "CMN",
+      "description": "조회 버튼",
+      "value": {
+        "ko": "조회",
+        "en_US": "Search",
+        "zh_CN": "查询"
+      }
+    },
+    {
+      "name": "CMN_ApprovalMonitor_Empty",
+      "category": "CMN",
+      "description": "목록 없음",
+      "value": {
+        "ko": "결재가 없습니다.",
+        "en_US": "No approvals.",
+        "zh_CN": "暂无审批。"
+      }
+    },
+    {
+      "name": "CMN_ApprovalMonitor_RecordNo",
+      "category": "CMN",
+      "description": "결재 번호 열",
+      "value": {
+        "ko": "결재 번호",
+        "en_US": "Approval No.",
+        "zh_CN": "审批编号"
+      }
+    },
+    {
+      "name": "CMN_ApprovalMonitor_TitleCol",
+      "category": "CMN",
+      "description": "제목 열",
+      "value": {
+        "ko": "제목",
+        "en_US": "Title",
+        "zh_CN": "标题"
+      }
+    },
+    {
+      "name": "CMN_ApprovalMonitor_Plant",
+      "category": "CMN",
+      "description": "공장 열",
+      "value": {
+        "ko": "공장",
+        "en_US": "Plant",
+        "zh_CN": "工厂"
+      }
+    },
+    {
+      "name": "CMN_ApprovalMonitor_Status",
+      "category": "CMN",
+      "description": "상태 열",
+      "value": {
+        "ko": "상태",
+        "en_US": "Status",
+        "zh_CN": "状态"
+      }
+    },
+    {
+      "name": "CMN_ApprovalMonitor_Drafter",
+      "category": "CMN",
+      "description": "기안자 열",
+      "value": {
+        "ko": "기안자",
+        "en_US": "Drafter",
+        "zh_CN": "起草人"
+      }
+    },
+    {
+      "name": "CMN_ApprovalMonitor_SubmittedAt",
+      "category": "CMN",
+      "description": "상신일 열",
+      "value": {
+        "ko": "상신일",
+        "en_US": "Submitted",
+        "zh_CN": "提交日"
+      }
+    },
+    {
+      "name": "CMN_ApprovalMonitor_Approvers",
+      "category": "CMN",
+      "description": "대기자 열",
+      "value": {
+        "ko": "결재 대기",
+        "en_US": "Waiting On",
+        "zh_CN": "待审批人"
+      }
+    },
+    {
+      "name": "CMN_ApprovalMonitor_PendingDays",
+      "category": "CMN",
+      "description": "체류일 열",
+      "value": {
+        "ko": "체류일",
+        "en_US": "Days Waiting",
+        "zh_CN": "等待天数"
+      }
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_ApprovalAction_RejectNeedsComment</fullName>
+    <categories>CMN</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>반려 의견 필수 안내</shortDescription>
+    <value>반려하려면 의견을 입력하세요.</value>
+</CustomLabel>

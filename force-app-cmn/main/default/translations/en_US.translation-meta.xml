@@ -17,6 +17,202 @@
         <name>CMN_Action_OwnerRequired</name>
     </customLabels>
     <customLabels>
+        <label>Approve</label>
+        <name>CMN_ApprovalAction_Approve</name>
+    </customLabels>
+    <customLabels>
+        <label>Comment</label>
+        <name>CMN_ApprovalAction_Comment</name>
+    </customLabels>
+    <customLabels>
+        <label>Acting on behalf of {0}.</label>
+        <name>CMN_ApprovalAction_Delegated</name>
+    </customLabels>
+    <customLabels>
+        <label>Done.</label>
+        <name>CMN_ApprovalAction_Done</name>
+    </customLabels>
+    <customLabels>
+        <label>There is no step for you to act on now.</label>
+        <name>CMN_ApprovalAction_NotMyTurn</name>
+    </customLabels>
+    <customLabels>
+        <label>Open Record</label>
+        <name>CMN_ApprovalAction_OpenTarget</name>
+    </customLabels>
+    <customLabels>
+        <label>Reject</label>
+        <name>CMN_ApprovalAction_Reject</name>
+    </customLabels>
+    <customLabels>
+        <label>Enter a comment to reject.</label>
+        <name>CMN_ApprovalAction_RejectNeedsComment</name>
+    </customLabels>
+    <customLabels>
+        <label>Submitted Snapshot</label>
+        <name>CMN_ApprovalAction_Summary</name>
+    </customLabels>
+    <customLabels>
+        <label>Approval</label>
+        <name>CMN_ApprovalAction_Title</name>
+    </customLabels>
+    <customLabels>
+        <label>No approval history.</label>
+        <name>CMN_ApprovalHistory_Empty</name>
+    </customLabels>
+    <customLabels>
+        <label>Approval History</label>
+        <name>CMN_ApprovalHistory_Title</name>
+    </customLabels>
+    <customLabels>
+        <label>Version {0}</label>
+        <name>CMN_ApprovalHistory_Version</name>
+    </customLabels>
+    <customLabels>
+        <label>Add Approver</label>
+        <name>CMN_ApprovalLine_Add</name>
+    </customLabels>
+    <customLabels>
+        <label>Approver</label>
+        <name>CMN_ApprovalLine_Approver</name>
+    </customLabels>
+    <customLabels>
+        <label>Comment</label>
+        <name>CMN_ApprovalLine_Comment</name>
+    </customLabels>
+    <customLabels>
+        <label>No approval line. Add approvers.</label>
+        <name>CMN_ApprovalLine_Empty</name>
+    </customLabels>
+    <customLabels>
+        <label>Approval in progress</label>
+        <name>CMN_ApprovalLine_InProgress</name>
+    </customLabels>
+    <customLabels>
+        <label>Load My Line</label>
+        <name>CMN_ApprovalLine_LoadPersonal</name>
+    </customLabels>
+    <customLabels>
+        <label>Required</label>
+        <name>CMN_ApprovalLine_Mandatory</name>
+    </customLabels>
+    <customLabels>
+        <label>Line Name</label>
+        <name>CMN_ApprovalLine_PersonalName</name>
+    </customLabels>
+    <customLabels>
+        <label>Recall</label>
+        <name>CMN_ApprovalLine_Recall</name>
+    </customLabels>
+    <customLabels>
+        <label>Approval recalled.</label>
+        <name>CMN_ApprovalLine_Recalled</name>
+    </customLabels>
+    <customLabels>
+        <label>Remove</label>
+        <name>CMN_ApprovalLine_Remove</name>
+    </customLabels>
+    <customLabels>
+        <label>Save as My Line</label>
+        <name>CMN_ApprovalLine_SavePersonal</name>
+    </customLabels>
+    <customLabels>
+        <label>Saved.</label>
+        <name>CMN_ApprovalLine_Saved</name>
+    </customLabels>
+    <customLabels>
+        <label>Search by name, employee no., or department</label>
+        <name>CMN_ApprovalLine_Search</name>
+    </customLabels>
+    <customLabels>
+        <label>Step</label>
+        <name>CMN_ApprovalLine_Step</name>
+    </customLabels>
+    <customLabels>
+        <label>Submit</label>
+        <name>CMN_ApprovalLine_Submit</name>
+    </customLabels>
+    <customLabels>
+        <label>Submitted for approval.</label>
+        <name>CMN_ApprovalLine_Submitted</name>
+    </customLabels>
+    <customLabels>
+        <label>Approval Line</label>
+        <name>CMN_ApprovalLine_Title</name>
+    </customLabels>
+    <customLabels>
+        <label>Type</label>
+        <name>CMN_ApprovalLine_Type</name>
+    </customLabels>
+    <customLabels>
+        <label>Acted by Me</label>
+        <name>CMN_ApprovalMonitor_Acted</name>
+    </customLabels>
+    <customLabels>
+        <label>Waiting On</label>
+        <name>CMN_ApprovalMonitor_Approvers</name>
+    </customLabels>
+    <customLabels>
+        <label>Drafter</label>
+        <name>CMN_ApprovalMonitor_Drafter</name>
+    </customLabels>
+    <customLabels>
+        <label>No approvals.</label>
+        <name>CMN_ApprovalMonitor_Empty</name>
+    </customLabels>
+    <customLabels>
+        <label>Submitted From</label>
+        <name>CMN_ApprovalMonitor_From</name>
+    </customLabels>
+    <customLabels>
+        <label>In Progress</label>
+        <name>CMN_ApprovalMonitor_InProgress</name>
+    </customLabels>
+    <customLabels>
+        <label>Days Waiting</label>
+        <name>CMN_ApprovalMonitor_PendingDays</name>
+    </customLabels>
+    <customLabels>
+        <label>Plant</label>
+        <name>CMN_ApprovalMonitor_Plant</name>
+    </customLabels>
+    <customLabels>
+        <label>Approval No.</label>
+        <name>CMN_ApprovalMonitor_RecordNo</name>
+    </customLabels>
+    <customLabels>
+        <label>Search</label>
+        <name>CMN_ApprovalMonitor_Search</name>
+    </customLabels>
+    <customLabels>
+        <label>Status</label>
+        <name>CMN_ApprovalMonitor_Status</name>
+    </customLabels>
+    <customLabels>
+        <label>Submitted by Me</label>
+        <name>CMN_ApprovalMonitor_Submitted</name>
+    </customLabels>
+    <customLabels>
+        <label>Submitted</label>
+        <name>CMN_ApprovalMonitor_SubmittedAt</name>
+    </customLabels>
+    <customLabels>
+        <label>Approvals</label>
+        <name>CMN_ApprovalMonitor_Title</name>
+    </customLabels>
+    <customLabels>
+        <label>Title</label>
+        <name>CMN_ApprovalMonitor_TitleCol</name>
+    </customLabels>
+    <customLabels>
+        <label>Submitted To</label>
+        <name>CMN_ApprovalMonitor_To</name>
+    </customLabels>
+    <customLabels>
+        <label>Approval Type</label>
+        <name>CMN_ApprovalMonitor_TypeFilter</name>
+    </customLabels>
+    <customLabels>
         <label>An approval is already in progress for this record.</label>
         <name>CMN_Approval_AlreadyInProgress</name>
     </customLabels>
@@ -31,6 +227,10 @@
     <customLabels>
         <label>Enter a reason for rejection.</label>
         <name>CMN_Approval_CommentRequired</name>
+    </customLabels>
+    <customLabels>
+        <label>{0} (on behalf of {1})</label>
+        <name>CMN_Approval_DelegatedActor</name>
     </customLabels>
     <customLabels>
         <label>The same role assignment already exists: {0}</label>
@@ -806,4 +1006,8 @@ Open: {Url}</label>
         <label>[Approval] {0}</label>
         <name>CMN_Todo_CMN_APPROVAL</name>
     </customLabels>
+    <customTabs>
+        <label>Approvals</label>
+        <name>CMN_ApprovalMonitor</name>
+    </customTabs>
 </Translations>

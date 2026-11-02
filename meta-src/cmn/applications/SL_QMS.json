@@ -9,6 +9,7 @@
     "tabs": [
       "standard-home",
       "CMN_Todo__c",
+      "CMN_ApprovalMonitor",
       "CMN_Characteristic__c",
       "CMN_ApprovalRequest__c"
     ],

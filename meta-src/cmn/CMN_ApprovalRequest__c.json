@@ -22,6 +22,7 @@
   },
   "sharingModel": "Private",
   "enableHistory": true,
+  "recordPage": "CMN_ApprovalRequest_Record",
   "tab": {
     "motif": "Custom18: Form"
   },

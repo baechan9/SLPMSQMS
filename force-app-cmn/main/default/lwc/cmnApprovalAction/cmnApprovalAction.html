@@ -1,0 +1,94 @@
+<template>
+  <lightning-card title={labels.title} icon-name="standard:approval">
+    <div class="slds-p-horizontal_small">
+      <template lwc:if={isLoading}>
+        <div class="slds-is-relative slds-p-around_medium">
+          <lightning-spinner
+            alternative-text={labels.loading}
+            size="small"
+          ></lightning-spinner>
+        </div>
+      </template>
+      <template lwc:elseif={errorMessage}>
+        <p class="slds-text-color_error" role="alert">{errorMessage}</p>
+      </template>
+      <template lwc:elseif={view}>
+        <p class="slds-text-title_bold">{view.recordNo} {view.title}</p>
+        <p class="slds-text-body_small slds-text-color_weak">
+          {view.drafterName} · {view.status}
+        </p>
+        <template lwc:if={view.submitComment}>
+          <p class="slds-m-top_xx-small">{view.submitComment}</p>
+        </template>
+        <lightning-button
+          variant="base"
+          label={labels.openTarget}
+          onclick={openTarget}
+          data-id="target"
+        ></lightning-button>
+        <template lwc:if={hasSummary}>
+          <h3 class="slds-text-heading_small slds-m-top_small">
+            {labels.summary}
+          </h3>
+          <dl class="slds-list_horizontal slds-wrap" data-id="summary">
+            <template for:each={view.summary} for:item="f">
+              <dt
+                key={f.label}
+                class="slds-item_label slds-text-color_weak slds-truncate"
+              >
+                {f.label}
+              </dt>
+              <dd key={f.label} class="slds-item_detail slds-truncate">
+                {f.value}
+              </dd>
+            </template>
+          </dl>
+        </template>
+        <template lwc:if={canAct}>
+          <template lwc:if={delegatedText}>
+            <p
+              class="slds-m-top_small slds-text-color_weak"
+              data-id="delegated"
+            >
+              {delegatedText}
+            </p>
+          </template>
+          <lightning-textarea
+            class="slds-m-top_small"
+            label={labels.comment}
+            value={comment}
+            max-length="4000"
+            onchange={handleComment}
+            data-id="comment"
+          ></lightning-textarea>
+          <div class="slds-m-top_x-small">
+            <lightning-button
+              variant="brand"
+              label={labels.approve}
+              disabled={isSaving}
+              onclick={handleApprove}
+              data-id="approve"
+            ></lightning-button>
+            <lightning-button
+              class="slds-m-left_x-small"
+              variant="destructive"
+              label={labels.reject}
+              disabled={rejectDisabled}
+              title={labels.rejectNeeds}
+              onclick={handleReject}
+              data-id="reject"
+            ></lightning-button>
+          </div>
+        </template>
+        <template lwc:else>
+          <p
+            class="slds-m-top_small slds-text-color_weak"
+            data-id="not-my-turn"
+          >
+            {labels.notMyTurn}
+          </p>
+        </template>
+      </template>
+    </div>
+  </lightning-card>
+</template>

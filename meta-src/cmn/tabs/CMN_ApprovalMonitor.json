@@ -1,0 +1,15 @@
+{
+  "pageTab": {
+    "wi": "CMN-00-APV-003",
+    "name": "CMN_ApprovalMonitor",
+    "package": "force-app-cmn",
+    "flexiPage": "CMN_ApprovalMonitor",
+    "label": {
+      "ko": "결재 현황",
+      "en_US": "Approvals",
+      "zh_CN": "审批状态"
+    },
+    "motif": "Custom18: Form",
+    "description": "결재 모니터(APV-003): 내가 상신·내가 처리·진행 중"
+  }
+}

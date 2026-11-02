@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomTab xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>결재 모니터(APV-003): 내가 상신·내가 처리·진행 중</description>
+    <flexiPage>CMN_ApprovalMonitor</flexiPage>
+    <label>결재 현황</label>
+    <motif>Custom18: Form</motif>
+</CustomTab>

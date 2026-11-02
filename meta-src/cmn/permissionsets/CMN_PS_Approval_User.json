@@ -12,6 +12,7 @@
       "CMN_ApprovalTemplateStep__c": "edit-delete",
       "CMN_RoleAssignment__c": "read"
     },
-    "tabs": ["CMN_ApprovalRequest__c"]
+    "tabs": ["CMN_ApprovalRequest__c", "CMN_ApprovalMonitor"],
+    "classes": ["CMN_ApprovalController"]
   }
 }

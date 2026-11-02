@@ -126,8 +126,13 @@ public with sharing class CMN_ApprovalLineResolver {
     return out;
   }
 
-  // ------------------------------------------------------------------ 내부
-  private static CMN_ApprovalTemplate__c templateFor(
+  /**
+   * @description 대상에 적용되는 시스템 템플릿(공장 템플릿 우선, 없으면 회사 기본 — BR-1). 결재선 화면의 편집 허용 표시에 쓴다.
+   * @param targetId 대상 레코드
+   * @param typeCode 결재 유형
+   * @return 템플릿(없으면 null)
+   */
+  public static CMN_ApprovalTemplate__c templateFor(
     Id targetId,
     String typeCode
   ) {
@@ -147,6 +152,8 @@ public with sharing class CMN_ApprovalLineResolver {
     }
     return companyDefault;
   }
+
+  // ------------------------------------------------------------------ 내부
 
   private static List<CMN_ApprovalStepSpec> expand(
     Id targetId,

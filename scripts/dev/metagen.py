@@ -211,6 +211,7 @@ def build_special(spec, base):
 
 label_trans = {lang: [] for lang in LANGS}
 app_trans = {lang: [] for lang in LANGS}
+tab_trans = {lang: [] for lang in LANGS}
 
 
 def build_psg(g):
@@ -233,6 +234,15 @@ def build_app(a):
         app_trans[lang].append({'label': lbl(a['label'], lang) or lbl(a['label']), 'name': a['name']})
 
 
+def build_page_tab(t):
+    """Lightning 앱 페이지(FlexiPage) 탭. FlexiPage 자체는 flexipages/에 직접 둔다(생성 대상 아님)."""
+    emit(f'{t["package"]}/main/default/tabs/{t["name"]}.tab-meta.xml', doc('CustomTab', [
+        ('description', t.get('description')), ('flexiPage', t['flexiPage']), ('label', lbl(t['label'])),
+        ('motif', t.get('motif', 'Custom57: Building'))]))
+    for lang in LANGS:
+        tab_trans[lang].append({'label': lbl(t['label'], lang) or lbl(t['label']), 'name': t['name']})
+
+
 def build_labels(spec):
     base = f'{spec["package"]}/main/default'
     for l in spec['labels']:
@@ -248,9 +258,11 @@ def build_translations():
     for lang in LANGS:
         apps = sorted(app_trans[lang], key=lambda d: d['name'])
         items = sorted(label_trans[lang], key=lambda d: d['name'])
-        if items or apps:
+        tabs = sorted(tab_trans[lang], key=lambda d: d['name'])
+        if items or apps or tabs:
             emit(f'force-app-cmn/main/default/translations/{lang}.translation-meta.xml',
-                 doc('Translations', [('customApplications', apps or None), ('customLabels', items or None)]))
+                 doc('Translations', [('customApplications', apps or None), ('customLabels', items or None),
+                                      ('customTabs', tabs or None)]))
 
 
 def build_object(spec):
@@ -265,7 +277,14 @@ def build_object(spec):
         build_special(spec, base)
         return
     if not std:
+        # recordPage: Lightning 레코드 페이지를 객체 기본 보기로 지정(데스크톱·모바일)
+        overrides = None
+        if spec.get('recordPage'):
+            overrides = [{'actionName': 'View', 'comment': None, 'content': spec['recordPage'],
+                          'formFactor': ff, 'skipRecordTypeSelect': False, 'type': 'Flexipage'}
+                         for ff in ('Large', 'Small')]
         body = [
+            ('actionOverrides', overrides),
             ('allowInChatterGroups', False),
             ('deploymentStatus', 'Deployed'),
             ('description', spec.get('description')),
@@ -506,6 +525,8 @@ def main():
             build_psg(d['permissionSetGroup'])
         elif 'application' in d:
             build_app(d['application'])
+        elif 'pageTab' in d:
+            build_page_tab(d['pageTab'])
     build_translations()
     stale = stale_files()
     if a.check:

@@ -53,6 +53,11 @@ if not any(o.get("alias") == alias or o.get("username") == alias for o in orgs):
     sys.exit(f"중단: {alias}는 Scratch Org가 아닙니다")
 ' "$ALIAS"
 
+# 예약 잡(결재 독촉 등)이 걸린 클래스도 다시 배포할 수 있게(Scratch 정의에도 있음, 기존 Org는 여기서 적용)
+if [ "$REUSE" -eq 1 ]; then
+  sf project deploy start --metadata-dir scripts/org/mdapi/deployment-settings -o "$ALIAS" --wait 10 >/dev/null
+fi
+
 step 2 "배포 확인(dry-run)"
 if has_metadata; then
   sf project deploy start --dry-run -o "$ALIAS" --wait 60 --ignore-conflicts

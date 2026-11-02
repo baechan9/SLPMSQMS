@@ -225,6 +225,25 @@ public with sharing class CMN_ApprovalService {
   }
 
   /**
+   * @description 상신 가능 여부(화면 상신 버튼, APV-003 BR-2). 유형·대상 불일치 또는 콜백 canSubmit의 거절 사유를 돌려준다.
+   * 실제 상신(submit)은 같은 판정을 서버에서 다시 한다.
+   * @param targetId 대상 레코드
+   * @param typeCode 결재 유형
+   * @return 거절 사유(상신 가능하면 null)
+   */
+  public static String submitRefusal(Id targetId, String typeCode) {
+    CMN_ApprovalType__mdt approvalType = typesOverride?.get(typeCode) ??
+      CMN_ApprovalType__mdt.getInstance(typeCode);
+    if (
+      approvalType == null ||
+      approvalType.TargetObject__c != String.valueOf(targetId.getSObjectType())
+    ) {
+      return Label.CMN_Approval_TargetMismatch;
+    }
+    return callbackFor(approvalType)?.canSubmit(targetId);
+  }
+
+  /**
    * @description 대상의 최신 차수 결재 상태.
    * @param targetId 대상 레코드
    * @return 상태(결재가 없으면 null)

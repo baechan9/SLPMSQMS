@@ -1,0 +1,133 @@
+<template>
+  <lightning-card title={labels.title} icon-name="standard:approval">
+    <div class="slds-p-horizontal_small">
+      <template lwc:if={isLoading}>
+        <div class="slds-is-relative slds-p-around_medium">
+          <lightning-spinner
+            alternative-text={labels.loading}
+            size="small"
+          ></lightning-spinner>
+        </div>
+      </template>
+      <template lwc:elseif={errorMessage}>
+        <p class="slds-text-color_error" role="alert">{errorMessage}</p>
+      </template>
+      <template lwc:else>
+        <template lwc:if={inProgress}>
+          <lightning-badge
+            label={labels.inProgress}
+            data-id="in-progress"
+          ></lightning-badge>
+        </template>
+        <template lwc:if={hasSteps}>
+          <ul class="slds-m-vertical_x-small">
+            <template for:each={rows} for:item="s">
+              <li
+                key={s.key}
+                class="slds-m-bottom_xx-small"
+                data-step={s.index}
+              >
+                <span class="slds-m-right_x-small">{s.stepNo}</span>
+                <span class="slds-m-right_x-small">{s.stepType}</span>
+                <span class="slds-m-right_x-small">{s.approverName}</span>
+                <template lwc:if={s.isMandatory}>
+                  <lightning-badge label={labels.mandatory}></lightning-badge>
+                </template>
+                <template lwc:if={s.canRemove}>
+                  <lightning-button-icon
+                    icon-name="utility:close"
+                    variant="bare"
+                    alternative-text={labels.remove}
+                    data-index={s.index}
+                    onclick={handleRemove}
+                  ></lightning-button-icon>
+                </template>
+              </li>
+            </template>
+          </ul>
+        </template>
+        <template lwc:else>
+          <p class="slds-text-color_weak" data-id="empty">{labels.empty}</p>
+        </template>
+
+        <template lwc:if={editable}>
+          <div
+            class="slds-box slds-box_x-small slds-m-bottom_x-small"
+            data-id="editor"
+          >
+            <lightning-combobox
+              label={labels.type}
+              options={typeOptions}
+              value={newType}
+              onchange={handleType}
+            ></lightning-combobox>
+            <lightning-input
+              type="search"
+              label={labels.add}
+              placeholder={labels.search}
+              value={searchTerm}
+              onchange={handleSearch}
+              data-id="search"
+            ></lightning-input>
+            <template for:each={hits} for:item="h">
+              <lightning-button
+                key={h.id}
+                variant="base"
+                label={h.name}
+                title={h.departmentName}
+                data-id={h.id}
+                onclick={handleAdd}
+              ></lightning-button>
+            </template>
+            <template lwc:if={hasPersonal}>
+              <lightning-combobox
+                label={labels.loadPersonal}
+                options={personalOptions}
+                onchange={handleLoadPersonal}
+                data-id="personal"
+              ></lightning-combobox>
+            </template>
+            <lightning-input
+              label={labels.personalName}
+              value={personalName}
+              max-length="80"
+              onchange={handlePersonalName}
+              data-id="personal-name"
+            ></lightning-input>
+            <lightning-button
+              variant="base"
+              label={labels.savePersonal}
+              onclick={handleSavePersonal}
+              data-id="save-personal"
+            ></lightning-button>
+          </div>
+        </template>
+
+        <lightning-textarea
+          label={labels.comment}
+          value={comment}
+          max-length="4000"
+          onchange={handleComment}
+        ></lightning-textarea>
+        <div class="slds-m-top_x-small">
+          <lightning-button
+            variant="brand"
+            label={labels.submit}
+            disabled={submitDisabled}
+            onclick={handleSubmit}
+            data-id="submit"
+          ></lightning-button>
+          <template lwc:if={view.canRecall}>
+            <lightning-button
+              class="slds-m-left_x-small"
+              label={labels.recall}
+              disabled={isSaving}
+              onclick={handleRecall}
+              data-id="recall"
+            ></lightning-button>
+          </template>
+        </div>
+      </template>
+    </div>
+  </lightning-card>
+</template>
