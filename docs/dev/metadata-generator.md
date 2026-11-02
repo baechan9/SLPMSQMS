@@ -23,7 +23,7 @@ scripts/dev/wi-check.sh <테스트 클래스>   # 생성·포맷·린트·분석
 | 위치 | 종류 | 핵심 키 |
 | --- | --- | --- |
 | `meta-src/{cmn,qms,pms}/<객체>.json` | 객체 | `object`, `package`, `kind`(object·mdt·event·setting), `label`, `plural`, `nameField`, `sharingModel`, `fields`, `recordTypes`, `validationRules`, `tab`, `records`(mdt) |
-| `meta-src/**/permissionsets/<이름>.json` | 권한 셋 | `permissionSet.objects`(read·edit·edit-delete·viewall·admin, 표준 객체 필드만 줄 때 fields-read·fields-edit), `tabs`, `classes`, `customPermissions`, `apps`, `readOnlyFields`, `allObjectFields`(true면 정의된 모든 객체·필드 편집 — `CMN_PS_DataMigration` 전용) |
+| `meta-src/**/permissionsets/<이름>.json` | 권한 셋 | `permissionSet.objects`(read·edit·edit-delete·viewall·admin, 표준 객체 필드만 줄 때 fields-read·fields-edit), `tabs`, `classes`, `customPermissions`, `apps`, `readOnlyFields`, `editableFields`(서비스 전용 필드 중 이 권한 셋에만 쓰기를 여는 필드, 예: 통합 사용자 외부 키), `allObjectFields`(true면 정의된 모든 객체·필드 편집 — `CMN_PS_DataMigration` 전용) |
 | `meta-src/**/labels/<WI>.json` | Custom Label | `labels[].name`, `value{ko,en_US,zh_CN}`, `category` |
 | `meta-src/**/permissionsetgroups/<이름>.json` | 권한 셋 그룹 | `permissionSetGroup.permissionSets`(기능 WI가 자기 PS 이름을 더한다) |
 | `meta-src/cmn/applications/<이름>.json` | Lightning 앱 | `application.label`(문자열 또는 언어별), `tabs`, `headerColor`. 앱 라벨 번역은 조직 번역 파일로 간다 |
