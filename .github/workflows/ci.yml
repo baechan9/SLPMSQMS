@@ -42,6 +42,8 @@ jobs:
           scripts/dev/sync-fixtures.sh --check
       - name: 한글 문자열 리터럴 0건(CMN-00-I18N-001 AC-4)
         run: python3 scripts/ci/check-korean-literals.py
+      - name: LWC 모바일 규칙(UX-001 BR-2)
+        run: python3 scripts/ci/check-lwc-mobile.py
       - run: npm run prettier:verify
       - run: npm run lint
       - run: npm run test:unit -- --coverage

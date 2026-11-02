@@ -4,6 +4,10 @@
         <apexClass>CMN_DocumentController</apexClass>
         <enabled>true</enabled>
     </classAccesses>
+    <classAccesses>
+        <apexClass>CMN_PhotoController</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
     <description>문서 등록·리비전 업로드·링크 등록(상태는 서비스만), 양식 조회(CMN-00-DOC-001). 사내 페르소나 PSG 전체</description>
     <fieldPermissions>
         <editable>false</editable>

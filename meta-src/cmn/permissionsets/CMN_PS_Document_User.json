@@ -10,6 +10,6 @@
       "CMN_DocumentRevision__c": "edit",
       "CMN_DocTemplate__c": "read"
     },
-    "classes": ["CMN_DocumentController"]
+    "classes": ["CMN_DocumentController", "CMN_PhotoController"]
   }
 }

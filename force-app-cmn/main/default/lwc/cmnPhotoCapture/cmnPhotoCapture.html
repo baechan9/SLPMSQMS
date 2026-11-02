@@ -1,0 +1,43 @@
+<template>
+  <div class="slds-form-element">
+    <span class="slds-form-element__label" id="photo-label"
+      >{labels.label}</span
+    >
+    <div class="slds-form-element__control">
+      <div class="slds-file-selector slds-file-selector_files">
+        <input
+          type="file"
+          class="slds-file-selector__input slds-assistive-text"
+          accept="image/*"
+          capture="environment"
+          multiple
+          id="photo-input"
+          aria-labelledby="photo-label"
+          disabled={isBusy}
+          onchange={handleFiles}
+          data-id="input"
+        />
+        <label class="slds-file-selector__body" for="photo-input">
+          <span
+            class="slds-file-selector__button slds-button slds-button_neutral"
+          >
+            <lightning-icon
+              icon-name="utility:photo"
+              size="x-small"
+              alternative-text={labels.label}
+            ></lightning-icon>
+            <span class="slds-m-left_x-small">{labels.label}</span>
+          </span>
+        </label>
+      </div>
+    </div>
+    <template lwc:if={isBusy}>
+      <div class="slds-is-relative slds-p-around_small">
+        <lightning-spinner
+          alternative-text={labels.processing}
+          size="small"
+        ></lightning-spinner>
+      </div>
+    </template>
+  </div>
+</template>

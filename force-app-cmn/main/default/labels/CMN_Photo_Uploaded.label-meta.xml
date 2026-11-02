@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_Photo_Uploaded</fullName>
+    <categories>CMN</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>사진 첨부 완료</shortDescription>
+    <value>사진 {0}장을 첨부했습니다.</value>
+</CustomLabel>

@@ -230,6 +230,9 @@ class Gen:
                         'MSA_CHART', 'LAB_RAW_DATA', 'LAB_IMAGE', 'LAB_EXTERNAL_REPORT', 'AUDIT_EVIDENCE_PACKAGE', 'AUDIT_PREP_DOC', 'FINDING_EVIDENCE',
                         'CUSTOMER_AUDIT_REPORT', 'CUSTOMER_AUDIT_RESPONSE', 'CERT_SL', 'CB_REPORT', 'CB_RESPONSE', 'MGMT_REVIEW_INPUT', 'IMP_DELIVERABLE']
         o, m = self.out, self.m
+        photo = {'a2': 'MULTI_FILE'}
+        DOC_ATTR = {'IQC_PHOTO': photo, 'NCR_PHOTO': photo, 'LIMIT_SAMPLE_PHOTO': photo, 'TEST_PHOTO': photo,
+                    'LIMIT_SAMPLE_CHECK_PHOTO': photo, 'LAB_IMAGE': photo, 'DESIGN_RECORD': {'a1': 'LINK_ONLY'}}
         groups = {
             'DEFECT_TYPE': (3, m['codes']['DEFECT_TYPE']), 'CAUSE_5M1E': (3, m['codes']['CAUSE_5M1E']),  # 3단계 운영(Vol.5 요청)
             'RESPONSIBILITY': (1, [{'code': c} for c in m['codes']['RESPONSIBILITY']]),
@@ -240,11 +243,13 @@ class Gen:
             'APPROVAL_ROLE': (1, [{'code': c} for c in ['QUALITY_MANAGER', 'PRODUCTION_MANAGER', 'PLANT_MANAGER', 'PURCHASING_MANAGER', 'DEV_MANAGER',
                                                         'QM_HEAD', 'LAB_RECEIVER', 'SUPPLIER_QUALITY', 'SQ_MANAGER', 'IQC_LEAD', 'PE_MANAGER',
                                                         'METROLOGY_LEAD', 'LAB_MANAGER', 'TRAINING_COORDINATOR', 'CQ_MANAGER', 'QMS_MANAGER', 'LELE_OWNER']]),
-            'DOC_CLASS': (2, [{'code': c} for c in ['TEST_REPORT', 'DVPR', '8D_REPORT', 'SUPPLIER_COA', 'IQC_PHOTO', 'NCR_PHOTO', 'NCR_NOTICE',
+            # DOC-001 분류 속성: Attribute1 LINK_ONLY(도면), Attribute2 MULTI_FILE(사진, 파일명 단위 문서), Attribute3 산출물 유형
+            'DOC_CLASS': (2, [dict({'code': c}, **DOC_ATTR.get(c, {})) for c in ['TEST_REPORT', 'DVPR', '8D_REPORT', 'SUPPLIER_COA', 'IQC_PHOTO', 'NCR_PHOTO', 'NCR_NOTICE',
                                                     'LAB_REPORT', 'CALIBRATION_CERT', 'CERT_SUPPLIER', 'LIMIT_SAMPLE_PHOTO', 'AUDIT_REPORT', 'AUDIT_EVIDENCE',
                                                     'FOURM_REQUEST', 'FOURM_EVIDENCE', 'PPAP_APPROVAL_NOTICE', 'MSA_REPORT', 'TRAINING_MATERIAL']
                                                    + DOC_CLASS_CR]
-                          + [{'code': 'PPAP', 'children': [{'code': e[1]} for e in C.PPAP_ELEMENTS] + [{'code': 'SUB_COMPONENT'}]}]),
+                          + [{'code': 'PPAP', 'children': [dict({'code': e[1]}, **DOC_ATTR.get(e[1], {})) for e in C.PPAP_ELEMENTS]
+                              + [{'code': 'SUB_COMPONENT'}]}]),
             'DEFECT_LOCATION': (1, [{'code': c} for c in ['LENS_INNER', 'LENS_OUTER', 'HOUSING', 'SEAL_LINE', 'CONNECTOR_AREA', 'BEZEL']]),
             'AI_EXCLUDE_REASON': (1, [{'code': c} for c in ['NOT_RELEVANT', 'ALREADY_REVIEWED', 'WEAK_EVIDENCE', 'NOT_APPLICABLE', 'OTHER']]),
             # 검토 반영(review-pack Vol.5 B2B-005, Vol.6c IAU-001): 그룹만 먼저 두고 QMS_PROCESS 값(책임 부서 속성)은 IAU WI가 채운다
@@ -285,7 +290,8 @@ class Gen:
                     path = f'{parent_path} > {label}' if parent_path else label
                     o.add(files[level - 1], {'ExternalKey__c': key, 'CodeGroup__r.GroupCode__c': grp, 'Code__c': code,
                                              'Parent__r.ExternalKey__c': parent_key, 'Level__c': level, 'Name': label,
-                                             'NameEn__c': code.replace('_', ' ').title(), 'SortOrder__c': i * 10, 'IsActive__c': 'true'})
+                                             'NameEn__c': code.replace('_', ' ').title(), 'SortOrder__c': i * 10, 'IsActive__c': 'true',
+                                             'Attribute1__c': n.get('a1'), 'Attribute2__c': n.get('a2'), 'Attribute3__c': n.get('a3')})
                     self.code_key.setdefault((grp, code), key)
                     self.code_name[key] = path
                     emit(n.get('children', []), level + 1, key, path)

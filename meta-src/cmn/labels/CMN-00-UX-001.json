@@ -1,0 +1,76 @@
+{
+  "wi": "CMN-00-UX-001",
+  "package": "force-app-cmn",
+  "labels": [
+    {
+      "name": "CMN_Photo_Label",
+      "category": "CMN",
+      "description": "사진 촬영·첨부 버튼",
+      "value": {
+        "ko": "사진 촬영·첨부",
+        "en_US": "Take or Attach Photos",
+        "zh_CN": "拍照/附加照片"
+      }
+    },
+    {
+      "name": "CMN_Photo_Uploaded",
+      "category": "CMN",
+      "description": "사진 첨부 완료",
+      "value": {
+        "ko": "사진 {0}장을 첨부했습니다.",
+        "en_US": "{0} photos attached.",
+        "zh_CN": "已附加 {0} 张照片。"
+      }
+    },
+    {
+      "name": "CMN_Photo_TooMany",
+      "category": "CMN",
+      "description": "사진 수 초과",
+      "value": {
+        "ko": "한 번에 최대 {0}장까지 올릴 수 있습니다.",
+        "en_US": "You can upload up to {0} photos at a time.",
+        "zh_CN": "一次最多上传 {0} 张照片。"
+      }
+    },
+    {
+      "name": "CMN_Photo_Processing",
+      "category": "CMN",
+      "description": "사진 처리 중",
+      "value": {
+        "ko": "사진을 줄여 올리는 중",
+        "en_US": "Resizing and uploading photos",
+        "zh_CN": "正在压缩并上传照片"
+      }
+    },
+    {
+      "name": "CMN_Barcode_Scan",
+      "category": "CMN",
+      "description": "스캔 버튼",
+      "value": {
+        "ko": "바코드 스캔",
+        "en_US": "Scan Barcode",
+        "zh_CN": "扫描条码"
+      }
+    },
+    {
+      "name": "CMN_Barcode_Manual",
+      "category": "CMN",
+      "description": "수동 입력 라벨",
+      "value": {
+        "ko": "코드 입력",
+        "en_US": "Enter Code",
+        "zh_CN": "输入代码"
+      }
+    },
+    {
+      "name": "CMN_Barcode_Failed",
+      "category": "CMN",
+      "description": "스캔 실패",
+      "value": {
+        "ko": "스캔하지 못했습니다. 코드를 직접 입력하세요.",
+        "en_US": "Scan failed. Enter the code manually.",
+        "zh_CN": "扫描失败,请手动输入代码。"
+      }
+    }
+  ]
+}

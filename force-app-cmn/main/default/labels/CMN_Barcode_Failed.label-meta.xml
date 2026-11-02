@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_Barcode_Failed</fullName>
+    <categories>CMN</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>스캔 실패</shortDescription>
+    <value>스캔하지 못했습니다. 코드를 직접 입력하세요.</value>
+</CustomLabel>

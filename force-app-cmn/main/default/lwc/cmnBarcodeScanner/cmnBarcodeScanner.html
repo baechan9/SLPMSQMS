@@ -1,0 +1,23 @@
+<template>
+  <template lwc:if={canScan}>
+    <lightning-button
+      label={labels.scan}
+      icon-name="utility:scan"
+      onclick={handleScan}
+      data-id="scan"
+    ></lightning-button>
+  </template>
+  <template lwc:else>
+    <lightning-input
+      label={label}
+      value={manualValue}
+      onchange={handleManual}
+      onblur={handleManualCommit}
+      onkeyup={handleKeyUp}
+      data-id="manual"
+    ></lightning-input>
+  </template>
+  <template lwc:if={errorMessage}>
+    <p class="slds-text-color_error" role="alert">{errorMessage}</p>
+  </template>
+</template>

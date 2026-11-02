@@ -423,7 +423,10 @@
           "Name": "외관",
           "NameEn__c": "Appearance",
           "SortOrder__c": 10,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DEFECT_TYPE/DIMENSION",
@@ -434,7 +437,10 @@
           "Name": "치수",
           "NameEn__c": "Dimension",
           "SortOrder__c": 20,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DEFECT_TYPE/FUNCTION",
@@ -445,7 +451,10 @@
           "Name": "기능",
           "NameEn__c": "Function",
           "SortOrder__c": 30,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DEFECT_TYPE/OPTICAL",
@@ -456,7 +465,10 @@
           "Name": "광학",
           "NameEn__c": "Optical",
           "SortOrder__c": 40,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DEFECT_TYPE/SEALING",
@@ -467,7 +479,10 @@
           "Name": "기밀",
           "NameEn__c": "Sealing",
           "SortOrder__c": 50,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DEFECT_TYPE/ELECTRICAL",
@@ -478,7 +493,10 @@
           "Name": "전기",
           "NameEn__c": "Electrical",
           "SortOrder__c": 60,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "CAUSE_5M1E/MAN",
@@ -489,7 +507,10 @@
           "Name": "사람",
           "NameEn__c": "Man",
           "SortOrder__c": 10,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "CAUSE_5M1E/MACHINE",
@@ -500,7 +521,10 @@
           "Name": "설비",
           "NameEn__c": "Machine",
           "SortOrder__c": 20,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "CAUSE_5M1E/MATERIAL",
@@ -511,7 +535,10 @@
           "Name": "자재",
           "NameEn__c": "Material",
           "SortOrder__c": 30,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "CAUSE_5M1E/METHOD",
@@ -522,7 +549,10 @@
           "Name": "방법",
           "NameEn__c": "Method",
           "SortOrder__c": 40,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "CAUSE_5M1E/MEASUREMENT",
@@ -533,7 +563,10 @@
           "Name": "측정",
           "NameEn__c": "Measurement",
           "SortOrder__c": 50,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "CAUSE_5M1E/ENVIRONMENT",
@@ -544,7 +577,10 @@
           "Name": "환경",
           "NameEn__c": "Environment",
           "SortOrder__c": 60,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "RESPONSIBILITY/INTERNAL_PROCESS",
@@ -555,7 +591,10 @@
           "Name": "INTERNAL_PROCESS",
           "NameEn__c": "Internal Process",
           "SortOrder__c": 10,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "RESPONSIBILITY/INTERNAL_DESIGN",
@@ -566,7 +605,10 @@
           "Name": "INTERNAL_DESIGN",
           "NameEn__c": "Internal Design",
           "SortOrder__c": 20,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "RESPONSIBILITY/SUPPLIER",
@@ -577,7 +619,10 @@
           "Name": "SUPPLIER",
           "NameEn__c": "Supplier",
           "SortOrder__c": 30,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "RESPONSIBILITY/LOGISTICS",
@@ -588,7 +633,10 @@
           "Name": "LOGISTICS",
           "NameEn__c": "Logistics",
           "SortOrder__c": 40,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "RESPONSIBILITY/CUSTOMER",
@@ -599,7 +647,10 @@
           "Name": "CUSTOMER",
           "NameEn__c": "Customer",
           "SortOrder__c": 50,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DISPOSITION/SCRAP",
@@ -610,7 +661,10 @@
           "Name": "SCRAP",
           "NameEn__c": "Scrap",
           "SortOrder__c": 10,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DISPOSITION/REWORK",
@@ -621,7 +675,10 @@
           "Name": "REWORK",
           "NameEn__c": "Rework",
           "SortOrder__c": 20,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DISPOSITION/SORT",
@@ -632,7 +689,10 @@
           "Name": "SORT",
           "NameEn__c": "Sort",
           "SortOrder__c": 30,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DISPOSITION/CONCESSION",
@@ -643,7 +703,10 @@
           "Name": "CONCESSION",
           "NameEn__c": "Concession",
           "SortOrder__c": 40,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DISPOSITION/RETURN",
@@ -654,7 +717,10 @@
           "Name": "RETURN",
           "NameEn__c": "Return",
           "SortOrder__c": 50,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DISPOSITION/USE_AS_IS_OK",
@@ -665,7 +731,10 @@
           "Name": "USE_AS_IS_OK",
           "NameEn__c": "Use As Is Ok",
           "SortOrder__c": 60,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "CHANGE_TYPE/MATERIAL",
@@ -676,7 +745,10 @@
           "Name": "자재",
           "NameEn__c": "Material",
           "SortOrder__c": 10,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "CHANGE_TYPE/MACHINE",
@@ -687,7 +759,10 @@
           "Name": "설비",
           "NameEn__c": "Machine",
           "SortOrder__c": 20,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "CHANGE_TYPE/METHOD",
@@ -698,7 +773,10 @@
           "Name": "방법",
           "NameEn__c": "Method",
           "SortOrder__c": 30,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "CHANGE_TYPE/MAN",
@@ -709,7 +787,10 @@
           "Name": "사람",
           "NameEn__c": "Man",
           "SortOrder__c": 40,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "CHANGE_TYPE/MEASUREMENT",
@@ -720,7 +801,10 @@
           "Name": "측정",
           "NameEn__c": "Measurement",
           "SortOrder__c": 50,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "CHANGE_TYPE/ENVIRONMENT",
@@ -731,7 +815,10 @@
           "Name": "환경",
           "NameEn__c": "Environment",
           "SortOrder__c": 60,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DEV_PHASE/P0",
@@ -742,7 +829,10 @@
           "Name": "기획(데모 가정)",
           "NameEn__c": "P0",
           "SortOrder__c": 10,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DEV_PHASE/P1",
@@ -753,7 +843,10 @@
           "Name": "설계",
           "NameEn__c": "P1",
           "SortOrder__c": 20,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DEV_PHASE/P2",
@@ -764,7 +857,10 @@
           "Name": "시작(Proto)",
           "NameEn__c": "P2",
           "SortOrder__c": 30,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DEV_PHASE/P3",
@@ -775,7 +871,10 @@
           "Name": "DV",
           "NameEn__c": "P3",
           "SortOrder__c": 40,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DEV_PHASE/P4",
@@ -786,7 +885,10 @@
           "Name": "PV",
           "NameEn__c": "P4",
           "SortOrder__c": 50,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DEV_PHASE/P5",
@@ -797,7 +899,10 @@
           "Name": "양산 준비(SOP)",
           "NameEn__c": "P5",
           "SortOrder__c": 60,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DEV_PHASE/P6",
@@ -808,7 +913,10 @@
           "Name": "양산",
           "NameEn__c": "P6",
           "SortOrder__c": 70,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DEV_ACTIVITY_TYPE/DESIGN",
@@ -819,7 +927,10 @@
           "Name": "설계",
           "NameEn__c": "Design",
           "SortOrder__c": 10,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DEV_ACTIVITY_TYPE/VERIFICATION",
@@ -830,7 +941,10 @@
           "Name": "검증",
           "NameEn__c": "Verification",
           "SortOrder__c": 20,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DEV_ACTIVITY_TYPE/TOOLING",
@@ -841,7 +955,10 @@
           "Name": "금형·설비",
           "NameEn__c": "Tooling",
           "SortOrder__c": 30,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DEV_ACTIVITY_TYPE/PROCESS",
@@ -852,7 +969,10 @@
           "Name": "공정 설계",
           "NameEn__c": "Process",
           "SortOrder__c": 40,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DEV_ACTIVITY_TYPE/SUPPLIER_DEV",
@@ -863,7 +983,10 @@
           "Name": "협력사 개발",
           "NameEn__c": "Supplier Dev",
           "SortOrder__c": 50,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DEV_ACTIVITY_TYPE/QUALITY_PLANNING",
@@ -874,7 +997,10 @@
           "Name": "품질 계획",
           "NameEn__c": "Quality Planning",
           "SortOrder__c": 60,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "APPROVAL_ROLE/QUALITY_MANAGER",
@@ -885,7 +1011,10 @@
           "Name": "QUALITY_MANAGER",
           "NameEn__c": "Quality Manager",
           "SortOrder__c": 10,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "APPROVAL_ROLE/PRODUCTION_MANAGER",
@@ -896,7 +1025,10 @@
           "Name": "PRODUCTION_MANAGER",
           "NameEn__c": "Production Manager",
           "SortOrder__c": 20,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "APPROVAL_ROLE/PLANT_MANAGER",
@@ -907,7 +1039,10 @@
           "Name": "PLANT_MANAGER",
           "NameEn__c": "Plant Manager",
           "SortOrder__c": 30,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "APPROVAL_ROLE/PURCHASING_MANAGER",
@@ -918,7 +1053,10 @@
           "Name": "PURCHASING_MANAGER",
           "NameEn__c": "Purchasing Manager",
           "SortOrder__c": 40,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "APPROVAL_ROLE/DEV_MANAGER",
@@ -929,7 +1067,10 @@
           "Name": "DEV_MANAGER",
           "NameEn__c": "Dev Manager",
           "SortOrder__c": 50,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "APPROVAL_ROLE/QM_HEAD",
@@ -940,7 +1081,10 @@
           "Name": "QM_HEAD",
           "NameEn__c": "Qm Head",
           "SortOrder__c": 60,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "APPROVAL_ROLE/LAB_RECEIVER",
@@ -951,7 +1095,10 @@
           "Name": "LAB_RECEIVER",
           "NameEn__c": "Lab Receiver",
           "SortOrder__c": 70,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "APPROVAL_ROLE/SUPPLIER_QUALITY",
@@ -962,7 +1109,10 @@
           "Name": "SUPPLIER_QUALITY",
           "NameEn__c": "Supplier Quality",
           "SortOrder__c": 80,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "APPROVAL_ROLE/SQ_MANAGER",
@@ -973,7 +1123,10 @@
           "Name": "SQ_MANAGER",
           "NameEn__c": "Sq Manager",
           "SortOrder__c": 90,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "APPROVAL_ROLE/IQC_LEAD",
@@ -984,7 +1137,10 @@
           "Name": "IQC_LEAD",
           "NameEn__c": "Iqc Lead",
           "SortOrder__c": 100,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "APPROVAL_ROLE/PE_MANAGER",
@@ -995,7 +1151,10 @@
           "Name": "PE_MANAGER",
           "NameEn__c": "Pe Manager",
           "SortOrder__c": 110,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "APPROVAL_ROLE/METROLOGY_LEAD",
@@ -1006,7 +1165,10 @@
           "Name": "METROLOGY_LEAD",
           "NameEn__c": "Metrology Lead",
           "SortOrder__c": 120,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "APPROVAL_ROLE/LAB_MANAGER",
@@ -1017,7 +1179,10 @@
           "Name": "LAB_MANAGER",
           "NameEn__c": "Lab Manager",
           "SortOrder__c": 130,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "APPROVAL_ROLE/TRAINING_COORDINATOR",
@@ -1028,7 +1193,10 @@
           "Name": "TRAINING_COORDINATOR",
           "NameEn__c": "Training Coordinator",
           "SortOrder__c": 140,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "APPROVAL_ROLE/CQ_MANAGER",
@@ -1039,7 +1207,10 @@
           "Name": "CQ_MANAGER",
           "NameEn__c": "Cq Manager",
           "SortOrder__c": 150,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "APPROVAL_ROLE/QMS_MANAGER",
@@ -1050,7 +1221,10 @@
           "Name": "QMS_MANAGER",
           "NameEn__c": "Qms Manager",
           "SortOrder__c": 160,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "APPROVAL_ROLE/LELE_OWNER",
@@ -1061,7 +1235,10 @@
           "Name": "LELE_OWNER",
           "NameEn__c": "Lele Owner",
           "SortOrder__c": 170,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DOC_CLASS/TEST_REPORT",
@@ -1072,7 +1249,10 @@
           "Name": "TEST_REPORT",
           "NameEn__c": "Test Report",
           "SortOrder__c": 10,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DOC_CLASS/DVPR",
@@ -1083,7 +1263,10 @@
           "Name": "DVPR",
           "NameEn__c": "Dvpr",
           "SortOrder__c": 20,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DOC_CLASS/8D_REPORT",
@@ -1094,7 +1277,10 @@
           "Name": "8D_REPORT",
           "NameEn__c": "8D Report",
           "SortOrder__c": 30,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DOC_CLASS/SUPPLIER_COA",
@@ -1105,7 +1291,10 @@
           "Name": "SUPPLIER_COA",
           "NameEn__c": "Supplier Coa",
           "SortOrder__c": 40,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DOC_CLASS/IQC_PHOTO",
@@ -1116,7 +1305,10 @@
           "Name": "IQC_PHOTO",
           "NameEn__c": "Iqc Photo",
           "SortOrder__c": 50,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": "MULTI_FILE",
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DOC_CLASS/NCR_PHOTO",
@@ -1127,7 +1319,10 @@
           "Name": "NCR_PHOTO",
           "NameEn__c": "Ncr Photo",
           "SortOrder__c": 60,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": "MULTI_FILE",
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DOC_CLASS/NCR_NOTICE",
@@ -1138,7 +1333,10 @@
           "Name": "NCR_NOTICE",
           "NameEn__c": "Ncr Notice",
           "SortOrder__c": 70,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DOC_CLASS/LAB_REPORT",
@@ -1149,7 +1347,10 @@
           "Name": "LAB_REPORT",
           "NameEn__c": "Lab Report",
           "SortOrder__c": 80,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DOC_CLASS/CALIBRATION_CERT",
@@ -1160,7 +1361,10 @@
           "Name": "CALIBRATION_CERT",
           "NameEn__c": "Calibration Cert",
           "SortOrder__c": 90,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DOC_CLASS/CERT_SUPPLIER",
@@ -1171,7 +1375,10 @@
           "Name": "CERT_SUPPLIER",
           "NameEn__c": "Cert Supplier",
           "SortOrder__c": 100,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DOC_CLASS/LIMIT_SAMPLE_PHOTO",
@@ -1182,7 +1389,10 @@
           "Name": "LIMIT_SAMPLE_PHOTO",
           "NameEn__c": "Limit Sample Photo",
           "SortOrder__c": 110,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": "MULTI_FILE",
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DOC_CLASS/AUDIT_REPORT",
@@ -1193,7 +1403,10 @@
           "Name": "AUDIT_REPORT",
           "NameEn__c": "Audit Report",
           "SortOrder__c": 120,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DOC_CLASS/AUDIT_EVIDENCE",
@@ -1204,7 +1417,10 @@
           "Name": "AUDIT_EVIDENCE",
           "NameEn__c": "Audit Evidence",
           "SortOrder__c": 130,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DOC_CLASS/FOURM_REQUEST",
@@ -1215,7 +1431,10 @@
           "Name": "FOURM_REQUEST",
           "NameEn__c": "Fourm Request",
           "SortOrder__c": 140,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DOC_CLASS/FOURM_EVIDENCE",
@@ -1226,7 +1445,10 @@
           "Name": "FOURM_EVIDENCE",
           "NameEn__c": "Fourm Evidence",
           "SortOrder__c": 150,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DOC_CLASS/PPAP_APPROVAL_NOTICE",
@@ -1237,7 +1459,10 @@
           "Name": "PPAP_APPROVAL_NOTICE",
           "NameEn__c": "Ppap Approval Notice",
           "SortOrder__c": 160,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DOC_CLASS/MSA_REPORT",
@@ -1248,7 +1473,10 @@
           "Name": "MSA_REPORT",
           "NameEn__c": "Msa Report",
           "SortOrder__c": 170,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DOC_CLASS/TRAINING_MATERIAL",
@@ -1259,7 +1487,10 @@
           "Name": "TRAINING_MATERIAL",
           "NameEn__c": "Training Material",
           "SortOrder__c": 180,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DOC_CLASS/TEST_PHOTO",
@@ -1270,7 +1501,10 @@
           "Name": "TEST_PHOTO",
           "NameEn__c": "Test Photo",
           "SortOrder__c": 190,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": "MULTI_FILE",
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DOC_CLASS/OCAP_EVIDENCE",
@@ -1281,7 +1515,10 @@
           "Name": "OCAP_EVIDENCE",
           "NameEn__c": "Ocap Evidence",
           "SortOrder__c": 200,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DOC_CLASS/CUSTOMER_COA",
@@ -1292,7 +1529,10 @@
           "Name": "CUSTOMER_COA",
           "NameEn__c": "Customer Coa",
           "SortOrder__c": 210,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DOC_CLASS/HZD_EVIDENCE",
@@ -1303,7 +1543,10 @@
           "Name": "HZD_EVIDENCE",
           "NameEn__c": "Hzd Evidence",
           "SortOrder__c": 220,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DOC_CLASS/LELE_EVIDENCE",
@@ -1314,7 +1557,10 @@
           "Name": "LELE_EVIDENCE",
           "NameEn__c": "Lele Evidence",
           "SortOrder__c": 230,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DOC_CLASS/LELE_APPLY_EVIDENCE",
@@ -1325,7 +1571,10 @@
           "Name": "LELE_APPLY_EVIDENCE",
           "NameEn__c": "Lele Apply Evidence",
           "SortOrder__c": 240,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DOC_CLASS/PPAP_PACKAGE",
@@ -1336,7 +1585,10 @@
           "Name": "PPAP_PACKAGE",
           "NameEn__c": "Ppap Package",
           "SortOrder__c": 250,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DOC_CLASS/PPAP_CUSTOMER_APPROVAL",
@@ -1347,7 +1599,10 @@
           "Name": "PPAP_CUSTOMER_APPROVAL",
           "NameEn__c": "Ppap Customer Approval",
           "SortOrder__c": 260,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DOC_CLASS/EIGHTD_REPORT",
@@ -1358,7 +1613,10 @@
           "Name": "EIGHTD_REPORT",
           "NameEn__c": "Eightd Report",
           "SortOrder__c": 270,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DOC_CLASS/EIGHTD_EVIDENCE",
@@ -1369,7 +1627,10 @@
           "Name": "EIGHTD_EVIDENCE",
           "NameEn__c": "Eightd Evidence",
           "SortOrder__c": 280,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DOC_CLASS/EIGHTD_TEMPLATE",
@@ -1380,7 +1641,10 @@
           "Name": "EIGHTD_TEMPLATE",
           "NameEn__c": "Eightd Template",
           "SortOrder__c": 290,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DOC_CLASS/CLAIM_CUSTOMER_DOC",
@@ -1391,7 +1655,10 @@
           "Name": "CLAIM_CUSTOMER_DOC",
           "NameEn__c": "Claim Customer Doc",
           "SortOrder__c": 300,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DOC_CLASS/CLAIM_COST_EVIDENCE",
@@ -1402,7 +1669,10 @@
           "Name": "CLAIM_COST_EVIDENCE",
           "NameEn__c": "Claim Cost Evidence",
           "SortOrder__c": 310,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DOC_CLASS/B2B_SOURCE_FILE",
@@ -1413,7 +1683,10 @@
           "Name": "B2B_SOURCE_FILE",
           "NameEn__c": "B2B Source File",
           "SortOrder__c": 320,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DOC_CLASS/CUSTOMER_SCORECARD",
@@ -1424,7 +1697,10 @@
           "Name": "CUSTOMER_SCORECARD",
           "NameEn__c": "Customer Scorecard",
           "SortOrder__c": 330,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DOC_CLASS/WORK_INSTRUCTION",
@@ -1435,7 +1711,10 @@
           "Name": "WORK_INSTRUCTION",
           "NameEn__c": "Work Instruction",
           "SortOrder__c": 340,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DOC_CLASS/COMPANY_STANDARD",
@@ -1446,7 +1725,10 @@
           "Name": "COMPANY_STANDARD",
           "NameEn__c": "Company Standard",
           "SortOrder__c": 350,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DOC_CLASS/DESIGN_GUIDE",
@@ -1457,7 +1739,10 @@
           "Name": "DESIGN_GUIDE",
           "NameEn__c": "Design Guide",
           "SortOrder__c": 360,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DOC_CLASS/NCR_EVIDENCE",
@@ -1468,7 +1753,10 @@
           "Name": "NCR_EVIDENCE",
           "NameEn__c": "Ncr Evidence",
           "SortOrder__c": 370,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DOC_CLASS/LIMIT_SAMPLE_CUSTOMER_APPROVAL",
@@ -1479,7 +1767,10 @@
           "Name": "LIMIT_SAMPLE_CUSTOMER_APPROVAL",
           "NameEn__c": "Limit Sample Customer Approval",
           "SortOrder__c": 380,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DOC_CLASS/LIMIT_SAMPLE_CHECK_PHOTO",
@@ -1490,7 +1781,10 @@
           "Name": "LIMIT_SAMPLE_CHECK_PHOTO",
           "NameEn__c": "Limit Sample Check Photo",
           "SortOrder__c": 390,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": "MULTI_FILE",
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DOC_CLASS/TRAINING_CERT",
@@ -1501,7 +1795,10 @@
           "Name": "TRAINING_CERT",
           "NameEn__c": "Training Cert",
           "SortOrder__c": 400,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DOC_CLASS/QUALIFICATION_CERT",
@@ -1512,7 +1809,10 @@
           "Name": "QUALIFICATION_CERT",
           "NameEn__c": "Qualification Cert",
           "SortOrder__c": 410,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DOC_CLASS/GAUGE_DISPOSAL_CONSENT",
@@ -1523,7 +1823,10 @@
           "Name": "GAUGE_DISPOSAL_CONSENT",
           "NameEn__c": "Gauge Disposal Consent",
           "SortOrder__c": 420,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DOC_CLASS/MSA_CHART",
@@ -1534,7 +1837,10 @@
           "Name": "MSA_CHART",
           "NameEn__c": "Msa Chart",
           "SortOrder__c": 430,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DOC_CLASS/LAB_RAW_DATA",
@@ -1545,7 +1851,10 @@
           "Name": "LAB_RAW_DATA",
           "NameEn__c": "Lab Raw Data",
           "SortOrder__c": 440,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DOC_CLASS/LAB_IMAGE",
@@ -1556,7 +1865,10 @@
           "Name": "LAB_IMAGE",
           "NameEn__c": "Lab Image",
           "SortOrder__c": 450,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": "MULTI_FILE",
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DOC_CLASS/LAB_EXTERNAL_REPORT",
@@ -1567,7 +1879,10 @@
           "Name": "LAB_EXTERNAL_REPORT",
           "NameEn__c": "Lab External Report",
           "SortOrder__c": 460,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DOC_CLASS/AUDIT_EVIDENCE_PACKAGE",
@@ -1578,7 +1893,10 @@
           "Name": "AUDIT_EVIDENCE_PACKAGE",
           "NameEn__c": "Audit Evidence Package",
           "SortOrder__c": 470,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DOC_CLASS/AUDIT_PREP_DOC",
@@ -1589,7 +1907,10 @@
           "Name": "AUDIT_PREP_DOC",
           "NameEn__c": "Audit Prep Doc",
           "SortOrder__c": 480,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DOC_CLASS/FINDING_EVIDENCE",
@@ -1600,7 +1921,10 @@
           "Name": "FINDING_EVIDENCE",
           "NameEn__c": "Finding Evidence",
           "SortOrder__c": 490,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DOC_CLASS/CUSTOMER_AUDIT_REPORT",
@@ -1611,7 +1935,10 @@
           "Name": "CUSTOMER_AUDIT_REPORT",
           "NameEn__c": "Customer Audit Report",
           "SortOrder__c": 500,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DOC_CLASS/CUSTOMER_AUDIT_RESPONSE",
@@ -1622,7 +1949,10 @@
           "Name": "CUSTOMER_AUDIT_RESPONSE",
           "NameEn__c": "Customer Audit Response",
           "SortOrder__c": 510,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DOC_CLASS/CERT_SL",
@@ -1633,7 +1963,10 @@
           "Name": "CERT_SL",
           "NameEn__c": "Cert Sl",
           "SortOrder__c": 520,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DOC_CLASS/CB_REPORT",
@@ -1644,7 +1977,10 @@
           "Name": "CB_REPORT",
           "NameEn__c": "Cb Report",
           "SortOrder__c": 530,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DOC_CLASS/CB_RESPONSE",
@@ -1655,7 +1991,10 @@
           "Name": "CB_RESPONSE",
           "NameEn__c": "Cb Response",
           "SortOrder__c": 540,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DOC_CLASS/MGMT_REVIEW_INPUT",
@@ -1666,7 +2005,10 @@
           "Name": "MGMT_REVIEW_INPUT",
           "NameEn__c": "Mgmt Review Input",
           "SortOrder__c": 550,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DOC_CLASS/IMP_DELIVERABLE",
@@ -1677,7 +2019,10 @@
           "Name": "IMP_DELIVERABLE",
           "NameEn__c": "Imp Deliverable",
           "SortOrder__c": 560,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DOC_CLASS/PPAP",
@@ -1688,7 +2033,10 @@
           "Name": "PPAP",
           "NameEn__c": "Ppap",
           "SortOrder__c": 570,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DEFECT_LOCATION/LENS_INNER",
@@ -1699,7 +2047,10 @@
           "Name": "LENS_INNER",
           "NameEn__c": "Lens Inner",
           "SortOrder__c": 10,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DEFECT_LOCATION/LENS_OUTER",
@@ -1710,7 +2061,10 @@
           "Name": "LENS_OUTER",
           "NameEn__c": "Lens Outer",
           "SortOrder__c": 20,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DEFECT_LOCATION/HOUSING",
@@ -1721,7 +2075,10 @@
           "Name": "HOUSING",
           "NameEn__c": "Housing",
           "SortOrder__c": 30,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DEFECT_LOCATION/SEAL_LINE",
@@ -1732,7 +2089,10 @@
           "Name": "SEAL_LINE",
           "NameEn__c": "Seal Line",
           "SortOrder__c": 40,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DEFECT_LOCATION/CONNECTOR_AREA",
@@ -1743,7 +2103,10 @@
           "Name": "CONNECTOR_AREA",
           "NameEn__c": "Connector Area",
           "SortOrder__c": 50,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DEFECT_LOCATION/BEZEL",
@@ -1754,7 +2117,10 @@
           "Name": "BEZEL",
           "NameEn__c": "Bezel",
           "SortOrder__c": 60,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "AI_EXCLUDE_REASON/NOT_RELEVANT",
@@ -1765,7 +2131,10 @@
           "Name": "NOT_RELEVANT",
           "NameEn__c": "Not Relevant",
           "SortOrder__c": 10,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "AI_EXCLUDE_REASON/ALREADY_REVIEWED",
@@ -1776,7 +2145,10 @@
           "Name": "ALREADY_REVIEWED",
           "NameEn__c": "Already Reviewed",
           "SortOrder__c": 20,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "AI_EXCLUDE_REASON/WEAK_EVIDENCE",
@@ -1787,7 +2159,10 @@
           "Name": "WEAK_EVIDENCE",
           "NameEn__c": "Weak Evidence",
           "SortOrder__c": 30,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "AI_EXCLUDE_REASON/NOT_APPLICABLE",
@@ -1798,7 +2173,10 @@
           "Name": "NOT_APPLICABLE",
           "NameEn__c": "Not Applicable",
           "SortOrder__c": 40,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "AI_EXCLUDE_REASON/OTHER",
@@ -1809,7 +2187,10 @@
           "Name": "OTHER",
           "NameEn__c": "Other",
           "SortOrder__c": 50,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "ALERT_DISMISS_REASON/FALSE_ALARM",
@@ -1820,7 +2201,10 @@
           "Name": "FALSE_ALARM",
           "NameEn__c": "False Alarm",
           "SortOrder__c": 10,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "ALERT_DISMISS_REASON/ALREADY_HANDLED",
@@ -1831,7 +2215,10 @@
           "Name": "ALREADY_HANDLED",
           "NameEn__c": "Already Handled",
           "SortOrder__c": 20,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "ALERT_DISMISS_REASON/NOT_APPLICABLE",
@@ -1842,7 +2229,10 @@
           "Name": "NOT_APPLICABLE",
           "NameEn__c": "Not Applicable",
           "SortOrder__c": 30,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "ALERT_DISMISS_REASON/OTHER",
@@ -1853,7 +2243,10 @@
           "Name": "OTHER",
           "NameEn__c": "Other",
           "SortOrder__c": 40,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "IQC_COMMON_CHECK/PACKAGING",
@@ -1864,7 +2257,10 @@
           "Name": "PACKAGING",
           "NameEn__c": "Packaging",
           "SortOrder__c": 10,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "IQC_COMMON_CHECK/LABEL",
@@ -1875,7 +2271,10 @@
           "Name": "LABEL",
           "NameEn__c": "Label",
           "SortOrder__c": 20,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "IQC_COMMON_CHECK/QUANTITY",
@@ -1886,7 +2285,10 @@
           "Name": "QUANTITY",
           "NameEn__c": "Quantity",
           "SortOrder__c": 30,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "IQC_COMMON_CHECK/CONTAMINATION",
@@ -1897,7 +2299,10 @@
           "Name": "CONTAMINATION",
           "NameEn__c": "Contamination",
           "SortOrder__c": 40,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "MEETING_TYPE/QUALITY_MEETING",
@@ -1908,7 +2313,10 @@
           "Name": "품질회의",
           "NameEn__c": "Quality Meeting",
           "SortOrder__c": 10,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "MEETING_TYPE/HORIZONTAL_DEPLOYMENT",
@@ -1919,7 +2327,10 @@
           "Name": "수평전개 회의",
           "NameEn__c": "Horizontal Deployment",
           "SortOrder__c": 20,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "MEETING_TYPE/GATE_REVIEW",
@@ -1930,7 +2341,10 @@
           "Name": "게이트 리뷰",
           "NameEn__c": "Gate Review",
           "SortOrder__c": 30,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "MEETING_TYPE/CUSTOMER_RESPONSE",
@@ -1941,7 +2355,10 @@
           "Name": "고객 대응 회의",
           "NameEn__c": "Customer Response",
           "SortOrder__c": 40,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "MEETING_TYPE/MANAGEMENT_REVIEW",
@@ -1952,7 +2369,10 @@
           "Name": "경영검토",
           "NameEn__c": "Management Review",
           "SortOrder__c": 50,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "GAUGE_TYPE/MICROMETER",
@@ -1963,7 +2383,10 @@
           "Name": "MICROMETER",
           "NameEn__c": "Micrometer",
           "SortOrder__c": 10,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "GAUGE_TYPE/CALIPER",
@@ -1974,7 +2397,10 @@
           "Name": "CALIPER",
           "NameEn__c": "Caliper",
           "SortOrder__c": 20,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "GAUGE_TYPE/HEIGHT_GAUGE",
@@ -1985,7 +2411,10 @@
           "Name": "HEIGHT_GAUGE",
           "NameEn__c": "Height Gauge",
           "SortOrder__c": 30,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "GAUGE_TYPE/AIMING_TESTER",
@@ -1996,7 +2425,10 @@
           "Name": "AIMING_TESTER",
           "NameEn__c": "Aiming Tester",
           "SortOrder__c": 40,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "GAUGE_TYPE/LEAK_TESTER",
@@ -2007,7 +2439,10 @@
           "Name": "LEAK_TESTER",
           "NameEn__c": "Leak Tester",
           "SortOrder__c": 50,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "GAUGE_TYPE/VISION",
@@ -2018,7 +2453,10 @@
           "Name": "VISION",
           "NameEn__c": "Vision",
           "SortOrder__c": 60,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "GAUGE_TYPE/SPECTROPHOTOMETER",
@@ -2029,7 +2467,10 @@
           "Name": "SPECTROPHOTOMETER",
           "NameEn__c": "Spectrophotometer",
           "SortOrder__c": 70,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "GAUGE_TYPE/PIN_GAUGE",
@@ -2040,7 +2481,10 @@
           "Name": "PIN_GAUGE",
           "NameEn__c": "Pin Gauge",
           "SortOrder__c": 80,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "GAUGE_TYPE/CHECKING_FIXTURE",
@@ -2051,7 +2495,10 @@
           "Name": "CHECKING_FIXTURE",
           "NameEn__c": "Checking Fixture",
           "SortOrder__c": 90,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "GAUGE_TYPE/CMM",
@@ -2062,7 +2509,10 @@
           "Name": "CMM",
           "NameEn__c": "Cmm",
           "SortOrder__c": 100,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "GAUGE_TYPE/XRAY",
@@ -2073,7 +2523,10 @@
           "Name": "XRAY",
           "NameEn__c": "Xray",
           "SortOrder__c": 110,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "GAUGE_TYPE/FTIR",
@@ -2084,7 +2537,10 @@
           "Name": "FTIR",
           "NameEn__c": "Ftir",
           "SortOrder__c": 120,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "GAUGE_TYPE/DSC",
@@ -2095,7 +2551,10 @@
           "Name": "DSC",
           "NameEn__c": "Dsc",
           "SortOrder__c": 130,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "GAUGE_TYPE/DIAL_GAUGE",
@@ -2106,7 +2565,10 @@
           "Name": "DIAL_GAUGE",
           "NameEn__c": "Dial Gauge",
           "SortOrder__c": 140,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "GAUGE_TYPE/HARDNESS_TESTER",
@@ -2117,7 +2579,10 @@
           "Name": "HARDNESS_TESTER",
           "NameEn__c": "Hardness Tester",
           "SortOrder__c": 150,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "GAUGE_TYPE/MOISTURE_ANALYZER",
@@ -2128,7 +2593,10 @@
           "Name": "MOISTURE_ANALYZER",
           "NameEn__c": "Moisture Analyzer",
           "SortOrder__c": 160,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "GAUGE_TYPE/MICROSCOPE",
@@ -2139,7 +2607,10 @@
           "Name": "MICROSCOPE",
           "NameEn__c": "Microscope",
           "SortOrder__c": 170,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         }
       ]
     },
@@ -2158,7 +2629,10 @@
           "Name": "긁힘",
           "NameEn__c": "Scratch",
           "SortOrder__c": 10,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DEFECT_TYPE/APPEARANCE/FOREIGN",
@@ -2169,7 +2643,10 @@
           "Name": "이물",
           "NameEn__c": "Foreign",
           "SortOrder__c": 20,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DEFECT_TYPE/APPEARANCE/HAZE",
@@ -2180,7 +2657,10 @@
           "Name": "흐림",
           "NameEn__c": "Haze",
           "SortOrder__c": 30,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DEFECT_TYPE/DIMENSION/THICKNESS",
@@ -2191,7 +2671,10 @@
           "Name": "두께",
           "NameEn__c": "Thickness",
           "SortOrder__c": 10,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DEFECT_TYPE/DIMENSION/POSITION",
@@ -2202,7 +2685,10 @@
           "Name": "위치",
           "NameEn__c": "Position",
           "SortOrder__c": 20,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DEFECT_TYPE/FUNCTION/LIGHTING",
@@ -2213,7 +2699,10 @@
           "Name": "점등",
           "NameEn__c": "Lighting",
           "SortOrder__c": 10,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DEFECT_TYPE/FUNCTION/ACTUATION",
@@ -2224,7 +2713,10 @@
           "Name": "구동",
           "NameEn__c": "Actuation",
           "SortOrder__c": 20,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DEFECT_TYPE/OPTICAL/BEAM",
@@ -2235,7 +2727,10 @@
           "Name": "배광",
           "NameEn__c": "Beam",
           "SortOrder__c": 10,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DEFECT_TYPE/OPTICAL/AIMING",
@@ -2246,7 +2741,10 @@
           "Name": "조준",
           "NameEn__c": "Aiming",
           "SortOrder__c": 20,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DEFECT_TYPE/SEALING/LEAK",
@@ -2257,7 +2755,10 @@
           "Name": "누설",
           "NameEn__c": "Leak",
           "SortOrder__c": 10,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DEFECT_TYPE/SEALING/CONDENSATION",
@@ -2268,7 +2769,10 @@
           "Name": "결로",
           "NameEn__c": "Condensation",
           "SortOrder__c": 20,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DEFECT_TYPE/ELECTRICAL/SOLDER",
@@ -2279,7 +2783,10 @@
           "Name": "솔더",
           "NameEn__c": "Solder",
           "SortOrder__c": 10,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DEFECT_TYPE/ELECTRICAL/CONNECTOR",
@@ -2290,7 +2797,10 @@
           "Name": "커넥터",
           "NameEn__c": "Connector",
           "SortOrder__c": 20,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "CAUSE_5M1E/MAN/SKILL",
@@ -2301,7 +2811,10 @@
           "Name": "숙련도 부족",
           "NameEn__c": "Skill",
           "SortOrder__c": 10,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "CAUSE_5M1E/MAN/STD_NOT_FOLLOWED",
@@ -2312,7 +2825,10 @@
           "Name": "작업 표준 미준수",
           "NameEn__c": "Std Not Followed",
           "SortOrder__c": 20,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "CAUSE_5M1E/MACHINE/DISPENSER_FLOW",
@@ -2323,7 +2839,10 @@
           "Name": "디스펜서 토출량 저하",
           "NameEn__c": "Dispenser Flow",
           "SortOrder__c": 10,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "CAUSE_5M1E/MACHINE/MOLD_WEAR",
@@ -2334,7 +2853,10 @@
           "Name": "금형 마모",
           "NameEn__c": "Mold Wear",
           "SortOrder__c": 20,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "CAUSE_5M1E/MACHINE/OVEN_TEMP",
@@ -2345,7 +2867,10 @@
           "Name": "경화로 온도 편차",
           "NameEn__c": "Oven Temp",
           "SortOrder__c": 30,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "CAUSE_5M1E/MACHINE/ACT_GEAR",
@@ -2356,7 +2881,10 @@
           "Name": "액추에이터 기어 마모",
           "NameEn__c": "Act Gear",
           "SortOrder__c": 40,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "CAUSE_5M1E/MATERIAL/RESIN_MOISTURE",
@@ -2367,7 +2895,10 @@
           "Name": "레진 수분",
           "NameEn__c": "Resin Moisture",
           "SortOrder__c": 10,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "CAUSE_5M1E/MATERIAL/VENT_MEMBRANE",
@@ -2378,7 +2909,10 @@
           "Name": "벤트 멤브레인 막힘",
           "NameEn__c": "Vent Membrane",
           "SortOrder__c": 20,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "CAUSE_5M1E/MATERIAL/LED_SOLDER",
@@ -2389,7 +2923,10 @@
           "Name": "LED 솔더 보이드",
           "NameEn__c": "Led Solder",
           "SortOrder__c": 30,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "CAUSE_5M1E/MATERIAL/PIN_DEFORM",
@@ -2400,7 +2937,10 @@
           "Name": "커넥터 핀 변형",
           "NameEn__c": "Pin Deform",
           "SortOrder__c": 40,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "CAUSE_5M1E/MATERIAL/HSG_WARP",
@@ -2411,7 +2951,10 @@
           "Name": "하우징 휨",
           "NameEn__c": "Hsg Warp",
           "SortOrder__c": 50,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "CAUSE_5M1E/METHOD/CURING_TIME",
@@ -2422,7 +2965,10 @@
           "Name": "경화 시간 부족",
           "NameEn__c": "Curing Time",
           "SortOrder__c": 10,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "CAUSE_5M1E/METHOD/ESD_CONTROL",
@@ -2433,7 +2979,10 @@
           "Name": "정전기 관리 미흡",
           "NameEn__c": "Esd Control",
           "SortOrder__c": 20,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "CAUSE_5M1E/METHOD/COATING_CURE",
@@ -2444,7 +2993,10 @@
           "Name": "하드코팅 경화 부족",
           "NameEn__c": "Coating Cure",
           "SortOrder__c": 30,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "CAUSE_5M1E/MEASUREMENT/GAUGE_DRIFT",
@@ -2455,7 +3007,10 @@
           "Name": "측정기 편차",
           "NameEn__c": "Gauge Drift",
           "SortOrder__c": 10,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "CAUSE_5M1E/ENVIRONMENT/HUMIDITY",
@@ -2466,7 +3021,10 @@
           "Name": "고습 환경",
           "NameEn__c": "Humidity",
           "SortOrder__c": 10,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "CAUSE_5M1E/ENVIRONMENT/DUST",
@@ -2477,7 +3035,10 @@
           "Name": "분진",
           "NameEn__c": "Dust",
           "SortOrder__c": 20,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "CHANGE_TYPE/MATERIAL/RESIN",
@@ -2488,7 +3049,10 @@
           "Name": "원재료",
           "NameEn__c": "Resin",
           "SortOrder__c": 10,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "CHANGE_TYPE/MATERIAL/SUB_PART",
@@ -2499,7 +3063,10 @@
           "Name": "하위 부품",
           "NameEn__c": "Sub Part",
           "SortOrder__c": 20,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "CHANGE_TYPE/MACHINE/MOLD",
@@ -2510,7 +3077,10 @@
           "Name": "금형",
           "NameEn__c": "Mold",
           "SortOrder__c": 10,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "CHANGE_TYPE/MACHINE/EQUIPMENT",
@@ -2521,7 +3091,10 @@
           "Name": "설비",
           "NameEn__c": "Equipment",
           "SortOrder__c": 20,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "CHANGE_TYPE/METHOD/PROCESS",
@@ -2532,7 +3105,10 @@
           "Name": "공정 설계",
           "NameEn__c": "Process",
           "SortOrder__c": 10,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "CHANGE_TYPE/METHOD/CONDITION",
@@ -2543,7 +3119,10 @@
           "Name": "CONDITION",
           "NameEn__c": "Condition",
           "SortOrder__c": 20,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "CHANGE_TYPE/MAN/OPERATOR",
@@ -2554,7 +3133,10 @@
           "Name": "작업자",
           "NameEn__c": "Operator",
           "SortOrder__c": 10,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "CHANGE_TYPE/MEASUREMENT/GAUGE",
@@ -2565,7 +3147,10 @@
           "Name": "측정기",
           "NameEn__c": "Gauge",
           "SortOrder__c": 10,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "CHANGE_TYPE/ENVIRONMENT/LOCATION",
@@ -2576,7 +3161,10 @@
           "Name": "장소",
           "NameEn__c": "Location",
           "SortOrder__c": 10,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "CHANGE_TYPE/ENVIRONMENT/CONDITION",
@@ -2587,7 +3175,10 @@
           "Name": "CONDITION",
           "NameEn__c": "Condition",
           "SortOrder__c": 20,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DEV_ACTIVITY_TYPE/DESIGN/OPT_DESIGN",
@@ -2598,7 +3189,10 @@
           "Name": "광학 설계",
           "NameEn__c": "Opt Design",
           "SortOrder__c": 10,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DEV_ACTIVITY_TYPE/DESIGN/MECH_DESIGN",
@@ -2609,7 +3203,10 @@
           "Name": "기구 설계",
           "NameEn__c": "Mech Design",
           "SortOrder__c": 20,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DEV_ACTIVITY_TYPE/DESIGN/ELEC_DESIGN",
@@ -2620,7 +3217,10 @@
           "Name": "전장 설계",
           "NameEn__c": "Elec Design",
           "SortOrder__c": 30,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DEV_ACTIVITY_TYPE/VERIFICATION/DV_TEST",
@@ -2631,7 +3231,10 @@
           "Name": "DV 시험",
           "NameEn__c": "Dv Test",
           "SortOrder__c": 10,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DEV_ACTIVITY_TYPE/VERIFICATION/PV_TEST",
@@ -2642,7 +3245,10 @@
           "Name": "PV 시험",
           "NameEn__c": "Pv Test",
           "SortOrder__c": 20,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DEV_ACTIVITY_TYPE/TOOLING/MOLD_DESIGN",
@@ -2653,7 +3259,10 @@
           "Name": "금형 설계",
           "NameEn__c": "Mold Design",
           "SortOrder__c": 10,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DEV_ACTIVITY_TYPE/PROCESS/PFMEA",
@@ -2664,7 +3273,10 @@
           "Name": "PFMEA",
           "NameEn__c": "Pfmea",
           "SortOrder__c": 10,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DEV_ACTIVITY_TYPE/PROCESS/CONTROL_PLAN",
@@ -2675,7 +3287,10 @@
           "Name": "관리계획서",
           "NameEn__c": "Control Plan",
           "SortOrder__c": 20,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DEV_ACTIVITY_TYPE/SUPPLIER_DEV/SUPPLIER_PPAP",
@@ -2686,7 +3301,10 @@
           "Name": "협력사 PPAP",
           "NameEn__c": "Supplier Ppap",
           "SortOrder__c": 10,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DEV_ACTIVITY_TYPE/QUALITY_PLANNING/PAST_ISSUE_REVIEW",
@@ -2697,7 +3315,10 @@
           "Name": "과거차 문제 반영 검토",
           "NameEn__c": "Past Issue Review",
           "SortOrder__c": 10,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DOC_CLASS/PPAP/DESIGN_RECORD",
@@ -2708,7 +3329,10 @@
           "Name": "DESIGN_RECORD",
           "NameEn__c": "Design Record",
           "SortOrder__c": 10,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": "LINK_ONLY",
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DOC_CLASS/PPAP/ENG_CHANGE",
@@ -2719,7 +3343,10 @@
           "Name": "ENG_CHANGE",
           "NameEn__c": "Eng Change",
           "SortOrder__c": 20,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DOC_CLASS/PPAP/CUST_ENG_APPROVAL",
@@ -2730,7 +3357,10 @@
           "Name": "CUST_ENG_APPROVAL",
           "NameEn__c": "Cust Eng Approval",
           "SortOrder__c": 30,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DOC_CLASS/PPAP/DFMEA",
@@ -2741,7 +3371,10 @@
           "Name": "DFMEA",
           "NameEn__c": "Dfmea",
           "SortOrder__c": 40,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DOC_CLASS/PPAP/PROCESS_FLOW",
@@ -2752,7 +3385,10 @@
           "Name": "PROCESS_FLOW",
           "NameEn__c": "Process Flow",
           "SortOrder__c": 50,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DOC_CLASS/PPAP/PFMEA",
@@ -2763,7 +3399,10 @@
           "Name": "PFMEA",
           "NameEn__c": "Pfmea",
           "SortOrder__c": 60,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DOC_CLASS/PPAP/CONTROL_PLAN",
@@ -2774,7 +3413,10 @@
           "Name": "관리계획서",
           "NameEn__c": "Control Plan",
           "SortOrder__c": 70,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DOC_CLASS/PPAP/MSA",
@@ -2785,7 +3427,10 @@
           "Name": "MSA",
           "NameEn__c": "Msa",
           "SortOrder__c": 80,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DOC_CLASS/PPAP/DIM_RESULT",
@@ -2796,7 +3441,10 @@
           "Name": "DIM_RESULT",
           "NameEn__c": "Dim Result",
           "SortOrder__c": 90,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DOC_CLASS/PPAP/MAT_PERF_TEST",
@@ -2807,7 +3455,10 @@
           "Name": "MAT_PERF_TEST",
           "NameEn__c": "Mat Perf Test",
           "SortOrder__c": 100,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DOC_CLASS/PPAP/INITIAL_PROCESS_STUDY",
@@ -2818,7 +3469,10 @@
           "Name": "INITIAL_PROCESS_STUDY",
           "NameEn__c": "Initial Process Study",
           "SortOrder__c": 110,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DOC_CLASS/PPAP/LAB_QUALIFICATION",
@@ -2829,7 +3483,10 @@
           "Name": "LAB_QUALIFICATION",
           "NameEn__c": "Lab Qualification",
           "SortOrder__c": 120,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DOC_CLASS/PPAP/AAR",
@@ -2840,7 +3497,10 @@
           "Name": "AAR",
           "NameEn__c": "Aar",
           "SortOrder__c": 130,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DOC_CLASS/PPAP/SAMPLE_PRODUCT",
@@ -2851,7 +3511,10 @@
           "Name": "SAMPLE_PRODUCT",
           "NameEn__c": "Sample Product",
           "SortOrder__c": 140,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DOC_CLASS/PPAP/MASTER_SAMPLE",
@@ -2862,7 +3525,10 @@
           "Name": "MASTER_SAMPLE",
           "NameEn__c": "Master Sample",
           "SortOrder__c": 150,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DOC_CLASS/PPAP/CHECKING_AIDS",
@@ -2873,7 +3539,10 @@
           "Name": "CHECKING_AIDS",
           "NameEn__c": "Checking Aids",
           "SortOrder__c": 160,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DOC_CLASS/PPAP/CSR_RECORD",
@@ -2884,7 +3553,10 @@
           "Name": "CSR_RECORD",
           "NameEn__c": "Csr Record",
           "SortOrder__c": 170,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DOC_CLASS/PPAP/PSW",
@@ -2895,7 +3567,10 @@
           "Name": "PSW",
           "NameEn__c": "Psw",
           "SortOrder__c": 180,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DOC_CLASS/PPAP/SUB_COMPONENT",
@@ -2906,7 +3581,10 @@
           "Name": "SUB_COMPONENT",
           "NameEn__c": "Sub Component",
           "SortOrder__c": 190,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         }
       ]
     },
@@ -2925,7 +3603,10 @@
           "Name": "렌즈 긁힘",
           "NameEn__c": "Lens Scratch",
           "SortOrder__c": 10,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DEFECT_TYPE/APPEARANCE/SCRATCH/BEZEL_SCRATCH",
@@ -2936,7 +3617,10 @@
           "Name": "베젤 긁힘",
           "NameEn__c": "Bezel Scratch",
           "SortOrder__c": 20,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DEFECT_TYPE/APPEARANCE/FOREIGN/INNER_FOREIGN",
@@ -2947,7 +3631,10 @@
           "Name": "램프 내부 이물",
           "NameEn__c": "Inner Foreign",
           "SortOrder__c": 10,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DEFECT_TYPE/APPEARANCE/HAZE/LENS_HAZE",
@@ -2958,7 +3645,10 @@
           "Name": "렌즈 헤이즈",
           "NameEn__c": "Lens Haze",
           "SortOrder__c": 10,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DEFECT_TYPE/APPEARANCE/HAZE/COATING_CRACK",
@@ -2969,7 +3659,10 @@
           "Name": "코팅 크랙",
           "NameEn__c": "Coating Crack",
           "SortOrder__c": 20,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DEFECT_TYPE/DIMENSION/THICKNESS/LENS_THICKNESS",
@@ -2980,7 +3673,10 @@
           "Name": "렌즈 두께",
           "NameEn__c": "Lens Thickness",
           "SortOrder__c": 10,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DEFECT_TYPE/DIMENSION/POSITION/HOLE_POSITION",
@@ -2991,7 +3687,10 @@
           "Name": "홀 위치",
           "NameEn__c": "Hole Position",
           "SortOrder__c": 10,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DEFECT_TYPE/DIMENSION/POSITION/FLATNESS",
@@ -3002,7 +3701,10 @@
           "Name": "평면도",
           "NameEn__c": "Flatness",
           "SortOrder__c": 20,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DEFECT_TYPE/FUNCTION/LIGHTING/DRL_FLICKER",
@@ -3013,7 +3715,10 @@
           "Name": "DRL 점멸",
           "NameEn__c": "Drl Flicker",
           "SortOrder__c": 10,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DEFECT_TYPE/FUNCTION/LIGHTING/LED_OFF",
@@ -3024,7 +3729,10 @@
           "Name": "LED 미점등",
           "NameEn__c": "Led Off",
           "SortOrder__c": 20,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DEFECT_TYPE/FUNCTION/ACTUATION/LEVELING_FAIL",
@@ -3035,7 +3743,10 @@
           "Name": "레벨링 작동 불량",
           "NameEn__c": "Leveling Fail",
           "SortOrder__c": 10,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DEFECT_TYPE/OPTICAL/BEAM/HV_LOW",
@@ -3046,7 +3757,10 @@
           "Name": "광도 미달",
           "NameEn__c": "Hv Low",
           "SortOrder__c": 10,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DEFECT_TYPE/OPTICAL/AIMING/AIM_OUT",
@@ -3057,7 +3771,10 @@
           "Name": "조준 이탈",
           "NameEn__c": "Aim Out",
           "SortOrder__c": 10,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DEFECT_TYPE/SEALING/LEAK/LEAK_RATE",
@@ -3068,7 +3785,10 @@
           "Name": "누설량 초과",
           "NameEn__c": "Leak Rate",
           "SortOrder__c": 10,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DEFECT_TYPE/SEALING/CONDENSATION/INNER_FOG",
@@ -3079,7 +3799,10 @@
           "Name": "내부 김서림·결로",
           "NameEn__c": "Inner Fog",
           "SortOrder__c": 10,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DEFECT_TYPE/ELECTRICAL/SOLDER/SOLDER_VOID",
@@ -3090,7 +3813,10 @@
           "Name": "솔더 보이드",
           "NameEn__c": "Solder Void",
           "SortOrder__c": 10,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "DEFECT_TYPE/ELECTRICAL/CONNECTOR/PIN_BENT",
@@ -3101,7 +3827,10 @@
           "Name": "핀 변형",
           "NameEn__c": "Pin Bent",
           "SortOrder__c": 10,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "CHANGE_TYPE/MATERIAL/RESIN/RESIN_GRADE",
@@ -3112,7 +3841,10 @@
           "Name": "원재료 등급 변경",
           "NameEn__c": "Resin Grade",
           "SortOrder__c": 10,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "CHANGE_TYPE/MATERIAL/RESIN/RESIN_SUPPLIER",
@@ -3123,7 +3855,10 @@
           "Name": "원재료 공급사 변경",
           "NameEn__c": "Resin Supplier",
           "SortOrder__c": 20,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "CHANGE_TYPE/MATERIAL/SUB_PART/SUB_PART_SUPPLIER",
@@ -3134,7 +3869,10 @@
           "Name": "하위 부품 공급사 변경",
           "NameEn__c": "Sub Part Supplier",
           "SortOrder__c": 10,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "CHANGE_TYPE/MACHINE/MOLD/MOLD_REPAIR",
@@ -3145,7 +3883,10 @@
           "Name": "금형 수정",
           "NameEn__c": "Mold Repair",
           "SortOrder__c": 10,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "CHANGE_TYPE/MACHINE/MOLD/MOLD_NEW",
@@ -3156,7 +3897,10 @@
           "Name": "금형 신규·추가",
           "NameEn__c": "Mold New",
           "SortOrder__c": 20,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "CHANGE_TYPE/MACHINE/MOLD/MOLD_TRANSFER",
@@ -3167,7 +3911,10 @@
           "Name": "금형 이관",
           "NameEn__c": "Mold Transfer",
           "SortOrder__c": 30,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "CHANGE_TYPE/MACHINE/EQUIPMENT/EQUIP_REPLACE",
@@ -3178,7 +3925,10 @@
           "Name": "설비 교체·이설",
           "NameEn__c": "Equip Replace",
           "SortOrder__c": 10,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "CHANGE_TYPE/MACHINE/EQUIPMENT/EQUIP_CONDITION",
@@ -3189,7 +3939,10 @@
           "Name": "설비 조건 변경",
           "NameEn__c": "Equip Condition",
           "SortOrder__c": 20,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "CHANGE_TYPE/METHOD/PROCESS/PROCESS_SEQUENCE",
@@ -3200,7 +3953,10 @@
           "Name": "공정 순서 변경",
           "NameEn__c": "Process Sequence",
           "SortOrder__c": 10,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "CHANGE_TYPE/METHOD/PROCESS/PROCESS_ADD_REMOVE",
@@ -3211,7 +3967,10 @@
           "Name": "공정 추가·삭제",
           "NameEn__c": "Process Add Remove",
           "SortOrder__c": 20,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "CHANGE_TYPE/METHOD/PROCESS/OUTSOURCE",
@@ -3222,7 +3981,10 @@
           "Name": "외주 전환",
           "NameEn__c": "Outsource",
           "SortOrder__c": 30,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "CHANGE_TYPE/METHOD/CONDITION/PROCESS_PARAM",
@@ -3233,7 +3995,10 @@
           "Name": "가공 조건 변경",
           "NameEn__c": "Process Param",
           "SortOrder__c": 10,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "CHANGE_TYPE/MAN/OPERATOR/SC_OPERATOR_CHANGE",
@@ -3244,7 +4009,10 @@
           "Name": "특별특성 공정 작업자 교체",
           "NameEn__c": "Sc Operator Change",
           "SortOrder__c": 10,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "CHANGE_TYPE/MEASUREMENT/GAUGE/GAUGE_METHOD",
@@ -3255,7 +4023,10 @@
           "Name": "측정 방법·측정기 변경",
           "NameEn__c": "Gauge Method",
           "SortOrder__c": 10,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "CHANGE_TYPE/ENVIRONMENT/LOCATION/SITE_TRANSFER",
@@ -3266,7 +4037,10 @@
           "Name": "생산 장소 이전",
           "NameEn__c": "Site Transfer",
           "SortOrder__c": 10,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         },
         {
           "ExternalKey__c": "CHANGE_TYPE/ENVIRONMENT/CONDITION/ENV_CONDITION",
@@ -3277,7 +4051,10 @@
           "Name": "온습도·청정도 조건 변경",
           "NameEn__c": "Env Condition",
           "SortOrder__c": 10,
-          "IsActive__c": "true"
+          "IsActive__c": "true",
+          "Attribute1__c": null,
+          "Attribute2__c": null,
+          "Attribute3__c": null
         }
       ]
     },

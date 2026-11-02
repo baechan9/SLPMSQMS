@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>66.0</apiVersion>
+    <isExposed>true</isExposed>
+    <masterLabel>CMN Photo Capture</masterLabel>
+    <description
+  >모바일 사진 촬영·첨부(CMN-00-UX-001 BR-4): 카메라 촬영, 장변 1920px 축소 후 문서(사진 분류)로 등록</description>
+    <targets>
+        <target>lightning__RecordPage</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightning__RecordPage">
+            <property
+        name="docClass"
+        type="String"
+        label="DOC_CLASS code"
+        default="NCR_PHOTO"
+        description="사진 분류 코드(MULTI_FILE 속성)"
+      />
+            <supportedFormFactors>
+                <supportedFormFactor type="Large" />
+                <supportedFormFactor type="Small" />
+            </supportedFormFactors>
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

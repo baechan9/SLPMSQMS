@@ -109,6 +109,18 @@
         <name>CMN_Approval_TargetMismatch</name>
     </customLabels>
     <customLabels>
+        <label>Scan failed. Enter the code manually.</label>
+        <name>CMN_Barcode_Failed</name>
+    </customLabels>
+    <customLabels>
+        <label>Enter Code</label>
+        <name>CMN_Barcode_Manual</name>
+    </customLabels>
+    <customLabels>
+        <label>Scan Barcode</label>
+        <name>CMN_Barcode_Scan</name>
+    </customLabels>
+    <customLabels>
         <label>Only DRAFT characteristics can be deleted. Replace active ones with a new version.</label>
         <name>CMN_Char_DeleteOnlyDraft</name>
     </customLabels>
@@ -705,6 +717,22 @@ Open: {Url}</label>
     <customLabels>
         <label>Department code {0} does not exist.</label>
         <name>CMN_Org_UnknownDepartmentCode</name>
+    </customLabels>
+    <customLabels>
+        <label>Take or Attach Photos</label>
+        <name>CMN_Photo_Label</name>
+    </customLabels>
+    <customLabels>
+        <label>Resizing and uploading photos</label>
+        <name>CMN_Photo_Processing</name>
+    </customLabels>
+    <customLabels>
+        <label>You can upload up to {0} photos at a time.</label>
+        <name>CMN_Photo_TooMany</name>
+    </customLabels>
+    <customLabels>
+        <label>{0} photos attached.</label>
+        <name>CMN_Photo_Uploaded</name>
     </customLabels>
     <customLabels>
         <label>The same user and plant access already exists: {0}</label>

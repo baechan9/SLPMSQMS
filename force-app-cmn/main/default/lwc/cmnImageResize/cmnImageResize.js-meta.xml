@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>66.0</apiVersion>
+    <isExposed>false</isExposed>
+    <description
+  >이미지 축소 공통 모듈(CMN-00-UX-001 BR-4): 장변 1920px JPEG</description>
+</LightningComponentBundle>

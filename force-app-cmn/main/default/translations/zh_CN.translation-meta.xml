@@ -109,6 +109,18 @@
         <name>CMN_Approval_TargetMismatch</name>
     </customLabels>
     <customLabels>
+        <label>扫描失败,请手动输入代码。</label>
+        <name>CMN_Barcode_Failed</name>
+    </customLabels>
+    <customLabels>
+        <label>输入代码</label>
+        <name>CMN_Barcode_Manual</name>
+    </customLabels>
+    <customLabels>
+        <label>扫描条码</label>
+        <name>CMN_Barcode_Scan</name>
+    </customLabels>
+    <customLabels>
         <label>只能删除草稿(DRAFT)特性。生效特性请用新版本替换。</label>
         <name>CMN_Char_DeleteOnlyDraft</name>
     </customLabels>
@@ -705,6 +717,22 @@
     <customLabels>
         <label>部门代码 {0} 不存在。</label>
         <name>CMN_Org_UnknownDepartmentCode</name>
+    </customLabels>
+    <customLabels>
+        <label>拍照/附加照片</label>
+        <name>CMN_Photo_Label</name>
+    </customLabels>
+    <customLabels>
+        <label>正在压缩并上传照片</label>
+        <name>CMN_Photo_Processing</name>
+    </customLabels>
+    <customLabels>
+        <label>一次最多上传 {0} 张照片。</label>
+        <name>CMN_Photo_TooMany</name>
+    </customLabels>
+    <customLabels>
+        <label>已附加 {0} 张照片。</label>
+        <name>CMN_Photo_Uploaded</name>
     </customLabels>
     <customLabels>
         <label>已存在相同的用户和工厂访问: {0}</label>
