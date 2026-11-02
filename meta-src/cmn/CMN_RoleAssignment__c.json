@@ -1,0 +1,154 @@
+{
+  "wi": "CMN-00-APV-002",
+  "object": "CMN_RoleAssignment__c",
+  "package": "force-app-cmn",
+  "description": "결재 Role 배정(APV-002). Role(APPROVAL_ROLE 코드) × 공장(공란 = 전사) × 부서 × 사용자, 유효 기간. 결재선 Role 해석의 근거",
+  "label": {
+    "ko": "결재 Role 배정",
+    "en_US": "Role Assignment",
+    "zh_CN": "审批角色分配"
+  },
+  "plural": {
+    "ko": "결재 Role 배정",
+    "en_US": "Role Assignments",
+    "zh_CN": "审批角色分配"
+  },
+  "nameField": {
+    "type": "AutoNumber",
+    "format": "RA-{0000000}",
+    "label": {
+      "ko": "배정 번호",
+      "en_US": "Assignment No.",
+      "zh_CN": "分配编号"
+    }
+  },
+  "sharingModel": "Read",
+  "enableHistory": true,
+  "tab": {
+    "motif": "Custom84: Hands"
+  },
+  "fields": [
+    {
+      "name": "Role__c",
+      "type": "Lookup",
+      "referenceTo": "CMN_Code__c",
+      "relationshipName": "RoleAssignments",
+      "relationshipLabel": {
+        "ko": "결재 Role 배정",
+        "en_US": "Role Assignments",
+        "zh_CN": "审批角色分配"
+      },
+      "required": true,
+      "deleteConstraint": "Restrict",
+      "trackHistory": true,
+      "label": {
+        "ko": "결재 Role",
+        "en_US": "Approval Role",
+        "zh_CN": "审批角色"
+      },
+      "description": "APPROVAL_ROLE 그룹 코드만(트리거 검증)"
+    },
+    {
+      "name": "Plant__c",
+      "type": "Lookup",
+      "referenceTo": "CMN_Plant__c",
+      "relationshipName": "RoleAssignments",
+      "relationshipLabel": {
+        "ko": "결재 Role 배정",
+        "en_US": "Role Assignments",
+        "zh_CN": "审批角色分配"
+      },
+      "deleteConstraint": "Restrict",
+      "trackHistory": true,
+      "label": {
+        "ko": "공장",
+        "en_US": "Plant",
+        "zh_CN": "工厂"
+      },
+      "description": "공란 = 전사"
+    },
+    {
+      "name": "Department__c",
+      "type": "Lookup",
+      "referenceTo": "CMN_Department__c",
+      "relationshipName": "RoleAssignments",
+      "relationshipLabel": {
+        "ko": "결재 Role 배정",
+        "en_US": "Role Assignments",
+        "zh_CN": "审批角色分配"
+      },
+      "deleteConstraint": "Restrict",
+      "label": {
+        "ko": "부서",
+        "en_US": "Department",
+        "zh_CN": "部门"
+      }
+    },
+    {
+      "name": "User__c",
+      "type": "Lookup",
+      "referenceTo": "User",
+      "relationshipName": "RoleAssignments",
+      "relationshipLabel": {
+        "ko": "결재 Role 배정",
+        "en_US": "Role Assignments",
+        "zh_CN": "审批角色分配"
+      },
+      "trackHistory": true,
+      "label": {
+        "ko": "사용자",
+        "en_US": "User",
+        "zh_CN": "用户"
+      },
+      "description": "명세 필수: User 조회는 필수로 만들 수 없어 트리거가 확인"
+    },
+    {
+      "name": "ValidFrom__c",
+      "type": "Date",
+      "required": true,
+      "trackHistory": true,
+      "label": {
+        "ko": "유효 시작",
+        "en_US": "Valid From",
+        "zh_CN": "生效日期"
+      }
+    },
+    {
+      "name": "ValidTo__c",
+      "type": "Date",
+      "trackHistory": true,
+      "label": {
+        "ko": "유효 종료",
+        "en_US": "Valid To",
+        "zh_CN": "失效日期"
+      }
+    },
+    {
+      "name": "ExternalKey__c",
+      "type": "Text",
+      "length": 120,
+      "externalId": true,
+      "unique": true,
+      "serviceOnly": true,
+      "label": {
+        "ko": "외부 키",
+        "en_US": "External Key",
+        "zh_CN": "外部键"
+      },
+      "description": "RA-{Role}-{Plant 또는 ALL}-{사번}(부서가 있으면 -{부서 코드}). 데모 보강 CR-6"
+    }
+  ],
+  "validationRules": [
+    {
+      "name": "CMN_RoleAssignment_ValidRange",
+      "field": "ValidTo__c",
+      "formula": "AND(NOT(ISBLANK(ValidTo__c)), ValidTo__c < ValidFrom__c)",
+      "description": "종료 ≥ 시작",
+      "message": {
+        "ko": "유효 종료일은 시작일 이후여야 합니다.",
+        "en_US": "Valid-to must be on or after valid-from.",
+        "zh_CN": "失效日期必须在生效日期之后。"
+      }
+    }
+  ]
+}

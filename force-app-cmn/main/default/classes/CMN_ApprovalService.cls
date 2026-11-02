@@ -56,6 +56,8 @@ public with sharing class CMN_ApprovalService {
     }
     Id drafter = UserInfo.getUserId();
     validateSteps(steps, approvalType, drafter);
+    // 템플릿 규칙(필수 단계·편집 허용, APV-002 BR-3)과 Role 미지정(AC-2)을 상신 때 서버에서 확인한다
+    CMN_ApprovalLineResolver.enforceTemplate(targetId, typeCode, steps);
     CMN_ApprovalCallback callback = callbackFor(approvalType);
     String refusal = callback?.canSubmit(targetId);
     if (String.isNotBlank(refusal)) {

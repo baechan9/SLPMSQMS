@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_Approval_RoleAmbiguous</fullName>
+    <categories>CMN</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>Role 결재자 2명 이상(AC-4 설정 오류). {0} = Role명, {1} = 공장</shortDescription>
+    <value>{0}({1}) 결재자가 여러 명입니다. 결재 Role 배정을 확인하세요.</value>
+</CustomLabel>

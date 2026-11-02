@@ -30,4 +30,8 @@
         <field>EscalationDays__c</field>
         <value xsi:nil="true"/>
     </values>
+    <values>
+        <field>LineContributorClass__c</field>
+        <value xsi:nil="true"/>
+    </values>
 </CustomMetadata>

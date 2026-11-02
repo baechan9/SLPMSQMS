@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_Approval_EditNotAllowed</fullName>
+    <categories>CMN</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>편집 불가 템플릿의 결재선 변경</shortDescription>
+    <value>이 결재선은 바꿀 수 없습니다.</value>
+</CustomLabel>

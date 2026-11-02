@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LineContributorClass__c</fullName>
+    <description>CMN_ApprovalLineContributor 구현(유형별 결재선 보정, APV-002 검토 반영 Vol.2)</description>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>Line Contributor Class</label>
+    <length>120</length>
+    <required>false</required>
+    <type>Text</type>
+</CustomField>

@@ -1,0 +1,96 @@
+{
+  "wi": "CMN-00-APV-002",
+  "package": "force-app-cmn",
+  "labels": [
+    {
+      "name": "CMN_Approval_RoleNotAssigned",
+      "category": "CMN",
+      "description": "Role 결재자 0명(AC-2). {0} = Role명, {1} = 공장",
+      "value": {
+        "ko": "{0}({1}) 결재자가 지정되지 않았습니다.",
+        "en_US": "No approver is assigned for {0} ({1}).",
+        "zh_CN": "未指定{0}({1})审批人。"
+      }
+    },
+    {
+      "name": "CMN_Approval_RoleAmbiguous",
+      "category": "CMN",
+      "description": "Role 결재자 2명 이상(AC-4 설정 오류). {0} = Role명, {1} = 공장",
+      "value": {
+        "ko": "{0}({1}) 결재자가 여러 명입니다. 결재 Role 배정을 확인하세요.",
+        "en_US": "More than one approver is assigned for {0} ({1}). Check the role assignments.",
+        "zh_CN": "{0}({1})审批人有多名。请检查角色分配。"
+      }
+    },
+    {
+      "name": "CMN_Approval_MandatoryStep",
+      "category": "CMN",
+      "description": "필수 단계 삭제·결재자 변경(AC-3)",
+      "value": {
+        "ko": "필수 결재 단계는 삭제하거나 결재자를 바꿀 수 없습니다.",
+        "en_US": "Mandatory approval steps cannot be removed or reassigned.",
+        "zh_CN": "必需的审批步骤不能删除或更换审批人。"
+      }
+    },
+    {
+      "name": "CMN_Approval_EditNotAllowed",
+      "category": "CMN",
+      "description": "편집 불가 템플릿의 결재선 변경",
+      "value": {
+        "ko": "이 결재선은 바꿀 수 없습니다.",
+        "en_US": "This approval line cannot be changed.",
+        "zh_CN": "此审批流程不能修改。"
+      }
+    },
+    {
+      "name": "CMN_Approval_ResolverNotSupported",
+      "category": "CMN",
+      "description": "지원하지 않는 해석 유형. {0} = 유형",
+      "value": {
+        "ko": "결재자 해석 유형 {0}은(는) 아직 지원하지 않습니다.",
+        "en_US": "Resolver type {0} is not supported yet.",
+        "zh_CN": "尚不支持审批人解析类型 {0}。"
+      }
+    },
+    {
+      "name": "CMN_Approval_FieldApproverMissing",
+      "category": "CMN",
+      "description": "레코드 필드에서 결재자를 못 찾음. {0} = 필드 경로",
+      "value": {
+        "ko": "레코드의 {0}에서 결재자를 찾을 수 없습니다.",
+        "en_US": "No approver found in {0} of the record.",
+        "zh_CN": "无法从记录的 {0} 中找到审批人。"
+      }
+    },
+    {
+      "name": "CMN_Approval_NotApprovalRole",
+      "category": "CMN",
+      "description": "APPROVAL_ROLE 그룹이 아닌 코드",
+      "value": {
+        "ko": "결재 Role(APPROVAL_ROLE) 코드만 선택할 수 있습니다.",
+        "en_US": "Only approval role (APPROVAL_ROLE) codes can be selected.",
+        "zh_CN": "只能选择审批角色(APPROVAL_ROLE)代码。"
+      }
+    },
+    {
+      "name": "CMN_Approval_DuplicateRole",
+      "category": "CMN",
+      "description": "같은 Role 배정 중복. {0} = 외부 키",
+      "value": {
+        "ko": "같은 결재 Role 배정이 이미 있습니다: {0}",
+        "en_US": "The same role assignment already exists: {0}",
+        "zh_CN": "已存在相同的角色分配: {0}"
+      }
+    },
+    {
+      "name": "CMN_Approval_DuplicateTemplate",
+      "category": "CMN",
+      "description": "같은 유형·공장 시스템 기본 템플릿 중복. {0} = 외부 키",
+      "value": {
+        "ko": "같은 유형·공장의 기본 결재선 템플릿이 이미 있습니다: {0}",
+        "en_US": "A default approval template already exists for this type and plant: {0}",
+        "zh_CN": "已存在相同类型和工厂的默认审批模板: {0}"
+      }
+    }
+  ]
+}

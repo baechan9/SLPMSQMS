@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_Approval_MandatoryStep</fullName>
+    <categories>CMN</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>필수 단계 삭제·결재자 변경(AC-3)</shortDescription>
+    <value>필수 결재 단계는 삭제하거나 결재자를 바꿀 수 없습니다.</value>
+</CustomLabel>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_Approval_DuplicateTemplate</fullName>
+    <categories>CMN</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>같은 유형·공장 시스템 기본 템플릿 중복. {0} = 외부 키</shortDescription>
+    <value>같은 유형·공장의 기본 결재선 템플릿이 이미 있습니다: {0}</value>
+</CustomLabel>

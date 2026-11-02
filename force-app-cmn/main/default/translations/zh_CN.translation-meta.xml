@@ -29,6 +29,22 @@
         <name>CMN_Approval_CommentRequired</name>
     </customLabels>
     <customLabels>
+        <label>已存在相同的角色分配: {0}</label>
+        <name>CMN_Approval_DuplicateRole</name>
+    </customLabels>
+    <customLabels>
+        <label>已存在相同类型和工厂的默认审批模板: {0}</label>
+        <name>CMN_Approval_DuplicateTemplate</name>
+    </customLabels>
+    <customLabels>
+        <label>此审批流程不能修改。</label>
+        <name>CMN_Approval_EditNotAllowed</name>
+    </customLabels>
+    <customLabels>
+        <label>无法从记录的 {0} 中找到审批人。</label>
+        <name>CMN_Approval_FieldApproverMissing</name>
+    </customLabels>
+    <customLabels>
         <label>审批流程的最后一步必须是批准。</label>
         <name>CMN_Approval_LastMustApprove</name>
     </customLabels>
@@ -37,12 +53,20 @@
         <name>CMN_Approval_ManagerRequired</name>
     </customLabels>
     <customLabels>
+        <label>必需的审批步骤不能删除或更换审批人。</label>
+        <name>CMN_Approval_MandatoryStep</name>
+    </customLabels>
+    <customLabels>
         <label>审批流程为空。</label>
         <name>CMN_Approval_NoSteps</name>
     </customLabels>
     <customLabels>
         <label>审批类型 {0} 不存在。</label>
         <name>CMN_Approval_NoType</name>
+    </customLabels>
+    <customLabels>
+        <label>只能选择审批角色(APPROVAL_ROLE)代码。</label>
+        <name>CMN_Approval_NotApprovalRole</name>
     </customLabels>
     <customLabels>
         <label>只有此步骤的审批人可以处理。</label>
@@ -55,6 +79,18 @@
     <customLabels>
         <label>只有起草人可以在任何步骤处理之前撤回。</label>
         <name>CMN_Approval_RecallNotAllowed</name>
+    </customLabels>
+    <customLabels>
+        <label>尚不支持审批人解析类型 {0}。</label>
+        <name>CMN_Approval_ResolverNotSupported</name>
+    </customLabels>
+    <customLabels>
+        <label>{0}({1})审批人有多名。请检查角色分配。</label>
+        <name>CMN_Approval_RoleAmbiguous</name>
+    </customLabels>
+    <customLabels>
+        <label>未指定{0}({1})审批人。</label>
+        <name>CMN_Approval_RoleNotAssigned</name>
     </customLabels>
     <customLabels>
         <label>起草人不能被指定为审批人。</label>

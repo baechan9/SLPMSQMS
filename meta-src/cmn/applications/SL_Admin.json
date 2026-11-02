@@ -23,7 +23,9 @@
       "CMN_CodeGroup__c",
       "CMN_Code__c",
       "CMN_DeleteLog__c",
-      "CMN_UserPlantAccess__c"
+      "CMN_UserPlantAccess__c",
+      "CMN_RoleAssignment__c",
+      "CMN_ApprovalTemplate__c"
     ],
     "utilityBar": "SL_UtilityBar"
   }

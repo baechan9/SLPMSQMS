@@ -1,0 +1,147 @@
+{
+  "wi": "CMN-00-APV-002",
+  "object": "CMN_ApprovalTemplate__c",
+  "package": "force-app-cmn",
+  "description": "결재선 템플릿(APV-002). SYSTEM은 전 사용자 조회(조건 공유 규칙), PERSONAL은 본인만. TypeCode × 공장(공란 = 전사 기본)",
+  "label": {
+    "ko": "결재선 템플릿",
+    "en_US": "Approval Template",
+    "zh_CN": "审批模板"
+  },
+  "plural": {
+    "ko": "결재선 템플릿",
+    "en_US": "Approval Templates",
+    "zh_CN": "审批模板"
+  },
+  "nameField": {
+    "label": {
+      "ko": "템플릿명",
+      "en_US": "Template Name",
+      "zh_CN": "模板名称"
+    }
+  },
+  "sharingModel": "Private",
+  "tab": {
+    "motif": "Custom83: Stamp"
+  },
+  "fields": [
+    {
+      "name": "TypeCode__c",
+      "type": "Text",
+      "length": 80,
+      "required": true,
+      "label": {
+        "ko": "결재 유형",
+        "en_US": "Approval Type",
+        "zh_CN": "审批类型"
+      }
+    },
+    {
+      "name": "Plant__c",
+      "type": "Lookup",
+      "referenceTo": "CMN_Plant__c",
+      "relationshipName": "ApprovalTemplates",
+      "relationshipLabel": {
+        "ko": "결재선 템플릿",
+        "en_US": "Approval Templates",
+        "zh_CN": "审批模板"
+      },
+      "deleteConstraint": "Restrict",
+      "label": {
+        "ko": "공장",
+        "en_US": "Plant",
+        "zh_CN": "工厂"
+      },
+      "description": "공란 = 전사 기본"
+    },
+    {
+      "name": "Scope__c",
+      "type": "Picklist",
+      "required": true,
+      "default": "SYSTEM",
+      "label": {
+        "ko": "구분",
+        "en_US": "Scope",
+        "zh_CN": "范围"
+      },
+      "values": [
+        {
+          "api": "SYSTEM",
+          "label": {
+            "ko": "시스템",
+            "en_US": "System",
+            "zh_CN": "系统"
+          }
+        },
+        {
+          "api": "PERSONAL",
+          "label": {
+            "ko": "개인",
+            "en_US": "Personal",
+            "zh_CN": "个人"
+          }
+        }
+      ]
+    },
+    {
+      "name": "AllowUserEdit__c",
+      "type": "Checkbox",
+      "default": true,
+      "label": {
+        "ko": "사용자 편집 허용",
+        "en_US": "Allow User Edit",
+        "zh_CN": "允许用户编辑"
+      }
+    },
+    {
+      "name": "IsDefault__c",
+      "type": "Checkbox",
+      "default": false,
+      "label": {
+        "ko": "기본",
+        "en_US": "Default",
+        "zh_CN": "默认"
+      }
+    },
+    {
+      "name": "IsActive__c",
+      "type": "Checkbox",
+      "default": true,
+      "label": {
+        "ko": "사용",
+        "en_US": "Active",
+        "zh_CN": "有效"
+      }
+    },
+    {
+      "name": "ExternalKey__c",
+      "type": "Text",
+      "length": 120,
+      "externalId": true,
+      "unique": true,
+      "serviceOnly": true,
+      "label": {
+        "ko": "외부 키",
+        "en_US": "External Key",
+        "zh_CN": "外部键"
+      },
+      "description": "시스템 기본 템플릿: TPL-{TypeCode}(공장이면 -{PlantCode}). 데모 보강 CR-6"
+    }
+  ],
+  "layout": {
+    "relatedLists": [
+      {
+        "object": "CMN_ApprovalTemplateStep__c",
+        "field": "Template__c",
+        "fields": [
+          "NAME",
+          "StepNo__c",
+          "StepType__c",
+          "ResolverType__c",
+          "RoleCode__c",
+          "IsMandatory__c"
+        ]
+      }
+    ]
+  }
+}

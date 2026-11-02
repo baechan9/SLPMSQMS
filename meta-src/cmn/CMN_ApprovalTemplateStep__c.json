@@ -1,0 +1,217 @@
+{
+  "wi": "CMN-00-APV-002",
+  "object": "CMN_ApprovalTemplateStep__c",
+  "package": "force-app-cmn",
+  "description": "결재선 템플릿 단계. 해석 유형: ROLE, USER, DRAFTER_MANAGER, RECORD_FIELD(FieldPath), PROJECT_ROLE(PMS 예약)",
+  "label": {
+    "ko": "템플릿 단계",
+    "en_US": "Template Step",
+    "zh_CN": "模板步骤"
+  },
+  "plural": {
+    "ko": "템플릿 단계",
+    "en_US": "Template Steps",
+    "zh_CN": "模板步骤"
+  },
+  "nameField": {
+    "type": "AutoNumber",
+    "format": "TS-{0000000}",
+    "label": {
+      "ko": "단계 번호",
+      "en_US": "Step No.",
+      "zh_CN": "步骤编号"
+    }
+  },
+  "sharingModel": "ControlledByParent",
+  "fields": [
+    {
+      "name": "Template__c",
+      "type": "MasterDetail",
+      "referenceTo": "CMN_ApprovalTemplate__c",
+      "relationshipName": "Steps",
+      "relationshipLabel": {
+        "ko": "템플릿 단계",
+        "en_US": "Template Steps",
+        "zh_CN": "模板步骤"
+      },
+      "label": {
+        "ko": "템플릿",
+        "en_US": "Template",
+        "zh_CN": "模板"
+      }
+    },
+    {
+      "name": "StepNo__c",
+      "type": "Number",
+      "precision": 3,
+      "scale": 0,
+      "required": true,
+      "label": {
+        "ko": "단계 순서",
+        "en_US": "Step Order",
+        "zh_CN": "步骤顺序"
+      }
+    },
+    {
+      "name": "StepType__c",
+      "type": "Picklist",
+      "required": true,
+      "label": {
+        "ko": "단계 유형",
+        "en_US": "Step Type",
+        "zh_CN": "步骤类型"
+      },
+      "values": [
+        {
+          "api": "REVIEW",
+          "label": {
+            "ko": "검토",
+            "en_US": "Review",
+            "zh_CN": "审核"
+          }
+        },
+        {
+          "api": "AGREE",
+          "label": {
+            "ko": "합의",
+            "en_US": "Agree",
+            "zh_CN": "会签"
+          }
+        },
+        {
+          "api": "APPROVE",
+          "label": {
+            "ko": "승인",
+            "en_US": "Approve",
+            "zh_CN": "批准"
+          }
+        },
+        {
+          "api": "CC",
+          "label": {
+            "ko": "참조",
+            "en_US": "CC",
+            "zh_CN": "抄送"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ResolverType__c",
+      "type": "Picklist",
+      "required": true,
+      "default": "ROLE",
+      "label": {
+        "ko": "결재자 해석",
+        "en_US": "Resolver Type",
+        "zh_CN": "审批人解析"
+      },
+      "values": [
+        {
+          "api": "ROLE",
+          "label": {
+            "ko": "Role",
+            "en_US": "Role",
+            "zh_CN": "角色"
+          }
+        },
+        {
+          "api": "USER",
+          "label": {
+            "ko": "사용자 지정",
+            "en_US": "User",
+            "zh_CN": "指定用户"
+          }
+        },
+        {
+          "api": "DRAFTER_MANAGER",
+          "label": {
+            "ko": "기안자 부서장",
+            "en_US": "Drafter Manager",
+            "zh_CN": "起草人部门负责人"
+          }
+        },
+        {
+          "api": "RECORD_FIELD",
+          "label": {
+            "ko": "레코드 필드",
+            "en_US": "Record Field",
+            "zh_CN": "记录字段"
+          }
+        },
+        {
+          "api": "PROJECT_ROLE",
+          "label": {
+            "ko": "프로젝트 Role(PMS)",
+            "en_US": "Project Role (PMS)",
+            "zh_CN": "项目角色(PMS)"
+          }
+        }
+      ]
+    },
+    {
+      "name": "RoleCode__c",
+      "type": "Text",
+      "length": 40,
+      "label": {
+        "ko": "Role 코드",
+        "en_US": "Role Code",
+        "zh_CN": "角色代码"
+      },
+      "description": "ROLE: APPROVAL_ROLE 코드"
+    },
+    {
+      "name": "User__c",
+      "type": "Lookup",
+      "referenceTo": "User",
+      "relationshipName": "ApprovalTemplateSteps",
+      "relationshipLabel": {
+        "ko": "템플릿 단계",
+        "en_US": "Template Steps",
+        "zh_CN": "模板步骤"
+      },
+      "label": {
+        "ko": "사용자",
+        "en_US": "User",
+        "zh_CN": "用户"
+      },
+      "description": "USER"
+    },
+    {
+      "name": "FieldPath__c",
+      "type": "Text",
+      "length": 255,
+      "label": {
+        "ko": "필드 경로",
+        "en_US": "Field Path",
+        "zh_CN": "字段路径"
+      },
+      "description": "RECORD_FIELD: 대상 레코드의 사용자 Id 경로(예: ResponsibleDept__r.Manager__c)"
+    },
+    {
+      "name": "IsMandatory__c",
+      "type": "Checkbox",
+      "default": false,
+      "label": {
+        "ko": "필수",
+        "en_US": "Mandatory",
+        "zh_CN": "必需"
+      },
+      "description": "사용자가 삭제·결재자 변경 불가(BR-3)"
+    },
+    {
+      "name": "ExternalKey__c",
+      "type": "Text",
+      "length": 140,
+      "externalId": true,
+      "unique": true,
+      "serviceOnly": true,
+      "label": {
+        "ko": "외부 키",
+        "en_US": "External Key",
+        "zh_CN": "外部键"
+      },
+      "description": "{템플릿 외부 키}-{StepNo}. 데모 보강 CR-6"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sharingCriteriaRules>
+        <fullName>CMN_SystemTemplates</fullName>
+        <accessLevel>Read</accessLevel>
+        <description
+    >시스템 결재선 템플릿은 사내 전체 읽기(CMN-00-APV-002). 개인 템플릿은 본인만(OWD Private)</description>
+        <label>CMN 시스템 결재선 템플릿</label>
+        <sharedTo>
+            <allInternalUsers />
+        </sharedTo>
+        <criteriaItems>
+            <field>Scope__c</field>
+            <operation>equals</operation>
+            <value>SYSTEM</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+</SharingRules>

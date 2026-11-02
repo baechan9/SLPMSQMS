@@ -1,0 +1,20 @@
+{
+  "permissionSet": {
+    "wi": "CMN-00-APV-002",
+    "name": "CMN_PS_ApprovalLine_Admin",
+    "package": "force-app-cmn",
+    "label": "CMN Approval Line Admin",
+    "description": "결재 Role 배정·결재선 템플릿 관리와 탭(CMN-00-APV-002). 품질경영·IT 운영",
+    "objects": {
+      "CMN_RoleAssignment__c": "admin",
+      "CMN_ApprovalTemplate__c": "admin",
+      "CMN_ApprovalTemplateStep__c": "admin",
+      "CMN_Code__c": "read",
+      "CMN_CodeGroup__c": "read",
+      "CMN_Plant__c": "read",
+      "CMN_Company__c": "read",
+      "CMN_Department__c": "read"
+    },
+    "tabs": ["CMN_RoleAssignment__c", "CMN_ApprovalTemplate__c"]
+  }
+}

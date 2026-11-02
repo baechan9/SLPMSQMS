@@ -4,10 +4,13 @@
     "name": "CMN_PS_Approval_User",
     "package": "force-app-cmn",
     "label": "CMN Approval User",
-    "description": "결재 요청·단계 조회(상신·처리는 서비스가 시스템 모드로), 결재 탭(CMN-00-APV-001). 사내 페르소나 PSG 전체",
+    "description": "결재 요청·단계 조회(상신·처리는 서비스가 시스템 모드로), 결재선 템플릿 조회·개인 템플릿 작성(본인만 — OWD Private, 시스템 템플릿은 조건 공유 읽기), Role 배정 조회, 결재 탭(CMN-00-APV-001·002). 사내 페르소나 PSG 전체",
     "objects": {
       "CMN_ApprovalRequest__c": "read",
-      "CMN_ApprovalStep__c": "read"
+      "CMN_ApprovalStep__c": "read",
+      "CMN_ApprovalTemplate__c": "edit-delete",
+      "CMN_ApprovalTemplateStep__c": "edit-delete",
+      "CMN_RoleAssignment__c": "read"
     },
     "tabs": ["CMN_ApprovalRequest__c"]
   }

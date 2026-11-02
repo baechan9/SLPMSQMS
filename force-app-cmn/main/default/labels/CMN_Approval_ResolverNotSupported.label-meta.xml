@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_Approval_ResolverNotSupported</fullName>
+    <categories>CMN</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>지원하지 않는 해석 유형. {0} = 유형</shortDescription>
+    <value>결재자 해석 유형 {0}은(는) 아직 지원하지 않습니다.</value>
+</CustomLabel>

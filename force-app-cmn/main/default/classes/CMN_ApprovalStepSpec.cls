@@ -11,6 +11,9 @@ public with sharing class CMN_ApprovalStepSpec {
   public Id approverId;
   @AuraEnabled
   public String roleCode;
+  /** 템플릿의 필수 단계(사용자가 삭제·결재자 변경 불가, APV-002 BR-3) */
+  @AuraEnabled
+  public Boolean isMandatory = false;
 
   /**
    * @description 빈 결재선 줄(화면에서 역직렬화).

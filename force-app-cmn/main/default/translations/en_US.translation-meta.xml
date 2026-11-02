@@ -29,6 +29,22 @@
         <name>CMN_Approval_CommentRequired</name>
     </customLabels>
     <customLabels>
+        <label>The same role assignment already exists: {0}</label>
+        <name>CMN_Approval_DuplicateRole</name>
+    </customLabels>
+    <customLabels>
+        <label>A default approval template already exists for this type and plant: {0}</label>
+        <name>CMN_Approval_DuplicateTemplate</name>
+    </customLabels>
+    <customLabels>
+        <label>This approval line cannot be changed.</label>
+        <name>CMN_Approval_EditNotAllowed</name>
+    </customLabels>
+    <customLabels>
+        <label>No approver found in {0} of the record.</label>
+        <name>CMN_Approval_FieldApproverMissing</name>
+    </customLabels>
+    <customLabels>
         <label>The last step of the approval line must be an approval step.</label>
         <name>CMN_Approval_LastMustApprove</name>
     </customLabels>
@@ -37,12 +53,20 @@
         <name>CMN_Approval_ManagerRequired</name>
     </customLabels>
     <customLabels>
+        <label>Mandatory approval steps cannot be removed or reassigned.</label>
+        <name>CMN_Approval_MandatoryStep</name>
+    </customLabels>
+    <customLabels>
         <label>The approval line is empty.</label>
         <name>CMN_Approval_NoSteps</name>
     </customLabels>
     <customLabels>
         <label>Approval type {0} does not exist.</label>
         <name>CMN_Approval_NoType</name>
+    </customLabels>
+    <customLabels>
+        <label>Only approval role (APPROVAL_ROLE) codes can be selected.</label>
+        <name>CMN_Approval_NotApprovalRole</name>
     </customLabels>
     <customLabels>
         <label>Only the approver of this step can act on it.</label>
@@ -55,6 +79,18 @@
     <customLabels>
         <label>Only the drafter can recall, and only before any step has been processed.</label>
         <name>CMN_Approval_RecallNotAllowed</name>
+    </customLabels>
+    <customLabels>
+        <label>Resolver type {0} is not supported yet.</label>
+        <name>CMN_Approval_ResolverNotSupported</name>
+    </customLabels>
+    <customLabels>
+        <label>More than one approver is assigned for {0} ({1}). Check the role assignments.</label>
+        <name>CMN_Approval_RoleAmbiguous</name>
+    </customLabels>
+    <customLabels>
+        <label>No approver is assigned for {0} ({1}).</label>
+        <name>CMN_Approval_RoleNotAssigned</name>
     </customLabels>
     <customLabels>
         <label>The drafter cannot be an approver.</label>

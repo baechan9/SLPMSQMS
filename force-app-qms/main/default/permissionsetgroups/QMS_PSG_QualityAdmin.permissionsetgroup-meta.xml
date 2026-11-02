@@ -5,6 +5,7 @@
     <label>QMS 품질경영(관리자)</label>
     <permissionSets>CMN_PS_AppAdmin_Read</permissionSets>
     <permissionSets>CMN_PS_AppQms_Read</permissionSets>
+    <permissionSets>CMN_PS_ApprovalLine_Admin</permissionSets>
     <permissionSets>CMN_PS_Approval_Admin</permissionSets>
     <permissionSets>CMN_PS_Approval_User</permissionSets>
     <permissionSets>CMN_PS_Characteristic_Edit</permissionSets>

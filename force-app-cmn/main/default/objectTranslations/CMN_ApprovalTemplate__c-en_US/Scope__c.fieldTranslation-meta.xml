@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label>Scope</label>
+    <name>Scope__c</name>
+    <picklistValues>
+        <masterLabel>시스템</masterLabel>
+        <translation>System</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>개인</masterLabel>
+        <translation>Personal</translation>
+    </picklistValues>
+</CustomFieldTranslation>

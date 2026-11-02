@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_Approval_RoleNotAssigned</fullName>
+    <categories>CMN</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>Role 결재자 0명(AC-2). {0} = Role명, {1} = 공장</shortDescription>
+    <value>{0}({1}) 결재자가 지정되지 않았습니다.</value>
+</CustomLabel>

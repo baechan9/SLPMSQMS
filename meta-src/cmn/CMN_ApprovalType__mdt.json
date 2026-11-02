@@ -55,6 +55,13 @@
       "precision": 3,
       "scale": 0,
       "label": "Escalation Days"
+    },
+    {
+      "name": "LineContributorClass__c",
+      "type": "Text",
+      "length": 120,
+      "label": "Line Contributor Class",
+      "description": "CMN_ApprovalLineContributor 구현(유형별 결재선 보정, APV-002 검토 반영 Vol.2)"
     }
   ],
   "records": [
@@ -68,7 +75,8 @@
         "KeepLockedAfterApproval__c": false,
         "RequireDrafterManager__c": false,
         "ReminderDays__c": null,
-        "EscalationDays__c": null
+        "EscalationDays__c": null,
+        "LineContributorClass__c": null
       }
     }
   ]

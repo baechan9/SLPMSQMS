@@ -1,0 +1,11 @@
+/**
+ * @description CMN_ApprovalTemplateStep__c 트리거: 저장 전 규칙·외부 키(CMN-00-APV-002).
+ * @group CMN-00-APV-002
+ */
+public with sharing class CMN_ApprovalTemplateStepTriggerHandler extends CMN_TriggerHandler {
+  protected override void beforeInsert() {
+    CMN_ApprovalLineService.prepareTemplateSteps(
+      (List<CMN_ApprovalTemplateStep__c>) newRecords
+    );
+  }
+}

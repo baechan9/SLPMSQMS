@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Role Assignment</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Role Assignments</value>
+    </caseValues>
+    <nameFieldLabel>Assignment No.</nameFieldLabel>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage>Valid-to must be on or after valid-from.</errorMessage>
+        <name>CMN_RoleAssignment_ValidRange</name>
+    </validationRules>
+</CustomObjectTranslation>
