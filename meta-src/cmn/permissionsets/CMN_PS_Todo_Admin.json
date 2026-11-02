@@ -1,0 +1,13 @@
+{
+  "permissionSet": {
+    "wi": "CMN-00-TDO-001",
+    "name": "CMN_PS_Todo_Admin",
+    "package": "force-app-cmn",
+    "label": "CMN Todo Admin",
+    "description": "모든 To-Do 조회(BR-1 관리자 View All)(CMN-00-TDO-001). IT 운영·품질경영",
+    "objects": {
+      "CMN_Todo__c": "viewall"
+    },
+    "tabs": ["CMN_Todo__c"]
+  }
+}

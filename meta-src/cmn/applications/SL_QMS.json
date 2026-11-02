@@ -8,6 +8,7 @@
     "headerColor": "#0B5CAB",
     "tabs": [
       "standard-home",
+      "CMN_Todo__c",
       "CMN_Characteristic__c",
       "CMN_ApprovalRequest__c"
     ],

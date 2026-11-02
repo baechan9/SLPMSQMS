@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_Todo_CMN_APPROVAL</fullName>
+    <categories>CMN</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>결재 To-Do 제목(TitleLabel = {접두어}_Todo_{SourceType}). {0} = 결재 제목</shortDescription>
+    <value>[결재] {0}</value>
+</CustomLabel>

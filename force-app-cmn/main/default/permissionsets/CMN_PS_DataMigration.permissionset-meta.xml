@@ -707,6 +707,61 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>CMN_Todo__c.Assignee__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>CMN_Todo__c.CompletedAt__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>CMN_Todo__c.DelegatedFrom__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>CMN_Todo__c.DueDate__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>CMN_Todo__c.ExternalKey__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>CMN_Todo__c.IsDelegated__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>CMN_Todo__c.IsOverdue__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>CMN_Todo__c.Plant__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>CMN_Todo__c.RecordNo__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>CMN_Todo__c.Status__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>CMN_Todo__c.TitleParams__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>CMN_UserPlantAccess__c.ExternalKey__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -988,6 +1043,15 @@
         <modifyAllRecords>false</modifyAllRecords>
         <viewAllRecords>false</viewAllRecords>
         <object>CMN_TestRecord__c</object>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <viewAllRecords>false</viewAllRecords>
+        <object>CMN_Todo__c</object>
     </objectPermissions>
     <objectPermissions>
         <allowCreate>true</allowCreate>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label>系统</label>
+    <name>System__c</name>
+    <picklistValues>
+        <masterLabel>QMS</masterLabel>
+        <translation>QMS</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>PMS</masterLabel>
+        <translation>PMS</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>공통</masterLabel>
+        <translation>通用</translation>
+    </picklistValues>
+</CustomFieldTranslation>

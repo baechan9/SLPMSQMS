@@ -28,5 +28,7 @@
     <permissionSets>CMN_PS_Site_Read</permissionSets>
     <permissionSets>CMN_PS_Supplier_Admin</permissionSets>
     <permissionSets>CMN_PS_Supplier_Read</permissionSets>
+    <permissionSets>CMN_PS_Todo_Admin</permissionSets>
+    <permissionSets>CMN_PS_Todo_User</permissionSets>
     <status>Updated</status>
 </PermissionSetGroup>

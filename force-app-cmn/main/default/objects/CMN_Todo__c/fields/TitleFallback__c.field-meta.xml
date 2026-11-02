@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>TitleFallback__c</fullName>
+    <description>생성 시점 기본 언어 렌더링(검색·리포트)</description>
+    <label>기본 제목</label>
+    <length>255</length>
+    <required>true</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+</CustomField>

@@ -2023,7 +2023,7 @@ class Gen:
             src_tok = ref(sobj, skey_field, skey)
             row = {'ExternalKey__c': f'{stype}/{src_tok}/{user(assignee)}', 'Assignee__r.EmployeeNo__c': assignee, 'Category__c': cat, 'System__c': 'QMS',
                    'SourceType__c': stype, 'SourceRecordId__c': src_tok, 'SourceObject__c': sobj, 'TargetRecordId__c': ref(tobj, tkey_field, tkey),
-                   'RecordNo__c': rec_no, 'TitleLabel__c': f'QMS_Todo_{stype}', 'TitleParams__c': j([rec_no]), 'TitleFallback__c': title,
+                   'RecordNo__c': rec_no, 'TitleLabel__c': f"{stype.split('_')[0]}_Todo_{stype}", 'TitleParams__c': j([rec_no]), 'TitleFallback__c': title,
                    'DueDate__c': iso(due) if due else None, 'Status__c': 'OPEN', 'IsDelegated__c': str(bool(delegated_from)).lower(),
                    'DelegatedFrom__r.EmployeeNo__c': delegated_from, 'Plant__r.PlantCode__c': plant}
             o.add(f_td, row)

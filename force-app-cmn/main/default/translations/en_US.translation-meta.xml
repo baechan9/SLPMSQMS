@@ -296,4 +296,12 @@
         <label>The same supplier, item and plant combination already exists: {0}</label>
         <name>CMN_Supplier_DuplicateSupplierItem</name>
     </customLabels>
+    <customLabels>
+        <label>A To-Do requires an assignee.</label>
+        <name>CMN_Todo_AssigneeRequired</name>
+    </customLabels>
+    <customLabels>
+        <label>[Approval] {0}</label>
+        <name>CMN_Todo_CMN_APPROVAL</name>
+    </customLabels>
 </Translations>

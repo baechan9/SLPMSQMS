@@ -296,4 +296,12 @@
         <label>已存在相同的供应商、物料和工厂组合: {0}</label>
         <name>CMN_Supplier_DuplicateSupplierItem</name>
     </customLabels>
+    <customLabels>
+        <label>待办需要处理人。</label>
+        <name>CMN_Todo_AssigneeRequired</name>
+    </customLabels>
+    <customLabels>
+        <label>[审批] {0}</label>
+        <name>CMN_Todo_CMN_APPROVAL</name>
+    </customLabels>
 </Translations>

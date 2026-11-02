@@ -1,0 +1,42 @@
+{
+  "wi": "CMN-00-TDO-001",
+  "object": "CMN_TodoChanged__e",
+  "kind": "event",
+  "package": "force-app-cmn",
+  "publishBehavior": "PublishAfterCommit",
+  "description": "To-Do 변경 알림(BR-4, TDO-003 푸시)",
+  "label": {
+    "ko": "To-Do 변경 이벤트"
+  },
+  "plural": {
+    "ko": "To-Do 변경 이벤트"
+  },
+  "fields": [
+    {
+      "name": "AssigneeEmployeeNo__c",
+      "type": "Text",
+      "length": 20,
+      "label": "Assignee Employee No"
+    },
+    {
+      "name": "AssigneeId__c",
+      "type": "Text",
+      "length": 18,
+      "label": "Assignee Id",
+      "description": "포털 사용자는 사번이 없다"
+    },
+    {
+      "name": "TodoId__c",
+      "type": "Text",
+      "length": 18,
+      "label": "Todo Id"
+    },
+    {
+      "name": "ChangeType__c",
+      "type": "Text",
+      "length": 20,
+      "label": "Change Type",
+      "description": "OPEN, DONE, CANCELLED"
+    }
+  ]
+}

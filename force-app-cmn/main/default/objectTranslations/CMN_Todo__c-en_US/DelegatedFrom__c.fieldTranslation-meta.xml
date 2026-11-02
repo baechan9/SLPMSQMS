@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label>Delegated From</label>
+    <name>DelegatedFrom__c</name>
+    <relationshipLabel>Delegated To-Dos</relationshipLabel>
+</CustomFieldTranslation>

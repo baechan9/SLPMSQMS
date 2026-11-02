@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_Todo_AssigneeRequired</fullName>
+    <categories>CMN</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>To-Do 처리자 없음</shortDescription>
+    <value>To-Do 처리자가 필요합니다.</value>
+</CustomLabel>

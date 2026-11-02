@@ -50,6 +50,14 @@
         "Value__c": "10",
         "Note__c": "MDM-003(Vol.5 CLM-007 BR-3 요청). Account.RootCauseDueDays__c가 비면 사용"
       }
+    },
+    {
+      "name": "CMN_DEFAULT_LANGUAGE",
+      "label": "기본 언어(To-Do 기본 제목 등)",
+      "values": {
+        "Value__c": "ko",
+        "Note__c": "TDO-001 TitleFallback 렌더링 언어. Org 기본 언어와 같게"
+      }
     }
   ]
 }

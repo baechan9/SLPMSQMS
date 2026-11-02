@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SourceType__c</fullName>
+    <description>예: CMN_APPROVAL, QMS_NCR_COUNTERMEASURE</description>
+    <label>원천 유형</label>
+    <length>80</length>
+    <required>true</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+</CustomField>

@@ -1,0 +1,326 @@
+{
+  "wi": "CMN-00-TDO-001",
+  "object": "CMN_Todo__c",
+  "package": "force-app-cmn",
+  "description": "통합 To-Do(TDO-001). Owner = Assignee, OWD Private(본인만). 사람에게 일을 시키는 모든 기능은 CMN_TodoService로 만든다. ExternalKey = {SourceType}/{SourceRecordId}/{AssigneeId}",
+  "label": {
+    "ko": "To-Do",
+    "en_US": "To-Do",
+    "zh_CN": "待办"
+  },
+  "plural": {
+    "ko": "To-Do",
+    "en_US": "To-Dos",
+    "zh_CN": "待办"
+  },
+  "nameField": {
+    "label": {
+      "ko": "제목",
+      "en_US": "Title",
+      "zh_CN": "标题"
+    }
+  },
+  "sharingModel": "Private",
+  "tab": {
+    "motif": "Custom95: Clipboard"
+  },
+  "fields": [
+    {
+      "name": "Assignee__c",
+      "type": "Lookup",
+      "referenceTo": "User",
+      "relationshipName": "Todos",
+      "relationshipLabel": {
+        "ko": "To-Do",
+        "en_US": "To-Dos",
+        "zh_CN": "待办"
+      },
+      "serviceOnly": true,
+      "label": {
+        "ko": "처리자",
+        "en_US": "Assignee",
+        "zh_CN": "处理人"
+      },
+      "description": "Owner도 처리자. 포털 사용자 허용(검토 반영 Vol.3). 명세 필수는 서비스가 보장"
+    },
+    {
+      "name": "Category__c",
+      "type": "Picklist",
+      "required": true,
+      "default": "TASK",
+      "label": {
+        "ko": "구분",
+        "en_US": "Category",
+        "zh_CN": "类别"
+      },
+      "values": [
+        {
+          "api": "TASK",
+          "label": {
+            "ko": "업무",
+            "en_US": "Task",
+            "zh_CN": "任务"
+          }
+        },
+        {
+          "api": "APPROVAL",
+          "label": {
+            "ko": "결재",
+            "en_US": "Approval",
+            "zh_CN": "审批"
+          }
+        }
+      ]
+    },
+    {
+      "name": "System__c",
+      "type": "Picklist",
+      "required": true,
+      "default": "QMS",
+      "label": {
+        "ko": "시스템",
+        "en_US": "System",
+        "zh_CN": "系统"
+      },
+      "values": [
+        {
+          "api": "QMS",
+          "label": "QMS"
+        },
+        {
+          "api": "PMS",
+          "label": "PMS"
+        },
+        {
+          "api": "CMN",
+          "label": {
+            "ko": "공통",
+            "en_US": "Common",
+            "zh_CN": "通用"
+          }
+        }
+      ]
+    },
+    {
+      "name": "SourceType__c",
+      "type": "Text",
+      "length": 80,
+      "required": true,
+      "label": {
+        "ko": "원천 유형",
+        "en_US": "Source Type",
+        "zh_CN": "来源类型"
+      },
+      "description": "예: CMN_APPROVAL, QMS_NCR_COUNTERMEASURE"
+    },
+    {
+      "name": "SourceRecordId__c",
+      "type": "Text",
+      "length": 18,
+      "required": true,
+      "label": {
+        "ko": "원천 레코드",
+        "en_US": "Source Record",
+        "zh_CN": "来源记录"
+      }
+    },
+    {
+      "name": "SourceObject__c",
+      "type": "Text",
+      "length": 80,
+      "required": true,
+      "label": {
+        "ko": "원천 객체",
+        "en_US": "Source Object",
+        "zh_CN": "来源对象"
+      }
+    },
+    {
+      "name": "TargetRecordId__c",
+      "type": "Text",
+      "length": 18,
+      "required": true,
+      "label": {
+        "ko": "업무 레코드",
+        "en_US": "Target Record",
+        "zh_CN": "目标记录"
+      },
+      "description": "클릭 시 열 업무 레코드"
+    },
+    {
+      "name": "RecordNo__c",
+      "type": "Text",
+      "length": 40,
+      "label": {
+        "ko": "업무 번호",
+        "en_US": "Record No.",
+        "zh_CN": "业务编号"
+      }
+    },
+    {
+      "name": "TitleLabel__c",
+      "type": "Text",
+      "length": 80,
+      "required": true,
+      "label": {
+        "ko": "제목 라벨",
+        "en_US": "Title Label",
+        "zh_CN": "标题标签"
+      },
+      "description": "Custom Label 이름"
+    },
+    {
+      "name": "TitleParams__c",
+      "type": "LongTextArea",
+      "length": 1000,
+      "label": {
+        "ko": "제목 치환값",
+        "en_US": "Title Params",
+        "zh_CN": "标题参数"
+      },
+      "description": "JSON 배열({0}…) 또는 객체({key}). 명세 Text(1000)은 Text 최대 255라 Long Text Area(1000)",
+      "visibleLines": 3
+    },
+    {
+      "name": "TitleFallback__c",
+      "type": "Text",
+      "length": 255,
+      "required": true,
+      "label": {
+        "ko": "기본 제목",
+        "en_US": "Title Fallback",
+        "zh_CN": "默认标题"
+      },
+      "description": "생성 시점 기본 언어 렌더링(검색·리포트)"
+    },
+    {
+      "name": "DueDate__c",
+      "type": "Date",
+      "label": {
+        "ko": "기한",
+        "en_US": "Due Date",
+        "zh_CN": "期限"
+      },
+      "description": "공장 시간대 기준"
+    },
+    {
+      "name": "Status__c",
+      "type": "Picklist",
+      "default": "OPEN",
+      "serviceOnly": true,
+      "label": {
+        "ko": "상태",
+        "en_US": "Status",
+        "zh_CN": "状态"
+      },
+      "values": [
+        {
+          "api": "OPEN",
+          "label": {
+            "ko": "진행",
+            "en_US": "Open",
+            "zh_CN": "进行中"
+          }
+        },
+        {
+          "api": "DONE",
+          "label": {
+            "ko": "완료",
+            "en_US": "Done",
+            "zh_CN": "已完成"
+          }
+        },
+        {
+          "api": "CANCELLED",
+          "label": {
+            "ko": "취소",
+            "en_US": "Cancelled",
+            "zh_CN": "已取消"
+          }
+        }
+      ]
+    },
+    {
+      "name": "IsDelegated__c",
+      "type": "Checkbox",
+      "default": false,
+      "serviceOnly": true,
+      "label": {
+        "ko": "대결",
+        "en_US": "Delegated",
+        "zh_CN": "代理"
+      }
+    },
+    {
+      "name": "DelegatedFrom__c",
+      "type": "Lookup",
+      "referenceTo": "User",
+      "relationshipName": "DelegatedTodos",
+      "relationshipLabel": {
+        "ko": "위임한 To-Do",
+        "en_US": "Delegated To-Dos",
+        "zh_CN": "委托待办"
+      },
+      "serviceOnly": true,
+      "label": {
+        "ko": "위임자",
+        "en_US": "Delegated From",
+        "zh_CN": "委托人"
+      }
+    },
+    {
+      "name": "Plant__c",
+      "type": "Lookup",
+      "referenceTo": "CMN_Plant__c",
+      "relationshipName": "Todos",
+      "relationshipLabel": {
+        "ko": "To-Do",
+        "en_US": "To-Dos",
+        "zh_CN": "待办"
+      },
+      "label": {
+        "ko": "공장",
+        "en_US": "Plant",
+        "zh_CN": "工厂"
+      }
+    },
+    {
+      "name": "IsOverdue__c",
+      "type": "Formula",
+      "returnType": "Checkbox",
+      "treatBlanksAs": "BlankAsZero",
+      "formula": "AND(ISPICKVAL(Status__c, 'OPEN'), NOT(ISBLANK(DueDate__c)), DueDate__c < TODAY())",
+      "label": {
+        "ko": "기한 초과",
+        "en_US": "Overdue",
+        "zh_CN": "已逾期"
+      }
+    },
+    {
+      "name": "ExternalKey__c",
+      "type": "Text",
+      "length": 120,
+      "externalId": true,
+      "unique": true,
+      "caseSensitive": true,
+      "serviceOnly": true,
+      "label": {
+        "ko": "외부 키",
+        "en_US": "External Key",
+        "zh_CN": "外部键"
+      },
+      "description": "{SourceType}/{SourceRecordId}/{AssigneeId}(데모·이관은 토큰 치환)"
+    },
+    {
+      "name": "CompletedAt__c",
+      "type": "DateTime",
+      "serviceOnly": true,
+      "label": {
+        "ko": "완료 일시",
+        "en_US": "Completed At",
+        "zh_CN": "完成时间"
+      }
+    }
+  ],
+  "readOnlyLayout": true
+}

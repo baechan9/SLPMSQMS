@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>System__c</fullName>
+    <label>시스템</label>
+    <required>true</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>QMS</fullName>
+                <default>true</default>
+                <label>QMS</label>
+            </value>
+            <value>
+                <fullName>PMS</fullName>
+                <default>false</default>
+                <label>PMS</label>
+            </value>
+            <value>
+                <fullName>CMN</fullName>
+                <default>false</default>
+                <label>공통</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

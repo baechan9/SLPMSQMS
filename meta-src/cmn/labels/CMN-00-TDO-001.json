@@ -1,0 +1,26 @@
+{
+  "wi": "CMN-00-TDO-001",
+  "package": "force-app-cmn",
+  "labels": [
+    {
+      "name": "CMN_Todo_CMN_APPROVAL",
+      "category": "CMN",
+      "description": "결재 To-Do 제목(TitleLabel = {접두어}_Todo_{SourceType}). {0} = 결재 제목",
+      "value": {
+        "ko": "[결재] {0}",
+        "en_US": "[Approval] {0}",
+        "zh_CN": "[审批] {0}"
+      }
+    },
+    {
+      "name": "CMN_Todo_AssigneeRequired",
+      "category": "CMN",
+      "description": "To-Do 처리자 없음",
+      "value": {
+        "ko": "To-Do 처리자가 필요합니다.",
+        "en_US": "A To-Do requires an assignee.",
+        "zh_CN": "待办需要处理人。"
+      }
+    }
+  ]
+}
