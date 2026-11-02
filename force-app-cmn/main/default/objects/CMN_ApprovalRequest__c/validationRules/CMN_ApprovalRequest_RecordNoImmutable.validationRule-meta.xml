@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_ApprovalRequest_RecordNoImmutable</fullName>
+    <active>true</active>
+    <description>발행 번호 변경 금지(ARC-003 BR-3)</description>
+    <errorConditionFormula>AND(ISCHANGED(RecordNo__c), NOT(ISBLANK(PRIORVALUE(RecordNo__c))))</errorConditionFormula>
+    <errorDisplayField>RecordNo__c</errorDisplayField>
+    <errorMessage>발행된 번호는 바꿀 수 없습니다.</errorMessage>
+</ValidationRule>

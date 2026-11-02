@@ -6,7 +6,11 @@
     "label": "SL QMS",
     "description": "품질 업무 앱. 사내 프로필 기본 앱이며 QMS 업무 탭은 각 기능 WI가 추가한다(CMN-00-SEC-001 BR-4)",
     "headerColor": "#0B5CAB",
-    "tabs": ["standard-home", "CMN_Characteristic__c"],
+    "tabs": [
+      "standard-home",
+      "CMN_Characteristic__c",
+      "CMN_ApprovalRequest__c"
+    ],
     "utilityBar": "SL_UtilityBar"
   }
 }

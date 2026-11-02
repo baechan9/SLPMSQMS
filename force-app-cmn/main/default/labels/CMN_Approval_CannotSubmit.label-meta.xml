@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_Approval_CannotSubmit</fullName>
+    <categories>CMN</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>콜백이 상신을 거부. {0} = 사유</shortDescription>
+    <value>상신할 수 없습니다: {0}</value>
+</CustomLabel>

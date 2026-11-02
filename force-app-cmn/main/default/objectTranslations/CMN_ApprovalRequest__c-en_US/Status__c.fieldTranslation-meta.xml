@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label>Status</label>
+    <name>Status__c</name>
+    <picklistValues>
+        <masterLabel>작성</masterLabel>
+        <translation>Draft</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>진행</masterLabel>
+        <translation>In Progress</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>승인</masterLabel>
+        <translation>Approved</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>반려</masterLabel>
+        <translation>Rejected</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>회수</masterLabel>
+        <translation>Recalled</translation>
+    </picklistValues>
+</CustomFieldTranslation>

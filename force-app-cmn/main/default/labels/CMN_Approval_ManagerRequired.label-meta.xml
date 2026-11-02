@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_Approval_ManagerRequired</fullName>
+    <categories>CMN</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>기안자 부서장 필수</shortDescription>
+    <value>이 결재는 기안자 부서장을 결재선에 포함해야 합니다.</value>
+</CustomLabel>

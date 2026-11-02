@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label>状态</label>
+    <name>Status__c</name>
+    <picklistValues>
+        <masterLabel>대기</masterLabel>
+        <translation>等待</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>처리 차례</masterLabel>
+        <translation>待处理</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>승인</masterLabel>
+        <translation>已批准</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>반려</masterLabel>
+        <translation>已驳回</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>건너뜀</masterLabel>
+        <translation>已跳过</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>통보</masterLabel>
+        <translation>已通知</translation>
+    </picklistValues>
+</CustomFieldTranslation>

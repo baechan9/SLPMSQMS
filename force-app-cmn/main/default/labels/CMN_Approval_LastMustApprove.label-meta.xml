@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_Approval_LastMustApprove</fullName>
+    <categories>CMN</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>마지막 단계가 승인이 아님(AC-3)</shortDescription>
+    <value>결재선의 마지막 단계는 승인이어야 합니다.</value>
+</CustomLabel>

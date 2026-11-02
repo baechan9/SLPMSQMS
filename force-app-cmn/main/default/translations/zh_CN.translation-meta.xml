@@ -13,6 +13,58 @@
         <name>SL_QMS</name>
     </customApplications>
     <customLabels>
+        <label>此记录已有进行中的审批。</label>
+        <name>CMN_Approval_AlreadyInProgress</name>
+    </customLabels>
+    <customLabels>
+        <label>审批人缺失或已停用。</label>
+        <name>CMN_Approval_ApproverInactive</name>
+    </customLabels>
+    <customLabels>
+        <label>无法提交: {0}</label>
+        <name>CMN_Approval_CannotSubmit</name>
+    </customLabels>
+    <customLabels>
+        <label>请输入驳回原因。</label>
+        <name>CMN_Approval_CommentRequired</name>
+    </customLabels>
+    <customLabels>
+        <label>审批流程的最后一步必须是批准。</label>
+        <name>CMN_Approval_LastMustApprove</name>
+    </customLabels>
+    <customLabels>
+        <label>此审批必须包含起草人的部门负责人。</label>
+        <name>CMN_Approval_ManagerRequired</name>
+    </customLabels>
+    <customLabels>
+        <label>审批流程为空。</label>
+        <name>CMN_Approval_NoSteps</name>
+    </customLabels>
+    <customLabels>
+        <label>审批类型 {0} 不存在。</label>
+        <name>CMN_Approval_NoType</name>
+    </customLabels>
+    <customLabels>
+        <label>只有此步骤的审批人可以处理。</label>
+        <name>CMN_Approval_NotApprover</name>
+    </customLabels>
+    <customLabels>
+        <label>此审批步骤不是待处理状态。</label>
+        <name>CMN_Approval_NotPending</name>
+    </customLabels>
+    <customLabels>
+        <label>只有起草人可以在任何步骤处理之前撤回。</label>
+        <name>CMN_Approval_RecallNotAllowed</name>
+    </customLabels>
+    <customLabels>
+        <label>起草人不能被指定为审批人。</label>
+        <name>CMN_Approval_SelfApproval</name>
+    </customLabels>
+    <customLabels>
+        <label>此记录不是该审批类型的对象。</label>
+        <name>CMN_Approval_TargetMismatch</name>
+    </customLabels>
+    <customLabels>
         <label>只能删除草稿(DRAFT)特性。生效特性请用新版本替换。</label>
         <name>CMN_Char_DeleteOnlyDraft</name>
     </customLabels>

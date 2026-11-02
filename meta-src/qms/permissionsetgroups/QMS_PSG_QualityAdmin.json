@@ -23,7 +23,9 @@
       "CMN_PS_Code_Read",
       "CMN_PS_Code_Admin",
       "CMN_PS_DeleteLog_Read",
-      "CMN_PS_Language_User"
+      "CMN_PS_Language_User",
+      "CMN_PS_Approval_User",
+      "CMN_PS_Approval_Admin"
     ]
   }
 }

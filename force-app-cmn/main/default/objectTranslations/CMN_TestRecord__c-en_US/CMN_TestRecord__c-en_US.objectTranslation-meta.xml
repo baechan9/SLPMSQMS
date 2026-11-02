@@ -18,6 +18,10 @@
         <label>Supplier Sharing</label>
         <name>CMN_Supplier__c</name>
     </sharingReasons>
+    <sharingReasons>
+        <label>Approver Sharing</label>
+        <name>CMN_Approval__c</name>
+    </sharingReasons>
     <validationRules>
         <errorMessage>An issued number cannot be changed.</errorMessage>
         <name>CMN_TestRecord_RecordNoImmutable</name>

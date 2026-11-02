@@ -29,6 +29,9 @@
     },
     "agentPlatformSettings": {
       "enableAgentPlatform": true
+    },
+    "apexSettings": {
+      "enableApexApprovalLockUnlock": true
     }
   }
 }

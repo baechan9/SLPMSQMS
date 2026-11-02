@@ -14,7 +14,8 @@
       "CMN_PS_Supplier_Read",
       "CMN_PS_Characteristic_Read",
       "CMN_PS_Code_Read",
-      "CMN_PS_Language_User"
+      "CMN_PS_Language_User",
+      "CMN_PS_Approval_User"
     ]
   }
 }

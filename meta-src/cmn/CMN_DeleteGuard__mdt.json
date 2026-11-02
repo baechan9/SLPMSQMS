@@ -41,6 +41,15 @@
         "StatusField__c": "Status__c",
         "DeletableValues__c": "DRAFT"
       }
+    },
+    {
+      "name": "CMN_ApprovalRequest",
+      "label": "결재 요청",
+      "values": {
+        "ObjectApiName__c": "CMN_ApprovalRequest__c",
+        "StatusField__c": "Status__c",
+        "DeletableValues__c": "DRAFT"
+      }
     }
   ]
 }

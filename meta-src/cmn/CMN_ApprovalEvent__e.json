@@ -1,0 +1,54 @@
+{
+  "wi": "CMN-00-APV-001",
+  "object": "CMN_ApprovalEvent__e",
+  "kind": "event",
+  "package": "force-app-cmn",
+  "publishBehavior": "PublishAfterCommit",
+  "description": "결재 상태 변화(BR-9). To-Do(TDO-001)·알림(NTF-001)이 구독한다",
+  "label": {
+    "ko": "결재 이벤트"
+  },
+  "plural": {
+    "ko": "결재 이벤트"
+  },
+  "fields": [
+    {
+      "name": "RequestId__c",
+      "type": "Text",
+      "length": 18,
+      "label": "Request Id"
+    },
+    {
+      "name": "StepId__c",
+      "type": "Text",
+      "length": 18,
+      "label": "Step Id"
+    },
+    {
+      "name": "EventType__c",
+      "type": "Text",
+      "length": 20,
+      "label": "Event Type",
+      "description": "SUBMITTED, STEP_PENDING, STEP_DONE, APPROVED, REJECTED, RECALLED"
+    },
+    {
+      "name": "UserId__c",
+      "type": "Text",
+      "length": 18,
+      "label": "User Id",
+      "description": "처리 차례 결재자(STEP_PENDING) 또는 처리자"
+    },
+    {
+      "name": "TargetRecordId__c",
+      "type": "Text",
+      "length": 18,
+      "label": "Target Record Id"
+    },
+    {
+      "name": "TypeCode__c",
+      "type": "Text",
+      "length": 80,
+      "label": "Type Code"
+    }
+  ]
+}

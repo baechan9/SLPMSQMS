@@ -1,0 +1,255 @@
+{
+  "wi": "CMN-00-APV-001",
+  "object": "CMN_ApprovalStep__c",
+  "package": "force-app-cmn",
+  "description": "결재 단계. 같은 StepNo = 병렬(모두 승인 필요), CC는 통보만. 상태는 CMN_ApprovalService만 바꾼다",
+  "label": {
+    "ko": "결재 단계",
+    "en_US": "Approval Step",
+    "zh_CN": "审批步骤"
+  },
+  "plural": {
+    "ko": "결재 단계",
+    "en_US": "Approval Steps",
+    "zh_CN": "审批步骤"
+  },
+  "nameField": {
+    "type": "AutoNumber",
+    "format": "AS-{0000000}",
+    "label": {
+      "ko": "단계 번호",
+      "en_US": "Step No.",
+      "zh_CN": "步骤编号"
+    }
+  },
+  "sharingModel": "ControlledByParent",
+  "fields": [
+    {
+      "name": "Request__c",
+      "type": "MasterDetail",
+      "referenceTo": "CMN_ApprovalRequest__c",
+      "relationshipName": "Steps",
+      "relationshipLabel": {
+        "ko": "결재 단계",
+        "en_US": "Approval Steps",
+        "zh_CN": "审批步骤"
+      },
+      "label": {
+        "ko": "결재 요청",
+        "en_US": "Approval Request",
+        "zh_CN": "审批请求"
+      }
+    },
+    {
+      "name": "StepNo__c",
+      "type": "Number",
+      "precision": 3,
+      "scale": 0,
+      "required": true,
+      "label": {
+        "ko": "단계 순서",
+        "en_US": "Step Order",
+        "zh_CN": "步骤顺序"
+      }
+    },
+    {
+      "name": "StepType__c",
+      "type": "Picklist",
+      "required": true,
+      "label": {
+        "ko": "단계 유형",
+        "en_US": "Step Type",
+        "zh_CN": "步骤类型"
+      },
+      "values": [
+        {
+          "api": "REVIEW",
+          "label": {
+            "ko": "검토",
+            "en_US": "Review",
+            "zh_CN": "审核"
+          }
+        },
+        {
+          "api": "AGREE",
+          "label": {
+            "ko": "합의",
+            "en_US": "Agree",
+            "zh_CN": "会签"
+          }
+        },
+        {
+          "api": "APPROVE",
+          "label": {
+            "ko": "승인",
+            "en_US": "Approve",
+            "zh_CN": "批准"
+          }
+        },
+        {
+          "api": "CC",
+          "label": {
+            "ko": "참조",
+            "en_US": "CC",
+            "zh_CN": "抄送"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Approver__c",
+      "type": "Lookup",
+      "referenceTo": "User",
+      "relationshipName": "ApprovalSteps",
+      "relationshipLabel": {
+        "ko": "결재 단계",
+        "en_US": "Approval Steps",
+        "zh_CN": "审批步骤"
+      },
+      "label": {
+        "ko": "결재자",
+        "en_US": "Approver",
+        "zh_CN": "审批人"
+      },
+      "description": "명세 필수: User 조회는 필수로 만들 수 없어 서비스가 확인"
+    },
+    {
+      "name": "RoleCode__c",
+      "type": "Text",
+      "length": 40,
+      "label": {
+        "ko": "결재 Role",
+        "en_US": "Approval Role",
+        "zh_CN": "审批角色"
+      },
+      "description": "Role로 해석된 경우 원본 Role"
+    },
+    {
+      "name": "Status__c",
+      "type": "Picklist",
+      "default": "WAITING",
+      "serviceOnly": true,
+      "label": {
+        "ko": "상태",
+        "en_US": "Status",
+        "zh_CN": "状态"
+      },
+      "values": [
+        {
+          "api": "WAITING",
+          "label": {
+            "ko": "대기",
+            "en_US": "Waiting",
+            "zh_CN": "等待"
+          }
+        },
+        {
+          "api": "PENDING",
+          "label": {
+            "ko": "처리 차례",
+            "en_US": "Pending",
+            "zh_CN": "待处理"
+          }
+        },
+        {
+          "api": "APPROVED",
+          "label": {
+            "ko": "승인",
+            "en_US": "Approved",
+            "zh_CN": "已批准"
+          }
+        },
+        {
+          "api": "REJECTED",
+          "label": {
+            "ko": "반려",
+            "en_US": "Rejected",
+            "zh_CN": "已驳回"
+          }
+        },
+        {
+          "api": "SKIPPED",
+          "label": {
+            "ko": "건너뜀",
+            "en_US": "Skipped",
+            "zh_CN": "已跳过"
+          }
+        },
+        {
+          "api": "NOTIFIED",
+          "label": {
+            "ko": "통보",
+            "en_US": "Notified",
+            "zh_CN": "已通知"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ActedBy__c",
+      "type": "Lookup",
+      "referenceTo": "User",
+      "relationshipName": "ActedApprovalSteps",
+      "relationshipLabel": {
+        "ko": "처리한 결재 단계",
+        "en_US": "Acted Approval Steps",
+        "zh_CN": "已处理审批步骤"
+      },
+      "serviceOnly": true,
+      "label": {
+        "ko": "처리자",
+        "en_US": "Acted By",
+        "zh_CN": "处理人"
+      },
+      "description": "실제 처리자(대결 시 대리인)"
+    },
+    {
+      "name": "IsDelegated__c",
+      "type": "Checkbox",
+      "default": false,
+      "serviceOnly": true,
+      "label": {
+        "ko": "대결",
+        "en_US": "Delegated",
+        "zh_CN": "代理处理"
+      }
+    },
+    {
+      "name": "Comment__c",
+      "type": "LongTextArea",
+      "length": 4000,
+      "visibleLines": 3,
+      "serviceOnly": true,
+      "label": {
+        "ko": "의견",
+        "en_US": "Comment",
+        "zh_CN": "意见"
+      }
+    },
+    {
+      "name": "ActedAt__c",
+      "type": "DateTime",
+      "serviceOnly": true,
+      "label": {
+        "ko": "처리 일시",
+        "en_US": "Acted At",
+        "zh_CN": "处理时间"
+      }
+    },
+    {
+      "name": "ExternalKey__c",
+      "type": "Text",
+      "length": 60,
+      "externalId": true,
+      "unique": true,
+      "serviceOnly": true,
+      "label": {
+        "ko": "외부 키",
+        "en_US": "External Key",
+        "zh_CN": "外部键"
+      },
+      "description": "{결재 번호}-S{StepNo}(병렬 둘째부터 -{순번}). 데모 보강 CR-6"
+    }
+  ],
+  "readOnlyLayout": true
+}

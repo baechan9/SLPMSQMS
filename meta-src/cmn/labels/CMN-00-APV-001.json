@@ -1,0 +1,136 @@
+{
+  "wi": "CMN-00-APV-001",
+  "package": "force-app-cmn",
+  "labels": [
+    {
+      "name": "CMN_Approval_NoType",
+      "category": "CMN",
+      "description": "결재 유형이 없음. {0} = 유형 코드",
+      "value": {
+        "ko": "결재 유형 {0}이(가) 없습니다.",
+        "en_US": "Approval type {0} does not exist.",
+        "zh_CN": "审批类型 {0} 不存在。"
+      }
+    },
+    {
+      "name": "CMN_Approval_TargetMismatch",
+      "category": "CMN",
+      "description": "대상 객체와 유형 불일치",
+      "value": {
+        "ko": "이 레코드는 이 결재 유형의 대상이 아닙니다.",
+        "en_US": "This record is not a target of this approval type.",
+        "zh_CN": "此记录不是该审批类型的对象。"
+      }
+    },
+    {
+      "name": "CMN_Approval_NoSteps",
+      "category": "CMN",
+      "description": "결재선 없음",
+      "value": {
+        "ko": "결재선이 비어 있습니다.",
+        "en_US": "The approval line is empty.",
+        "zh_CN": "审批流程为空。"
+      }
+    },
+    {
+      "name": "CMN_Approval_LastMustApprove",
+      "category": "CMN",
+      "description": "마지막 단계가 승인이 아님(AC-3)",
+      "value": {
+        "ko": "결재선의 마지막 단계는 승인이어야 합니다.",
+        "en_US": "The last step of the approval line must be an approval step.",
+        "zh_CN": "审批流程的最后一步必须是批准。"
+      }
+    },
+    {
+      "name": "CMN_Approval_ApproverInactive",
+      "category": "CMN",
+      "description": "비활성·없는 결재자",
+      "value": {
+        "ko": "결재자가 없거나 비활성 사용자입니다.",
+        "en_US": "An approver is missing or inactive.",
+        "zh_CN": "审批人缺失或已停用。"
+      }
+    },
+    {
+      "name": "CMN_Approval_SelfApproval",
+      "category": "CMN",
+      "description": "기안자를 결재자로",
+      "value": {
+        "ko": "기안자 본인을 결재자로 지정할 수 없습니다.",
+        "en_US": "The drafter cannot be an approver.",
+        "zh_CN": "起草人不能被指定为审批人。"
+      }
+    },
+    {
+      "name": "CMN_Approval_ManagerRequired",
+      "category": "CMN",
+      "description": "기안자 부서장 필수",
+      "value": {
+        "ko": "이 결재는 기안자 부서장을 결재선에 포함해야 합니다.",
+        "en_US": "This approval requires the drafters department manager.",
+        "zh_CN": "此审批必须包含起草人的部门负责人。"
+      }
+    },
+    {
+      "name": "CMN_Approval_AlreadyInProgress",
+      "category": "CMN",
+      "description": "진행 중 결재 있음",
+      "value": {
+        "ko": "이 레코드는 이미 결재가 진행 중입니다.",
+        "en_US": "An approval is already in progress for this record.",
+        "zh_CN": "此记录已有进行中的审批。"
+      }
+    },
+    {
+      "name": "CMN_Approval_NotPending",
+      "category": "CMN",
+      "description": "처리 차례 아님",
+      "value": {
+        "ko": "처리할 차례인 결재 단계가 아닙니다.",
+        "en_US": "This approval step is not pending.",
+        "zh_CN": "此审批步骤不是待处理状态。"
+      }
+    },
+    {
+      "name": "CMN_Approval_NotApprover",
+      "category": "CMN",
+      "description": "결재자 아님",
+      "value": {
+        "ko": "이 단계의 결재자만 처리할 수 있습니다.",
+        "en_US": "Only the approver of this step can act on it.",
+        "zh_CN": "只有此步骤的审批人可以处理。"
+      }
+    },
+    {
+      "name": "CMN_Approval_CommentRequired",
+      "category": "CMN",
+      "description": "반려 사유 필수",
+      "value": {
+        "ko": "반려 사유를 입력하세요.",
+        "en_US": "Enter a reason for rejection.",
+        "zh_CN": "请输入驳回原因。"
+      }
+    },
+    {
+      "name": "CMN_Approval_RecallNotAllowed",
+      "category": "CMN",
+      "description": "회수 불가(BR-4)",
+      "value": {
+        "ko": "기안자만, 결재가 처리되기 전에만 회수할 수 있습니다.",
+        "en_US": "Only the drafter can recall, and only before any step has been processed.",
+        "zh_CN": "只有起草人可以在任何步骤处理之前撤回。"
+      }
+    },
+    {
+      "name": "CMN_Approval_CannotSubmit",
+      "category": "CMN",
+      "description": "콜백이 상신을 거부. {0} = 사유",
+      "value": {
+        "ko": "상신할 수 없습니다: {0}",
+        "en_US": "Cannot submit: {0}",
+        "zh_CN": "无法提交: {0}"
+      }
+    }
+  ]
+}

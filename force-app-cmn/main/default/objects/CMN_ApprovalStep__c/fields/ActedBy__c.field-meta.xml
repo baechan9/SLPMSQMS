@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ActedBy__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>실제 처리자(대결 시 대리인)</description>
+    <label>처리자</label>
+    <referenceTo>User</referenceTo>
+    <relationshipLabel>처리한 결재 단계</relationshipLabel>
+    <relationshipName>ActedApprovalSteps</relationshipName>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

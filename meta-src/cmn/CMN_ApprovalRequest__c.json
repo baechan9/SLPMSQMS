@@ -1,0 +1,290 @@
+{
+  "wi": "CMN-00-APV-001",
+  "object": "CMN_ApprovalRequest__c",
+  "package": "force-app-cmn",
+  "description": "결재 요청(APV-001). 대상은 다형(TargetRecordId·TargetObject). 상태는 CMN_ApprovalService만 바꾼다. 번호 APV-{YYYY}-{SEQ:7}(ARC-003)",
+  "label": {
+    "ko": "결재 요청",
+    "en_US": "Approval Request",
+    "zh_CN": "审批请求"
+  },
+  "plural": {
+    "ko": "결재 요청",
+    "en_US": "Approval Requests",
+    "zh_CN": "审批请求"
+  },
+  "nameField": {
+    "label": {
+      "ko": "결재 제목",
+      "en_US": "Approval Title",
+      "zh_CN": "审批标题"
+    }
+  },
+  "sharingModel": "Private",
+  "enableHistory": true,
+  "tab": {
+    "motif": "Custom18: Form"
+  },
+  "sharingReasons": [
+    {
+      "name": "CMN_Plant__c",
+      "label": {
+        "ko": "공장 공유",
+        "en_US": "Plant Sharing",
+        "zh_CN": "工厂共享"
+      }
+    },
+    {
+      "name": "CMN_Approval__c",
+      "label": {
+        "ko": "결재자 공유",
+        "en_US": "Approver Sharing",
+        "zh_CN": "审批人共享"
+      }
+    }
+  ],
+  "fields": [
+    {
+      "name": "RecordNo__c",
+      "type": "Text",
+      "length": 40,
+      "externalId": true,
+      "unique": true,
+      "serviceOnly": true,
+      "label": {
+        "ko": "결재 번호",
+        "en_US": "Approval No.",
+        "zh_CN": "审批编号"
+      },
+      "description": "채번 APV-{YYYY}-{SEQ:7}"
+    },
+    {
+      "name": "TypeCode__c",
+      "type": "Text",
+      "length": 80,
+      "required": true,
+      "label": {
+        "ko": "결재 유형",
+        "en_US": "Approval Type",
+        "zh_CN": "审批类型"
+      },
+      "description": "CMN_ApprovalType__mdt DeveloperName"
+    },
+    {
+      "name": "TargetRecordId__c",
+      "type": "Text",
+      "length": 18,
+      "required": true,
+      "label": {
+        "ko": "대상 레코드",
+        "en_US": "Target Record",
+        "zh_CN": "目标记录"
+      }
+    },
+    {
+      "name": "TargetObject__c",
+      "type": "Text",
+      "length": 80,
+      "required": true,
+      "label": {
+        "ko": "대상 객체",
+        "en_US": "Target Object",
+        "zh_CN": "目标对象"
+      }
+    },
+    {
+      "name": "TargetRecordNo__c",
+      "type": "Text",
+      "length": 40,
+      "label": {
+        "ko": "대상 번호",
+        "en_US": "Target No.",
+        "zh_CN": "目标编号"
+      },
+      "description": "대상 업무 번호 사본"
+    },
+    {
+      "name": "Title__c",
+      "type": "Text",
+      "length": 255,
+      "required": true,
+      "label": {
+        "ko": "제목",
+        "en_US": "Title",
+        "zh_CN": "标题"
+      }
+    },
+    {
+      "name": "Status__c",
+      "type": "Picklist",
+      "default": "DRAFT",
+      "serviceOnly": true,
+      "trackHistory": true,
+      "label": {
+        "ko": "상태",
+        "en_US": "Status",
+        "zh_CN": "状态"
+      },
+      "values": [
+        {
+          "api": "DRAFT",
+          "label": {
+            "ko": "작성",
+            "en_US": "Draft",
+            "zh_CN": "草稿"
+          }
+        },
+        {
+          "api": "IN_PROGRESS",
+          "label": {
+            "ko": "진행",
+            "en_US": "In Progress",
+            "zh_CN": "进行中"
+          }
+        },
+        {
+          "api": "APPROVED",
+          "label": {
+            "ko": "승인",
+            "en_US": "Approved",
+            "zh_CN": "已批准"
+          }
+        },
+        {
+          "api": "REJECTED",
+          "label": {
+            "ko": "반려",
+            "en_US": "Rejected",
+            "zh_CN": "已驳回"
+          }
+        },
+        {
+          "api": "RECALLED",
+          "label": {
+            "ko": "회수",
+            "en_US": "Recalled",
+            "zh_CN": "已撤回"
+          }
+        }
+      ]
+    },
+    {
+      "name": "CurrentStepNo__c",
+      "type": "Number",
+      "precision": 3,
+      "scale": 0,
+      "serviceOnly": true,
+      "label": {
+        "ko": "진행 단계",
+        "en_US": "Current Step",
+        "zh_CN": "当前步骤"
+      }
+    },
+    {
+      "name": "Plant__c",
+      "type": "Lookup",
+      "referenceTo": "CMN_Plant__c",
+      "relationshipName": "ApprovalRequests",
+      "relationshipLabel": {
+        "ko": "결재 요청",
+        "en_US": "Approval Requests",
+        "zh_CN": "审批请求"
+      },
+      "label": {
+        "ko": "공장",
+        "en_US": "Plant",
+        "zh_CN": "工厂"
+      },
+      "description": "공유·통계용(대상의 공장)"
+    },
+    {
+      "name": "Version__c",
+      "type": "Number",
+      "precision": 3,
+      "scale": 0,
+      "required": true,
+      "default": "1",
+      "label": {
+        "ko": "차수",
+        "en_US": "Version",
+        "zh_CN": "版本"
+      },
+      "description": "같은 대상 재상신 차수(BR-7)"
+    },
+    {
+      "name": "Summary__c",
+      "type": "LongTextArea",
+      "length": 32768,
+      "visibleLines": 8,
+      "label": {
+        "ko": "상신 스냅숏",
+        "en_US": "Submission Snapshot",
+        "zh_CN": "提交快照"
+      },
+      "description": "상신 시점 대상 필드 JSON"
+    },
+    {
+      "name": "SubmittedAt__c",
+      "type": "DateTime",
+      "serviceOnly": true,
+      "label": {
+        "ko": "상신 일시",
+        "en_US": "Submitted At",
+        "zh_CN": "提交时间"
+      }
+    },
+    {
+      "name": "CompletedAt__c",
+      "type": "DateTime",
+      "serviceOnly": true,
+      "label": {
+        "ko": "완료 일시",
+        "en_US": "Completed At",
+        "zh_CN": "完成时间"
+      }
+    },
+    {
+      "name": "SubmitComment__c",
+      "type": "LongTextArea",
+      "length": 4000,
+      "visibleLines": 3,
+      "serviceOnly": true,
+      "label": {
+        "ko": "상신 의견",
+        "en_US": "Submit Comment",
+        "zh_CN": "提交意见"
+      },
+      "description": "submit()의 comment(명세 API 인자 — 저장 위치 추가)"
+    }
+  ],
+  "validationRules": [
+    {
+      "name": "CMN_ApprovalRequest_RecordNoImmutable",
+      "field": "RecordNo__c",
+      "formula": "AND(ISCHANGED(RecordNo__c), NOT(ISBLANK(PRIORVALUE(RecordNo__c))))",
+      "description": "발행 번호 변경 금지(ARC-003 BR-3)",
+      "message": {
+        "ko": "발행된 번호는 바꿀 수 없습니다.",
+        "en_US": "An issued number cannot be changed.",
+        "zh_CN": "已发放的编号不能修改。"
+      }
+    }
+  ],
+  "readOnlyLayout": true,
+  "layout": {
+    "relatedLists": [
+      {
+        "object": "CMN_ApprovalStep__c",
+        "field": "Request__c",
+        "fields": [
+          "NAME",
+          "StepNo__c",
+          "StepType__c",
+          "Approver__c",
+          "Status__c",
+          "ActedAt__c"
+        ]
+      }
+    ]
+  }
+}

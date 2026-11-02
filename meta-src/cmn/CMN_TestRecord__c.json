@@ -131,6 +131,14 @@
         "en_US": "Supplier Sharing",
         "zh_CN": "供应商共享"
       }
+    },
+    {
+      "name": "CMN_Approval__c",
+      "label": {
+        "ko": "결재자 공유",
+        "en_US": "Approver Sharing",
+        "zh_CN": "审批人共享"
+      }
     }
   ]
 }

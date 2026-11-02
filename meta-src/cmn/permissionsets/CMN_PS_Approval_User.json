@@ -1,0 +1,14 @@
+{
+  "permissionSet": {
+    "wi": "CMN-00-APV-001",
+    "name": "CMN_PS_Approval_User",
+    "package": "force-app-cmn",
+    "label": "CMN Approval User",
+    "description": "결재 요청·단계 조회(상신·처리는 서비스가 시스템 모드로), 결재 탭(CMN-00-APV-001). 사내 페르소나 PSG 전체",
+    "objects": {
+      "CMN_ApprovalRequest__c": "read",
+      "CMN_ApprovalStep__c": "read"
+    },
+    "tabs": ["CMN_ApprovalRequest__c"]
+  }
+}

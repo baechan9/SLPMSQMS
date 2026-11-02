@@ -4,6 +4,7 @@
     <hasActivationRequired>false</hasActivationRequired>
     <label>QMS 검사원</label>
     <permissionSets>CMN_PS_AppQms_Read</permissionSets>
+    <permissionSets>CMN_PS_Approval_User</permissionSets>
     <permissionSets>CMN_PS_Characteristic_Read</permissionSets>
     <permissionSets>CMN_PS_Code_Read</permissionSets>
     <permissionSets>CMN_PS_Customer_Read</permissionSets>

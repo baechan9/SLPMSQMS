@@ -71,6 +71,17 @@
         "ResetPolicy__c": "YEARLY",
         "NumberField__c": null
       }
+    },
+    {
+      "name": "CMN_ApprovalRequest",
+      "label": "결재 요청",
+      "values": {
+        "ObjectApiName__c": "CMN_ApprovalRequest__c",
+        "Pattern__c": "APV-{YYYY}-{SEQ:7}",
+        "ScopeField__c": null,
+        "ResetPolicy__c": "YEARLY",
+        "NumberField__c": null
+      }
     }
   ]
 }

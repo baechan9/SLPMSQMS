@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_Approval_NoType</fullName>
+    <categories>CMN</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>결재 유형이 없음. {0} = 유형 코드</shortDescription>
+    <value>결재 유형 {0}이(가) 없습니다.</value>
+</CustomLabel>

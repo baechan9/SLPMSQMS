@@ -13,6 +13,58 @@
         <name>SL_QMS</name>
     </customApplications>
     <customLabels>
+        <label>An approval is already in progress for this record.</label>
+        <name>CMN_Approval_AlreadyInProgress</name>
+    </customLabels>
+    <customLabels>
+        <label>An approver is missing or inactive.</label>
+        <name>CMN_Approval_ApproverInactive</name>
+    </customLabels>
+    <customLabels>
+        <label>Cannot submit: {0}</label>
+        <name>CMN_Approval_CannotSubmit</name>
+    </customLabels>
+    <customLabels>
+        <label>Enter a reason for rejection.</label>
+        <name>CMN_Approval_CommentRequired</name>
+    </customLabels>
+    <customLabels>
+        <label>The last step of the approval line must be an approval step.</label>
+        <name>CMN_Approval_LastMustApprove</name>
+    </customLabels>
+    <customLabels>
+        <label>This approval requires the drafters department manager.</label>
+        <name>CMN_Approval_ManagerRequired</name>
+    </customLabels>
+    <customLabels>
+        <label>The approval line is empty.</label>
+        <name>CMN_Approval_NoSteps</name>
+    </customLabels>
+    <customLabels>
+        <label>Approval type {0} does not exist.</label>
+        <name>CMN_Approval_NoType</name>
+    </customLabels>
+    <customLabels>
+        <label>Only the approver of this step can act on it.</label>
+        <name>CMN_Approval_NotApprover</name>
+    </customLabels>
+    <customLabels>
+        <label>This approval step is not pending.</label>
+        <name>CMN_Approval_NotPending</name>
+    </customLabels>
+    <customLabels>
+        <label>Only the drafter can recall, and only before any step has been processed.</label>
+        <name>CMN_Approval_RecallNotAllowed</name>
+    </customLabels>
+    <customLabels>
+        <label>The drafter cannot be an approver.</label>
+        <name>CMN_Approval_SelfApproval</name>
+    </customLabels>
+    <customLabels>
+        <label>This record is not a target of this approval type.</label>
+        <name>CMN_Approval_TargetMismatch</name>
+    </customLabels>
+    <customLabels>
         <label>Only DRAFT characteristics can be deleted. Replace active ones with a new version.</label>
         <name>CMN_Char_DeleteOnlyDraft</name>
     </customLabels>

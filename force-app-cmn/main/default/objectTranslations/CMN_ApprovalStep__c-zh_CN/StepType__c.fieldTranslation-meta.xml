@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label>步骤类型</label>
+    <name>StepType__c</name>
+    <picklistValues>
+        <masterLabel>검토</masterLabel>
+        <translation>审核</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>합의</masterLabel>
+        <translation>会签</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>승인</masterLabel>
+        <translation>批准</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>참조</masterLabel>
+        <translation>抄送</translation>
+    </picklistValues>
+</CustomFieldTranslation>

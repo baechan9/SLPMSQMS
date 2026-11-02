@@ -1,0 +1,14 @@
+{
+  "permissionSet": {
+    "wi": "CMN-00-APV-001",
+    "name": "CMN_PS_Approval_Admin",
+    "package": "force-app-cmn",
+    "label": "CMN Approval Admin",
+    "description": "결재 요청·단계 전체 조회(감사·운영)(CMN-00-APV-001). 품질경영·심사원·IT 운영",
+    "objects": {
+      "CMN_ApprovalRequest__c": "viewall",
+      "CMN_ApprovalStep__c": "viewall"
+    },
+    "tabs": ["CMN_ApprovalRequest__c"]
+  }
+}

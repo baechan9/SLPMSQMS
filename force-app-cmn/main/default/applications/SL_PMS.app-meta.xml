@@ -13,6 +13,7 @@
     <label>SL PMS</label>
     <navType>Standard</navType>
     <tabs>standard-home</tabs>
+    <tabs>CMN_ApprovalRequest__c</tabs>
     <uiType>Lightning</uiType>
     <utilityBar>SL_UtilityBar</utilityBar>
 </CustomApplication>
