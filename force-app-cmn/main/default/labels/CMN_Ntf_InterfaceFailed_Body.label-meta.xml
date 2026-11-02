@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_Ntf_InterfaceFailed_Body</fullName>
+    <categories>CMN</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>연계 실패 알림 본문</shortDescription>
+    <value>{InterfaceId} 실행이 실패했습니다(처리 {RecordCount}건, 오류 {ErrorCount}건).
+상관 ID: {CorrelationId}
+바로 가기: {Url}</value>
+</CustomLabel>

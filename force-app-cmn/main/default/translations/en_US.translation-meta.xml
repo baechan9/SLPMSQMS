@@ -515,6 +515,16 @@ Open: {Url}</label>
         <name>CMN_Ntf_CommentMention_Subject</name>
     </customLabels>
     <customLabels>
+        <label>{InterfaceId} run failed ({RecordCount} records, {ErrorCount} errors).
+Correlation Id: {CorrelationId}
+Open: {Url}</label>
+        <name>CMN_Ntf_InterfaceFailed_Body</name>
+    </customLabels>
+    <customLabels>
+        <label>[Interface Failed] {InterfaceId}</label>
+        <name>CMN_Ntf_InterfaceFailed_Subject</name>
+    </customLabels>
+    <customLabels>
         <label>The numbering pattern has an unsupported token: {0}</label>
         <name>CMN_Numbering_BadPattern</name>
     </customLabels>

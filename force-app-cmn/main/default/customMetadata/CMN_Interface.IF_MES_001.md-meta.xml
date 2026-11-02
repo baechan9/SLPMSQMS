@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>IF-MES-001 SPC 측정값·검사 결과·생산 이력</label>
+    <protected>false</protected>
+    <values>
+        <field>InterfaceId__c</field>
+        <value xsi:type="xsd:string">IF-MES-001</value>
+    </values>
+    <values>
+        <field>Source__c</field>
+        <value xsi:type="xsd:string">MES</value>
+    </values>
+    <values>
+        <field>Target__c</field>
+        <value xsi:type="xsd:string">SNOW</value>
+    </values>
+    <values>
+        <field>Pattern__c</field>
+        <value xsi:type="xsd:string">BATCH</value>
+    </values>
+    <values>
+        <field>Schedule__c</field>
+        <value xsi:type="xsd:string">5분 마이크로배치</value>
+    </values>
+    <values>
+        <field>OwnerTeam__c</field>
+        <value xsi:type="xsd:string">QMS-09</value>
+    </values>
+    <values>
+        <field>OwnerWi__c</field>
+        <value xsi:type="xsd:string">QMS-09-INT-010</value>
+    </values>
+    <values>
+        <field>Description__c</field>
+        <value xsi:type="xsd:string">SPC 측정값·검사 결과·생산 이력</value>
+    </values>
+    <values>
+        <field>IsActive__c</field>
+        <value xsi:type="xsd:boolean">true</value>
+    </values>
+</CustomMetadata>

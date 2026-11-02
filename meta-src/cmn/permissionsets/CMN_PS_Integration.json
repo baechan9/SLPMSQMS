@@ -1,0 +1,14 @@
+{
+  "permissionSet": {
+    "wi": "CMN-00-INT-001",
+    "name": "CMN_PS_Integration",
+    "package": "force-app-cmn",
+    "label": "CMN Integration",
+    "description": "통합 사용자 공통(INT-001 BR-2): 연계 로그 기록. 도메인별 통합 사용자 3개에 업무 Vol. 통합 PS와 함께 준다(CMN-00-INT-001)",
+    "objects": {
+      "CMN_InterfaceLog__c": "edit",
+      "CMN_Company__c": "read",
+      "CMN_Plant__c": "read"
+    }
+  }
+}

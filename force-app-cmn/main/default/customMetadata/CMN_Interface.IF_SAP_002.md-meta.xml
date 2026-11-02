@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>IF-SAP-002 입고(GR)·입고 취소 → 수입검사 로트</label>
+    <protected>false</protected>
+    <values>
+        <field>InterfaceId__c</field>
+        <value xsi:type="xsd:string">IF-SAP-002</value>
+    </values>
+    <values>
+        <field>Source__c</field>
+        <value xsi:type="xsd:string">SAP</value>
+    </values>
+    <values>
+        <field>Target__c</field>
+        <value xsi:type="xsd:string">SF</value>
+    </values>
+    <values>
+        <field>Pattern__c</field>
+        <value xsi:type="xsd:string">EVENT</value>
+    </values>
+    <values>
+        <field>Schedule__c</field>
+        <value xsi:type="xsd:string">이벤트 또는 15분 폴링, 지연 15분 이내</value>
+    </values>
+    <values>
+        <field>OwnerTeam__c</field>
+        <value xsi:type="xsd:string">QMS-09</value>
+    </values>
+    <values>
+        <field>OwnerWi__c</field>
+        <value xsi:type="xsd:string">QMS-09-INT-004</value>
+    </values>
+    <values>
+        <field>Description__c</field>
+        <value xsi:type="xsd:string">입고(GR)·입고 취소 → 수입검사 로트</value>
+    </values>
+    <values>
+        <field>IsActive__c</field>
+        <value xsi:type="xsd:boolean">true</value>
+    </values>
+</CustomMetadata>

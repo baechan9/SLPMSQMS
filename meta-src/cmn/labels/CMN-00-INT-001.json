@@ -1,0 +1,26 @@
+{
+  "wi": "CMN-00-INT-001",
+  "package": "force-app-cmn",
+  "labels": [
+    {
+      "name": "CMN_Ntf_InterfaceFailed_Subject",
+      "category": "CMN",
+      "description": "연계 실패 알림 제목",
+      "value": {
+        "ko": "[연계 실패] {InterfaceId}",
+        "en_US": "[Interface Failed] {InterfaceId}",
+        "zh_CN": "[接口失败] {InterfaceId}"
+      }
+    },
+    {
+      "name": "CMN_Ntf_InterfaceFailed_Body",
+      "category": "CMN",
+      "description": "연계 실패 알림 본문",
+      "value": {
+        "ko": "{InterfaceId} 실행이 실패했습니다(처리 {RecordCount}건, 오류 {ErrorCount}건).\n상관 ID: {CorrelationId}\n바로 가기: {Url}",
+        "en_US": "{InterfaceId} run failed ({RecordCount} records, {ErrorCount} errors).\nCorrelation Id: {CorrelationId}\nOpen: {Url}",
+        "zh_CN": "{InterfaceId} 执行失败(处理 {RecordCount} 条,错误 {ErrorCount} 条)。\n关联 ID: {CorrelationId}\n链接: {Url}"
+      }
+    }
+  ]
+}

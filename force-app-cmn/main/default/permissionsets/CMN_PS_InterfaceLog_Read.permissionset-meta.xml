@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>연계 모니터링(AC-3): 모든 연계 로그 조회·탭(CMN-00-INT-001). IT 운영</description>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>CMN_InterfaceLog__c.ErrorSummary__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>CMN_InterfaceLog__c.ExternalKey__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>CMN_InterfaceLog__c.IsRecent__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>CMN_InterfaceLog__c.Plant__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>CMN Interface Log Read</label>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <viewAllRecords>true</viewAllRecords>
+        <object>CMN_InterfaceLog__c</object>
+    </objectPermissions>
+    <tabSettings>
+        <tab>CMN_InterfaceLog__c</tab>
+        <visibility>Visible</visibility>
+    </tabSettings>
+</PermissionSet>

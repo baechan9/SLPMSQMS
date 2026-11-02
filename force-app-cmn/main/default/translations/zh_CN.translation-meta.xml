@@ -515,6 +515,16 @@
         <name>CMN_Ntf_CommentMention_Subject</name>
     </customLabels>
     <customLabels>
+        <label>{InterfaceId} 执行失败(处理 {RecordCount} 条,错误 {ErrorCount} 条)。
+关联 ID: {CorrelationId}
+链接: {Url}</label>
+        <name>CMN_Ntf_InterfaceFailed_Body</name>
+    </customLabels>
+    <customLabels>
+        <label>[接口失败] {InterfaceId}</label>
+        <name>CMN_Ntf_InterfaceFailed_Subject</name>
+    </customLabels>
+    <customLabels>
         <label>编号模式包含不支持的标记: {0}</label>
         <name>CMN_Numbering_BadPattern</name>
     </customLabels>

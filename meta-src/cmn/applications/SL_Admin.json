@@ -9,6 +9,7 @@
     "tabs": [
       "standard-home",
       "CMN_Log__c",
+      "CMN_InterfaceLog__c",
       "CMN_Company__c",
       "CMN_Plant__c",
       "CMN_Line__c",

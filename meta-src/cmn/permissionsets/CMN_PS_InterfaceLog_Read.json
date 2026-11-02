@@ -1,0 +1,13 @@
+{
+  "permissionSet": {
+    "wi": "CMN-00-INT-001",
+    "name": "CMN_PS_InterfaceLog_Read",
+    "package": "force-app-cmn",
+    "label": "CMN Interface Log Read",
+    "description": "연계 모니터링(AC-3): 모든 연계 로그 조회·탭(CMN-00-INT-001). IT 운영",
+    "objects": {
+      "CMN_InterfaceLog__c": "viewall"
+    },
+    "tabs": ["CMN_InterfaceLog__c"]
+  }
+}

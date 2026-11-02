@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>IF-SAP-001 회사·공장·자재·고객·공급업체</label>
+    <protected>false</protected>
+    <values>
+        <field>InterfaceId__c</field>
+        <value xsi:type="xsd:string">IF-SAP-001</value>
+    </values>
+    <values>
+        <field>Source__c</field>
+        <value xsi:type="xsd:string">SAP</value>
+    </values>
+    <values>
+        <field>Target__c</field>
+        <value xsi:type="xsd:string">SF, SNOW</value>
+    </values>
+    <values>
+        <field>Pattern__c</field>
+        <value xsi:type="xsd:string">BATCH</value>
+    </values>
+    <values>
+        <field>Schedule__c</field>
+        <value xsi:type="xsd:string">매일 02:00 KST</value>
+    </values>
+    <values>
+        <field>OwnerTeam__c</field>
+        <value xsi:type="xsd:string">CMN-00</value>
+    </values>
+    <values>
+        <field>OwnerWi__c</field>
+        <value xsi:type="xsd:string">CMN-00-INT-003</value>
+    </values>
+    <values>
+        <field>Description__c</field>
+        <value xsi:type="xsd:string">회사·공장·자재·고객·공급업체</value>
+    </values>
+    <values>
+        <field>IsActive__c</field>
+        <value xsi:type="xsd:boolean">true</value>
+    </values>
+</CustomMetadata>

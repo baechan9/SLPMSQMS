@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_Last24h</fullName>
+    <columns>NAME</columns>
+    <columns>InterfaceId__c</columns>
+    <columns>Plant__c</columns>
+    <columns>Status__c</columns>
+    <columns>RecordCount__c</columns>
+    <columns>ErrorCount__c</columns>
+    <columns>StartedAt__c</columns>
+    <columns>EndedAt__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>IsRecent__c</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <label>최근 24시간 전체</label>
+</ListView>

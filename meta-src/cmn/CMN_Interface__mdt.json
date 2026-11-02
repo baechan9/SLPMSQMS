@@ -1,0 +1,584 @@
+{
+  "wi": "CMN-00-INT-001",
+  "object": "CMN_Interface__mdt",
+  "kind": "mdt",
+  "package": "force-app-cmn",
+  "description": "인터페이스 카탈로그(INT-001). DeveloperName = InterfaceId의 - 를 _ 로. 새 인터페이스는 담당 WI가 레코드를 더한다",
+  "label": {
+    "ko": "인터페이스"
+  },
+  "plural": {
+    "ko": "인터페이스"
+  },
+  "fields": [
+    {
+      "name": "InterfaceId__c",
+      "type": "Text",
+      "length": 20,
+      "label": "Interface Id",
+      "description": "예: IF-SAP-002"
+    },
+    {
+      "name": "Source__c",
+      "type": "Text",
+      "length": 40,
+      "label": "Source"
+    },
+    {
+      "name": "Target__c",
+      "type": "Text",
+      "length": 40,
+      "label": "Target"
+    },
+    {
+      "name": "Pattern__c",
+      "type": "Text",
+      "length": 20,
+      "label": "Pattern",
+      "description": "BATCH, REALTIME, EVENT"
+    },
+    {
+      "name": "Schedule__c",
+      "type": "Text",
+      "length": 120,
+      "label": "Schedule"
+    },
+    {
+      "name": "OwnerTeam__c",
+      "type": "Text",
+      "length": 40,
+      "label": "Owner Team",
+      "description": "담당 메뉴(예: QMS-09, CMN-00)"
+    },
+    {
+      "name": "OwnerWi__c",
+      "type": "Text",
+      "length": 40,
+      "label": "Owner WI"
+    },
+    {
+      "name": "Description__c",
+      "type": "Text",
+      "length": 255,
+      "label": "Description"
+    },
+    {
+      "name": "IsActive__c",
+      "type": "Checkbox",
+      "default": true,
+      "label": "Is Active"
+    }
+  ],
+  "records": [
+    {
+      "name": "IF_HR_001",
+      "label": "IF-HR-001 조직·임직원",
+      "values": {
+        "InterfaceId__c": "IF-HR-001",
+        "Source__c": "HR",
+        "Target__c": "SF",
+        "Pattern__c": "BATCH",
+        "Schedule__c": "매일 01:00 KST + 수동",
+        "OwnerTeam__c": "CMN-00",
+        "OwnerWi__c": "CMN-00-INT-002",
+        "Description__c": "조직·임직원",
+        "IsActive__c": true
+      }
+    },
+    {
+      "name": "IF_SAP_001",
+      "label": "IF-SAP-001 회사·공장·자재·고객·공급업체",
+      "values": {
+        "InterfaceId__c": "IF-SAP-001",
+        "Source__c": "SAP",
+        "Target__c": "SF, SNOW",
+        "Pattern__c": "BATCH",
+        "Schedule__c": "매일 02:00 KST",
+        "OwnerTeam__c": "CMN-00",
+        "OwnerWi__c": "CMN-00-INT-003",
+        "Description__c": "회사·공장·자재·고객·공급업체",
+        "IsActive__c": true
+      }
+    },
+    {
+      "name": "IF_SAP_002",
+      "label": "IF-SAP-002 입고(GR)·입고 취소 → 수입검사 로트",
+      "values": {
+        "InterfaceId__c": "IF-SAP-002",
+        "Source__c": "SAP",
+        "Target__c": "SF",
+        "Pattern__c": "EVENT",
+        "Schedule__c": "이벤트 또는 15분 폴링, 지연 15분 이내",
+        "OwnerTeam__c": "QMS-09",
+        "OwnerWi__c": "QMS-09-INT-004",
+        "Description__c": "입고(GR)·입고 취소 → 수입검사 로트",
+        "IsActive__c": true
+      }
+    },
+    {
+      "name": "IF_SAP_003",
+      "label": "IF-SAP-003 재고·출하·환율·표준가·BOM·배치",
+      "values": {
+        "InterfaceId__c": "IF-SAP-003",
+        "Source__c": "SAP",
+        "Target__c": "SNOW",
+        "Pattern__c": "BATCH",
+        "Schedule__c": "일 1회 + 재고·출하 1시간 증분",
+        "OwnerTeam__c": "QMS-09",
+        "OwnerWi__c": "QMS-09-INT-008",
+        "Description__c": "재고·출하·환율·표준가·BOM·배치",
+        "IsActive__c": true
+      }
+    },
+    {
+      "name": "IF_SAP_004",
+      "label": "IF-SAP-004 수입검사 판정 → 사용결정·재고 이동, 회신",
+      "values": {
+        "InterfaceId__c": "IF-SAP-004",
+        "Source__c": "SF",
+        "Target__c": "SAP",
+        "Pattern__c": "EVENT",
+        "Schedule__c": "이벤트, 5분 이내",
+        "OwnerTeam__c": "QMS-09",
+        "OwnerWi__c": "QMS-09-INT-005",
+        "Description__c": "수입검사 판정 → 사용결정·재고 이동, 회신",
+        "IsActive__c": true
+      }
+    },
+    {
+      "name": "IF_SAP_005",
+      "label": "IF-SAP-005 고객 납품 생성 → 출하검사 로트",
+      "values": {
+        "InterfaceId__c": "IF-SAP-005",
+        "Source__c": "SAP",
+        "Target__c": "SF",
+        "Pattern__c": "EVENT",
+        "Schedule__c": "이벤트 또는 15분 폴링",
+        "OwnerTeam__c": "QMS-09",
+        "OwnerWi__c": "QMS-09-INT-006",
+        "Description__c": "고객 납품 생성 → 출하검사 로트",
+        "IsActive__c": true
+      }
+    },
+    {
+      "name": "IF_SAP_006",
+      "label": "IF-SAP-006 출하 판정·보류·해제 → 출하 차단·해제, 회신",
+      "values": {
+        "InterfaceId__c": "IF-SAP-006",
+        "Source__c": "SF",
+        "Target__c": "SAP",
+        "Pattern__c": "EVENT",
+        "Schedule__c": "이벤트, 5분 이내",
+        "OwnerTeam__c": "QMS-09",
+        "OwnerWi__c": "QMS-09-INT-006",
+        "Description__c": "출하 판정·보류·해제 → 출하 차단·해제, 회신",
+        "IsActive__c": true
+      }
+    },
+    {
+      "name": "IF_SAP_007",
+      "label": "IF-SAP-007 NCR 처분 재고 이동, 회신",
+      "values": {
+        "InterfaceId__c": "IF-SAP-007",
+        "Source__c": "SF",
+        "Target__c": "SAP",
+        "Pattern__c": "EVENT",
+        "Schedule__c": "이벤트, 15분 이내",
+        "OwnerTeam__c": "QMS-09",
+        "OwnerWi__c": "QMS-09-INT-007",
+        "Description__c": "NCR 처분 재고 이동, 회신",
+        "IsActive__c": true
+      }
+    },
+    {
+      "name": "IF_SAP_008",
+      "label": "IF-SAP-008 협력사 구상 차변 메모, 회신",
+      "values": {
+        "InterfaceId__c": "IF-SAP-008",
+        "Source__c": "SF",
+        "Target__c": "SAP",
+        "Pattern__c": "EVENT",
+        "Schedule__c": "이벤트, 1시간 이내",
+        "OwnerTeam__c": "QMS-09",
+        "OwnerWi__c": "QMS-09-INT-007",
+        "Description__c": "협력사 구상 차변 메모, 회신",
+        "IsActive__c": true
+      }
+    },
+    {
+      "name": "IF_SAP_009",
+      "label": "IF-SAP-009 클레임 봉쇄 의심 재고 보류(선택)",
+      "values": {
+        "InterfaceId__c": "IF-SAP-009",
+        "Source__c": "SF",
+        "Target__c": "SAP",
+        "Pattern__c": "EVENT",
+        "Schedule__c": "이벤트",
+        "OwnerTeam__c": "QMS-09",
+        "OwnerWi__c": "QMS-09-INT-009",
+        "Description__c": "클레임 봉쇄 의심 재고 보류(선택)",
+        "IsActive__c": true
+      }
+    },
+    {
+      "name": "IF_MES_001",
+      "label": "IF-MES-001 SPC 측정값·검사 결과·생산 이력",
+      "values": {
+        "InterfaceId__c": "IF-MES-001",
+        "Source__c": "MES",
+        "Target__c": "SNOW",
+        "Pattern__c": "BATCH",
+        "Schedule__c": "5분 마이크로배치",
+        "OwnerTeam__c": "QMS-09",
+        "OwnerWi__c": "QMS-09-INT-010",
+        "Description__c": "SPC 측정값·검사 결과·생산 이력",
+        "IsActive__c": true
+      }
+    },
+    {
+      "name": "IF_MES_002",
+      "label": "IF-MES-002 생산·불량 실적",
+      "values": {
+        "InterfaceId__c": "IF-MES-002",
+        "Source__c": "MES",
+        "Target__c": "SNOW",
+        "Pattern__c": "BATCH",
+        "Schedule__c": "1시간",
+        "OwnerTeam__c": "QMS-09",
+        "OwnerWi__c": "QMS-09-INT-011",
+        "Description__c": "생산·불량 실적",
+        "IsActive__c": true
+      }
+    },
+    {
+      "name": "IF_MES_003",
+      "label": "IF-MES-003 EOL 시험 결과",
+      "values": {
+        "InterfaceId__c": "IF-MES-003",
+        "Source__c": "MES",
+        "Target__c": "SNOW",
+        "Pattern__c": "BATCH",
+        "Schedule__c": "1시간",
+        "OwnerTeam__c": "QMS-09",
+        "OwnerWi__c": "QMS-09-INT-011",
+        "Description__c": "EOL 시험 결과",
+        "IsActive__c": true
+      }
+    },
+    {
+      "name": "IF_MES_004",
+      "label": "IF-MES-004 로트 계보(부품 로트 → 생산 로트 → 출하)",
+      "values": {
+        "InterfaceId__c": "IF-MES-004",
+        "Source__c": "MES, SAP",
+        "Target__c": "SNOW",
+        "Pattern__c": "BATCH",
+        "Schedule__c": "1시간",
+        "OwnerTeam__c": "QMS-09",
+        "OwnerWi__c": "QMS-09-INT-012",
+        "Description__c": "로트 계보(부품 로트 → 생산 로트 → 출하)",
+        "IsActive__c": true
+      }
+    },
+    {
+      "name": "IF_MES_005",
+      "label": "IF-MES-005 4M 적용 허가 통보(선택)",
+      "values": {
+        "InterfaceId__c": "IF-MES-005",
+        "Source__c": "SF",
+        "Target__c": "MES",
+        "Pattern__c": "EVENT",
+        "Schedule__c": "이벤트",
+        "OwnerTeam__c": "QMS-09",
+        "OwnerWi__c": "QMS-09-INT-013",
+        "Description__c": "4M 적용 허가 통보(선택)",
+        "IsActive__c": true
+      }
+    },
+    {
+      "name": "IF_FC_001",
+      "label": "IF-FC-001 고객 라인 불량·필드·워런티·반품·차량 대수",
+      "values": {
+        "InterfaceId__c": "IF-FC-001",
+        "Source__c": "FIELD_CLAIM",
+        "Target__c": "SNOW, SF",
+        "Pattern__c": "BATCH",
+        "Schedule__c": "일 1회",
+        "OwnerTeam__c": "QMS-09",
+        "OwnerWi__c": "QMS-09-INT-014",
+        "Description__c": "고객 라인 불량·필드·워런티·반품·차량 대수",
+        "IsActive__c": true
+      }
+    },
+    {
+      "name": "IF_FC_002",
+      "label": "IF-FC-002 고객 클레임 통보 → 클레임",
+      "values": {
+        "InterfaceId__c": "IF-FC-002",
+        "Source__c": "FIELD_CLAIM",
+        "Target__c": "SF",
+        "Pattern__c": "EVENT",
+        "Schedule__c": "15분 이내",
+        "OwnerTeam__c": "QMS-09",
+        "OwnerWi__c": "QMS-09-INT-015",
+        "Description__c": "고객 클레임 통보 → 클레임",
+        "IsActive__c": true
+      }
+    },
+    {
+      "name": "IF_B2B_001",
+      "label": "IF-B2B-001 고객 데이터 업로드 파일 처리",
+      "values": {
+        "InterfaceId__c": "IF-B2B-001",
+        "Source__c": "SF",
+        "Target__c": "SNOW, SF",
+        "Pattern__c": "EVENT",
+        "Schedule__c": "이벤트, 10분 이내",
+        "OwnerTeam__c": "QMS-09",
+        "OwnerWi__c": "QMS-09-INT-016",
+        "Description__c": "고객 데이터 업로드 파일 처리",
+        "IsActive__c": true
+      }
+    },
+    {
+      "name": "IF_GAU_001",
+      "label": "IF-GAU-001 측정기·교정 이력(LEGACY 공장)",
+      "values": {
+        "InterfaceId__c": "IF-GAU-001",
+        "Source__c": "GAUGE",
+        "Target__c": "SF",
+        "Pattern__c": "BATCH",
+        "Schedule__c": "일 1회 + 수동(이관 후 종료 가능)",
+        "OwnerTeam__c": "QMS-09",
+        "OwnerWi__c": "QMS-09-INT-017",
+        "Description__c": "측정기·교정 이력(LEGACY 공장)",
+        "IsActive__c": true
+      }
+    },
+    {
+      "name": "IF_REL_001",
+      "label": "IF-REL-001 시험 의뢰",
+      "values": {
+        "InterfaceId__c": "IF-REL-001",
+        "Source__c": "SF",
+        "Target__c": "RELIABILITY",
+        "Pattern__c": "EVENT",
+        "Schedule__c": "이벤트, 15분 이내",
+        "OwnerTeam__c": "QMS-09",
+        "OwnerWi__c": "QMS-09-INT-018",
+        "Description__c": "시험 의뢰",
+        "IsActive__c": true
+      }
+    },
+    {
+      "name": "IF_REL_002",
+      "label": "IF-REL-002 접수·착수·완료·결과·성적서",
+      "values": {
+        "InterfaceId__c": "IF-REL-002",
+        "Source__c": "RELIABILITY",
+        "Target__c": "SF",
+        "Pattern__c": "BATCH",
+        "Schedule__c": "30분 폴링 또는 콜백",
+        "OwnerTeam__c": "QMS-09",
+        "OwnerWi__c": "QMS-09-INT-018",
+        "Description__c": "접수·착수·완료·결과·성적서",
+        "IsActive__c": true
+      }
+    },
+    {
+      "name": "IF_PDS_001",
+      "label": "IF-PDS-001 신규 부품 PPAP 요청",
+      "values": {
+        "InterfaceId__c": "IF-PDS-001",
+        "Source__c": "PDS",
+        "Target__c": "SF",
+        "Pattern__c": "EVENT",
+        "Schedule__c": "이벤트 또는 1시간 폴링",
+        "OwnerTeam__c": "QMS-09",
+        "OwnerWi__c": "QMS-09-INT-019",
+        "Description__c": "신규 부품 PPAP 요청",
+        "IsActive__c": true
+      }
+    },
+    {
+      "name": "IF_PDS_002",
+      "label": "IF-PDS-002 PPAP 진행·판정 결과",
+      "values": {
+        "InterfaceId__c": "IF-PDS-002",
+        "Source__c": "SF",
+        "Target__c": "PDS",
+        "Pattern__c": "EVENT",
+        "Schedule__c": "이벤트",
+        "OwnerTeam__c": "QMS-09",
+        "OwnerWi__c": "QMS-09-INT-019",
+        "Description__c": "PPAP 진행·판정 결과",
+        "IsActive__c": true
+      }
+    },
+    {
+      "name": "IF_PDS_003",
+      "label": "IF-PDS-003 협력사 품질 등급(선택)",
+      "values": {
+        "InterfaceId__c": "IF-PDS-003",
+        "Source__c": "SF",
+        "Target__c": "PDS, SAP",
+        "Pattern__c": "EVENT",
+        "Schedule__c": "이벤트",
+        "OwnerTeam__c": "QMS-09",
+        "OwnerWi__c": "QMS-09-INT-019",
+        "Description__c": "협력사 품질 등급(선택)",
+        "IsActive__c": true
+      }
+    },
+    {
+      "name": "IF_DW_001",
+      "label": "IF-DW-001 등록 프로시저 호출(프로시저 모드)",
+      "values": {
+        "InterfaceId__c": "IF-DW-001",
+        "Source__c": "SF",
+        "Target__c": "SNOW",
+        "Pattern__c": "REALTIME",
+        "Schedule__c": "요청 시, 60초 이내",
+        "OwnerTeam__c": "QMS-09",
+        "OwnerWi__c": "QMS-09-INT-020",
+        "Description__c": "등록 프로시저 호출(프로시저 모드)",
+        "IsActive__c": true
+      }
+    },
+    {
+      "name": "IF_AI_001",
+      "label": "IF-AI-001 Cortex Search 유사 사례·레슨런 검색",
+      "values": {
+        "InterfaceId__c": "IF-AI-001",
+        "Source__c": "SF",
+        "Target__c": "SNOW",
+        "Pattern__c": "REALTIME",
+        "Schedule__c": "요청 시, 10초 이내",
+        "OwnerTeam__c": "QMS-08",
+        "OwnerWi__c": "QMS-08-AIQ-002",
+        "Description__c": "Cortex Search 유사 사례·레슨런 검색",
+        "IsActive__c": true
+      }
+    },
+    {
+      "name": "IF_AI_002",
+      "label": "IF-AI-002 Cortex Analyst 자연어 통계 질의",
+      "values": {
+        "InterfaceId__c": "IF-AI-002",
+        "Source__c": "SF",
+        "Target__c": "SNOW",
+        "Pattern__c": "REALTIME",
+        "Schedule__c": "요청 시, 30초 이내",
+        "OwnerTeam__c": "QMS-08",
+        "OwnerWi__c": "QMS-08-AIQ-010",
+        "Description__c": "Cortex Analyst 자연어 통계 질의",
+        "IsActive__c": true
+      }
+    },
+    {
+      "name": "IF_AI_003",
+      "label": "IF-AI-003 LELE 추천 요청·매칭·반영 조회 중계",
+      "values": {
+        "InterfaceId__c": "IF-AI-003",
+        "Source__c": "PMS",
+        "Target__c": "SF",
+        "Pattern__c": "REALTIME",
+        "Schedule__c": "호출 시",
+        "OwnerTeam__c": "QMS-09",
+        "OwnerWi__c": "QMS-09-INT-021",
+        "Description__c": "LELE 추천 요청·매칭·반영 조회 중계",
+        "IsActive__c": true
+      }
+    },
+    {
+      "name": "IF_AI_004",
+      "label": "IF-AI-004 LELE 반영 결과 전달",
+      "values": {
+        "InterfaceId__c": "IF-AI-004",
+        "Source__c": "SF",
+        "Target__c": "PMS",
+        "Pattern__c": "EVENT",
+        "Schedule__c": "이벤트, 5분 이내",
+        "OwnerTeam__c": "QMS-09",
+        "OwnerWi__c": "QMS-09-INT-021",
+        "Description__c": "LELE 반영 결과 전달",
+        "IsActive__c": true
+      }
+    },
+    {
+      "name": "IF_PMS_002",
+      "label": "IF-PMS-002 클레임·NCR·4M·레슨런 게시 이벤트(디지털 스레드",
+      "values": {
+        "InterfaceId__c": "IF-PMS-002",
+        "Source__c": "SF",
+        "Target__c": "PMS",
+        "Pattern__c": "EVENT",
+        "Schedule__c": "이벤트, 5분 이내",
+        "OwnerTeam__c": "QMS-09",
+        "OwnerWi__c": "QMS-09-INT-021",
+        "Description__c": "클레임·NCR·4M·레슨런 게시 이벤트(디지털 스레드)",
+        "IsActive__c": true
+      }
+    },
+    {
+      "name": "IF_PTL_001",
+      "label": "IF-PTL-001 To-Do 건수·목록",
+      "values": {
+        "InterfaceId__c": "IF-PTL-001",
+        "Source__c": "PORTAL",
+        "Target__c": "SF",
+        "Pattern__c": "REALTIME",
+        "Schedule__c": "실시간 API",
+        "OwnerTeam__c": "CMN-00",
+        "OwnerWi__c": "CMN-00-TDO-003",
+        "Description__c": "To-Do 건수·목록",
+        "IsActive__c": true
+      }
+    },
+    {
+      "name": "IF_SF_001",
+      "label": "IF-SF-001 업무·마스터 데이터 복제",
+      "values": {
+        "InterfaceId__c": "IF-SF-001",
+        "Source__c": "SF",
+        "Target__c": "SNOW",
+        "Pattern__c": "BATCH",
+        "Schedule__c": "15분 / 일",
+        "OwnerTeam__c": "CMN-00",
+        "OwnerWi__c": "CMN-00-DWH-002",
+        "Description__c": "업무·마스터 데이터 복제",
+        "IsActive__c": true
+      }
+    },
+    {
+      "name": "IF_SF_002",
+      "label": "IF-SF-002 KPI 정의 → MART.KPI_RAG_RULE",
+      "values": {
+        "InterfaceId__c": "IF-SF-002",
+        "Source__c": "SF",
+        "Target__c": "SNOW",
+        "Pattern__c": "BATCH",
+        "Schedule__c": "일 1회",
+        "OwnerTeam__c": "QMS-07",
+        "OwnerWi__c": "QMS-07-DSH-001",
+        "Description__c": "KPI 정의 → MART.KPI_RAG_RULE",
+        "IsActive__c": true
+      }
+    },
+    {
+      "name": "IF_SNOW_001",
+      "label": "IF-SNOW-001 KPI 값, 알람 이벤트",
+      "values": {
+        "InterfaceId__c": "IF-SNOW-001",
+        "Source__c": "SNOW",
+        "Target__c": "SF",
+        "Pattern__c": "BATCH",
+        "Schedule__c": "1분 폴링 / 일",
+        "OwnerTeam__c": "CMN-00",
+        "OwnerWi__c": "CMN-00-DWH-003",
+        "Description__c": "KPI 값, 알람 이벤트",
+        "IsActive__c": true
+      }
+    }
+  ]
+}

@@ -313,6 +313,12 @@ def build_object(spec):
             ('fullName', vr['name']), ('active', vr.get('active', True)), ('description', vr.get('description')),
             ('errorConditionFormula', vr['formula']), ('errorDisplayField', vr.get('field')),
             ('errorMessage', lbl(vr['message']))]))
+    for lv in spec.get('listViews', []):
+        # 리스트뷰(예: 연계 모니터링). 라벨은 ko 값(리스트뷰는 번역 대상이 아니다)
+        emit(f'{base}/objects/{obj}/listViews/{lv["name"]}.listView-meta.xml', doc('ListView', [
+            ('fullName', lv['name']), ('columns', lv['columns']), ('filterScope', lv.get('filterScope', 'Everything')),
+            ('filters', [{'field': f['field'], 'operation': f['operation'], 'value': f.get('value')} for f in lv.get('filters', [])] or None),
+            ('label', lbl(lv['label']))]))
     if not std and spec.get('layout', True) is not False:
         build_layout(spec, base)
     if spec.get('tab') and not std:
@@ -581,6 +587,7 @@ def merge_spec(base, extra):
 GENERATED_DIRS = ('objects', 'objectTranslations', 'labels', 'permissionsets', 'permissionsetgroups',
                   'applications', 'layouts', 'translations', 'customMetadata', 'tabs')
 GENERATED_SUFFIXES = ('.object-meta.xml', '.field-meta.xml', '.recordType-meta.xml', '.validationRule-meta.xml', '.sharingReason-meta.xml',
+                      '.listView-meta.xml',
                       '.objectTranslation-meta.xml', '.fieldTranslation-meta.xml', '.label-meta.xml',
                       '.permissionset-meta.xml', '.permissionsetgroup-meta.xml', '.app-meta.xml', '.layout-meta.xml',
                       '.translation-meta.xml', '.md-meta.xml', '.tab-meta.xml')

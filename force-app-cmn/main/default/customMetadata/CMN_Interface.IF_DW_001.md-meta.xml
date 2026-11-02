@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>IF-DW-001 등록 프로시저 호출(프로시저 모드)</label>
+    <protected>false</protected>
+    <values>
+        <field>InterfaceId__c</field>
+        <value xsi:type="xsd:string">IF-DW-001</value>
+    </values>
+    <values>
+        <field>Source__c</field>
+        <value xsi:type="xsd:string">SF</value>
+    </values>
+    <values>
+        <field>Target__c</field>
+        <value xsi:type="xsd:string">SNOW</value>
+    </values>
+    <values>
+        <field>Pattern__c</field>
+        <value xsi:type="xsd:string">REALTIME</value>
+    </values>
+    <values>
+        <field>Schedule__c</field>
+        <value xsi:type="xsd:string">요청 시, 60초 이내</value>
+    </values>
+    <values>
+        <field>OwnerTeam__c</field>
+        <value xsi:type="xsd:string">QMS-09</value>
+    </values>
+    <values>
+        <field>OwnerWi__c</field>
+        <value xsi:type="xsd:string">QMS-09-INT-020</value>
+    </values>
+    <values>
+        <field>Description__c</field>
+        <value xsi:type="xsd:string">등록 프로시저 호출(프로시저 모드)</value>
+    </values>
+    <values>
+        <field>IsActive__c</field>
+        <value xsi:type="xsd:boolean">true</value>
+    </values>
+</CustomMetadata>

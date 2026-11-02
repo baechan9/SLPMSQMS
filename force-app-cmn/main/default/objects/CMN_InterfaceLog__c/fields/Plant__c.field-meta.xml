@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Plant__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>AC-3 공장별 조회(공장 단위 인터페이스만)</description>
+    <label>공장</label>
+    <referenceTo>CMN_Plant__c</referenceTo>
+    <relationshipLabel>연계 로그</relationshipLabel>
+    <relationshipName>InterfaceLogs</relationshipName>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

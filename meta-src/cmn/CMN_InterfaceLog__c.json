@@ -1,0 +1,241 @@
+{
+  "wi": "CMN-00-INT-001",
+  "object": "CMN_InterfaceLog__c",
+  "package": "force-app-cmn",
+  "description": "연계 실행 로그(INT-001 BR-4). 배치 1회 = 1건(Mule이 기록). 외부 키 = {InterfaceId}:{CorrelationId}로 같은 실행은 갱신. FAILED면 시스템 관리자에게 알림(BR-3)",
+  "label": {
+    "ko": "연계 로그",
+    "en_US": "Interface Log",
+    "zh_CN": "接口日志"
+  },
+  "plural": {
+    "ko": "연계 로그",
+    "en_US": "Interface Logs",
+    "zh_CN": "接口日志"
+  },
+  "nameField": {
+    "label": {
+      "ko": "실행",
+      "en_US": "Run",
+      "zh_CN": "执行"
+    }
+  },
+  "sharingModel": "Private",
+  "tab": {
+    "motif": "Custom63: Computer"
+  },
+  "readOnlyLayout": true,
+  "fields": [
+    {
+      "name": "InterfaceId__c",
+      "type": "Text",
+      "length": 20,
+      "required": true,
+      "label": {
+        "ko": "인터페이스",
+        "en_US": "Interface",
+        "zh_CN": "接口"
+      }
+    },
+    {
+      "name": "CorrelationId__c",
+      "type": "Text",
+      "length": 64,
+      "required": true,
+      "label": {
+        "ko": "상관 ID",
+        "en_US": "Correlation Id",
+        "zh_CN": "关联 ID"
+      },
+      "description": "Mule x-correlation-id"
+    },
+    {
+      "name": "Status__c",
+      "type": "Picklist",
+      "required": true,
+      "default": "SUCCESS",
+      "label": {
+        "ko": "결과",
+        "en_US": "Status",
+        "zh_CN": "结果"
+      },
+      "values": [
+        {
+          "api": "SUCCESS",
+          "label": {
+            "ko": "성공",
+            "en_US": "Success",
+            "zh_CN": "成功"
+          }
+        },
+        {
+          "api": "PARTIAL",
+          "label": {
+            "ko": "일부 실패",
+            "en_US": "Partial",
+            "zh_CN": "部分失败"
+          }
+        },
+        {
+          "api": "FAILED",
+          "label": {
+            "ko": "실패",
+            "en_US": "Failed",
+            "zh_CN": "失败"
+          }
+        }
+      ]
+    },
+    {
+      "name": "RecordCount__c",
+      "type": "Number",
+      "precision": 10,
+      "scale": 0,
+      "required": true,
+      "default": "0",
+      "label": {
+        "ko": "처리 건수",
+        "en_US": "Records",
+        "zh_CN": "记录数"
+      }
+    },
+    {
+      "name": "ErrorCount__c",
+      "type": "Number",
+      "precision": 10,
+      "scale": 0,
+      "required": true,
+      "default": "0",
+      "label": {
+        "ko": "오류 건수",
+        "en_US": "Errors",
+        "zh_CN": "错误数"
+      }
+    },
+    {
+      "name": "StartedAt__c",
+      "type": "DateTime",
+      "required": true,
+      "label": {
+        "ko": "시작",
+        "en_US": "Started At",
+        "zh_CN": "开始时间"
+      }
+    },
+    {
+      "name": "EndedAt__c",
+      "type": "DateTime",
+      "required": true,
+      "label": {
+        "ko": "종료",
+        "en_US": "Ended At",
+        "zh_CN": "结束时间"
+      }
+    },
+    {
+      "name": "ErrorSummary__c",
+      "type": "LongTextArea",
+      "length": 32768,
+      "visibleLines": 5,
+      "label": {
+        "ko": "오류 요약",
+        "en_US": "Error Summary",
+        "zh_CN": "错误摘要"
+      },
+      "description": "실패 레코드 키·사유(최대 100건)"
+    },
+    {
+      "name": "Plant__c",
+      "type": "Lookup",
+      "referenceTo": "CMN_Plant__c",
+      "relationshipName": "InterfaceLogs",
+      "relationshipLabel": {
+        "ko": "연계 로그",
+        "en_US": "Interface Logs",
+        "zh_CN": "接口日志"
+      },
+      "label": {
+        "ko": "공장",
+        "en_US": "Plant",
+        "zh_CN": "工厂"
+      },
+      "description": "AC-3 공장별 조회(공장 단위 인터페이스만)"
+    },
+    {
+      "name": "ExternalKey__c",
+      "type": "Text",
+      "length": 90,
+      "externalId": true,
+      "unique": true,
+      "caseSensitive": true,
+      "label": {
+        "ko": "외부 키",
+        "en_US": "External Key",
+        "zh_CN": "外部键"
+      },
+      "description": "{InterfaceId}:{CorrelationId}. 비우면 트리거가 채운다(같은 실행 재전송 시 갱신 = 멱등)"
+    },
+    {
+      "name": "IsRecent__c",
+      "type": "Formula",
+      "returnType": "Checkbox",
+      "treatBlanksAs": "BlankAsZero",
+      "formula": "StartedAt__c >= NOW() - 1",
+      "label": {
+        "ko": "최근 24시간",
+        "en_US": "Last 24 Hours",
+        "zh_CN": "最近 24 小时"
+      }
+    }
+  ],
+  "listViews": [
+    {
+      "name": "CMN_FailedLast24h",
+      "label": "최근 24시간 실패",
+      "columns": [
+        "NAME",
+        "InterfaceId__c",
+        "Plant__c",
+        "Status__c",
+        "RecordCount__c",
+        "ErrorCount__c",
+        "StartedAt__c",
+        "EndedAt__c",
+        "CorrelationId__c"
+      ],
+      "filters": [
+        {
+          "field": "Status__c",
+          "operation": "equals",
+          "value": "FAILED"
+        },
+        {
+          "field": "IsRecent__c",
+          "operation": "equals",
+          "value": "1"
+        }
+      ]
+    },
+    {
+      "name": "CMN_Last24h",
+      "label": "최근 24시간 전체",
+      "columns": [
+        "NAME",
+        "InterfaceId__c",
+        "Plant__c",
+        "Status__c",
+        "RecordCount__c",
+        "ErrorCount__c",
+        "StartedAt__c",
+        "EndedAt__c"
+      ],
+      "filters": [
+        {
+          "field": "IsRecent__c",
+          "operation": "equals",
+          "value": "1"
+        }
+      ]
+    }
+  ]
+}

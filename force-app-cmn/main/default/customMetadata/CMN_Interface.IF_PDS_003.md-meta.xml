@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>IF-PDS-003 협력사 품질 등급(선택)</label>
+    <protected>false</protected>
+    <values>
+        <field>InterfaceId__c</field>
+        <value xsi:type="xsd:string">IF-PDS-003</value>
+    </values>
+    <values>
+        <field>Source__c</field>
+        <value xsi:type="xsd:string">SF</value>
+    </values>
+    <values>
+        <field>Target__c</field>
+        <value xsi:type="xsd:string">PDS, SAP</value>
+    </values>
+    <values>
+        <field>Pattern__c</field>
+        <value xsi:type="xsd:string">EVENT</value>
+    </values>
+    <values>
+        <field>Schedule__c</field>
+        <value xsi:type="xsd:string">이벤트</value>
+    </values>
+    <values>
+        <field>OwnerTeam__c</field>
+        <value xsi:type="xsd:string">QMS-09</value>
+    </values>
+    <values>
+        <field>OwnerWi__c</field>
+        <value xsi:type="xsd:string">QMS-09-INT-019</value>
+    </values>
+    <values>
+        <field>Description__c</field>
+        <value xsi:type="xsd:string">협력사 품질 등급(선택)</value>
+    </values>
+    <values>
+        <field>IsActive__c</field>
+        <value xsi:type="xsd:boolean">true</value>
+    </values>
+</CustomMetadata>
