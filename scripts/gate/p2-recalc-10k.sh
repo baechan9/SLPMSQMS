@@ -22,19 +22,19 @@ PY
 
 USER=$(sf org display -o "$ORG" --json | j 'd["result"]["username"]')
 PS=$(sf data query -o "$ORG" -q "SELECT Id FROM PermissionSet WHERE Name = 'CMN_PS_DataMigration'" --json | j 'd["result"]["records"][0]["Id"]')
-UID=$(sf data query -o "$ORG" -q "SELECT Id FROM User WHERE Username = '$USER'" --json | j 'd["result"]["records"][0]["Id"]')
-PSA=$(sf data query -o "$ORG" -q "SELECT Id FROM PermissionSetAssignment WHERE AssigneeId = '$UID' AND PermissionSetId = '$PS'" --json | j 'd["result"]["records"][0]["Id"] if d["result"]["records"] else ""')
+ADMIN_ID=$(sf data query -o "$ORG" -q "SELECT Id FROM User WHERE Username = '$USER'" --json | j 'd["result"]["records"][0]["Id"]')
+PSA=$(sf data query -o "$ORG" -q "SELECT Id FROM PermissionSetAssignment WHERE AssigneeId = '$ADMIN_ID' AND PermissionSetId = '$PS'" --json | j 'd["result"]["records"][0]["Id"] if d["result"]["records"] else ""')
 if [ -z "$PSA" ]; then
-  PSA=$(sf data create record -o "$ORG" -s PermissionSetAssignment -v "AssigneeId=$UID PermissionSetId=$PS" --json | j 'd["result"]["id"]')
+  PSA=$(sf data create record -o "$ORG" -s PermissionSetAssignment -v "AssigneeId=$ADMIN_ID PermissionSetId=$PS" --json | j 'd["result"]["id"]')
   REVOKE=1
 fi
-echo "적재: $N건 → CMN_TestRecord__c"
+echo "적재: ${N}건 → CMN_TestRecord__c"
 sf data upsert bulk -o "$ORG" -s CMN_TestRecord__c -i RecordNo__c -f "$TMP/records.csv" -w 30 > "$TMP/upsert.log" 2>&1 || { tail -5 "$TMP/upsert.log"; }
 [ "${REVOKE:-0}" = 1 ] && sf data delete record -o "$ORG" -s PermissionSetAssignment -i "$PSA" > /dev/null
 echo "적재 결과: $(sf data query -o "$ORG" -q "SELECT COUNT() FROM CMN_TestRecord__c WHERE RecordNo__c LIKE 'G24-%'" --json | j 'd["result"]["totalSize"]')건"
 
 echo "Id j = Database.executeBatch(new CMN_SharingRecalcBatch('CMN_TestRecord__c'), CMN_SharingRecalcBatch.BATCH_SIZE); System.debug('JOB=' + j);" > "$TMP/run.apex"
-JOB=$(sf apex run -o "$ORG" -f "$TMP/run.apex" | grep -o 'JOB=[0-9A-Za-z]*' | head -1 | cut -d= -f2)
+JOB=$(sf apex run -o "$ORG" -f "$TMP/run.apex" | grep 'USER_DEBUG' | grep -o 'JOB=[0-9A-Za-z]*' | head -1 | cut -d= -f2)
 echo "배치: $JOB"
 START=$(date +%s)
 while true; do
