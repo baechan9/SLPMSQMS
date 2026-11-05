@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_Grid_Empty</fullName>
+    <categories>CMN</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>빈 표(편집 가능)</shortDescription>
+    <value>행이 없습니다. 행 추가나 붙여넣기로 입력하세요.</value>
+</CustomLabel>

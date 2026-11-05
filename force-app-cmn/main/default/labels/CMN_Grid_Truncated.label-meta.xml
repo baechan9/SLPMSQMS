@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_Grid_Truncated</fullName>
+    <categories>CMN</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>잘림 안내({0} = 최대 행, BR-1)</shortDescription>
+    <value>앞 {0}행만 보입니다. 나머지 행은 목록 보기에서 확인하세요.</value>
+</CustomLabel>

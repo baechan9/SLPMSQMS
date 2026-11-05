@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_Grid_SampleEndBeforeStart</fullName>
+    <categories>CMN</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>샘플 Provider: 종료일 &lt; 시작일(UX-006)</shortDescription>
+    <value>종료일이 시작일보다 빠릅니다. 종료일을 고치세요.</value>
+</CustomLabel>

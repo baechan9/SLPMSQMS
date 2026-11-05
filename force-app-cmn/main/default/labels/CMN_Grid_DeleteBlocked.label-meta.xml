@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_Grid_DeleteBlocked</fullName>
+    <categories>CMN</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>삭제 불가 행 기본 문구(UX-006 BR-11)</shortDescription>
+    <value>삭제할 수 없는 행입니다. 담당자에게 확인하세요.</value>
+</CustomLabel>

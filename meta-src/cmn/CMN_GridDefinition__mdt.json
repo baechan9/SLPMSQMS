@@ -1,0 +1,101 @@
+{
+  "wi": "CMN-00-UX-006",
+  "object": "CMN_GridDefinition__mdt",
+  "kind": "mdt",
+  "package": "force-app-cmn",
+  "description": "공통 편집 그리드 1개(UX-006). DeveloperName = GridKey. 레코드는 meta-src/*/grids 정의로 metagen이 만든다",
+  "label": {
+    "ko": "편집 그리드 정의"
+  },
+  "plural": {
+    "ko": "편집 그리드 정의"
+  },
+  "fields": [
+    {
+      "name": "ObjectApiName__c",
+      "type": "Text",
+      "label": "Object API Name",
+      "description": "행 객체",
+      "length": 80
+    },
+    {
+      "name": "ParentField__c",
+      "type": "Text",
+      "label": "Parent Field",
+      "description": "부모 레코드 필드(Master-Detail 또는 Lookup)",
+      "length": 80
+    },
+    {
+      "name": "OrderField__c",
+      "type": "Text",
+      "label": "Order Field",
+      "description": "정렬·행 순서 저장 필드(숫자). 새 행은 마지막 순서 + 1",
+      "length": 80
+    },
+    {
+      "name": "Filter__c",
+      "type": "Text",
+      "label": "Filter",
+      "description": "고정 필터(Field__c=VALUE, 쉼표로 AND)",
+      "length": 255
+    },
+    {
+      "name": "MaxRows__c",
+      "type": "Number",
+      "label": "Max Rows",
+      "description": "기본 200, 상한 500",
+      "precision": 4,
+      "scale": 0
+    },
+    {
+      "name": "AllowAdd__c",
+      "type": "Checkbox",
+      "label": "Allow Add",
+      "description": "행 추가",
+      "default": true
+    },
+    {
+      "name": "AllowDelete__c",
+      "type": "Checkbox",
+      "label": "Allow Delete",
+      "description": "행 삭제",
+      "default": true
+    },
+    {
+      "name": "AllowPaste__c",
+      "type": "Checkbox",
+      "label": "Allow Paste",
+      "description": "엑셀 붙여넣기",
+      "default": true
+    },
+    {
+      "name": "ScheduleStartField__c",
+      "type": "Text",
+      "label": "Schedule Start Field",
+      "description": "일정 막대 시작일(종료일과 함께 있으면 일정 보기)",
+      "length": 80
+    },
+    {
+      "name": "ScheduleEndField__c",
+      "type": "Text",
+      "label": "Schedule End Field",
+      "description": "일정 막대 종료일",
+      "length": 80
+    },
+    {
+      "name": "ProviderClass__c",
+      "type": "Text",
+      "label": "Provider Class",
+      "description": "CMN_GridProvider 구현 클래스(비우면 제약 없음)",
+      "length": 80
+    },
+    {
+      "name": "EditRuleKey__c",
+      "type": "Text",
+      "label": "Edit Rule Key",
+      "description": "UX-005 COMPONENT 규칙 키(Mode EDIT). 편집 가능 여부 판정",
+      "length": 80
+    }
+  ],
+  "records": []
+}

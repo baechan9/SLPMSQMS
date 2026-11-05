@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_Grid_WarnOverdue</fullName>
+    <categories>CMN</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>행 경고: 종료일 경과·미완료(UX-006 BR-6)</shortDescription>
+    <value>종료일이 지났지만 끝나지 않았습니다</value>
+</CustomLabel>

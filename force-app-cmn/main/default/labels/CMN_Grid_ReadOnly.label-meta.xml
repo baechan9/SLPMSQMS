@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_Grid_ReadOnly</fullName>
+    <categories>CMN</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>읽기 전용 안내(BR-1)</shortDescription>
+    <value>읽기 전용: 지금 상태나 권한으로는 이 표를 고칠 수 없습니다.</value>
+</CustomLabel>

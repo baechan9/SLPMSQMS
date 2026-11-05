@@ -1,0 +1,140 @@
+{
+  "wi": "CMN-00-UX-006",
+  "object": "CMN_GridColumn__mdt",
+  "kind": "mdt",
+  "package": "force-app-cmn",
+  "description": "공통 편집 그리드의 열 1개(UX-006). 레코드는 meta-src/*/grids 정의로 metagen이 만든다",
+  "label": {
+    "ko": "편집 그리드 열"
+  },
+  "plural": {
+    "ko": "편집 그리드 열"
+  },
+  "fields": [
+    {
+      "name": "Grid__c",
+      "type": "MetadataRelationship",
+      "referenceTo": "CMN_GridDefinition__mdt",
+      "relationshipName": "Columns",
+      "relationshipLabel": {
+        "ko": "편집 그리드 열"
+      },
+      "label": "Grid",
+      "description": "그리드 정의"
+    },
+    {
+      "name": "FieldApiName__c",
+      "type": "Text",
+      "label": "Field API Name",
+      "description": "행 객체 필드",
+      "length": 80
+    },
+    {
+      "name": "LabelKey__c",
+      "type": "Text",
+      "label": "Label Key",
+      "description": "열 머리글 Custom Label(비우면 필드 라벨)",
+      "length": 80
+    },
+    {
+      "name": "Order__c",
+      "type": "Number",
+      "label": "Order",
+      "description": "열 순서",
+      "precision": 3,
+      "scale": 0
+    },
+    {
+      "name": "Editable__c",
+      "type": "Checkbox",
+      "label": "Editable",
+      "description": "편집 열(필드 편집 권한이 있을 때만)",
+      "default": false
+    },
+    {
+      "name": "Required__c",
+      "type": "Checkbox",
+      "label": "Required",
+      "description": "화면 필수 검증(서버는 Provider·필드 필수로 다시 검증)",
+      "default": false
+    },
+    {
+      "name": "Frozen__c",
+      "type": "Checkbox",
+      "label": "Frozen",
+      "description": "가로 스크롤 시 고정(앞쪽 배치)",
+      "default": false
+    },
+    {
+      "name": "WidthWeight__c",
+      "type": "Number",
+      "label": "Width Weight",
+      "description": "상대 폭 1~10(px 금지)",
+      "precision": 2,
+      "scale": 0
+    },
+    {
+      "name": "InputType__c",
+      "type": "Picklist",
+      "label": "Input Type",
+      "description": "AUTO = 필드 타입. CODE = 계층형 공통 코드(MDM-007)",
+      "default": "AUTO",
+      "values": [
+        {
+          "api": "AUTO",
+          "label": "AUTO"
+        },
+        {
+          "api": "TEXT",
+          "label": "TEXT"
+        },
+        {
+          "api": "NUMBER",
+          "label": "NUMBER"
+        },
+        {
+          "api": "DATE",
+          "label": "DATE"
+        },
+        {
+          "api": "PICKLIST",
+          "label": "PICKLIST"
+        },
+        {
+          "api": "LOOKUP",
+          "label": "LOOKUP"
+        },
+        {
+          "api": "CHECKBOX",
+          "label": "CHECKBOX"
+        },
+        {
+          "api": "CODE",
+          "label": "CODE"
+        }
+      ]
+    },
+    {
+      "name": "CodeGroup__c",
+      "type": "Text",
+      "label": "Code Group",
+      "description": "CODE 열의 코드 그룹",
+      "length": 40
+    },
+    {
+      "name": "LookupFilter__c",
+      "type": "Text",
+      "label": "Lookup Filter",
+      "description": "Lookup 후보 고정 필터(Field__c=VALUE, 쉼표로 AND)",
+      "length": 255
+    },
+    {
+      "name": "ShowOnPhone__c",
+      "type": "Checkbox",
+      "label": "Show On Phone",
+      "description": "휴대폰 카드 표시(최대 4개)",
+      "default": false
+    }
+  ],
+  "records": []
+}

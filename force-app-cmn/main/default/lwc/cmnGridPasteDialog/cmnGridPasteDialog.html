@@ -1,0 +1,126 @@
+<template>
+  <lightning-modal-header label={labels.title}></lightning-modal-header>
+  <lightning-modal-body>
+    <p class="slds-m-bottom_small">{labels.help}</p>
+    <lightning-textarea
+      label={labels.area}
+      value={text}
+      onchange={handleText}
+      class="paste-area"
+    ></lightning-textarea>
+    <div class="slds-grid slds-wrap slds-gutters_small slds-m-top_small">
+      <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-3">
+        <lightning-input
+          type="checkbox"
+          label={labels.header}
+          checked={hasHeader}
+          onchange={handleHeader}
+          class="header-check"
+        ></lightning-input>
+      </div>
+      <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-3">
+        <lightning-combobox
+          label={labels.startColumn}
+          options={startOptions}
+          value={startValue}
+          onchange={handleStart}
+          class="start-column"
+        ></lightning-combobox>
+      </div>
+      <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-3">
+        <lightning-radio-group
+          label={labels.mode}
+          options={modeOptions}
+          value={mode}
+          onchange={handleMode}
+          class="paste-mode"
+        ></lightning-radio-group>
+      </div>
+    </div>
+    <template lwc:if={isChecking}>
+      <p class="slds-m-top_small" role="status">
+        <lightning-spinner
+          alternative-text={labels.checking}
+          size="small"
+          variant="inverse"
+        ></lightning-spinner>
+        {labels.checking}
+      </p>
+    </template>
+    <template lwc:if={errorMessage}>
+      <p
+        class="slds-text-color_error slds-m-top_small error-message"
+        role="alert"
+      >
+        {errorMessage}
+      </p>
+    </template>
+    <template lwc:if={tooManyText}>
+      <p class="slds-text-color_error slds-m-top_small" role="alert">
+        {tooManyText}
+      </p>
+    </template>
+    <template lwc:if={hasPreview}>
+      <h3 class="slds-text-heading_small slds-m-top_medium">
+        {labels.preview}
+      </h3>
+      <p class="slds-text-body_small slds-m-bottom_x-small summary">
+        {summary}
+      </p>
+      <div class="slds-scrollable preview-wrap">
+        <table
+          class="slds-table slds-table_bordered slds-table_cell-buffer slds-table_fixed-layout preview"
+        >
+          <thead>
+            <tr class="slds-line-height_reset">
+              <template for:each={previewHeader} for:item="h">
+                <th key={h.key} scope="col">
+                  <span class="slds-truncate" title={h.text}>{h.text}</span>
+                </th>
+              </template>
+            </tr>
+          </thead>
+          <tbody>
+            <template for:each={previewRows} for:item="r">
+              <tr key={r.key}>
+                <template for:each={r.cells} for:item="c">
+                  <td key={c.key} class={c.className}>
+                    <span class="slds-truncate" title={c.text}>{c.text}</span>
+                    <template lwc:if={c.error}>
+                      <span
+                        class="slds-grid slds-grid_vertical-align-center cell-error"
+                      >
+                        <lightning-icon
+                          icon-name="utility:error"
+                          variant="error"
+                          size="xx-small"
+                          alternative-text={c.error}
+                          class="slds-m-right_xx-small"
+                        ></lightning-icon>
+                        <span class="slds-text-body_small">{c.error}</span>
+                      </span>
+                    </template>
+                  </td>
+                </template>
+              </tr>
+            </template>
+          </tbody>
+        </table>
+      </div>
+    </template>
+  </lightning-modal-body>
+  <lightning-modal-footer>
+    <lightning-button
+      label={labels.cancel}
+      onclick={handleCancel}
+      class="slds-m-right_x-small cancel"
+    ></lightning-button>
+    <lightning-button
+      variant="brand"
+      label={labels.apply}
+      disabled={applyDisabled}
+      onclick={handleApply}
+      class="apply"
+    ></lightning-button>
+  </lightning-modal-footer>
+</template>

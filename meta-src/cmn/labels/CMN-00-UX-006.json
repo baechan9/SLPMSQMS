@@ -1,0 +1,816 @@
+{
+  "wi": "CMN-00-UX-006",
+  "package": "force-app-cmn",
+  "labels": [
+    {
+      "name": "CMN_Grid_InvalidRequest",
+      "category": "CMN",
+      "description": "요청 형식 오류(UX-006)",
+      "value": {
+        "ko": "요청이 올바르지 않습니다. 화면을 새로 고친 뒤 다시 시도하세요.",
+        "en_US": "The request isn't valid. Refresh the page and try again.",
+        "zh_CN": "请求无效。请刷新页面后重试。"
+      }
+    },
+    {
+      "name": "CMN_Grid_NotFound",
+      "category": "CMN",
+      "description": "그리드 정의 없음(UX-006)",
+      "value": {
+        "ko": "표 설정을 찾을 수 없습니다. 관리자에게 화면 설정을 확인해 달라고 요청하세요.",
+        "en_US": "The table settings weren't found. Ask your admin to check the page setup.",
+        "zh_CN": "找不到表格设置。请联系管理员检查页面设置。"
+      }
+    },
+    {
+      "name": "CMN_Grid_ConfigError",
+      "category": "CMN",
+      "description": "그리드 설정 오류({0} = 그리드 키, UX-006)",
+      "value": {
+        "ko": "표 설정이 잘못되어 열 수 없습니다. 관리자에게 알려 주세요(표 {0}).",
+        "en_US": "The table can't open because its settings are wrong. Tell your admin (table {0}).",
+        "zh_CN": "表格设置有误，无法打开。请告知管理员（表格 {0}）。"
+      }
+    },
+    {
+      "name": "CMN_Grid_NoAccess",
+      "category": "CMN",
+      "description": "행 객체 읽기 권한 없음(UX-006)",
+      "value": {
+        "ko": "이 표를 볼 권한이 없습니다. 담당자에게 권한을 요청하세요.",
+        "en_US": "You don't have access to this table. Ask the owner for access.",
+        "zh_CN": "您无权查看此表格。请向负责人申请权限。"
+      }
+    },
+    {
+      "name": "CMN_Grid_NotEditable",
+      "category": "CMN",
+      "description": "편집 불가 상태·권한(UX-006 BR-1, AC-9)",
+      "value": {
+        "ko": "지금 상태나 권한으로는 이 표를 고칠 수 없습니다. 레코드 상태를 확인하거나 담당자에게 권한을 요청하세요.",
+        "en_US": "You can't edit this table in the current status or with your permissions. Check the record status or ask for access.",
+        "zh_CN": "当前状态或权限下无法编辑此表格。请确认记录状态或申请权限。"
+      }
+    },
+    {
+      "name": "CMN_Grid_Conflict",
+      "category": "CMN",
+      "description": "버전 충돌(UX-006 BR-5)",
+      "value": {
+        "ko": "다른 사용자가 이 표를 먼저 저장했습니다. 새로 고침한 뒤 변경을 다시 적용하세요.",
+        "en_US": "Someone else saved this table first. Refresh, then apply your changes again.",
+        "zh_CN": "其他用户已先保存此表格。请刷新后重新应用您的更改。"
+      }
+    },
+    {
+      "name": "CMN_Grid_TooManyRows",
+      "category": "CMN",
+      "description": "저장 행 수 초과({0} = 최대 행, UX-006)",
+      "value": {
+        "ko": "한 번에 {0}행까지 저장할 수 있습니다. 행을 나눠 저장하세요.",
+        "en_US": "You can save up to {0} rows at a time. Save in smaller batches.",
+        "zh_CN": "一次最多可保存 {0} 行。请分批保存。"
+      }
+    },
+    {
+      "name": "CMN_Grid_RowNotFound",
+      "category": "CMN",
+      "description": "행 없음(UX-006)",
+      "value": {
+        "ko": "이 행은 이미 삭제되었거나 이 표에 속하지 않습니다. 새로 고침하세요.",
+        "en_US": "This row was deleted or doesn't belong to this table. Refresh the table.",
+        "zh_CN": "该行已被删除或不属于此表格。请刷新。"
+      }
+    },
+    {
+      "name": "CMN_Grid_ColumnNotEditable",
+      "category": "CMN",
+      "description": "편집할 수 없는 열({0} = 열 이름, UX-006)",
+      "value": {
+        "ko": "고칠 수 없는 열이 들어 있어 저장하지 않았습니다: {0}. 새로 고친 뒤 다시 입력하세요.",
+        "en_US": "Not saved because it includes a column you can't edit: {0}. Refresh and enter it again.",
+        "zh_CN": "因包含不可编辑的列而未保存：{0}。请刷新后重新输入。"
+      }
+    },
+    {
+      "name": "CMN_Grid_InvalidValue",
+      "category": "CMN",
+      "description": "값 형식 오류({0} = 열 이름, UX-006)",
+      "value": {
+        "ko": "{0} 값의 형식이 맞지 않습니다. 값을 고친 뒤 저장하세요.",
+        "en_US": "The value in {0} isn't in a valid format. Fix it and save.",
+        "zh_CN": "{0} 的值格式不正确。请修改后保存。"
+      }
+    },
+    {
+      "name": "CMN_Grid_CellLocked",
+      "category": "CMN",
+      "description": "잠긴 셀({0} = 열 이름, UX-006 BR-11)",
+      "value": {
+        "ko": "이 행에서는 고칠 수 없는 항목입니다: {0}. 변경을 취소하세요.",
+        "en_US": "You can't change this field in this row: {0}. Undo the change.",
+        "zh_CN": "此行中该项目不可修改：{0}。请撤销更改。"
+      }
+    },
+    {
+      "name": "CMN_Grid_DeleteBlocked",
+      "category": "CMN",
+      "description": "삭제 불가 행 기본 문구(UX-006 BR-11)",
+      "value": {
+        "ko": "삭제할 수 없는 행입니다. 담당자에게 확인하세요.",
+        "en_US": "This row can't be deleted. Check with the owner.",
+        "zh_CN": "此行不可删除。请与负责人确认。"
+      }
+    },
+    {
+      "name": "CMN_Grid_RequiredMissing",
+      "category": "CMN",
+      "description": "필수 누락({0} = 열 이름, UX-006)",
+      "value": {
+        "ko": "필수 항목을 입력하세요: {0}",
+        "en_US": "Fill in the required fields: {0}",
+        "zh_CN": "请填写必填项：{0}"
+      }
+    },
+    {
+      "name": "CMN_Grid_SaveFailed",
+      "category": "CMN",
+      "description": "저장 실패 일반(UX-006)",
+      "value": {
+        "ko": "행을 저장하지 못했습니다. 입력값을 확인하고 다시 저장하세요. 계속되면 관리자에게 알려 주세요.",
+        "en_US": "The rows weren't saved. Check your entries and save again. If it keeps happening, tell your admin.",
+        "zh_CN": "未能保存行。请检查输入后重新保存。如持续出现，请告知管理员。"
+      }
+    },
+    {
+      "name": "CMN_Grid_LookupTooMany",
+      "category": "CMN",
+      "description": "참조 확인 값 개수 초과({0} = 최대, UX-006 BR-3)",
+      "value": {
+        "ko": "붙여넣은 참조 값은 서로 다른 값 {0}개까지 확인할 수 있습니다. 나눠 붙여넣으세요.",
+        "en_US": "Pasted reference values can include up to {0} distinct values. Paste in smaller parts.",
+        "zh_CN": "粘贴的引用值最多可包含 {0} 个不同值。请分批粘贴。"
+      }
+    },
+    {
+      "name": "CMN_Grid_SampleEndBeforeStart",
+      "category": "CMN",
+      "description": "샘플 Provider: 종료일 < 시작일(UX-006)",
+      "value": {
+        "ko": "종료일이 시작일보다 빠릅니다. 종료일을 고치세요.",
+        "en_US": "The end date is before the start date. Fix the end date.",
+        "zh_CN": "结束日期早于开始日期。请修改结束日期。"
+      }
+    },
+    {
+      "name": "CMN_Grid_SampleNegativeQty",
+      "category": "CMN",
+      "description": "샘플 Provider: 음수 수량(UX-006)",
+      "value": {
+        "ko": "수량은 0 이상이어야 합니다. 수량을 고치세요.",
+        "en_US": "Quantity must be 0 or more. Fix the quantity.",
+        "zh_CN": "数量必须大于或等于 0。请修改数量。"
+      }
+    },
+    {
+      "name": "CMN_Grid_SampleDoneLocked",
+      "category": "CMN",
+      "description": "샘플 Provider: 완료 행 삭제 불가(UX-006)",
+      "value": {
+        "ko": "완료된 행은 삭제할 수 없습니다. 완료를 해제한 뒤 삭제하세요.",
+        "en_US": "Completed rows can't be deleted. Clear Done first, then delete.",
+        "zh_CN": "已完成的行不可删除。请先取消完成再删除。"
+      }
+    },
+    {
+      "name": "CMN_Grid_WarnOverdue",
+      "category": "CMN",
+      "description": "행 경고: 종료일 경과·미완료(UX-006 BR-6)",
+      "value": {
+        "ko": "종료일이 지났지만 끝나지 않았습니다",
+        "en_US": "Past the end date but not finished",
+        "zh_CN": "已过结束日期但未完成"
+      }
+    },
+    {
+      "name": "CMN_Grid_BtnAddRow",
+      "category": "CMN",
+      "description": "툴바: 행 추가",
+      "value": {
+        "ko": "행 추가",
+        "en_US": "Add Row",
+        "zh_CN": "添加行"
+      }
+    },
+    {
+      "name": "CMN_Grid_BtnDelete",
+      "category": "CMN",
+      "description": "툴바: 선택 행 삭제 표시",
+      "value": {
+        "ko": "삭제",
+        "en_US": "Delete",
+        "zh_CN": "删除"
+      }
+    },
+    {
+      "name": "CMN_Grid_BtnPaste",
+      "category": "CMN",
+      "description": "툴바: 붙여넣기 대화상자",
+      "value": {
+        "ko": "붙여넣기",
+        "en_US": "Paste",
+        "zh_CN": "粘贴"
+      }
+    },
+    {
+      "name": "CMN_Grid_BtnSchedule",
+      "category": "CMN",
+      "description": "툴바: 일정 보기",
+      "value": {
+        "ko": "일정 보기",
+        "en_US": "Schedule View",
+        "zh_CN": "日程视图"
+      }
+    },
+    {
+      "name": "CMN_Grid_BtnTable",
+      "category": "CMN",
+      "description": "툴바: 표 보기",
+      "value": {
+        "ko": "표 보기",
+        "en_US": "Table View",
+        "zh_CN": "表格视图"
+      }
+    },
+    {
+      "name": "CMN_Grid_BtnCancel",
+      "category": "CMN",
+      "description": "툴바: 변경 취소",
+      "value": {
+        "ko": "변경 취소",
+        "en_US": "Discard Changes",
+        "zh_CN": "放弃更改"
+      }
+    },
+    {
+      "name": "CMN_Grid_BtnSave",
+      "category": "CMN",
+      "description": "툴바: 저장",
+      "value": {
+        "ko": "저장",
+        "en_US": "Save",
+        "zh_CN": "保存"
+      }
+    },
+    {
+      "name": "CMN_Grid_BtnRefresh",
+      "category": "CMN",
+      "description": "새로 고침",
+      "value": {
+        "ko": "새로 고침",
+        "en_US": "Refresh",
+        "zh_CN": "刷新"
+      }
+    },
+    {
+      "name": "CMN_Grid_ErrorCount",
+      "category": "CMN",
+      "description": "오류 요약({0} = 건수)",
+      "value": {
+        "ko": "오류 {0}건",
+        "en_US": "{0} errors",
+        "zh_CN": "{0} 个错误"
+      }
+    },
+    {
+      "name": "CMN_Grid_ErrorsOnly",
+      "category": "CMN",
+      "description": "오류 행만 보기 토글",
+      "value": {
+        "ko": "오류 행만 보기",
+        "en_US": "Show Error Rows Only",
+        "zh_CN": "仅显示错误行"
+      }
+    },
+    {
+      "name": "CMN_Grid_ChangeCount",
+      "category": "CMN",
+      "description": "변경 요약({0} = 행 수)",
+      "value": {
+        "ko": "저장하지 않은 변경 {0}행",
+        "en_US": "{0} unsaved rows",
+        "zh_CN": "{0} 行未保存"
+      }
+    },
+    {
+      "name": "CMN_Grid_Loading",
+      "category": "CMN",
+      "description": "로딩",
+      "value": {
+        "ko": "표를 불러오는 중",
+        "en_US": "Loading table",
+        "zh_CN": "正在加载表格"
+      }
+    },
+    {
+      "name": "CMN_Grid_Saving",
+      "category": "CMN",
+      "description": "저장 중",
+      "value": {
+        "ko": "저장하는 중",
+        "en_US": "Saving",
+        "zh_CN": "正在保存"
+      }
+    },
+    {
+      "name": "CMN_Grid_Empty",
+      "category": "CMN",
+      "description": "빈 표(편집 가능)",
+      "value": {
+        "ko": "행이 없습니다. 행 추가나 붙여넣기로 입력하세요.",
+        "en_US": "No rows yet. Add a row or paste from Excel.",
+        "zh_CN": "暂无行。请添加行或从 Excel 粘贴。"
+      }
+    },
+    {
+      "name": "CMN_Grid_EmptyReadOnly",
+      "category": "CMN",
+      "description": "빈 표(읽기 전용)",
+      "value": {
+        "ko": "행이 없습니다.",
+        "en_US": "No rows.",
+        "zh_CN": "暂无行。"
+      }
+    },
+    {
+      "name": "CMN_Grid_LoadError",
+      "category": "CMN",
+      "description": "로드 실패 일반",
+      "value": {
+        "ko": "표를 불러오지 못했습니다. 새로 고침하세요. 계속되면 관리자에게 알려 주세요.",
+        "en_US": "The table didn't load. Refresh. If it keeps happening, tell your admin.",
+        "zh_CN": "表格加载失败。请刷新。如持续出现，请告知管理员。"
+      }
+    },
+    {
+      "name": "CMN_Grid_Truncated",
+      "category": "CMN",
+      "description": "잘림 안내({0} = 최대 행, BR-1)",
+      "value": {
+        "ko": "앞 {0}행만 보입니다. 나머지 행은 목록 보기에서 확인하세요.",
+        "en_US": "Only the first {0} rows are shown. See the rest in the list view.",
+        "zh_CN": "仅显示前 {0} 行。其余行请在列表视图中查看。"
+      }
+    },
+    {
+      "name": "CMN_Grid_ReadOnly",
+      "category": "CMN",
+      "description": "읽기 전용 안내(BR-1)",
+      "value": {
+        "ko": "읽기 전용: 지금 상태나 권한으로는 이 표를 고칠 수 없습니다.",
+        "en_US": "Read only: you can't edit this table in the current status or with your permissions.",
+        "zh_CN": "只读：当前状态或权限下无法编辑此表格。"
+      }
+    },
+    {
+      "name": "CMN_Grid_ColState",
+      "category": "CMN",
+      "description": "상태 열 머리글",
+      "value": {
+        "ko": "상태",
+        "en_US": "Status",
+        "zh_CN": "状态"
+      }
+    },
+    {
+      "name": "CMN_Grid_StateNew",
+      "category": "CMN",
+      "description": "행 상태: 새 행",
+      "value": {
+        "ko": "새 행",
+        "en_US": "New",
+        "zh_CN": "新行"
+      }
+    },
+    {
+      "name": "CMN_Grid_StateDeleted",
+      "category": "CMN",
+      "description": "행 상태: 삭제 예정",
+      "value": {
+        "ko": "삭제 예정",
+        "en_US": "To Delete",
+        "zh_CN": "待删除"
+      }
+    },
+    {
+      "name": "CMN_Grid_StateChanged",
+      "category": "CMN",
+      "description": "행 상태: 수정됨",
+      "value": {
+        "ko": "수정됨",
+        "en_US": "Changed",
+        "zh_CN": "已修改"
+      }
+    },
+    {
+      "name": "CMN_Grid_StateError",
+      "category": "CMN",
+      "description": "행 상태: 오류",
+      "value": {
+        "ko": "오류",
+        "en_US": "Error",
+        "zh_CN": "错误"
+      }
+    },
+    {
+      "name": "CMN_Grid_StateLocked",
+      "category": "CMN",
+      "description": "행 상태: 삭제 불가",
+      "value": {
+        "ko": "삭제 불가",
+        "en_US": "Can't Delete",
+        "zh_CN": "不可删除"
+      }
+    },
+    {
+      "name": "CMN_Grid_RowErrorTitle",
+      "category": "CMN",
+      "description": "행 오류 팝업 제목",
+      "value": {
+        "ko": "이 행을 고치세요",
+        "en_US": "Fix this row",
+        "zh_CN": "请修改此行"
+      }
+    },
+    {
+      "name": "CMN_Grid_TableErrorTitle",
+      "category": "CMN",
+      "description": "표 오류 팝업 제목",
+      "value": {
+        "ko": "저장하지 못했습니다",
+        "en_US": "Couldn't save",
+        "zh_CN": "未能保存"
+      }
+    },
+    {
+      "name": "CMN_Grid_DraftRestore",
+      "category": "CMN",
+      "description": "초안 복원 질문({0} = 행 수, BR-2·AC-8)",
+      "value": {
+        "ko": "저장하지 않은 변경({0}행)이 남아 있습니다. 복원할까요? 취소하면 변경을 버립니다.",
+        "en_US": "You have unsaved changes ({0} rows). Restore them? Cancel discards them.",
+        "zh_CN": "有未保存的更改（{0} 行）。要恢复吗？取消将放弃这些更改。"
+      }
+    },
+    {
+      "name": "CMN_Grid_DraftTitle",
+      "category": "CMN",
+      "description": "초안 대화상자 제목",
+      "value": {
+        "ko": "저장하지 않은 변경",
+        "en_US": "Unsaved Changes",
+        "zh_CN": "未保存的更改"
+      }
+    },
+    {
+      "name": "CMN_Grid_UnsavedRefresh",
+      "category": "CMN",
+      "description": "새로 고침 전 확인(BR-10)",
+      "value": {
+        "ko": "저장하지 않은 변경이 있습니다. 새로 고치면 변경이 사라집니다. 계속할까요?",
+        "en_US": "You have unsaved changes. Refreshing discards them. Continue?",
+        "zh_CN": "有未保存的更改。刷新将放弃这些更改。要继续吗？"
+      }
+    },
+    {
+      "name": "CMN_Grid_Saved",
+      "category": "CMN",
+      "description": "저장 완료({0} = 저장 행, {1} = 삭제 행)",
+      "value": {
+        "ko": "저장했습니다(저장 {0}행, 삭제 {1}행).",
+        "en_US": "Saved ({0} rows saved, {1} deleted).",
+        "zh_CN": "已保存（保存 {0} 行，删除 {1} 行）。"
+      }
+    },
+    {
+      "name": "CMN_Grid_NothingToSave",
+      "category": "CMN",
+      "description": "변경 없음",
+      "value": {
+        "ko": "저장할 변경이 없습니다.",
+        "en_US": "There are no changes to save.",
+        "zh_CN": "没有需要保存的更改。"
+      }
+    },
+    {
+      "name": "CMN_Grid_FixErrors",
+      "category": "CMN",
+      "description": "클라이언트 검증 실패",
+      "value": {
+        "ko": "표시된 오류를 고친 뒤 저장하세요.",
+        "en_US": "Fix the errors shown, then save.",
+        "zh_CN": "请修改显示的错误后再保存。"
+      }
+    },
+    {
+      "name": "CMN_Grid_SelectRows",
+      "category": "CMN",
+      "description": "삭제 대상 미선택",
+      "value": {
+        "ko": "삭제할 행을 먼저 선택하세요.",
+        "en_US": "Select the rows to delete first.",
+        "zh_CN": "请先选择要删除的行。"
+      }
+    },
+    {
+      "name": "CMN_Grid_PasteTitle",
+      "category": "CMN",
+      "description": "붙여넣기 대화상자 제목(BR-3)",
+      "value": {
+        "ko": "엑셀에서 붙여넣기",
+        "en_US": "Paste from Excel",
+        "zh_CN": "从 Excel 粘贴"
+      }
+    },
+    {
+      "name": "CMN_Grid_PasteHelp",
+      "category": "CMN",
+      "description": "붙여넣기 안내",
+      "value": {
+        "ko": "엑셀에서 범위를 복사해 아래 칸에 붙여넣으세요(Ctrl+V). 열 순서는 표의 시작 열부터 맞춥니다.",
+        "en_US": "Copy a range in Excel and paste it below (Ctrl+V). Columns are matched in order from the start column.",
+        "zh_CN": "在 Excel 中复制区域并粘贴到下方（Ctrl+V）。列从起始列开始按顺序匹配。"
+      }
+    },
+    {
+      "name": "CMN_Grid_PasteArea",
+      "category": "CMN",
+      "description": "붙여넣기 입력 칸",
+      "value": {
+        "ko": "붙여넣을 내용",
+        "en_US": "Pasted content",
+        "zh_CN": "粘贴内容"
+      }
+    },
+    {
+      "name": "CMN_Grid_PasteHeader",
+      "category": "CMN",
+      "description": "첫 행 머리글 체크",
+      "value": {
+        "ko": "첫 행은 머리글",
+        "en_US": "First row is a header",
+        "zh_CN": "首行为标题"
+      }
+    },
+    {
+      "name": "CMN_Grid_PasteStartColumn",
+      "category": "CMN",
+      "description": "시작 열 선택",
+      "value": {
+        "ko": "시작 열",
+        "en_US": "Start column",
+        "zh_CN": "起始列"
+      }
+    },
+    {
+      "name": "CMN_Grid_PastePreview",
+      "category": "CMN",
+      "description": "미리보기 제목",
+      "value": {
+        "ko": "미리보기",
+        "en_US": "Preview",
+        "zh_CN": "预览"
+      }
+    },
+    {
+      "name": "CMN_Grid_PasteMode",
+      "category": "CMN",
+      "description": "적용 방식",
+      "value": {
+        "ko": "적용 방식",
+        "en_US": "How to apply",
+        "zh_CN": "应用方式"
+      }
+    },
+    {
+      "name": "CMN_Grid_PasteAppend",
+      "category": "CMN",
+      "description": "적용: 아래에 추가",
+      "value": {
+        "ko": "기존 행 아래에 추가",
+        "en_US": "Add below existing rows",
+        "zh_CN": "添加到现有行下方"
+      }
+    },
+    {
+      "name": "CMN_Grid_PasteOverwrite",
+      "category": "CMN",
+      "description": "적용: 선택 행부터 덮어쓰기",
+      "value": {
+        "ko": "선택한 행부터 덮어쓰기",
+        "en_US": "Overwrite from the selected row",
+        "zh_CN": "从所选行开始覆盖"
+      }
+    },
+    {
+      "name": "CMN_Grid_PasteApply",
+      "category": "CMN",
+      "description": "적용 버튼",
+      "value": {
+        "ko": "적용",
+        "en_US": "Apply",
+        "zh_CN": "应用"
+      }
+    },
+    {
+      "name": "CMN_Grid_PasteCancel",
+      "category": "CMN",
+      "description": "취소 버튼",
+      "value": {
+        "ko": "취소",
+        "en_US": "Cancel",
+        "zh_CN": "取消"
+      }
+    },
+    {
+      "name": "CMN_Grid_PasteSummary",
+      "category": "CMN",
+      "description": "미리보기 요약({0} 행, {1} 열, {2} 오류 칸)",
+      "value": {
+        "ko": "{0}행 × {1}열, 변환 오류 {2}칸",
+        "en_US": "{0} rows × {1} columns, {2} cells with errors",
+        "zh_CN": "{0} 行 × {1} 列，{2} 个单元格转换错误"
+      }
+    },
+    {
+      "name": "CMN_Grid_PasteChecking",
+      "category": "CMN",
+      "description": "참조 확인 중",
+      "value": {
+        "ko": "참조 값을 확인하는 중",
+        "en_US": "Checking reference values",
+        "zh_CN": "正在检查引用值"
+      }
+    },
+    {
+      "name": "CMN_Grid_PasteErrDate",
+      "category": "CMN",
+      "description": "변환 오류: 날짜",
+      "value": {
+        "ko": "날짜 형식이 아닙니다(예: 2026-11-06)",
+        "en_US": "Not a date (for example, 2026-11-06)",
+        "zh_CN": "不是日期格式（例如 2026-11-06）"
+      }
+    },
+    {
+      "name": "CMN_Grid_PasteErrNumber",
+      "category": "CMN",
+      "description": "변환 오류: 숫자",
+      "value": {
+        "ko": "숫자가 아닙니다",
+        "en_US": "Not a number",
+        "zh_CN": "不是数字"
+      }
+    },
+    {
+      "name": "CMN_Grid_PasteErrPicklist",
+      "category": "CMN",
+      "description": "변환 오류: 선택 목록",
+      "value": {
+        "ko": "선택 목록에 없는 값입니다",
+        "en_US": "Not a value in the list",
+        "zh_CN": "不是列表中的值"
+      }
+    },
+    {
+      "name": "CMN_Grid_PasteErrLookup",
+      "category": "CMN",
+      "description": "변환 오류: 참조",
+      "value": {
+        "ko": "일치하는 항목이 없거나 여러 개입니다",
+        "en_US": "No match, or more than one match",
+        "zh_CN": "没有匹配项或有多个匹配项"
+      }
+    },
+    {
+      "name": "CMN_Grid_PasteErrCheckbox",
+      "category": "CMN",
+      "description": "변환 오류: 체크박스",
+      "value": {
+        "ko": "참/거짓 값이 아닙니다(예: Y, N)",
+        "en_US": "Not a yes/no value (for example, Y or N)",
+        "zh_CN": "不是是/否值（例如 Y、N）"
+      }
+    },
+    {
+      "name": "CMN_Grid_PasteErrLength",
+      "category": "CMN",
+      "description": "변환 오류: 길이",
+      "value": {
+        "ko": "글자 수가 너무 깁니다",
+        "en_US": "Too long",
+        "zh_CN": "字数过长"
+      }
+    },
+    {
+      "name": "CMN_Grid_PasteReadOnlyCol",
+      "category": "CMN",
+      "description": "미리보기: 편집 불가 열(버림)",
+      "value": {
+        "ko": "편집 불가(버림)",
+        "en_US": "Read only (skipped)",
+        "zh_CN": "不可编辑（忽略）"
+      }
+    },
+    {
+      "name": "CMN_Grid_PasteTooMany",
+      "category": "CMN",
+      "description": "붙여넣기 행 수 초과({0} = 최대)",
+      "value": {
+        "ko": "한 번에 {0}행까지 붙여넣을 수 있습니다. 나눠 붙여넣으세요.",
+        "en_US": "You can paste up to {0} rows at a time. Paste in smaller parts.",
+        "zh_CN": "一次最多可粘贴 {0} 行。请分批粘贴。"
+      }
+    },
+    {
+      "name": "CMN_Grid_PasteNoSelection",
+      "category": "CMN",
+      "description": "덮어쓰기 시작 행 미선택",
+      "value": {
+        "ko": "덮어쓸 시작 행을 표에서 먼저 선택하세요.",
+        "en_US": "Select the starting row in the table first.",
+        "zh_CN": "请先在表格中选择起始行。"
+      }
+    },
+    {
+      "name": "CMN_Grid_PasteCellError",
+      "category": "CMN",
+      "description": "셀 오류: 붙여넣기 변환({0} = 원래 값)",
+      "value": {
+        "ko": "붙여넣은 값 \"{0}\"을(를) 넣지 못했습니다. 다시 입력하세요.",
+        "en_US": "The pasted value \"{0}\" couldn't be used. Enter it again.",
+        "zh_CN": "无法使用粘贴的值“{0}”。请重新输入。"
+      }
+    },
+    {
+      "name": "CMN_Grid_ScheduleToday",
+      "category": "CMN",
+      "description": "일정: 오늘 선",
+      "value": {
+        "ko": "오늘",
+        "en_US": "Today",
+        "zh_CN": "今天"
+      }
+    },
+    {
+      "name": "CMN_Grid_ScheduleNoDates",
+      "category": "CMN",
+      "description": "일정: 날짜 없는 행({0} = 행 수)",
+      "value": {
+        "ko": "날짜가 없는 행 {0}개는 표 보기에서 날짜를 입력하세요.",
+        "en_US": "{0} rows have no dates. Enter them in the table view.",
+        "zh_CN": "{0} 行没有日期。请在表格视图中输入。"
+      }
+    },
+    {
+      "name": "CMN_Grid_ScheduleEmpty",
+      "category": "CMN",
+      "description": "일정: 그릴 행 없음",
+      "value": {
+        "ko": "일정을 그릴 행이 없습니다.",
+        "en_US": "No rows to show on the schedule.",
+        "zh_CN": "没有可显示在日程上的行。"
+      }
+    },
+    {
+      "name": "CMN_Grid_SchedulePeriod",
+      "category": "CMN",
+      "description": "일정 막대 접근성 문구({0} 시작, {1} 종료)",
+      "value": {
+        "ko": "{0} ~ {1}",
+        "en_US": "{0} to {1}",
+        "zh_CN": "{0} 至 {1}"
+      }
+    },
+    {
+      "name": "CMN_Grid_PhoneOpen",
+      "category": "CMN",
+      "description": "휴대폰 카드: 레코드 열기",
+      "value": {
+        "ko": "열기",
+        "en_US": "Open",
+        "zh_CN": "打开"
+      }
+    },
+    {
+      "name": "CMN_Grid_LookupSearch",
+      "category": "CMN",
+      "description": "참조 셀 검색 입력",
+      "value": {
+        "ko": "검색",
+        "en_US": "Search",
+        "zh_CN": "搜索"
+      }
+    }
+  ]
+}

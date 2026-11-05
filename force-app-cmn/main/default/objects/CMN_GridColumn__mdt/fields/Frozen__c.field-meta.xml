@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Frozen__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>가로 스크롤 시 고정(앞쪽 배치)</description>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>Frozen</label>
+    <type>Checkbox</type>
+</CustomField>

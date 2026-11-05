@@ -1,0 +1,134 @@
+{
+  "gridKey": "CMN_TestRecordLines",
+  "objectApiName": "CMN_TestRecordLine__c",
+  "columns": [
+    {
+      "fieldApiName": "LineNo__c",
+      "label": "No",
+      "inputType": "NUMBER",
+      "editable": false,
+      "widthWeight": 1,
+      "scale": 0
+    },
+    {
+      "fieldApiName": "Name",
+      "label": "Item",
+      "inputType": "TEXT",
+      "editable": true,
+      "required": true,
+      "frozen": true,
+      "isNameField": true,
+      "showOnPhone": true,
+      "length": 80
+    },
+    {
+      "fieldApiName": "Category__c",
+      "label": "Category",
+      "inputType": "PICKLIST",
+      "editable": true,
+      "showOnPhone": true,
+      "options": [
+        {
+          "value": "PLAN",
+          "label": "Plan"
+        },
+        {
+          "value": "CHECK",
+          "label": "Check"
+        }
+      ]
+    },
+    {
+      "fieldApiName": "Quantity__c",
+      "label": "Qty",
+      "inputType": "NUMBER",
+      "editable": true,
+      "scale": 2
+    },
+    {
+      "fieldApiName": "StartDate__c",
+      "label": "Start",
+      "inputType": "DATE",
+      "editable": true,
+      "required": true,
+      "showOnPhone": true
+    },
+    {
+      "fieldApiName": "EndDate__c",
+      "label": "End",
+      "inputType": "DATE",
+      "editable": true,
+      "showOnPhone": true
+    },
+    {
+      "fieldApiName": "Plant__c",
+      "label": "Plant",
+      "inputType": "LOOKUP",
+      "editable": true,
+      "referenceTo": "CMN_Plant__c",
+      "lookupFilter": []
+    },
+    {
+      "fieldApiName": "Code__c",
+      "label": "Code",
+      "inputType": "CODE",
+      "editable": true,
+      "referenceTo": "CMN_Code__c",
+      "codeGroup": "DEFECT_TYPE"
+    },
+    {
+      "fieldApiName": "IsDone__c",
+      "label": "Done",
+      "inputType": "CHECKBOX",
+      "editable": true
+    }
+  ],
+  "rows": [
+    {
+      "Id": "a0L000000000001AAA",
+      "LineNo__c": 1,
+      "Name": "Line 1",
+      "Category__c": "PLAN",
+      "Quantity__c": 1,
+      "StartDate__c": "2026-11-02",
+      "EndDate__c": "2026-11-09",
+      "Plant__c": "a0P000000000001AAA",
+      "__d_Plant__c": "KR01",
+      "IsDone__c": false,
+      "__deletable": true,
+      "__locked": []
+    },
+    {
+      "Id": "a0L000000000002AAA",
+      "LineNo__c": 2,
+      "Name": "Line 2",
+      "Category__c": "CHECK",
+      "Quantity__c": 2,
+      "StartDate__c": "2026-10-01",
+      "EndDate__c": "2026-10-05",
+      "IsDone__c": true,
+      "__deletable": false,
+      "__deleteBlocked": "Done rows can't be deleted",
+      "__locked": [
+        "StartDate__c",
+        "EndDate__c",
+        "Quantity__c"
+      ],
+      "__warning": null
+    }
+  ],
+  "editable": true,
+  "allowAdd": true,
+  "allowDelete": true,
+  "allowPaste": true,
+  "scheduleStartField": "StartDate__c",
+  "scheduleEndField": "EndDate__c",
+  "maxRows": 200,
+  "truncated": false,
+  "clientVersion": "2:1000:abc",
+  "defaults": {
+    "Category__c": "PLAN",
+    "Quantity__c": 1,
+    "StartDate__c": "2026-11-06"
+  }
+}

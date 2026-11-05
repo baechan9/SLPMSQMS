@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_Grid_ChangeCount</fullName>
+    <categories>CMN</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>변경 요약({0} = 행 수)</shortDescription>
+    <value>저장하지 않은 변경 {0}행</value>
+</CustomLabel>

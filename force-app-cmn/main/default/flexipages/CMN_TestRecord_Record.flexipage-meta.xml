@@ -227,6 +227,16 @@
                 </visibilityRule>
             </componentInstance>
         </itemInstances>
+        <itemInstances>
+            <componentInstance>
+                <componentInstanceProperties>
+                    <name>gridKey</name>
+                    <value>CMN_TestRecordLines</value>
+                </componentInstanceProperties>
+                <componentName>cmnEditableGrid</componentName>
+                <identifier>TestLinesGrid</identifier>
+            </componentInstance>
+        </itemInstances>
         <name>Facet-CurrentTabBody</name>
         <type>Facet</type>
     </flexiPageRegions>

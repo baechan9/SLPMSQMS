@@ -1,0 +1,80 @@
+{
+  "grid": {
+    "wi": "CMN-00-UX-006",
+    "key": "CMN_TestRecordLines",
+    "description": "테스트 객체 라인 샘플 그리드(개발 플랜 DEV-3). 업무 그리드는 각 메뉴 WI가 같은 형식으로 정의한다",
+    "object": "CMN_TestRecordLine__c",
+    "parentField": "TestRecord__c",
+    "orderField": "LineNo__c",
+    "filter": null,
+    "maxRows": 200,
+    "allowAdd": true,
+    "allowDelete": true,
+    "allowPaste": true,
+    "scheduleStart": "StartDate__c",
+    "scheduleEnd": "EndDate__c",
+    "provider": "CMN_TestRecordLineGridProvider",
+    "editRuleKey": "TestLinesEdit",
+    "columns": [
+      {
+        "field": "LineNo__c",
+        "width": 1
+      },
+      {
+        "field": "Name",
+        "editable": true,
+        "required": true,
+        "frozen": true,
+        "width": 4,
+        "phone": true
+      },
+      {
+        "field": "Category__c",
+        "editable": true,
+        "width": 2,
+        "phone": true
+      },
+      {
+        "field": "Quantity__c",
+        "editable": true,
+        "width": 2
+      },
+      {
+        "field": "StartDate__c",
+        "editable": true,
+        "required": true,
+        "width": 2,
+        "phone": true
+      },
+      {
+        "field": "EndDate__c",
+        "editable": true,
+        "width": 2,
+        "phone": true
+      },
+      {
+        "field": "Code__c",
+        "editable": true,
+        "input": "CODE",
+        "codeGroup": "DEFECT_TYPE",
+        "width": 3
+      },
+      {
+        "field": "Plant__c",
+        "editable": true,
+        "input": "LOOKUP",
+        "width": 2
+      },
+      {
+        "field": "IsDone__c",
+        "editable": true,
+        "width": 1
+      },
+      {
+        "field": "Note__c",
+        "editable": true,
+        "width": 3
+      }
+    ]
+  }
+}

@@ -30,7 +30,15 @@
           "fields": ["DueDate__c"]
         }
       ],
-      "components": []
+      "components": [
+        {
+          "name": "cmnEditableGrid",
+          "identifier": "TestLinesGrid",
+          "properties": {
+            "gridKey": "CMN_TestRecordLines"
+          }
+        }
+      ]
     },
     "detailSections": [
       {

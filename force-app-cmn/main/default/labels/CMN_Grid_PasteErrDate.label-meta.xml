@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_Grid_PasteErrDate</fullName>
+    <categories>CMN</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>변환 오류: 날짜</shortDescription>
+    <value>날짜 형식이 아닙니다(예: 2026-11-06)</value>
+</CustomLabel>

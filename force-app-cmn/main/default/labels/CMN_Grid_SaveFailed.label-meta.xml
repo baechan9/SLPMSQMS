@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_Grid_SaveFailed</fullName>
+    <categories>CMN</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>저장 실패 일반(UX-006)</shortDescription>
+    <value>행을 저장하지 못했습니다. 입력값을 확인하고 다시 저장하세요. 계속되면 관리자에게 알려 주세요.</value>
+</CustomLabel>

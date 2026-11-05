@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Grid__c</fullName>
+    <description>그리드 정의</description>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>Grid</label>
+    <referenceTo>CMN_GridDefinition__mdt</referenceTo>
+    <relationshipLabel>편집 그리드 열</relationshipLabel>
+    <relationshipName>Columns</relationshipName>
+    <required>false</required>
+    <type>MetadataRelationship</type>
+</CustomField>

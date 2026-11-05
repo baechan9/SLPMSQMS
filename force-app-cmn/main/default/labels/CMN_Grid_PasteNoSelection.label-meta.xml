@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_Grid_PasteNoSelection</fullName>
+    <categories>CMN</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>덮어쓰기 시작 행 미선택</shortDescription>
+    <value>덮어쓸 시작 행을 표에서 먼저 선택하세요.</value>
+</CustomLabel>

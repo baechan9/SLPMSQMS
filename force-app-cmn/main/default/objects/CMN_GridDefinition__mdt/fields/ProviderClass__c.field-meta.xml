@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ProviderClass__c</fullName>
+    <description>CMN_GridProvider 구현 클래스(비우면 제약 없음)</description>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>Provider Class</label>
+    <length>80</length>
+    <required>false</required>
+    <type>Text</type>
+</CustomField>

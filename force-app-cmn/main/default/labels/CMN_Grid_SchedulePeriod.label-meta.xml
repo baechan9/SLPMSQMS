@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_Grid_SchedulePeriod</fullName>
+    <categories>CMN</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>일정 막대 접근성 문구({0} 시작, {1} 종료)</shortDescription>
+    <value>{0} ~ {1}</value>
+</CustomLabel>

@@ -1,0 +1,4 @@
+/* 미리보기 표는 대화상자 안에서 세로로 스크롤한다(UX-006 BR-3) */
+.preview-wrap {
+  max-height: 24rem;
+}

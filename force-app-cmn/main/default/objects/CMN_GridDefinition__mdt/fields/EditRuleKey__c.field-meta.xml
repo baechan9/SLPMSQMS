@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>EditRuleKey__c</fullName>
+    <description>UX-005 COMPONENT 규칙 키(Mode EDIT). 편집 가능 여부 판정</description>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>Edit Rule Key</label>
+    <length>80</length>
+    <required>false</required>
+    <type>Text</type>
+</CustomField>

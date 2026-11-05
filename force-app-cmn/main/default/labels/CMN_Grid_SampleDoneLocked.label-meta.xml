@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_Grid_SampleDoneLocked</fullName>
+    <categories>CMN</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>샘플 Provider: 완료 행 삭제 불가(UX-006)</shortDescription>
+    <value>완료된 행은 삭제할 수 없습니다. 완료를 해제한 뒤 삭제하세요.</value>
+</CustomLabel>

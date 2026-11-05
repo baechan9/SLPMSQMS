@@ -15,6 +15,7 @@ FlexiPage에 하는 일
   읽기 섹션 `{Key}ReadOnlySection`(없으면 만듦, 같은 필드 읽기 전용)은 그 부정일 때 보인다.
 - ACTION: 하이라이트 패널을 Dynamic Actions로 바꾸고 규칙이 있는 버튼만 조건과 함께 넣는다(규칙 없는 버튼은 숨김).
 - COMPONENT: 식별자가 키인 컴포넌트에 가시성 규칙을 단다.
+  mode EDIT인 COMPONENT 규칙은 화면 가시성이 아니라 편집 가능 여부 판정 전용이라(UX-006 그리드 EditRuleKey) 페이지에 손대지 않는다.
 허용 조건 = 규칙 행들의 OR. 행 하나 = 상태 ∈ 값 AND 권한 AND 레코드 타입 AND 폼 팩터 AND 추가 조건.
 """
 import argparse
@@ -277,12 +278,13 @@ def apply(spec, page, phone, problems):
                 for n, p in enumerate(want):
                     hp.insert(n, p)
                 changed = True
-    for key in dict.fromkeys(r['key'] for r in rules if r['target'] == 'COMPONENT'):
+    shown = [r for r in rules if r['target'] == 'COMPONENT' and r.get('mode', 'SHOW') != 'EDIT']
+    for key in dict.fromkeys(r['key'] for r in shown):
         found = page.find(key)
         if not found:
             problems.append(f"{os.path.basename(page.path)}: 컴포넌트 {key}가 없다")
             continue
-        expr = expression([r for r in rules if r['target'] == 'COMPONENT' and r['key'] == key], spec, key)
+        expr = expression([r for r in shown if r['key'] == key], spec, key)
         want = visibility(expr) if expr else None
         if canon(found[2].find(Q + 'visibilityRule')) != canon(want):
             problems.append(f"{os.path.basename(page.path)}: 컴포넌트 {key} 가시성 불일치")
@@ -299,6 +301,9 @@ def validate(spec, problems):
         unknown = set(r.get('status', [])) - set(spec.get('statuses', r.get('status', [])))
         if unknown:
             problems.append(f"{spec['object']} {r['key']}: 정의에 없는 상태값 {sorted(unknown)}")
+    for r in spec['rules']:
+        if r.get('mode', 'SHOW') not in ('SHOW', 'EDIT') or (r.get('mode') == 'EDIT' and r['target'] != 'COMPONENT'):
+            problems.append(f"{spec['object']} {r['key']}: mode는 COMPONENT 규칙에만 EDIT로 쓴다")
     keys = {s['key'] for s in spec['sections']}
     for r in spec['rules']:
         if r['target'] == 'SECTION' and r['key'] not in keys:
@@ -312,8 +317,9 @@ def doc(spec):
     for kind in ('SECTION', 'ACTION', 'COMPONENT'):
         for key in dict.fromkeys(r['key'] for r in spec['rules'] if r['target'] == kind):
             rows = [r for r in spec['rules'] if r['target'] == kind and r['key'] == key]
-            mark = '편집' if kind == 'SECTION' else '표시'
-            deny = '읽기' if kind == 'SECTION' else '숨김'
+            editing = kind == 'SECTION' or rows[0].get('mode') == 'EDIT'
+            mark = '편집' if editing else '표시'
+            deny = '읽기' if editing else '숨김'
             cells = []
             for st in statuses:
                 ok = [r for r in rows if not r.get('status') or st in r['status']]

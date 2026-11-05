@@ -44,6 +44,12 @@
         "target": "COMPONENT",
         "key": "cmnDueIndicator",
         "status": ["DRAFT", "IN_PROGRESS"]
+      },
+      {
+        "target": "COMPONENT",
+        "key": "TestLinesEdit",
+        "mode": "EDIT",
+        "status": ["DRAFT", "IN_PROGRESS"]
       }
     ]
   }

@@ -1,0 +1,30 @@
+<template>
+  <template lwc:if={isState}>
+    <span class="slds-grid slds-grid_vertical-align-center">
+      <template lwc:if={icon}>
+        <lightning-icon
+          icon-name={icon}
+          size="xx-small"
+          alternative-text={value}
+          class="slds-m-right_xx-small"
+        ></lightning-icon>
+      </template>
+      <span class="slds-truncate" title={value}>{value}</span>
+    </span>
+    <template lwc:if={warning}>
+      <span class="slds-grid slds-grid_vertical-align-center">
+        <lightning-icon
+          icon-name="utility:warning"
+          variant="warning"
+          size="xx-small"
+          alternative-text={warning}
+          class="slds-m-right_xx-small"
+        ></lightning-icon>
+        <span class="slds-truncate" title={warning}>{warning}</span>
+      </span>
+    </template>
+  </template>
+  <template lwc:else>
+    <span class="slds-truncate" title={text}>{text}</span>
+  </template>
+</template>

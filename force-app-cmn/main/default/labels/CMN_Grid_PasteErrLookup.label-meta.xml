@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_Grid_PasteErrLookup</fullName>
+    <categories>CMN</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>변환 오류: 참조</shortDescription>
+    <value>일치하는 항목이 없거나 여러 개입니다</value>
+</CustomLabel>

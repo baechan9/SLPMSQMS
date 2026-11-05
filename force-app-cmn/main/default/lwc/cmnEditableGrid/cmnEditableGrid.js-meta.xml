@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>66.0</apiVersion>
+    <isExposed>true</isExposed>
+    <masterLabel>CMN Editable Grid</masterLabel>
+    <description
+  >공통 편집 그리드(CMN-00-UX-006, 화면 유형 T2): 그리드 정의(gridKey)로 행 편집·엑셀 붙여넣기·일괄 저장·일정 막대, 휴대폰은 읽기 전용 카드</description>
+    <targets>
+        <target>lightning__RecordPage</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightning__RecordPage">
+            <property
+        name="gridKey"
+        type="String"
+        label="Grid Key"
+        required="true"
+        description="CMN_GridDefinition__mdt DeveloperName"
+      />
+            <supportedFormFactors>
+                <supportedFormFactor type="Large" />
+                <supportedFormFactor type="Small" />
+            </supportedFormFactors>
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

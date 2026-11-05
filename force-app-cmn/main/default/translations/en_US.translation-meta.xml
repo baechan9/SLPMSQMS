@@ -857,6 +857,330 @@
         <name>CMN_DueIndicator_Today</name>
     </customLabels>
     <customLabels>
+        <label>Add Row</label>
+        <name>CMN_Grid_BtnAddRow</name>
+    </customLabels>
+    <customLabels>
+        <label>Discard Changes</label>
+        <name>CMN_Grid_BtnCancel</name>
+    </customLabels>
+    <customLabels>
+        <label>Delete</label>
+        <name>CMN_Grid_BtnDelete</name>
+    </customLabels>
+    <customLabels>
+        <label>Paste</label>
+        <name>CMN_Grid_BtnPaste</name>
+    </customLabels>
+    <customLabels>
+        <label>Refresh</label>
+        <name>CMN_Grid_BtnRefresh</name>
+    </customLabels>
+    <customLabels>
+        <label>Save</label>
+        <name>CMN_Grid_BtnSave</name>
+    </customLabels>
+    <customLabels>
+        <label>Schedule View</label>
+        <name>CMN_Grid_BtnSchedule</name>
+    </customLabels>
+    <customLabels>
+        <label>Table View</label>
+        <name>CMN_Grid_BtnTable</name>
+    </customLabels>
+    <customLabels>
+        <label>You can't change this field in this row: {0}. Undo the change.</label>
+        <name>CMN_Grid_CellLocked</name>
+    </customLabels>
+    <customLabels>
+        <label>{0} unsaved rows</label>
+        <name>CMN_Grid_ChangeCount</name>
+    </customLabels>
+    <customLabels>
+        <label>Status</label>
+        <name>CMN_Grid_ColState</name>
+    </customLabels>
+    <customLabels>
+        <label>Not saved because it includes a column you can't edit: {0}. Refresh and enter it again.</label>
+        <name>CMN_Grid_ColumnNotEditable</name>
+    </customLabels>
+    <customLabels>
+        <label>The table can't open because its settings are wrong. Tell your admin (table {0}).</label>
+        <name>CMN_Grid_ConfigError</name>
+    </customLabels>
+    <customLabels>
+        <label>Someone else saved this table first. Refresh, then apply your changes again.</label>
+        <name>CMN_Grid_Conflict</name>
+    </customLabels>
+    <customLabels>
+        <label>This row can't be deleted. Check with the owner.</label>
+        <name>CMN_Grid_DeleteBlocked</name>
+    </customLabels>
+    <customLabels>
+        <label>You have unsaved changes ({0} rows). Restore them? Cancel discards them.</label>
+        <name>CMN_Grid_DraftRestore</name>
+    </customLabels>
+    <customLabels>
+        <label>Unsaved Changes</label>
+        <name>CMN_Grid_DraftTitle</name>
+    </customLabels>
+    <customLabels>
+        <label>No rows yet. Add a row or paste from Excel.</label>
+        <name>CMN_Grid_Empty</name>
+    </customLabels>
+    <customLabels>
+        <label>No rows.</label>
+        <name>CMN_Grid_EmptyReadOnly</name>
+    </customLabels>
+    <customLabels>
+        <label>{0} errors</label>
+        <name>CMN_Grid_ErrorCount</name>
+    </customLabels>
+    <customLabels>
+        <label>Show Error Rows Only</label>
+        <name>CMN_Grid_ErrorsOnly</name>
+    </customLabels>
+    <customLabels>
+        <label>Fix the errors shown, then save.</label>
+        <name>CMN_Grid_FixErrors</name>
+    </customLabels>
+    <customLabels>
+        <label>The request isn't valid. Refresh the page and try again.</label>
+        <name>CMN_Grid_InvalidRequest</name>
+    </customLabels>
+    <customLabels>
+        <label>The value in {0} isn't in a valid format. Fix it and save.</label>
+        <name>CMN_Grid_InvalidValue</name>
+    </customLabels>
+    <customLabels>
+        <label>The table didn't load. Refresh. If it keeps happening, tell your admin.</label>
+        <name>CMN_Grid_LoadError</name>
+    </customLabels>
+    <customLabels>
+        <label>Loading table</label>
+        <name>CMN_Grid_Loading</name>
+    </customLabels>
+    <customLabels>
+        <label>Search</label>
+        <name>CMN_Grid_LookupSearch</name>
+    </customLabels>
+    <customLabels>
+        <label>Pasted reference values can include up to {0} distinct values. Paste in smaller parts.</label>
+        <name>CMN_Grid_LookupTooMany</name>
+    </customLabels>
+    <customLabels>
+        <label>You don't have access to this table. Ask the owner for access.</label>
+        <name>CMN_Grid_NoAccess</name>
+    </customLabels>
+    <customLabels>
+        <label>You can't edit this table in the current status or with your permissions. Check the record status or ask for access.</label>
+        <name>CMN_Grid_NotEditable</name>
+    </customLabels>
+    <customLabels>
+        <label>The table settings weren't found. Ask your admin to check the page setup.</label>
+        <name>CMN_Grid_NotFound</name>
+    </customLabels>
+    <customLabels>
+        <label>There are no changes to save.</label>
+        <name>CMN_Grid_NothingToSave</name>
+    </customLabels>
+    <customLabels>
+        <label>Add below existing rows</label>
+        <name>CMN_Grid_PasteAppend</name>
+    </customLabels>
+    <customLabels>
+        <label>Apply</label>
+        <name>CMN_Grid_PasteApply</name>
+    </customLabels>
+    <customLabels>
+        <label>Pasted content</label>
+        <name>CMN_Grid_PasteArea</name>
+    </customLabels>
+    <customLabels>
+        <label>Cancel</label>
+        <name>CMN_Grid_PasteCancel</name>
+    </customLabels>
+    <customLabels>
+        <label>The pasted value "{0}" couldn't be used. Enter it again.</label>
+        <name>CMN_Grid_PasteCellError</name>
+    </customLabels>
+    <customLabels>
+        <label>Checking reference values</label>
+        <name>CMN_Grid_PasteChecking</name>
+    </customLabels>
+    <customLabels>
+        <label>Not a yes/no value (for example, Y or N)</label>
+        <name>CMN_Grid_PasteErrCheckbox</name>
+    </customLabels>
+    <customLabels>
+        <label>Not a date (for example, 2026-11-06)</label>
+        <name>CMN_Grid_PasteErrDate</name>
+    </customLabels>
+    <customLabels>
+        <label>Too long</label>
+        <name>CMN_Grid_PasteErrLength</name>
+    </customLabels>
+    <customLabels>
+        <label>No match, or more than one match</label>
+        <name>CMN_Grid_PasteErrLookup</name>
+    </customLabels>
+    <customLabels>
+        <label>Not a number</label>
+        <name>CMN_Grid_PasteErrNumber</name>
+    </customLabels>
+    <customLabels>
+        <label>Not a value in the list</label>
+        <name>CMN_Grid_PasteErrPicklist</name>
+    </customLabels>
+    <customLabels>
+        <label>First row is a header</label>
+        <name>CMN_Grid_PasteHeader</name>
+    </customLabels>
+    <customLabels>
+        <label>Copy a range in Excel and paste it below (Ctrl+V). Columns are matched in order from the start column.</label>
+        <name>CMN_Grid_PasteHelp</name>
+    </customLabels>
+    <customLabels>
+        <label>How to apply</label>
+        <name>CMN_Grid_PasteMode</name>
+    </customLabels>
+    <customLabels>
+        <label>Select the starting row in the table first.</label>
+        <name>CMN_Grid_PasteNoSelection</name>
+    </customLabels>
+    <customLabels>
+        <label>Overwrite from the selected row</label>
+        <name>CMN_Grid_PasteOverwrite</name>
+    </customLabels>
+    <customLabels>
+        <label>Preview</label>
+        <name>CMN_Grid_PastePreview</name>
+    </customLabels>
+    <customLabels>
+        <label>Read only (skipped)</label>
+        <name>CMN_Grid_PasteReadOnlyCol</name>
+    </customLabels>
+    <customLabels>
+        <label>Start column</label>
+        <name>CMN_Grid_PasteStartColumn</name>
+    </customLabels>
+    <customLabels>
+        <label>{0} rows × {1} columns, {2} cells with errors</label>
+        <name>CMN_Grid_PasteSummary</name>
+    </customLabels>
+    <customLabels>
+        <label>Paste from Excel</label>
+        <name>CMN_Grid_PasteTitle</name>
+    </customLabels>
+    <customLabels>
+        <label>You can paste up to {0} rows at a time. Paste in smaller parts.</label>
+        <name>CMN_Grid_PasteTooMany</name>
+    </customLabels>
+    <customLabels>
+        <label>Open</label>
+        <name>CMN_Grid_PhoneOpen</name>
+    </customLabels>
+    <customLabels>
+        <label>Read only: you can't edit this table in the current status or with your permissions.</label>
+        <name>CMN_Grid_ReadOnly</name>
+    </customLabels>
+    <customLabels>
+        <label>Fill in the required fields: {0}</label>
+        <name>CMN_Grid_RequiredMissing</name>
+    </customLabels>
+    <customLabels>
+        <label>Fix this row</label>
+        <name>CMN_Grid_RowErrorTitle</name>
+    </customLabels>
+    <customLabels>
+        <label>This row was deleted or doesn't belong to this table. Refresh the table.</label>
+        <name>CMN_Grid_RowNotFound</name>
+    </customLabels>
+    <customLabels>
+        <label>Completed rows can't be deleted. Clear Done first, then delete.</label>
+        <name>CMN_Grid_SampleDoneLocked</name>
+    </customLabels>
+    <customLabels>
+        <label>The end date is before the start date. Fix the end date.</label>
+        <name>CMN_Grid_SampleEndBeforeStart</name>
+    </customLabels>
+    <customLabels>
+        <label>Quantity must be 0 or more. Fix the quantity.</label>
+        <name>CMN_Grid_SampleNegativeQty</name>
+    </customLabels>
+    <customLabels>
+        <label>The rows weren't saved. Check your entries and save again. If it keeps happening, tell your admin.</label>
+        <name>CMN_Grid_SaveFailed</name>
+    </customLabels>
+    <customLabels>
+        <label>Saved ({0} rows saved, {1} deleted).</label>
+        <name>CMN_Grid_Saved</name>
+    </customLabels>
+    <customLabels>
+        <label>Saving</label>
+        <name>CMN_Grid_Saving</name>
+    </customLabels>
+    <customLabels>
+        <label>No rows to show on the schedule.</label>
+        <name>CMN_Grid_ScheduleEmpty</name>
+    </customLabels>
+    <customLabels>
+        <label>{0} rows have no dates. Enter them in the table view.</label>
+        <name>CMN_Grid_ScheduleNoDates</name>
+    </customLabels>
+    <customLabels>
+        <label>{0} to {1}</label>
+        <name>CMN_Grid_SchedulePeriod</name>
+    </customLabels>
+    <customLabels>
+        <label>Today</label>
+        <name>CMN_Grid_ScheduleToday</name>
+    </customLabels>
+    <customLabels>
+        <label>Select the rows to delete first.</label>
+        <name>CMN_Grid_SelectRows</name>
+    </customLabels>
+    <customLabels>
+        <label>Changed</label>
+        <name>CMN_Grid_StateChanged</name>
+    </customLabels>
+    <customLabels>
+        <label>To Delete</label>
+        <name>CMN_Grid_StateDeleted</name>
+    </customLabels>
+    <customLabels>
+        <label>Error</label>
+        <name>CMN_Grid_StateError</name>
+    </customLabels>
+    <customLabels>
+        <label>Can't Delete</label>
+        <name>CMN_Grid_StateLocked</name>
+    </customLabels>
+    <customLabels>
+        <label>New</label>
+        <name>CMN_Grid_StateNew</name>
+    </customLabels>
+    <customLabels>
+        <label>Couldn't save</label>
+        <name>CMN_Grid_TableErrorTitle</name>
+    </customLabels>
+    <customLabels>
+        <label>You can save up to {0} rows at a time. Save in smaller batches.</label>
+        <name>CMN_Grid_TooManyRows</name>
+    </customLabels>
+    <customLabels>
+        <label>Only the first {0} rows are shown. See the rest in the list view.</label>
+        <name>CMN_Grid_Truncated</name>
+    </customLabels>
+    <customLabels>
+        <label>You have unsaved changes. Refreshing discards them. Continue?</label>
+        <name>CMN_Grid_UnsavedRefresh</name>
+    </customLabels>
+    <customLabels>
+        <label>Past the end date but not finished</label>
+        <name>CMN_Grid_WarnOverdue</name>
+    </customLabels>
+    <customLabels>
         <label>This user is not registered. Ask your administrator to create the account.</label>
         <name>CMN_I18n_JitNoUserCreation</name>
     </customLabels>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_Grid_NotEditable</fullName>
+    <categories>CMN</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>편집 불가 상태·권한(UX-006 BR-1, AC-9)</shortDescription>
+    <value>지금 상태나 권한으로는 이 표를 고칠 수 없습니다. 레코드 상태를 확인하거나 담당자에게 권한을 요청하세요.</value>
+</CustomLabel>

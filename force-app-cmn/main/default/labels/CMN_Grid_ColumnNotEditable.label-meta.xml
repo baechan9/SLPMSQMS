@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_Grid_ColumnNotEditable</fullName>
+    <categories>CMN</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>편집할 수 없는 열({0} = 열 이름, UX-006)</shortDescription>
+    <value>고칠 수 없는 열이 들어 있어 저장하지 않았습니다: {0}. 새로 고친 뒤 다시 입력하세요.</value>
+</CustomLabel>

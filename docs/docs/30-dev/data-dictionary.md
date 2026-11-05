@@ -1,6 +1,6 @@
 # 데이터 사전 — 배포된 객체와 커스텀 필드
 
-`python3 scripts/dev/data-dictionary.py`가 배포 소스(`force-app-*`)에서 만든다. 손으로 고치지 않는다. 기준일 2026-11-05.
+`python3 scripts/dev/data-dictionary.py`가 배포 소스(`force-app-*`)에서 만든다. 손으로 고치지 않는다. 기준일 2026-11-06.
 
 - 라벨(ko)은 Org 기본 라벨, Label(en)은 영어 번역이다. 중국어 번역은 소스의 objectTranslations에 있다.
 - 값/길이/참조: 선택 목록 값, 텍스트 길이, 숫자 자릿수(전체,소수), 관계 대상(→).
@@ -10,11 +10,11 @@
 
 | 구분 | 객체 수 | 커스텀 필드 수 |
 | --- | --- | --- |
-| 커스텀 객체 | 37 | 315 |
+| 커스텀 객체 | 38 | 325 |
 | 표준 객체 확장 | 2 | 22 |
-| 커스텀 메타데이터 유형(설정) | 20 | 122 |
+| 커스텀 메타데이터 유형(설정) | 22 | 146 |
 | Platform Event | 3 | 16 |
-| 합계 | 62 | 475 |
+| 합계 | 65 | 509 |
 
 ## 커스텀 객체
 
@@ -52,6 +52,7 @@
 | [CMN_ProductGroup__c](#cmn_productgroup__c) | 제품군 | Product Group | 6 | CMN-00-MDM-004 |
 | [CMN_RoleAssignment__c](#cmn_roleassignment__c) | 결재 Role 배정 | Role Assignment | 7 | CMN-00-APV-002 |
 | [CMN_SupplierItem__c](#cmn_supplieritem__c) | 협력사 품번 | Supplier Item | 6 | CMN-00-MDM-005 |
+| [CMN_TestRecordLine__c](#cmn_testrecordline__c) | 테스트 라인 | Test Line | 10 | CMN-00-UX-006 |
 | [CMN_TestRecord__c](#cmn_testrecord__c) | 테스트 레코드 | Test Record | 7 | CMN-00-ARC-003 |
 | [CMN_Todo__c](#cmn_todo__c) | To-Do | To-Do | 19 | CMN-00-TDO-001 |
 | [CMN_UserDashboard__c](#cmn_userdashboard__c) | 사용자 대시보드 | User Dashboard | 5 | CMN-00-DSH-001 |
@@ -553,6 +554,23 @@
 | PpapStatus__c | PPAP 상태 | PPAP Status | Picklist | NOT_SUBMITTED, INTERIM, APPROVED, REJECTED |  | 부품 PPAP 승인 상태. QMS-03 서비스만 변경(사용자 FLS 읽기, Vol.3 요청), 필드 이력. 명세 필수는 기본값 + 검증 규칙으로 보장(필수 필드는 FLS 읽기 전용이 될 수 없음) |
 | Supplier__c | 협력사 | Supplier | MasterDetail | → Account |  | 협력사 레코드타입만(조회 필터 — 레코드타입 라벨 "협력사"로 비교). 포털 데이터 격리 단위 |
 
+### CMN_TestRecordLine__c
+
+테스트 라인 / Test Line. 테스트 전용 하위 객체(개발 플랜 DEV-3). 공통 편집 그리드(UX-006)의 행 객체 샘플. 탭·권한 없음(관리자·테스트만)
+
+| API | 라벨(ko) | Label(en) | 타입 | 값/길이/참조 | 제약 | 설명 |
+| --- | --- | --- | --- | --- | --- | --- |
+| Category__c | 구분 | Category | Picklist | PLAN, CHECK, ACTION |  | PICKLIST 열 샘플 |
+| Code__c | 코드 | Code | Lookup | → CMN_Code__c |  | CODE 열 샘플(MDM-007) |
+| EndDate__c | 종료일 | End Date | Date |  |  | 일정 막대 종료 |
+| IsDone__c | 완료 | Done | Checkbox |  |  | CHECKBOX 열 샘플. 완료 행은 삭제·일정 변경 불가(샘플 Provider) |
+| LineNo__c | 순서 | Line No. | Number | 4,0 |  | 그리드 OrderField |
+| Note__c | 비고 | Note | Text | 255 |  | TEXT 열 샘플. FLS 테스트(AC-6) |
+| Plant__c | 공장 | Plant | Lookup | → CMN_Plant__c |  | LOOKUP 열 샘플 |
+| Quantity__c | 수량 | Quantity | Number | 10,2 |  | NUMBER 열 샘플 |
+| StartDate__c | 시작일 | Start Date | Date |  |  | 일정 막대 시작 |
+| TestRecord__c | 테스트 레코드 | Test Record | MasterDetail | → CMN_TestRecord__c |  | 부모(그리드 ParentField) |
+
 ### CMN_TestRecord__c
 
 테스트 레코드 / Test Record. 테스트 전용 객체(개발 플랜 DEV-3). 공통 기능(코드 참조 삭제 차단, 채번, 공유, 결재 …)의 AC를 업무 객체 없이 검증한다. 탭·권한 없음(관리자·테스트만). 필드는 공통 WI가 필요할 때 더한다
@@ -687,6 +705,8 @@ To-Do / To-Do. 통합 To-Do(TDO-001). Owner = Assignee, OWD Private(본인만). 
 | [CMN_DashboardTemplate__mdt](#cmn_dashboardtemplate__mdt) | 대시보드 템플릿 |  | 6 | CMN-00-DSH-001 |
 | [CMN_DeleteGuard__mdt](#cmn_deleteguard__mdt) | 삭제 통제 |  | 3 | CMN-00-SEC-003 |
 | [CMN_FeatureSwitch__mdt](#cmn_featureswitch__mdt) | 기능 스위치 |  | 2 | CMN-00-ARC-002 |
+| [CMN_GridColumn__mdt](#cmn_gridcolumn__mdt) | 편집 그리드 열 |  | 12 | CMN-00-UX-006 |
+| [CMN_GridDefinition__mdt](#cmn_griddefinition__mdt) | 편집 그리드 정의 |  | 12 | CMN-00-UX-006 |
 | [CMN_Interface__mdt](#cmn_interface__mdt) | 인터페이스 |  | 9 | CMN-00-INT-001 |
 | [CMN_NotificationRule__mdt](#cmn_notificationrule__mdt) | 알림 규칙 |  | 4 | CMN-00-NTF-001 |
 | [CMN_NumberingRule__mdt](#cmn_numberingrule__mdt) | 채번 규칙 |  | 5 | CMN-00-ARC-003 |
@@ -806,6 +826,44 @@ To-Do / To-Do. 통합 To-Do(TDO-001). Owner = Assignee, OWD Private(본인만). 
 | --- | --- | --- | --- | --- | --- | --- |
 | IsOn__c | On |  | Checkbox |  |  |  |
 | RequiredPermissionSet__c | Required Permission Set |  | Text | 80 |  | 비우면 모든 사용자. 값이 있으면 그 Permission Set(이름) 보유자만 |
+
+### CMN_GridColumn__mdt
+
+편집 그리드 열 / . 공통 편집 그리드의 열 1개(UX-006). 레코드는 meta-src/*/grids 정의로 metagen이 만든다
+
+| API | 라벨(ko) | Label(en) | 타입 | 값/길이/참조 | 제약 | 설명 |
+| --- | --- | --- | --- | --- | --- | --- |
+| CodeGroup__c | Code Group |  | Text | 40 |  | CODE 열의 코드 그룹 |
+| Editable__c | Editable |  | Checkbox |  |  | 편집 열(필드 편집 권한이 있을 때만) |
+| FieldApiName__c | Field API Name |  | Text | 80 |  | 행 객체 필드 |
+| Frozen__c | Frozen |  | Checkbox |  |  | 가로 스크롤 시 고정(앞쪽 배치) |
+| Grid__c | Grid |  | MetadataRelationship | → CMN_GridDefinition__mdt |  | 그리드 정의 |
+| InputType__c | Input Type |  | Picklist | AUTO, TEXT, NUMBER, DATE, PICKLIST, LOOKUP, CHECKBOX, CODE |  | AUTO = 필드 타입. CODE = 계층형 공통 코드(MDM-007) |
+| LabelKey__c | Label Key |  | Text | 80 |  | 열 머리글 Custom Label(비우면 필드 라벨) |
+| LookupFilter__c | Lookup Filter |  | Text | 255 |  | Lookup 후보 고정 필터(Field__c=VALUE, 쉼표로 AND) |
+| Order__c | Order |  | Number | 3,0 |  | 열 순서 |
+| Required__c | Required |  | Checkbox |  |  | 화면 필수 검증(서버는 Provider·필드 필수로 다시 검증) |
+| ShowOnPhone__c | Show On Phone |  | Checkbox |  |  | 휴대폰 카드 표시(최대 4개) |
+| WidthWeight__c | Width Weight |  | Number | 2,0 |  | 상대 폭 1~10(px 금지) |
+
+### CMN_GridDefinition__mdt
+
+편집 그리드 정의 / . 공통 편집 그리드 1개(UX-006). DeveloperName = GridKey. 레코드는 meta-src/*/grids 정의로 metagen이 만든다
+
+| API | 라벨(ko) | Label(en) | 타입 | 값/길이/참조 | 제약 | 설명 |
+| --- | --- | --- | --- | --- | --- | --- |
+| AllowAdd__c | Allow Add |  | Checkbox |  |  | 행 추가 |
+| AllowDelete__c | Allow Delete |  | Checkbox |  |  | 행 삭제 |
+| AllowPaste__c | Allow Paste |  | Checkbox |  |  | 엑셀 붙여넣기 |
+| EditRuleKey__c | Edit Rule Key |  | Text | 80 |  | UX-005 COMPONENT 규칙 키(Mode EDIT). 편집 가능 여부 판정 |
+| Filter__c | Filter |  | Text | 255 |  | 고정 필터(Field__c=VALUE, 쉼표로 AND) |
+| MaxRows__c | Max Rows |  | Number | 4,0 |  | 기본 200, 상한 500 |
+| ObjectApiName__c | Object API Name |  | Text | 80 |  | 행 객체 |
+| OrderField__c | Order Field |  | Text | 80 |  | 정렬·행 순서 저장 필드(숫자). 새 행은 마지막 순서 + 1 |
+| ParentField__c | Parent Field |  | Text | 80 |  | 부모 레코드 필드(Master-Detail 또는 Lookup) |
+| ProviderClass__c | Provider Class |  | Text | 80 |  | CMN_GridProvider 구현 클래스(비우면 제약 없음) |
+| ScheduleEndField__c | Schedule End Field |  | Text | 80 |  | 일정 막대 종료일 |
+| ScheduleStartField__c | Schedule Start Field |  | Text | 80 |  | 일정 막대 시작일(종료일과 함께 있으면 일정 보기) |
 
 ### CMN_Interface__mdt
 

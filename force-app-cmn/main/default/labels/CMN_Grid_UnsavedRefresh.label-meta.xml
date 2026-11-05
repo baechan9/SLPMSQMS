@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_Grid_UnsavedRefresh</fullName>
+    <categories>CMN</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>새로 고침 전 확인(BR-10)</shortDescription>
+    <value>저장하지 않은 변경이 있습니다. 새로 고치면 변경이 사라집니다. 계속할까요?</value>
+</CustomLabel>

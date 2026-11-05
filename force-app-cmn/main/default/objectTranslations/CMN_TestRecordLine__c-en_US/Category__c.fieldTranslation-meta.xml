@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label>Category</label>
+    <name>Category__c</name>
+    <picklistValues>
+        <masterLabel>계획</masterLabel>
+        <translation>Plan</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>점검</masterLabel>
+        <translation>Check</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>조치</masterLabel>
+        <translation>Action</translation>
+    </picklistValues>
+</CustomFieldTranslation>

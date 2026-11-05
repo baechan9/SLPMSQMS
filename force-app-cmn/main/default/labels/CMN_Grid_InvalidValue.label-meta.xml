@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_Grid_InvalidValue</fullName>
+    <categories>CMN</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>값 형식 오류({0} = 열 이름, UX-006)</shortDescription>
+    <value>{0} 값의 형식이 맞지 않습니다. 값을 고친 뒤 저장하세요.</value>
+</CustomLabel>

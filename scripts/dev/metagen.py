@@ -17,6 +17,7 @@ import argparse
 import glob
 import json
 import os
+import re
 import sys
 from xml.sax.saxutils import escape
 
@@ -530,7 +531,8 @@ def main():
         for n, r in enumerate(ur['rules'], 1):
             objects['CMN_UiRule__mdt']['records'].append({'name': f'{base}_R{n:02d}', 'label': f"{ur['object']} {r['target']} {r['key']}"[:40], 'values': {
                 'ObjectApiName__c': ur['object'], 'TargetType__c': r['target'], 'TargetKey__c': r['key'],
-                'Mode__c': 'EDIT' if r['target'] == 'SECTION' else 'SHOW',
+                # COMPONENT + mode EDIT = 화면 가시성 없이 편집 가능 여부만 판정(UX-006 그리드 EditRuleKey)
+                'Mode__c': r.get('mode') or ('EDIT' if r['target'] == 'SECTION' else 'SHOW'),
                 'StatusField__c': r.get('statusField', ur.get('statusField', 'Status__c')),
                 'StatusValues__c': ','.join(r['status']) if r.get('status') else '*',
                 'CustomPermission__c': r.get('permission'), 'RecordTypes__c': ','.join(r.get('recordTypes', [])) or None,
@@ -541,6 +543,12 @@ def main():
                 sys.exit(f"{ur['object']} 섹션 {sec['key']}: 필드 목록 {len(fields)}자 — 255자 이내로 섹션을 나눈다(UX-005)")
             objects['CMN_UiSection__mdt']['records'].append({'name': f"{base}_S_{sec['key']}"[:40], 'label': f"{ur['object']} {sec['key']}"[:40], 'values': {
                 'ObjectApiName__c': ur['object'], 'SectionKey__c': sec['key'], 'Fields__c': fields, 'LabelKey__c': sec.get('label')}})
+    # 공통 편집 그리드(UX-006): grids 정의를 그리드·열 메타데이터 레코드로 만든다
+    for p in all_specs:
+        with open(p, encoding='utf-8') as f:
+            g = json.load(f).get('grid')
+        if g:
+            add_grid_records(g, objects)
     missing = []
     for name, spec in objects.items():
         if spec.get('i18nName'):
@@ -575,7 +583,7 @@ def main():
             build_app(d['application'])
         elif 'pageTab' in d:
             build_page_tab(d['pageTab'])
-        elif isinstance(d.get('recordPage'), dict) or 'uiRules' in d:
+        elif isinstance(d.get('recordPage'), dict) or 'uiRules' in d or 'grid' in d:
             pass  # 위에서 객체 정의에 붙였다
     build_translations()
     stale = stale_files()
@@ -595,6 +603,49 @@ def main():
         os.remove(p)
         print('삭제(정의에 없음):', os.path.relpath(p, ROOT))
     print(f'정의 {len(targets)}개 → 파일 {len(written)}개')
+
+
+GRID_INPUT_TYPES = ('AUTO', 'TEXT', 'NUMBER', 'DATE', 'PICKLIST', 'LOOKUP', 'CHECKBOX', 'CODE')
+
+
+def add_grid_records(g, objects):
+    """그리드 정의(meta-src/*/grids/{GridKey}.json) → CMN_GridDefinition__mdt 1행 + CMN_GridColumn__mdt 열 수만큼(UX-006).
+    행 객체와 필드가 정의에 있는지, 최대 행·휴대폰 열 수·CODE 그룹을 여기서 막는다."""
+    key = g['key']
+    if not re.match(r'^[A-Za-z][A-Za-z0-9_]{0,39}$', key) or '__' in key:
+        sys.exit(f'그리드 키 형식 오류: {key} (영문·숫자·_ 40자, __ 금지)')
+    row = objects.get(g['object'])
+    if row is None:
+        sys.exit(f"그리드 {key}: 행 객체 정의가 없다 {g['object']}")
+    known = {'Name', 'Id'} | {f['name'] for f in row.get('fields', [])}
+    for fld in [g['parentField'], g.get('orderField'), g.get('scheduleStart'), g.get('scheduleEnd')] + [c['field'] for c in g['columns']]:
+        if fld and fld not in known:
+            sys.exit(f'그리드 {key}: 행 객체에 없는 필드 {fld}')
+    max_rows = g.get('maxRows', 200)
+    if not 1 <= max_rows <= 500:
+        sys.exit(f'그리드 {key}: maxRows {max_rows} — 1~500(UX-006 BR-1)')
+    if sum(1 for c in g['columns'] if c.get('phone')) > 4:
+        sys.exit(f'그리드 {key}: 휴대폰 카드 열은 최대 4개(UX-006 BR-7)')
+    objects['CMN_GridDefinition__mdt']['records'].append({'name': key, 'label': key[:40], 'values': {
+        'ObjectApiName__c': g['object'], 'ParentField__c': g['parentField'], 'OrderField__c': g.get('orderField'),
+        'Filter__c': g.get('filter'), 'MaxRows__c': max_rows, 'AllowAdd__c': g.get('allowAdd', True),
+        'AllowDelete__c': g.get('allowDelete', True), 'AllowPaste__c': g.get('allowPaste', True),
+        'ScheduleStartField__c': g.get('scheduleStart'), 'ScheduleEndField__c': g.get('scheduleEnd'),
+        'ProviderClass__c': g.get('provider'), 'EditRuleKey__c': g.get('editRuleKey')}})
+    for n, c in enumerate(g['columns'], 1):
+        kind = c.get('input', 'AUTO')
+        if kind not in GRID_INPUT_TYPES:
+            sys.exit(f"그리드 {key} {c['field']}: 입력 유형 {kind} — {GRID_INPUT_TYPES}")
+        if kind == 'CODE' and not c.get('codeGroup'):
+            sys.exit(f"그리드 {key} {c['field']}: CODE 열은 codeGroup이 필요하다")
+        weight = c.get('width')
+        if weight is not None and not 1 <= weight <= 10:
+            sys.exit(f"그리드 {key} {c['field']}: width {weight} — 상대 폭 1~10")
+        objects['CMN_GridColumn__mdt']['records'].append({'name': f'{key[:36]}_{n:02d}', 'label': f"{key} {c['field']}"[:40], 'values': {
+            'Grid__c': key, 'FieldApiName__c': c['field'], 'LabelKey__c': c.get('label'), 'Order__c': n * 10,
+            'Editable__c': bool(c.get('editable')), 'Required__c': bool(c.get('required')), 'Frozen__c': bool(c.get('frozen')),
+            'WidthWeight__c': weight, 'InputType__c': kind, 'CodeGroup__c': c.get('codeGroup'),
+            'LookupFilter__c': c.get('lookupFilter'), 'ShowOnPhone__c': bool(c.get('phone'))}})
 
 
 I18N_WI = 'CMN-00-I18N-001'

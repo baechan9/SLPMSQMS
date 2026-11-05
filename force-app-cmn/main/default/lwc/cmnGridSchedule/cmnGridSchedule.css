@@ -1,0 +1,54 @@
+/* 일정 막대(UX-006 BR-6). 색은 SLDS 테마 클래스와 전역 훅만 쓴다(UX-004 BR-10) */
+.header-track,
+.track {
+  position: relative;
+}
+
+.header-track {
+  min-height: 1.25rem;
+}
+
+.track {
+  min-height: 1.75rem;
+}
+
+.row {
+  padding: var(--slds-g-spacing-1, 0.25rem) 0;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: var(--slds-g-color-border-1, currentColor);
+}
+
+.tick,
+.today-label {
+  position: absolute;
+  top: 0;
+  padding-left: 0.125rem;
+  font-size: 0.75rem;
+  white-space: nowrap;
+}
+
+.grid-line,
+.today {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  border-left-width: 1px;
+  border-left-style: solid;
+  border-left-color: var(--slds-g-color-border-1, currentColor);
+  opacity: 0.5;
+}
+
+.today {
+  border-left-width: 2px;
+  border-left-style: dashed;
+  border-left-color: var(--slds-g-color-error-1, currentColor);
+  opacity: 1;
+}
+
+.bar {
+  position: absolute;
+  top: 0.25rem;
+  height: 1.25rem;
+  border-radius: var(--slds-g-radius-border-2, 0.25rem);
+}

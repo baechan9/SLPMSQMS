@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<LightningMessageChannel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description
+  >공통 편집 그리드 외부 새로 고침(CMN-00-UX-006 BR-10). 같은 페이지의 다른 컴포넌트가 그리드 행을 만들거나 바꾸면 발행한다.</description>
+    <isExposed>false</isExposed>
+    <lightningMessageFields>
+        <description
+    >그리드 키(CMN_GridDefinition__mdt DeveloperName)</description>
+        <fieldName>gridKey</fieldName>
+    </lightningMessageFields>
+    <lightningMessageFields>
+        <description>부모 레코드 Id</description>
+        <fieldName>parentId</fieldName>
+    </lightningMessageFields>
+    <masterLabel>CMN Grid Refresh</masterLabel>
+</LightningMessageChannel>

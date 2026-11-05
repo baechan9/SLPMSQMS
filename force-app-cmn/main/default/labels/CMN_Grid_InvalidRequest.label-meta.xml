@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_Grid_InvalidRequest</fullName>
+    <categories>CMN</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>요청 형식 오류(UX-006)</shortDescription>
+    <value>요청이 올바르지 않습니다. 화면을 새로 고친 뒤 다시 시도하세요.</value>
+</CustomLabel>

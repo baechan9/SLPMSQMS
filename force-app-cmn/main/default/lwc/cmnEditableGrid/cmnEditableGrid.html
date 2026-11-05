@@ -1,0 +1,250 @@
+<template>
+  <div class="slds-is-relative">
+    <template lwc:if={isLoading}>
+      <lightning-spinner
+        alternative-text={labels.loading}
+        size="small"
+      ></lightning-spinner>
+    </template>
+    <template lwc:if={loadError}>
+      <div
+        class="slds-text-color_error slds-p-around_small load-error"
+        role="alert"
+      >
+        {loadError}
+        <lightning-button
+          variant="base"
+          label={labels.refresh}
+          onclick={handleRefreshClick}
+          class="slds-m-left_x-small"
+        ></lightning-button>
+      </div>
+    </template>
+
+    <template lwc:if={showDesktop}>
+      <div
+        class="slds-grid slds-wrap slds-grid_vertical-align-center slds-grid_align-spread slds-m-bottom_x-small toolbar"
+      >
+        <div
+          class="slds-col slds-grid slds-wrap slds-grid_vertical-align-center"
+        >
+          <template lwc:if={view.allowAdd}>
+            <lightning-button
+              icon-name="utility:add"
+              label={labels.add}
+              onclick={handleAddRow}
+              class="btn-add slds-m-right_xx-small"
+            ></lightning-button>
+          </template>
+          <template lwc:if={view.allowDelete}>
+            <lightning-button
+              icon-name="utility:delete"
+              label={labels.remove}
+              onclick={handleDelete}
+              class="btn-delete slds-m-right_xx-small"
+            ></lightning-button>
+          </template>
+          <template lwc:if={view.allowPaste}>
+            <lightning-button
+              icon-name="utility:paste"
+              label={labels.paste}
+              onclick={handlePaste}
+              class="btn-paste slds-m-right_xx-small"
+            ></lightning-button>
+          </template>
+          <template lwc:if={hasSchedule}>
+            <lightning-button
+              icon-name="utility:date_time"
+              label={scheduleLabel}
+              onclick={handleToggleSchedule}
+              class="btn-schedule slds-m-right_xx-small"
+            ></lightning-button>
+          </template>
+          <template lwc:if={isReadOnly}>
+            <span
+              class="slds-grid slds-grid_vertical-align-center slds-text-color_weak read-only"
+            >
+              <lightning-icon
+                icon-name="utility:lock"
+                size="x-small"
+                alternative-text={labels.readOnly}
+                class="slds-m-right_xx-small"
+              ></lightning-icon>
+              {labels.readOnly}
+            </span>
+          </template>
+        </div>
+        <div
+          class="slds-col slds-grow-none slds-grid slds-wrap slds-grid_vertical-align-center"
+        >
+          <template lwc:if={changeText}>
+            <span class="slds-text-body_small slds-m-right_small change-count"
+              >{changeText}</span
+            >
+          </template>
+          <template lwc:if={errorText}>
+            <span
+              class="slds-grid slds-grid_vertical-align-center slds-text-color_error slds-m-right_x-small error-count"
+              role="status"
+            >
+              <lightning-icon
+                icon-name="utility:error"
+                variant="error"
+                size="x-small"
+                alternative-text={errorText}
+                class="slds-m-right_xx-small"
+              ></lightning-icon>
+              {errorText}
+            </span>
+            <lightning-input
+              type="toggle"
+              label={labels.errorsOnly}
+              checked={errorsOnly}
+              message-toggle-active=""
+              message-toggle-inactive=""
+              onchange={handleErrorsOnly}
+              class="errors-only slds-m-right_small"
+            ></lightning-input>
+          </template>
+          <template lwc:if={isEditable}>
+            <lightning-button
+              label={labels.cancel}
+              onclick={handleCancel}
+              disabled={cancelDisabled}
+              class="btn-cancel slds-m-right_xx-small"
+            ></lightning-button>
+            <lightning-button
+              variant="brand"
+              label={labels.save}
+              onclick={handleSave}
+              disabled={saveDisabled}
+              class="btn-save slds-m-right_xx-small"
+            ></lightning-button>
+          </template>
+          <lightning-button-icon
+            icon-name="utility:refresh"
+            alternative-text={labels.refresh}
+            title={labels.refresh}
+            onclick={handleRefreshClick}
+            class="btn-refresh"
+          ></lightning-button-icon>
+        </div>
+      </div>
+
+      <template lwc:if={conflict}>
+        <div
+          class="slds-notify slds-notify_alert slds-alert_warning slds-m-bottom_x-small conflict"
+          role="alert"
+        >
+          <lightning-icon
+            icon-name="utility:warning"
+            size="x-small"
+            alternative-text={labels.conflict}
+            class="slds-m-right_x-small"
+          ></lightning-icon>
+          <h2>{labels.conflict}</h2>
+          <lightning-button
+            variant="base"
+            label={labels.refresh}
+            onclick={handleConflictRefresh}
+            class="slds-m-left_small btn-conflict-refresh"
+          ></lightning-button>
+        </div>
+      </template>
+      <template lwc:if={truncatedText}>
+        <p class="slds-text-color_weak slds-m-bottom_x-small truncated">
+          {truncatedText}
+        </p>
+      </template>
+
+      <template lwc:if={showSchedule}>
+        <c-cmn-grid-schedule
+          rows={scheduleRows}
+          locale={locale}
+        ></c-cmn-grid-schedule>
+      </template>
+      <template lwc:else>
+        <div lwc:ref="host" class={scrollClass}>
+          <c-cmn-grid-datatable
+            key-field="__key"
+            data={tableData}
+            columns={tableColumns}
+            draft-values={draftValues}
+            errors={tableErrors}
+            selected-rows={selectedKeys}
+            hide-checkbox-column={hideCheckbox}
+            show-row-number-column
+            suppress-bottom-bar
+            oncellchange={handleCellChange}
+            onrowselection={handleRowSelection}
+          ></c-cmn-grid-datatable>
+        </div>
+        <template lwc:if={emptyText}>
+          <p class="slds-text-color_weak slds-p-around_small empty">
+            {emptyText}
+          </p>
+        </template>
+      </template>
+      <template lwc:if={isSaving}>
+        <lightning-spinner
+          alternative-text={labels.saving}
+          size="small"
+        ></lightning-spinner>
+      </template>
+    </template>
+
+    <template lwc:if={showPhone}>
+      <template lwc:if={truncatedText}>
+        <p class="slds-text-color_weak slds-m-bottom_x-small truncated">
+          {truncatedText}
+        </p>
+      </template>
+      <template lwc:if={emptyText}>
+        <p class="slds-text-color_weak slds-p-around_small empty">
+          {emptyText}
+        </p>
+      </template>
+      <ul class="slds-has-dividers_around-space cards">
+        <template for:each={phoneCards} for:item="card">
+          <li key={card.key} class="slds-item card">
+            <lightning-button
+              variant="base"
+              label={card.title}
+              title={labels.open}
+              data-id={card.id}
+              onclick={handleOpenCard}
+              class="card-open"
+            ></lightning-button>
+            <dl class="slds-list_horizontal slds-wrap slds-m-top_xx-small">
+              <template for:each={card.fields} for:item="f">
+                <dt
+                  key={f.labelKey}
+                  class="slds-item_label slds-text-color_weak slds-truncate"
+                >
+                  {f.label}
+                </dt>
+                <dd key={f.valueKey} class="slds-item_detail slds-truncate">
+                  {f.text}
+                </dd>
+              </template>
+            </dl>
+            <template lwc:if={card.warning}>
+              <p
+                class="slds-grid slds-grid_vertical-align-center slds-m-top_xx-small"
+              >
+                <lightning-icon
+                  icon-name="utility:warning"
+                  variant="warning"
+                  size="xx-small"
+                  alternative-text={card.warning}
+                  class="slds-m-right_xx-small"
+                ></lightning-icon>
+                <span class="slds-text-body_small">{card.warning}</span>
+              </p>
+            </template>
+          </li>
+        </template>
+      </ul>
+    </template>
+  </div>
+</template>

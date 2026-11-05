@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>CMN_TestRecordLines</label>
+    <protected>false</protected>
+    <values>
+        <field>ObjectApiName__c</field>
+        <value xsi:type="xsd:string">CMN_TestRecordLine__c</value>
+    </values>
+    <values>
+        <field>ParentField__c</field>
+        <value xsi:type="xsd:string">TestRecord__c</value>
+    </values>
+    <values>
+        <field>OrderField__c</field>
+        <value xsi:type="xsd:string">LineNo__c</value>
+    </values>
+    <values>
+        <field>Filter__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>MaxRows__c</field>
+        <value xsi:type="xsd:double">200</value>
+    </values>
+    <values>
+        <field>AllowAdd__c</field>
+        <value xsi:type="xsd:boolean">true</value>
+    </values>
+    <values>
+        <field>AllowDelete__c</field>
+        <value xsi:type="xsd:boolean">true</value>
+    </values>
+    <values>
+        <field>AllowPaste__c</field>
+        <value xsi:type="xsd:boolean">true</value>
+    </values>
+    <values>
+        <field>ScheduleStartField__c</field>
+        <value xsi:type="xsd:string">StartDate__c</value>
+    </values>
+    <values>
+        <field>ScheduleEndField__c</field>
+        <value xsi:type="xsd:string">EndDate__c</value>
+    </values>
+    <values>
+        <field>ProviderClass__c</field>
+        <value xsi:type="xsd:string">CMN_TestRecordLineGridProvider</value>
+    </values>
+    <values>
+        <field>EditRuleKey__c</field>
+        <value xsi:type="xsd:string">TestLinesEdit</value>
+    </values>
+</CustomMetadata>

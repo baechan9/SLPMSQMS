@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Required__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>화면 필수 검증(서버는 Provider·필드 필수로 다시 검증)</description>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>Required</label>
+    <type>Checkbox</type>
+</CustomField>
