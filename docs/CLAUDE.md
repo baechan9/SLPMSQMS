@@ -45,6 +45,7 @@
 - **아직 배포되지 않은 다른 메뉴 객체를 Lookup하지 않는다.** 원천 연결은 `SourceRecordId__c` 텍스트 + Platform Event로 하고, 상대 메뉴 WI가 구독 측을 구현한다.
 - AI는 추천·초안만, 확정은 사람. 모든 추천은 `CMN_AiRecommendation__c`에 기록(AI-004).
 - 마크다운 표 셀 안에 `|` 문자를 쓰지 않는다(표가 깨짐). 대안은 `/`.
+- 화면은 `docs/10-workitems/screen-strategy.md`(2026-11-05)를 따른다. WI "화면/UX" 첫 줄에 화면 유형(T1~T8)과 공통 부품(Vol.0 UX-004~009)을 적고, 그리드·현장 입력·체크리스트·업무 레코드 페이지를 메뉴 전용으로 새로 만들지 않는다(Vol.0 3.4절).
 - WI의 기술 노트(에이전트 주의 등)는 구현 단계 규칙 `.claude/rules/sf-dev.md`(저장소 루트 기준)와 어긋나지 않게 쓴다. 특히 LWC 데이터 접근(Apex 기본 + 단건 LDS 허용)과 외부 JS 승인 목록(Chart.js·SheetJS).
 
 ## 6. 진행 상태
@@ -53,17 +54,17 @@
 
 | Vol. | 메뉴 | WI | 공수 | 상태 |
 | --- | --- | --- | --- | --- |
-| Vol.0 | CMN-00 공통 | 43 | 191 M/D | 작성 완료, 사용자 검토 대기 |
-| Vol.2 | QMS-02 개발 품질 | 10 | 56 M/D | 작성 완료, 사용자 검토 대기 |
+| Vol.0 | CMN-00 공통 | 49 | 226 M/D | 작성 완료(2026-11-05 화면 부품 UX-004~009 추가), 사용자 검토 대기 |
+| Vol.2 | QMS-02 개발 품질 | 10 | 51 M/D | 작성 완료, 사용자 검토 대기 |
 | Vol.3 | QMS-03 부품/협력사 품질 | 20 | 103 M/D | 작성 완료, 사용자 검토 대기 |
 | Vol.4~9 | QMS-04~09 (Vol.6은 6a·6b·6c 세 파일) | 154 | 812 M/D | 작성 완료, 사용자 검토 대기 |
-| 합계 | | 227 | 1,162 M/D | |
+| 합계 | | 233 | 1,192 M/D | |
 
 Vol. 간 객체·서비스·이벤트 소유와 게이트웨이 등록부는 `docs/10-workitems/interfaces.md`가 최종이다. 다른 메뉴 업무를 요청할 때는 등록부의 게이트웨이(`QMS_GatewayFactory.get(바인딩 키)`)를 쓴다.
 
 ## 7. 다음 할 일
 
-1. 사용자 검토: `docs/20-status/review-pack.md`(결정 101건, 변경 요청)를 기준으로 결정을 받고 BR·변경 요청을 반영한다.
+1. 사용자 검토: `docs/20-status/review-pack.md`(결정 109건 — 화면 전략 DS-1~8 포함, 변경 요청)를 기준으로 결정을 받고 BR·변경 요청을 반영한다.
 2. 반영 후 검사·재생성: `python3 scripts/validate_vol.py docs/10-workitems/vol*.md`, `python3 scripts/build_index.py`, `python3 scripts/build_review_pack.py`.
 3. 승인분으로 마스터 xlsx 생성: `/build-master` 커맨드 (`master/workitem-index.csv`가 원천).
 4. 이후: PMS 메뉴 작성 또는 PoC 준비(`docs/20-status/backlog.md`).

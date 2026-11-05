@@ -289,7 +289,7 @@ def build():
             status = '배포됨'
         else:
             s = smap.get(w, {})
-            if s.get('진행', '').startswith('A단계'):
+            if s.get('진행', '').startswith(('A단계', 'A0 완성')):
                 status = f"예정 {s.get('화면묶음', '')}"
             elif s:
                 status = f"예정 B단계({s.get('상세페이즈', '')})"

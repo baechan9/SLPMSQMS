@@ -85,6 +85,26 @@ QMS RFP 45개 요구 중 15개가 PMS RFP와 같은 기능이거나 같은 엔�
 - LWC 외부 JavaScript: 승인 목록(Chart.js = 정적 리소스 cmnChartJs, SheetJS)만 정적 리소스 + loadScript로 쓴다. 목록 추가는 WI 변경과 승인이 필요하다(2026-11-01 결정).
 - 구현 단계의 상세 규칙(보안·거버너·명명 보충·테스트·배포·완료 보고)은 저장소 루트 `.claude/rules/sf-dev.md`, 진행 절차는 `/implement-wi` 스킬을 따른다. 이 절과 충돌하면 이 절이 우선한다.
 
+### 3.4 화면 표준 (2026-11-05 화면 전략)
+
+화면 구성의 기준 문서는 `docs/10-workitems/screen-strategy.md`다. 모든 WI는 아래를 따른다.
+
+- **화면 유형:** WI "화면/UX" 항목 첫 줄에 유형 코드와 쓰는 공통 부품(UX-004~009)을 적는다. 유형 코드는 다음 8개다.
+  - T1 단계형 업무 레코드
+  - T2 계획-실행 그리드
+  - T3 현장 입력 셸
+  - T4 체크리스트 평가
+  - T5 분석·모니터링
+  - T6 마스터 관리
+  - T7 협력사 포털
+  - T8 홈·작업함
+  - 기존 WI의 유형은 `docs/30-dev/screen-map.csv`의 `화면유형` 열에 있다.
+- **레코드 페이지:** 상태가 있는 업무 객체는 UX-004 표준(헤더 7개 필드, 진행 단계, "현재 단계" 첫 탭, 결정 지원 레일)으로 만든다. 섹션·버튼 노출과 서버 허용은 UX-005 규칙 하나에서 만든다. 화면에서 숨기는 것만으로 권한 통제를 대신하지 않는다.
+- **공통 부품:** 행 편집 화면은 UX-006 그리드, 시료·측정 입력은 UX-008 입력 셸, 질문지 평가는 UX-009 체크리스트를 설정과 Provider 구현으로 쓴다. 같은 일을 하는 메뉴 전용 컴포넌트를 새로 만들지 않는다.
+- **스타일:** 커스텀 CSS는 SLDS 전역 스타일링 훅(`--slds-g-*`)과 SLDS 클래스만 쓴다. 색 리터럴, 컴포넌트 스타일링 훅(`--slds-c-*`), `--lwc-*` 토큰은 금지다(CI `scripts/ci/check-lwc-styling.py`, UX-004).
+- **앱:** 콘솔 전용 기능(하위 탭, 고정 영역)에 기대지 않는다. 앱 내비게이션 유형은 DS-7 결정을 따른다.
+- **문구:** 화면 문구는 "동사 + 대상"(예: "부적합 등록")으로 쓴다. 오류 메시지는 원인과 고치는 법을 한 문장에 담는다.
+
 ## 4. 워크아이템 템플릿
 
 모든 워크아이템은 아래 항목을 같은 순서로 가진다. 개발 에이전트는 **데이터 모델 → 비즈니스 규칙(BR) → 수용 기준(AC)** 순서로 읽고, AC를 테스트 코드로 먼저 작성한 뒤 구현한다.
@@ -96,7 +116,7 @@ QMS RFP 45개 요구 중 15개가 PMS RFP와 같은 기능이거나 같은 엔�
 | 범위          | In: 이 WI가 만드는 것 / Out: 다른 WI로 넘기는 것(해당 WI ID 명시)                              |
 | 데이터 모델   | 객체·필드 API명, 타입, 필수 여부, 설명. 객체 공통 필드(Name, Owner, 생성/수정 정보)는 생략     |
 | 비즈니스 규칙 | BR-1, BR-2 … 검증·상태 전이·계산식                                                             |
-| 화면/UX       | LWC·레코드 페이지·리스트뷰 구성, 모바일 여부                                                   |
+| 화면/UX       | 첫 줄에 화면 유형(T1~T8)과 공통 부품(3.4절). 이어서 LWC·레코드 페이지·리스트뷰 구성, 모바일 여부 |
 | 권한          | 어떤 Permission Set이 무엇을 할 수 있는가                                                      |
 | 수용 기준     | AC-1, AC-2 … Given / When / Then                                                               |
 | 에이전트 주의 | 흔한 오해, 하지 말아야 할 구현                                                                 |
@@ -498,7 +518,13 @@ QMS RFP 45개 요구 중 15개가 PMS RFP와 같은 기능이거나 같은 엔�
 - BR-1: Profile은 2개만 쓴다. `SL Internal User`(객체 권한 없음, 로그인·탭 기본만), `SL Supplier Portal User`(Experience Cloud). 객체·필드 권한은 전부 Permission Set으로 준다.
 - BR-2: 기능 단위 PS(`{접두어}_PS_{기능}_{Read/Edit/Approve/Admin}`)는 각 기능 WI가 만들고, 페르소나 PSG는 이 WI가 만든다. 새 기능 WI는 아래 매핑표에 따라 해당 PSG에 자기 PS를 추가하는 작업을 포함해야 한다.
 - BR-3: 한 사용자가 여러 PSG를 가질 수 있다(예: 품질 엔지니어이면서 내부심사원).
-- BR-4: Lightning App은 `SL QMS`, `SL PMS`, `SL Admin` 3개. 앱 할당은 PSG가 결정한다.
+- BR-4: Lightning App은 5개다. 앱 할당은 PSG가 결정한다(2026-11-05 화면 전략, 결정 DS-1).
+  - `SL QMS 콘솔`: 품질 전문가용. 내비게이션 유형은 DS-7 결정 전까지 표준이다.
+  - `SL QMS`: 참여자·경영진, 모든 사내 사용자.
+  - `SL QMS 현장`: 현장 입력, 모바일 우선.
+  - `SL Admin`: 품질경영팀·IT.
+  - `SL PMS`.
+  - 앱-PSG 매핑과 내비게이션 항목은 UX-007 BR-1·BR-2가 정한다.
 
 **페르소나 PSG**
 
@@ -517,7 +543,7 @@ QMS RFP 45개 요구 중 15개가 PMS RFP와 같은 기능이거나 같은 엔�
 
 **수용 기준**
 
-- AC-1: Given QMS_PSG_Inspector만 가진 사용자, When 앱 런처, Then `SL QMS`만 보이고 Setup 접근 불가.
+- AC-1: Given QMS_PSG_Inspector만 가진 사용자, When 앱 런처, Then `SL QMS 현장`만 보이고 Setup 접근 불가.
 - AC-2: Given 신규 사용자에게 PSG 미할당, When 로그인, Then 업무 객체 탭이 하나도 보이지 않는다.
 
 **에이전트 주의**: Profile에 객체 권한을 넣지 않는다. “View All Data”·“Modify All Data” 시스템 권한은 CMN_PSG_SystemAdmin 외 금지.
@@ -664,7 +690,10 @@ QMS RFP 45개 요구 중 15개가 PMS RFP와 같은 기능이거나 같은 엔�
 
 - BR-1: 지원 채널 = Salesforce 모바일 앱(iOS·Android) + 모바일 웹 브라우저. 지원 브라우저 = Chrome·Edge·Safari 최신 2개 버전.
 - BR-2: 모든 LWC는 `formFactors`에 Small을 포함해야 하며, 고정 폭(px) 레이아웃 금지. `lightning-layout-item`은 `size="12" medium-device-size="6"` 패턴.
-- BR-3: PSG별 Mobile Navigation 메뉴: Inspector = To-Do, 검사 입력, NCR 등록, 한도견본 / QualityManager = To-Do(결재), 대시보드, NCR.
+- BR-3: 모바일 내비게이션은 앱 단위로 정한다(UX-007 BR-2).
+  - `SL QMS 현장`(Inspector와 현장 입력이 있는 전문가): 홈(To-Do), 검사 입력, NCR 등록, 한도견본.
+  - `SL QMS`(결재자·경영진): 홈(To-Do), 결재 현황, 내 대시보드, 메뉴 허브.
+  - 모바일 앱에서 콘솔 앱은 표준 내비게이션으로 보이므로 휴대폰 화면은 콘솔을 전제로 설계하지 않는다.
 - BR-4: 사진 첨부는 카메라 직접 촬영을 지원하고 업로드 전 장변 1920px로 리사이즈한다(통신·저장 비용).
 - BR-5: 바코드·QR 스캔은 `lightning/mobileCapabilities`의 BarcodeScanner를 쓰며 모바일 앱에서만 활성화하고, 웹에서는 수동 입력 필드를 보인다.
 
@@ -727,6 +756,7 @@ QMS RFP 45개 요구 중 15개가 PMS RFP와 같은 기능이거나 같은 엔�
 - BR-1: `cmnStatusPath`(속성 recordId, objectApiName)는 메타데이터 순서대로 단계를 그리고 현재 상태를 강조한다. 단계 클릭으로 상태를 바꾸지 않는다(상태 변경은 각 업무 버튼·결재로만).
 - BR-2: `cmnCommentTimeline`은 최신순 표시, 작성자 본인만 24시간 내 수정·삭제 가능(이후 수정 불가, 감사 추적). 멘션 대상에게 NTF-001 알림 발송.
 - BR-3: CMN_Comment__c 공유는 부모 레코드 접근 권한을 따른다: 조회 Apex가 부모 레코드 접근 가능 여부(`UserRecordAccess`)를 확인한 뒤 반환한다.
+- BR-4: 업무 레코드 표준(UX-004)에서 `cmnStatusPath`는 영역 B(하위 헤더)에 둔다. `cmnCommentTimeline`은 결정 지원 레일의 COMMENT 패널이다. 그래서 레일 패널 계약(UX-004 BR-6)을 지킨다: `@api config`, `@api variant`를 받고, `variant="rail"`이면 좁은 폭으로 표시하며, 건수 배지는 `railbadge` 이벤트로 알린다.
 
 **수용 기준**
 
@@ -735,6 +765,701 @@ QMS RFP 45개 요구 중 15개가 PMS RFP와 같은 기능이거나 같은 엔�
 - AC-3: Given 코멘트에 @B 멘션, When 저장, Then B에게 알림 1건.
 
 **에이전트 주의**: 표준 Chatter Feed를 쓰지 않는다(포털·다국어·감사 요건 일관성). 표준 Path 컴포넌트는 레코드타입별 설정 부담이 커서 쓰지 않는다.
+
+### CMN-00-UX-004 업무 레코드 작업공간 템플릿·결정 지원 레일
+
+추적 Q-2, Q-29, P-47, NFR-4.4(모바일) · 필수 · W0 · SF · LWC, APEX, CFG · Customization · 선행 UX-003, DSH-001, I18N-001 · 6 M/D
+
+**목적**: NCR·4M·8D·Re-PPAP·인정시험 계획·개선과제·심사 같은 단계형 업무 레코드(화면 유형 T1)가 모두 같은 배치로 열리게 한다. 사용자는 첫 화면에서 스크롤 없이 "지금 단계에서 무엇을 입력하고, 누가 기다리며, AI가 무엇을 권하는가"를 본다. 메뉴마다 레코드 페이지를 따로 설계하면 에이전트별 편차가 생기고, 정기 릴리즈·SLDS 2 전환 때 고칠 곳이 늘어난다.
+
+**범위**
+- In:
+  - 업무 레코드 배치 표준(영역 A~E)
+  - 레코드 페이지 생성기(정의 파일 → FlexiPage 데스크톱·휴대폰, 콤팩트 레이아웃)와 페이지 규칙 검사기
+  - 결정 지원 레일 `cmnDecisionRail`과 패널 설정 `CMN_RailPanel__mdt`, 레일 패널 계약
+  - 헤더 7개 필드 규칙, 기한 D-day 수식 규칙
+  - 문맥 분석 패널(DSH-001 위젯 계약 재사용)
+  - LWC 스타일 CI 검사 `scripts/ci/check-lwc-styling.py`
+- Out:
+  - 상태별 섹션·버튼 노출 규칙: UX-005
+  - 그리드: UX-006
+  - 현장 입력: UX-008
+  - 체크리스트: UX-009
+  - 진행 단계 컴포넌트 자체: UX-003
+  - 각 업무 객체의 실제 레코드 페이지와 D-day 필드: 각 메뉴 WI가 이 생성기로 만든다
+  - 위젯 콘텐츠: QMS-07 등
+
+**데이터 모델**
+
+| 객체 / 필드 | 타입 | 필수 | 설명 |
+| --- | --- | --- | --- |
+| CMN_RailPanel__mdt | Custom Metadata | — | 레일 패널 설정. 1행 = 객체 1개의 패널 1개 |
+| CMN_RailPanel__mdt.ObjectApiName__c | Text(80) | Y | 대상 업무 객체 API명. `*` = 모든 T1 객체의 기본 패널 |
+| CMN_RailPanel__mdt.PanelKey__c | Text(40) | Y | AI, APPROVAL, TODO, COMMENT, DOCUMENT, CONTEXT_{이름} 등. 같은 키의 객체 행이 `*` 행을 덮어쓴다 |
+| CMN_RailPanel__mdt.ComponentName__c | Text(80) | Y | 동적으로 불러올 LWC(`c/cmnAiRecommendationList` 형식) |
+| CMN_RailPanel__mdt.TitleLabel__c | Text(80) | Y | 패널 제목 Custom Label 이름 |
+| CMN_RailPanel__mdt.Order__c / PhoneOrder__c | Number(3,0) / Number(3,0) | Y / N | 데스크톱 순서 / 휴대폰 순서(비우면 Order) |
+| CMN_RailPanel__mdt.DefaultOpen__c | Checkbox | — | 기본 펼침 |
+| CMN_RailPanel__mdt.RequiredPermission__c | Text(80) | N | Custom Permission API명. 지정하면 보유자에게만 표시 |
+| CMN_RailPanel__mdt.Config__c | Long Text(4000) | N | 패널 설정 JSON(예: DocClass 목록, 위젯 키·바인딩) |
+| CMN_RailPanel__mdt.IsActive__c | Checkbox | — | |
+| (각 T1 객체).DaysToDue__c | Formula(Number, 0) | — | `DueDate__c - TODAY()`. 규칙은 이 WI, 필드는 각 업무 WI가 만든다 |
+| (각 T1 객체) 콤팩트 레이아웃 `{객체}_Header` | Compact Layout | — | 헤더 7개 필드 순서(BR-3). 각 업무 WI가 생성기로 만든다 |
+
+**비즈니스 규칙**
+
+- BR-1: 배치. 데스크톱은 App Builder 표준 템플릿 "헤더, 하위 헤더, 오른쪽 사이드바"를 쓴다(커스텀 Aura 템플릿 금지).
+  - A 헤더: 표준 하이라이트 패널 + Dynamic Actions.
+  - B 하위 헤더: `cmnStatusPath`(UX-003).
+  - C 본문: 표준 탭 컴포넌트.
+  - D 사이드바: `cmnDecisionRail` 하나만 둔다.
+  - E 유틸리티 바: 앱 설정(UX-007).
+  - 사이드바에 다른 컴포넌트를 쌓지 않는다. 패널 추가는 `CMN_RailPanel__mdt` 행으로 한다.
+- BR-2: 탭 표준. 탭 이름은 라벨이다. 비활성 탭은 클릭 전에 로드하지 않는다(표준 탭 지연 로딩).
+  - 현재 단계(첫 탭, 기본 선택): 현재 상태에서 입력하는 Dynamic Forms 섹션과 단계 전용 LWC(그리드·입력 셸·체크리스트·분석 도구).
+  - 상세: 모든 필드를 읽기 전용 섹션으로 보여준다.
+  - 관련: Dynamic Related List 최대 3개. 그 외 관련 목록은 "관련 목록 보기" 링크로 연다.
+  - 이력: `cmnApprovalHistory`(APV-003)와 표준 필드 이력 관련 목록.
+- BR-3: 헤더. 콤팩트 레이아웃 앞 7개 필드는 번호(`RecordNo__c`), 제목, 상태, 고객, 품번, 공장, 기한(D-day) 순서로 고정한다.
+  - 해당 필드가 없는 객체(예: 내부심사의 고객)는 그 자리에 객체별 대체 필드를 두고, 정의 파일에 사유를 적는다.
+  - 헤더 버튼은 Dynamic Actions로만 둔다. 노출 조건은 UX-005 동기화 스크립트가 넣는다(App Builder에서 손으로 조건을 넣지 않는다).
+- BR-4: D-day 표시. 색만으로 구분하지 않고 아이콘과 텍스트를 함께 쓴다. 기준은 공장 시간대와 무관한 일 단위다.
+  - `DaysToDue__c` < 0: "기한 경과 n일"(경고 아이콘).
+  - 0~3: "n일 남음"(주의 아이콘).
+  - 그 외: "n일 남음".
+- BR-5: 레일 로드.
+  - `cmnDecisionRail`(속성 `recordId`, `objectApiName`은 레코드 페이지가 넣어 준다)은 `CMN_RailPanelController.getPanels(objectApiName)`(cacheable)로 패널 목록을 받는다.
+  - 서버는 `*` 행과 객체 행을 PanelKey로 합치고(객체 행 우선), `RequiredPermission__c`를 `FeatureManagement.checkPermission`으로 확인한다. 권한이 없는 패널은 응답에서 뺀다.
+  - 각 패널은 `lwc:is` 동적 컴포넌트로 불러와(DSH-001 `cmnWidgetBoard`와 같은 방식, Lightning Web Security) 접기 섹션으로 감싼다. 펼친 패널만 불러오고, 접힌 패널은 열 때 불러온다.
+  - 사용자가 접고 편 상태는 브라우저 저장소(객체별 키)에 남긴다. 읽기에 실패하면 `DefaultOpen__c`를 쓴다.
+- BR-6: 레일 패널 계약. 모든 패널 LWC가 지킨다.
+  - 속성: `@api recordId`, `@api objectApiName`, `@api config`(JSON 객체), `@api variant`.
+  - `variant="rail"`이면 사이드바 폭에서 가로 스크롤 없이 표시한다(고정 px 폭 금지).
+  - 건수 배지는 `railbadge` 이벤트(`detail: {count, severity}`)로 레일 머리에 알린다.
+  - 오류는 패널 안에서만 표시하고 다른 패널에 영향을 주지 않는다.
+  - 기본 패널(`*` 행)과 기본 펼침:
+
+    | PanelKey | 컴포넌트 | 근거 WI | 기본 펼침 |
+    | --- | --- | --- | --- |
+    | AI | `cmnAiRecommendationList` | AI-004 | 펼침 |
+    | APPROVAL | `cmnApprovalLine` 요약 | APV-003 | 펼침 |
+    | TODO | 이 레코드에 걸린 열린 To-Do | TDO-001 | 접힘 |
+    | COMMENT | `cmnCommentTimeline` | UX-003 | 접힘 |
+    | DOCUMENT | `cmnDocumentPanel` | DOC-001 | 접힘 |
+
+    AI 패널은 AI-004가 배포되기 전에는 `IsActive__c = false`로 둔다.
+- BR-7: 문맥 분석 패널(CONTEXT_*).
+  - `ComponentName__c`는 DSH-001 위젯 계약(`@api config`, `@api size`)을 따르는 위젯 LWC다.
+  - `Config__c` 형식: `{"widgetKey": "…", "bind": {"characteristicId": "Characteristic__c", "itemId": "Item__c", "plantId": "Plant__c"}}`.
+  - 레일은 `CMN_RailPanelController.resolveBindings(recordId, fieldNames)`(USER_MODE 조회)로 레코드 값을 읽어 위젯 config에 넣는다. 레코드나 필드에 접근 권한이 없으면 해당 값은 비운다.
+  - 위젯은 `CMN_KpiValue__c`나 DWH-004 등록 쿼리로만 데이터를 읽는다(Snowflake 직접 호출 금지, DSH-001 BR-5). size는 S로 준다.
+  - 예: NCR은 해당 특성의 최근 관리도와 같은 불량의 3개월 발생 건수, 4M은 해당 품번의 최근 Cpk를 보여준다.
+- BR-8: 휴대폰. 폼 팩터 Small에는 별도 페이지를 할당한다.
+  - 순서: 헤더(번호·상태·품번·기한 4개) → 진행 단계(현재 단계 이름) → 현재 단계 섹션 → 레일 패널(PhoneOrder 순, AI·결재만 펼침) → 상세(접힘).
+  - 관련·이력은 링크로 연다.
+- BR-9: 생성기와 검사기.
+  - 레코드 페이지는 정의 파일 `meta-src/record-pages/{객체}.json`에서 `scripts/dev/metagen.py`의 `recordPage` 생성기로 처음 만든다. 출력은 데스크톱·휴대폰 FlexiPage, 콤팩트 레이아웃, 객체 기본 보기 할당이다.
+  - 정의 파일의 내용: 헤더 7개 필드, 현재 단계 섹션 목록, 상세 섹션, 관련 목록 3개, 단계 전용 LWC와 속성.
+  - 첫 생성 뒤에는 FlexiPage XML이 원천이다. 현업이 App Builder에서 바꾼 것은 retrieve로 소스에 반영한다.
+  - `scripts/ci/check-record-pages.py`는 T1 페이지에서 다음을 오류로 낸다.
+    - 첫 탭 표시 컴포넌트 11개 이상
+    - 관련 목록 4개 이상
+    - 사이드바에 `cmnDecisionRail` 외 컴포넌트
+    - Dynamic Actions 밖의 버튼
+    - 휴대폰 페이지 누락
+  - T1 객체 목록은 `CMN_StatusFlow__mdt`(UX-003)에 등록된 객체다.
+- BR-10: 스타일 검사. `scripts/ci/check-lwc-styling.py`는 `force-app-*/main/default/lwc/**/*.css`를 검사한다.
+  - 다음을 오류로 낸다: 색 리터럴(`#rgb`, `#rrggbb`, `rgb(`, `rgba(`, `hsl(`), 컴포넌트 스타일링 훅 `--slds-c-*`, 구 토큰 `--lwc-*`.
+  - 허용: SLDS 전역 스타일링 훅 `--slds-g-*`. `var()`의 대체값에도 색 리터럴을 쓰지 않는다.
+  - 기존 `check-lwc-mobile.py`와 함께 CI에서 돈다.
+- BR-11: 성능.
+  - 레코드 페이지 첫 화면은 3초 이내(EPT, 해외 공장 포함 UAT)다.
+  - 첫 탭 표시 컴포넌트는 10개 이하, 관련 목록은 3개 이하다.
+  - 레일은 첫 표시 때 서버 호출이 패널 목록 1회와 펼친 패널 각자의 호출뿐이다.
+
+**화면/UX**: 화면 유형 T1 표준 자체다. 배치 그림은 `screen-strategy.md` 5절에 있다.
+- 데스크톱: 하위 헤더에 진행 단계, 본문 약 2/3, 레일 약 1/3.
+- 레일 머리: 패널 제목과 배지만 표시한다. 펼친 패널은 레일 안에서 스크롤한다.
+
+**권한**
+- 이 WI가 `CMN_PS_UiFramework_User`를 만든다. 이 권한 세트는 Apex 클래스 `CMN_RailPanelController`를 담는다. 뒤 UX WI의 컨트롤러도 여기에 더한다.
+- 사내 PSG 전부에 넣는다(SEC-001 BR-2).
+- 패널 데이터 권한은 각 패널 컴포넌트의 원래 WI가 확인한다.
+
+**수용 기준**
+
+- AC-1: Given 테스트 객체(`CMN_TestRecord__c`) 정의 파일, When 생성기 실행 후 배포, Then 데스크톱 페이지에 영역 A~D가 있고 첫 탭이 "현재 단계"이며 휴대폰 페이지가 할당된다.
+- AC-2: Given `*` 행 AI(1)·APPROVAL(2)·COMMENT(3)와 객체 행 COMMENT(Order 0), When 레일 표시, Then COMMENT가 맨 위, AI·APPROVAL이 펼쳐진 상태로 표시된다.
+- AC-3: Given RequiredPermission이 지정된 패널, When 권한 없는 사용자가 `getPanels` 호출, Then 응답과 화면에 그 패널이 없다.
+- AC-4: Given 패널 하나가 예외를 낸다, When 레일 표시, Then 그 패널에만 오류 표시, 나머지는 정상 표시.
+- AC-5: Given DueDate가 어제, When 헤더 표시, Then "기한 경과 1일" 텍스트와 경고 아이콘.
+- AC-6: Given CONTEXT 패널 bind `characteristicId = Characteristic__c`, When 레일 표시, Then 위젯 config에 레코드의 특성 Id가 들어간다. 그 필드에 FLS가 없는 사용자는 빈 값이다.
+- AC-7: Given 사이드바에 다른 컴포넌트를 넣은 T1 FlexiPage, When `check-record-pages.py`, Then 오류 1건 이상, 종료 코드 1.
+- AC-8: Given CSS에 `#ff0000`이나 `--slds-c-button-color-background`가 있는 LWC, When `check-lwc-styling.py`, Then 파일·줄을 출력하고 종료 코드 1.
+- AC-9: Given 접힌 패널 3개, When 레일 첫 표시, Then 접힌 패널의 서버 호출이 0건이다(Jest).
+
+**에이전트 주의**
+- 커스텀 Aura 레코드 템플릿을 만들지 않는다.
+- 레코드 페이지 전체를 덮는 LWC를 두지 않는다.
+- 레일 안에서 패널끼리 데이터를 주고받지 않는다. 필요하면 레코드 변경 알림(`notifyRecordUpdateAvailable`)이나 메시지 채널을 쓴다.
+- 템플릿 API명은 Org에서 App Builder로 새 페이지를 만들어 확인한 값을 쓴다.
+- 표준 Path 컴포넌트는 쓰지 않는다(UX-003).
+
+**오픈 이슈**
+- 콘솔 내비게이션(DS-7)을 적용하면 고정 헤더 템플릿 변형을 쓸지 정해야 한다.
+- 역할(PSG)별로 기본 펼침 패널을 달리할지 정해야 한다.
+
+### CMN-00-UX-005 상태·권한 화면 제어 매트릭스
+
+추적 NFR-4.2(RBAC), Q-29, P-47 · 필수 · W0 · SF · DM, APEX, CFG · Customization · 선행 UX-003, UX-004, SEC-001 · 5 M/D
+
+**목적**: 상태가 있는 객체마다 "어느 상태에서 누가 어떤 섹션을 고치고 어떤 버튼을 누를 수 있는가"를 표 하나로 정의한다. 같은 표에서 화면 노출(Dynamic Forms·Dynamic Actions 가시성)과 서버 검증을 함께 만들어 화면과 서버가 어긋나지 않게 한다. Flow·검증 규칙·Apex·App Builder에 흩어 쓰면 상태 하나를 추가할 때 빠뜨리는 곳이 생긴다.
+
+**범위**
+- In:
+  - 규칙 메타데이터 `CMN_UiRule__mdt`·`CMN_UiSection__mdt`, 규칙 정의 파일 형식
+  - FlexiPage 가시성 동기화 스크립트(생성·검사·문서 출력)
+  - 서버 검증 `CMN_UiRuleService`(버튼 허용 `canExecute`·`assertCanExecute`, 필드 잠금 `lockedFieldViolations`, 서비스 우회)
+  - Custom Permission 명명 규칙, 거부 메시지 라벨
+- Out:
+  - 각 객체의 규칙 행과 Custom Permission: 각 업무 WI
+  - 상태 전이 자체: 업무 서비스
+  - 결재 중 레코드 잠금: APV-001
+
+**데이터 모델**
+
+| 객체 / 필드 | 타입 | 필수 | 설명 |
+| --- | --- | --- | --- |
+| CMN_UiRule__mdt | Custom Metadata | — | 규칙 1행 = 객체·대상 1개의 허용 조건 묶음 1개. 같은 대상의 행이 여러 개면 하나라도 맞으면 허용 |
+| CMN_UiRule__mdt.ObjectApiName__c | Text(80) | Y | |
+| CMN_UiRule__mdt.TargetType__c | Picklist (SECTION, ACTION, COMPONENT) | Y | SECTION = Dynamic Forms 필드 섹션, ACTION = Dynamic Actions 버튼(빠른 작업·LWC 액션), COMPONENT = 페이지 LWC(그리드·입력 셸 편집 가능 여부) |
+| CMN_UiRule__mdt.TargetKey__c | Text(80) | Y | 섹션 키 / 액션 API명 / 컴포넌트 키 |
+| CMN_UiRule__mdt.Mode__c | Picklist (EDIT, SHOW) | Y | SECTION은 EDIT(편집 허용), ACTION·COMPONENT는 SHOW(노출·실행 허용) |
+| CMN_UiRule__mdt.StatusField__c | Text(80) | Y | 기본 `Status__c` |
+| CMN_UiRule__mdt.StatusValues__c | Text(255) | Y | 쉼표 구분 API값. `*` = 모든 상태 |
+| CMN_UiRule__mdt.CustomPermission__c | Text(80) | N | 필요한 Custom Permission. 비우면 객체 편집 권한만 본다 |
+| CMN_UiRule__mdt.RecordTypes__c | Text(255) | N | 쉼표 구분 RecordType DeveloperName. 비우면 전체 |
+| CMN_UiRule__mdt.FormFactor__c | Picklist (ALL, LARGE, SMALL) | Y | 기본 ALL. 서버 검증에는 쓰지 않는다 |
+| CMN_UiRule__mdt.ExtraCondition__c | Text(255) | N | 추가 필드 조건 하나(`Field__c=VALUE` 또는 `Field__c!=VALUE`) |
+| CMN_UiRule__mdt.IsActive__c | Checkbox | — | |
+| CMN_UiSection__mdt | Custom Metadata | — | 섹션 키 → 필드 목록(서버 필드 잠금용) |
+| CMN_UiSection__mdt.ObjectApiName__c / SectionKey__c | Text(80) / Text(80) | Y | |
+| CMN_UiSection__mdt.Fields__c | Long Text(4000) | Y | 쉼표 구분 필드 API명 |
+| CMN_UiSection__mdt.LabelKey__c | Text(80) | Y | 섹션 제목 Custom Label |
+
+**비즈니스 규칙**
+
+- BR-1: 해석. 대상(객체, TargetKey)의 활성 규칙 행 중 하나라도 아래 조건을 모두 만족하면 허용한다.
+  - 상태가 StatusValues에 있다.
+  - CustomPermission이 비었거나 사용자가 보유했다.
+  - 레코드 타입이 일치한다.
+  - ExtraCondition이 일치한다.
+  - 규칙 행이 없으면 SECTION은 읽기 전용, ACTION·COMPONENT는 숨김·거부다(기본 거부).
+- BR-2: 화면 생성. Dynamic Forms에는 조건부 읽기 전용이 없다. 그래서 SECTION 하나를 FlexiPage에서 섹션 쌍으로 만든다.
+  - 편집 섹션: BR-1 허용 조건일 때 보인다.
+  - 읽기 섹션: 같은 필드를 UI 동작 "읽기 전용"으로 두고, 편집 섹션이 안 보일 때 보인다.
+  - ACTION은 Dynamic Actions 가시성 필터, COMPONENT는 컴포넌트 가시성 필터로 넣는다.
+  - 필터에는 레코드 필드(상태·레코드 타입·ExtraCondition), 사용자 권한(Custom Permission), 폼 팩터만 쓴다.
+- BR-3: 동기화 스크립트 `scripts/dev/ui-rule-sync.py`. 원천은 `meta-src/ui-rules/{객체}.json`(섹션 정의 + 규칙 표)이다. 모드는 셋이다.
+  - (a) 생성: `CMN_UiRule__mdt`·`CMN_UiSection__mdt` 레코드를 metagen 원천에 쓰고, 해당 FlexiPage의 섹션 쌍과 가시성 필터를 갱신한다.
+  - (b) `--check`(CI): FlexiPage와 규칙의 불일치, 규칙 없는 액션, 상태 Picklist에 없는 상태값, 존재하지 않는 Custom Permission을 오류로 낸다.
+  - (c) `--doc`: 상태 × 섹션·버튼 × 권한 매트릭스를 md로 출력한다. 출력은 WI 완료 보고서에 붙인다.
+  - 가시성 필터 수가 플랫폼 한도를 넘으면 생성을 멈추고 규칙 단순화를 요구한다.
+- BR-4: 서버 버튼 검증.
+  - `CMN_UiRuleService.canExecute(Id recordId, String actionKey)`는 Boolean을 반환한다. 레코드는 USER_MODE로 조회하고 권한은 `FeatureManagement.checkPermission`으로 확인한다. 레코드 접근 권한이 없으면 false다.
+  - 업무 액션 Apex(상신, 판정, 재시험 생성 등)는 첫 줄에서 `CMN_UiRuleService.assertCanExecute(recordId, actionKey)`를 호출한다. 실패하면 `CMN_ValidationException`(라벨 `CMN_UiRule_ActionNotAllowed`)을 던진다.
+  - 버튼을 숨기는 것만으로 권한 통제로 보지 않는다.
+- BR-5: 서버 필드 잠금.
+  - `CMN_UiRuleService.lockedFieldViolations(List<SObject> newRecords, Map<Id, SObject> oldMap)`는 레코드별 바뀐 잠긴 필드 목록을 반환한다. 잠긴 필드 = 이전 상태 기준으로 EDIT가 허용되지 않은 섹션의 필드다.
+  - 업무 객체 트리거 핸들러는 before update에서 이 결과에 행 오류(`addError`, 라벨 `CMN_UiRule_FieldLocked`)를 붙인다.
+  - 상태 전이처럼 서비스가 잠긴 필드를 바꿔야 할 때는 `CMN_UiRuleService.runAsService(Callable)` 안에서 바꾼다. 우회는 그 트랜잭션의 해당 호출 안에서만 유효하다. 직접 플래그를 켜고 끄는 공개 메서드는 두지 않는다.
+- BR-6: 성능. 규칙은 객체별로 한 번 읽어 정적 캐시에 둔다(트랜잭션당 메타데이터 조회 객체별 1회). 200건 일괄 수정에서 `lockedFieldViolations`의 추가 SOQL은 0회다.
+- BR-7: Custom Permission 이름은 `{접두어}_{객체약어}_{동작}`이다(예: `QMS_NCR_Disposition`). 각 기능 WI가 만들고 자기 Permission Set에 넣는다.
+
+**화면/UX**: 화면 유형 T1(규칙 엔진, 사용자 화면 없음).
+- 거부 메시지 라벨 2개: `CMN_UiRule_ActionNotAllowed`, `CMN_UiRule_FieldLocked`.
+- 3개 언어로 번역한다.
+
+**권한**
+- 규칙은 배포로만 바꾼다. 운영 중 편집 화면은 없다.
+- `CMN_UiRuleService`는 다른 Apex가 호출하므로 PS에 클래스 접근을 넣지 않는다.
+
+**수용 기준**
+
+- AC-1: Given 테스트 객체 규칙(DRAFT: 기본정보 섹션 EDIT, 상신 버튼 SHOW / SUBMITTED: 둘 다 없음), When 동기화 후 DRAFT 레코드 열기, Then 기본정보 섹션 편집 가능·상신 버튼 보임. SUBMITTED 레코드는 읽기 섹션만 보이고 상신 버튼이 없다.
+- AC-2: Given SUBMITTED 레코드, When 상신 Apex를 직접 호출, Then `CMN_ValidationException`.
+- AC-3: Given SUBMITTED 레코드, When API로 기본정보 섹션 필드 수정, Then 행 오류. `runAsService` 안에서 같은 수정은 성공한다.
+- AC-4: Given 규칙이 없는 버튼이 FlexiPage에 있다, When `ui-rule-sync.py --check`, Then 오류 1건, 종료 코드 1.
+- AC-5: Given CustomPermission 필요 규칙, When 권한 없는 사용자, Then 화면에서 버튼이 숨겨지고 `canExecute`가 false다.
+- AC-6: Given 레코드 200건 일괄 수정, When 트리거 실행, Then `lockedFieldViolations`가 추가 SOQL 0회로 끝난다.
+- AC-7: Given 규칙 정의, When `--doc`, Then 상태별 섹션·버튼·권한 표 md가 나온다.
+
+**에이전트 주의**
+- 같은 상태 규칙을 Validation Rule·Flow로 다시 만들지 않는다.
+- 레코드 타입별 페이지 레이아웃으로 상태를 제어하지 않는다.
+- 서비스 우회는 `runAsService`로만 한다. 정적 Boolean을 공개하지 않는다.
+- FlexiPage를 App Builder에서 고쳐 규칙과 어긋나게 만들지 않는다(CI가 잡는다).
+
+**오픈 이슈**
+- 결재 진행 중 잠금을 표준 레코드 잠금(APV-001 구현)과 이 규칙 중 어느 쪽으로 일원화할지 정해야 한다. APV-001 구현을 확인한 뒤 정리한다.
+
+### CMN-00-UX-006 공통 편집 그리드
+
+추적 Q-4, Q-5, Q-24, Q-25, Q-30 · 필수 · W1 · SF · DM, LWC, APEX · Customization · 선행 UX-004, UX-005, I18N-001, MDM-007 · 7 M/D
+
+**목적**: DVP&R 라인, 연간 심사 계획, 교육 계획, 교정 계획, 수평전개 대상, 8D 팀·조치처럼 "행이 많고 셀 단위로 입력하는" 화면(T2)을 메뉴마다 따로 만들지 않고 설정 하나로 만든다. 품질 엔지니어가 엑셀로 하던 일을 옮겨 오는 화면이라 붙여넣기, 일괄 저장, 행 단위 오류 표시가 핵심이다.
+
+**범위**
+- In:
+  - `cmnEditableGrid` LWC, 그리드 정의 메타데이터 2종, 메시지 채널 `CMN_GridRefresh__c`
+  - 컨트롤러 `CMN_GridController`, 업무 확장 인터페이스 `CMN_GridProvider`와 기본 구현 `CMN_GridProviderBase`
+  - 붙여넣기 대화상자, 일정 막대 보기, 휴대폰 카드 보기
+  - 브라우저 임시 저장 모듈 `cmnDraftStore`(UX-008·009도 쓴다)
+- Out:
+  - 각 그리드의 열 정의와 업무 검증: 각 업무 WI
+  - 엑셀 파일 내려받기: SheetJS, QMS-02-DVQ-009
+  - 수천 행 가져오기: 데이터 로더 영역
+  - 행 500개 넘는 화면
+
+**데이터 모델**
+
+| 객체 / 필드 | 타입 | 필수 | 설명 |
+| --- | --- | --- | --- |
+| CMN_GridDefinition__mdt | Custom Metadata | — | 그리드 1개. DeveloperName = GridKey |
+| CMN_GridDefinition__mdt.ObjectApiName__c | Text(80) | Y | 행 객체 |
+| CMN_GridDefinition__mdt.ParentField__c | Text(80) | Y | 부모 레코드 필드(Master-Detail 또는 Lookup) |
+| CMN_GridDefinition__mdt.OrderField__c | Text(80) | N | 정렬·행 순서 저장 필드 |
+| CMN_GridDefinition__mdt.Filter__c | Text(255) | N | 고정 필터(`Field__c=VALUE`, 쉼표로 AND) |
+| CMN_GridDefinition__mdt.MaxRows__c | Number(4,0) | Y | 기본 200, 상한 500 |
+| CMN_GridDefinition__mdt.AllowAdd__c / AllowDelete__c / AllowPaste__c | Checkbox | — | |
+| CMN_GridDefinition__mdt.ScheduleStartField__c / ScheduleEndField__c | Text(80) | N | 둘 다 있으면 일정 막대 보기 활성 |
+| CMN_GridDefinition__mdt.ProviderClass__c | Text(80) | N | `CMN_GridProvider` 구현 클래스 |
+| CMN_GridDefinition__mdt.EditRuleKey__c | Text(80) | N | UX-005 COMPONENT 대상 키. 편집 가능 여부 판정 |
+| CMN_GridColumn__mdt | Custom Metadata | — | 열 1개 |
+| CMN_GridColumn__mdt.Grid__c | Metadata Relationship(CMN_GridDefinition__mdt) | Y | |
+| CMN_GridColumn__mdt.FieldApiName__c | Text(80) | Y | |
+| CMN_GridColumn__mdt.LabelKey__c | Text(80) | N | 비우면 필드 라벨(번역 포함) |
+| CMN_GridColumn__mdt.Order__c | Number(3,0) | Y | |
+| CMN_GridColumn__mdt.Editable__c / Required__c / Frozen__c | Checkbox | — | Required는 화면 검증(서버는 Provider·필드 필수로 다시 검증). Frozen = 가로 스크롤 시 고정 |
+| CMN_GridColumn__mdt.WidthWeight__c | Number(2,0) | N | 상대 폭 1~10(px 금지) |
+| CMN_GridColumn__mdt.InputType__c | Picklist (AUTO, TEXT, NUMBER, DATE, PICKLIST, LOOKUP, CHECKBOX, CODE) | Y | AUTO = 필드 타입. CODE = `cmnCodePicker`(MDM-007) |
+| CMN_GridColumn__mdt.CodeGroup__c | Text(40) | CODE면 Y | |
+| CMN_GridColumn__mdt.LookupFilter__c | Text(255) | N | Lookup 후보 고정 필터(`Field__c=VALUE`) |
+| CMN_GridColumn__mdt.ShowOnPhone__c | Checkbox | — | 휴대폰 카드 표시 필드(최대 4개) |
+
+**서비스 API**
+
+    public interface CMN_GridProvider {
+        Map<String, Object> defaults(Id parentId);                                   // 새 행 기본값
+        Map<Id, CMN_GridRowMeta> rowMeta(Id parentId, List<SObject> rows);           // 행별 삭제 가능·잠긴 열·경고
+        CMN_GridValidation validate(Id parentId, List<SObject> rows, List<Id> deletedIds); // 행·그리드 오류
+        void afterSave(Id parentId, List<SObject> savedRows, List<Id> deletedIds);   // 후처리(재계산 등)
+    }
+    // CMN_GridRowMeta: deletable(Boolean), deleteBlockedLabel(String), lockedFields(Set<String>), warningLabel(String)
+    // 추상 클래스 CMN_GridProviderBase가 4개 메서드의 기본 구현(제약 없음)을 준다. 업무 Provider는 필요한 것만 재정의한다.
+    CMN_GridController.load(String gridKey, Id parentId)                 // cacheable 아님(편집 화면)
+    CMN_GridController.save(String gridKey, Id parentId, String rowsJson, List<Id> deletedIds, String clientVersion)
+
+**비즈니스 규칙**
+
+- BR-1: 로드. `load`는 USER_MODE SOQL로 행을 읽는다.
+  - 읽기 권한이 없는 필드의 열은 응답에서 뺀다. 편집 권한이 없는 필드는 읽기 전용으로 내린다.
+  - 응답: 열 정의, 행, 편집 가능 여부, `clientVersion`(행들의 최대 LastModifiedDate와 행 수).
+  - 편집 가능 = 부모 레코드 편집 권한 AND (EditRuleKey가 없거나 UX-005 `canExecute(parentId, EditRuleKey)`).
+  - MaxRows를 넘으면 앞 MaxRows 행만 주고 잘림 표시를 한다.
+- BR-2: 편집.
+  - 셀 편집은 브라우저 초안으로만 쌓는다. 바뀐 셀을 표시한다.
+  - 행 추가: Provider `defaults` 값을 넣는다.
+  - 행 삭제: 표시만 하고 저장할 때 반영한다.
+  - "변경 취소"는 초안 전체를 되돌린다.
+  - 초안은 `cmnDraftStore`에 자동 저장한다(키 = 사용자 Id + GridKey + 부모 Id). 다시 열 때 초안이 있으면 복원 여부를 묻는다.
+- BR-3: 붙여넣기. "붙여넣기" 버튼을 누르면 대화상자가 열린다. 순서는 다음과 같다.
+  1. 텍스트 영역에 엑셀 범위(탭 구분)를 붙여넣는다.
+  2. 첫 행을 머리글로 쓸지와 시작 열을 고른다.
+  3. 미리보기에서 열 매핑과 형식 변환 오류 셀을 확인한다.
+  4. 적용 방식을 고른다: 기존 행 아래에 추가하거나, 선택한 행부터 덮어쓴다.
+
+  변환 규칙:
+  - 날짜: yyyy-mm-dd, yyyy.mm.dd, 사용자 로캘 형식.
+  - 숫자: 천 단위 구분 기호를 뺀다.
+  - Picklist: API값이나 사용자 언어 라벨과 일치해야 한다.
+  - Lookup·CODE: Name이나 외부 키(`ExternalKey__c`)와 일치해야 한다. 서버 조회는 1회, 서로 다른 값 최대 200개다.
+  - 변환 실패 셀은 빈 값으로 두고 오류를 표시한다.
+- BR-4: 검증. 순서는 클라이언트 검증(필수·형식·범위) → 서버 `save`의 Provider `validate`다.
+  - 결과는 행 단위 오류(`행 키 → 메시지 목록`)와 그리드 전체 오류다.
+  - 오류가 하나라도 있으면 아무 행도 저장하지 않는다(Savepoint 롤백).
+  - 오류 행은 강조하고, 오류 개수 요약과 "다음 오류로 이동"을 제공한다.
+- BR-5: 저장.
+  - 삽입·수정은 `Database.upsert` 1회(AccessLevel.USER_MODE), 삭제는 1회다. 이어서 Provider `afterSave`를 호출한다.
+  - 저장 전에 `clientVersion`을 다시 계산한다. 다르면(다른 사용자가 저장) 저장을 막고 새로 고침을 안내한다. 덮어쓰지 않는다.
+  - 성공하면 초안을 지운다.
+- BR-6: 일정 막대 보기.
+  - ScheduleStart·End가 있으면 "일정 보기"로 바꿀 수 있다. 주 단위 눈금과 오늘 선을 그린다.
+  - 종료일이 지났는데 열린 행(Provider가 행 상태로 판단해 경고 플래그를 준다)은 경고 아이콘과 텍스트로 표시한다.
+  - 막대는 CSS로 그린다(외부 라이브러리 없음). 막대를 끌어 날짜를 바꾸지 않고 날짜 셀로 편집한다.
+- BR-7: 휴대폰. 읽기 전용 카드 목록(ShowOnPhone 필드 최대 4개)으로 표시한다. 카드를 누르면 그 행의 레코드 페이지로 간다.
+- BR-8: 구현과 키보드.
+  - `lightning-datatable`(인라인 편집, draft-values, errors)을 기반으로 한다. Picklist·Lookup·CODE 셀은 커스텀 데이터 타입(편집 템플릿)으로 만든다.
+  - Tab·화살표·Enter로 셀을 이동하고 편집할 수 있어야 한다. 오류는 텍스트로 알린다(색만으로 구분 금지).
+- BR-9: 성능.
+  - 60행 × 12열 로드는 2초 이내다.
+  - 저장 DML은 2회 이하(upsert 1 + delete 1, Provider 후처리 제외)다.
+  - 붙여넣기 미리보기 200행은 1초 이내다.
+- BR-10: 외부 새로 고침.
+  - 같은 페이지의 다른 컴포넌트가 행을 만들거나 바꾸면(예: 라이브러리에서 라인 추가) Lightning Message Service 채널 `CMN_GridRefresh__c`(gridKey, parentId)를 발행한다. 그리드는 일치하면 다시 읽는다.
+  - 저장하지 않은 초안이 있으면 새로 고치기 전에 사용자에게 묻는다.
+  - 공개 메서드 `@api refresh()`도 둔다.
+- BR-11: 행 메타.
+  - 로드와 저장 뒤 Provider `rowMeta`로 행별 정보를 받는다.
+    - `deletable=false`: 삭제 버튼을 막고 `deleteBlockedLabel` 안내를 보인다.
+    - `lockedFields`: 그 행의 해당 셀을 읽기 전용으로 둔다.
+    - `warningLabel`: 경고 아이콘과 텍스트를 보인다.
+  - 서버 `save`는 같은 rowMeta로 삭제 불가 행 삭제와 잠긴 셀 변경을 다시 거부한다.
+
+**화면/UX**: 화면 유형 T2.
+- T1 레코드 페이지의 "현재 단계" 탭이나 관련 영역에 둔다. 속성은 `gridKey`이고 `recordId`는 부모로 자동 주입된다.
+- 툴바: 행 추가, 삭제, 붙여넣기, 일정 보기, 변경 취소, 저장, 오류 개수.
+
+**권한**
+- `CMN_PS_UiFramework_User`에 `CMN_GridController`를 더한다.
+- 행 데이터 권한은 행 객체의 PS(각 업무 WI)를 따른다.
+
+**수용 기준**
+
+- AC-1: Given 60행 × 12열 그리드, When 로드, Then 2초 이내 표시(UAT 측정, Apex 테스트는 쿼리 1회 확인).
+- AC-2: Given 엑셀 5행 × 4열 붙여넣기(날짜 1칸 형식 오류), When 미리보기, Then 오류 셀 1개 표시. 적용 후 그 셀은 빈 값에 오류 표시.
+- AC-3: Given 3행 수정·1행 추가·1행 삭제, Provider 검증 통과, When 저장, Then DML 2회, 결과 반영, 초안 삭제.
+- AC-4: Given Provider가 2행에 오류, When 저장, Then 아무 행도 저장되지 않고 2행이 강조된다.
+- AC-5: Given 다른 사용자가 같은 부모의 행을 먼저 저장, When 저장, Then 차단과 새로 고침 안내.
+- AC-6: Given 사용자에게 FLS가 없는 필드의 열, When 로드, Then 그 열이 응답과 화면에 없다.
+- AC-7: Given 휴대폰, When 그리드 표시, Then 카드 목록, 편집 버튼 없음.
+- AC-8: Given 저장하지 않은 초안이 브라우저에 있다, When 다시 열기, Then 복원 여부를 묻는다.
+- AC-9: Given EditRuleKey 규칙상 편집 불가 상태, When 로드, Then 읽기 전용, 저장 API 호출도 거부.
+
+**에이전트 주의**
+- 그리드마다 새 LWC를 만들지 않는다. 차이는 열 정의와 Provider로 낸다.
+- 셀 하나씩 서버에 저장하지 않는다.
+- Provider 없이 업무 검증을 LWC에 넣지 않는다.
+- 붙여넣기에서 보이지 않는 열(FLS 없음)에 값을 넣지 않는다.
+
+**오픈 이슈**
+- 행 500개를 넘는 화면이 필요한지 확인해야 한다.
+- 엑셀 파일(.xlsx)을 직접 올려 행을 만드는 기능이 필요한지 확인해야 한다(필요하면 SheetJS 승인 목록 사용).
+
+### CMN-00-UX-007 앱 구성·메뉴 허브
+
+추적 Q-41, P-63, Q-2, NFR-4.2(RBAC) · 필수 · W1 · SF · CFG, LWC, APEX · Tailoring · 선행 SEC-001, TDO-001, TDO-004, ARC-003 · 4 M/D
+
+**목적**: 품질 전문가·참여자·현장·관리자가 각자 맞는 앱으로 들어오게 한다. 국내 제조사 사용자에게 익숙한 트리 메뉴 대신 "앱당 자주 쓰는 8개 탭 + 메뉴 허브"로 전체 기능을 찾게 한다. 메뉴 허브 골격은 화면 우선 개발 A0에서 이미 만들었다(메뉴별 허브 10개, `docs/wi/A0-prototype-kit.md`). 이 WI는 그것을 표준으로 확정하고 확장한다.
+
+**범위**
+- In:
+  - Lightning 앱 5개 구성: 새 앱 `SL_QMS_Console`·`SL_QMS_Field`, 배포된 `SL_QMS`·`SL_Admin`·`SL_PMS` 조정
+  - 앱별 내비게이션·유틸리티 바·PSG 할당
+  - 메뉴 허브 확장: `cmnAppMenuHub`의 전체 메뉴 모드, 권한 필터, 미결 건수 배지, 화면 검색, 업무 번호 바로가기
+  - 메뉴 설정 메타데이터 필드 추가
+- Out:
+  - 협력사 포털 내비게이션: QMS-03-SPP
+  - PMS 메뉴 내용: PMS Vol.
+  - 각 기능 타일의 대상 화면: 각 화면 묶음과 메뉴 WI
+  - 콘솔 라이선스 구매: DS-7
+
+**데이터 모델**
+
+| 객체 / 필드 | 타입 | 필수 | 설명 |
+| --- | --- | --- | --- |
+| CMN_AppMenu__mdt (배포됨) | Custom Metadata | — | 메뉴 그룹. 기존 필드: TitleLabel, DescLabel, IconName, Order, System, IsActive |
+| CMN_AppMenu__mdt.Apps__c | Text(255) | Y | 이 그룹을 보여줄 앱 API명(쉼표). 예: `SL_QMS_Console,SL_QMS` |
+| CMN_AppMenu__mdt.PageTab__c | Text(80) | N | 그룹 전용 허브 탭(배포된 메뉴별 허브 페이지). 그룹 머리글 "메뉴 열기" 대상 |
+| CMN_AppMenuItem__mdt (배포됨) | Custom Metadata | — | 기능 타일. 기존 필드: Menu, FeatureCode, TitleLabel, DescLabel, IconName, TargetType(OBJECT, PAGE, NONE), Target, Bundle, Order, IsActive |
+| CMN_AppMenuItem__mdt.RequiredPermission__c | Text(80) | N | PAGE·NONE 타일 표시에 필요한 Custom Permission |
+| CMN_AppMenuItem__mdt.TodoSourceTypes__c | Text(255) | N | 미결 배지에 셀 To-Do SourceType(쉼표) |
+| CMN_AppMenuItem__mdt.KeywordsLabel__c | Text(80) | N | 검색 동의어 Custom Label(쉼표 구분 단어, 3개 언어 번역) |
+| CMN_AppMenuItem__mdt.ShowOnPhone__c | Checkbox | — | 휴대폰 허브에 표시 |
+| Custom Application `SL_QMS_Console`, `SL_QMS_Field` | CustomApplication | — | 새 앱 2개 |
+| Permission Set `CMN_PS_AppQmsConsole_Read`, `CMN_PS_AppQmsField_Read` | PermissionSet | — | 앱 표시 권한(배포된 `CMN_PS_AppQms_Read`·`CMN_PS_AppAdmin_Read`와 같은 방식) |
+
+**비즈니스 규칙**
+
+- BR-1: 앱-PSG 할당.
+
+  | PSG | 기본 앱 | 함께 할당 |
+  | --- | --- | --- |
+  | QualityEngineer, QualityManager, ProcessEngineer, TrainingCoordinator | SL QMS 콘솔 | SL QMS |
+  | SupplierQuality, LabTester, Metrology, Auditor | SL QMS 콘솔 | SL QMS, SL QMS 현장 |
+  | Inspector | SL QMS 현장 | — |
+  | DevEngineer, Viewer | SL QMS | — |
+  | CMN_PSG_Executive | SL QMS | SL PMS |
+  | QualityAdmin | SL Admin | SL QMS 콘솔, SL QMS |
+  | CMN_PSG_SystemAdmin | SL Admin | 전체 |
+  | SupplierPortal | 협력사 포털 | — |
+
+  - QMS PSG 이름 접두어 `QMS_PSG_`는 표에서 생략했다.
+  - 기본 앱은 PSG에 넣는 앱 권한 세트 순서와 사용자 기본 앱 설정으로 정한다.
+- BR-2: 내비게이션 항목. 앱당 8개 이내다.
+  - SL QMS 콘솔: 홈, 메뉴 허브, NCR, 클레임·8D, 4M 변경, 검사, 인정시험, 개선과제.
+  - SL QMS: 홈, 결재 현황, 내 대시보드, 메뉴 허브.
+  - SL QMS 현장: 홈(To-Do), 검사 입력, NCR 등록, 한도견본.
+  - SL Admin: 메뉴 허브(기준정보·설정 그룹), 공통 코드, 심사 질문지, 결재 템플릿, 연계 모니터, 로그.
+  - 아직 화면이 없는 항목은 해당 화면 묶음이 화면을 만들 때 넣는다. 사용자는 순서·항목을 개인화할 수 있다.
+  - 메뉴별 허브 탭(QMS_Menu02~09, CMN_MenuWork, CMN_MenuMaster)은 내비게이션에서 빼고, 탭 자체는 남긴다(BR-3의 "메뉴 열기" 대상).
+- BR-3: 전체 메뉴 모드. `cmnAppMenuHub`의 `menuKey`가 비어 있으면 현재 앱이 `Apps__c`에 들어 있는 메뉴 그룹을 모두 Order 순 섹션으로 보여준다.
+  - 현재 앱은 서버가 `UserAppInfo`로 판단한다. 실패하면 `SL_QMS`로 간주한다.
+  - 상단에 그룹 바로가기를 두고, 그룹 머리글에 "메뉴 열기"(PageTab__c)를 둔다.
+  - `menuKey`를 지정한 메뉴별 모드는 지금처럼 유지한다.
+- BR-4: 권한 필터.
+  - OBJECT 타일: 객체 읽기 권한(배포된 규칙 유지).
+  - PAGE·NONE 타일: RequiredPermission이 비었거나 사용자가 보유.
+  - 보이는 타일이 없는 그룹은 숨긴다.
+- BR-5: 미결 배지.
+  - 서버가 현재 사용자의 열린 To-Do를 SourceType별로 센다: `CMN_Todo__c` GROUP BY SourceType__c, USER_MODE, 전체 1회 + 기한 경과 1회.
+  - 타일의 `TodoSourceTypes__c` 합계를 배지로 붙인다. 0이면 배지가 없고, 99를 넘으면 "99+"다.
+  - 기한 경과가 있으면 경고 아이콘과 "기한 경과 n" 텍스트를 함께 단다.
+  - 배지는 허브를 열 때 한 번 계산한다(실시간 갱신 없음, 새로 고침 버튼).
+- BR-6: 검색과 번호 바로가기. 상단 검색창 하나로 한다.
+  - (a) 화면 검색: 타일 제목·설명·검색 동의어 라벨에서 부분 일치(클라이언트)를 찾는다.
+  - (b) 업무 번호: 입력이 `CMN_NumberingRule__mdt` Pattern의 고정 접두어(첫 `{` 앞 문자열)로 시작하면, 그 규칙의 ObjectApiName·NumberField(기본 RecordNo__c)로 USER_MODE 조회를 1회 한다.
+  - 1건이면 레코드 페이지로 이동한다. 없거나 권한이 없으면 같은 "찾을 수 없음" 메시지를 보인다(존재 여부를 구분해 알려주지 않는다).
+  - 접두어가 여러 규칙과 맞으면 가장 긴 접두어를 쓴다.
+- BR-7: 유틸리티 바(영역 E). 세 사내 QMS 앱 공통이다.
+  - 언어 전환 `cmnLanguageSwitcher`(I18N-001)
+  - 화면 가이드 `cmnScreenGuide`(UX-002, 배포 후)
+  - 빠른 NCR 등록(QMS-06-NCR-002 배포 후)
+  - Agentforce는 표준 헤더 진입(AI-001)이라 유틸리티 바에 넣지 않는다.
+- BR-8: 휴대폰. SL QMS 현장과 SL QMS의 모바일 내비게이션은 BR-2와 같다(UX-001 BR-3). 휴대폰 허브는 `ShowOnPhone__c` 타일만 보인다.
+- BR-9: 콘솔 대체. DS-7 결정 전까지 `SL_QMS_Console`의 내비게이션 유형은 표준이다. 결정 후 콘솔로 바꿀 때 바뀌는 것은 앱 메타데이터의 내비게이션 유형과 (필요하면) 레코드 열기 규칙뿐이다. 화면·컴포넌트는 바꾸지 않는다.
+
+**화면/UX**: 화면 유형 T8.
+- 메뉴 허브 화면 순서: 검색창 → 그룹 바로가기 → 그룹 섹션(머리글 = 그룹 이름 + 설명 + "메뉴 열기") → 타일(아이콘, 제목, 설명, 배지, 상태 "사용 가능"/"준비 중", 열기).
+- 휴대폰: 검색창 + 타일 목록.
+
+**권한**
+- 새 앱 권한 세트 2개를 BR-1에 따라 PSG에 넣는다.
+- `CMN_AppMenuController`(배포됨)는 `CMN_PS_AppQms_Read`에 있다. 새 앱 권한 세트에도 넣는다.
+
+**수용 기준**
+
+- AC-1: Given QMS_PSG_Inspector만 가진 사용자, When 앱 런처, Then `SL QMS 현장`만 보인다(SEC-001 AC-1).
+- AC-2: Given QualityEngineer가 SL QMS 콘솔에서 메뉴 허브(전체 모드) 열기, Then Apps__c에 SL_QMS_Console이 있는 그룹만 보이고, 권한 없는 타일은 없다.
+- AC-3: Given 열린 NCR To-Do 3건(1건 기한 경과), When 허브 표시, Then NCR 타일에 배지 3과 "기한 경과 1"이 표시된다.
+- AC-4: Given 접근 가능한 레코드 번호 `NCR-KR01-2027-000123`, When 검색창에 입력 후 Enter, Then 그 레코드 페이지로 이동한다. 접근 불가 번호와 없는 번호는 같은 "찾을 수 없음"이다.
+- AC-5: Given 그룹의 모든 타일에 권한이 없다, When 허브 표시, Then 그룹이 보이지 않는다.
+- AC-6: Given 허브 표시, When 서버 호출, Then 배지 집계 SOQL이 2회 이하다.
+- AC-7: Given 배포된 메뉴별 허브(QMS_02 등), When menuKey 지정 모드, Then 기존 동작과 같다(회귀).
+
+**에이전트 주의**
+- 배포된 이름(`cmnAppMenuHub`, `CMN_AppMenu__mdt`, `CMN_AppMenuItem__mdt`, `CMN_AppMenuController`)을 바꾸지 않는다. 화면 전략 원안의 `cmnMenuHub`·`CMN_MenuItem__mdt`·`QMS_MenuItem__mdt`는 이 이름으로 대체됐다.
+- 트리 메뉴를 커스텀 사이드바로 만들지 않는다.
+- 배지를 타일마다 따로 조회하지 않는다.
+
+**오픈 이슈**
+- 콘솔 라이선스 구매 범위(DS-7)를 정해야 한다.
+- 역할별로 홈 페이지를 따로 둘지, 위젯 템플릿만 달리할지 정해야 한다(TDO-004·DSH-001).
+
+### CMN-00-UX-008 현장 입력 셸
+
+추적 Q-2, Q-6, Q-12, NFR-4.4(모바일) · 필수 · W1 · SF · LWC, APEX · Customization · 선행 UX-001, UX-006, I18N-001 · 7 M/D
+
+**목적**: 수입·출하 검사, 시험 결과, 교정, 초기유동 점검처럼 태블릿으로 시료 값을 넣는 화면(T3)을 셸 하나로 통일한다. 검사원이 화면마다 다른 조작을 배우지 않게 하고, 즉시 합불 표시·바코드·사진·임시 저장을 한 번만 잘 만든다.
+
+**범위**
+- In:
+  - `cmnFieldEntryShell` LWC(전체 화면, 순차·표 모드)
+  - 입력 시트 계약 `CMN_FieldEntryProvider`와 DTO, Provider 등록 메타데이터, 컨트롤러 `CMN_FieldEntryController`
+  - 즉시 합불 미리보기(서버 확정)
+  - 바코드·사진: UX-001 `cmnBarcodeScanner`·`cmnPhotoCapture` 재사용
+  - 브라우저 임시 저장: UX-006 `cmnDraftStore`
+  - 진행률·미입력 목록
+- Out:
+  - 판정 규칙과 값 저장: 각 업무 WI의 Provider
+  - 측정기 유효성 검사: QMS-03-IQC-003 `QMS_InspectionHook`
+  - 측정기 직접 연결(블루투스): UX-001 오픈 이슈
+  - 완전 오프라인: DS-5
+
+**데이터 모델**
+
+| 객체 / 필드 | 타입 | 필수 | 설명 |
+| --- | --- | --- | --- |
+| CMN_FieldEntryProvider__mdt | Custom Metadata | — | 객체 → Provider 등록 |
+| CMN_FieldEntryProvider__mdt.ObjectApiName__c / ProviderClass__c / IsActive__c | Text(80) / Text(80) / Checkbox | Y | |
+| CMN_FieldEntry.Sheet | Apex DTO | — | header(제목, 번호, 품번, 로트, 공장, 보조 정보 라벨 키·값), items, values, editable, defaultMode(SEQUENTIAL, TABLE) |
+| CMN_FieldEntry.Item | Apex DTO | — | key, label(사용자 언어), type(VARIABLE, ATTRIBUTE, VISUAL, REPORT, TEXT), sampleQty, lsl, usl, nominal, unit, decimals, specialClass(CC, SC 기호), method, gaugeRequired, photoRequiredOnNg, referenceDocId(한도견본·작업표준), sequence |
+| CMN_FieldEntry.Value | Apex DTO | — | itemKey, sampleNo, numValue, okNg(OK, NG), text, photoIds, gaugeNo |
+| CMN_FieldEntry.SaveResult | Apex DTO | — | itemResults(itemKey → PASS, FAIL, INCOMPLETE), overall, errors(itemKey·sampleNo별 메시지), nextActionLabel |
+
+**서비스 API**
+
+    public interface CMN_FieldEntryProvider {
+        CMN_FieldEntry.Sheet load(Id recordId);
+        CMN_FieldEntry.SaveResult save(Id recordId, List<CMN_FieldEntry.Value> values, Boolean isFinal);
+        String validateScan(Id recordId, String scanType, String value);   // LOT, GAUGE. 오류 라벨 키 또는 null
+    }
+
+**비즈니스 규칙**
+
+- BR-1: 진입. 셸은 화면 탭(앱 페이지, 상태 매개변수 `c__recordId`) 또는 레코드 페이지의 LWC 화면 액션으로 연다.
+  - 컨트롤러는 레코드 객체의 Provider를 `CMN_FieldEntryProvider__mdt`에서 찾아 `Type.forName`으로 만든다. 등록이 없으면 오류 라벨을 보인다.
+  - 레코드 접근은 Provider가 USER_MODE로 확인한다.
+- BR-2: 순차 모드. 휴대폰·태블릿의 기본이다. 한 화면에 항목 1개 × 시료 1개를 보여준다.
+  - 입력: 큰 숫자 입력(`inputmode="decimal"`), OK/NG 큰 버튼, 다음·이전.
+  - 즉시 합불:
+    - VARIABLE: 값을 `decimals` 자리로 반올림한 뒤 LSL ≤ 값 ≤ USL이면 합격(경계 포함, 한쪽 규격만 있으면 그쪽만 본다).
+    - ATTRIBUTE·VISUAL: NG면 불합격.
+    - 결과는 텍스트와 아이콘으로 보인다.
+  - 다음 시료로 넘어가는 데 서버 호출이 없다(0.3초 이내).
+- BR-3: 표 모드. 데스크톱의 기본이다. 행 = 항목, 열 = 시료다.
+  - 세로 붙여넣기: 엑셀 값 목록을 선택한 항목의 시료 1~n에 넣는다.
+  - 모드 전환은 입력값을 잃지 않는다.
+- BR-4: 저장.
+  - 입력할 때마다 브라우저에 임시 저장한다(`cmnDraftStore`, 키 = 사용자 + 레코드).
+  - 항목 하나를 다 입력하면 서버 중간 저장(`isFinal=false`)을 한다.
+  - "판정 확정"은 최종 저장(`isFinal=true`)이다. Provider가 판정과 후속 처리(NCR 게이트웨이 등)를 한다.
+  - 서버 판정이 화면 미리보기와 다르면 서버 결과를 보이고 차이 항목을 강조한다.
+- BR-5: 통신 끊김.
+  - 저장이 실패해도 입력은 계속할 수 있다. 저장 버튼에 "전송 대기 n건"을 표시한다.
+  - 연결이 돌아오면 사용자가 다시 저장한다. 자동 재전송은 하지 않는다(중복 판정 방지).
+  - 임시 저장은 최종 저장에 성공하면 지우고, 7일이 지나면 지운다.
+  - 다른 기기에서 이어서 입력하는 것은 서버 중간 저장분으로만 지원한다.
+- BR-6: 바코드. 로트·측정기 번호 칸 옆에 스캔 버튼을 둔다.
+  - 모바일 앱에서만 스캔하고, 웹에서는 수동 입력이다.
+  - 값은 Provider `validateScan`으로 확인한다. 측정기는 IQC-003 훅이 교정 유효성을 본다.
+- BR-7: 사진. VISUAL 항목이나 `photoRequiredOnNg` 항목에서 NG를 고르면 사진이 1장 이상 있어야 최종 저장이 된다.
+  - 촬영·축소(장변 1920px)는 UX-001 컴포넌트를 쓴다.
+  - 저장 위치(DocClass)는 Provider가 정한다.
+- BR-8: 진행률과 미입력. 상단에 진행률(입력 시료/전체)을 보이고 "미입력만 보기"를 제공한다. 최종 저장 전에는 미입력 목록을 보여준다.
+- BR-9: 화면.
+  - 터치 영역은 SLDS 큰 버튼 변형을 쓴다.
+  - 특별특성 기호(CC/SC)를 항목 이름 옆에 표시한다.
+  - 기준 문서(한도견본) 열기 링크를 둔다.
+  - 라이트·다크 테마 모두에서 대비를 확보한다.
+
+**화면/UX**: 화면 유형 T3.
+- 화면 순서: 상단(헤더 정보, 진행률, 모드 전환, 미입력만 보기) → 본문(순차 카드 또는 표) → 하단 고정(이전, 다음, 임시 저장 상태, 판정 확정).
+- `formFactors` Small·Large를 모두 지원한다.
+
+**권한**
+- `CMN_PS_UiFramework_User`에 `CMN_FieldEntryController`를 더한다.
+- 편집 가능 여부(`Sheet.editable`)는 Provider가 정한다(UX-005 COMPONENT 규칙 사용 권장).
+
+**수용 기준**
+
+- AC-1: Given VARIABLE 항목 LSL 1.0·USL 2.0·소수 2자리, When 2.05 입력, Then 즉시 불합격 텍스트와 아이콘. 2.004 입력은 합격(반올림 2.00).
+- AC-2: Given 순차 모드, When 다음 시료, Then 서버 호출 없이 전환된다(Jest에서 Apex 호출 0회).
+- AC-3: Given 입력 중 페이지 새로 고침, When 다시 열기, Then 입력값 복원 여부를 묻는다.
+- AC-4: Given 세로 값 5개 붙여넣기, When 표 모드, Then 시료 1~5에 순서대로 들어간다.
+- AC-5: Given NG + 사진 필수 항목에 사진 없음, When 판정 확정, Then 차단과 미충족 목록.
+- AC-6: Given 서버 판정이 화면 미리보기와 다르다, When 판정 확정, Then 서버 결과를 보이고 차이 항목을 강조한다.
+- AC-7: Given `Sheet.editable = false`, When 열기, Then 읽기 전용(입력·저장 버튼 없음).
+- AC-8: Given 저장 실패(네트워크 오류 모의), When 계속 입력, Then 입력이 가능하고 "전송 대기" 표시, 자동 재전송 호출은 0회다.
+
+**에이전트 주의**
+- 측정값을 시료마다 레코드로 만들지 않는다. Provider가 항목별 JSON 묶음 등으로 저장한다(Vol.0 3절).
+- 셸 안에 업무별 분기(if IQC …)를 넣지 않는다.
+- 판정 규칙을 셸에 두지 않는다. 미리보기는 규격 비교만 한다.
+- 표 모드를 별도 그리드(UX-006)로 만들지 않는다. 시료 열 구조라 셸 내부 표다.
+
+**오픈 이슈**
+- 현장 태블릿 기종·OS·화면 크기와 장갑 사용 여부(터치 영역 크기)를 SL에 확인해야 한다.
+- 블루투스 측정기 연결 요구가 있는지 확인해야 한다(UX-001).
+
+### CMN-00-UX-009 체크리스트 수행 화면
+
+추적 Q-30, Q-31, Q-32, Q-2 · 필수 · W1 · SF · LWC, APEX · Customization · 선행 UX-001, UX-004, UX-006, MTG-001 · 6 M/D
+
+**목적**: 내부·협력사·고객 심사, 고객 심사 준비 자체 평가, 레슨런 체크리스트, PMS Gate 점검처럼 "질문 목록에 점수·적합 여부·관찰·증빙을 남기고 결과를 계산하는" 화면(T4)을 공통 부품 하나로 만든다.
+- 질문지·점수 규칙 데이터는 그 업무를 가진 메뉴가 갖는다. QMS 심사는 Vol.6c IAU-001(질문지·등급 규칙), IAU-003(점수 서비스), CAU-002(VDA 6.3 계산기)다.
+- 이 WI는 수행 화면과 계약만 만든다. 화면 전략 원안의 "체크리스트 평가 엔진"에서 질문지 마스터와 점수 계산을 뺀 범위다(Vol.6c와 중복 방지).
+
+**범위**
+- In:
+  - `cmnChecklistRunner` LWC, 계약 `CMN_ChecklistProvider`와 DTO, Provider 등록 메타데이터, 컨트롤러 `CMN_ChecklistController`
+  - 요소 탐색·진행률·내 분담 필터
+  - 답 유형별 입력, NA·사유, 관찰 메모, 사진·파일
+  - 점수 미리보기 표시(계산은 Provider)
+  - 후속 조치 생성: 기본 구현 = `CMN_ActionItem__c`
+  - 태블릿 순차 모드, 브라우저 임시 저장
+- Out:
+  - 질문지 마스터·버전·등급·강등 규칙·점수 계산: Vol.6c IAU-001, IAU-003, CAU-002
+  - 심사 지적 사항 객체: IAU-004
+  - 증빙 패널: IAU-005
+  - PMS Gate Provider: PMS Vol.
+
+**데이터 모델**
+
+| 객체 / 필드 | 타입 | 필수 | 설명 |
+| --- | --- | --- | --- |
+| CMN_ChecklistProvider__mdt | Custom Metadata | — | 객체 → Provider 등록 |
+| CMN_ChecklistProvider__mdt.ObjectApiName__c / ProviderClass__c / IsActive__c | Text(80) / Text(80) / Checkbox | Y | |
+| CMN_Checklist.Sheet | Apex DTO | — | header, sections(key, label, 진행률), questions, answers, editable, scoreVisible |
+| CMN_Checklist.Question | Apex DTO | — | key, sectionKey, no, text(사용자 언어), guidance, isStar, answerType(SCORE_STEPS, POINTS, COMPLIANCE, YES_NO, DEFECT_CLASS, TEXT), allowedScores, maxPoints, allowNa, noteRequiredAtOrBelow, assignedToId |
+| CMN_Checklist.Answer | Apex DTO | — | questionKey, points, compliance, yesNo, sampleQty, defectA, defectB, defectC, text, isNa, naReason, notes, photoIds, followUpId |
+| CMN_Checklist.ScorePreview | Apex DTO | — | percent, grade, gradeBeforeDowngrade, downgradeReasons, sectionPercents, unansweredCount |
+
+**서비스 API**
+
+    public interface CMN_ChecklistProvider {
+        CMN_Checklist.Sheet load(Id recordId);
+        CMN_Checklist.SaveResult saveAnswers(Id recordId, List<CMN_Checklist.Answer> answers, Boolean isFinal);
+        CMN_Checklist.ScorePreview preview(Id recordId);
+        Id raiseFollowUp(Id recordId, String questionKey, CMN_Checklist.FollowUpInput input);
+    }
+
+**비즈니스 규칙**
+
+- BR-1: 화면.
+  - 요소 목록과 진행률을 태블릿 가로에서는 왼쪽, 휴대폰에서는 상단 선택 목록으로 둔다.
+  - 본문은 질문 카드다. 카드 구성: 번호, 별표 표시, 질문, 안내(접기), 답 입력, NA, 관찰 메모, 사진·파일, "후속 조치" 버튼.
+  - 데스크톱에는 질문 행 표 보기를 더한다(같은 데이터).
+- BR-2: 답 유형별 입력.
+  - SCORE_STEPS: `allowedScores` 값만 버튼으로 둔다(점수 단계는 질문지 데이터가 정한다).
+  - POINTS: 0~maxPoints 숫자.
+  - COMPLIANCE: 적합/부적합.
+  - YES_NO: 예/아니오.
+  - DEFECT_CLASS: 시료 수와 결함 A·B·C 수.
+  - TEXT: 서술.
+- BR-3: 필수 입력 규칙. 판단은 Provider가 하고 셸은 표시만 한다.
+  - 점수가 `noteRequiredAtOrBelow` 이하이거나 부적합이면 관찰 메모가 필수다.
+  - 그때 후속 조치를 만들지 않으면 사유를 받는다(IAU-003 BR-2와 같은 규칙).
+  - Provider가 `saveAnswers` 오류(질문 키별)로 돌려주면 셸이 해당 카드에 보인다.
+- BR-4: 점수 미리보기. "점수 보기" 패널에 Provider `preview` 결과를 보인다: 전체·요소별 달성률, 강등 전·후 등급, 강등 사유, 미답 수.
+  - 셸은 점수를 계산하지 않는다.
+  - 저장하지 않은 답이 있으면 중간 저장을 먼저 한다.
+  - `scoreVisible=false`(예: 피심사 측)면 패널을 숨긴다.
+- BR-5: 후속 조치. "후속 조치"를 누르면 제목, 내용, 담당, 기한, 심각도를 입력받아 Provider `raiseFollowUp`을 호출한다.
+  - 기본 구현 `CMN_ChecklistDefaultProvider.raiseFollowUp`은 MTG-001 조치 항목 서비스(`CMN_ActionItemService`)로 `CMN_ActionItem__c`를 만든다. 원천 레코드 Id와 질문 키를 남긴다.
+  - QMS 심사 Provider는 IAU-004 지적 객체를 만든다.
+- BR-6: 내 분담. "내 분담만"을 켜면 `assignedToId`가 현재 사용자인 질문만 보인다. 분담이 없는 질문은 모두에게 보인다.
+- BR-7: 저장·임시 저장·통신 끊김은 UX-008 BR-4·BR-5와 같은 방식이다(`cmnDraftStore`, 항목 묶음 완료 시 중간 저장, 최종 저장, 자동 재전송 없음).
+- BR-8: 질문 문구. 셸은 Provider가 준 문구만 보인다.
+  - 라이선스 원문 질문(VDA 6.3 등)은 라이선스 확인 플래그가 있을 때만 Provider가 준다(Vol.6c D6C-2, DS-6). 없으면 SL 자체 문구를 준다.
+- BR-9: 다음 질문으로 넘어가는 데 서버 호출이 없다. 사진은 UX-001 축소 업로드를 쓴다.
+
+**화면/UX**: 화면 유형 T4.
+- 화면 순서: 상단(심사·대상 정보, 진행률, 내 분담만, 점수 보기) → 요소 목록 → 질문 카드 → 하단 고정(이전, 다음, 임시 저장 상태, 제출).
+- 셸은 T1 레코드 페이지의 "현재 단계" 탭이나 전체 화면 탭으로 연다.
+
+**권한**
+- `CMN_PS_UiFramework_User`에 `CMN_ChecklistController`를 더한다.
+- 답 저장 권한은 Provider가 레코드 권한과 UX-005 규칙으로 판정한다.
+
+**수용 기준**
+
+- AC-1: Given SCORE_STEPS 질문(allowedScores 0, 4, 6, 8, 10 — 테스트 값), When 카드 표시, Then 점수 버튼 5개이고 다른 값은 입력할 수 없다.
+- AC-2: Given 테스트 Provider가 4점 이하 관찰 필수, When 4점·관찰 없음으로 최종 저장, Then 해당 질문 카드에 오류가 표시되고 저장되지 않는다.
+- AC-3: Given 기본 Provider, When 후속 조치 생성, Then `CMN_ActionItem__c` 1건(원천 레코드 Id·질문 키 포함).
+- AC-4: Given 미답 3건, When 점수 보기, Then 미답 3과 Provider 계산 결과가 표시된다(셸 계산 없음).
+- AC-5: Given 순차 모드, When 다음 질문, Then Apex 호출 0회(Jest).
+- AC-6: Given allowNa = false, When 카드 표시, Then NA 버튼이 없다. allowNa = true에서 NA 선택 + 사유 없음은 저장 차단.
+- AC-7: Given 내 분담만 켜기, When 표시, Then 다른 심사원에게 분담된 질문은 보이지 않는다.
+
+**에이전트 주의**
+- 질문지·점수 객체를 CMN에 새로 만들지 않는다(Vol.6c 소유).
+- 점수 계산을 LWC나 이 WI의 Apex에 넣지 않는다.
+- VDA 등 라이선스 문구를 테스트·데모 데이터에 넣지 않는다.
+
+**오픈 이슈**
+- 계층별 공정 심사(LPA)를 별도 기능으로 둘지 SL에 확인해야 한다(이 셸과 Provider로 수용 가능).
+- PMS Gate 점검의 적용 시점은 PMS Vol.에서 정한다.
 
 ## 9. CMN-00-APV 결재
 
@@ -867,6 +1592,10 @@ QMS RFP 45개 요구 중 15개가 PMS RFP와 같은 기능이거나 같은 엔�
 - BR-1: 결재자 추가 검색은 이름·사번·부서명으로 하며 비활성 사용자는 검색 결과에서 제외.
 - BR-2: 상신 버튼은 대상 레코드가 업무 WI에서 정의한 상신 가능 상태일 때만 활성(`CMN_ApprovalCallback`의 선택 메서드 `canSubmit(targetId)`가 판정, 미구현 시 항상 true).
 - BR-3: 진행 중 체류일수 = 현재 PENDING 단계 시작 이후 경과 일수(공장 시간대·영업일 기준은 오픈 이슈, 기본은 달력일).
+- BR-4: 업무 레코드 표준(UX-004)에서 결재는 결정 지원 레일의 APPROVAL 패널이다.
+  - `cmnApprovalLine`은 레일 패널 계약(UX-004 BR-6)을 지킨다: `@api config`·`@api variant`를 받고, `variant="rail"`이면 결재선 요약(현재 단계·결재자·체류일수)과 상신·회수 버튼만 보인다. 결재선 편집은 모달로 연다.
+  - 대기 건수는 `railbadge` 이벤트로 알린다.
+  - `cmnApprovalHistory`는 레코드 페이지의 "이력" 탭에 둔다.
 
 **수용 기준**
 
@@ -1033,6 +1762,7 @@ RFP는 QMS·PMS 모두 “메인 화면 = To-Do 기준, 포탈에 업무/결재 
 - BR-1: `SL QMS`·`SL PMS` 앱 홈 = Lightning App Page. 상단 `cmnTodoList`(탭: 업무 / 결재, 건수 배지, 기한 경과 빨간 표시, 시스템 필터), 하단 `cmnWidgetBoard`(DSH-001).
 - BR-2: `cmnTodoList` 항목 클릭 = TargetRecordId 레코드 페이지(결재는 결재 요청 레코드). 한 화면 20건, 더 보기.
 - BR-3: 모바일은 To-Do 목록만 표시하고 위젯은 “대시보드” 탭으로 분리.
+- BR-4: 화면 유형 T8. 홈은 사내 QMS 앱 세 개(SL QMS 콘솔, SL QMS, SL QMS 현장)가 같은 페이지를 쓴다(UX-007). SL QMS 현장에서는 위젯 보드를 휴대폰과 같이 숨긴다.
 
 **수용 기준**
 
@@ -1117,6 +1847,10 @@ RFP는 QMS·PMS 모두 “메인 화면 = To-Do 기준, 포탈에 업무/결재 
 - BR-7: 양식 다운로드는 사용자 언어 → en_US → ko 순으로 CMN_DocTemplate__c를 찾는다.
 
 **화면**: `cmnDocumentPanel`(속성: allowedDocClasses, required DocClass 목록) — DocClass별 최신 리비전, 리비전 이력, 업로드(드래그·다중), 링크 등록, 양식 다운로드, 비교 버튼(AI-003).
+- 업무 레코드 표준(UX-004)에서는 결정 지원 레일의 DOCUMENT 패널이다.
+- 레일 패널 계약(UX-004 BR-6)을 지킨다: allowedDocClasses·required는 `@api config`로도 받는다.
+- `variant="rail"`이면 DocClass별 최신 리비전 목록과 업로드 버튼만 보이고, 리비전 이력은 모달로 연다.
+- 필수 문서 누락 수는 `railbadge`로 알린다.
 
 **수용 기준**
 
@@ -1487,6 +2221,10 @@ AI 요구는 QMS 6개(Q-35~40), PMS 5개(P-58~62)다. 공통 원칙 세 가지: 
 - BR-1: 서비스 `CMN_AiRecommendationService.record(useCase, sourceId, List<Rec>)`, `decide(recId, status, reasonCode)`, `finalize(sourceId, useCase, outcomeJson, CMN_AiHitRule rule)`. 일치 규칙(`CMN_AiHitRule`)은 업무 WI가 구현(예: RCA는 원인 코드 3레벨 일치).
 - BR-2: 같은 대상에 재추천하면 이전 PROPOSED는 EXPIRED.
 - BR-3: 공통 LWC `cmnAiRecommendationList` — 순위·근거·출처 링크 표시, 채택/수정 채택/제외(사유 필수) 버튼.
+  - 업무 레코드 표준(UX-004)에서는 결정 지원 레일의 AI 패널(기본 펼침)이다.
+  - 레일 패널 계약(UX-004 BR-6)을 지킨다: UseCase는 `@api config`로 받는다. `variant="rail"`이면 카드 3개까지 보이고 나머지는 "더 보기"로 연다.
+  - 새 추천(PROPOSED) 수는 `railbadge`로 알린다.
+  - AI 결과를 본문 필드에 직접 쓰지 않는다. 채택하면 업무 WI의 서비스가 반영한다.
 - BR-4: 정확도 KPI — Snowflake에서 UseCase·월·공장별 Top-1·Top-3 적중률, 채택률을 계산해 CMN_KpiValue__c(`AI_HIT_TOP1`, `AI_HIT_TOP3`, `AI_ADOPT_RATE`)로 전달(DWH-003).
 - BR-5: 확정(IsHit 평가 완료)된 사례는 해당 UseCase 검색 소스의 “검증된 사례”로 가중치를 높인다(가중치 규칙은 각 UseCase WI가 정의).
 
@@ -1517,20 +2255,20 @@ AI 요구는 QMS 6개(Q-35~40), PMS 5개(P-58~62)다. 공통 원칙 세 가지: 
 
 ## 14. 검토 요청
 
-Vol.0 공통 메뉴는 **43개 워크아이템, 개발 공수 약 191 M/D**(AI 코딩 보조 기준, 분석·통합테스트 제외)다. W0 26개는 QMS·PMS 어느 메뉴든 착수 전에 끝나야 하는 기반이다.
+Vol.0 공통 메뉴는 **49개 워크아이템, 개발 공수 약 226 M/D**(AI 코딩 보조 기준, 분석·통합테스트 제외)다. W0 28개는 QMS·PMS 어느 메뉴든 착수 전에 끝나야 하는 기반이다. 2026-11-05 화면 전략(`screen-strategy.md`)에 따라 공통 화면 부품 UX-004~009 6개(35 M/D)를 더했다.
 
 | 기능코드            | WI 수 | 공수(M/D) | W0  | W1  | W2  |
 |---------------------|-------|-----------|-----|-----|-----|
 | ARC 개발 기반       | 3     | 12        | 3   | 0   | 0   |
 | MDM 기준정보        | 7     | 19        | 7   | 0   | 0   |
 | SEC 권한·보안       | 4     | 16        | 4   | 0   | 0   |
-| I18N·UX 다국어·화면 | 4     | 16        | 2   | 1   | 1   |
+| I18N·UX 다국어·화면 | 10    | 51        | 4   | 5   | 1   |
 | APV 결재            | 5     | 26        | 2   | 2   | 1   |
 | TDO·NTF To-Do·알림  | 5     | 20        | 3   | 2   | 0   |
 | DOC·DSH·MTG         | 3     | 19        | 1   | 1   | 1   |
 | INT·DWH 연계·DW     | 7     | 36        | 4   | 2   | 1   |
 | AI 공통             | 5     | 27        | 0   | 2   | 3   |
-| 합계                | 43    | 191       | 26  | 10  | 7   |
+| 합계                | 49    | 226       | 28  | 14  | 7   |
 
 **검토 시 결정이 필요한 항목** (결정 결과에 따라 해당 WI의 BR을 고친 뒤 마스터 파일로 이관한다)
 
@@ -1544,6 +2282,17 @@ Vol.0 공통 메뉴는 **43개 워크아이템, 개발 공수 약 191 M/D**(AI �
 - [ ] D-8 임직원 전원 CMN_Employee__c 동기화 + 라이선스 사용자만 User 생성 방식 — INT-002
 - [ ] D-9 공장 데이터 격리 수준: 해외 공장 사용자의 타 공장 조회 전면 차단이 맞는지 — SEC-002
 - [ ] D-10 AI “학습”의 정의(재학습이 아닌 확정 사례 재사용)를 제안서 표현으로 수용하는지 — AI-004
+
+**화면 전략 결정**(`screen-strategy.md` 13절. 자율 진행 지시에 따라 권고안으로 반영·개발하고 검토 때 확정)
+
+- [ ] DS-1 사용자 두 계층 앱 구조(전문가 콘솔 / 참여자 표준 / 현장 / 포털 / 관리) — SEC-001 BR-4, UX-007. 권고: 승인(반영함)
+- [ ] DS-2 Cosmos(SLDS 2) 기준 개발, 협력사 포털만 SLDS 1 기준 검수 — 3.4절, UX-004 BR-10. 권고: 승인(반영함)
+- [ ] DS-3 공통 화면 WI 6개(UX-004~009, 35 M/D) 추가와 Vol.2 공수 조정(DVQ-004 7→4, DVQ-007 7→5) — 권고: 승인(반영함)
+- [ ] DS-4 트리 메뉴 대신 메뉴 허브 + 앱당 8개 이내 내비게이션 — UX-007. 권고: 승인(반영함)
+- [ ] DS-5 현장 오프라인 입력 범위(브라우저 임시 저장만 / 완전 오프라인) — UX-008 BR-5. 권고: 브라우저 임시 저장만
+- [ ] DS-6 VDA 6.3 질문지 원문 라이선스 확보 주체(SL / DKBMC) — Vol.6c D6C-2와 같은 결정. 권고: SL
+- [ ] DS-7 Lightning Console 권한 집합 라이선스 구매 범위 — UX-007 BR-9. 권고: 결정 전까지 표준 내비게이션으로 개발
+- [ ] DS-8 여러 고객 클레임 병합(대표 클레임 + 8D 1개) 기능 추가 — Vol.5 CLM 변경 요청. 권고: 추가(W2)
 
 **SL 확인이 필요한 사실 정보**: 포탈 IdP·SAML 속성과 To-Do 연동 방식(Pull/Push), HR 연계 방식, SAP 자재 유형 코드, 현행 업무 번호 체계, OEM별 CSR(클레임 기한·양식), 관리계획서 원천 도구, Snowflake 리전.
 

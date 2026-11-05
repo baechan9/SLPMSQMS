@@ -17,6 +17,12 @@ CMN-00-I18N-001,CMN,00 공통,I18N 다국어,다국어 기반(UI 언어·마스�
 CMN-00-UX-001,CMN,00 공통,UX 화면 공통,모바일·멀티 브라우저 지원,"Q-2, P-2, NFR-4.4(모바일)",권장,W1,SF,"CFG, LWC",OOTB,SEC-001,3,vol0,검토 대기
 CMN-00-UX-002,CMN,00 공통,UX 화면 공통,화면별 사용 가이드,"Q-3, P-3",권장,W2,SF,"DM, LWC",Customization,I18N-001,3,vol0,검토 대기
 CMN-00-UX-003,CMN,00 공통,UX 화면 공통,공통 UI 컴포넌트(상태 진행바·코멘트 타임라인),"P-47, Q-29, Q-13 (진행 추적)",필수,W0,SF,"DM, LWC, APEX",Customization,"I18N-001, ARC-002",5,vol0,검토 대기
+CMN-00-UX-004,CMN,00 공통,UX 화면 공통,업무 레코드 작업공간 템플릿·결정 지원 레일,"Q-2, Q-29, P-47, NFR-4.4(모바일)",필수,W0,SF,"LWC, APEX, CFG",Customization,"UX-003, DSH-001, I18N-001",6,vol0,검토 대기
+CMN-00-UX-005,CMN,00 공통,UX 화면 공통,상태·권한 화면 제어 매트릭스,"NFR-4.2(RBAC), Q-29, P-47",필수,W0,SF,"DM, APEX, CFG",Customization,"UX-003, UX-004, SEC-001",5,vol0,검토 대기
+CMN-00-UX-006,CMN,00 공통,UX 화면 공통,공통 편집 그리드,"Q-4, Q-5, Q-24, Q-25, Q-30",필수,W1,SF,"DM, LWC, APEX",Customization,"UX-004, UX-005, I18N-001, MDM-007",7,vol0,검토 대기
+CMN-00-UX-007,CMN,00 공통,UX 화면 공통,앱 구성·메뉴 허브,"Q-41, P-63, Q-2, NFR-4.2(RBAC)",필수,W1,SF,"CFG, LWC, APEX",Tailoring,"SEC-001, TDO-001, TDO-004, ARC-003",4,vol0,검토 대기
+CMN-00-UX-008,CMN,00 공통,UX 화면 공통,현장 입력 셸,"Q-2, Q-6, Q-12, NFR-4.4(모바일)",필수,W1,SF,"LWC, APEX",Customization,"UX-001, UX-006, I18N-001",7,vol0,검토 대기
+CMN-00-UX-009,CMN,00 공통,UX 화면 공통,체크리스트 수행 화면,"Q-30, Q-31, Q-32, Q-2",필수,W1,SF,"LWC, APEX",Customization,"UX-001, UX-004, UX-006, MTG-001",6,vol0,검토 대기
 CMN-00-APV-001,CMN,00 공통,APV 결재,결재 데이터 모델·상태 엔진·서비스 API,"Q-43, P-65, P-38",필수,W0,SF,"DM, APEX",Customization,"ARC-002, ARC-003, SEC-002",8,vol0,검토 대기
 CMN-00-APV-002,CMN,00 공통,APV 결재,결재선 템플릿·CFT Role 매핑,"Q-43, Q-44, P-65, P-66",필수,W0,SF,"DM, APEX",Customization,"APV-001, MDM-007",6,vol0,검토 대기
 CMN-00-APV-003,CMN,00 공통,APV 결재,결재 상신·처리·이력 UI,"Q-44, P-66, P-68",필수,W1,SF,"LWC, APEX",Customization,"APV-002, UX-001",6,vol0,검토 대기
@@ -45,10 +51,10 @@ CMN-00-AI-005,CMN,00 공통,AI AI,자연어 데이터 Q&A 프레임워크,"Q-39,
 QMS-02-DVQ-001,QMS,02 개발 품질,DVQ 인정시험,시험 항목 라이브러리,"Q-4, Q-5",필수,W1,SF,"DM, LWC",Tailoring,"MDM-001, MDM-007, I18N-001, SEC-001",4,vol2,검토 대기
 QMS-02-DVQ-002,QMS,02 개발 품질,DVQ 인정시험,시험 기준 템플릿(필수 시험 매트릭스),"Q-4, Q-5, Q-19, Q-20",필수,W1,SF,"DM, APEX, LWC",Customization,"DVQ-001, MDM-003, MDM-004",5,vol2,검토 대기
 QMS-02-DVQ-003,QMS,02 개발 품질,DVQ 인정시험,인정시험 계획 데이터 모델·상태 규칙,"Q-4, Q-5",필수,W1,SF,"DM, APEX",Customization,"DVQ-001, ARC-003, SEC-002, SEC-003, UX-003",6,vol2,검토 대기
-QMS-02-DVQ-004,QMS,02 개발 품질,DVQ 인정시험,계획 생성 마법사·라인 편집 그리드,"Q-4, Q-5",필수,W1,SF,"LWC, APEX",Customization,"DVQ-002, DVQ-003, UX-001",7,vol2,검토 대기
+QMS-02-DVQ-004,QMS,02 개발 품질,DVQ 인정시험,계획 생성 마법사·라인 편집 그리드,"Q-4, Q-5",필수,W1,SF,"LWC, APEX",Customization,"DVQ-002, DVQ-003, UX-001, UX-004, UX-006",4,vol2,검토 대기
 QMS-02-DVQ-005,QMS,02 개발 품질,DVQ 인정시험,계획 결재와 트리거 연계 서비스,"Q-4, Q-5, Q-19, Q-20, P-21",필수,W1,SF,"APEX, CFG",Customization,"DVQ-003, APV-001, APV-002, TDO-001",5,vol2,검토 대기
 QMS-02-DVQ-006,QMS,02 개발 품질,DVQ 인정시험,시험 의뢰·접수·진행 관리,"Q-4, Q-5",필수,W1,SF,"DM, APEX, LWC",Customization,"DVQ-005, APV-002(Role), NTF-001",6,vol2,검토 대기
-QMS-02-DVQ-007,QMS,02 개발 품질,DVQ 인정시험,시험 결과 입력·항목 판정·불합격 처리,"Q-4, Q-5, Q-21, Q-22",필수,W1,SF,"LWC, APEX",Customization,"DVQ-006, DOC-001, UX-001",7,vol2,검토 대기
+QMS-02-DVQ-007,QMS,02 개발 품질,DVQ 인정시험,시험 결과 입력·항목 판정·불합격 처리,"Q-4, Q-5, Q-21, Q-22",필수,W1,SF,"LWC, APEX",Customization,"DVQ-006, DOC-001, UX-001, UX-008",5,vol2,검토 대기
 QMS-02-DVQ-008,QMS,02 개발 품질,DVQ 인정시험,종합 판정·양산 적용 결정,"Q-4, Q-5(""양산 적용 가능 여부 판정""), Q-15, P-21",필수,W1,SF,"LWC, APEX, CFG",Customization,"DVQ-007, APV-001",5,vol2,검토 대기
 QMS-02-DVQ-009,QMS,02 개발 품질,DVQ 인정시험,DVP&R 보고서 생성(PDF·Excel),"Q-4, Q-5, Q-15, Q-32",필수,W2,SF,"APEX, LWC, CFG",Customization,"DVQ-008, DOC-001",5,vol2,검토 대기
 QMS-02-DVQ-010,QMS,02 개발 품질,DVQ 인정시험,협력사 시험 성적서 제출·검토(부품),"Q-4, Q-6, Q-8, NFR-4.2(협력사 격리)",필수,W2,"EXP, SF","DM, LWC, APEX",Customization,"DVQ-007, QMS-03-SPP-001(협력사 포털 기반)",6,vol2,검토 대기

@@ -231,14 +231,15 @@ Vol.2는 QMS RFP 개발 품질 모듈의 **Q-4 부품 인정시험, Q-5 제품 �
 
 ### QMS-02-DVQ-004 계획 생성 마법사·라인 편집 그리드
 
-추적 Q-4, Q-5 · 필수 · W1 · SF · LWC, APEX · Customization · 선행 DVQ-002, DVQ-003, UX-001 · 7 M/D
+추적 Q-4, Q-5 · 필수 · W1 · SF · LWC, APEX · Customization · 선행 DVQ-002, DVQ-003, UX-001, UX-004, UX-006 · 4 M/D
 
-**화면 구성**
+**화면 구성** — 화면 유형 T1 + T2. 계획 레코드는 UX-004 레코드 표준, 라인은 UX-006 공통 편집 그리드를 쓴다(2026-11-05 화면 전략, 공수 7 → 4).
 
 | 컴포넌트          | 위치                   | 기능                                                                           |
 |-------------------|------------------------|--------------------------------------------------------------------------------|
 | qmsQualPlanWizard | 새로 만들기 오버라이드 | 1단계 기본정보 → 2단계 기준 세트 선택 → 3단계 라인 미리보기·편집 → 저장(DRAFT) |
-| qmsQualPlanGrid   | 계획 레코드 페이지     | 라인 그리드(인라인 편집), 라이브러리에서 추가, 삭제/면제, 일정 막대 보기 토글  |
+| 라인 그리드 `cmnEditableGrid`(gridKey `QMS_QualPlanLine`) | 계획 레코드 페이지 "현재 단계" 탭 | 라인 인라인 편집, 삭제/면제, 붙여넣기, 일정 막대 보기(UX-006). 열 정의는 메타데이터 레코드, 업무 규칙은 Provider `QMS_QualPlanLineGridProvider` |
+| qmsQualPlanLibraryPicker | 계획 레코드 페이지(그리드 위 버튼) | 시험 항목 라이브러리에서 골라 라인 추가(모달) → 그리드 새로 고침(UX-006 BR-10) |
 | qmsQualPlanCopy   | 계획 레코드 액션       | 이전 계획 복사(같은 품번 또는 같은 PartCategory 계획 검색)                     |
 
 **비즈니스 규칙**
@@ -255,13 +256,23 @@ Vol.2는 QMS RFP 개발 품질 모듈의 **Q-4 부품 인정시험, Q-5 제품 �
 
 - BR-6: 계획 복사는 라인 구성(시험 항목·시료 수·수행 주체)만 복사하고 일정은 BR-3으로 다시 계산한다. 결과·시료 데이터는 복사하지 않는다.
 
-- BR-7: 모바일에서는 그리드를 읽기 전용 카드 목록으로 표시한다.
+- BR-7: 모바일에서는 그리드를 읽기 전용 카드 목록으로 표시한다(UX-006 BR-7).
+
+- BR-8: 라인 그리드 설정(UX-006).
+  - 열(순서): 시험 항목(읽기), 필수(읽기), 수행 주체, 수행 부서/외부 기관, 시료 수, 계획 시작, 계획 종료, 담당(Executor), 상태(읽기), 면제 사유.
+  - 일정 막대: 계획 시작~계획 종료.
+  - 편집 가능: UX-005 COMPONENT 규칙 `QMS_QualPlanLineGrid`, 계획 상태 DRAFT에서만.
+  - Provider `QMS_QualPlanLineGridProvider`가 구현하는 것:
+    - (a) `rowMeta`: BR-3 경고 행(계획 시작 < 오늘), BR-4 필수 라인 삭제 불가(면제 사유 열로만 면제).
+    - (b) `validate`: BR-5 상신 전 검증과 같은 규칙. 상신 서비스(DVQ-005)도 같은 메서드를 호출한다.
+    - (c) `defaults`: BR-3 자동 일정.
+  - 메뉴 전용 그리드 LWC를 만들지 않는다.
 
 **수용 기준**
 
 - AC-1: Given BMW 헤드램프 품번, When 마법사 2단계, Then BMW NEW_DEV 세트가 1순위.
 
-- AC-2: Given 필수 라인, When 삭제 버튼, Then 면제 사유 입력 창이 열리고 삭제되지 않는다.
+- AC-2: Given 필수 라인, When 그리드에서 행 삭제 시도, Then 삭제가 막히고 "면제 사유를 입력하세요" 안내가 보이며, 면제 사유를 넣고 저장하면 WAIVED로 남는다(삭제되지 않음).
 
 - AC-3: Given TargetDate 30일 후, 소요 40일 항목, When 생성, Then 해당 라인 빨간 표시.
 
@@ -350,15 +361,19 @@ QMS_QualStatusDTO getStatusBySource(Id sourceId) // 원천 화면 표시용
 
 ### QMS-02-DVQ-007 시험 결과 입력·항목 판정·불합격 처리
 
-추적 Q-4, Q-5, Q-21, Q-22 · 필수 · W1 · SF · LWC, APEX · Customization · 선행 DVQ-006, DOC-001, UX-001 · 7 M/D
+추적 Q-4, Q-5, Q-21, Q-22 · 필수 · W1 · SF · LWC, APEX · Customization · 선행 DVQ-006, DOC-001, UX-001, UX-008 · 5 M/D
 
-**화면 qmsQualResultEntry** (라인 레코드·qmsLabQueue에서 열기, 태블릿·모바일 지원)
+**화면 qmsQualResultEntry** — 화면 유형 T3(2026-11-05 화면 전략, 공수 7 → 5).
+- 라인 레코드 액션과 qmsLabQueue에서 연다. 태블릿·모바일을 지원한다.
+- `qmsQualResultEntry`는 UX-008 현장 입력 셸 `cmnFieldEntryShell`을 여는 진입점이다.
+- 입력 시트와 저장·판정은 Provider `QMS_QualResultEntryProvider`(`CMN_FieldEntryProvider` 구현, 등록 `CMN_FieldEntryProvider__mdt`)가 맡는다.
+- 아래 입력 형태는 셸 항목 유형으로 바꿔 표현한다.
 
 | JudgmentType      | 입력 형태                                                                                                   |
 |-------------------|-------------------------------------------------------------------------------------------------------------|
-| VALUE_RANGE       | 시료 수만큼 행(SampleNo 1~n 자동). 값 입력 시 즉시 합불 색 표시. 엑셀에서 복사한 세로 값 목록 붙여넣기 지원 |
-| PASS_FAIL, VISUAL | 시료별 OK/NG 토글, NG 시료 사진 첨부(DocClass TEST_PHOTO), 한도견본 참조 링크(QMS-06-LMS 이후 활성)         |
-| REPORT            | 시료 입력 없음. 성적서 첨부와 결과 선택만                                                                   |
+| VALUE_RANGE       | 셸 VARIABLE 항목. 시료 수만큼(SampleNo 1~n 자동). 값 입력 시 즉시 합불 표시(텍스트+아이콘). 세로 값 목록 붙여넣기(셸 표 모드) |
+| PASS_FAIL, VISUAL | 셸 ATTRIBUTE·VISUAL 항목. 시료별 OK/NG, NG 시료 사진 필수(photoRequiredOnNg, DocClass TEST_PHOTO), 한도견본 참조(referenceDocId, QMS-06-LMS 이후 활성) |
+| REPORT            | 셸 REPORT 항목. 시료 입력 없음. 성적서 첨부(cmnDocumentPanel)와 결과 선택만                                  |
 
 **비즈니스 규칙**
 
@@ -373,6 +388,12 @@ QMS_QualStatusDTO getStatusBySource(Id sourceId) // 원천 화면 표시용
 - BR-5: 재시험 — FAIL 라인에서 "재시험 생성"(계획 담당자) 시 새 라인(RetestOf = 원 라인, RetestNo + 1, 같은 스냅숏·필수 여부, PLANNED)을 만든다. 재시험은 계획 재결재 없이 진행하되, 원 라인에 NCR 또는 대책 코멘트가 있어야 생성 가능. 원 FAIL 라인은 이력으로 남는다.
 
 - BR-6: DONE 라인은 결과·시료 값 수정 불가. 오입력 정정은 품질팀장의 "재개(Reopen)" 액션(사유 필수, 코멘트 자동 기록)으로 IN_PROGRESS로 되돌린 뒤 수정.
+
+- BR-7: Provider 책임.
+  - `load`: 라인 스냅숏 규격(LSL·USL·단위·소수 자릿수)과 시료 수로 셸 항목을 만든다. 편집 가능 여부는 BR-3 입력 권한과 BR-6 DONE 잠금으로 정한다.
+  - `save(isFinal=false)`: 시료 값만 저장한다.
+  - `save(isFinal=true)`: BR-1 제안 결과, BR-2 DONE 조건을 검증한다. 통과하면 DONE 처리와 BR-4 후속을 한다. 미충족 항목은 SaveResult 오류로 돌려 셸이 목록으로 보인다.
+  - 시료 값 저장 형식은 DVQ-003 데이터 모델을 따른다. 셸은 저장 형식을 모른다.
 
 **수용 기준**
 
@@ -511,17 +532,17 @@ QMS_QualStatusDTO getStatusBySource(Id sourceId) // 원천 화면 표시용
 
 ## 8. 검토 요청
 
-Vol.2는 **10개 워크아이템, 약 56 M/D**다. W1 8개(DVQ-001~008)가 인정시험 기본 사이클이고, W2 2개는 보고서 자동화와 협력사 포털 제출이다.
+Vol.2는 **10개 워크아이템, 약 51 M/D**다. W1 8개(DVQ-001~008)가 인정시험 기본 사이클이고, W2 2개는 보고서 자동화와 협력사 포털 제출이다. 2026-11-05 화면 전략에 따라 DVQ-004는 공통 편집 그리드(UX-006), DVQ-007은 현장 입력 셸(UX-008)로 만들어 5 M/D 줄었다.
 
 | WI             | 제목                                 | Wave | 공수(M/D) |
 |----------------|--------------------------------------|------|-----------|
 | QMS-02-DVQ-001 | 시험 항목 라이브러리                 | W1   | 4         |
 | QMS-02-DVQ-002 | 시험 기준 템플릿(필수 시험 매트릭스) | W1   | 5         |
 | QMS-02-DVQ-003 | 인정시험 계획 데이터 모델·상태 규칙  | W1   | 6         |
-| QMS-02-DVQ-004 | 계획 생성 마법사·라인 편집 그리드    | W1   | 7         |
+| QMS-02-DVQ-004 | 계획 생성 마법사·라인 편집 그리드    | W1   | 4         |
 | QMS-02-DVQ-005 | 계획 결재와 트리거 연계 서비스       | W1   | 5         |
 | QMS-02-DVQ-006 | 시험 의뢰·접수·진행 관리             | W1   | 6         |
-| QMS-02-DVQ-007 | 시험 결과 입력·항목 판정·불합격 처리 | W1   | 7         |
+| QMS-02-DVQ-007 | 시험 결과 입력·항목 판정·불합격 처리 | W1   | 5         |
 | QMS-02-DVQ-008 | 종합 판정·양산 적용 결정             | W1   | 5         |
 | QMS-02-DVQ-009 | DVP&R 보고서 생성(PDF·Excel)         | W2   | 5         |
 | QMS-02-DVQ-010 | 협력사 시험 성적서 제출·검토         | W2   | 6         |

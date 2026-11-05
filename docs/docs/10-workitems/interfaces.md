@@ -32,7 +32,13 @@
 | CMN_NumberingService, CMN_NumberingRule__mdt | 채번 | ARC-003 | RecordNo__c |
 | CMN_SharingConfig__mdt, CMN_SharingService | 공유 | SEC-002 | PlantField, SupplierField |
 | CMN_DeleteGuard__mdt, CMN_DeleteLog__c | 감사 | SEC-003 | |
-| CMN_StatusFlow__mdt, cmnStatusPath, CMN_Comment__c, cmnCommentTimeline | UI | UX-003 | |
+| CMN_StatusFlow__mdt, cmnStatusPath, CMN_Comment__c, cmnCommentTimeline | UI | UX-003 | 업무 레코드 표준에서 진행 단계는 영역 B, 코멘트는 레일 COMMENT 패널 |
+| cmnDecisionRail, CMN_RailPanel__mdt, CMN_RailPanelController, 레일 패널 계약(`@api config`·`@api variant`·`railbadge`), 레코드 페이지 생성기·검사기 | UI | UX-004 | T1 레코드 페이지 표준(헤더 7개·D-day `DaysToDue__c`·현재 단계 탭). 레일 기본 패널 AI·APPROVAL·TODO·COMMENT·DOCUMENT, 문맥 분석 CONTEXT_*(위젯 계약) |
+| CMN_UiRule__mdt, CMN_UiSection__mdt, CMN_UiRuleService.canExecute / assertCanExecute / lockedFieldViolations / runAsService | UI 규칙 | UX-005 | 상태·권한 → Dynamic Forms/Actions 가시성 + 서버 검증. 업무 액션 Apex 첫 줄에서 assertCanExecute. Custom Permission `{접두어}_{객체약어}_{동작}` |
+| cmnEditableGrid, CMN_GridDefinition__mdt, CMN_GridColumn__mdt, CMN_GridProvider(defaults·rowMeta·validate·afterSave), CMN_GridProviderBase, CMN_GridRefresh__c, cmnDraftStore | UI | UX-006 | T2 그리드. 업무 규칙은 Provider, 저장 upsert 1 + delete 1 |
+| cmnAppMenuHub, CMN_AppMenu__mdt, CMN_AppMenuItem__mdt, CMN_AppMenuController, 앱 SL_QMS_Console·SL_QMS_Field | 앱·메뉴 | UX-007 | 앱 5개·PSG 할당, 전체 메뉴 모드, 미결 배지(TodoSourceTypes), 번호 바로가기(채번 규칙 접두어). A0 골격 구현됨 |
+| cmnFieldEntryShell, CMN_FieldEntryProvider(load·save·validateScan), CMN_FieldEntryProvider__mdt, CMN_FieldEntry DTO | UI | UX-008 | T3 현장 입력. 판정·값 저장은 Provider(측정값 JSON 묶음) |
+| cmnChecklistRunner, CMN_ChecklistProvider(load·saveAnswers·preview·raiseFollowUp), CMN_ChecklistProvider__mdt, CMN_Checklist DTO | UI | UX-009 | T4 체크리스트. 질문지·점수 계산은 Vol.6c(IAU-001·003, CAU-002) 소유, 기본 후속 조치 = CMN_ActionItem__c |
 | CMN_Document__c, CMN_DocumentRevision__c, cmnDocumentPanel, CMN_DocTemplate__c | 문서 | DOC-001 | DocClass, 리비전, 해시 경고 |
 | CMN_Widget__mdt, cmnWidgetBoard | 대시보드 | DSH-001 | 위젯 계약 `@api config`, `@api size` |
 | CMN_Meeting(회의) | 회의 | MTG-001 | Q-29 |

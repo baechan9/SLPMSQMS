@@ -138,8 +138,16 @@ WI 하나를 `/implement-wi <WI-ID>`로 구현한다. 순서는 아래와 같다
 | (WI 지정 이름) | SheetJS(버전 고정) | DVP&R 등 Excel 내려받기 | QMS-02-DVQ-009 |
 
 - **스타일**
-  - SLDS 클래스와 SLDS 스타일링 훅(CSS 사용자 정의 속성)을 쓴다. 색·글꼴·간격을 하드코딩하지 않는다.
+  - SLDS 클래스와 SLDS 전역 스타일링 훅(`--slds-g-*`)만 쓴다. 색·글꼴·간격을 하드코딩하지 않는다.
+  - 색 리터럴(`#…`, `rgb()`, `rgba()`, `hsl()`), 컴포넌트 스타일링 훅(`--slds-c-*`), 구 토큰(`--lwc-*`)은 쓰지 않는다. SLDS 2·Cosmos·다크 모드에서 깨지기 때문이다. CI 검사는 `scripts/ci/check-lwc-styling.py`(Vol.0 UX-004)다.
   - 고정 px 폭 레이아웃을 쓰지 않는다(Vol.0 UX-001).
+- **화면 표준**(Vol.0 3.4절, `docs/docs/10-workitems/screen-strategy.md`)
+  - 상태가 있는 업무 객체의 레코드 페이지는 UX-004 생성기로 만든다: 헤더 7개 필드, "현재 단계" 첫 탭, 사이드바에는 `cmnDecisionRail` 하나.
+  - 섹션·버튼 노출은 UX-005 규칙에서 생성한다. 업무 액션 Apex는 첫 줄에서 `CMN_UiRuleService.assertCanExecute`를 호출한다.
+  - 공통 부품을 쓴다: 행 편집은 `cmnEditableGrid`(UX-006), 시료·측정 입력은 `cmnFieldEntryShell`(UX-008), 질문지 평가는 `cmnChecklistRunner`(UX-009). 업무 규칙은 각 Provider 구현에 둔다. 같은 일을 하는 메뉴 전용 LWC를 새로 만들지 않는다. 부품이 아직 없으면 해당 UX WI를 먼저 구현한다.
+  - 결정 지원 레일 패널 LWC는 `@api recordId`·`@api objectApiName`·`@api config`·`@api variant`를 받고 건수를 `railbadge` 이벤트로 알린다.
+  - 콘솔 전용 기능(하위 탭, 고정 영역)에 기대지 않는다.
+  - 화면 문구는 "동사 + 대상"으로 쓰고, 오류 메시지는 원인과 고치는 법을 한 문장에 담는다.
 - **문구**: 화면의 모든 문구는 `@salesforce/label`로 가져온다. 한국어 리터럴을 쓰지 않는다. 번역은 ko·en_US·zh_CN 3종이다.
 - **모바일**: 대상 컴포넌트는 `formFactors`에 Small을 포함한다. 바코드는 `lightning/mobileCapabilities`를 쓴다.
 - **화면 상태**

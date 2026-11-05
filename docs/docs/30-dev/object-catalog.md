@@ -11,7 +11,7 @@
 | 메뉴 | 객체 | 표준 확장 | 메타데이터 | 이벤트 | 배포됨 | 예정 |
 | --- | --- | --- | --- | --- | --- | --- |
 | 공통 — 기준정보 | 16 | 2 | 3 | 0 | 21 | 0 |
-| 공통 — 업무 엔진·운영 | 25 | 0 | 15 | 4 | 38 | 6 |
+| 공통 — 업무 엔진·운영 | 25 | 0 | 22 | 4 | 38 | 13 |
 | QMS-02 개발 품질 | 7 | 0 | 1 | 0 | 0 | 8 |
 | QMS-03 부품/협력사 품질 | 19 | 1 | 3 | 1 | 0 | 24 |
 | QMS-04 제품/공정 품질 | 18 | 0 | 3 | 1 | 0 | 22 |
@@ -22,7 +22,7 @@
 | QMS-07 대시보드 | 2 | 0 | 7 | 1 | 0 | 10 |
 | QMS-08 AI | 3 | 0 | 6 | 1 | 0 | 10 |
 | QMS-09 연계 | 1 | 0 | 3 | 0 | 0 | 4 |
-| 합계 | 167 | 3 | 63 | 11 | 59 | 185 |
+| 합계 | 167 | 3 | 70 | 11 | 59 | 192 |
 
 ## 그림 1. 전체 구조와 메뉴 간 연결
 
@@ -136,8 +136,6 @@ flowchart TB
 | CMN_Todo__c | To-Do | 객체 | CMN-00-TDO-001 | 19 | 배포됨 |  |  |
 | CMN_ScreenGuide__c | 화면 가이드 | 객체 | CMN-00-UX-002 | 7 | 예정 A0 |  |  |
 | CMN_Comment__c | 코멘트 | 객체 | CMN-00-UX-003 | 5 | 배포됨 |  |  |
-| CMN_AppMenuItem__mdt | 앱 메뉴 항목 | 메타데이터 | A0 공용 장치 | 0 | 배포됨 |  | 구현 중 추가(명세 표 밖) |
-| CMN_AppMenu__mdt | 앱 메뉴 | 메타데이터 | A0 공용 장치 | 0 | 배포됨 |  | 구현 중 추가(명세 표 밖) |
 | CMN_ApprovalType__mdt | 결재 유형 | 메타데이터 | CMN-00-APV-001 | 0 | 배포됨 |  |  |
 | CMN_FeatureSwitch__mdt | 기능 스위치 | 메타데이터 | CMN-00-ARC-002 | 0 | 배포됨 |  |  |
 | CMN_TriggerSetting__mdt | 트리거 설정 | 메타데이터 | CMN-00-ARC-002 | 0 | 배포됨 |  |  |
@@ -151,6 +149,15 @@ flowchart TB
 | CMN_NotificationRule__mdt | 알림 규칙 | 메타데이터 | CMN-00-NTF-001 | 4 | 배포됨 |  |  |
 | CMN_StatusFlow__mdt | 상태 흐름 | 메타데이터 | CMN-00-UX-003 | 0 | 배포됨 |  |  |
 | CMN_StatusStep__mdt | 상태 단계 | 메타데이터 | CMN-00-UX-003 | 0 | 배포됨 |  |  |
+| CMN_RailPanel__mdt | 결정 지원 레일 패널 | 메타데이터 | CMN-00-UX-004 | 10 | 예정 A0 |  |  |
+| CMN_UiRule__mdt | 화면 제어 규칙 | 메타데이터 | CMN-00-UX-005 | 11 | 예정 A0 |  |  |
+| CMN_UiSection__mdt | 화면 섹션 필드 | 메타데이터 | CMN-00-UX-005 | 4 | 예정 A0 |  |  |
+| CMN_GridColumn__mdt | 편집 그리드 열 | 메타데이터 | CMN-00-UX-006 | 12 | 예정 A0 |  |  |
+| CMN_GridDefinition__mdt | 편집 그리드 정의 | 메타데이터 | CMN-00-UX-006 | 12 | 예정 A0 |  |  |
+| CMN_AppMenuItem__mdt | 앱 메뉴 항목 | 메타데이터 | CMN-00-UX-007 | 4 | 배포됨 |  |  |
+| CMN_AppMenu__mdt | 앱 메뉴 | 메타데이터 | CMN-00-UX-007 | 2 | 배포됨 |  |  |
+| CMN_FieldEntryProvider__mdt | 현장 입력 제공자 등록 | 메타데이터 | CMN-00-UX-008 | 3 | 예정 A0 |  |  |
+| CMN_ChecklistProvider__mdt | 체크리스트 제공자 등록 | 메타데이터 | CMN-00-UX-009 | 3 | 예정 A0 |  |  |
 | CMN_ApprovalEvent__e | 결재 이벤트 | 이벤트 | CMN-00-APV-001 | 0 | 배포됨 |  |  |
 | CMN_LogEvent__e | 로그 이벤트 | 이벤트 | CMN-00-ARC-002 | 0 | 배포됨 |  |  |
 | CMN_ResultInbound__e | 결과 수신 이벤트 | 이벤트 | CMN-00-DWH-003 | 0 | 예정 A0 |  |  |

@@ -184,3 +184,10 @@ QMS_ExternalCodeMap__mdt,외부 코드 매핑
 QMS_SyncMonitorConfig__mdt,동기화 모니터 설정
 QMS_SyncResendLog__c,재전송 기록
 QMS_SapPostingRule__mdt,SAP 전기 규칙
+CMN_RailPanel__mdt,결정 지원 레일 패널
+CMN_UiRule__mdt,화면 제어 규칙
+CMN_UiSection__mdt,화면 섹션 필드
+CMN_GridDefinition__mdt,편집 그리드 정의
+CMN_GridColumn__mdt,편집 그리드 열
+CMN_FieldEntryProvider__mdt,현장 입력 제공자 등록
+CMN_ChecklistProvider__mdt,체크리스트 제공자 등록
