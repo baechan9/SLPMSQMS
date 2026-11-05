@@ -1307,6 +1307,14 @@ Open: {Url}</label>
         <name>CMN_Todo_CMN_APPROVAL</name>
     </customLabels>
     <customLabels>
+        <label>You can't do this in the current status or with your permissions. Check the record status or ask for access.</label>
+        <name>CMN_UiRule_ActionNotAllowed</name>
+    </customLabels>
+    <customLabels>
+        <label>These fields can't be changed in the current status: {0}. Revert the status or ask the owner.</label>
+        <name>CMN_UiRule_FieldLocked</name>
+    </customLabels>
+    <customLabels>
         <label>Add Widget</label>
         <name>CMN_WidgetBoard_AddWidget</name>
     </customLabels>

@@ -1,0 +1,44 @@
+{
+  "wi": "CMN-00-UX-005",
+  "object": "CMN_UiSection__mdt",
+  "kind": "mdt",
+  "package": "force-app-cmn",
+  "description": "화면 섹션 → 필드(UX-005 BR-5 서버 필드 잠금). 필드 목록은 Text(255)라 조회가 SOQL 한도에 세어지지 않는다",
+  "label": {
+    "ko": "화면 섹션"
+  },
+  "plural": {
+    "ko": "화면 섹션"
+  },
+  "fields": [
+    {
+      "name": "ObjectApiName__c",
+      "type": "Text",
+      "label": "Object API Name",
+      "description": "업무 객체",
+      "length": 80
+    },
+    {
+      "name": "SectionKey__c",
+      "type": "Text",
+      "label": "Section Key",
+      "description": "섹션 키(FlexiPage 식별자 {Key}EditSection)",
+      "length": 80
+    },
+    {
+      "name": "Fields__c",
+      "type": "Text",
+      "label": "Fields",
+      "description": "쉼표 구분 필드 API명(255자 이내, 넘으면 섹션을 나눈다)",
+      "length": 255
+    },
+    {
+      "name": "LabelKey__c",
+      "type": "Text",
+      "label": "Label Key",
+      "description": "섹션 제목 Custom Label",
+      "length": 80
+    }
+  ],
+  "records": []
+}

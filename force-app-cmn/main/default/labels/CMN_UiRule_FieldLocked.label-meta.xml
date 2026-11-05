@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_UiRule_FieldLocked</fullName>
+    <categories>CMN</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>필드 잠금 거부({0} = 필드 라벨, UX-005 BR-5)</shortDescription>
+    <value>지금 상태에서는 고칠 수 없는 항목입니다: {0}. 상태를 되돌리거나 담당자에게 요청하세요.</value>
+</CustomLabel>

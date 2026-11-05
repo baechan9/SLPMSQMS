@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Fields__c</fullName>
+    <description>쉼표 구분 필드 API명(255자 이내, 넘으면 섹션을 나눈다)</description>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>Fields</label>
+    <length>255</length>
+    <required>false</required>
+    <type>Text</type>
+</CustomField>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>TargetType__c</fullName>
+    <description>SECTION 필드 섹션, ACTION 버튼, COMPONENT 페이지 LWC</description>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>Target Type</label>
+    <required>false</required>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>SECTION</fullName>
+                <default>true</default>
+                <label>SECTION</label>
+            </value>
+            <value>
+                <fullName>ACTION</fullName>
+                <default>false</default>
+                <label>ACTION</label>
+            </value>
+            <value>
+                <fullName>COMPONENT</fullName>
+                <default>false</default>
+                <label>COMPONENT</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

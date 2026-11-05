@@ -518,6 +518,29 @@ def main():
             spec['recordPage'] = {'Large': rp['name'], 'Small': rp['phoneName']}
             spec['compactLayout'] = {'name': rp['object'][:-3].rstrip('_') + '_Header', 'label': rp['label'] + ' Header',
                                      'fields': rp['header']}
+    # 상태·권한 화면 제어(UX-005): ui-rules 정의를 규칙·섹션 메타데이터 레코드로 만든다.
+    # FlexiPage 가시성은 scripts/dev/ui-rule-sync.py가 같은 정의로 고친다
+    for p in all_specs:
+        with open(p, encoding='utf-8') as f:
+            d = json.load(f)
+        ur = d.get('uiRules')
+        if not ur:
+            continue
+        base = ur['object'][:-3].rstrip('_')[:28]
+        for n, r in enumerate(ur['rules'], 1):
+            objects['CMN_UiRule__mdt']['records'].append({'name': f'{base}_R{n:02d}', 'label': f"{ur['object']} {r['target']} {r['key']}"[:40], 'values': {
+                'ObjectApiName__c': ur['object'], 'TargetType__c': r['target'], 'TargetKey__c': r['key'],
+                'Mode__c': 'EDIT' if r['target'] == 'SECTION' else 'SHOW',
+                'StatusField__c': r.get('statusField', ur.get('statusField', 'Status__c')),
+                'StatusValues__c': ','.join(r['status']) if r.get('status') else '*',
+                'CustomPermission__c': r.get('permission'), 'RecordTypes__c': ','.join(r.get('recordTypes', [])) or None,
+                'FormFactor__c': r.get('formFactor', 'ALL'), 'ExtraCondition__c': r.get('extra'), 'IsActive__c': True}})
+        for sec in ur['sections']:
+            fields = ','.join(sec['fields'])
+            if len(fields) > 255:
+                sys.exit(f"{ur['object']} 섹션 {sec['key']}: 필드 목록 {len(fields)}자 — 255자 이내로 섹션을 나눈다(UX-005)")
+            objects['CMN_UiSection__mdt']['records'].append({'name': f"{base}_S_{sec['key']}"[:40], 'label': f"{ur['object']} {sec['key']}"[:40], 'values': {
+                'ObjectApiName__c': ur['object'], 'SectionKey__c': sec['key'], 'Fields__c': fields, 'LabelKey__c': sec.get('label')}})
     missing = []
     for name, spec in objects.items():
         if spec.get('i18nName'):
@@ -552,7 +575,7 @@ def main():
             build_app(d['application'])
         elif 'pageTab' in d:
             build_page_tab(d['pageTab'])
-        elif isinstance(d.get('recordPage'), dict):
+        elif isinstance(d.get('recordPage'), dict) or 'uiRules' in d:
             pass  # 위에서 객체 정의에 붙였다
     build_translations()
     stale = stale_files()

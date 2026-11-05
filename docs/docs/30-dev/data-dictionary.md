@@ -12,9 +12,9 @@
 | --- | --- | --- |
 | 커스텀 객체 | 37 | 315 |
 | 표준 객체 확장 | 2 | 22 |
-| 커스텀 메타데이터 유형(설정) | 18 | 107 |
+| 커스텀 메타데이터 유형(설정) | 20 | 122 |
 | Platform Event | 3 | 16 |
-| 합계 | 60 | 460 |
+| 합계 | 62 | 475 |
 
 ## 커스텀 객체
 
@@ -696,6 +696,8 @@ To-Do / To-Do. 통합 To-Do(TDO-001). Owner = Assignee, OWD Private(본인만). 
 | [CMN_StatusFlow__mdt](#cmn_statusflow__mdt) | 상태 흐름 |  | 2 | CMN-00-UX-003 |
 | [CMN_StatusStep__mdt](#cmn_statusstep__mdt) | 상태 단계 |  | 5 | CMN-00-UX-003 |
 | [CMN_TriggerSetting__mdt](#cmn_triggersetting__mdt) | 트리거 설정 |  | 3 | CMN-00-ARC-002 |
+| [CMN_UiRule__mdt](#cmn_uirule__mdt) | 화면 제어 규칙 |  | 11 | CMN-00-UX-005 |
+| [CMN_UiSection__mdt](#cmn_uisection__mdt) | 화면 섹션 |  | 4 | CMN-00-UX-005 |
 | [CMN_Widget__mdt](#cmn_widget__mdt) | 대시보드 위젯 |  | 12 | CMN-00-DSH-001 |
 
 ### CMN_AppMenuItem__mdt
@@ -911,6 +913,35 @@ CMN 설정 / . 전사 설정 키·값(“CMN 설정”). DeveloperName이 키. �
 | BypassPermission__c | Bypass Custom Permission |  | Text | 80 |  | 이 Custom Permission을 가진 사용자는 핸들러를 건너뛴다 |
 | IsActive__c | Active |  | Checkbox |  |  |  |
 | ObjectApiName__c | Object API Name |  | Text | 80 |  |  |
+
+### CMN_UiRule__mdt
+
+화면 제어 규칙 / . 상태·권한 화면 제어 규칙(UX-005). 1행 = 객체·대상 1개의 허용 조건 묶음. 같은 대상의 행 중 하나라도 맞으면 허용. 레코드는 meta-src/*/ui-rules 정의로 metagen이 만든다
+
+| API | 라벨(ko) | Label(en) | 타입 | 값/길이/참조 | 제약 | 설명 |
+| --- | --- | --- | --- | --- | --- | --- |
+| CustomPermission__c | Custom Permission |  | Text | 80 |  | 필요한 Custom Permission |
+| ExtraCondition__c | Extra Condition |  | Text | 255 |  | Field__c=VALUE 또는 Field__c!=VALUE 하나 |
+| FormFactor__c | Form Factor |  | Picklist | ALL, LARGE, SMALL |  | 화면 크기(서버 검증에는 쓰지 않음) |
+| IsActive__c | Active |  | Checkbox |  |  | 사용 여부 |
+| Mode__c | Mode |  | Picklist | EDIT, SHOW |  | SECTION은 EDIT, ACTION·COMPONENT는 SHOW |
+| ObjectApiName__c | Object API Name |  | Text | 80 |  | 업무 객체 |
+| RecordTypes__c | Record Types |  | Text | 255 |  | 쉼표 구분 DeveloperName. 비우면 전체 |
+| StatusField__c | Status Field |  | Text | 80 |  | 상태 필드(기본 Status__c) |
+| StatusValues__c | Status Values |  | Text | 255 |  | 쉼표 구분 API값, * = 모든 상태 |
+| TargetKey__c | Target Key |  | Text | 80 |  | 섹션 키 / 액션 이름 / 컴포넌트 식별자 |
+| TargetType__c | Target Type |  | Picklist | SECTION, ACTION, COMPONENT |  | SECTION 필드 섹션, ACTION 버튼, COMPONENT 페이지 LWC |
+
+### CMN_UiSection__mdt
+
+화면 섹션 / . 화면 섹션 → 필드(UX-005 BR-5 서버 필드 잠금). 필드 목록은 Text(255)라 조회가 SOQL 한도에 세어지지 않는다
+
+| API | 라벨(ko) | Label(en) | 타입 | 값/길이/참조 | 제약 | 설명 |
+| --- | --- | --- | --- | --- | --- | --- |
+| Fields__c | Fields |  | Text | 255 |  | 쉼표 구분 필드 API명(255자 이내, 넘으면 섹션을 나눈다) |
+| LabelKey__c | Label Key |  | Text | 80 |  | 섹션 제목 Custom Label |
+| ObjectApiName__c | Object API Name |  | Text | 80 |  | 업무 객체 |
+| SectionKey__c | Section Key |  | Text | 80 |  | 섹션 키(FlexiPage 식별자 {Key}EditSection) |
 
 ### CMN_Widget__mdt
 

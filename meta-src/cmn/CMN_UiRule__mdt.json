@@ -1,0 +1,131 @@
+{
+  "wi": "CMN-00-UX-005",
+  "object": "CMN_UiRule__mdt",
+  "kind": "mdt",
+  "package": "force-app-cmn",
+  "description": "상태·권한 화면 제어 규칙(UX-005). 1행 = 객체·대상 1개의 허용 조건 묶음. 같은 대상의 행 중 하나라도 맞으면 허용. 레코드는 meta-src/*/ui-rules 정의로 metagen이 만든다",
+  "label": {
+    "ko": "화면 제어 규칙"
+  },
+  "plural": {
+    "ko": "화면 제어 규칙"
+  },
+  "fields": [
+    {
+      "name": "ObjectApiName__c",
+      "type": "Text",
+      "label": "Object API Name",
+      "description": "업무 객체",
+      "length": 80
+    },
+    {
+      "name": "TargetType__c",
+      "type": "Picklist",
+      "label": "Target Type",
+      "description": "SECTION 필드 섹션, ACTION 버튼, COMPONENT 페이지 LWC",
+      "values": [
+        {
+          "api": "SECTION",
+          "label": "SECTION"
+        },
+        {
+          "api": "ACTION",
+          "label": "ACTION"
+        },
+        {
+          "api": "COMPONENT",
+          "label": "COMPONENT"
+        }
+      ],
+      "default": "SECTION"
+    },
+    {
+      "name": "TargetKey__c",
+      "type": "Text",
+      "label": "Target Key",
+      "description": "섹션 키 / 액션 이름 / 컴포넌트 식별자",
+      "length": 80
+    },
+    {
+      "name": "Mode__c",
+      "type": "Picklist",
+      "label": "Mode",
+      "description": "SECTION은 EDIT, ACTION·COMPONENT는 SHOW",
+      "values": [
+        {
+          "api": "EDIT",
+          "label": "EDIT"
+        },
+        {
+          "api": "SHOW",
+          "label": "SHOW"
+        }
+      ],
+      "default": "EDIT"
+    },
+    {
+      "name": "StatusField__c",
+      "type": "Text",
+      "label": "Status Field",
+      "description": "상태 필드(기본 Status__c)",
+      "length": 80
+    },
+    {
+      "name": "StatusValues__c",
+      "type": "Text",
+      "label": "Status Values",
+      "description": "쉼표 구분 API값, * = 모든 상태",
+      "length": 255
+    },
+    {
+      "name": "CustomPermission__c",
+      "type": "Text",
+      "label": "Custom Permission",
+      "description": "필요한 Custom Permission",
+      "length": 80
+    },
+    {
+      "name": "RecordTypes__c",
+      "type": "Text",
+      "label": "Record Types",
+      "description": "쉼표 구분 DeveloperName. 비우면 전체",
+      "length": 255
+    },
+    {
+      "name": "FormFactor__c",
+      "type": "Picklist",
+      "label": "Form Factor",
+      "description": "화면 크기(서버 검증에는 쓰지 않음)",
+      "values": [
+        {
+          "api": "ALL",
+          "label": "ALL"
+        },
+        {
+          "api": "LARGE",
+          "label": "LARGE"
+        },
+        {
+          "api": "SMALL",
+          "label": "SMALL"
+        }
+      ],
+      "default": "ALL"
+    },
+    {
+      "name": "ExtraCondition__c",
+      "type": "Text",
+      "label": "Extra Condition",
+      "description": "Field__c=VALUE 또는 Field__c!=VALUE 하나",
+      "length": 255
+    },
+    {
+      "name": "IsActive__c",
+      "type": "Checkbox",
+      "label": "Active",
+      "description": "사용 여부",
+      "default": true
+    }
+  ],
+  "records": []
+}

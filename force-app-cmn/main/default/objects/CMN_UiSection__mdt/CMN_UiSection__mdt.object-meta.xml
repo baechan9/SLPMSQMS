@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>화면 섹션 → 필드(UX-005 BR-5 서버 필드 잠금). 필드 목록은 Text(255)라 조회가 SOQL 한도에 세어지지 않는다</description>
+    <label>화면 섹션</label>
+    <pluralLabel>화면 섹션</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>

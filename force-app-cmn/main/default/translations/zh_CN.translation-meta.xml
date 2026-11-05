@@ -1307,6 +1307,14 @@
         <name>CMN_Todo_CMN_APPROVAL</name>
     </customLabels>
     <customLabels>
+        <label>当前状态或权限下无法执行此操作。请确认记录状态或申请权限。</label>
+        <name>CMN_UiRule_ActionNotAllowed</name>
+    </customLabels>
+    <customLabels>
+        <label>当前状态下不能修改以下项目：{0}。请回退状态或联系负责人。</label>
+        <name>CMN_UiRule_FieldLocked</name>
+    </customLabels>
+    <customLabels>
         <label>添加小组件</label>
         <name>CMN_WidgetBoard_AddWidget</name>
     </customLabels>

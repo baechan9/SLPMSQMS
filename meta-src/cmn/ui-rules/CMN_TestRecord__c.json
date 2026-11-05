@@ -1,0 +1,50 @@
+{
+  "uiRules": {
+    "wi": "CMN-00-UX-005",
+    "object": "CMN_TestRecord__c",
+    "package": "force-app-cmn",
+    "pages": ["CMN_TestRecord_Record", "CMN_TestRecord_Record_Phone"],
+    "phonePages": ["CMN_TestRecord_Record_Phone"],
+    "statusField": "Status__c",
+    "statuses": ["DRAFT", "IN_PROGRESS", "DONE", "CANCELLED"],
+    "sections": [
+      {
+        "key": "Basic",
+        "label": "CMN_RecordPage_SectionBasic",
+        "fields": ["Name", "Plant__c", "Supplier__c", "Code__c"]
+      },
+      {
+        "key": "Schedule",
+        "label": "CMN_RecordPage_SectionSchedule",
+        "fields": ["DueDate__c"]
+      }
+    ],
+    "rules": [
+      {
+        "target": "SECTION",
+        "key": "Basic",
+        "status": ["DRAFT"]
+      },
+      {
+        "target": "SECTION",
+        "key": "Schedule",
+        "status": ["DRAFT", "IN_PROGRESS"]
+      },
+      {
+        "target": "ACTION",
+        "key": "Edit",
+        "status": ["DRAFT", "IN_PROGRESS"]
+      },
+      {
+        "target": "ACTION",
+        "key": "Delete",
+        "status": ["DRAFT"]
+      },
+      {
+        "target": "COMPONENT",
+        "key": "cmnDueIndicator",
+        "status": ["DRAFT", "IN_PROGRESS"]
+      }
+    ]
+  }
+}

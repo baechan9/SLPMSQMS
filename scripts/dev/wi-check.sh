@@ -35,6 +35,8 @@ step "LWC 스타일 규칙(UX-004 BR-10)"
 python3 scripts/ci/check-lwc-styling.py
 step "업무 레코드 페이지 규칙(UX-004 BR-1·2)"
 python3 scripts/ci/check-record-pages.py
+step "상태·권한 화면 제어 규칙(UX-005 BR-3)"
+python3 scripts/dev/ui-rule-sync.py --check
 step "Apex 이름 가림(경고, 변경 파일)"
 CHANGED_CLS=$(git ls-files -m -o --exclude-standard -- 'force-app-*/main/default/classes/*.cls')
 [ -n "$CHANGED_CLS" ] && python3 scripts/ci/check-apex-shadowing.py $CHANGED_CLS || true

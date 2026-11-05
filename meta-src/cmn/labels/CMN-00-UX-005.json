@@ -1,0 +1,26 @@
+{
+  "wi": "CMN-00-UX-005",
+  "package": "force-app-cmn",
+  "labels": [
+    {
+      "name": "CMN_UiRule_ActionNotAllowed",
+      "category": "CMN",
+      "description": "업무 액션 거부(UX-005 BR-4)",
+      "value": {
+        "ko": "지금 상태나 권한으로는 이 작업을 할 수 없습니다. 레코드 상태를 확인하거나 담당자에게 권한을 요청하세요.",
+        "en_US": "You can't do this in the current status or with your permissions. Check the record status or ask for access.",
+        "zh_CN": "当前状态或权限下无法执行此操作。请确认记录状态或申请权限。"
+      }
+    },
+    {
+      "name": "CMN_UiRule_FieldLocked",
+      "category": "CMN",
+      "description": "필드 잠금 거부({0} = 필드 라벨, UX-005 BR-5)",
+      "value": {
+        "ko": "지금 상태에서는 고칠 수 없는 항목입니다: {0}. 상태를 되돌리거나 담당자에게 요청하세요.",
+        "en_US": "These fields can't be changed in the current status: {0}. Revert the status or ask the owner.",
+        "zh_CN": "当前状态下不能修改以下项目：{0}。请回退状态或联系负责人。"
+      }
+    }
+  ]
+}
