@@ -47,6 +47,10 @@ export default class CmnDocumentPanel extends NavigationMixin(
   @api recordId;
   @api allowedDocClasses;
   @api requiredDocClasses;
+  /** 결정 지원 레일 패널 계약(UX-004 BR-6, DOC-001): allowedDocClasses·requiredDocClasses는 config로도 받는다 */
+  @api objectApiName;
+  @api config;
+  @api variant;
 
   labels = {
     title: TITLE,
@@ -91,8 +95,10 @@ export default class CmnDocumentPanel extends NavigationMixin(
     try {
       this.panel = await getPanel({
         parentId: this.recordId,
-        allowedDocClasses: this.allowedDocClasses ?? null,
-        requiredDocClasses: this.requiredDocClasses ?? null
+        allowedDocClasses:
+          this.allowedDocClasses ?? this.config?.allowedDocClasses ?? null,
+        requiredDocClasses:
+          this.requiredDocClasses ?? this.config?.requiredDocClasses ?? null
       });
       this.errorMessage = undefined;
     } catch (e) {

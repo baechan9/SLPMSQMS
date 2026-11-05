@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_TestRecord_Header</fullName>
+    <fields>RecordNo__c</fields>
+    <fields>Name</fields>
+    <fields>Status__c</fields>
+    <fields>Supplier__c</fields>
+    <fields>Code__c</fields>
+    <fields>Plant__c</fields>
+    <fields>DaysToDue__c</fields>
+    <label>CMN Test Record Record Header</label>
+</CompactLayout>

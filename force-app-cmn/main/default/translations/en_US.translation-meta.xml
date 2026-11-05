@@ -637,6 +637,50 @@
         <name>CMN_DashboardTemplate_QmsQualityManager</name>
     </customLabels>
     <customLabels>
+        <label>AI Recommendations</label>
+        <name>CMN_DecisionRail_Ai</name>
+    </customLabels>
+    <customLabels>
+        <label>Approval</label>
+        <name>CMN_DecisionRail_Approval</name>
+    </customLabels>
+    <customLabels>
+        <label>{0} item(s)</label>
+        <name>CMN_DecisionRail_Badge</name>
+    </customLabels>
+    <customLabels>
+        <label>Comments</label>
+        <name>CMN_DecisionRail_Comment</name>
+    </customLabels>
+    <customLabels>
+        <label>Plant To-Do Status</label>
+        <name>CMN_DecisionRail_ContextTodo</name>
+    </customLabels>
+    <customLabels>
+        <label>Documents</label>
+        <name>CMN_DecisionRail_Document</name>
+    </customLabels>
+    <customLabels>
+        <label>No panels to show</label>
+        <name>CMN_DecisionRail_Empty</name>
+    </customLabels>
+    <customLabels>
+        <label>This panel can't be shown. Try again or contact your administrator.</label>
+        <name>CMN_DecisionRail_PanelError</name>
+    </customLabels>
+    <customLabels>
+        <label>Try again</label>
+        <name>CMN_DecisionRail_Retry</name>
+    </customLabels>
+    <customLabels>
+        <label>Decision Support</label>
+        <name>CMN_DecisionRail_Title</name>
+    </customLabels>
+    <customLabels>
+        <label>To-Do</label>
+        <name>CMN_DecisionRail_Todo</name>
+    </customLabels>
+    <customLabels>
         <label>The delegate must be an active user other than the delegator.</label>
         <name>CMN_Delegation_InvalidDelegate</name>
     </customLabels>
@@ -795,6 +839,22 @@
     <customLabels>
         <label>Link (https)</label>
         <name>CMN_Doc_Url</name>
+    </customLabels>
+    <customLabels>
+        <label>{0} day(s) left</label>
+        <name>CMN_DueIndicator_DaysLeft</name>
+    </customLabels>
+    <customLabels>
+        <label>No due date</label>
+        <name>CMN_DueIndicator_NoDue</name>
+    </customLabels>
+    <customLabels>
+        <label>Overdue by {0} day(s)</label>
+        <name>CMN_DueIndicator_Overdue</name>
+    </customLabels>
+    <customLabels>
+        <label>Due today</label>
+        <name>CMN_DueIndicator_Today</name>
     </customLabels>
     <customLabels>
         <label>This user is not registered. Ask your administrator to create the account.</label>
@@ -1089,6 +1149,38 @@ Open: {Url}</label>
     <customLabels>
         <label>{0} photos attached.</label>
         <name>CMN_Photo_Uploaded</name>
+    </customLabels>
+    <customLabels>
+        <label>No open to-dos for this record</label>
+        <name>CMN_RailTodo_Empty</name>
+    </customLabels>
+    <customLabels>
+        <label>Overdue</label>
+        <name>CMN_RailTodo_Overdue</name>
+    </customLabels>
+    <customLabels>
+        <label>Basic Information</label>
+        <name>CMN_RecordPage_SectionBasic</name>
+    </customLabels>
+    <customLabels>
+        <label>Schedule</label>
+        <name>CMN_RecordPage_SectionSchedule</name>
+    </customLabels>
+    <customLabels>
+        <label>Current Step</label>
+        <name>CMN_RecordPage_TabCurrent</name>
+    </customLabels>
+    <customLabels>
+        <label>Details</label>
+        <name>CMN_RecordPage_TabDetail</name>
+    </customLabels>
+    <customLabels>
+        <label>History</label>
+        <name>CMN_RecordPage_TabHistory</name>
+    </customLabels>
+    <customLabels>
+        <label>Related</label>
+        <name>CMN_RecordPage_TabRelated</name>
     </customLabels>
     <customLabels>
         <label>The same user and plant access already exists: {0}</label>

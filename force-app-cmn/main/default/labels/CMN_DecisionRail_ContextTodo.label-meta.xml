@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_DecisionRail_ContextTodo</fullName>
+    <categories>CMN</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>패널: 문맥 분석(공장 할 일 현황)</shortDescription>
+    <value>공장 할 일 현황</value>
+</CustomLabel>

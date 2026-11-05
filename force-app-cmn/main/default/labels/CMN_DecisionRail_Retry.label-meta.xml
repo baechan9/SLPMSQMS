@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_DecisionRail_Retry</fullName>
+    <categories>CMN</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>패널 다시 시도</shortDescription>
+    <value>다시 시도</value>
+</CustomLabel>

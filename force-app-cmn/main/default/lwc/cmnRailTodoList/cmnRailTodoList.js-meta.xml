@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>66.0</apiVersion>
+    <isExposed>false</isExposed>
+    <description
+  >결정 지원 레일 TODO 패널(CMN-00-UX-004): 레코드에 걸린 열린 To-Do, 건수 배지</description>
+</LightningComponentBundle>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_RailTodo_Empty</fullName>
+    <categories>CMN</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>레코드 할 일 없음</shortDescription>
+    <value>이 레코드에 열린 할 일이 없습니다</value>
+</CustomLabel>

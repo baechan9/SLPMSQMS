@@ -36,6 +36,10 @@ import ERROR from "@salesforce/label/c.CMN_Common_UnexpectedError";
 export default class CmnApprovalLine extends LightningElement {
   @api recordId;
   @api typeCode;
+  /** 결정 지원 레일 패널 계약(UX-004 BR-6, APV-003 BR-4): 결재 유형은 config.typeCode로도 받는다 */
+  @api objectApiName;
+  @api config;
+  @api variant;
 
   labels = {
     title: TITLE,
@@ -76,7 +80,7 @@ export default class CmnApprovalLine extends LightningElement {
     try {
       this.view = await getLine({
         targetId: this.recordId,
-        typeCode: this.typeCode
+        typeCode: this.effectiveTypeCode
       });
       this.steps = (this.view.steps ?? []).map((s) => ({ ...s }));
       this.errorMessage = undefined;
@@ -85,6 +89,10 @@ export default class CmnApprovalLine extends LightningElement {
     } finally {
       this.isLoading = false;
     }
+  }
+
+  get effectiveTypeCode() {
+    return this.typeCode || this.config?.typeCode;
   }
 
   get inProgress() {
@@ -184,7 +192,7 @@ export default class CmnApprovalLine extends LightningElement {
       () =>
         submit({
           targetId: this.recordId,
-          typeCode: this.typeCode,
+          typeCode: this.effectiveTypeCode,
           stepsJson: this.stepsJson(),
           comment: this.comment
         }),
@@ -207,7 +215,7 @@ export default class CmnApprovalLine extends LightningElement {
     try {
       const line = await loadPersonal({
         targetId: this.recordId,
-        typeCode: this.typeCode,
+        typeCode: this.effectiveTypeCode,
         templateId: event.detail.value
       });
       this.steps = line.map((s) => ({ ...s }));
@@ -227,7 +235,7 @@ export default class CmnApprovalLine extends LightningElement {
     await this.run(
       () =>
         savePersonal({
-          typeCode: this.typeCode,
+          typeCode: this.effectiveTypeCode,
           name: this.personalName,
           stepsJson: this.stepsJson()
         }),

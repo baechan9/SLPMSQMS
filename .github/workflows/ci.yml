@@ -44,6 +44,10 @@ jobs:
         run: python3 scripts/ci/check-korean-literals.py
       - name: LWC 모바일 규칙(UX-001 BR-2)
         run: python3 scripts/ci/check-lwc-mobile.py
+      - name: LWC 스타일 규칙(UX-004 BR-10, SLDS 2)
+        run: python3 scripts/ci/check-lwc-styling.py
+      - name: 업무 레코드 페이지 규칙(UX-004 BR-1·2)
+        run: python3 scripts/ci/check-record-pages.py
       - run: npm run prettier:verify
       - run: npm run lint
       - run: npm run test:unit -- --coverage

@@ -637,6 +637,50 @@
         <name>CMN_DashboardTemplate_QmsQualityManager</name>
     </customLabels>
     <customLabels>
+        <label>AI 推荐</label>
+        <name>CMN_DecisionRail_Ai</name>
+    </customLabels>
+    <customLabels>
+        <label>审批</label>
+        <name>CMN_DecisionRail_Approval</name>
+    </customLabels>
+    <customLabels>
+        <label>{0} 项</label>
+        <name>CMN_DecisionRail_Badge</name>
+    </customLabels>
+    <customLabels>
+        <label>评论</label>
+        <name>CMN_DecisionRail_Comment</name>
+    </customLabels>
+    <customLabels>
+        <label>工厂待办状况</label>
+        <name>CMN_DecisionRail_ContextTodo</name>
+    </customLabels>
+    <customLabels>
+        <label>文档</label>
+        <name>CMN_DecisionRail_Document</name>
+    </customLabels>
+    <customLabels>
+        <label>没有可显示的面板</label>
+        <name>CMN_DecisionRail_Empty</name>
+    </customLabels>
+    <customLabels>
+        <label>无法显示此面板。请重试或联系管理员。</label>
+        <name>CMN_DecisionRail_PanelError</name>
+    </customLabels>
+    <customLabels>
+        <label>重试</label>
+        <name>CMN_DecisionRail_Retry</name>
+    </customLabels>
+    <customLabels>
+        <label>决策支持</label>
+        <name>CMN_DecisionRail_Title</name>
+    </customLabels>
+    <customLabels>
+        <label>待办</label>
+        <name>CMN_DecisionRail_Todo</name>
+    </customLabels>
+    <customLabels>
         <label>代理人必须是委托人以外的有效用户。</label>
         <name>CMN_Delegation_InvalidDelegate</name>
     </customLabels>
@@ -795,6 +839,22 @@
     <customLabels>
         <label>链接(https)</label>
         <name>CMN_Doc_Url</name>
+    </customLabels>
+    <customLabels>
+        <label>剩余 {0} 天</label>
+        <name>CMN_DueIndicator_DaysLeft</name>
+    </customLabels>
+    <customLabels>
+        <label>无期限</label>
+        <name>CMN_DueIndicator_NoDue</name>
+    </customLabels>
+    <customLabels>
+        <label>已逾期 {0} 天</label>
+        <name>CMN_DueIndicator_Overdue</name>
+    </customLabels>
+    <customLabels>
+        <label>今天到期</label>
+        <name>CMN_DueIndicator_Today</name>
     </customLabels>
     <customLabels>
         <label>该用户未注册。请联系管理员创建账户。</label>
@@ -1089,6 +1149,38 @@
     <customLabels>
         <label>已附加 {0} 张照片。</label>
         <name>CMN_Photo_Uploaded</name>
+    </customLabels>
+    <customLabels>
+        <label>此记录没有未完成的待办</label>
+        <name>CMN_RailTodo_Empty</name>
+    </customLabels>
+    <customLabels>
+        <label>已逾期</label>
+        <name>CMN_RailTodo_Overdue</name>
+    </customLabels>
+    <customLabels>
+        <label>基本信息</label>
+        <name>CMN_RecordPage_SectionBasic</name>
+    </customLabels>
+    <customLabels>
+        <label>日程</label>
+        <name>CMN_RecordPage_SectionSchedule</name>
+    </customLabels>
+    <customLabels>
+        <label>当前阶段</label>
+        <name>CMN_RecordPage_TabCurrent</name>
+    </customLabels>
+    <customLabels>
+        <label>详情</label>
+        <name>CMN_RecordPage_TabDetail</name>
+    </customLabels>
+    <customLabels>
+        <label>历史</label>
+        <name>CMN_RecordPage_TabHistory</name>
+    </customLabels>
+    <customLabels>
+        <label>相关</label>
+        <name>CMN_RecordPage_TabRelated</name>
     </customLabels>
     <customLabels>
         <label>已存在相同的用户和工厂访问: {0}</label>

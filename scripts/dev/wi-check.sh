@@ -31,6 +31,10 @@ step "한글 문자열 리터럴(I18N-001 AC-4)"
 python3 scripts/ci/check-korean-literals.py
 step "LWC 모바일 규칙(UX-001 BR-2)"
 python3 scripts/ci/check-lwc-mobile.py
+step "LWC 스타일 규칙(UX-004 BR-10)"
+python3 scripts/ci/check-lwc-styling.py
+step "업무 레코드 페이지 규칙(UX-004 BR-1·2)"
+python3 scripts/ci/check-record-pages.py
 step "Apex 이름 가림(경고, 변경 파일)"
 CHANGED_CLS=$(git ls-files -m -o --exclude-standard -- 'force-app-*/main/default/classes/*.cls')
 [ -n "$CHANGED_CLS" ] && python3 scripts/ci/check-apex-shadowing.py $CHANGED_CLS || true

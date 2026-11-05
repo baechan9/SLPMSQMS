@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>결정 지원 레일 패널(UX-004 BR-5·6). 1행 = 객체 1개의 패널 1개. ObjectApiName * = 모든 업무 레코드 기본 패널, 같은 PanelKey의 객체 행이 덮어쓴다</description>
+    <label>결정 지원 레일 패널</label>
+    <pluralLabel>결정 지원 레일 패널</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>

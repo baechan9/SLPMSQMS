@@ -1,0 +1,54 @@
+{
+  "recordPage": {
+    "wi": "CMN-00-UX-004",
+    "object": "CMN_TestRecord__c",
+    "package": "force-app-cmn",
+    "name": "CMN_TestRecord_Record",
+    "phoneName": "CMN_TestRecord_Record_Phone",
+    "label": "CMN Test Record Record",
+    "header": [
+      "RecordNo__c",
+      "Name",
+      "Status__c",
+      "Supplier__c",
+      "Code__c",
+      "Plant__c",
+      "DaysToDue__c"
+    ],
+    "headerNotes": "테스트 객체에 고객·품번이 없어 협력사(Supplier__c)·코드(Code__c)로 대신한다(BR-3)",
+    "daysField": "DaysToDue__c",
+    "currentStep": {
+      "sections": [
+        {
+          "key": "Basic",
+          "label": "CMN_RecordPage_SectionBasic",
+          "fields": ["Name", "Plant__c", "Supplier__c", "Code__c"]
+        },
+        {
+          "key": "Schedule",
+          "label": "CMN_RecordPage_SectionSchedule",
+          "fields": ["DueDate__c"]
+        }
+      ],
+      "components": []
+    },
+    "detailSections": [
+      {
+        "key": "All",
+        "label": "CMN_RecordPage_SectionBasic",
+        "fields": [
+          "RecordNo__c",
+          "Name",
+          "Status__c",
+          "Plant__c",
+          "Supplier__c",
+          "Code__c",
+          "DueDate__c",
+          "DaysToDue__c"
+        ]
+      }
+    ],
+    "relatedLists": [],
+    "readOnlyFields": ["RecordNo__c", "Status__c", "DaysToDue__c"]
+  }
+}

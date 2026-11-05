@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>RequiredPermission__c</fullName>
+    <description>Custom Permission API명. 지정하면 보유자에게만</description>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>Required Permission</label>
+    <length>80</length>
+    <required>false</required>
+    <type>Text</type>
+</CustomField>

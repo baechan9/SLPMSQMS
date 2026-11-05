@@ -277,15 +277,20 @@ def build_object(spec):
         build_special(spec, base)
         return
     if not std:
-        # recordPage: Lightning 레코드 페이지를 객체 기본 보기로 지정(데스크톱·모바일)
+        # recordPage: Lightning 레코드 페이지를 객체 기본 보기로 지정(데스크톱·모바일).
+        # 문자열이면 두 폼 팩터에 같은 페이지, {'Large': …, 'Small': …}이면 폼 팩터별 페이지(UX-004 BR-8)
         overrides = None
-        if spec.get('recordPage'):
-            overrides = [{'actionName': 'View', 'comment': None, 'content': spec['recordPage'],
+        rp = spec.get('recordPage')
+        if rp:
+            pages = rp if isinstance(rp, dict) else {'Large': rp, 'Small': rp}
+            overrides = [{'actionName': 'View', 'comment': None, 'content': pages[ff],
                           'formFactor': ff, 'skipRecordTypeSelect': False, 'type': 'Flexipage'}
                          for ff in ('Large', 'Small')]
+        cl = spec.get('compactLayout')
         body = [
             ('actionOverrides', overrides),
             ('allowInChatterGroups', False),
+            ('compactLayoutAssignment', cl['name'] if cl else None),
             ('deploymentStatus', 'Deployed'),
             ('description', spec.get('description')),
             ('enableActivities', spec.get('enableActivities', False)),
@@ -313,6 +318,11 @@ def build_object(spec):
              doc('CustomObject', sorted(spec['objectSettings'].items())))
     for f in spec.get('fields', []):
         emit(f'{base}/objects/{obj}/fields/{f["name"]}.field-meta.xml', field_xml(f, spec))
+    if spec.get('compactLayout'):
+        # 업무 레코드 헤더(UX-004 BR-3): 하이라이트 패널은 콤팩트 레이아웃 앞 7개 필드를 보인다
+        cl = spec['compactLayout']
+        emit(f'{base}/objects/{obj}/compactLayouts/{cl["name"]}.compactLayout-meta.xml', doc('CompactLayout', [
+            ('fullName', cl['name']), ('fields', cl['fields']), ('label', cl['label'])]))
     picks = [f for f in spec.get('fields', []) if f['type'] in ('Picklist', 'MultiselectPicklist') and not f.get('valueSetName')]
     for rt in spec.get('recordTypes', []):
         pv = []
@@ -493,6 +503,21 @@ def main():
                 merge_spec(objects[d['object']], d)
             else:
                 objects[d['object']] = d
+    # 업무 레코드 표준 페이지 정의(UX-004 BR-9): 헤더 콤팩트 레이아웃과 폼 팩터별 기본 보기를 객체에 붙인다.
+    # FlexiPage 자체는 scripts/dev/record-page.py가 처음 한 번 만들고 그 뒤로는 XML이 원천이다
+    for p in all_specs:
+        with open(p, encoding='utf-8') as f:
+            d = json.load(f)
+        rp = None if 'object' in d else d.get('recordPage')
+        if isinstance(rp, dict):
+            if rp['object'] not in objects:
+                sys.exit(f"레코드 페이지 정의의 객체가 없다: {rp['object']}")
+            spec = objects[rp['object']]
+            if len(rp['header']) > 7:
+                sys.exit(f"{rp['object']}: 헤더 필드 {len(rp['header'])}개 — 최대 7개(UX-004 BR-3)")
+            spec['recordPage'] = {'Large': rp['name'], 'Small': rp['phoneName']}
+            spec['compactLayout'] = {'name': rp['object'][:-3].rstrip('_') + '_Header', 'label': rp['label'] + ' Header',
+                                     'fields': rp['header']}
     missing = []
     for name, spec in objects.items():
         if spec.get('i18nName'):
@@ -527,6 +552,8 @@ def main():
             build_app(d['application'])
         elif 'pageTab' in d:
             build_page_tab(d['pageTab'])
+        elif isinstance(d.get('recordPage'), dict):
+            pass  # 위에서 객체 정의에 붙였다
     build_translations()
     stale = stale_files()
     if a.check:
@@ -610,7 +637,7 @@ def merge_spec(base, extra):
 GENERATED_DIRS = ('objects', 'objectTranslations', 'labels', 'permissionsets', 'permissionsetgroups',
                   'applications', 'layouts', 'translations', 'customMetadata', 'tabs')
 GENERATED_SUFFIXES = ('.object-meta.xml', '.field-meta.xml', '.recordType-meta.xml', '.validationRule-meta.xml', '.sharingReason-meta.xml',
-                      '.listView-meta.xml',
+                      '.listView-meta.xml', '.compactLayout-meta.xml',
                       '.objectTranslation-meta.xml', '.fieldTranslation-meta.xml', '.label-meta.xml',
                       '.permissionset-meta.xml', '.permissionsetgroup-meta.xml', '.app-meta.xml', '.layout-meta.xml',
                       '.translation-meta.xml', '.md-meta.xml', '.tab-meta.xml')

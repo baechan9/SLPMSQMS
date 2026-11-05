@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_DecisionRail_Empty</fullName>
+    <categories>CMN</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>패널 없음</shortDescription>
+    <value>표시할 패널이 없습니다</value>
+</CustomLabel>

@@ -1,0 +1,236 @@
+{
+  "wi": "CMN-00-UX-004",
+  "package": "force-app-cmn",
+  "labels": [
+    {
+      "name": "CMN_RecordPage_TabCurrent",
+      "category": "CMN",
+      "description": "레코드 페이지 첫 탭",
+      "value": {
+        "ko": "현재 단계",
+        "en_US": "Current Step",
+        "zh_CN": "当前阶段"
+      }
+    },
+    {
+      "name": "CMN_RecordPage_TabDetail",
+      "category": "CMN",
+      "description": "레코드 페이지 상세 탭",
+      "value": {
+        "ko": "상세",
+        "en_US": "Details",
+        "zh_CN": "详情"
+      }
+    },
+    {
+      "name": "CMN_RecordPage_TabRelated",
+      "category": "CMN",
+      "description": "레코드 페이지 관련 탭",
+      "value": {
+        "ko": "관련",
+        "en_US": "Related",
+        "zh_CN": "相关"
+      }
+    },
+    {
+      "name": "CMN_RecordPage_TabHistory",
+      "category": "CMN",
+      "description": "레코드 페이지 이력 탭",
+      "value": {
+        "ko": "이력",
+        "en_US": "History",
+        "zh_CN": "历史"
+      }
+    },
+    {
+      "name": "CMN_RecordPage_SectionBasic",
+      "category": "CMN",
+      "description": "필드 섹션: 기본 정보",
+      "value": {
+        "ko": "기본 정보",
+        "en_US": "Basic Information",
+        "zh_CN": "基本信息"
+      }
+    },
+    {
+      "name": "CMN_RecordPage_SectionSchedule",
+      "category": "CMN",
+      "description": "필드 섹션: 일정",
+      "value": {
+        "ko": "일정",
+        "en_US": "Schedule",
+        "zh_CN": "日程"
+      }
+    },
+    {
+      "name": "CMN_DueIndicator_Overdue",
+      "category": "CMN",
+      "description": "기한 경과({0} = 일수)",
+      "value": {
+        "ko": "기한 경과 {0}일",
+        "en_US": "Overdue by {0} day(s)",
+        "zh_CN": "已逾期 {0} 天"
+      }
+    },
+    {
+      "name": "CMN_DueIndicator_Today",
+      "category": "CMN",
+      "description": "오늘 마감",
+      "value": {
+        "ko": "오늘 마감",
+        "en_US": "Due today",
+        "zh_CN": "今天到期"
+      }
+    },
+    {
+      "name": "CMN_DueIndicator_DaysLeft",
+      "category": "CMN",
+      "description": "남은 일수({0})",
+      "value": {
+        "ko": "{0}일 남음",
+        "en_US": "{0} day(s) left",
+        "zh_CN": "剩余 {0} 天"
+      }
+    },
+    {
+      "name": "CMN_DueIndicator_NoDue",
+      "category": "CMN",
+      "description": "기한 없음",
+      "value": {
+        "ko": "기한 없음",
+        "en_US": "No due date",
+        "zh_CN": "无期限"
+      }
+    },
+    {
+      "name": "CMN_DecisionRail_Title",
+      "category": "CMN",
+      "description": "결정 지원 레일 제목",
+      "value": {
+        "ko": "결정 지원",
+        "en_US": "Decision Support",
+        "zh_CN": "决策支持"
+      }
+    },
+    {
+      "name": "CMN_DecisionRail_Empty",
+      "category": "CMN",
+      "description": "패널 없음",
+      "value": {
+        "ko": "표시할 패널이 없습니다",
+        "en_US": "No panels to show",
+        "zh_CN": "没有可显示的面板"
+      }
+    },
+    {
+      "name": "CMN_DecisionRail_PanelError",
+      "category": "CMN",
+      "description": "패널 오류",
+      "value": {
+        "ko": "이 패널을 표시할 수 없습니다. 다시 시도하거나 관리자에게 문의하세요.",
+        "en_US": "This panel can't be shown. Try again or contact your administrator.",
+        "zh_CN": "无法显示此面板。请重试或联系管理员。"
+      }
+    },
+    {
+      "name": "CMN_DecisionRail_Retry",
+      "category": "CMN",
+      "description": "패널 다시 시도",
+      "value": {
+        "ko": "다시 시도",
+        "en_US": "Try again",
+        "zh_CN": "重试"
+      }
+    },
+    {
+      "name": "CMN_DecisionRail_Badge",
+      "category": "CMN",
+      "description": "패널 배지 읽기 문구({0} = 건수)",
+      "value": {
+        "ko": "{0}건",
+        "en_US": "{0} item(s)",
+        "zh_CN": "{0} 项"
+      }
+    },
+    {
+      "name": "CMN_DecisionRail_Ai",
+      "category": "CMN",
+      "description": "패널: AI 추천",
+      "value": {
+        "ko": "AI 추천",
+        "en_US": "AI Recommendations",
+        "zh_CN": "AI 推荐"
+      }
+    },
+    {
+      "name": "CMN_DecisionRail_Approval",
+      "category": "CMN",
+      "description": "패널: 결재",
+      "value": {
+        "ko": "결재",
+        "en_US": "Approval",
+        "zh_CN": "审批"
+      }
+    },
+    {
+      "name": "CMN_DecisionRail_Todo",
+      "category": "CMN",
+      "description": "패널: 할 일",
+      "value": {
+        "ko": "할 일",
+        "en_US": "To-Do",
+        "zh_CN": "待办"
+      }
+    },
+    {
+      "name": "CMN_DecisionRail_Comment",
+      "category": "CMN",
+      "description": "패널: 코멘트",
+      "value": {
+        "ko": "코멘트",
+        "en_US": "Comments",
+        "zh_CN": "评论"
+      }
+    },
+    {
+      "name": "CMN_DecisionRail_Document",
+      "category": "CMN",
+      "description": "패널: 문서",
+      "value": {
+        "ko": "문서",
+        "en_US": "Documents",
+        "zh_CN": "文档"
+      }
+    },
+    {
+      "name": "CMN_DecisionRail_ContextTodo",
+      "category": "CMN",
+      "description": "패널: 문맥 분석(공장 할 일 현황)",
+      "value": {
+        "ko": "공장 할 일 현황",
+        "en_US": "Plant To-Do Status",
+        "zh_CN": "工厂待办状况"
+      }
+    },
+    {
+      "name": "CMN_RailTodo_Empty",
+      "category": "CMN",
+      "description": "레코드 할 일 없음",
+      "value": {
+        "ko": "이 레코드에 열린 할 일이 없습니다",
+        "en_US": "No open to-dos for this record",
+        "zh_CN": "此记录没有未完成的待办"
+      }
+    },
+    {
+      "name": "CMN_RailTodo_Overdue",
+      "category": "CMN",
+      "description": "할 일 기한 경과 표시",
+      "value": {
+        "ko": "기한 경과",
+        "en_US": "Overdue",
+        "zh_CN": "已逾期"
+      }
+    }
+  ]
+}

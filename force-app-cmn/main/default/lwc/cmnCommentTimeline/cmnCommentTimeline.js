@@ -38,6 +38,10 @@ const USER_FILTER = {
  */
 export default class CmnCommentTimeline extends LightningElement {
   @api recordId;
+  /** 결정 지원 레일 패널 계약(UX-004 BR-6, UX-003 BR-4) */
+  @api objectApiName;
+  @api config;
+  @api variant;
 
   labels = {
     title: TITLE,
@@ -79,6 +83,12 @@ export default class CmnCommentTimeline extends LightningElement {
         mentionNames: (c.mentions ?? []).map((m) => `@${m.name}`).join(" ")
       }));
       this.errorMessage = undefined;
+      // 결정 지원 레일 머리의 건수 배지(UX-004 BR-6). 레일 밖에서는 듣는 곳이 없다
+      this.dispatchEvent(
+        new CustomEvent("railbadge", {
+          detail: { count: this.comments.length, severity: "info" }
+        })
+      );
     } catch (e) {
       this.errorMessage = this.messageOf(e);
     } finally {

@@ -1,0 +1,48 @@
+<template>
+  <template lwc:if={errorMessage}>
+    <p class="slds-text-color_error" role="alert" data-id="error">
+      {errorMessage}
+    </p>
+  </template>
+  <template lwc:elseif={isEmpty}>
+    <p class="slds-text-color_weak" data-id="empty">{labels.empty}</p>
+  </template>
+  <template lwc:else>
+    <ul class="slds-has-dividers_bottom-space">
+      <template for:each={items} for:item="t">
+        <li key={t.id} class="slds-item" data-id="todo">
+          <lightning-button
+            variant="base"
+            label={t.title}
+            data-id={t.id}
+            onclick={open}
+          ></lightning-button>
+          <p class="slds-text-body_small slds-text-color_weak">
+            {t.assigneeName}
+            <template lwc:if={t.dueDate}>
+              ·
+              <lightning-formatted-date-time
+                value={t.dueDate}
+                time-zone="UTC"
+              ></lightning-formatted-date-time>
+            </template>
+            <template lwc:if={t.isOverdue}>
+              <span
+                class="slds-badge slds-theme_warning slds-m-left_x-small"
+                data-id="overdue"
+              >
+                <lightning-icon
+                  icon-name="utility:warning"
+                  size="xx-small"
+                  class="slds-m-right_xx-small"
+                  alternative-text={labels.overdue}
+                ></lightning-icon
+                >{labels.overdue}</span
+              >
+            </template>
+          </p>
+        </li>
+      </template>
+    </ul>
+  </template>
+</template>

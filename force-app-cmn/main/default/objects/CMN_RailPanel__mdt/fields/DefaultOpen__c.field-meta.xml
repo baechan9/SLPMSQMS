@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DefaultOpen__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>기본 펼침</description>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>Default Open</label>
+    <type>Checkbox</type>
+</CustomField>

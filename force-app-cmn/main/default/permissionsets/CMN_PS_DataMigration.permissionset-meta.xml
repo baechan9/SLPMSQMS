@@ -976,6 +976,16 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>CMN_TestRecord__c.DaysToDue__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>CMN_TestRecord__c.DueDate__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>CMN_TestRecord__c.Plant__c</field>
         <readable>true</readable>

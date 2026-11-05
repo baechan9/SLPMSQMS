@@ -1,0 +1,16 @@
+<template>
+  <div
+    class="slds-grid slds-grid_vertical-align-center slds-p-horizontal_small slds-p-vertical_xx-small"
+    data-id="due"
+    data-state={state}
+  >
+    <lightning-icon
+      icon-name={iconName}
+      variant={iconVariant}
+      size="x-small"
+      class="slds-m-right_x-small"
+      alternative-text={text}
+    ></lightning-icon>
+    <span class={textClass} data-id="due-text">{text}</span>
+  </div>
+</template>

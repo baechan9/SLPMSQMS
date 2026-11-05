@@ -100,6 +100,31 @@
         "zh_CN": "供应商"
       },
       "description": "협력사 공유 검증(SEC-002 BR-4)"
+    },
+    {
+      "name": "DueDate__c",
+      "type": "Date",
+      "label": {
+        "ko": "기한",
+        "en_US": "Due Date",
+        "zh_CN": "期限"
+      },
+      "description": "업무 레코드 표준(UX-004) 샘플: 기한"
+    },
+    {
+      "name": "DaysToDue__c",
+      "type": "Formula",
+      "returnType": "Number",
+      "precision": 6,
+      "scale": 0,
+      "treatBlanksAs": "BlankAsBlank",
+      "formula": "DueDate__c - TODAY()",
+      "label": {
+        "ko": "남은 일수",
+        "en_US": "Days to Due",
+        "zh_CN": "剩余天数"
+      },
+      "description": "D-day(UX-004 BR-4): 기한 - 오늘. 음수면 기한 경과"
     }
   ],
   "validationRules": [

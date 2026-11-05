@@ -1,0 +1,202 @@
+{
+  "wi": "CMN-00-UX-004",
+  "object": "CMN_RailPanel__mdt",
+  "kind": "mdt",
+  "package": "force-app-cmn",
+  "description": "결정 지원 레일 패널(UX-004 BR-5·6). 1행 = 객체 1개의 패널 1개. ObjectApiName * = 모든 업무 레코드 기본 패널, 같은 PanelKey의 객체 행이 덮어쓴다",
+  "label": {
+    "ko": "결정 지원 레일 패널"
+  },
+  "plural": {
+    "ko": "결정 지원 레일 패널"
+  },
+  "fields": [
+    {
+      "name": "ObjectApiName__c",
+      "type": "Text",
+      "label": "Object API Name",
+      "description": "대상 업무 객체. * = 기본",
+      "length": 80
+    },
+    {
+      "name": "PanelKey__c",
+      "type": "Text",
+      "label": "Panel Key",
+      "description": "AI, APPROVAL, TODO, COMMENT, DOCUMENT, CONTEXT_{이름}",
+      "length": 40
+    },
+    {
+      "name": "ComponentName__c",
+      "type": "Text",
+      "label": "Component Name",
+      "description": "동적으로 불러올 LWC(c/cmnXxx)",
+      "length": 80
+    },
+    {
+      "name": "TitleLabel__c",
+      "type": "Text",
+      "label": "Title Label",
+      "description": "패널 제목 Custom Label 이름",
+      "length": 80
+    },
+    {
+      "name": "Order__c",
+      "type": "Number",
+      "label": "Order",
+      "description": "데스크톱 순서",
+      "precision": 3,
+      "scale": 0
+    },
+    {
+      "name": "PhoneOrder__c",
+      "type": "Number",
+      "label": "Phone Order",
+      "description": "휴대폰 순서(비우면 Order)",
+      "precision": 3,
+      "scale": 0
+    },
+    {
+      "name": "DefaultOpen__c",
+      "type": "Checkbox",
+      "label": "Default Open",
+      "description": "기본 펼침",
+      "default": false
+    },
+    {
+      "name": "RequiredPermission__c",
+      "type": "Text",
+      "label": "Required Permission",
+      "description": "Custom Permission API명. 지정하면 보유자에게만",
+      "length": 80
+    },
+    {
+      "name": "Config__c",
+      "type": "LongTextArea",
+      "label": "Config",
+      "description": "패널 설정 JSON(문맥 분석 bind 등)",
+      "length": 4000,
+      "visibleLines": 3
+    },
+    {
+      "name": "IsActive__c",
+      "type": "Checkbox",
+      "label": "Active",
+      "description": "사용 여부",
+      "default": true
+    }
+  ],
+  "records": [
+    {
+      "name": "DEFAULT_AI",
+      "label": "DEFAULT_AI",
+      "values": {
+        "ObjectApiName__c": "*",
+        "PanelKey__c": "AI",
+        "ComponentName__c": "c/cmnAiRecommendationList",
+        "TitleLabel__c": "CMN_DecisionRail_Ai",
+        "Order__c": 10,
+        "PhoneOrder__c": 1,
+        "DefaultOpen__c": true,
+        "RequiredPermission__c": null,
+        "Config__c": null,
+        "IsActive__c": false
+      }
+    },
+    {
+      "name": "DEFAULT_APPROVAL",
+      "label": "DEFAULT_APPROVAL",
+      "values": {
+        "ObjectApiName__c": "*",
+        "PanelKey__c": "APPROVAL",
+        "ComponentName__c": "c/cmnApprovalLine",
+        "TitleLabel__c": "CMN_DecisionRail_Approval",
+        "Order__c": 20,
+        "PhoneOrder__c": 2,
+        "DefaultOpen__c": true,
+        "RequiredPermission__c": null,
+        "Config__c": null,
+        "IsActive__c": true
+      }
+    },
+    {
+      "name": "DEFAULT_TODO",
+      "label": "DEFAULT_TODO",
+      "values": {
+        "ObjectApiName__c": "*",
+        "PanelKey__c": "TODO",
+        "ComponentName__c": "c/cmnRailTodoList",
+        "TitleLabel__c": "CMN_DecisionRail_Todo",
+        "Order__c": 30,
+        "PhoneOrder__c": 3,
+        "DefaultOpen__c": false,
+        "RequiredPermission__c": null,
+        "Config__c": null,
+        "IsActive__c": true
+      }
+    },
+    {
+      "name": "DEFAULT_COMMENT",
+      "label": "DEFAULT_COMMENT",
+      "values": {
+        "ObjectApiName__c": "*",
+        "PanelKey__c": "COMMENT",
+        "ComponentName__c": "c/cmnCommentTimeline",
+        "TitleLabel__c": "CMN_DecisionRail_Comment",
+        "Order__c": 40,
+        "PhoneOrder__c": 4,
+        "DefaultOpen__c": false,
+        "RequiredPermission__c": null,
+        "Config__c": null,
+        "IsActive__c": true
+      }
+    },
+    {
+      "name": "DEFAULT_DOCUMENT",
+      "label": "DEFAULT_DOCUMENT",
+      "values": {
+        "ObjectApiName__c": "*",
+        "PanelKey__c": "DOCUMENT",
+        "ComponentName__c": "c/cmnDocumentPanel",
+        "TitleLabel__c": "CMN_DecisionRail_Document",
+        "Order__c": 50,
+        "PhoneOrder__c": 5,
+        "DefaultOpen__c": false,
+        "RequiredPermission__c": null,
+        "Config__c": null,
+        "IsActive__c": true
+      }
+    },
+    {
+      "name": "CMN_TestRecord_APPROVAL",
+      "label": "CMN_TestRecord_APPROVAL",
+      "values": {
+        "ObjectApiName__c": "CMN_TestRecord__c",
+        "PanelKey__c": "APPROVAL",
+        "ComponentName__c": "c/cmnApprovalLine",
+        "TitleLabel__c": "CMN_DecisionRail_Approval",
+        "Order__c": 20,
+        "PhoneOrder__c": 2,
+        "DefaultOpen__c": true,
+        "RequiredPermission__c": null,
+        "Config__c": "{\"typeCode\":\"CMN_TEST_APPROVE\"}",
+        "IsActive__c": true
+      }
+    },
+    {
+      "name": "CMN_TestRecord_CONTEXT_TODO",
+      "label": "CMN_TestRecord_CONTEXT_TODO",
+      "values": {
+        "ObjectApiName__c": "CMN_TestRecord__c",
+        "PanelKey__c": "CONTEXT_TODO",
+        "ComponentName__c": "c/cmnWidgetTodoSummary",
+        "TitleLabel__c": "CMN_DecisionRail_ContextTodo",
+        "Order__c": 60,
+        "PhoneOrder__c": 6,
+        "DefaultOpen__c": false,
+        "RequiredPermission__c": null,
+        "Config__c": "{\"bind\":{\"plantId\":\"Plant__c\"}}",
+        "IsActive__c": true
+      }
+    }
+  ]
+}

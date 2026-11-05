@@ -10,11 +10,11 @@
 
 | 구분 | 객체 수 | 커스텀 필드 수 |
 | --- | --- | --- |
-| 커스텀 객체 | 37 | 313 |
+| 커스텀 객체 | 37 | 315 |
 | 표준 객체 확장 | 2 | 22 |
-| 커스텀 메타데이터 유형(설정) | 17 | 97 |
+| 커스텀 메타데이터 유형(설정) | 18 | 107 |
 | Platform Event | 3 | 16 |
-| 합계 | 59 | 448 |
+| 합계 | 60 | 460 |
 
 ## 커스텀 객체
 
@@ -52,7 +52,7 @@
 | [CMN_ProductGroup__c](#cmn_productgroup__c) | 제품군 | Product Group | 6 | CMN-00-MDM-004 |
 | [CMN_RoleAssignment__c](#cmn_roleassignment__c) | 결재 Role 배정 | Role Assignment | 7 | CMN-00-APV-002 |
 | [CMN_SupplierItem__c](#cmn_supplieritem__c) | 협력사 품번 | Supplier Item | 6 | CMN-00-MDM-005 |
-| [CMN_TestRecord__c](#cmn_testrecord__c) | 테스트 레코드 | Test Record | 5 | CMN-00-ARC-003 |
+| [CMN_TestRecord__c](#cmn_testrecord__c) | 테스트 레코드 | Test Record | 7 | CMN-00-ARC-003 |
 | [CMN_Todo__c](#cmn_todo__c) | To-Do | To-Do | 19 | CMN-00-TDO-001 |
 | [CMN_UserDashboard__c](#cmn_userdashboard__c) | 사용자 대시보드 | User Dashboard | 5 | CMN-00-DSH-001 |
 | [CMN_UserPlantAccess__c](#cmn_userplantaccess__c) | 공장 접근 | Plant Access | 4 | CMN-00-SEC-002 |
@@ -560,6 +560,8 @@
 | API | 라벨(ko) | Label(en) | 타입 | 값/길이/참조 | 제약 | 설명 |
 | --- | --- | --- | --- | --- | --- | --- |
 | Code__c | 코드 | Code | Lookup | → CMN_Code__c |  | MDM-007 AC-2(참조 중 코드 삭제 차단). 업무 객체처럼 리프 코드 Lookup |
+| DaysToDue__c | 남은 일수 | Days to Due | Formula(Number) | 6,0 |  | D-day(UX-004 BR-4): 기한 - 오늘. 음수면 기한 경과 |
+| DueDate__c | 기한 | Due Date | Date |  |  | 업무 레코드 표준(UX-004) 샘플: 기한 |
 | Plant__c | 공장 | Plant | Lookup | → CMN_Plant__c |  | 채번·공장 공유 검증(ARC-003, SEC-002) |
 | RecordNo__c | 번호 | Record No. | Text | 40 | 외부 키 유일 | 채번 서비스가 발행(ARC-003). 업무 객체의 RecordNo__c와 같은 규칙 |
 | Status__c | 상태 | Status | Text | 40 |  | 삭제 통제 검증(SEC-003, DRAFT만 삭제) |
@@ -688,6 +690,7 @@ To-Do / To-Do. 통합 To-Do(TDO-001). Owner = Assignee, OWD Private(본인만). 
 | [CMN_Interface__mdt](#cmn_interface__mdt) | 인터페이스 |  | 9 | CMN-00-INT-001 |
 | [CMN_NotificationRule__mdt](#cmn_notificationrule__mdt) | 알림 규칙 |  | 4 | CMN-00-NTF-001 |
 | [CMN_NumberingRule__mdt](#cmn_numberingrule__mdt) | 채번 규칙 |  | 5 | CMN-00-ARC-003 |
+| [CMN_RailPanel__mdt](#cmn_railpanel__mdt) | 결정 지원 레일 패널 |  | 10 | CMN-00-UX-004 |
 | [CMN_Setting__mdt](#cmn_setting__mdt) | CMN 설정 |  | 2 | CMN-00-MDM-003 |
 | [CMN_SharingConfig__mdt](#cmn_sharingconfig__mdt) | 공유 설정 |  | 4 | CMN-00-SEC-002 |
 | [CMN_StatusFlow__mdt](#cmn_statusflow__mdt) | 상태 흐름 |  | 2 | CMN-00-UX-003 |
@@ -840,6 +843,23 @@ To-Do / To-Do. 통합 To-Do(TDO-001). Owner = Assignee, OWD Private(본인만). 
 | Pattern__c | Pattern |  | Text | 80 |  | 토큰 {PLANT} {YYYY} {YY} {MM} {SEQ:n}. 예: NCR-{PLANT}-{YYYY}-{SEQ:6} |
 | ResetPolicy__c | Reset Policy |  | Picklist | YEARLY, MONTHLY, NEVER |  |  |
 | ScopeField__c | Scope Field |  | Text | 80 |  | {PLANT} 치환 필드(공장 Lookup이면 공장 코드). 비우면 전사 연번(예: LL-, LA-) |
+
+### CMN_RailPanel__mdt
+
+결정 지원 레일 패널 / . 결정 지원 레일 패널(UX-004 BR-5·6). 1행 = 객체 1개의 패널 1개. ObjectApiName * = 모든 업무 레코드 기본 패널, 같은 PanelKey의 객체 행이 덮어쓴다
+
+| API | 라벨(ko) | Label(en) | 타입 | 값/길이/참조 | 제약 | 설명 |
+| --- | --- | --- | --- | --- | --- | --- |
+| ComponentName__c | Component Name |  | Text | 80 |  | 동적으로 불러올 LWC(c/cmnXxx) |
+| Config__c | Config |  | LongTextArea | 4000 |  | 패널 설정 JSON(문맥 분석 bind 등) |
+| DefaultOpen__c | Default Open |  | Checkbox |  |  | 기본 펼침 |
+| IsActive__c | Active |  | Checkbox |  |  | 사용 여부 |
+| ObjectApiName__c | Object API Name |  | Text | 80 |  | 대상 업무 객체. * = 기본 |
+| Order__c | Order |  | Number | 3,0 |  | 데스크톱 순서 |
+| PanelKey__c | Panel Key |  | Text | 40 |  | AI, APPROVAL, TODO, COMMENT, DOCUMENT, CONTEXT_{이름} |
+| PhoneOrder__c | Phone Order |  | Number | 3,0 |  | 휴대폰 순서(비우면 Order) |
+| RequiredPermission__c | Required Permission |  | Text | 80 |  | Custom Permission API명. 지정하면 보유자에게만 |
+| TitleLabel__c | Title Label |  | Text | 80 |  | 패널 제목 Custom Label 이름 |
 
 ### CMN_Setting__mdt
 

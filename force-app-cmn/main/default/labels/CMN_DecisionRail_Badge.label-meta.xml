@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_DecisionRail_Badge</fullName>
+    <categories>CMN</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>패널 배지 읽기 문구({0} = 건수)</shortDescription>
+    <value>{0}건</value>
+</CustomLabel>

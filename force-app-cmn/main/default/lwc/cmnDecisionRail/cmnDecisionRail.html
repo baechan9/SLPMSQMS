@@ -1,0 +1,29 @@
+<template>
+  <article class="slds-card slds-card_boundary" data-id="rail">
+    <div class="slds-card__header">
+      <h2 class="slds-card__header-title">{labels.title}</h2>
+    </div>
+    <div class="slds-card__body slds-card__body_inner">
+      <template lwc:if={errorMessage}>
+        <p class="slds-text-color_error" role="alert" data-id="error">
+          {errorMessage}
+        </p>
+      </template>
+      <template lwc:elseif={isEmpty}>
+        <p class="slds-text-color_weak" data-id="empty">{labels.empty}</p>
+      </template>
+      <template lwc:else>
+        <template for:each={panels} for:item="p">
+          <c-cmn-rail-panel
+            key={p.key}
+            panel={p}
+            open={p.open}
+            record-id={recordId}
+            object-api-name={objectApiName}
+            ontoggle={handleToggle}
+          ></c-cmn-rail-panel>
+        </template>
+      </template>
+    </div>
+  </article>
+</template>
