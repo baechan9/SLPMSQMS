@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_Checklist_DraftRestore</fullName>
+    <categories>CMN</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>초안 복원({0} = 질문 수)</shortDescription>
+    <value>이 기기에 저장하지 않은 답 {0}건이 남아 있습니다. 복원할까요? 취소하면 버립니다.</value>
+</CustomLabel>

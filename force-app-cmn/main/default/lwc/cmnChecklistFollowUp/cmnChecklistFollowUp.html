@@ -1,0 +1,72 @@
+<template>
+  <lightning-modal-header label={labels.header}></lightning-modal-header>
+  <lightning-modal-body>
+    <p class="slds-text-body_small slds-m-bottom_small question">
+      {questionText}
+    </p>
+    <lightning-input
+      label={labels.title}
+      required
+      max-length="80"
+      value={title}
+      data-field="title"
+      onchange={handleField}
+      class="fu-title"
+    ></lightning-input>
+    <lightning-textarea
+      label={labels.description}
+      value={description}
+      data-field="description"
+      onchange={handleField}
+      class="fu-description"
+    ></lightning-textarea>
+    <lightning-record-picker
+      label={labels.owner}
+      object-api-name="User"
+      value={ownerId}
+      onchange={handleOwner}
+      class="fu-owner"
+    ></lightning-record-picker>
+    <div class="slds-grid slds-gutters_small">
+      <div class="slds-col">
+        <lightning-input
+          type="date"
+          label={labels.due}
+          required
+          value={dueDate}
+          data-field="dueDate"
+          onchange={handleField}
+          class="fu-due"
+        ></lightning-input>
+      </div>
+      <div class="slds-col">
+        <lightning-combobox
+          label={labels.severity}
+          options={severityOptions}
+          value={severity}
+          data-field="severity"
+          onchange={handleField}
+          class="fu-severity"
+        ></lightning-combobox>
+      </div>
+    </div>
+    <template lwc:if={errorMessage}>
+      <p class="slds-text-color_error slds-m-top_small fu-error" role="alert">
+        {errorMessage}
+      </p>
+    </template>
+  </lightning-modal-body>
+  <lightning-modal-footer>
+    <lightning-button
+      label={labels.cancel}
+      onclick={handleCancel}
+      class="slds-m-right_x-small fu-cancel"
+    ></lightning-button>
+    <lightning-button
+      variant="brand"
+      label={labels.create}
+      onclick={handleCreate}
+      class="fu-create"
+    ></lightning-button>
+  </lightning-modal-footer>
+</template>

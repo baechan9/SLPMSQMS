@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_Checklist_SampleQ4</fullName>
+    <categories>CMN</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>샘플 질문 4(예/아니오)</shortDescription>
+    <value>최근 3개월 고객 클레임 대책이 현장에 반영되었는가?</value>
+</CustomLabel>

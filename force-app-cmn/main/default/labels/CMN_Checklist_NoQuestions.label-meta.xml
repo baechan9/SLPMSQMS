@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_Checklist_NoQuestions</fullName>
+    <categories>CMN</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>보이는 질문 없음</shortDescription>
+    <value>보여줄 질문이 없습니다. 필터를 끄세요.</value>
+</CustomLabel>

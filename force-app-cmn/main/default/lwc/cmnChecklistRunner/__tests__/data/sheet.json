@@ -1,0 +1,70 @@
+{
+  "title": "Process audit",
+  "recordNo": "TST-KR01-2026-000001",
+  "subtitle": "KR01",
+  "sections": [
+    { "key": "S1", "label": "Process control" },
+    { "key": "S2", "label": "Product quality" }
+  ],
+  "questions": [
+    {
+      "key": "Q1",
+      "sectionKey": "S1",
+      "no": "1.1",
+      "text": "Work standards posted?",
+      "guidance": "Check the revision",
+      "isStar": true,
+      "answerType": "SCORE_STEPS",
+      "allowedScores": [0, 4, 6, 8, 10],
+      "allowNa": false,
+      "noteRequiredAtOrBelow": 4
+    },
+    {
+      "key": "Q2",
+      "sectionKey": "S1",
+      "no": "1.2",
+      "text": "Daily checks complete?",
+      "answerType": "POINTS",
+      "maxPoints": 5,
+      "allowNa": true
+    },
+    {
+      "key": "Q3",
+      "sectionKey": "S1",
+      "no": "1.3",
+      "text": "Nonconforming parts segregated?",
+      "answerType": "COMPLIANCE",
+      "allowNa": false
+    },
+    {
+      "key": "Q4",
+      "sectionKey": "S2",
+      "no": "2.1",
+      "text": "Claim countermeasures applied?",
+      "answerType": "YES_NO",
+      "allowNa": false,
+      "assignedToId": "005000000000000000"
+    },
+    {
+      "key": "Q5",
+      "sectionKey": "S2",
+      "no": "2.2",
+      "text": "Count appearance defects",
+      "answerType": "DEFECT_CLASS",
+      "allowNa": false,
+      "assignedToId": "005000000000009AAA"
+    },
+    {
+      "key": "Q6",
+      "sectionKey": "S2",
+      "no": "2.3",
+      "text": "Other suggestions",
+      "answerType": "TEXT",
+      "allowNa": true
+    }
+  ],
+  "answers": [],
+  "editable": true,
+  "scoreVisible": true,
+  "photoDocClass": "AUDIT_EVIDENCE"
+}

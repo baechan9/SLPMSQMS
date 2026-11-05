@@ -150,6 +150,19 @@
       },
       "description": "현장 입력 최종 판정(PASS·FAIL·INCOMPLETE, UX-008 샘플)",
       "wi": "CMN-00-UX-008"
+    },
+    {
+      "name": "ChecklistJson__c",
+      "type": "LongTextArea",
+      "length": 131072,
+      "visibleLines": 3,
+      "label": {
+        "ko": "체크리스트 답",
+        "en_US": "Checklist Answers",
+        "zh_CN": "检查表回答"
+      },
+      "description": "체크리스트 수행 화면(UX-009) 샘플 Provider가 질문별 답을 JSON 묶음으로 저장",
+      "wi": "CMN-00-UX-009"
     }
   ],
   "validationRules": [

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>체크리스트 수행 화면(UX-009) Provider 등록. 1행 = 업무 객체 1개 → CMN_ChecklistProvider 구현 클래스</description>
+    <label>체크리스트 Provider</label>
+    <pluralLabel>체크리스트 Provider</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>

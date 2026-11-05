@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_Checklist_UnansweredConfirm</fullName>
+    <categories>CMN</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>제출 전 미답 확인({0})</shortDescription>
+    <value>답하지 않은 질문이 {0}건 있습니다. 그래도 제출할까요?</value>
+</CustomLabel>

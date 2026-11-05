@@ -184,6 +184,18 @@
         "zh_CN": "最近期限提醒日"
       },
       "description": "BR-3 하루 1회"
+    },
+    {
+      "name": "SourceKey__c",
+      "type": "Text",
+      "length": 80,
+      "label": {
+        "ko": "원천 세부 키",
+        "en_US": "Source Key",
+        "zh_CN": "来源明细键"
+      },
+      "description": "원천 레코드 안의 세부 위치(체크리스트 질문 키 등, UX-009 BR-5). SourceRecordId__c와 함께 쓴다",
+      "wi": "CMN-00-UX-009"
     }
   ],
   "layout": {

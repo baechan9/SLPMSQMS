@@ -1,0 +1,856 @@
+{
+  "wi": "CMN-00-UX-009",
+  "package": "force-app-cmn",
+  "labels": [
+    {
+      "name": "CMN_Checklist_NoProvider",
+      "category": "CMN",
+      "description": "Provider 미등록",
+      "value": {
+        "ko": "이 레코드에는 체크리스트 화면이 없습니다. 관리자에게 화면 등록을 요청하세요.",
+        "en_US": "This record has no checklist screen. Ask your admin to set one up.",
+        "zh_CN": "此记录没有检查表画面。请联系管理员进行设置。"
+      }
+    },
+    {
+      "name": "CMN_Checklist_NotEditable",
+      "category": "CMN",
+      "description": "편집 불가 저장 거부",
+      "value": {
+        "ko": "지금 상태나 권한으로는 답을 저장할 수 없습니다. 레코드 상태를 확인하세요.",
+        "en_US": "You can't save answers in the current status or with your permissions. Check the record status.",
+        "zh_CN": "当前状态或权限下无法保存回答。请确认记录状态。"
+      }
+    },
+    {
+      "name": "CMN_Checklist_ScoreNotAllowed",
+      "category": "CMN",
+      "description": "허용되지 않은 점수(AC-1)",
+      "value": {
+        "ko": "이 질문에서 고를 수 없는 점수입니다. 점수 버튼 중에서 고르세요.",
+        "en_US": "That score isn't allowed for this question. Choose one of the score buttons.",
+        "zh_CN": "此问题不能选择该分数。请从分数按钮中选择。"
+      }
+    },
+    {
+      "name": "CMN_Checklist_PointsRange",
+      "category": "CMN",
+      "description": "배점 범위({0} = 최대)",
+      "value": {
+        "ko": "점수는 0부터 {0} 사이로 넣으세요.",
+        "en_US": "Enter a score from 0 to {0}.",
+        "zh_CN": "请输入 0 到 {0} 之间的分数。"
+      }
+    },
+    {
+      "name": "CMN_Checklist_NaNotAllowed",
+      "category": "CMN",
+      "description": "NA 불가(AC-6)",
+      "value": {
+        "ko": "이 질문은 해당 없음(NA)으로 답할 수 없습니다.",
+        "en_US": "This question can't be answered as not applicable (NA).",
+        "zh_CN": "此问题不能回答为不适用（NA）。"
+      }
+    },
+    {
+      "name": "CMN_Checklist_NaReasonRequired",
+      "category": "CMN",
+      "description": "NA 사유 필수(AC-6)",
+      "value": {
+        "ko": "해당 없음(NA)을 고른 사유를 입력하세요.",
+        "en_US": "Enter why the question is not applicable (NA).",
+        "zh_CN": "请输入选择不适用（NA）的原因。"
+      }
+    },
+    {
+      "name": "CMN_Checklist_InvalidAnswer",
+      "category": "CMN",
+      "description": "답 형식 오류",
+      "value": {
+        "ko": "답의 형식이 맞지 않습니다. 다시 고르거나 입력하세요.",
+        "en_US": "The answer isn't valid. Choose or enter it again.",
+        "zh_CN": "回答格式不正确。请重新选择或输入。"
+      }
+    },
+    {
+      "name": "CMN_Checklist_FollowUpTitleRequired",
+      "category": "CMN",
+      "description": "후속 조치 제목·기한 필수",
+      "value": {
+        "ko": "후속 조치의 제목과 기한을 입력하세요.",
+        "en_US": "Enter a title and due date for the follow-up.",
+        "zh_CN": "请输入后续措施的标题和期限。"
+      }
+    },
+    {
+      "name": "CMN_Checklist_SampleSec1",
+      "category": "CMN",
+      "description": "샘플 요소 1",
+      "value": {
+        "ko": "공정 관리",
+        "en_US": "Process control",
+        "zh_CN": "过程管理"
+      }
+    },
+    {
+      "name": "CMN_Checklist_SampleSec2",
+      "category": "CMN",
+      "description": "샘플 요소 2",
+      "value": {
+        "ko": "제품 품질",
+        "en_US": "Product quality",
+        "zh_CN": "产品质量"
+      }
+    },
+    {
+      "name": "CMN_Checklist_SampleQ1",
+      "category": "CMN",
+      "description": "샘플 질문 1(점수 단계)",
+      "value": {
+        "ko": "작업 표준이 현장에 게시되고 최신 개정판인가?",
+        "en_US": "Are work standards posted on the line and up to date?",
+        "zh_CN": "作业标准是否张贴在现场且为最新版本？"
+      }
+    },
+    {
+      "name": "CMN_Checklist_SampleQ1Guide",
+      "category": "CMN",
+      "description": "샘플 질문 1 안내",
+      "value": {
+        "ko": "게시 위치, 개정 번호, 작업자 확인 서명을 본다.",
+        "en_US": "Check the posting location, revision number and operator sign-off.",
+        "zh_CN": "检查张贴位置、修订号和作业者确认签字。"
+      }
+    },
+    {
+      "name": "CMN_Checklist_SampleQ2",
+      "category": "CMN",
+      "description": "샘플 질문 2(배점)",
+      "value": {
+        "ko": "설비 일상 점검 기록이 빠짐없이 작성되었는가?",
+        "en_US": "Are daily equipment check records complete?",
+        "zh_CN": "设备日常点检记录是否完整？"
+      }
+    },
+    {
+      "name": "CMN_Checklist_SampleQ3",
+      "category": "CMN",
+      "description": "샘플 질문 3(적합)",
+      "value": {
+        "ko": "부적합품이 식별·격리되어 있는가?",
+        "en_US": "Are nonconforming parts identified and segregated?",
+        "zh_CN": "不合格品是否已标识并隔离？"
+      }
+    },
+    {
+      "name": "CMN_Checklist_SampleQ4",
+      "category": "CMN",
+      "description": "샘플 질문 4(예/아니오)",
+      "value": {
+        "ko": "최근 3개월 고객 클레임 대책이 현장에 반영되었는가?",
+        "en_US": "Have countermeasures for customer claims in the last 3 months been applied on the line?",
+        "zh_CN": "近 3 个月客户投诉的对策是否已在现场落实？"
+      }
+    },
+    {
+      "name": "CMN_Checklist_SampleQ5",
+      "category": "CMN",
+      "description": "샘플 질문 5(결함 등급)",
+      "value": {
+        "ko": "완성품 시료의 외관 결함을 등급별로 센다.",
+        "en_US": "Count appearance defects on finished-part samples by class.",
+        "zh_CN": "按等级统计成品样品的外观缺陷。"
+      }
+    },
+    {
+      "name": "CMN_Checklist_SampleQ6",
+      "category": "CMN",
+      "description": "샘플 질문 6(서술)",
+      "value": {
+        "ko": "기타 개선 제안을 적는다.",
+        "en_US": "Note other improvement suggestions.",
+        "zh_CN": "记录其他改进建议。"
+      }
+    },
+    {
+      "name": "CMN_Checklist_SampleNoteRequired",
+      "category": "CMN",
+      "description": "샘플 규칙: 관찰 메모 필수(AC-2)",
+      "value": {
+        "ko": "4점 이하이거나 부적합이면 관찰 메모를 적으세요.",
+        "en_US": "Add an observation note for a score of 4 or lower, or a noncompliance.",
+        "zh_CN": "4 分及以下或不符合时，请填写观察记录。"
+      }
+    },
+    {
+      "name": "CMN_Checklist_SampleFollowUpRequired",
+      "category": "CMN",
+      "description": "샘플 규칙: 후속 조치 또는 사유",
+      "value": {
+        "ko": "후속 조치를 만들거나, 만들지 않는 사유를 적으세요.",
+        "en_US": "Create a follow-up, or enter why you won't.",
+        "zh_CN": "请创建后续措施，或填写不创建的原因。"
+      }
+    },
+    {
+      "name": "CMN_Checklist_SampleDowngrade",
+      "category": "CMN",
+      "description": "샘플 강등 사유",
+      "value": {
+        "ko": "별표 질문이 4점 이하라 등급을 한 단계 낮췄습니다.",
+        "en_US": "Grade lowered one step because a starred question scored 4 or lower.",
+        "zh_CN": "星标问题得分 4 分及以下，等级降低一级。"
+      }
+    },
+    {
+      "name": "CMN_Checklist_Loading",
+      "category": "CMN",
+      "description": "로딩",
+      "value": {
+        "ko": "체크리스트를 불러오는 중",
+        "en_US": "Loading checklist",
+        "zh_CN": "正在加载检查表"
+      }
+    },
+    {
+      "name": "CMN_Checklist_LoadError",
+      "category": "CMN",
+      "description": "로드 실패",
+      "value": {
+        "ko": "체크리스트를 불러오지 못했습니다. 새로 고침하세요. 계속되면 관리자에게 알려 주세요.",
+        "en_US": "The checklist didn't load. Refresh. If it keeps happening, tell your admin.",
+        "zh_CN": "检查表加载失败。请刷新。如持续出现，请告知管理员。"
+      }
+    },
+    {
+      "name": "CMN_Checklist_NoRecord",
+      "category": "CMN",
+      "description": "레코드 미지정",
+      "value": {
+        "ko": "수행할 레코드가 지정되지 않았습니다. 레코드에서 화면을 다시 여세요.",
+        "en_US": "No record is selected. Open the checklist from a record again.",
+        "zh_CN": "未指定要执行的记录。请从记录重新打开画面。"
+      }
+    },
+    {
+      "name": "CMN_Checklist_Progress",
+      "category": "CMN",
+      "description": "진행률({0} 답, {1} 전체)",
+      "value": {
+        "ko": "답 {0} / {1}",
+        "en_US": "{0} of {1} answered",
+        "zh_CN": "已回答 {0} / {1}"
+      }
+    },
+    {
+      "name": "CMN_Checklist_MyOnly",
+      "category": "CMN",
+      "description": "내 분담만(BR-6)",
+      "value": {
+        "ko": "내 분담만",
+        "en_US": "My Questions Only",
+        "zh_CN": "仅我负责的"
+      }
+    },
+    {
+      "name": "CMN_Checklist_ShowScore",
+      "category": "CMN",
+      "description": "점수 보기(BR-4)",
+      "value": {
+        "ko": "점수 보기",
+        "en_US": "View Score",
+        "zh_CN": "查看得分"
+      }
+    },
+    {
+      "name": "CMN_Checklist_Sections",
+      "category": "CMN",
+      "description": "요소 목록 제목",
+      "value": {
+        "ko": "요소",
+        "en_US": "Sections",
+        "zh_CN": "要素"
+      }
+    },
+    {
+      "name": "CMN_Checklist_SectionProgress",
+      "category": "CMN",
+      "description": "요소 진행({0} 답, {1} 전체)",
+      "value": {
+        "ko": "{0}/{1}",
+        "en_US": "{0}/{1}",
+        "zh_CN": "{0}/{1}"
+      }
+    },
+    {
+      "name": "CMN_Checklist_ViewCards",
+      "category": "CMN",
+      "description": "보기: 카드",
+      "value": {
+        "ko": "질문 카드",
+        "en_US": "Question Cards",
+        "zh_CN": "问题卡片"
+      }
+    },
+    {
+      "name": "CMN_Checklist_ViewTable",
+      "category": "CMN",
+      "description": "보기: 표",
+      "value": {
+        "ko": "질문 표",
+        "en_US": "Question Table",
+        "zh_CN": "问题表格"
+      }
+    },
+    {
+      "name": "CMN_Checklist_ViewLabel",
+      "category": "CMN",
+      "description": "보기 전환 라벨",
+      "value": {
+        "ko": "보기",
+        "en_US": "View",
+        "zh_CN": "视图"
+      }
+    },
+    {
+      "name": "CMN_Checklist_Star",
+      "category": "CMN",
+      "description": "별표 질문 표시",
+      "value": {
+        "ko": "별표 질문",
+        "en_US": "Starred question",
+        "zh_CN": "星标问题"
+      }
+    },
+    {
+      "name": "CMN_Checklist_Guidance",
+      "category": "CMN",
+      "description": "안내 보기",
+      "value": {
+        "ko": "안내 보기",
+        "en_US": "Show Guidance",
+        "zh_CN": "查看说明"
+      }
+    },
+    {
+      "name": "CMN_Checklist_Answer",
+      "category": "CMN",
+      "description": "답 입력 라벨",
+      "value": {
+        "ko": "답",
+        "en_US": "Answer",
+        "zh_CN": "回答"
+      }
+    },
+    {
+      "name": "CMN_Checklist_Points",
+      "category": "CMN",
+      "description": "배점 입력({0} = 최대)",
+      "value": {
+        "ko": "점수(0~{0})",
+        "en_US": "Score (0-{0})",
+        "zh_CN": "分数（0~{0}）"
+      }
+    },
+    {
+      "name": "CMN_Checklist_Compliant",
+      "category": "CMN",
+      "description": "적합",
+      "value": {
+        "ko": "적합",
+        "en_US": "Compliant",
+        "zh_CN": "符合"
+      }
+    },
+    {
+      "name": "CMN_Checklist_Noncompliant",
+      "category": "CMN",
+      "description": "부적합",
+      "value": {
+        "ko": "부적합",
+        "en_US": "Noncompliant",
+        "zh_CN": "不符合"
+      }
+    },
+    {
+      "name": "CMN_Checklist_Yes",
+      "category": "CMN",
+      "description": "예",
+      "value": {
+        "ko": "예",
+        "en_US": "Yes",
+        "zh_CN": "是"
+      }
+    },
+    {
+      "name": "CMN_Checklist_No",
+      "category": "CMN",
+      "description": "아니오",
+      "value": {
+        "ko": "아니오",
+        "en_US": "No",
+        "zh_CN": "否"
+      }
+    },
+    {
+      "name": "CMN_Checklist_SampleQty",
+      "category": "CMN",
+      "description": "결함 등급: 시료 수",
+      "value": {
+        "ko": "시료 수",
+        "en_US": "Samples",
+        "zh_CN": "样品数"
+      }
+    },
+    {
+      "name": "CMN_Checklist_DefectA",
+      "category": "CMN",
+      "description": "결함 A",
+      "value": {
+        "ko": "결함 A",
+        "en_US": "Defects A",
+        "zh_CN": "缺陷 A"
+      }
+    },
+    {
+      "name": "CMN_Checklist_DefectB",
+      "category": "CMN",
+      "description": "결함 B",
+      "value": {
+        "ko": "결함 B",
+        "en_US": "Defects B",
+        "zh_CN": "缺陷 B"
+      }
+    },
+    {
+      "name": "CMN_Checklist_DefectC",
+      "category": "CMN",
+      "description": "결함 C",
+      "value": {
+        "ko": "결함 C",
+        "en_US": "Defects C",
+        "zh_CN": "缺陷 C"
+      }
+    },
+    {
+      "name": "CMN_Checklist_Na",
+      "category": "CMN",
+      "description": "해당 없음(NA)",
+      "value": {
+        "ko": "해당 없음(NA)",
+        "en_US": "Not Applicable (NA)",
+        "zh_CN": "不适用（NA）"
+      }
+    },
+    {
+      "name": "CMN_Checklist_NaReason",
+      "category": "CMN",
+      "description": "NA 사유",
+      "value": {
+        "ko": "해당 없음 사유",
+        "en_US": "Reason for NA",
+        "zh_CN": "不适用原因"
+      }
+    },
+    {
+      "name": "CMN_Checklist_Notes",
+      "category": "CMN",
+      "description": "관찰 메모",
+      "value": {
+        "ko": "관찰 메모",
+        "en_US": "Observation notes",
+        "zh_CN": "观察记录"
+      }
+    },
+    {
+      "name": "CMN_Checklist_NotesRequiredHint",
+      "category": "CMN",
+      "description": "관찰 메모 필수 안내(BR-3)",
+      "value": {
+        "ko": "이 답에는 관찰 메모가 필요합니다.",
+        "en_US": "This answer needs an observation note.",
+        "zh_CN": "此回答需要填写观察记录。"
+      }
+    },
+    {
+      "name": "CMN_Checklist_NoFollowUpReason",
+      "category": "CMN",
+      "description": "후속 조치 미생성 사유",
+      "value": {
+        "ko": "후속 조치를 만들지 않는 사유",
+        "en_US": "Reason for no follow-up",
+        "zh_CN": "不创建后续措施的原因"
+      }
+    },
+    {
+      "name": "CMN_Checklist_FollowUp",
+      "category": "CMN",
+      "description": "후속 조치 버튼(BR-5)",
+      "value": {
+        "ko": "후속 조치",
+        "en_US": "Follow-up",
+        "zh_CN": "后续措施"
+      }
+    },
+    {
+      "name": "CMN_Checklist_FollowUpCreated",
+      "category": "CMN",
+      "description": "후속 조치 생성됨",
+      "value": {
+        "ko": "후속 조치를 만들었습니다",
+        "en_US": "Follow-up created",
+        "zh_CN": "已创建后续措施"
+      }
+    },
+    {
+      "name": "CMN_Checklist_FollowUpTitle",
+      "category": "CMN",
+      "description": "후속 조치 대화상자 제목",
+      "value": {
+        "ko": "후속 조치 만들기",
+        "en_US": "Create Follow-up",
+        "zh_CN": "创建后续措施"
+      }
+    },
+    {
+      "name": "CMN_Checklist_FuTitle",
+      "category": "CMN",
+      "description": "후속 조치: 제목",
+      "value": {
+        "ko": "제목",
+        "en_US": "Title",
+        "zh_CN": "标题"
+      }
+    },
+    {
+      "name": "CMN_Checklist_FuDescription",
+      "category": "CMN",
+      "description": "후속 조치: 내용",
+      "value": {
+        "ko": "내용",
+        "en_US": "Details",
+        "zh_CN": "内容"
+      }
+    },
+    {
+      "name": "CMN_Checklist_FuOwner",
+      "category": "CMN",
+      "description": "후속 조치: 담당",
+      "value": {
+        "ko": "담당",
+        "en_US": "Owner",
+        "zh_CN": "负责人"
+      }
+    },
+    {
+      "name": "CMN_Checklist_FuDue",
+      "category": "CMN",
+      "description": "후속 조치: 기한",
+      "value": {
+        "ko": "기한",
+        "en_US": "Due date",
+        "zh_CN": "期限"
+      }
+    },
+    {
+      "name": "CMN_Checklist_FuSeverity",
+      "category": "CMN",
+      "description": "후속 조치: 심각도",
+      "value": {
+        "ko": "심각도",
+        "en_US": "Severity",
+        "zh_CN": "严重程度"
+      }
+    },
+    {
+      "name": "CMN_Checklist_SevHigh",
+      "category": "CMN",
+      "description": "심각도: 높음",
+      "value": {
+        "ko": "높음",
+        "en_US": "High",
+        "zh_CN": "高"
+      }
+    },
+    {
+      "name": "CMN_Checklist_SevMedium",
+      "category": "CMN",
+      "description": "심각도: 보통",
+      "value": {
+        "ko": "보통",
+        "en_US": "Medium",
+        "zh_CN": "中"
+      }
+    },
+    {
+      "name": "CMN_Checklist_SevLow",
+      "category": "CMN",
+      "description": "심각도: 낮음",
+      "value": {
+        "ko": "낮음",
+        "en_US": "Low",
+        "zh_CN": "低"
+      }
+    },
+    {
+      "name": "CMN_Checklist_FuCreate",
+      "category": "CMN",
+      "description": "후속 조치: 만들기",
+      "value": {
+        "ko": "만들기",
+        "en_US": "Create",
+        "zh_CN": "创建"
+      }
+    },
+    {
+      "name": "CMN_Checklist_FuCancel",
+      "category": "CMN",
+      "description": "후속 조치: 취소",
+      "value": {
+        "ko": "취소",
+        "en_US": "Cancel",
+        "zh_CN": "取消"
+      }
+    },
+    {
+      "name": "CMN_Checklist_Prev",
+      "category": "CMN",
+      "description": "이전 질문",
+      "value": {
+        "ko": "이전",
+        "en_US": "Previous",
+        "zh_CN": "上一个"
+      }
+    },
+    {
+      "name": "CMN_Checklist_Next",
+      "category": "CMN",
+      "description": "다음 질문",
+      "value": {
+        "ko": "다음",
+        "en_US": "Next",
+        "zh_CN": "下一个"
+      }
+    },
+    {
+      "name": "CMN_Checklist_Open",
+      "category": "CMN",
+      "description": "표에서 질문 열기",
+      "value": {
+        "ko": "열기",
+        "en_US": "Open",
+        "zh_CN": "打开"
+      }
+    },
+    {
+      "name": "CMN_Checklist_Submit",
+      "category": "CMN",
+      "description": "제출(최종 저장)",
+      "value": {
+        "ko": "제출",
+        "en_US": "Submit",
+        "zh_CN": "提交"
+      }
+    },
+    {
+      "name": "CMN_Checklist_SaveNow",
+      "category": "CMN",
+      "description": "지금 저장",
+      "value": {
+        "ko": "지금 저장",
+        "en_US": "Save Now",
+        "zh_CN": "立即保存"
+      }
+    },
+    {
+      "name": "CMN_Checklist_DraftSaved",
+      "category": "CMN",
+      "description": "임시 저장 상태",
+      "value": {
+        "ko": "이 기기에 임시 저장됨",
+        "en_US": "Saved on this device",
+        "zh_CN": "已临时保存在本设备"
+      }
+    },
+    {
+      "name": "CMN_Checklist_ServerSaved",
+      "category": "CMN",
+      "description": "서버 저장 상태",
+      "value": {
+        "ko": "서버에 저장됨",
+        "en_US": "Saved",
+        "zh_CN": "已保存"
+      }
+    },
+    {
+      "name": "CMN_Checklist_Pending",
+      "category": "CMN",
+      "description": "전송 대기({0} = 질문 수)",
+      "value": {
+        "ko": "전송 대기 {0}건",
+        "en_US": "{0} waiting to send",
+        "zh_CN": "待发送 {0} 项"
+      }
+    },
+    {
+      "name": "CMN_Checklist_SaveFailed",
+      "category": "CMN",
+      "description": "저장 실패 안내(BR-7)",
+      "value": {
+        "ko": "서버에 저장하지 못했습니다. 답은 계속 입력할 수 있습니다. 연결되면 \"지금 저장\"을 누르세요.",
+        "en_US": "Couldn't save to the server. You can keep answering. When you're back online, select Save Now.",
+        "zh_CN": "未能保存到服务器。可以继续回答。恢复连接后请点击“立即保存”。"
+      }
+    },
+    {
+      "name": "CMN_Checklist_DraftRestore",
+      "category": "CMN",
+      "description": "초안 복원({0} = 질문 수)",
+      "value": {
+        "ko": "이 기기에 저장하지 않은 답 {0}건이 남아 있습니다. 복원할까요? 취소하면 버립니다.",
+        "en_US": "There are {0} unsaved answers on this device. Restore them? Cancel discards them.",
+        "zh_CN": "本设备上有 {0} 个未保存的回答。要恢复吗？取消将放弃。"
+      }
+    },
+    {
+      "name": "CMN_Checklist_DraftTitle",
+      "category": "CMN",
+      "description": "초안 대화상자 제목",
+      "value": {
+        "ko": "저장하지 않은 답",
+        "en_US": "Unsaved Answers",
+        "zh_CN": "未保存的回答"
+      }
+    },
+    {
+      "name": "CMN_Checklist_UnansweredConfirm",
+      "category": "CMN",
+      "description": "제출 전 미답 확인({0})",
+      "value": {
+        "ko": "답하지 않은 질문이 {0}건 있습니다. 그래도 제출할까요?",
+        "en_US": "{0} questions are unanswered. Submit anyway?",
+        "zh_CN": "有 {0} 个问题未回答。仍要提交吗？"
+      }
+    },
+    {
+      "name": "CMN_Checklist_SubmitTitle",
+      "category": "CMN",
+      "description": "제출 대화상자 제목",
+      "value": {
+        "ko": "제출",
+        "en_US": "Submit",
+        "zh_CN": "提交"
+      }
+    },
+    {
+      "name": "CMN_Checklist_Submitted",
+      "category": "CMN",
+      "description": "제출 완료",
+      "value": {
+        "ko": "제출했습니다.",
+        "en_US": "Submitted.",
+        "zh_CN": "已提交。"
+      }
+    },
+    {
+      "name": "CMN_Checklist_FixErrors",
+      "category": "CMN",
+      "description": "카드 오류 안내",
+      "value": {
+        "ko": "표시된 질문을 고친 뒤 다시 제출하세요.",
+        "en_US": "Fix the highlighted questions, then submit again.",
+        "zh_CN": "请修改标出的问题后重新提交。"
+      }
+    },
+    {
+      "name": "CMN_Checklist_ReadOnly",
+      "category": "CMN",
+      "description": "읽기 전용 안내",
+      "value": {
+        "ko": "읽기 전용: 지금 상태나 권한으로는 답할 수 없습니다.",
+        "en_US": "Read only: you can't answer in the current status or with your permissions.",
+        "zh_CN": "只读：当前状态或权限下无法回答。"
+      }
+    },
+    {
+      "name": "CMN_Checklist_ScoreTitle",
+      "category": "CMN",
+      "description": "점수 패널 제목(BR-4)",
+      "value": {
+        "ko": "점수 미리보기",
+        "en_US": "Score Preview",
+        "zh_CN": "得分预览"
+      }
+    },
+    {
+      "name": "CMN_Checklist_ScorePercent",
+      "category": "CMN",
+      "description": "전체 달성률({0})",
+      "value": {
+        "ko": "전체 {0}%",
+        "en_US": "Overall {0}%",
+        "zh_CN": "总体 {0}%"
+      }
+    },
+    {
+      "name": "CMN_Checklist_Grade",
+      "category": "CMN",
+      "description": "등급({0})",
+      "value": {
+        "ko": "등급 {0}",
+        "en_US": "Grade {0}",
+        "zh_CN": "等级 {0}"
+      }
+    },
+    {
+      "name": "CMN_Checklist_GradeBefore",
+      "category": "CMN",
+      "description": "강등 전 등급({0})",
+      "value": {
+        "ko": "강등 전 {0}",
+        "en_US": "Before downgrade {0}",
+        "zh_CN": "降级前 {0}"
+      }
+    },
+    {
+      "name": "CMN_Checklist_Unanswered",
+      "category": "CMN",
+      "description": "미답 수({0})",
+      "value": {
+        "ko": "미답 {0}건",
+        "en_US": "{0} unanswered",
+        "zh_CN": "未回答 {0} 项"
+      }
+    },
+    {
+      "name": "CMN_Checklist_ScoreHidden",
+      "category": "CMN",
+      "description": "점수 비공개",
+      "value": {
+        "ko": "이 체크리스트는 점수를 보여주지 않습니다.",
+        "en_US": "This checklist doesn't show scores.",
+        "zh_CN": "此检查表不显示得分。"
+      }
+    },
+    {
+      "name": "CMN_Checklist_Photos",
+      "category": "CMN",
+      "description": "사진 수({0})",
+      "value": {
+        "ko": "사진 {0}장",
+        "en_US": "{0} photos",
+        "zh_CN": "照片 {0} 张"
+      }
+    },
+    {
+      "name": "CMN_Checklist_NoQuestions",
+      "category": "CMN",
+      "description": "보이는 질문 없음",
+      "value": {
+        "ko": "보여줄 질문이 없습니다. 필터를 끄세요.",
+        "en_US": "No questions to show. Turn off the filter.",
+        "zh_CN": "没有可显示的问题。请关闭筛选。"
+      }
+    }
+  ]
+}

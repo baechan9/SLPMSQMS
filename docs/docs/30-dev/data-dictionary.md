@@ -10,17 +10,17 @@
 
 | 구분 | 객체 수 | 커스텀 필드 수 |
 | --- | --- | --- |
-| 커스텀 객체 | 38 | 327 |
+| 커스텀 객체 | 38 | 329 |
 | 표준 객체 확장 | 2 | 22 |
-| 커스텀 메타데이터 유형(설정) | 23 | 149 |
+| 커스텀 메타데이터 유형(설정) | 24 | 152 |
 | Platform Event | 3 | 16 |
-| 합계 | 66 | 514 |
+| 합계 | 67 | 519 |
 
 ## 커스텀 객체
 
 | 객체 | 라벨(ko) | Label(en) | 필드 수 | 소유 WI |
 | --- | --- | --- | --- | --- |
-| [CMN_ActionItem__c](#cmn_actionitem__c) | 조치 항목 | Action Item | 9 | CMN-00-MTG-001 |
+| [CMN_ActionItem__c](#cmn_actionitem__c) | 조치 항목 | Action Item | 10 | CMN-00-MTG-001 |
 | [CMN_ApprovalRequest__c](#cmn_approvalrequest__c) | 결재 요청 | Approval Request | 14 | CMN-00-APV-001 |
 | [CMN_ApprovalStep__c](#cmn_approvalstep__c) | 결재 단계 | Approval Step | 14 | CMN-00-APV-001 |
 | [CMN_ApprovalTemplateStep__c](#cmn_approvaltemplatestep__c) | 템플릿 단계 | Template Step | 9 | CMN-00-APV-002 |
@@ -53,7 +53,7 @@
 | [CMN_RoleAssignment__c](#cmn_roleassignment__c) | 결재 Role 배정 | Role Assignment | 7 | CMN-00-APV-002 |
 | [CMN_SupplierItem__c](#cmn_supplieritem__c) | 협력사 품번 | Supplier Item | 6 | CMN-00-MDM-005 |
 | [CMN_TestRecordLine__c](#cmn_testrecordline__c) | 테스트 라인 | Test Line | 10 | CMN-00-UX-006 |
-| [CMN_TestRecord__c](#cmn_testrecord__c) | 테스트 레코드 | Test Record | 9 | CMN-00-ARC-003 |
+| [CMN_TestRecord__c](#cmn_testrecord__c) | 테스트 레코드 | Test Record | 10 | CMN-00-ARC-003 |
 | [CMN_Todo__c](#cmn_todo__c) | To-Do | To-Do | 19 | CMN-00-TDO-001 |
 | [CMN_UserDashboard__c](#cmn_userdashboard__c) | 사용자 대시보드 | User Dashboard | 5 | CMN-00-DSH-001 |
 | [CMN_UserPlantAccess__c](#cmn_userplantaccess__c) | 공장 접근 | Plant Access | 4 | CMN-00-SEC-002 |
@@ -72,6 +72,7 @@
 | Meeting__c | 회의 | Meeting | Lookup | → CMN_Meeting__c |  |  |
 | Owner__c | 담당자 | Owner | Lookup | → User |  | 필수는 트리거 확인(User Lookup 필수 불가) |
 | Plant__c | 공장 | Plant | Lookup | → CMN_Plant__c |  |  |
+| SourceKey__c | 원천 세부 키 | Source Key | Text | 80 |  | 원천 레코드 안의 세부 위치(체크리스트 질문 키 등, UX-009 BR-5). SourceRecordId__c와 함께 쓴다 |
 | SourceRecordId__c | 원천 업무 | Source Record | Text | 18 |  |  |
 | Status__c | 상태 | Status | Picklist | OPEN, DONE, CANCELLED | 필수 |  |
 
@@ -577,6 +578,7 @@
 
 | API | 라벨(ko) | Label(en) | 타입 | 값/길이/참조 | 제약 | 설명 |
 | --- | --- | --- | --- | --- | --- | --- |
+| ChecklistJson__c | 체크리스트 답 | Checklist Answers | LongTextArea | 131072 |  | 체크리스트 수행 화면(UX-009) 샘플 Provider가 질문별 답을 JSON 묶음으로 저장 |
 | Code__c | 코드 | Code | Lookup | → CMN_Code__c |  | MDM-007 AC-2(참조 중 코드 삭제 차단). 업무 객체처럼 리프 코드 Lookup |
 | DaysToDue__c | 남은 일수 | Days to Due | Formula(Number) | 6,0 |  | D-day(UX-004 BR-4): 기한 - 오늘. 음수면 기한 경과 |
 | DueDate__c | 기한 | Due Date | Date |  |  | 업무 레코드 표준(UX-004) 샘플: 기한 |
@@ -702,6 +704,7 @@ To-Do / To-Do. 통합 To-Do(TDO-001). Owner = Assignee, OWD Private(본인만). 
 | [CMN_AppMenuItem__mdt](#cmn_appmenuitem__mdt) | 앱 메뉴 항목 |  | 14 | CMN-00-UX-007 |
 | [CMN_AppMenu__mdt](#cmn_appmenu__mdt) | 앱 메뉴 |  | 8 | CMN-00-UX-007 |
 | [CMN_ApprovalType__mdt](#cmn_approvaltype__mdt) | 결재 유형 |  | 8 | CMN-00-APV-001 |
+| [CMN_ChecklistProvider__mdt](#cmn_checklistprovider__mdt) | 체크리스트 Provider |  | 3 | CMN-00-UX-009 |
 | [CMN_DashboardResolver__mdt](#cmn_dashboardresolver__mdt) | 대시보드 확장 |  | 5 | CMN-00-DSH-001 |
 | [CMN_DashboardTemplateItem__mdt](#cmn_dashboardtemplateitem__mdt) | 대시보드 템플릿 항목 |  | 5 | CMN-00-DSH-001 |
 | [CMN_DashboardTemplate__mdt](#cmn_dashboardtemplate__mdt) | 대시보드 템플릿 |  | 6 | CMN-00-DSH-001 |
@@ -773,6 +776,16 @@ To-Do / To-Do. 통합 To-Do(TDO-001). Owner = Assignee, OWD Private(본인만). 
 | ReminderDays__c | Reminder Days |  | Number | 3,0 |  |  |
 | RequireDrafterManager__c | Require Drafter Manager |  | Checkbox |  |  |  |
 | TargetObject__c | Target Object |  | Text | 80 |  |  |
+
+### CMN_ChecklistProvider__mdt
+
+체크리스트 Provider / . 체크리스트 수행 화면(UX-009) Provider 등록. 1행 = 업무 객체 1개 → CMN_ChecklistProvider 구현 클래스
+
+| API | 라벨(ko) | Label(en) | 타입 | 값/길이/참조 | 제약 | 설명 |
+| --- | --- | --- | --- | --- | --- | --- |
+| IsActive__c | Active |  | Checkbox |  |  | 사용 여부 |
+| ObjectApiName__c | Object API Name |  | Text | 80 |  | 업무 객체 |
+| ProviderClass__c | Provider Class |  | Text | 80 |  | CMN_ChecklistProvider 구현 클래스(공개 기본 생성자) |
 
 ### CMN_DashboardResolver__mdt
 

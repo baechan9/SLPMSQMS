@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_Checklist_SampleQ1</fullName>
+    <categories>CMN</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>샘플 질문 1(점수 단계)</shortDescription>
+    <value>작업 표준이 현장에 게시되고 최신 개정판인가?</value>
+</CustomLabel>

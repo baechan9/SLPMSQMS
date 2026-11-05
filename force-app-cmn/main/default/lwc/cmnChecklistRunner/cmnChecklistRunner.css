@@ -1,0 +1,31 @@
+/* 체크리스트 수행 화면(UX-009): 큰 점수·선택 버튼, 현재 요소 표시, 하단 고정 줄. 색은 SLDS 클래스·전역 훅만 쓴다 */
+.score-button,
+.choice-button {
+  min-height: 3rem;
+  min-width: 3.5rem;
+  font-size: 1.125rem;
+}
+
+.section-link {
+  width: 100%;
+  text-align: left;
+  display: flex;
+  align-items: center;
+}
+
+.section-link.is-current {
+  font-weight: var(--slds-g-font-weight-bold, 700);
+  border-left-width: 3px;
+  border-left-style: solid;
+  border-left-color: var(--slds-g-color-accent-1, currentColor);
+}
+
+.footer {
+  position: sticky;
+  bottom: 0;
+  z-index: 1;
+  background: var(--slds-g-color-surface-container-1, Canvas);
+  border-top-width: 1px;
+  border-top-style: solid;
+  border-top-color: var(--slds-g-color-border-1, currentColor);
+}

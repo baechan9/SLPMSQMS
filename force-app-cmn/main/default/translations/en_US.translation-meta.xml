@@ -489,6 +489,346 @@
         <name>CMN_Char_NotDraft</name>
     </customLabels>
     <customLabels>
+        <label>Answer</label>
+        <name>CMN_Checklist_Answer</name>
+    </customLabels>
+    <customLabels>
+        <label>Compliant</label>
+        <name>CMN_Checklist_Compliant</name>
+    </customLabels>
+    <customLabels>
+        <label>Defects A</label>
+        <name>CMN_Checklist_DefectA</name>
+    </customLabels>
+    <customLabels>
+        <label>Defects B</label>
+        <name>CMN_Checklist_DefectB</name>
+    </customLabels>
+    <customLabels>
+        <label>Defects C</label>
+        <name>CMN_Checklist_DefectC</name>
+    </customLabels>
+    <customLabels>
+        <label>There are {0} unsaved answers on this device. Restore them? Cancel discards them.</label>
+        <name>CMN_Checklist_DraftRestore</name>
+    </customLabels>
+    <customLabels>
+        <label>Saved on this device</label>
+        <name>CMN_Checklist_DraftSaved</name>
+    </customLabels>
+    <customLabels>
+        <label>Unsaved Answers</label>
+        <name>CMN_Checklist_DraftTitle</name>
+    </customLabels>
+    <customLabels>
+        <label>Fix the highlighted questions, then submit again.</label>
+        <name>CMN_Checklist_FixErrors</name>
+    </customLabels>
+    <customLabels>
+        <label>Follow-up</label>
+        <name>CMN_Checklist_FollowUp</name>
+    </customLabels>
+    <customLabels>
+        <label>Follow-up created</label>
+        <name>CMN_Checklist_FollowUpCreated</name>
+    </customLabels>
+    <customLabels>
+        <label>Create Follow-up</label>
+        <name>CMN_Checklist_FollowUpTitle</name>
+    </customLabels>
+    <customLabels>
+        <label>Enter a title and due date for the follow-up.</label>
+        <name>CMN_Checklist_FollowUpTitleRequired</name>
+    </customLabels>
+    <customLabels>
+        <label>Cancel</label>
+        <name>CMN_Checklist_FuCancel</name>
+    </customLabels>
+    <customLabels>
+        <label>Create</label>
+        <name>CMN_Checklist_FuCreate</name>
+    </customLabels>
+    <customLabels>
+        <label>Details</label>
+        <name>CMN_Checklist_FuDescription</name>
+    </customLabels>
+    <customLabels>
+        <label>Due date</label>
+        <name>CMN_Checklist_FuDue</name>
+    </customLabels>
+    <customLabels>
+        <label>Owner</label>
+        <name>CMN_Checklist_FuOwner</name>
+    </customLabels>
+    <customLabels>
+        <label>Severity</label>
+        <name>CMN_Checklist_FuSeverity</name>
+    </customLabels>
+    <customLabels>
+        <label>Title</label>
+        <name>CMN_Checklist_FuTitle</name>
+    </customLabels>
+    <customLabels>
+        <label>Grade {0}</label>
+        <name>CMN_Checklist_Grade</name>
+    </customLabels>
+    <customLabels>
+        <label>Before downgrade {0}</label>
+        <name>CMN_Checklist_GradeBefore</name>
+    </customLabels>
+    <customLabels>
+        <label>Show Guidance</label>
+        <name>CMN_Checklist_Guidance</name>
+    </customLabels>
+    <customLabels>
+        <label>The answer isn't valid. Choose or enter it again.</label>
+        <name>CMN_Checklist_InvalidAnswer</name>
+    </customLabels>
+    <customLabels>
+        <label>The checklist didn't load. Refresh. If it keeps happening, tell your admin.</label>
+        <name>CMN_Checklist_LoadError</name>
+    </customLabels>
+    <customLabels>
+        <label>Loading checklist</label>
+        <name>CMN_Checklist_Loading</name>
+    </customLabels>
+    <customLabels>
+        <label>My Questions Only</label>
+        <name>CMN_Checklist_MyOnly</name>
+    </customLabels>
+    <customLabels>
+        <label>Not Applicable (NA)</label>
+        <name>CMN_Checklist_Na</name>
+    </customLabels>
+    <customLabels>
+        <label>This question can't be answered as not applicable (NA).</label>
+        <name>CMN_Checklist_NaNotAllowed</name>
+    </customLabels>
+    <customLabels>
+        <label>Reason for NA</label>
+        <name>CMN_Checklist_NaReason</name>
+    </customLabels>
+    <customLabels>
+        <label>Enter why the question is not applicable (NA).</label>
+        <name>CMN_Checklist_NaReasonRequired</name>
+    </customLabels>
+    <customLabels>
+        <label>Next</label>
+        <name>CMN_Checklist_Next</name>
+    </customLabels>
+    <customLabels>
+        <label>No</label>
+        <name>CMN_Checklist_No</name>
+    </customLabels>
+    <customLabels>
+        <label>Reason for no follow-up</label>
+        <name>CMN_Checklist_NoFollowUpReason</name>
+    </customLabels>
+    <customLabels>
+        <label>This record has no checklist screen. Ask your admin to set one up.</label>
+        <name>CMN_Checklist_NoProvider</name>
+    </customLabels>
+    <customLabels>
+        <label>No questions to show. Turn off the filter.</label>
+        <name>CMN_Checklist_NoQuestions</name>
+    </customLabels>
+    <customLabels>
+        <label>No record is selected. Open the checklist from a record again.</label>
+        <name>CMN_Checklist_NoRecord</name>
+    </customLabels>
+    <customLabels>
+        <label>Noncompliant</label>
+        <name>CMN_Checklist_Noncompliant</name>
+    </customLabels>
+    <customLabels>
+        <label>You can't save answers in the current status or with your permissions. Check the record status.</label>
+        <name>CMN_Checklist_NotEditable</name>
+    </customLabels>
+    <customLabels>
+        <label>Observation notes</label>
+        <name>CMN_Checklist_Notes</name>
+    </customLabels>
+    <customLabels>
+        <label>This answer needs an observation note.</label>
+        <name>CMN_Checklist_NotesRequiredHint</name>
+    </customLabels>
+    <customLabels>
+        <label>Open</label>
+        <name>CMN_Checklist_Open</name>
+    </customLabels>
+    <customLabels>
+        <label>{0} waiting to send</label>
+        <name>CMN_Checklist_Pending</name>
+    </customLabels>
+    <customLabels>
+        <label>{0} photos</label>
+        <name>CMN_Checklist_Photos</name>
+    </customLabels>
+    <customLabels>
+        <label>Score (0-{0})</label>
+        <name>CMN_Checklist_Points</name>
+    </customLabels>
+    <customLabels>
+        <label>Enter a score from 0 to {0}.</label>
+        <name>CMN_Checklist_PointsRange</name>
+    </customLabels>
+    <customLabels>
+        <label>Previous</label>
+        <name>CMN_Checklist_Prev</name>
+    </customLabels>
+    <customLabels>
+        <label>{0} of {1} answered</label>
+        <name>CMN_Checklist_Progress</name>
+    </customLabels>
+    <customLabels>
+        <label>Read only: you can't answer in the current status or with your permissions.</label>
+        <name>CMN_Checklist_ReadOnly</name>
+    </customLabels>
+    <customLabels>
+        <label>Grade lowered one step because a starred question scored 4 or lower.</label>
+        <name>CMN_Checklist_SampleDowngrade</name>
+    </customLabels>
+    <customLabels>
+        <label>Create a follow-up, or enter why you won't.</label>
+        <name>CMN_Checklist_SampleFollowUpRequired</name>
+    </customLabels>
+    <customLabels>
+        <label>Add an observation note for a score of 4 or lower, or a noncompliance.</label>
+        <name>CMN_Checklist_SampleNoteRequired</name>
+    </customLabels>
+    <customLabels>
+        <label>Are work standards posted on the line and up to date?</label>
+        <name>CMN_Checklist_SampleQ1</name>
+    </customLabels>
+    <customLabels>
+        <label>Check the posting location, revision number and operator sign-off.</label>
+        <name>CMN_Checklist_SampleQ1Guide</name>
+    </customLabels>
+    <customLabels>
+        <label>Are daily equipment check records complete?</label>
+        <name>CMN_Checklist_SampleQ2</name>
+    </customLabels>
+    <customLabels>
+        <label>Are nonconforming parts identified and segregated?</label>
+        <name>CMN_Checklist_SampleQ3</name>
+    </customLabels>
+    <customLabels>
+        <label>Have countermeasures for customer claims in the last 3 months been applied on the line?</label>
+        <name>CMN_Checklist_SampleQ4</name>
+    </customLabels>
+    <customLabels>
+        <label>Count appearance defects on finished-part samples by class.</label>
+        <name>CMN_Checklist_SampleQ5</name>
+    </customLabels>
+    <customLabels>
+        <label>Note other improvement suggestions.</label>
+        <name>CMN_Checklist_SampleQ6</name>
+    </customLabels>
+    <customLabels>
+        <label>Samples</label>
+        <name>CMN_Checklist_SampleQty</name>
+    </customLabels>
+    <customLabels>
+        <label>Process control</label>
+        <name>CMN_Checklist_SampleSec1</name>
+    </customLabels>
+    <customLabels>
+        <label>Product quality</label>
+        <name>CMN_Checklist_SampleSec2</name>
+    </customLabels>
+    <customLabels>
+        <label>Couldn't save to the server. You can keep answering. When you're back online, select Save Now.</label>
+        <name>CMN_Checklist_SaveFailed</name>
+    </customLabels>
+    <customLabels>
+        <label>Save Now</label>
+        <name>CMN_Checklist_SaveNow</name>
+    </customLabels>
+    <customLabels>
+        <label>This checklist doesn't show scores.</label>
+        <name>CMN_Checklist_ScoreHidden</name>
+    </customLabels>
+    <customLabels>
+        <label>That score isn't allowed for this question. Choose one of the score buttons.</label>
+        <name>CMN_Checklist_ScoreNotAllowed</name>
+    </customLabels>
+    <customLabels>
+        <label>Overall {0}%</label>
+        <name>CMN_Checklist_ScorePercent</name>
+    </customLabels>
+    <customLabels>
+        <label>Score Preview</label>
+        <name>CMN_Checklist_ScoreTitle</name>
+    </customLabels>
+    <customLabels>
+        <label>{0}/{1}</label>
+        <name>CMN_Checklist_SectionProgress</name>
+    </customLabels>
+    <customLabels>
+        <label>Sections</label>
+        <name>CMN_Checklist_Sections</name>
+    </customLabels>
+    <customLabels>
+        <label>Saved</label>
+        <name>CMN_Checklist_ServerSaved</name>
+    </customLabels>
+    <customLabels>
+        <label>High</label>
+        <name>CMN_Checklist_SevHigh</name>
+    </customLabels>
+    <customLabels>
+        <label>Low</label>
+        <name>CMN_Checklist_SevLow</name>
+    </customLabels>
+    <customLabels>
+        <label>Medium</label>
+        <name>CMN_Checklist_SevMedium</name>
+    </customLabels>
+    <customLabels>
+        <label>View Score</label>
+        <name>CMN_Checklist_ShowScore</name>
+    </customLabels>
+    <customLabels>
+        <label>Starred question</label>
+        <name>CMN_Checklist_Star</name>
+    </customLabels>
+    <customLabels>
+        <label>Submit</label>
+        <name>CMN_Checklist_Submit</name>
+    </customLabels>
+    <customLabels>
+        <label>Submit</label>
+        <name>CMN_Checklist_SubmitTitle</name>
+    </customLabels>
+    <customLabels>
+        <label>Submitted.</label>
+        <name>CMN_Checklist_Submitted</name>
+    </customLabels>
+    <customLabels>
+        <label>{0} unanswered</label>
+        <name>CMN_Checklist_Unanswered</name>
+    </customLabels>
+    <customLabels>
+        <label>{0} questions are unanswered. Submit anyway?</label>
+        <name>CMN_Checklist_UnansweredConfirm</name>
+    </customLabels>
+    <customLabels>
+        <label>Question Cards</label>
+        <name>CMN_Checklist_ViewCards</name>
+    </customLabels>
+    <customLabels>
+        <label>View</label>
+        <name>CMN_Checklist_ViewLabel</name>
+    </customLabels>
+    <customLabels>
+        <label>Question Table</label>
+        <name>CMN_Checklist_ViewTable</name>
+    </customLabels>
+    <customLabels>
+        <label>Yes</label>
+        <name>CMN_Checklist_Yes</name>
+    </customLabels>
+    <customLabels>
         <label>No codes are available.</label>
         <name>CMN_CodePicker_Empty</name>
     </customLabels>
@@ -2453,6 +2793,10 @@ Open: {Url}</label>
     <customTabs>
         <label>Approvals</label>
         <name>CMN_ApprovalMonitor</name>
+    </customTabs>
+    <customTabs>
+        <label>Checklist</label>
+        <name>CMN_Checklist</name>
     </customTabs>
     <customTabs>
         <label>Field Entry</label>

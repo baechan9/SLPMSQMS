@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_Checklist_ScoreHidden</fullName>
+    <categories>CMN</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>점수 비공개</shortDescription>
+    <value>이 체크리스트는 점수를 보여주지 않습니다.</value>
+</CustomLabel>

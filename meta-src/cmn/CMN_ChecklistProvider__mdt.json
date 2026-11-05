@@ -1,0 +1,47 @@
+{
+  "wi": "CMN-00-UX-009",
+  "object": "CMN_ChecklistProvider__mdt",
+  "kind": "mdt",
+  "package": "force-app-cmn",
+  "description": "체크리스트 수행 화면(UX-009) Provider 등록. 1행 = 업무 객체 1개 → CMN_ChecklistProvider 구현 클래스",
+  "label": {
+    "ko": "체크리스트 Provider"
+  },
+  "plural": {
+    "ko": "체크리스트 Provider"
+  },
+  "fields": [
+    {
+      "name": "ObjectApiName__c",
+      "type": "Text",
+      "label": "Object API Name",
+      "description": "업무 객체",
+      "length": 80
+    },
+    {
+      "name": "ProviderClass__c",
+      "type": "Text",
+      "label": "Provider Class",
+      "description": "CMN_ChecklistProvider 구현 클래스(공개 기본 생성자)",
+      "length": 80
+    },
+    {
+      "name": "IsActive__c",
+      "type": "Checkbox",
+      "label": "Active",
+      "description": "사용 여부",
+      "default": true
+    }
+  ],
+  "records": [
+    {
+      "name": "CMN_TestRecord",
+      "label": "CMN_TestRecord__c",
+      "values": {
+        "ObjectApiName__c": "CMN_TestRecord__c",
+        "ProviderClass__c": "CMN_TestChecklistProvider",
+        "IsActive__c": true
+      }
+    }
+  ]
+}

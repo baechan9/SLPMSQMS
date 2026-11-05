@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SourceKey__c</fullName>
+    <description>원천 레코드 안의 세부 위치(체크리스트 질문 키 등, UX-009 BR-5). SourceRecordId__c와 함께 쓴다</description>
+    <label>원천 세부 키</label>
+    <length>80</length>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+</CustomField>

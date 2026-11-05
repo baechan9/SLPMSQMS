@@ -56,6 +56,12 @@
         "key": "TestFieldEntryEdit",
         "mode": "EDIT",
         "status": ["DRAFT", "IN_PROGRESS"]
+      },
+      {
+        "target": "COMPONENT",
+        "key": "TestChecklistEdit",
+        "mode": "EDIT",
+        "status": ["DRAFT", "IN_PROGRESS"]
       }
     ]
   }

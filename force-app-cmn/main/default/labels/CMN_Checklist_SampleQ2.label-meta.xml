@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_Checklist_SampleQ2</fullName>
+    <categories>CMN</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>샘플 질문 2(배점)</shortDescription>
+    <value>설비 일상 점검 기록이 빠짐없이 작성되었는가?</value>
+</CustomLabel>

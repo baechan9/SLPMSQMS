@@ -8,8 +8,9 @@
     "classes": [
       "CMN_RailPanelController",
       "CMN_GridController",
-      "CMN_FieldEntryController"
+      "CMN_FieldEntryController",
+      "CMN_ChecklistController"
     ],
-    "tabs": ["CMN_FieldEntry"]
+    "tabs": ["CMN_FieldEntry", "CMN_Checklist"]
   }
 }

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_Checklist_NaNotAllowed</fullName>
+    <categories>CMN</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>NA 불가(AC-6)</shortDescription>
+    <value>이 질문은 해당 없음(NA)으로 답할 수 없습니다.</value>
+</CustomLabel>

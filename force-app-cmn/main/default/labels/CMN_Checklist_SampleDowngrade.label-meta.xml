@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_Checklist_SampleDowngrade</fullName>
+    <categories>CMN</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>샘플 강등 사유</shortDescription>
+    <value>별표 질문이 4점 이하라 등급을 한 단계 낮췄습니다.</value>
+</CustomLabel>

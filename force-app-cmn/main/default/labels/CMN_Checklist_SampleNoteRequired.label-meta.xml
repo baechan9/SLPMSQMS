@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_Checklist_SampleNoteRequired</fullName>
+    <categories>CMN</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>샘플 규칙: 관찰 메모 필수(AC-2)</shortDescription>
+    <value>4점 이하이거나 부적합이면 관찰 메모를 적으세요.</value>
+</CustomLabel>

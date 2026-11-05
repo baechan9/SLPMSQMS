@@ -1,0 +1,15 @@
+{
+  "pageTab": {
+    "wi": "CMN-00-UX-009",
+    "name": "CMN_Checklist",
+    "package": "force-app-cmn",
+    "flexiPage": "CMN_Checklist",
+    "label": {
+      "ko": "체크리스트 수행",
+      "en_US": "Checklist",
+      "zh_CN": "检查表执行"
+    },
+    "motif": "Custom18: Form",
+    "description": "체크리스트 수행 화면(UX-009) 전체 화면. 상태 매개변수 c__recordId로 대상 레코드를 연다(내비게이션에는 넣지 않음)"
+  }
+}
