@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <applicationVisibilities>
+        <application>SL_QMS_Quality</application>
+        <visible>true</visible>
+    </applicationVisibilities>
+    <classAccesses>
+        <apexClass>CMN_AppMenuController</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <description>SL QMS 품질 업무 앱 표시와 홈·메뉴 허브 탭(UX-007 BR-1)</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>CMN App SL QMS Quality Read</label>
+    <tabSettings>
+        <tab>CMN_MenuHub</tab>
+        <visibility>Visible</visibility>
+    </tabSettings>
+    <tabSettings>
+        <tab>CMN_QMS_Home</tab>
+        <visibility>Visible</visibility>
+    </tabSettings>
+    <tabSettings>
+        <tab>CMN_QMS_Dashboard</tab>
+        <visibility>Visible</visibility>
+    </tabSettings>
+</PermissionSet>

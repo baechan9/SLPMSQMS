@@ -3,6 +3,7 @@
     <description>공장 교육 담당(CMN-00-SEC-001)</description>
     <hasActivationRequired>false</hasActivationRequired>
     <label>QMS 교육 담당</label>
+    <permissionSets>CMN_PS_AppQmsQuality_Read</permissionSets>
     <permissionSets>CMN_PS_AppQms_Read</permissionSets>
     <permissionSets>CMN_PS_Approval_User</permissionSets>
     <permissionSets>CMN_PS_Characteristic_Read</permissionSets>

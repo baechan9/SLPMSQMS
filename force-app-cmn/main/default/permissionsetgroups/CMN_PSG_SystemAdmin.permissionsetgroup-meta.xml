@@ -6,6 +6,8 @@
     <permissionSets>CMN_PS_Admin_Ops</permissionSets>
     <permissionSets>CMN_PS_AppAdmin_Read</permissionSets>
     <permissionSets>CMN_PS_AppPms_Read</permissionSets>
+    <permissionSets>CMN_PS_AppQmsField_Read</permissionSets>
+    <permissionSets>CMN_PS_AppQmsQuality_Read</permissionSets>
     <permissionSets>CMN_PS_AppQms_Read</permissionSets>
     <permissionSets>CMN_PS_ApprovalLine_Admin</permissionSets>
     <permissionSets>CMN_PS_Approval_Admin</permissionSets>

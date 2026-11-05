@@ -1,0 +1,166 @@
+{
+  "wi": "CMN-00-UX-007",
+  "package": "force-app-cmn",
+  "labels": [
+    {
+      "name": "CMN_AppMenu_HubTitle",
+      "category": "CMN",
+      "description": "전체 메뉴 허브 제목",
+      "value": {
+        "ko": "메뉴 허브",
+        "en_US": "Menu Hub",
+        "zh_CN": "菜单中心"
+      }
+    },
+    {
+      "name": "CMN_AppMenu_HubDesc",
+      "category": "CMN",
+      "description": "전체 메뉴 허브 설명",
+      "value": {
+        "ko": "메뉴별 업무 화면을 찾아 엽니다. 업무 번호를 입력하면 그 레코드로 바로 갑니다.",
+        "en_US": "Find and open work screens by menu. Enter a record number to go straight to the record.",
+        "zh_CN": "按菜单查找并打开业务画面。输入业务编号可直接打开该记录。"
+      }
+    },
+    {
+      "name": "CMN_AppMenu_SearchLabel",
+      "category": "CMN",
+      "description": "검색창 라벨",
+      "value": {
+        "ko": "화면 이름 또는 업무 번호",
+        "en_US": "Screen name or record number",
+        "zh_CN": "画面名称或业务编号"
+      }
+    },
+    {
+      "name": "CMN_AppMenu_SearchPlaceholder",
+      "category": "CMN",
+      "description": "검색창 예시",
+      "value": {
+        "ko": "예: 부적합, 결재, NCR-KR01-2027-000123",
+        "en_US": "e.g. nonconformance, approval, NCR-KR01-2027-000123",
+        "zh_CN": "例：不合格、审批、NCR-KR01-2027-000123"
+      }
+    },
+    {
+      "name": "CMN_AppMenu_SearchHint",
+      "category": "CMN",
+      "description": "번호 검색 안내",
+      "value": {
+        "ko": "업무 번호를 입력하고 Enter를 누르면 레코드를 엽니다",
+        "en_US": "Enter a record number and press Enter to open it",
+        "zh_CN": "输入业务编号后按回车键打开记录"
+      }
+    },
+    {
+      "name": "CMN_AppMenu_RecordNotFound",
+      "category": "CMN",
+      "description": "번호 바로가기 실패(존재·권한 구분 없음)",
+      "value": {
+        "ko": "이 번호로 열 수 있는 업무가 없습니다. 번호를 확인하거나 담당자에게 권한을 요청하세요.",
+        "en_US": "No record you can open has this number. Check the number or ask the owner for access.",
+        "zh_CN": "没有可打开的该编号业务。请核对编号或向负责人申请权限。"
+      }
+    },
+    {
+      "name": "CMN_AppMenu_NoMatch",
+      "category": "CMN",
+      "description": "화면 검색 결과 없음",
+      "value": {
+        "ko": "검색어와 맞는 화면이 없습니다",
+        "en_US": "No screens match your search",
+        "zh_CN": "没有匹配的画面"
+      }
+    },
+    {
+      "name": "CMN_AppMenu_OpenMenu",
+      "category": "CMN",
+      "description": "그룹 머리글: 메뉴별 허브 열기",
+      "value": {
+        "ko": "메뉴 열기",
+        "en_US": "Open menu",
+        "zh_CN": "打开菜单"
+      }
+    },
+    {
+      "name": "CMN_AppMenu_Pending",
+      "category": "CMN",
+      "description": "미결 배지({0} = 건수)",
+      "value": {
+        "ko": "미결 {0}건",
+        "en_US": "{0} open",
+        "zh_CN": "待办 {0} 项"
+      }
+    },
+    {
+      "name": "CMN_AppMenu_Overdue",
+      "category": "CMN",
+      "description": "기한 경과 배지({0} = 건수)",
+      "value": {
+        "ko": "기한 경과 {0}",
+        "en_US": "{0} overdue",
+        "zh_CN": "逾期 {0}"
+      }
+    },
+    {
+      "name": "CMN_AppMenu_Refresh",
+      "category": "CMN",
+      "description": "배지 새로 고침",
+      "value": {
+        "ko": "새로 고침",
+        "en_US": "Refresh",
+        "zh_CN": "刷新"
+      }
+    },
+    {
+      "name": "CMN_AppMenu_JumpTo",
+      "category": "CMN",
+      "description": "그룹 바로가기 영역 이름",
+      "value": {
+        "ko": "메뉴 바로가기",
+        "en_US": "Jump to menu",
+        "zh_CN": "跳转到菜单"
+      }
+    },
+    {
+      "name": "CMN_AppMenu_Kw_Approval",
+      "category": "CMN",
+      "description": "검색 동의어: 결재",
+      "value": {
+        "ko": "결재,승인,반려,상신,대결",
+        "en_US": "approval,approve,reject,submit,delegate",
+        "zh_CN": "审批,批准,驳回,提交,代批"
+      }
+    },
+    {
+      "name": "CMN_AppMenu_Kw_Todo",
+      "category": "CMN",
+      "description": "검색 동의어: To-Do",
+      "value": {
+        "ko": "할 일,업무,미결,기한",
+        "en_US": "to-do,task,open,due",
+        "zh_CN": "待办,任务,未结,期限"
+      }
+    },
+    {
+      "name": "CMN_AppMenu_Kw_Ncr",
+      "category": "CMN",
+      "description": "검색 동의어: 부적합",
+      "value": {
+        "ko": "부적합,불량,특채,NCR",
+        "en_US": "nonconformance,defect,deviation,NCR",
+        "zh_CN": "不合格,缺陷,特采,NCR"
+      }
+    },
+    {
+      "name": "CMN_AppMenu_Kw_Iqc",
+      "category": "CMN",
+      "description": "검색 동의어: 수입검사",
+      "value": {
+        "ko": "수입검사,입고,검사,IQC",
+        "en_US": "incoming inspection,receiving,inspection,IQC",
+        "zh_CN": "来料检验,入库,检验,IQC"
+      }
+    }
+  ]
+}

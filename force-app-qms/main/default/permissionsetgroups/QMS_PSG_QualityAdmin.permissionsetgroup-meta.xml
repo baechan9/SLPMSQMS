@@ -4,6 +4,7 @@
     <hasActivationRequired>false</hasActivationRequired>
     <label>QMS 품질경영(관리자)</label>
     <permissionSets>CMN_PS_AppAdmin_Read</permissionSets>
+    <permissionSets>CMN_PS_AppQmsQuality_Read</permissionSets>
     <permissionSets>CMN_PS_AppQms_Read</permissionSets>
     <permissionSets>CMN_PS_ApprovalLine_Admin</permissionSets>
     <permissionSets>CMN_PS_Approval_Admin</permissionSets>

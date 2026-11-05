@@ -7,6 +7,8 @@
     "description": "IT 운영: 설정, 로그, 연계 모니터링. View All Data·Modify All Data를 줄 수 있는 유일한 PSG(CMN-00-SEC-001)",
     "permissionSets": [
       "CMN_PS_AppQms_Read",
+      "CMN_PS_AppQmsField_Read",
+      "CMN_PS_AppQmsQuality_Read",
       "CMN_PS_AppPms_Read",
       "CMN_PS_AppAdmin_Read",
       "CMN_PS_Setup_Read",

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
+    <brand>
+        <headerColor>#032D60</headerColor>
+        <shouldOverrideOrgTheme>false</shouldOverrideOrgTheme>
+    </brand>
+    <description>품질 전문가용 앱(표준 내비게이션, 콘솔 미사용 DS-7): 홈·메뉴 허브. 업무 탭(NCR·클레임·4M·검사·인정시험·개선과제)은 각 화면 묶음이 추가(UX-007 BR-2)</description>
+    <formFactors>Small</formFactors>
+    <formFactors>Large</formFactors>
+    <isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
+    <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
+    <isNavTabPersistenceDisabled>false</isNavTabPersistenceDisabled>
+    <label>SL QMS 품질 업무</label>
+    <navType>Standard</navType>
+    <tabs>CMN_QMS_Home</tabs>
+    <tabs>CMN_MenuHub</tabs>
+    <uiType>Lightning</uiType>
+    <utilityBar>SL_UtilityBar</utilityBar>
+</CustomApplication>

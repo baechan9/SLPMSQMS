@@ -1,9 +1,9 @@
 {
-  "wi": "A0-PROTO-KIT",
+  "wi": "CMN-00-UX-007",
   "object": "CMN_AppMenu__mdt",
   "kind": "mdt",
   "package": "force-app-cmn",
-  "description": "앱 메뉴 허브(화면 우선 플랜 A0 앱 내비게이션 골격). DeveloperName = 메뉴 키(QMS_02 등). 허브 페이지(cmnAppMenuHub)가 menuKey로 읽는다",
+  "description": "앱 메뉴 그룹(CMN-00-UX-007, A0 골격에서 시작). DeveloperName = 메뉴 키(QMS_02 등). 메뉴 허브(cmnAppMenuHub)가 전체 메뉴 모드에서 현재 앱(Apps__c)으로, 메뉴별 모드에서 menuKey로 읽는다",
   "label": {
     "ko": "앱 메뉴"
   },
@@ -66,6 +66,20 @@
       "type": "Checkbox",
       "default": true,
       "label": "Active"
+    },
+    {
+      "name": "Apps__c",
+      "type": "Text",
+      "length": 255,
+      "label": "Apps",
+      "description": "이 그룹을 보여줄 앱 API명(쉼표). 전체 메뉴 모드는 현재 앱이 들어 있는 그룹만 보인다(UX-007 BR-3)"
+    },
+    {
+      "name": "PageTab__c",
+      "type": "Text",
+      "length": 80,
+      "label": "Page Tab",
+      "description": "그룹 전용 허브 탭(메뉴별 허브 앱 페이지). 그룹 머리글 \"메뉴 열기\" 대상"
     }
   ],
   "records": [
@@ -78,7 +92,9 @@
         "TitleLabel__c": "QMS_AppMenu_02_Title",
         "DescLabel__c": "QMS_AppMenu_02_Desc",
         "IconName__c": "standard:service_report",
-        "IsActive__c": true
+        "IsActive__c": true,
+        "Apps__c": "SL_QMS_Quality,SL_QMS",
+        "PageTab__c": "QMS_Menu02"
       }
     },
     {
@@ -90,7 +106,9 @@
         "TitleLabel__c": "QMS_AppMenu_03_Title",
         "DescLabel__c": "QMS_AppMenu_03_Desc",
         "IconName__c": "standard:partners",
-        "IsActive__c": true
+        "IsActive__c": true,
+        "Apps__c": "SL_QMS_Quality,SL_QMS",
+        "PageTab__c": "QMS_Menu03"
       }
     },
     {
@@ -102,7 +120,9 @@
         "TitleLabel__c": "QMS_AppMenu_04_Title",
         "DescLabel__c": "QMS_AppMenu_04_Desc",
         "IconName__c": "standard:product",
-        "IsActive__c": true
+        "IsActive__c": true,
+        "Apps__c": "SL_QMS_Quality,SL_QMS",
+        "PageTab__c": "QMS_Menu04"
       }
     },
     {
@@ -114,7 +134,9 @@
         "TitleLabel__c": "QMS_AppMenu_05_Title",
         "DescLabel__c": "QMS_AppMenu_05_Desc",
         "IconName__c": "standard:customers",
-        "IsActive__c": true
+        "IsActive__c": true,
+        "Apps__c": "SL_QMS_Quality,SL_QMS",
+        "PageTab__c": "QMS_Menu05"
       }
     },
     {
@@ -126,7 +148,9 @@
         "TitleLabel__c": "QMS_AppMenu_06_Title",
         "DescLabel__c": "QMS_AppMenu_06_Desc",
         "IconName__c": "standard:settings",
-        "IsActive__c": true
+        "IsActive__c": true,
+        "Apps__c": "SL_QMS_Quality,SL_QMS",
+        "PageTab__c": "QMS_Menu06"
       }
     },
     {
@@ -138,7 +162,9 @@
         "TitleLabel__c": "QMS_AppMenu_07_Title",
         "DescLabel__c": "QMS_AppMenu_07_Desc",
         "IconName__c": "standard:dashboard",
-        "IsActive__c": true
+        "IsActive__c": true,
+        "Apps__c": "SL_QMS_Quality,SL_QMS",
+        "PageTab__c": "QMS_Menu07"
       }
     },
     {
@@ -150,7 +176,9 @@
         "TitleLabel__c": "QMS_AppMenu_08_Title",
         "DescLabel__c": "QMS_AppMenu_08_Desc",
         "IconName__c": "standard:bot",
-        "IsActive__c": true
+        "IsActive__c": true,
+        "Apps__c": "SL_QMS_Quality,SL_QMS",
+        "PageTab__c": "QMS_Menu08"
       }
     },
     {
@@ -162,7 +190,9 @@
         "TitleLabel__c": "QMS_AppMenu_09_Title",
         "DescLabel__c": "QMS_AppMenu_09_Desc",
         "IconName__c": "standard:connected_apps",
-        "IsActive__c": true
+        "IsActive__c": true,
+        "Apps__c": "SL_QMS_Quality,SL_QMS",
+        "PageTab__c": "QMS_Menu09"
       }
     },
     {
@@ -174,7 +204,9 @@
         "TitleLabel__c": "CMN_AppMenu_WORK_Title",
         "DescLabel__c": "CMN_AppMenu_WORK_Desc",
         "IconName__c": "standard:task",
-        "IsActive__c": true
+        "IsActive__c": true,
+        "Apps__c": "SL_QMS_Quality,SL_QMS,SL_Admin,SL_PMS",
+        "PageTab__c": "CMN_MenuWork"
       }
     },
     {
@@ -186,7 +218,9 @@
         "TitleLabel__c": "CMN_AppMenu_MASTER_Title",
         "DescLabel__c": "CMN_AppMenu_MASTER_Desc",
         "IconName__c": "standard:entity",
-        "IsActive__c": true
+        "IsActive__c": true,
+        "Apps__c": "SL_QMS_Quality,SL_Admin,SL_PMS",
+        "PageTab__c": "CMN_MenuMaster"
       }
     }
   ]

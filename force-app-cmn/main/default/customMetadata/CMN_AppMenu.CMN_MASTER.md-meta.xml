@@ -26,4 +26,12 @@
         <field>IsActive__c</field>
         <value xsi:type="xsd:boolean">true</value>
     </values>
+    <values>
+        <field>Apps__c</field>
+        <value xsi:type="xsd:string">SL_QMS_Quality,SL_Admin,SL_PMS</value>
+    </values>
+    <values>
+        <field>PageTab__c</field>
+        <value xsi:type="xsd:string">CMN_MenuMaster</value>
+    </values>
 </CustomMetadata>

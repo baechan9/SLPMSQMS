@@ -42,4 +42,20 @@
         <field>IsActive__c</field>
         <value xsi:type="xsd:boolean">true</value>
     </values>
+    <values>
+        <field>TodoSourceTypes__c</field>
+        <value xsi:type="xsd:string">CMN_ACTION_ITEM</value>
+    </values>
+    <values>
+        <field>ShowOnPhone__c</field>
+        <value xsi:type="xsd:boolean">true</value>
+    </values>
+    <values>
+        <field>KeywordsLabel__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>RequiredPermission__c</field>
+        <value xsi:nil="true"/>
+    </values>
 </CustomMetadata>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomTab xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>전체 메뉴 허브(UX-007 BR-3): 현재 앱의 메뉴 그룹, 미결 배지, 화면 검색, 업무 번호 바로가기</description>
+    <flexiPage>CMN_MenuHub</flexiPage>
+    <label>메뉴 허브</label>
+    <motif>Custom57: Building</motif>
+</CustomTab>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_AppMenu_RecordNotFound</fullName>
+    <categories>CMN</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>번호 바로가기 실패(존재·권한 구분 없음)</shortDescription>
+    <value>이 번호로 열 수 있는 업무가 없습니다. 번호를 확인하거나 담당자에게 권한을 요청하세요.</value>
+</CustomLabel>

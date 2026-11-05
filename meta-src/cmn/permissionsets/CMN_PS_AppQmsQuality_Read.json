@@ -1,0 +1,12 @@
+{
+  "permissionSet": {
+    "wi": "CMN-00-UX-007",
+    "name": "CMN_PS_AppQmsQuality_Read",
+    "package": "force-app-cmn",
+    "label": "CMN App SL QMS Quality Read",
+    "description": "SL QMS 품질 업무 앱 표시와 홈·메뉴 허브 탭(UX-007 BR-1)",
+    "apps": ["SL_QMS_Quality"],
+    "tabs": ["CMN_MenuHub", "CMN_QMS_Home", "CMN_QMS_Dashboard"],
+    "classes": ["CMN_AppMenuController"]
+  }
+}

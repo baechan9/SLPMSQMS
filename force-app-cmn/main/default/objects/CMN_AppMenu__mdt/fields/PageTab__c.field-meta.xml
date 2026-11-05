@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PageTab__c</fullName>
+    <description>그룹 전용 허브 탭(메뉴별 허브 앱 페이지). 그룹 머리글 "메뉴 열기" 대상</description>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>Page Tab</label>
+    <length>80</length>
+    <required>false</required>
+    <type>Text</type>
+</CustomField>

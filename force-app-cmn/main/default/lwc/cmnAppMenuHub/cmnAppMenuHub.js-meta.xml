@@ -4,7 +4,7 @@
     <isExposed>true</isExposed>
     <masterLabel>CMN App Menu Hub</masterLabel>
     <description
-  >앱 메뉴 허브(화면 우선 플랜 A0 앱 내비게이션 골격): 메뉴의 기능 타일, 화면이 있으면 열기, 없으면 준비 중(1차 화면 묶음)</description>
+  >앱 메뉴 허브(CMN-00-UX-007): 메뉴 키가 있으면 그 메뉴의 기능 타일, 없으면 현재 앱의 전체 메뉴(검색·번호 바로가기·미결 배지)</description>
     <targets>
         <target>lightning__AppPage</target>
     </targets>
@@ -14,8 +14,13 @@
         name="menuKey"
         type="String"
         label="Menu Key"
-        description="CMN_AppMenu__mdt DeveloperName (QMS_02, CMN_WORK 등)"
-        required="true"
+        description="CMN_AppMenu__mdt DeveloperName (QMS_02, CMN_WORK 등). 비우면 전체 메뉴 모드"
+      />
+            <property
+        name="appName"
+        type="String"
+        label="App Name"
+        description="전체 메뉴 모드에서 앱을 고정할 때(SL_QMS_Quality 등). 비우면 사용자의 현재 앱"
       />
             <supportedFormFactors>
                 <supportedFormFactor type="Large" />

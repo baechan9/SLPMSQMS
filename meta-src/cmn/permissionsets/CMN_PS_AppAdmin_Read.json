@@ -4,7 +4,9 @@
     "name": "CMN_PS_AppAdmin_Read",
     "package": "force-app-cmn",
     "label": "CMN App SL Admin Read",
-    "description": "SL Admin 앱 표시(CMN-00-SEC-001)",
-    "apps": ["SL_Admin"]
+    "description": "SL Admin 앱 표시(CMN-00-SEC-001), 메뉴 허브 탭(UX-007)",
+    "apps": ["SL_Admin"],
+    "tabs": ["CMN_MenuHub", "CMN_MenuMaster", "CMN_MenuWork"],
+    "classes": ["CMN_AppMenuController"]
   }
 }

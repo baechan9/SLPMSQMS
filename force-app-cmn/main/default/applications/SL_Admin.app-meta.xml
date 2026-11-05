@@ -4,7 +4,7 @@
         <headerColor>#706E6B</headerColor>
         <shouldOverrideOrgTheme>false</shouldOverrideOrgTheme>
     </brand>
-    <description>운영·기준 정보 관리 앱. IT 운영·품질경영팀에 배정(CMN-00-SEC-001 BR-4)</description>
+    <description>운영·기준 정보 관리 앱: 메뉴 허브(공통 업무·기준정보), 공통 코드, 결재 템플릿, 연계 로그, 로그, 삭제 로그(UX-007 BR-2). 품질경영팀·IT 운영</description>
     <formFactors>Small</formFactors>
     <formFactors>Large</formFactors>
     <isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
@@ -12,27 +12,12 @@
     <isNavTabPersistenceDisabled>false</isNavTabPersistenceDisabled>
     <label>SL Admin</label>
     <navType>Standard</navType>
-    <tabs>standard-home</tabs>
-    <tabs>CMN_Log__c</tabs>
-    <tabs>CMN_InterfaceLog__c</tabs>
-    <tabs>CMN_Company__c</tabs>
-    <tabs>CMN_Plant__c</tabs>
-    <tabs>CMN_Line__c</tabs>
-    <tabs>CMN_Operation__c</tabs>
-    <tabs>CMN_Department__c</tabs>
-    <tabs>CMN_Employee__c</tabs>
-    <tabs>standard-Account</tabs>
-    <tabs>CMN_Vehicle__c</tabs>
-    <tabs>CMN_ProductGroup__c</tabs>
-    <tabs>CMN_Item__c</tabs>
-    <tabs>CMN_SupplierItem__c</tabs>
-    <tabs>CMN_Characteristic__c</tabs>
-    <tabs>CMN_CodeGroup__c</tabs>
+    <tabs>CMN_MenuHub</tabs>
     <tabs>CMN_Code__c</tabs>
-    <tabs>CMN_DeleteLog__c</tabs>
-    <tabs>CMN_UserPlantAccess__c</tabs>
-    <tabs>CMN_RoleAssignment__c</tabs>
     <tabs>CMN_ApprovalTemplate__c</tabs>
+    <tabs>CMN_InterfaceLog__c</tabs>
+    <tabs>CMN_Log__c</tabs>
+    <tabs>CMN_DeleteLog__c</tabs>
     <uiType>Lightning</uiType>
     <utilityBar>SL_UtilityBar</utilityBar>
 </CustomApplication>

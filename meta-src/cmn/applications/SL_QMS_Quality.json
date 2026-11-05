@@ -1,0 +1,16 @@
+{
+  "application": {
+    "wi": "CMN-00-UX-007",
+    "name": "SL_QMS_Quality",
+    "package": "force-app-cmn",
+    "label": {
+      "ko": "SL QMS 품질 업무",
+      "en_US": "SL QMS Quality Work",
+      "zh_CN": "SL QMS 质量业务"
+    },
+    "description": "품질 전문가용 앱(표준 내비게이션, 콘솔 미사용 DS-7): 홈·메뉴 허브. 업무 탭(NCR·클레임·4M·검사·인정시험·개선과제)은 각 화면 묶음이 추가(UX-007 BR-2)",
+    "headerColor": "#032D60",
+    "tabs": ["CMN_QMS_Home", "CMN_MenuHub"],
+    "utilityBar": "SL_UtilityBar"
+  }
+}

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
-    <description>앱 메뉴 허브(화면 우선 플랜 A0 앱 내비게이션 골격). DeveloperName = 메뉴 키(QMS_02 등). 허브 페이지(cmnAppMenuHub)가 menuKey로 읽는다</description>
+    <description>앱 메뉴 그룹(CMN-00-UX-007, A0 골격에서 시작). DeveloperName = 메뉴 키(QMS_02 등). 메뉴 허브(cmnAppMenuHub)가 전체 메뉴 모드에서 현재 앱(Apps__c)으로, 메뉴별 모드에서 menuKey로 읽는다</description>
     <label>앱 메뉴</label>
     <pluralLabel>앱 메뉴</pluralLabel>
     <visibility>Public</visibility>

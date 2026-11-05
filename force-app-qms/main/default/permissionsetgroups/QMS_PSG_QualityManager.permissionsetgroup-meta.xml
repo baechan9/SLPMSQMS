@@ -3,6 +3,7 @@
     <description>품질팀장: QualityEngineer 권한 + 결재, 특채·종결 승인. PSG는 중첩되지 않으므로 QualityEngineer에 넣는 PS를 여기에도 넣는다(CMN-00-SEC-001)</description>
     <hasActivationRequired>false</hasActivationRequired>
     <label>QMS 품질팀장</label>
+    <permissionSets>CMN_PS_AppQmsQuality_Read</permissionSets>
     <permissionSets>CMN_PS_AppQms_Read</permissionSets>
     <permissionSets>CMN_PS_Approval_User</permissionSets>
     <permissionSets>CMN_PS_Characteristic_Edit</permissionSets>

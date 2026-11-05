@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_AppMenu_HubDesc</fullName>
+    <categories>CMN</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>전체 메뉴 허브 설명</shortDescription>
+    <value>메뉴별 업무 화면을 찾아 엽니다. 업무 번호를 입력하면 그 레코드로 바로 갑니다.</value>
+</CustomLabel>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_AppMenu_SearchHint</fullName>
+    <categories>CMN</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>번호 검색 안내</shortDescription>
+    <value>업무 번호를 입력하고 Enter를 누르면 레코드를 엽니다</value>
+</CustomLabel>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ShowOnPhone__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>휴대폰 전체 메뉴 허브에 표시(UX-007 BR-8)</description>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>Show On Phone</label>
+    <type>Checkbox</type>
+</CustomField>

@@ -4,7 +4,23 @@
         <application>SL_Admin</application>
         <visible>true</visible>
     </applicationVisibilities>
-    <description>SL Admin 앱 표시(CMN-00-SEC-001)</description>
+    <classAccesses>
+        <apexClass>CMN_AppMenuController</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <description>SL Admin 앱 표시(CMN-00-SEC-001), 메뉴 허브 탭(UX-007)</description>
     <hasActivationRequired>false</hasActivationRequired>
     <label>CMN App SL Admin Read</label>
+    <tabSettings>
+        <tab>CMN_MenuHub</tab>
+        <visibility>Visible</visibility>
+    </tabSettings>
+    <tabSettings>
+        <tab>CMN_MenuMaster</tab>
+        <visibility>Visible</visibility>
+    </tabSettings>
+    <tabSettings>
+        <tab>CMN_MenuWork</tab>
+        <visibility>Visible</visibility>
+    </tabSettings>
 </PermissionSet>

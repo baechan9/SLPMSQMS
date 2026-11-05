@@ -7,6 +7,7 @@
     "description": "현장 검사원(모바일 위주): 검사 결과 입력, NCR 등록, 한도견본 조회(CMN-00-SEC-001)",
     "permissionSets": [
       "CMN_PS_AppQms_Read",
+      "CMN_PS_AppQmsField_Read",
       "CMN_PS_Site_Read",
       "CMN_PS_Org_Read",
       "CMN_PS_Customer_Read",

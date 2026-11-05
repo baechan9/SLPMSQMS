@@ -1,0 +1,16 @@
+{
+  "application": {
+    "wi": "CMN-00-UX-007",
+    "name": "SL_QMS_Field",
+    "package": "force-app-cmn",
+    "label": {
+      "ko": "SL QMS 현장",
+      "en_US": "SL QMS Field",
+      "zh_CN": "SL QMS 现场"
+    },
+    "description": "현장 입력 앱(모바일 우선): 현장 홈(To-Do). 검사 입력·NCR 등록·한도견본은 각 화면 묶음이 추가(UX-007 BR-2)",
+    "headerColor": "#2E844A",
+    "tabs": ["CMN_QMS_FieldHome"],
+    "utilityBar": "SL_UtilityBar"
+  }
+}

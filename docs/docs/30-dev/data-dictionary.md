@@ -12,9 +12,9 @@
 | --- | --- | --- |
 | 커스텀 객체 | 37 | 313 |
 | 표준 객체 확장 | 2 | 22 |
-| 커스텀 메타데이터 유형(설정) | 17 | 91 |
+| 커스텀 메타데이터 유형(설정) | 17 | 97 |
 | Platform Event | 3 | 16 |
-| 합계 | 59 | 442 |
+| 합계 | 59 | 448 |
 
 ## 커스텀 객체
 
@@ -677,8 +677,8 @@ To-Do / To-Do. 통합 To-Do(TDO-001). Owner = Assignee, OWD Private(본인만). 
 
 | 객체 | 라벨(ko) | Label(en) | 필드 수 | 소유 WI |
 | --- | --- | --- | --- | --- |
-| [CMN_AppMenuItem__mdt](#cmn_appmenuitem__mdt) | 앱 메뉴 항목 |  | 10 | A0-PROTO-KIT |
-| [CMN_AppMenu__mdt](#cmn_appmenu__mdt) | 앱 메뉴 |  | 6 | A0-PROTO-KIT |
+| [CMN_AppMenuItem__mdt](#cmn_appmenuitem__mdt) | 앱 메뉴 항목 |  | 14 | CMN-00-UX-007 |
+| [CMN_AppMenu__mdt](#cmn_appmenu__mdt) | 앱 메뉴 |  | 8 | CMN-00-UX-007 |
 | [CMN_ApprovalType__mdt](#cmn_approvaltype__mdt) | 결재 유형 |  | 8 | CMN-00-APV-001 |
 | [CMN_DashboardResolver__mdt](#cmn_dashboardresolver__mdt) | 대시보드 확장 |  | 5 | CMN-00-DSH-001 |
 | [CMN_DashboardTemplateItem__mdt](#cmn_dashboardtemplateitem__mdt) | 대시보드 템플릿 항목 |  | 5 | CMN-00-DSH-001 |
@@ -706,22 +706,28 @@ To-Do / To-Do. 통합 To-Do(TDO-001). Owner = Assignee, OWD Private(본인만). 
 | FeatureCode__c | Feature Code |  | Text | 20 |  | WI 기능 코드(IQC, NCR 등). 타일에 표시 |
 | IconName__c | Icon Name |  | Text | 80 |  |  |
 | IsActive__c | Active |  | Checkbox |  |  |  |
+| KeywordsLabel__c | Keywords Label |  | Text | 80 |  | 화면 검색 동의어 Custom Label(쉼표 구분 단어, 3개 언어) |
 | Menu__c | Menu |  | MetadataRelationship | → CMN_AppMenu__mdt |  |  |
 | Order__c | Order |  | Number | 3,0 |  |  |
+| RequiredPermission__c | Required Permission |  | Text | 80 |  | PAGE·NONE 타일 표시에 필요한 Custom Permission API명(UX-007 BR-4). 비우면 모두에게 보인다 |
+| ShowOnPhone__c | Show On Phone |  | Checkbox |  |  | 휴대폰 전체 메뉴 허브에 표시(UX-007 BR-8) |
 | TargetType__c | Target Type |  | Picklist | OBJECT, PAGE, NONE |  | OBJECT = 객체 목록(Target = 객체 API명, 읽기 권한 없으면 숨김), PAGE = 앱 페이지 탭(Target = 탭 API명), NONE = 준비 중 |
 | Target__c | Target |  | Text | 80 |  |  |
 | TitleLabel__c | Title Label |  | Text | 80 |  | 제목 Custom Label 이름. 비우면 OBJECT 대상 객체의 복수 라벨 |
+| TodoSourceTypes__c | To-Do Source Types |  | Text | 255 |  | 미결 배지에 셀 To-Do SourceType(쉼표). * = 내 열린 To-Do 전체(UX-007 BR-5) |
 
 ### CMN_AppMenu__mdt
 
-앱 메뉴 / . 앱 메뉴 허브(화면 우선 플랜 A0 앱 내비게이션 골격). DeveloperName = 메뉴 키(QMS_02 등). 허브 페이지(cmnAppMenuHub)가 menuKey로 읽는다
+앱 메뉴 / . 앱 메뉴 그룹(CMN-00-UX-007, A0 골격에서 시작). DeveloperName = 메뉴 키(QMS_02 등). 메뉴 허브(cmnAppMenuHub)가 전체 메뉴 모드에서 현재 앱(Apps__c)으로, 메뉴별 모드에서 menuKey로 읽는다
 
 | API | 라벨(ko) | Label(en) | 타입 | 값/길이/참조 | 제약 | 설명 |
 | --- | --- | --- | --- | --- | --- | --- |
+| Apps__c | Apps |  | Text | 255 |  | 이 그룹을 보여줄 앱 API명(쉼표). 전체 메뉴 모드는 현재 앱이 들어 있는 그룹만 보인다(UX-007 BR-3) |
 | DescLabel__c | Description Label |  | Text | 80 |  | 설명 Custom Label 이름 |
 | IconName__c | Icon Name |  | Text | 80 |  | SLDS 아이콘(예: standard:product) |
 | IsActive__c | Active |  | Checkbox |  |  |  |
 | Order__c | Order |  | Number | 3,0 |  | 메뉴 순서(QMS 메뉴는 RFP 모듈 번호) |
+| PageTab__c | Page Tab |  | Text | 80 |  | 그룹 전용 허브 탭(메뉴별 허브 앱 페이지). 그룹 머리글 "메뉴 열기" 대상 |
 | System__c | System |  | Picklist | QMS, PMS, CMN |  | 소유 시스템. CMN 메뉴(공통 업무·기준정보)는 QMS·PMS 앱 모두에 둔다 |
 | TitleLabel__c | Title Label |  | Text | 80 |  | 제목 Custom Label 이름(ko·en_US·zh_CN) |
 

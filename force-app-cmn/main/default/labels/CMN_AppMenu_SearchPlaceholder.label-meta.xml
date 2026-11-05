@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_AppMenu_SearchPlaceholder</fullName>
+    <categories>CMN</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>검색창 예시</shortDescription>
+    <value>예: 부적합, 결재, NCR-KR01-2027-000123</value>
+</CustomLabel>

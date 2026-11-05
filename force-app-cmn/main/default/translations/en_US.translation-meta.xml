@@ -12,6 +12,14 @@
         <label>SL QMS</label>
         <name>SL_QMS</name>
     </customApplications>
+    <customApplications>
+        <label>SL QMS Field</label>
+        <name>SL_QMS_Field</name>
+    </customApplications>
+    <customApplications>
+        <label>SL QMS Quality Work</label>
+        <name>SL_QMS_Quality</name>
+    </customApplications>
     <customLabels>
         <label>Assign an owner to the action item.</label>
         <name>CMN_Action_OwnerRequired</name>
@@ -19,6 +27,14 @@
     <customLabels>
         <label>No functions in this menu are available to you.</label>
         <name>CMN_AppMenu_Empty</name>
+    </customLabels>
+    <customLabels>
+        <label>Find and open work screens by menu. Enter a record number to go straight to the record.</label>
+        <name>CMN_AppMenu_HubDesc</name>
+    </customLabels>
+    <customLabels>
+        <label>Menu Hub</label>
+        <name>CMN_AppMenu_HubTitle</name>
     </customLabels>
     <customLabels>
         <label>Customers &amp; Suppliers</label>
@@ -49,6 +65,26 @@
         <name>CMN_AppMenu_Item_SCREEN_GUIDE_Title</name>
     </customLabels>
     <customLabels>
+        <label>Jump to menu</label>
+        <name>CMN_AppMenu_JumpTo</name>
+    </customLabels>
+    <customLabels>
+        <label>approval,approve,reject,submit,delegate</label>
+        <name>CMN_AppMenu_Kw_Approval</name>
+    </customLabels>
+    <customLabels>
+        <label>incoming inspection,receiving,inspection,IQC</label>
+        <name>CMN_AppMenu_Kw_Iqc</name>
+    </customLabels>
+    <customLabels>
+        <label>nonconformance,defect,deviation,NCR</label>
+        <name>CMN_AppMenu_Kw_Ncr</name>
+    </customLabels>
+    <customLabels>
+        <label>to-do,task,open,due</label>
+        <name>CMN_AppMenu_Kw_Todo</name>
+    </customLabels>
+    <customLabels>
         <label>Organization, plants, items, suppliers, quality characteristics and codes</label>
         <name>CMN_AppMenu_MASTER_Desc</name>
     </customLabels>
@@ -57,12 +93,28 @@
         <name>CMN_AppMenu_MASTER_Title</name>
     </customLabels>
     <customLabels>
+        <label>No screens match your search</label>
+        <name>CMN_AppMenu_NoMatch</name>
+    </customLabels>
+    <customLabels>
         <label>Menu configuration not found. Contact your administrator.</label>
         <name>CMN_AppMenu_NotFound</name>
     </customLabels>
     <customLabels>
         <label>Open</label>
         <name>CMN_AppMenu_Open</name>
+    </customLabels>
+    <customLabels>
+        <label>Open menu</label>
+        <name>CMN_AppMenu_OpenMenu</name>
+    </customLabels>
+    <customLabels>
+        <label>{0} overdue</label>
+        <name>CMN_AppMenu_Overdue</name>
+    </customLabels>
+    <customLabels>
+        <label>{0} open</label>
+        <name>CMN_AppMenu_Pending</name>
     </customLabels>
     <customLabels>
         <label>Coming soon</label>
@@ -75,6 +127,26 @@
     <customLabels>
         <label>Available</label>
         <name>CMN_AppMenu_Ready</name>
+    </customLabels>
+    <customLabels>
+        <label>No record you can open has this number. Check the number or ask the owner for access.</label>
+        <name>CMN_AppMenu_RecordNotFound</name>
+    </customLabels>
+    <customLabels>
+        <label>Refresh</label>
+        <name>CMN_AppMenu_Refresh</name>
+    </customLabels>
+    <customLabels>
+        <label>Enter a record number and press Enter to open it</label>
+        <name>CMN_AppMenu_SearchHint</name>
+    </customLabels>
+    <customLabels>
+        <label>Screen name or record number</label>
+        <name>CMN_AppMenu_SearchLabel</name>
+    </customLabels>
+    <customLabels>
+        <label>e.g. nonconformance, approval, NCR-KR01-2027-000123</label>
+        <name>CMN_AppMenu_SearchPlaceholder</name>
     </customLabels>
     <customLabels>
         <label>{0} functions · {1} available</label>
@@ -1711,6 +1783,10 @@ Open: {Url}</label>
         <name>CMN_ApprovalMonitor</name>
     </customTabs>
     <customTabs>
+        <label>Menu Hub</label>
+        <name>CMN_MenuHub</name>
+    </customTabs>
+    <customTabs>
         <label>Master Data</label>
         <name>CMN_MenuMaster</name>
     </customTabs>
@@ -1729,6 +1805,10 @@ Open: {Url}</label>
     <customTabs>
         <label>My Dashboard</label>
         <name>CMN_QMS_Dashboard</name>
+    </customTabs>
+    <customTabs>
+        <label>Field Home</label>
+        <name>CMN_QMS_FieldHome</name>
     </customTabs>
     <customTabs>
         <label>Home</label>

@@ -37,7 +37,7 @@ private class CMN_PersonaSecurity_Test {
   };
 
   @IsTest
-  static void test_AC01_inspectorSeesOnlySlQmsWithoutSetup() {
+  static void test_AC01_inspectorSeesFieldAppWithoutSetup() {
     for (String profileName : new List<String>{ INTERNAL, INTERNAL_PLATFORM }) {
       // Given: QMS_PSG_Inspector만 가진 사내 사용자
       User u = userWith(profileName, new Set<String>{ 'QMS_PSG_Inspector' });
@@ -46,11 +46,15 @@ private class CMN_PersonaSecurity_Test {
       Set<String> apps = launcherApps(u);
       Boolean setup = hasUserPermission(u, 'PermissionsViewSetup');
 
-      // Then: SL QMS만 보이고 Setup에 들어갈 수 없다
+      // Then: 현장 앱과 사내 기본 앱(SL QMS, 프로필 기본 앱이라 모든 사내 사용자에게 보임)만 보이고 Setup에 들어갈 수 없다(UX-007 BR-1)
       if (profileName == INTERNAL) {
         apps.removeAll(POST_DEPLOY_HIDDEN_APPS);
       }
-      Assert.areEqual(new Set<String>{ 'SL_QMS' }, apps, profileName);
+      Assert.areEqual(
+        new Set<String>{ 'SL_QMS', 'SL_QMS_Field' },
+        apps,
+        profileName
+      );
       Assert.isFalse(setup, profileName + ': View Setup');
     }
   }
@@ -192,11 +196,17 @@ private class CMN_PersonaSecurity_Test {
     // When / Then: 앱은 PSG가 정한다. IT 운영만 Setup 조회
     Assert.areEqual(new Set<String>{ 'SL_QMS', 'SL_PMS' }, launcherApps(exec));
     Assert.areEqual(
-      new Set<String>{ 'SL_QMS', 'SL_PMS', 'SL_Admin' },
+      new Set<String>{
+        'SL_QMS',
+        'SL_PMS',
+        'SL_Admin',
+        'SL_QMS_Quality',
+        'SL_QMS_Field'
+      },
       launcherApps(admin)
     );
     Assert.areEqual(
-      new Set<String>{ 'SL_QMS', 'SL_Admin' },
+      new Set<String>{ 'SL_QMS', 'SL_Admin', 'SL_QMS_Quality' },
       launcherApps(qualityAdmin)
     );
     Assert.isTrue(hasUserPermission(admin, 'PermissionsViewSetup'));

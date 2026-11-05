@@ -1,0 +1,15 @@
+{
+  "pageTab": {
+    "wi": "CMN-00-UX-007",
+    "name": "CMN_QMS_FieldHome",
+    "package": "force-app-cmn",
+    "flexiPage": "CMN_QMS_FieldHome",
+    "label": {
+      "ko": "현장 홈",
+      "en_US": "Field Home",
+      "zh_CN": "现场主页"
+    },
+    "motif": "Custom18: Form",
+    "description": "SL QMS 현장 앱 홈: 내 할 일(To-Do)만(TDO-004 BR-3·BR-4, UX-007)"
+  }
+}

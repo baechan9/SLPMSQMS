@@ -25,9 +25,9 @@
           <lightning-icon icon-name={iconName} size="medium"></lightning-icon>
         </div>
         <div class="slds-media__body">
-          <h1 class="slds-text-heading_medium" data-id="title">{menu.title}</h1>
+          <h1 class="slds-text-heading_medium" data-id="title">{title}</h1>
           <p class="slds-text-body_regular slds-text-color_weak">
-            {menu.description}
+            {description}
           </p>
           <p
             class="slds-text-body_small slds-text-color_weak"
@@ -36,69 +36,187 @@
             {summary}
           </p>
         </div>
+        <template lwc:if={isHub}>
+          <div class="slds-media__figure slds-media__figure_reverse">
+            <lightning-button
+              label={labels.refresh}
+              icon-name="utility:refresh"
+              onclick={load}
+              data-id="refresh"
+            ></lightning-button>
+          </div>
+        </template>
       </div>
+
+      <template lwc:if={isHub}>
+        <div class="slds-m-bottom_medium" data-id="search">
+          <lightning-input
+            type="search"
+            label={labels.searchLabel}
+            placeholder={labels.searchPlaceholder}
+            value={searchTerm}
+            onchange={handleSearch}
+            onkeyup={handleSearchKey}
+            field-level-help={labels.searchHint}
+            data-id="search-input"
+          ></lightning-input>
+          <template lwc:if={findMessage}>
+            <p
+              class="slds-text-color_error slds-m-top_x-small"
+              role="alert"
+              data-id="find-message"
+            >
+              {findMessage}
+            </p>
+          </template>
+        </div>
+        <template lwc:if={hasVisibleGroups}>
+          <nav
+            class="slds-m-bottom_medium"
+            aria-label={labels.jumpTo}
+            data-id="jump"
+          >
+            <ul class="slds-list_horizontal slds-wrap">
+              <template for:each={visibleGroups} for:item="g">
+                <li key={g.menuKey} class="slds-m-right_x-small">
+                  <lightning-button
+                    variant="base"
+                    label={g.title}
+                    data-key={g.sectionKey}
+                    onclick={jump}
+                  ></lightning-button>
+                </li>
+              </template>
+            </ul>
+          </nav>
+        </template>
+      </template>
+
       <template lwc:if={isEmpty}>
         <p class="slds-text-color_weak" data-id="empty">{labels.empty}</p>
       </template>
+      <template lwc:elseif={showNoMatch}>
+        <p class="slds-text-color_weak" data-id="no-match">{labels.noMatch}</p>
+      </template>
       <template lwc:else>
-        <ul class="slds-grid slds-wrap slds-gutters_x-small">
-          <template for:each={items} for:item="i">
-            <li
-              key={i.key}
-              class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-3 slds-p-bottom_small"
-              data-id="tile"
-            >
-              <article class="slds-box slds-box_small tile">
-                <div class="slds-media slds-media_center">
-                  <div class="slds-media__figure">
-                    <lightning-icon
-                      icon-name={i.iconName}
-                      size="small"
-                    ></lightning-icon>
-                  </div>
-                  <div class="slds-media__body slds-truncate">
-                    <h2 class="slds-text-heading_small slds-truncate">
-                      {i.title}
-                    </h2>
-                  </div>
-                  <div class="slds-media__figure slds-media__figure_reverse">
-                    <span class="slds-text-body_small slds-text-color_weak"
-                      >{i.featureCode}</span
-                    >
-                  </div>
+        <template for:each={visibleGroups} for:item="g">
+          <section
+            key={g.menuKey}
+            class="slds-m-bottom_medium"
+            data-section={g.sectionKey}
+            data-id="group"
+          >
+            <template lwc:if={showGroupHeaders}>
+              <div
+                class="slds-grid slds-grid_vertical-align-center slds-m-bottom_x-small"
+              >
+                <lightning-icon
+                  icon-name={g.iconName}
+                  size="small"
+                  class="slds-m-right_x-small"
+                ></lightning-icon>
+                <div class="slds-col">
+                  <h2 class="slds-text-heading_small" data-id="group-title">
+                    {g.title}
+                  </h2>
+                  <p class="slds-text-body_small slds-text-color_weak">
+                    {g.description}
+                  </p>
                 </div>
-                <p
-                  class="slds-text-body_small slds-text-color_weak slds-m-top_x-small description"
+                <template lwc:if={g.hasPageTab}>
+                  <lightning-button
+                    variant="base"
+                    label={labels.openMenu}
+                    data-tab={g.pageTab}
+                    onclick={openMenu}
+                    data-id="open-menu"
+                  ></lightning-button>
+                </template>
+              </div>
+            </template>
+            <ul class="slds-grid slds-wrap slds-gutters_x-small">
+              <template for:each={g.items} for:item="i">
+                <li
+                  key={i.key}
+                  class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-3 slds-p-bottom_small"
+                  data-id="tile"
                 >
-                  {i.description}
-                </p>
-                <div
-                  class="slds-grid slds-grid_vertical-align-center slds-m-top_small"
-                >
-                  <span class={i.statusClass} data-id="status"
-                    >{i.statusLabel}</span
-                  >
-                  <template lwc:if={i.plannedText}>
-                    <span
-                      class="slds-text-body_small slds-text-color_weak slds-m-left_x-small"
-                      data-id="planned"
-                      >{i.plannedText}</span
+                  <article class="slds-box slds-box_small tile">
+                    <div class="slds-media slds-media_center">
+                      <div class="slds-media__figure">
+                        <lightning-icon
+                          icon-name={i.iconName}
+                          size="small"
+                        ></lightning-icon>
+                      </div>
+                      <div class="slds-media__body slds-truncate">
+                        <h3 class="slds-text-heading_small slds-truncate">
+                          {i.title}
+                        </h3>
+                      </div>
+                      <div
+                        class="slds-media__figure slds-media__figure_reverse"
+                      >
+                        <span class="slds-text-body_small slds-text-color_weak"
+                          >{i.featureCode}</span
+                        >
+                      </div>
+                    </div>
+                    <p
+                      class="slds-text-body_small slds-text-color_weak slds-m-top_x-small description"
                     >
-                  </template>
-                  <template lwc:if={i.ready}>
-                    <lightning-button
-                      class="slds-col_bump-left"
-                      label={labels.open}
-                      onclick={open}
-                      data-key={i.key}
-                      data-id="open"
-                    ></lightning-button>
-                  </template>
-                </div>
-              </article>
-            </li>
-          </template>
-        </ul>
+                      {i.description}
+                    </p>
+                    <template lwc:if={i.pendingText}>
+                      <div class="slds-m-top_x-small" data-id="badges">
+                        <span class="slds-badge" data-id="pending"
+                          >{i.pendingText}</span
+                        >
+                        <template lwc:if={i.overdueText}>
+                          <span
+                            class="slds-badge slds-theme_warning"
+                            data-id="overdue"
+                          >
+                            <lightning-icon
+                              icon-name="utility:warning"
+                              size="xx-small"
+                              class="slds-m-right_xx-small"
+                              alternative-text={i.overdueText}
+                            ></lightning-icon
+                            >{i.overdueText}</span
+                          >
+                        </template>
+                      </div>
+                    </template>
+                    <div
+                      class="slds-grid slds-grid_vertical-align-center slds-m-top_small"
+                    >
+                      <span class={i.statusClass} data-id="status"
+                        >{i.statusLabel}</span
+                      >
+                      <template lwc:if={i.plannedText}>
+                        <span
+                          class="slds-text-body_small slds-text-color_weak slds-m-left_x-small"
+                          data-id="planned"
+                          >{i.plannedText}</span
+                        >
+                      </template>
+                      <template lwc:if={i.ready}>
+                        <lightning-button
+                          class="slds-col_bump-left"
+                          label={labels.open}
+                          onclick={open}
+                          data-key={i.key}
+                          data-id="open"
+                        ></lightning-button>
+                      </template>
+                    </div>
+                  </article>
+                </li>
+              </template>
+            </ul>
+          </section>
+        </template>
       </template>
     </template>
   </div>

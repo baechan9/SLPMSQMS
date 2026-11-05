@@ -12,6 +12,14 @@
         <label>SL QMS</label>
         <name>SL_QMS</name>
     </customApplications>
+    <customApplications>
+        <label>SL QMS 现场</label>
+        <name>SL_QMS_Field</name>
+    </customApplications>
+    <customApplications>
+        <label>SL QMS 质量业务</label>
+        <name>SL_QMS_Quality</name>
+    </customApplications>
     <customLabels>
         <label>请指定措施负责人。</label>
         <name>CMN_Action_OwnerRequired</name>
@@ -19,6 +27,14 @@
     <customLabels>
         <label>此菜单中没有您可用的功能。</label>
         <name>CMN_AppMenu_Empty</name>
+    </customLabels>
+    <customLabels>
+        <label>按菜单查找并打开业务画面。输入业务编号可直接打开该记录。</label>
+        <name>CMN_AppMenu_HubDesc</name>
+    </customLabels>
+    <customLabels>
+        <label>菜单中心</label>
+        <name>CMN_AppMenu_HubTitle</name>
     </customLabels>
     <customLabels>
         <label>客户与供应商</label>
@@ -49,6 +65,26 @@
         <name>CMN_AppMenu_Item_SCREEN_GUIDE_Title</name>
     </customLabels>
     <customLabels>
+        <label>跳转到菜单</label>
+        <name>CMN_AppMenu_JumpTo</name>
+    </customLabels>
+    <customLabels>
+        <label>审批,批准,驳回,提交,代批</label>
+        <name>CMN_AppMenu_Kw_Approval</name>
+    </customLabels>
+    <customLabels>
+        <label>来料检验,入库,检验,IQC</label>
+        <name>CMN_AppMenu_Kw_Iqc</name>
+    </customLabels>
+    <customLabels>
+        <label>不合格,缺陷,特采,NCR</label>
+        <name>CMN_AppMenu_Kw_Ncr</name>
+    </customLabels>
+    <customLabels>
+        <label>待办,任务,未结,期限</label>
+        <name>CMN_AppMenu_Kw_Todo</name>
+    </customLabels>
+    <customLabels>
         <label>组织、工厂、物料、供应商、质量特性与通用代码</label>
         <name>CMN_AppMenu_MASTER_Desc</name>
     </customLabels>
@@ -57,12 +93,28 @@
         <name>CMN_AppMenu_MASTER_Title</name>
     </customLabels>
     <customLabels>
+        <label>没有匹配的画面</label>
+        <name>CMN_AppMenu_NoMatch</name>
+    </customLabels>
+    <customLabels>
         <label>未找到菜单配置。请联系管理员。</label>
         <name>CMN_AppMenu_NotFound</name>
     </customLabels>
     <customLabels>
         <label>打开</label>
         <name>CMN_AppMenu_Open</name>
+    </customLabels>
+    <customLabels>
+        <label>打开菜单</label>
+        <name>CMN_AppMenu_OpenMenu</name>
+    </customLabels>
+    <customLabels>
+        <label>逾期 {0}</label>
+        <name>CMN_AppMenu_Overdue</name>
+    </customLabels>
+    <customLabels>
+        <label>待办 {0} 项</label>
+        <name>CMN_AppMenu_Pending</name>
     </customLabels>
     <customLabels>
         <label>筹备中</label>
@@ -75,6 +127,26 @@
     <customLabels>
         <label>可用</label>
         <name>CMN_AppMenu_Ready</name>
+    </customLabels>
+    <customLabels>
+        <label>没有可打开的该编号业务。请核对编号或向负责人申请权限。</label>
+        <name>CMN_AppMenu_RecordNotFound</name>
+    </customLabels>
+    <customLabels>
+        <label>刷新</label>
+        <name>CMN_AppMenu_Refresh</name>
+    </customLabels>
+    <customLabels>
+        <label>输入业务编号后按回车键打开记录</label>
+        <name>CMN_AppMenu_SearchHint</name>
+    </customLabels>
+    <customLabels>
+        <label>画面名称或业务编号</label>
+        <name>CMN_AppMenu_SearchLabel</name>
+    </customLabels>
+    <customLabels>
+        <label>例：不合格、审批、NCR-KR01-2027-000123</label>
+        <name>CMN_AppMenu_SearchPlaceholder</name>
     </customLabels>
     <customLabels>
         <label>功能{0}个 · 可用{1}个</label>
@@ -1711,6 +1783,10 @@
         <name>CMN_ApprovalMonitor</name>
     </customTabs>
     <customTabs>
+        <label>菜单中心</label>
+        <name>CMN_MenuHub</name>
+    </customTabs>
+    <customTabs>
         <label>基础数据</label>
         <name>CMN_MenuMaster</name>
     </customTabs>
@@ -1729,6 +1805,10 @@
     <customTabs>
         <label>我的仪表板</label>
         <name>CMN_QMS_Dashboard</name>
+    </customTabs>
+    <customTabs>
+        <label>现场主页</label>
+        <name>CMN_QMS_FieldHome</name>
     </customTabs>
     <customTabs>
         <label>首页</label>

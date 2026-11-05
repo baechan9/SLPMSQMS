@@ -4,22 +4,13 @@
     "name": "SL_QMS",
     "package": "force-app-cmn",
     "label": "SL QMS",
-    "description": "품질 업무 앱. 사내 프로필 기본 앱이며 QMS 업무 탭은 각 기능 WI가 추가한다(CMN-00-SEC-001 BR-4)",
+    "description": "참여자·경영진용 앱(모든 사내 사용자 기본 앱): 홈·결재 현황·내 대시보드·메뉴 허브(CMN-00-SEC-001 BR-4, UX-007 BR-2)",
     "headerColor": "#0B5CAB",
     "tabs": [
       "CMN_QMS_Home",
       "CMN_ApprovalMonitor",
-      "QMS_Menu02",
-      "QMS_Menu03",
-      "QMS_Menu04",
-      "QMS_Menu05",
-      "QMS_Menu06",
-      "QMS_Menu07",
-      "QMS_Menu08",
-      "QMS_Menu09",
-      "CMN_MenuWork",
-      "CMN_MenuMaster",
-      "CMN_QMS_Dashboard"
+      "CMN_QMS_Dashboard",
+      "CMN_MenuHub"
     ],
     "utilityBar": "SL_UtilityBar"
   }

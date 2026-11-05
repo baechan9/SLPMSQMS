@@ -9,8 +9,7 @@
     "tabs": [
       "CMN_PMS_Home",
       "CMN_ApprovalMonitor",
-      "CMN_MenuWork",
-      "CMN_MenuMaster",
+      "CMN_MenuHub",
       "CMN_PMS_Dashboard"
     ],
     "utilityBar": "SL_UtilityBar"

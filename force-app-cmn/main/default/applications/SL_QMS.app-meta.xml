@@ -4,7 +4,7 @@
         <headerColor>#0B5CAB</headerColor>
         <shouldOverrideOrgTheme>false</shouldOverrideOrgTheme>
     </brand>
-    <description>품질 업무 앱. 사내 프로필 기본 앱이며 QMS 업무 탭은 각 기능 WI가 추가한다(CMN-00-SEC-001 BR-4)</description>
+    <description>참여자·경영진용 앱(모든 사내 사용자 기본 앱): 홈·결재 현황·내 대시보드·메뉴 허브(CMN-00-SEC-001 BR-4, UX-007 BR-2)</description>
     <formFactors>Small</formFactors>
     <formFactors>Large</formFactors>
     <isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
@@ -14,17 +14,8 @@
     <navType>Standard</navType>
     <tabs>CMN_QMS_Home</tabs>
     <tabs>CMN_ApprovalMonitor</tabs>
-    <tabs>QMS_Menu02</tabs>
-    <tabs>QMS_Menu03</tabs>
-    <tabs>QMS_Menu04</tabs>
-    <tabs>QMS_Menu05</tabs>
-    <tabs>QMS_Menu06</tabs>
-    <tabs>QMS_Menu07</tabs>
-    <tabs>QMS_Menu08</tabs>
-    <tabs>QMS_Menu09</tabs>
-    <tabs>CMN_MenuWork</tabs>
-    <tabs>CMN_MenuMaster</tabs>
     <tabs>CMN_QMS_Dashboard</tabs>
+    <tabs>CMN_MenuHub</tabs>
     <uiType>Lightning</uiType>
     <utilityBar>SL_UtilityBar</utilityBar>
 </CustomApplication>

@@ -1,0 +1,15 @@
+{
+  "pageTab": {
+    "wi": "CMN-00-UX-007",
+    "name": "CMN_MenuHub",
+    "package": "force-app-cmn",
+    "flexiPage": "CMN_MenuHub",
+    "label": {
+      "ko": "메뉴 허브",
+      "en_US": "Menu Hub",
+      "zh_CN": "菜单中心"
+    },
+    "motif": "Custom57: Building",
+    "description": "전체 메뉴 허브(UX-007 BR-3): 현재 앱의 메뉴 그룹, 미결 배지, 화면 검색, 업무 번호 바로가기"
+  }
+}

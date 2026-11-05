@@ -7,6 +7,8 @@
     "description": "측정기·교정 담당(CMN-00-SEC-001)",
     "permissionSets": [
       "CMN_PS_AppQms_Read",
+      "CMN_PS_AppQmsField_Read",
+      "CMN_PS_AppQmsQuality_Read",
       "CMN_PS_Site_Read",
       "CMN_PS_Org_Read",
       "CMN_PS_Customer_Read",

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>RequiredPermission__c</fullName>
+    <description>PAGE·NONE 타일 표시에 필요한 Custom Permission API명(UX-007 BR-4). 비우면 모두에게 보인다</description>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>Required Permission</label>
+    <length>80</length>
+    <required>false</required>
+    <type>Text</type>
+</CustomField>

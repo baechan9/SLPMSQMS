@@ -1,5 +1,5 @@
 {
-  "wi": "A0-PROTO-KIT",
+  "wi": "CMN-00-UX-007",
   "object": "CMN_AppMenuItem__mdt",
   "kind": "mdt",
   "package": "force-app-cmn",
@@ -94,6 +94,34 @@
       "type": "Checkbox",
       "default": true,
       "label": "Active"
+    },
+    {
+      "name": "RequiredPermission__c",
+      "type": "Text",
+      "length": 80,
+      "label": "Required Permission",
+      "description": "PAGE·NONE 타일 표시에 필요한 Custom Permission API명(UX-007 BR-4). 비우면 모두에게 보인다"
+    },
+    {
+      "name": "TodoSourceTypes__c",
+      "type": "Text",
+      "length": 255,
+      "label": "To-Do Source Types",
+      "description": "미결 배지에 셀 To-Do SourceType(쉼표). * = 내 열린 To-Do 전체(UX-007 BR-5)"
+    },
+    {
+      "name": "KeywordsLabel__c",
+      "type": "Text",
+      "length": 80,
+      "label": "Keywords Label",
+      "description": "화면 검색 동의어 Custom Label(쉼표 구분 단어, 3개 언어)"
+    },
+    {
+      "name": "ShowOnPhone__c",
+      "type": "Checkbox",
+      "default": false,
+      "label": "Show On Phone",
+      "description": "휴대폰 전체 메뉴 허브에 표시(UX-007 BR-8)"
     }
   ],
   "records": [
@@ -110,7 +138,11 @@
         "TargetType__c": "NONE",
         "Target__c": null,
         "Bundle__c": "A1",
-        "IsActive__c": true
+        "IsActive__c": true,
+        "TodoSourceTypes__c": null,
+        "ShowOnPhone__c": false,
+        "KeywordsLabel__c": null,
+        "RequiredPermission__c": null
       }
     },
     {
@@ -126,7 +158,11 @@
         "TargetType__c": "NONE",
         "Target__c": null,
         "Bundle__c": "A1",
-        "IsActive__c": true
+        "IsActive__c": true,
+        "TodoSourceTypes__c": null,
+        "ShowOnPhone__c": false,
+        "KeywordsLabel__c": null,
+        "RequiredPermission__c": null
       }
     },
     {
@@ -142,7 +178,11 @@
         "TargetType__c": "NONE",
         "Target__c": null,
         "Bundle__c": "A1",
-        "IsActive__c": true
+        "IsActive__c": true,
+        "TodoSourceTypes__c": null,
+        "ShowOnPhone__c": true,
+        "KeywordsLabel__c": "CMN_AppMenu_Kw_Iqc",
+        "RequiredPermission__c": null
       }
     },
     {
@@ -158,7 +198,11 @@
         "TargetType__c": "NONE",
         "Target__c": null,
         "Bundle__c": "A1",
-        "IsActive__c": true
+        "IsActive__c": true,
+        "TodoSourceTypes__c": null,
+        "ShowOnPhone__c": false,
+        "KeywordsLabel__c": null,
+        "RequiredPermission__c": null
       }
     },
     {
@@ -174,7 +218,11 @@
         "TargetType__c": "NONE",
         "Target__c": null,
         "Bundle__c": "A1",
-        "IsActive__c": true
+        "IsActive__c": true,
+        "TodoSourceTypes__c": null,
+        "ShowOnPhone__c": false,
+        "KeywordsLabel__c": null,
+        "RequiredPermission__c": null
       }
     },
     {
@@ -190,7 +238,11 @@
         "TargetType__c": "NONE",
         "Target__c": null,
         "Bundle__c": "A1",
-        "IsActive__c": true
+        "IsActive__c": true,
+        "TodoSourceTypes__c": null,
+        "ShowOnPhone__c": false,
+        "KeywordsLabel__c": null,
+        "RequiredPermission__c": null
       }
     },
     {
@@ -206,7 +258,11 @@
         "TargetType__c": "NONE",
         "Target__c": null,
         "Bundle__c": "A2",
-        "IsActive__c": true
+        "IsActive__c": true,
+        "TodoSourceTypes__c": null,
+        "ShowOnPhone__c": false,
+        "KeywordsLabel__c": null,
+        "RequiredPermission__c": null
       }
     },
     {
@@ -222,7 +278,11 @@
         "TargetType__c": "NONE",
         "Target__c": null,
         "Bundle__c": "A2",
-        "IsActive__c": true
+        "IsActive__c": true,
+        "TodoSourceTypes__c": null,
+        "ShowOnPhone__c": false,
+        "KeywordsLabel__c": null,
+        "RequiredPermission__c": null
       }
     },
     {
@@ -238,7 +298,11 @@
         "TargetType__c": "NONE",
         "Target__c": null,
         "Bundle__c": "A2",
-        "IsActive__c": true
+        "IsActive__c": true,
+        "TodoSourceTypes__c": null,
+        "ShowOnPhone__c": true,
+        "KeywordsLabel__c": null,
+        "RequiredPermission__c": null
       }
     },
     {
@@ -254,7 +318,11 @@
         "TargetType__c": "NONE",
         "Target__c": null,
         "Bundle__c": "A2",
-        "IsActive__c": true
+        "IsActive__c": true,
+        "TodoSourceTypes__c": null,
+        "ShowOnPhone__c": false,
+        "KeywordsLabel__c": null,
+        "RequiredPermission__c": null
       }
     },
     {
@@ -270,7 +338,11 @@
         "TargetType__c": "NONE",
         "Target__c": null,
         "Bundle__c": "A2",
-        "IsActive__c": true
+        "IsActive__c": true,
+        "TodoSourceTypes__c": null,
+        "ShowOnPhone__c": false,
+        "KeywordsLabel__c": null,
+        "RequiredPermission__c": null
       }
     },
     {
@@ -286,7 +358,11 @@
         "TargetType__c": "NONE",
         "Target__c": null,
         "Bundle__c": "A2",
-        "IsActive__c": true
+        "IsActive__c": true,
+        "TodoSourceTypes__c": null,
+        "ShowOnPhone__c": false,
+        "KeywordsLabel__c": null,
+        "RequiredPermission__c": null
       }
     },
     {
@@ -302,7 +378,11 @@
         "TargetType__c": "NONE",
         "Target__c": null,
         "Bundle__c": "A3",
-        "IsActive__c": true
+        "IsActive__c": true,
+        "TodoSourceTypes__c": null,
+        "ShowOnPhone__c": false,
+        "KeywordsLabel__c": null,
+        "RequiredPermission__c": null
       }
     },
     {
@@ -318,7 +398,11 @@
         "TargetType__c": "NONE",
         "Target__c": null,
         "Bundle__c": "A3",
-        "IsActive__c": true
+        "IsActive__c": true,
+        "TodoSourceTypes__c": null,
+        "ShowOnPhone__c": false,
+        "KeywordsLabel__c": null,
+        "RequiredPermission__c": null
       }
     },
     {
@@ -334,7 +418,11 @@
         "TargetType__c": "NONE",
         "Target__c": null,
         "Bundle__c": "A4",
-        "IsActive__c": true
+        "IsActive__c": true,
+        "TodoSourceTypes__c": null,
+        "ShowOnPhone__c": false,
+        "KeywordsLabel__c": null,
+        "RequiredPermission__c": null
       }
     },
     {
@@ -350,7 +438,11 @@
         "TargetType__c": "NONE",
         "Target__c": null,
         "Bundle__c": "A4",
-        "IsActive__c": true
+        "IsActive__c": true,
+        "TodoSourceTypes__c": null,
+        "ShowOnPhone__c": true,
+        "KeywordsLabel__c": "CMN_AppMenu_Kw_Ncr",
+        "RequiredPermission__c": null
       }
     },
     {
@@ -366,7 +458,11 @@
         "TargetType__c": "NONE",
         "Target__c": null,
         "Bundle__c": "A5",
-        "IsActive__c": true
+        "IsActive__c": true,
+        "TodoSourceTypes__c": null,
+        "ShowOnPhone__c": true,
+        "KeywordsLabel__c": null,
+        "RequiredPermission__c": null
       }
     },
     {
@@ -382,7 +478,11 @@
         "TargetType__c": "NONE",
         "Target__c": null,
         "Bundle__c": "A5",
-        "IsActive__c": true
+        "IsActive__c": true,
+        "TodoSourceTypes__c": null,
+        "ShowOnPhone__c": false,
+        "KeywordsLabel__c": null,
+        "RequiredPermission__c": null
       }
     },
     {
@@ -398,7 +498,11 @@
         "TargetType__c": "NONE",
         "Target__c": null,
         "Bundle__c": "A5",
-        "IsActive__c": true
+        "IsActive__c": true,
+        "TodoSourceTypes__c": null,
+        "ShowOnPhone__c": true,
+        "KeywordsLabel__c": null,
+        "RequiredPermission__c": null
       }
     },
     {
@@ -414,7 +518,11 @@
         "TargetType__c": "NONE",
         "Target__c": null,
         "Bundle__c": "A5",
-        "IsActive__c": true
+        "IsActive__c": true,
+        "TodoSourceTypes__c": null,
+        "ShowOnPhone__c": false,
+        "KeywordsLabel__c": null,
+        "RequiredPermission__c": null
       }
     },
     {
@@ -430,7 +538,11 @@
         "TargetType__c": "NONE",
         "Target__c": null,
         "Bundle__c": "A5",
-        "IsActive__c": true
+        "IsActive__c": true,
+        "TodoSourceTypes__c": null,
+        "ShowOnPhone__c": false,
+        "KeywordsLabel__c": null,
+        "RequiredPermission__c": null
       }
     },
     {
@@ -446,7 +558,11 @@
         "TargetType__c": "NONE",
         "Target__c": null,
         "Bundle__c": "A6",
-        "IsActive__c": true
+        "IsActive__c": true,
+        "TodoSourceTypes__c": null,
+        "ShowOnPhone__c": false,
+        "KeywordsLabel__c": null,
+        "RequiredPermission__c": null
       }
     },
     {
@@ -462,7 +578,11 @@
         "TargetType__c": "NONE",
         "Target__c": null,
         "Bundle__c": "A6",
-        "IsActive__c": true
+        "IsActive__c": true,
+        "TodoSourceTypes__c": null,
+        "ShowOnPhone__c": false,
+        "KeywordsLabel__c": null,
+        "RequiredPermission__c": null
       }
     },
     {
@@ -478,7 +598,11 @@
         "TargetType__c": "NONE",
         "Target__c": null,
         "Bundle__c": "A6",
-        "IsActive__c": true
+        "IsActive__c": true,
+        "TodoSourceTypes__c": null,
+        "ShowOnPhone__c": false,
+        "KeywordsLabel__c": null,
+        "RequiredPermission__c": null
       }
     },
     {
@@ -494,7 +618,11 @@
         "TargetType__c": "NONE",
         "Target__c": null,
         "Bundle__c": "A6",
-        "IsActive__c": true
+        "IsActive__c": true,
+        "TodoSourceTypes__c": null,
+        "ShowOnPhone__c": false,
+        "KeywordsLabel__c": null,
+        "RequiredPermission__c": null
       }
     },
     {
@@ -510,7 +638,11 @@
         "TargetType__c": "NONE",
         "Target__c": null,
         "Bundle__c": "A6",
-        "IsActive__c": true
+        "IsActive__c": true,
+        "TodoSourceTypes__c": null,
+        "ShowOnPhone__c": false,
+        "KeywordsLabel__c": null,
+        "RequiredPermission__c": null
       }
     },
     {
@@ -526,7 +658,11 @@
         "TargetType__c": "NONE",
         "Target__c": null,
         "Bundle__c": "A6",
-        "IsActive__c": true
+        "IsActive__c": true,
+        "TodoSourceTypes__c": null,
+        "ShowOnPhone__c": false,
+        "KeywordsLabel__c": null,
+        "RequiredPermission__c": null
       }
     },
     {
@@ -542,7 +678,11 @@
         "TargetType__c": "PAGE",
         "Target__c": "CMN_QMS_Dashboard",
         "Bundle__c": null,
-        "IsActive__c": true
+        "IsActive__c": true,
+        "TodoSourceTypes__c": null,
+        "ShowOnPhone__c": true,
+        "KeywordsLabel__c": null,
+        "RequiredPermission__c": null
       }
     },
     {
@@ -558,7 +698,11 @@
         "TargetType__c": "NONE",
         "Target__c": null,
         "Bundle__c": "A7",
-        "IsActive__c": true
+        "IsActive__c": true,
+        "TodoSourceTypes__c": null,
+        "ShowOnPhone__c": false,
+        "KeywordsLabel__c": null,
+        "RequiredPermission__c": null
       }
     },
     {
@@ -574,7 +718,11 @@
         "TargetType__c": "NONE",
         "Target__c": null,
         "Bundle__c": "A7",
-        "IsActive__c": true
+        "IsActive__c": true,
+        "TodoSourceTypes__c": null,
+        "ShowOnPhone__c": false,
+        "KeywordsLabel__c": null,
+        "RequiredPermission__c": null
       }
     },
     {
@@ -590,7 +738,11 @@
         "TargetType__c": "NONE",
         "Target__c": null,
         "Bundle__c": "A7",
-        "IsActive__c": true
+        "IsActive__c": true,
+        "TodoSourceTypes__c": null,
+        "ShowOnPhone__c": false,
+        "KeywordsLabel__c": null,
+        "RequiredPermission__c": null
       }
     },
     {
@@ -606,7 +758,11 @@
         "TargetType__c": "NONE",
         "Target__c": null,
         "Bundle__c": "A7",
-        "IsActive__c": true
+        "IsActive__c": true,
+        "TodoSourceTypes__c": null,
+        "ShowOnPhone__c": false,
+        "KeywordsLabel__c": null,
+        "RequiredPermission__c": null
       }
     },
     {
@@ -622,7 +778,11 @@
         "TargetType__c": "NONE",
         "Target__c": null,
         "Bundle__c": "A7",
-        "IsActive__c": true
+        "IsActive__c": true,
+        "TodoSourceTypes__c": null,
+        "ShowOnPhone__c": false,
+        "KeywordsLabel__c": null,
+        "RequiredPermission__c": null
       }
     },
     {
@@ -638,7 +798,11 @@
         "TargetType__c": "NONE",
         "Target__c": null,
         "Bundle__c": "A7",
-        "IsActive__c": true
+        "IsActive__c": true,
+        "TodoSourceTypes__c": null,
+        "ShowOnPhone__c": false,
+        "KeywordsLabel__c": null,
+        "RequiredPermission__c": null
       }
     },
     {
@@ -654,7 +818,11 @@
         "TargetType__c": "NONE",
         "Target__c": null,
         "Bundle__c": "A7",
-        "IsActive__c": true
+        "IsActive__c": true,
+        "TodoSourceTypes__c": null,
+        "ShowOnPhone__c": false,
+        "KeywordsLabel__c": null,
+        "RequiredPermission__c": null
       }
     },
     {
@@ -670,7 +838,11 @@
         "TargetType__c": "NONE",
         "Target__c": null,
         "Bundle__c": "A7",
-        "IsActive__c": true
+        "IsActive__c": true,
+        "TodoSourceTypes__c": null,
+        "ShowOnPhone__c": false,
+        "KeywordsLabel__c": null,
+        "RequiredPermission__c": null
       }
     },
     {
@@ -686,7 +858,11 @@
         "TargetType__c": "NONE",
         "Target__c": null,
         "Bundle__c": "A0",
-        "IsActive__c": true
+        "IsActive__c": true,
+        "TodoSourceTypes__c": null,
+        "ShowOnPhone__c": false,
+        "KeywordsLabel__c": null,
+        "RequiredPermission__c": null
       }
     },
     {
@@ -702,7 +878,11 @@
         "TargetType__c": "NONE",
         "Target__c": null,
         "Bundle__c": "A0",
-        "IsActive__c": true
+        "IsActive__c": true,
+        "TodoSourceTypes__c": null,
+        "ShowOnPhone__c": false,
+        "KeywordsLabel__c": null,
+        "RequiredPermission__c": null
       }
     },
     {
@@ -718,7 +898,11 @@
         "TargetType__c": "OBJECT",
         "Target__c": "CMN_InterfaceLog__c",
         "Bundle__c": null,
-        "IsActive__c": true
+        "IsActive__c": true,
+        "TodoSourceTypes__c": null,
+        "ShowOnPhone__c": false,
+        "KeywordsLabel__c": null,
+        "RequiredPermission__c": null
       }
     },
     {
@@ -734,7 +918,11 @@
         "TargetType__c": "NONE",
         "Target__c": null,
         "Bundle__c": "A7",
-        "IsActive__c": true
+        "IsActive__c": true,
+        "TodoSourceTypes__c": null,
+        "ShowOnPhone__c": false,
+        "KeywordsLabel__c": null,
+        "RequiredPermission__c": null
       }
     },
     {
@@ -750,7 +938,11 @@
         "TargetType__c": "NONE",
         "Target__c": null,
         "Bundle__c": "A7",
-        "IsActive__c": true
+        "IsActive__c": true,
+        "TodoSourceTypes__c": null,
+        "ShowOnPhone__c": false,
+        "KeywordsLabel__c": null,
+        "RequiredPermission__c": null
       }
     },
     {
@@ -766,7 +958,11 @@
         "TargetType__c": "OBJECT",
         "Target__c": "CMN_Todo__c",
         "Bundle__c": null,
-        "IsActive__c": true
+        "IsActive__c": true,
+        "TodoSourceTypes__c": "*",
+        "ShowOnPhone__c": true,
+        "KeywordsLabel__c": "CMN_AppMenu_Kw_Todo",
+        "RequiredPermission__c": null
       }
     },
     {
@@ -782,7 +978,11 @@
         "TargetType__c": "PAGE",
         "Target__c": "CMN_ApprovalMonitor",
         "Bundle__c": null,
-        "IsActive__c": true
+        "IsActive__c": true,
+        "TodoSourceTypes__c": "CMN_APPROVAL",
+        "ShowOnPhone__c": true,
+        "KeywordsLabel__c": "CMN_AppMenu_Kw_Approval",
+        "RequiredPermission__c": null
       }
     },
     {
@@ -798,7 +998,11 @@
         "TargetType__c": "OBJECT",
         "Target__c": "CMN_ApprovalRequest__c",
         "Bundle__c": null,
-        "IsActive__c": true
+        "IsActive__c": true,
+        "TodoSourceTypes__c": null,
+        "ShowOnPhone__c": true,
+        "KeywordsLabel__c": null,
+        "RequiredPermission__c": null
       }
     },
     {
@@ -814,7 +1018,11 @@
         "TargetType__c": "OBJECT",
         "Target__c": "CMN_ApprovalTemplate__c",
         "Bundle__c": null,
-        "IsActive__c": true
+        "IsActive__c": true,
+        "TodoSourceTypes__c": null,
+        "ShowOnPhone__c": false,
+        "KeywordsLabel__c": null,
+        "RequiredPermission__c": null
       }
     },
     {
@@ -830,7 +1038,11 @@
         "TargetType__c": "OBJECT",
         "Target__c": "CMN_Delegation__c",
         "Bundle__c": null,
-        "IsActive__c": true
+        "IsActive__c": true,
+        "TodoSourceTypes__c": null,
+        "ShowOnPhone__c": false,
+        "KeywordsLabel__c": null,
+        "RequiredPermission__c": null
       }
     },
     {
@@ -846,7 +1058,11 @@
         "TargetType__c": "OBJECT",
         "Target__c": "CMN_Meeting__c",
         "Bundle__c": null,
-        "IsActive__c": true
+        "IsActive__c": true,
+        "TodoSourceTypes__c": null,
+        "ShowOnPhone__c": true,
+        "KeywordsLabel__c": null,
+        "RequiredPermission__c": null
       }
     },
     {
@@ -862,7 +1078,11 @@
         "TargetType__c": "OBJECT",
         "Target__c": "CMN_ActionItem__c",
         "Bundle__c": null,
-        "IsActive__c": true
+        "IsActive__c": true,
+        "TodoSourceTypes__c": "CMN_ACTION_ITEM",
+        "ShowOnPhone__c": true,
+        "KeywordsLabel__c": null,
+        "RequiredPermission__c": null
       }
     },
     {
@@ -878,7 +1098,11 @@
         "TargetType__c": "OBJECT",
         "Target__c": "CMN_Document__c",
         "Bundle__c": null,
-        "IsActive__c": true
+        "IsActive__c": true,
+        "TodoSourceTypes__c": null,
+        "ShowOnPhone__c": true,
+        "KeywordsLabel__c": null,
+        "RequiredPermission__c": null
       }
     },
     {
@@ -894,7 +1118,11 @@
         "TargetType__c": "OBJECT",
         "Target__c": "CMN_DocTemplate__c",
         "Bundle__c": null,
-        "IsActive__c": true
+        "IsActive__c": true,
+        "TodoSourceTypes__c": null,
+        "ShowOnPhone__c": false,
+        "KeywordsLabel__c": null,
+        "RequiredPermission__c": null
       }
     },
     {
@@ -910,7 +1138,11 @@
         "TargetType__c": "NONE",
         "Target__c": null,
         "Bundle__c": "A0",
-        "IsActive__c": true
+        "IsActive__c": true,
+        "TodoSourceTypes__c": null,
+        "ShowOnPhone__c": false,
+        "KeywordsLabel__c": null,
+        "RequiredPermission__c": null
       }
     },
     {
@@ -926,7 +1158,11 @@
         "TargetType__c": "NONE",
         "Target__c": null,
         "Bundle__c": "A0",
-        "IsActive__c": true
+        "IsActive__c": true,
+        "TodoSourceTypes__c": null,
+        "ShowOnPhone__c": false,
+        "KeywordsLabel__c": null,
+        "RequiredPermission__c": null
       }
     },
     {
@@ -942,7 +1178,11 @@
         "TargetType__c": "OBJECT",
         "Target__c": "CMN_Company__c",
         "Bundle__c": null,
-        "IsActive__c": true
+        "IsActive__c": true,
+        "TodoSourceTypes__c": null,
+        "ShowOnPhone__c": false,
+        "KeywordsLabel__c": null,
+        "RequiredPermission__c": null
       }
     },
     {
@@ -958,7 +1198,11 @@
         "TargetType__c": "OBJECT",
         "Target__c": "CMN_Plant__c",
         "Bundle__c": null,
-        "IsActive__c": true
+        "IsActive__c": true,
+        "TodoSourceTypes__c": null,
+        "ShowOnPhone__c": false,
+        "KeywordsLabel__c": null,
+        "RequiredPermission__c": null
       }
     },
     {
@@ -974,7 +1218,11 @@
         "TargetType__c": "OBJECT",
         "Target__c": "CMN_Line__c",
         "Bundle__c": null,
-        "IsActive__c": true
+        "IsActive__c": true,
+        "TodoSourceTypes__c": null,
+        "ShowOnPhone__c": false,
+        "KeywordsLabel__c": null,
+        "RequiredPermission__c": null
       }
     },
     {
@@ -990,7 +1238,11 @@
         "TargetType__c": "OBJECT",
         "Target__c": "CMN_Operation__c",
         "Bundle__c": null,
-        "IsActive__c": true
+        "IsActive__c": true,
+        "TodoSourceTypes__c": null,
+        "ShowOnPhone__c": false,
+        "KeywordsLabel__c": null,
+        "RequiredPermission__c": null
       }
     },
     {
@@ -1006,7 +1258,11 @@
         "TargetType__c": "OBJECT",
         "Target__c": "CMN_Department__c",
         "Bundle__c": null,
-        "IsActive__c": true
+        "IsActive__c": true,
+        "TodoSourceTypes__c": null,
+        "ShowOnPhone__c": false,
+        "KeywordsLabel__c": null,
+        "RequiredPermission__c": null
       }
     },
     {
@@ -1022,7 +1278,11 @@
         "TargetType__c": "OBJECT",
         "Target__c": "CMN_Employee__c",
         "Bundle__c": null,
-        "IsActive__c": true
+        "IsActive__c": true,
+        "TodoSourceTypes__c": null,
+        "ShowOnPhone__c": false,
+        "KeywordsLabel__c": null,
+        "RequiredPermission__c": null
       }
     },
     {
@@ -1038,7 +1298,11 @@
         "TargetType__c": "OBJECT",
         "Target__c": "Account",
         "Bundle__c": null,
-        "IsActive__c": true
+        "IsActive__c": true,
+        "TodoSourceTypes__c": null,
+        "ShowOnPhone__c": false,
+        "KeywordsLabel__c": null,
+        "RequiredPermission__c": null
       }
     },
     {
@@ -1054,7 +1318,11 @@
         "TargetType__c": "OBJECT",
         "Target__c": "CMN_Vehicle__c",
         "Bundle__c": null,
-        "IsActive__c": true
+        "IsActive__c": true,
+        "TodoSourceTypes__c": null,
+        "ShowOnPhone__c": false,
+        "KeywordsLabel__c": null,
+        "RequiredPermission__c": null
       }
     },
     {
@@ -1070,7 +1338,11 @@
         "TargetType__c": "OBJECT",
         "Target__c": "CMN_ProductGroup__c",
         "Bundle__c": null,
-        "IsActive__c": true
+        "IsActive__c": true,
+        "TodoSourceTypes__c": null,
+        "ShowOnPhone__c": false,
+        "KeywordsLabel__c": null,
+        "RequiredPermission__c": null
       }
     },
     {
@@ -1086,7 +1358,11 @@
         "TargetType__c": "OBJECT",
         "Target__c": "CMN_Item__c",
         "Bundle__c": null,
-        "IsActive__c": true
+        "IsActive__c": true,
+        "TodoSourceTypes__c": null,
+        "ShowOnPhone__c": false,
+        "KeywordsLabel__c": null,
+        "RequiredPermission__c": null
       }
     },
     {
@@ -1102,7 +1378,11 @@
         "TargetType__c": "OBJECT",
         "Target__c": "CMN_SupplierItem__c",
         "Bundle__c": null,
-        "IsActive__c": true
+        "IsActive__c": true,
+        "TodoSourceTypes__c": null,
+        "ShowOnPhone__c": false,
+        "KeywordsLabel__c": null,
+        "RequiredPermission__c": null
       }
     },
     {
@@ -1118,7 +1398,11 @@
         "TargetType__c": "OBJECT",
         "Target__c": "CMN_Characteristic__c",
         "Bundle__c": null,
-        "IsActive__c": true
+        "IsActive__c": true,
+        "TodoSourceTypes__c": null,
+        "ShowOnPhone__c": false,
+        "KeywordsLabel__c": null,
+        "RequiredPermission__c": null
       }
     },
     {
@@ -1134,7 +1418,11 @@
         "TargetType__c": "OBJECT",
         "Target__c": "CMN_CodeGroup__c",
         "Bundle__c": null,
-        "IsActive__c": true
+        "IsActive__c": true,
+        "TodoSourceTypes__c": null,
+        "ShowOnPhone__c": false,
+        "KeywordsLabel__c": null,
+        "RequiredPermission__c": null
       }
     },
     {
@@ -1150,7 +1438,11 @@
         "TargetType__c": "OBJECT",
         "Target__c": "CMN_Code__c",
         "Bundle__c": null,
-        "IsActive__c": true
+        "IsActive__c": true,
+        "TodoSourceTypes__c": null,
+        "ShowOnPhone__c": false,
+        "KeywordsLabel__c": null,
+        "RequiredPermission__c": null
       }
     },
     {
@@ -1166,7 +1458,11 @@
         "TargetType__c": "OBJECT",
         "Target__c": "CMN_UserPlantAccess__c",
         "Bundle__c": null,
-        "IsActive__c": true
+        "IsActive__c": true,
+        "TodoSourceTypes__c": null,
+        "ShowOnPhone__c": false,
+        "KeywordsLabel__c": null,
+        "RequiredPermission__c": null
       }
     },
     {
@@ -1182,7 +1478,11 @@
         "TargetType__c": "OBJECT",
         "Target__c": "CMN_RoleAssignment__c",
         "Bundle__c": null,
-        "IsActive__c": true
+        "IsActive__c": true,
+        "TodoSourceTypes__c": null,
+        "ShowOnPhone__c": false,
+        "KeywordsLabel__c": null,
+        "RequiredPermission__c": null
       }
     }
   ]
