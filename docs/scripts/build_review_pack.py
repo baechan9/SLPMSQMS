@@ -3,7 +3,7 @@
 import re, glob, os, collections
 
 OUT = 'docs/20-status/review-pack.md'
-DECISION = re.compile(r'^- \[[ x]\] (D[0-9A-Z]*-\d+)\s*(.*)$')
+DECISION = re.compile(r'^- \[([ x])\] (D[0-9A-Z]*-\d+)\s*(.*)$')
 SECTIONS = {
     'vol0': re.compile(r'^\*\*Vol\.0에 반영이 필요한 변경'),
     'prev': re.compile(r'^\*\*(Vol\.2[^*]*|이전 Vol\.)에 반영이 필요한 변경'),
@@ -40,7 +40,7 @@ def collect():
         for idx, line in enumerate(lines):
             m = DECISION.match(line)
             if m:
-                decisions.setdefault(label, []).append((m.group(1), m.group(2)))
+                decisions.setdefault(label, []).append((m.group(1), m.group(2), m.group(3)))
             for key, pat in SECTIONS.items():
                 if pat.match(line):
                     for cells in table_after(lines, idx):
@@ -58,7 +58,7 @@ def render(decisions, changes):
     out += [f'## 1. 결정 항목 ({total}건)', '']
     for label, items in decisions.items():
         out += [f'### {label} ({len(items)}건)', '']
-        out += [f'- [ ] {did} {text}' for did, text in items]
+        out += [f'- [{mark}] {did} {text}' for mark, did, text in items]
         out.append('')
     titles = {'vol0': '2. Vol.0 변경 요청', 'prev': '3. Vol.2·3 및 이전 Vol. 변경 요청'}
     for key in ('vol0', 'prev'):

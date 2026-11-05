@@ -102,7 +102,7 @@ QMS RFP 45개 요구 중 15개가 PMS RFP와 같은 기능이거나 같은 엔�
 - **레코드 페이지:** 상태가 있는 업무 객체는 UX-004 표준(헤더 7개 필드, 진행 단계, "현재 단계" 첫 탭, 결정 지원 레일)으로 만든다. 섹션·버튼 노출과 서버 허용은 UX-005 규칙 하나에서 만든다. 화면에서 숨기는 것만으로 권한 통제를 대신하지 않는다.
 - **공통 부품:** 행 편집 화면은 UX-006 그리드, 시료·측정 입력은 UX-008 입력 셸, 질문지 평가는 UX-009 체크리스트를 설정과 Provider 구현으로 쓴다. 같은 일을 하는 메뉴 전용 컴포넌트를 새로 만들지 않는다.
 - **스타일:** 커스텀 CSS는 SLDS 전역 스타일링 훅(`--slds-g-*`)과 SLDS 클래스만 쓴다. 색 리터럴, 컴포넌트 스타일링 훅(`--slds-c-*`), `--lwc-*` 토큰은 금지다(CI `scripts/ci/check-lwc-styling.py`, UX-004).
-- **앱:** 콘솔 전용 기능(하위 탭, 고정 영역)에 기대지 않는다. 앱 내비게이션 유형은 DS-7 결정을 따른다.
+- **앱:** 콘솔 앱을 쓰지 않는다(DS-7 결정). 모든 앱은 표준 내비게이션이다. 콘솔 기능(하위 탭, 고정 영역)을 전제로 화면을 설계하지 않는다.
 - **문구:** 화면 문구는 "동사 + 대상"(예: "부적합 등록")으로 쓴다. 오류 메시지는 원인과 고치는 법을 한 문장에 담는다.
 
 ## 4. 워크아이템 템플릿
@@ -519,7 +519,8 @@ QMS RFP 45개 요구 중 15개가 PMS RFP와 같은 기능이거나 같은 엔�
 - BR-2: 기능 단위 PS(`{접두어}_PS_{기능}_{Read/Edit/Approve/Admin}`)는 각 기능 WI가 만들고, 페르소나 PSG는 이 WI가 만든다. 새 기능 WI는 아래 매핑표에 따라 해당 PSG에 자기 PS를 추가하는 작업을 포함해야 한다.
 - BR-3: 한 사용자가 여러 PSG를 가질 수 있다(예: 품질 엔지니어이면서 내부심사원).
 - BR-4: Lightning App은 5개다. 앱 할당은 PSG가 결정한다(2026-11-05 화면 전략, 결정 DS-1).
-  - `SL QMS 콘솔`: 품질 전문가용. 내비게이션 유형은 DS-7 결정 전까지 표준이다.
+  - `SL QMS 품질 업무`: 품질 전문가용.
+  - 모든 앱은 표준 내비게이션이다(콘솔 미사용, DS-7).
   - `SL QMS`: 참여자·경영진, 모든 사내 사용자.
   - `SL QMS 현장`: 현장 입력, 모바일 우선.
   - `SL Admin`: 품질경영팀·IT.
@@ -693,7 +694,6 @@ QMS RFP 45개 요구 중 15개가 PMS RFP와 같은 기능이거나 같은 엔�
 - BR-3: 모바일 내비게이션은 앱 단위로 정한다(UX-007 BR-2).
   - `SL QMS 현장`(Inspector와 현장 입력이 있는 전문가): 홈(To-Do), 검사 입력, NCR 등록, 한도견본.
   - `SL QMS`(결재자·경영진): 홈(To-Do), 결재 현황, 내 대시보드, 메뉴 허브.
-  - 모바일 앱에서 콘솔 앱은 표준 내비게이션으로 보이므로 휴대폰 화면은 콘솔을 전제로 설계하지 않는다.
 - BR-4: 사진 첨부는 카메라 직접 촬영을 지원하고 업로드 전 장변 1920px로 리사이즈한다(통신·저장 비용).
 - BR-5: 바코드·QR 스캔은 `lightning/mobileCapabilities`의 BarcodeScanner를 쓰며 모바일 앱에서만 활성화하고, 웹에서는 수동 입력 필드를 보인다.
 
@@ -906,7 +906,6 @@ QMS RFP 45개 요구 중 15개가 PMS RFP와 같은 기능이거나 같은 엔�
 - 표준 Path 컴포넌트는 쓰지 않는다(UX-003).
 
 **오픈 이슈**
-- 콘솔 내비게이션(DS-7)을 적용하면 고정 헤더 템플릿 변형을 쓸지 정해야 한다.
 - 역할(PSG)별로 기본 펼침 패널을 달리할지 정해야 한다.
 
 ### CMN-00-UX-005 상태·권한 화면 제어 매트릭스
@@ -1154,7 +1153,7 @@ QMS RFP 45개 요구 중 15개가 PMS RFP와 같은 기능이거나 같은 엔�
 
 **범위**
 - In:
-  - Lightning 앱 5개 구성: 새 앱 `SL_QMS_Console`·`SL_QMS_Field`, 배포된 `SL_QMS`·`SL_Admin`·`SL_PMS` 조정
+  - Lightning 앱 5개 구성: 새 앱 `SL_QMS_Quality`·`SL_QMS_Field`, 배포된 `SL_QMS`·`SL_Admin`·`SL_PMS` 조정
   - 앱별 내비게이션·유틸리티 바·PSG 할당
   - 메뉴 허브 확장: `cmnAppMenuHub`의 전체 메뉴 모드, 권한 필터, 미결 건수 배지, 화면 검색, 업무 번호 바로가기
   - 메뉴 설정 메타데이터 필드 추가
@@ -1162,22 +1161,21 @@ QMS RFP 45개 요구 중 15개가 PMS RFP와 같은 기능이거나 같은 엔�
   - 협력사 포털 내비게이션: QMS-03-SPP
   - PMS 메뉴 내용: PMS Vol.
   - 각 기능 타일의 대상 화면: 각 화면 묶음과 메뉴 WI
-  - 콘솔 라이선스 구매: DS-7
 
 **데이터 모델**
 
 | 객체 / 필드 | 타입 | 필수 | 설명 |
 | --- | --- | --- | --- |
 | CMN_AppMenu__mdt (배포됨) | Custom Metadata | — | 메뉴 그룹. 기존 필드: TitleLabel, DescLabel, IconName, Order, System, IsActive |
-| CMN_AppMenu__mdt.Apps__c | Text(255) | Y | 이 그룹을 보여줄 앱 API명(쉼표). 예: `SL_QMS_Console,SL_QMS` |
+| CMN_AppMenu__mdt.Apps__c | Text(255) | Y | 이 그룹을 보여줄 앱 API명(쉼표). 예: `SL_QMS_Quality,SL_QMS` |
 | CMN_AppMenu__mdt.PageTab__c | Text(80) | N | 그룹 전용 허브 탭(배포된 메뉴별 허브 페이지). 그룹 머리글 "메뉴 열기" 대상 |
 | CMN_AppMenuItem__mdt (배포됨) | Custom Metadata | — | 기능 타일. 기존 필드: Menu, FeatureCode, TitleLabel, DescLabel, IconName, TargetType(OBJECT, PAGE, NONE), Target, Bundle, Order, IsActive |
 | CMN_AppMenuItem__mdt.RequiredPermission__c | Text(80) | N | PAGE·NONE 타일 표시에 필요한 Custom Permission |
 | CMN_AppMenuItem__mdt.TodoSourceTypes__c | Text(255) | N | 미결 배지에 셀 To-Do SourceType(쉼표) |
 | CMN_AppMenuItem__mdt.KeywordsLabel__c | Text(80) | N | 검색 동의어 Custom Label(쉼표 구분 단어, 3개 언어 번역) |
 | CMN_AppMenuItem__mdt.ShowOnPhone__c | Checkbox | — | 휴대폰 허브에 표시 |
-| Custom Application `SL_QMS_Console`, `SL_QMS_Field` | CustomApplication | — | 새 앱 2개 |
-| Permission Set `CMN_PS_AppQmsConsole_Read`, `CMN_PS_AppQmsField_Read` | PermissionSet | — | 앱 표시 권한(배포된 `CMN_PS_AppQms_Read`·`CMN_PS_AppAdmin_Read`와 같은 방식) |
+| Custom Application `SL_QMS_Quality`, `SL_QMS_Field` | CustomApplication | — | 새 앱 2개 |
+| Permission Set `CMN_PS_AppQmsQuality_Read`, `CMN_PS_AppQmsField_Read` | PermissionSet | — | 앱 표시 권한(배포된 `CMN_PS_AppQms_Read`·`CMN_PS_AppAdmin_Read`와 같은 방식) |
 
 **비즈니스 규칙**
 
@@ -1185,19 +1183,19 @@ QMS RFP 45개 요구 중 15개가 PMS RFP와 같은 기능이거나 같은 엔�
 
   | PSG | 기본 앱 | 함께 할당 |
   | --- | --- | --- |
-  | QualityEngineer, QualityManager, ProcessEngineer, TrainingCoordinator | SL QMS 콘솔 | SL QMS |
-  | SupplierQuality, LabTester, Metrology, Auditor | SL QMS 콘솔 | SL QMS, SL QMS 현장 |
+  | QualityEngineer, QualityManager, ProcessEngineer, TrainingCoordinator | SL QMS 품질 업무 | SL QMS |
+  | SupplierQuality, LabTester, Metrology, Auditor | SL QMS 품질 업무 | SL QMS, SL QMS 현장 |
   | Inspector | SL QMS 현장 | — |
   | DevEngineer, Viewer | SL QMS | — |
   | CMN_PSG_Executive | SL QMS | SL PMS |
-  | QualityAdmin | SL Admin | SL QMS 콘솔, SL QMS |
+  | QualityAdmin | SL Admin | SL QMS 품질 업무, SL QMS |
   | CMN_PSG_SystemAdmin | SL Admin | 전체 |
   | SupplierPortal | 협력사 포털 | — |
 
   - QMS PSG 이름 접두어 `QMS_PSG_`는 표에서 생략했다.
   - 기본 앱은 PSG에 넣는 앱 권한 세트 순서와 사용자 기본 앱 설정으로 정한다.
 - BR-2: 내비게이션 항목. 앱당 8개 이내다.
-  - SL QMS 콘솔: 홈, 메뉴 허브, NCR, 클레임·8D, 4M 변경, 검사, 인정시험, 개선과제.
+  - SL QMS 품질 업무: 홈, 메뉴 허브, NCR, 클레임·8D, 4M 변경, 검사, 인정시험, 개선과제.
   - SL QMS: 홈, 결재 현황, 내 대시보드, 메뉴 허브.
   - SL QMS 현장: 홈(To-Do), 검사 입력, NCR 등록, 한도견본.
   - SL Admin: 메뉴 허브(기준정보·설정 그룹), 공통 코드, 심사 질문지, 결재 템플릿, 연계 모니터, 로그.
@@ -1227,7 +1225,10 @@ QMS RFP 45개 요구 중 15개가 PMS RFP와 같은 기능이거나 같은 엔�
   - 빠른 NCR 등록(QMS-06-NCR-002 배포 후)
   - Agentforce는 표준 헤더 진입(AI-001)이라 유틸리티 바에 넣지 않는다.
 - BR-8: 휴대폰. SL QMS 현장과 SL QMS의 모바일 내비게이션은 BR-2와 같다(UX-001 BR-3). 휴대폰 허브는 `ShowOnPhone__c` 타일만 보인다.
-- BR-9: 콘솔 대체. DS-7 결정 전까지 `SL_QMS_Console`의 내비게이션 유형은 표준이다. 결정 후 콘솔로 바꿀 때 바뀌는 것은 앱 메타데이터의 내비게이션 유형과 (필요하면) 레코드 열기 규칙뿐이다. 화면·컴포넌트는 바꾸지 않는다.
+- BR-9: 콘솔 미사용(DS-7 결정, 2026-11-05). 모든 앱의 내비게이션 유형은 표준이다.
+  - 여러 건을 오가는 작업은 분할 보기 리스트뷰와 브라우저 새 탭으로 한다.
+  - 하위 레코드는 레코드 페이지 안(관련 탭, 모달, 결정 지원 레일)에서 처리한다.
+  - Lightning Console 권한 집합 라이선스가 필요한 기능을 쓰지 않는다.
 
 **화면/UX**: 화면 유형 T8.
 - 메뉴 허브 화면 순서: 검색창 → 그룹 바로가기 → 그룹 섹션(머리글 = 그룹 이름 + 설명 + "메뉴 열기") → 타일(아이콘, 제목, 설명, 배지, 상태 "사용 가능"/"준비 중", 열기).
@@ -1240,7 +1241,7 @@ QMS RFP 45개 요구 중 15개가 PMS RFP와 같은 기능이거나 같은 엔�
 **수용 기준**
 
 - AC-1: Given QMS_PSG_Inspector만 가진 사용자, When 앱 런처, Then `SL QMS 현장`만 보인다(SEC-001 AC-1).
-- AC-2: Given QualityEngineer가 SL QMS 콘솔에서 메뉴 허브(전체 모드) 열기, Then Apps__c에 SL_QMS_Console이 있는 그룹만 보이고, 권한 없는 타일은 없다.
+- AC-2: Given QualityEngineer가 SL QMS 품질 업무에서 메뉴 허브(전체 모드) 열기, Then Apps__c에 SL_QMS_Quality이 있는 그룹만 보이고, 권한 없는 타일은 없다.
 - AC-3: Given 열린 NCR To-Do 3건(1건 기한 경과), When 허브 표시, Then NCR 타일에 배지 3과 "기한 경과 1"이 표시된다.
 - AC-4: Given 접근 가능한 레코드 번호 `NCR-KR01-2027-000123`, When 검색창에 입력 후 Enter, Then 그 레코드 페이지로 이동한다. 접근 불가 번호와 없는 번호는 같은 "찾을 수 없음"이다.
 - AC-5: Given 그룹의 모든 타일에 권한이 없다, When 허브 표시, Then 그룹이 보이지 않는다.
@@ -1253,7 +1254,6 @@ QMS RFP 45개 요구 중 15개가 PMS RFP와 같은 기능이거나 같은 엔�
 - 배지를 타일마다 따로 조회하지 않는다.
 
 **오픈 이슈**
-- 콘솔 라이선스 구매 범위(DS-7)를 정해야 한다.
 - 역할별로 홈 페이지를 따로 둘지, 위젯 템플릿만 달리할지 정해야 한다(TDO-004·DSH-001).
 
 ### CMN-00-UX-008 현장 입력 셸
@@ -1762,7 +1762,7 @@ RFP는 QMS·PMS 모두 “메인 화면 = To-Do 기준, 포탈에 업무/결재 
 - BR-1: `SL QMS`·`SL PMS` 앱 홈 = Lightning App Page. 상단 `cmnTodoList`(탭: 업무 / 결재, 건수 배지, 기한 경과 빨간 표시, 시스템 필터), 하단 `cmnWidgetBoard`(DSH-001).
 - BR-2: `cmnTodoList` 항목 클릭 = TargetRecordId 레코드 페이지(결재는 결재 요청 레코드). 한 화면 20건, 더 보기.
 - BR-3: 모바일은 To-Do 목록만 표시하고 위젯은 “대시보드” 탭으로 분리.
-- BR-4: 화면 유형 T8. 홈은 사내 QMS 앱 세 개(SL QMS 콘솔, SL QMS, SL QMS 현장)가 같은 페이지를 쓴다(UX-007). SL QMS 현장에서는 위젯 보드를 휴대폰과 같이 숨긴다.
+- BR-4: 화면 유형 T8. 홈은 사내 QMS 앱 세 개(SL QMS 품질 업무, SL QMS, SL QMS 현장)가 같은 페이지를 쓴다(UX-007). SL QMS 현장에서는 위젯 보드를 휴대폰과 같이 숨긴다.
 
 **수용 기준**
 
@@ -2285,13 +2285,13 @@ Vol.0 공통 메뉴는 **49개 워크아이템, 개발 공수 약 226 M/D**(AI �
 
 **화면 전략 결정**(`screen-strategy.md` 13절. 자율 진행 지시에 따라 권고안으로 반영·개발하고 검토 때 확정)
 
-- [ ] DS-1 사용자 두 계층 앱 구조(전문가 콘솔 / 참여자 표준 / 현장 / 포털 / 관리) — SEC-001 BR-4, UX-007. 권고: 승인(반영함)
+- [ ] DS-1 사용자 두 계층 앱 구조(품질 업무 / 참여자 / 현장 / 포털 / 관리) — SEC-001 BR-4, UX-007. 권고: 승인(반영함)
 - [ ] DS-2 Cosmos(SLDS 2) 기준 개발, 협력사 포털만 SLDS 1 기준 검수 — 3.4절, UX-004 BR-10. 권고: 승인(반영함)
 - [ ] DS-3 공통 화면 WI 6개(UX-004~009, 35 M/D) 추가와 Vol.2 공수 조정(DVQ-004 7→4, DVQ-007 7→5) — 권고: 승인(반영함)
 - [ ] DS-4 트리 메뉴 대신 메뉴 허브 + 앱당 8개 이내 내비게이션 — UX-007. 권고: 승인(반영함)
 - [ ] DS-5 현장 오프라인 입력 범위(브라우저 임시 저장만 / 완전 오프라인) — UX-008 BR-5. 권고: 브라우저 임시 저장만
 - [ ] DS-6 VDA 6.3 질문지 원문 라이선스 확보 주체(SL / DKBMC) — Vol.6c D6C-2와 같은 결정. 권고: SL
-- [ ] DS-7 Lightning Console 권한 집합 라이선스 구매 범위 — UX-007 BR-9. 권고: 결정 전까지 표준 내비게이션으로 개발
+- [x] DS-7 Lightning Console 권한 집합 라이선스 — UX-007 BR-9. 결정(2026-11-05, 사용자): 사용하지 않는다. 모든 앱 표준 내비게이션
 - [ ] DS-8 여러 고객 클레임 병합(대표 클레임 + 8D 1개) 기능 추가 — Vol.5 CLM 변경 요청. 권고: 추가(W2)
 
 **SL 확인이 필요한 사실 정보**: 포탈 IdP·SAML 속성과 To-Do 연동 방식(Pull/Push), HR 연계 방식, SAP 자재 유형 코드, 현행 업무 번호 체계, OEM별 CSR(클레임 기한·양식), 관리계획서 원천 도구, Snowflake 리전.

@@ -36,7 +36,7 @@
 | cmnDecisionRail, CMN_RailPanel__mdt, CMN_RailPanelController, 레일 패널 계약(`@api config`·`@api variant`·`railbadge`), 레코드 페이지 생성기·검사기 | UI | UX-004 | T1 레코드 페이지 표준(헤더 7개·D-day `DaysToDue__c`·현재 단계 탭). 레일 기본 패널 AI·APPROVAL·TODO·COMMENT·DOCUMENT, 문맥 분석 CONTEXT_*(위젯 계약) |
 | CMN_UiRule__mdt, CMN_UiSection__mdt, CMN_UiRuleService.canExecute / assertCanExecute / lockedFieldViolations / runAsService | UI 규칙 | UX-005 | 상태·권한 → Dynamic Forms/Actions 가시성 + 서버 검증. 업무 액션 Apex 첫 줄에서 assertCanExecute. Custom Permission `{접두어}_{객체약어}_{동작}` |
 | cmnEditableGrid, CMN_GridDefinition__mdt, CMN_GridColumn__mdt, CMN_GridProvider(defaults·rowMeta·validate·afterSave), CMN_GridProviderBase, CMN_GridRefresh__c, cmnDraftStore | UI | UX-006 | T2 그리드. 업무 규칙은 Provider, 저장 upsert 1 + delete 1 |
-| cmnAppMenuHub, CMN_AppMenu__mdt, CMN_AppMenuItem__mdt, CMN_AppMenuController, 앱 SL_QMS_Console·SL_QMS_Field | 앱·메뉴 | UX-007 | 앱 5개·PSG 할당, 전체 메뉴 모드, 미결 배지(TodoSourceTypes), 번호 바로가기(채번 규칙 접두어). A0 골격 구현됨 |
+| cmnAppMenuHub, CMN_AppMenu__mdt, CMN_AppMenuItem__mdt, CMN_AppMenuController, 앱 SL_QMS_Quality·SL_QMS_Field | 앱·메뉴 | UX-007 | 앱 5개·PSG 할당, 전체 메뉴 모드, 미결 배지(TodoSourceTypes), 번호 바로가기(채번 규칙 접두어). A0 골격 구현됨 |
 | cmnFieldEntryShell, CMN_FieldEntryProvider(load·save·validateScan), CMN_FieldEntryProvider__mdt, CMN_FieldEntry DTO | UI | UX-008 | T3 현장 입력. 판정·값 저장은 Provider(측정값 JSON 묶음) |
 | cmnChecklistRunner, CMN_ChecklistProvider(load·saveAnswers·preview·raiseFollowUp), CMN_ChecklistProvider__mdt, CMN_Checklist DTO | UI | UX-009 | T4 체크리스트. 질문지·점수 계산은 Vol.6c(IAU-001·003, CAU-002) 소유, 기본 후속 조치 = CMN_ActionItem__c |
 | CMN_Document__c, CMN_DocumentRevision__c, cmnDocumentPanel, CMN_DocTemplate__c | 문서 | DOC-001 | DocClass, 리비전, 해시 경고 |

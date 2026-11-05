@@ -146,7 +146,7 @@ WI 하나를 `/implement-wi <WI-ID>`로 구현한다. 순서는 아래와 같다
   - 섹션·버튼 노출은 UX-005 규칙에서 생성한다. 업무 액션 Apex는 첫 줄에서 `CMN_UiRuleService.assertCanExecute`를 호출한다.
   - 공통 부품을 쓴다: 행 편집은 `cmnEditableGrid`(UX-006), 시료·측정 입력은 `cmnFieldEntryShell`(UX-008), 질문지 평가는 `cmnChecklistRunner`(UX-009). 업무 규칙은 각 Provider 구현에 둔다. 같은 일을 하는 메뉴 전용 LWC를 새로 만들지 않는다. 부품이 아직 없으면 해당 UX WI를 먼저 구현한다.
   - 결정 지원 레일 패널 LWC는 `@api recordId`·`@api objectApiName`·`@api config`·`@api variant`를 받고 건수를 `railbadge` 이벤트로 알린다.
-  - 콘솔 전용 기능(하위 탭, 고정 영역)에 기대지 않는다.
+  - 콘솔 앱을 쓰지 않는다(DS-7). 콘솔 기능(하위 탭, 고정 영역)을 전제로 화면을 만들지 않는다.
   - 화면 문구는 "동사 + 대상"으로 쓰고, 오류 메시지는 원인과 고치는 법을 한 문장에 담는다.
 - **문구**: 화면의 모든 문구는 `@salesforce/label`로 가져온다. 한국어 리터럴을 쓰지 않는다. 번역은 ko·en_US·zh_CN 3종이다.
 - **모바일**: 대상 컴포넌트는 `formFactors`에 Small을 포함한다. 바코드는 `lightning/mobileCapabilities`를 쓴다.
