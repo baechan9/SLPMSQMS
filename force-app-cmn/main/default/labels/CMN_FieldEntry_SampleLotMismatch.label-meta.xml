@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_FieldEntry_SampleLotMismatch</fullName>
+    <categories>CMN</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>샘플 로트 불일치</shortDescription>
+    <value>레코드의 로트와 다른 로트입니다. 로트 라벨을 확인하세요.</value>
+</CustomLabel>

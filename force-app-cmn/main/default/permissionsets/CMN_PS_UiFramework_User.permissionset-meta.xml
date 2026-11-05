@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
     <classAccesses>
+        <apexClass>CMN_FieldEntryController</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>CMN_GridController</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -11,4 +15,8 @@
     <description>공통 화면 부품 컨트롤러(UX-004 결정 지원 레일, 이후 UX-006·008·009). 사내 PSG 전부(SEC-001 BR-2)</description>
     <hasActivationRequired>false</hasActivationRequired>
     <label>CMN UI Framework User</label>
+    <tabSettings>
+        <tab>CMN_FieldEntry</tab>
+        <visibility>Visible</visibility>
+    </tabSettings>
 </PermissionSet>

@@ -1,0 +1,20 @@
+{
+  "header": {
+    "title": "Incoming inspection",
+    "recordNo": "TST-KR01-2026-000001",
+    "lotNo": "TST-KR01-2026-000001",
+    "plant": "KR01",
+    "extras": [{ "labelKey": "CMN_FieldEntry_SampleLotLabel", "label": "Lot", "value": "TST-KR01-2026-000001" }]
+  },
+  "items": [
+    { "key": "OUTER", "label": "Outer", "type": "VARIABLE", "sampleQty": 5, "lsl": 1.0, "usl": 2.0, "nominal": 1.5, "unit": "mm", "decimals": 2, "specialClass": "CC", "method": "Caliper", "gaugeRequired": true, "photoRequiredOnNg": false, "sequence": 1 },
+    { "key": "HEIGHT", "label": "Height", "type": "VARIABLE", "sampleQty": 2, "lsl": 10, "unit": "mm", "decimals": 1, "specialClass": "SC", "gaugeRequired": false, "photoRequiredOnNg": false, "sequence": 2 },
+    { "key": "BUBBLE", "label": "Bubble", "type": "ATTRIBUTE", "sampleQty": 2, "gaugeRequired": false, "photoRequiredOnNg": true, "sequence": 3 },
+    { "key": "NOTE", "label": "Note", "type": "TEXT", "sampleQty": 1, "gaugeRequired": false, "photoRequiredOnNg": false, "sequence": 4 }
+  ],
+  "values": [],
+  "editable": true,
+  "defaultMode": "TABLE",
+  "photoDocClass": "TEST_PHOTO",
+  "lotCheck": true
+}

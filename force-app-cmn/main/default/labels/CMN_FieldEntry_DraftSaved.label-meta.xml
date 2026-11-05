@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_FieldEntry_DraftSaved</fullName>
+    <categories>CMN</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>임시 저장 상태</shortDescription>
+    <value>이 기기에 임시 저장됨</value>
+</CustomLabel>

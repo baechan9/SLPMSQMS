@@ -857,6 +857,254 @@
         <name>CMN_DueIndicator_Today</name>
     </customLabels>
     <customLabels>
+        <label>All entries are done. Finalize the result.</label>
+        <name>CMN_FieldEntry_AllDone</name>
+    </customLabels>
+    <customLabels>
+        <label>There are {0} unsaved entries on this device. Restore them? Cancel discards them.</label>
+        <name>CMN_FieldEntry_DraftRestore</name>
+    </customLabels>
+    <customLabels>
+        <label>Saved on this device</label>
+        <name>CMN_FieldEntry_DraftSaved</name>
+    </customLabels>
+    <customLabels>
+        <label>Unsaved Entries</label>
+        <name>CMN_FieldEntry_DraftTitle</name>
+    </customLabels>
+    <customLabels>
+        <label>Fail</label>
+        <name>CMN_FieldEntry_Fail</name>
+    </customLabels>
+    <customLabels>
+        <label>Finalize Result</label>
+        <name>CMN_FieldEntry_Finalize</name>
+    </customLabels>
+    <customLabels>
+        <label>Finalize Result</label>
+        <name>CMN_FieldEntry_FinalizeTitle</name>
+    </customLabels>
+    <customLabels>
+        <label>Result finalized: {0}</label>
+        <name>CMN_FieldEntry_Finalized</name>
+    </customLabels>
+    <customLabels>
+        <label>Gauge no.</label>
+        <name>CMN_FieldEntry_Gauge</name>
+    </customLabels>
+    <customLabels>
+        <label>{0}: scan or enter the gauge number.</label>
+        <name>CMN_FieldEntry_GaugeRequired</name>
+    </customLabels>
+    <customLabels>
+        <label>Incomplete</label>
+        <name>CMN_FieldEntry_Incomplete</name>
+    </customLabels>
+    <customLabels>
+        <label>This scan can't be checked. Scan again or type it in.</label>
+        <name>CMN_FieldEntry_InvalidScan</name>
+    </customLabels>
+    <customLabels>
+        <label>Item</label>
+        <name>CMN_FieldEntry_ItemCol</name>
+    </customLabels>
+    <customLabels>
+        <label>The entry screen didn't load. Refresh. If it keeps happening, tell your admin.</label>
+        <name>CMN_FieldEntry_LoadError</name>
+    </customLabels>
+    <customLabels>
+        <label>Loading entry screen</label>
+        <name>CMN_FieldEntry_Loading</name>
+    </customLabels>
+    <customLabels>
+        <label>Check lot</label>
+        <name>CMN_FieldEntry_Lot</name>
+    </customLabels>
+    <customLabels>
+        <label>Method: {0}</label>
+        <name>CMN_FieldEntry_Method</name>
+    </customLabels>
+    <customLabels>
+        <label>{0} entries are missing: {1}. Finalize anyway?</label>
+        <name>CMN_FieldEntry_MissingConfirm</name>
+    </customLabels>
+    <customLabels>
+        <label>Show Missing Only</label>
+        <name>CMN_FieldEntry_MissingOnly</name>
+    </customLabels>
+    <customLabels>
+        <label>Entry mode</label>
+        <name>CMN_FieldEntry_ModeLabel</name>
+    </customLabels>
+    <customLabels>
+        <label>One at a Time</label>
+        <name>CMN_FieldEntry_ModeSequential</name>
+    </customLabels>
+    <customLabels>
+        <label>Table</label>
+        <name>CMN_FieldEntry_ModeTable</name>
+    </customLabels>
+    <customLabels>
+        <label>Next</label>
+        <name>CMN_FieldEntry_Next</name>
+    </customLabels>
+    <customLabels>
+        <label>NG</label>
+        <name>CMN_FieldEntry_Ng</name>
+    </customLabels>
+    <customLabels>
+        <label>This record has no field entry screen. Ask your admin to set one up.</label>
+        <name>CMN_FieldEntry_NoProvider</name>
+    </customLabels>
+    <customLabels>
+        <label>No record is selected. Open the entry screen from a record again.</label>
+        <name>CMN_FieldEntry_NoRecord</name>
+    </customLabels>
+    <customLabels>
+        <label>Nominal {0}</label>
+        <name>CMN_FieldEntry_Nominal</name>
+    </customLabels>
+    <customLabels>
+        <label>You can't save entries in the current status or with your permissions. Check the record status.</label>
+        <name>CMN_FieldEntry_NotEditable</name>
+    </customLabels>
+    <customLabels>
+        <label>Enter a number (for example, 1.25).</label>
+        <name>CMN_FieldEntry_NotNumber</name>
+    </customLabels>
+    <customLabels>
+        <label>OK</label>
+        <name>CMN_FieldEntry_Ok</name>
+    </customLabels>
+    <customLabels>
+        <label>Pass</label>
+        <name>CMN_FieldEntry_Pass</name>
+    </customLabels>
+    <customLabels>
+        <label>Paste a column of values from Excel into a sample cell to fill from that sample onward.</label>
+        <name>CMN_FieldEntry_PasteHint</name>
+    </customLabels>
+    <customLabels>
+        <label>{0} waiting to send</label>
+        <name>CMN_FieldEntry_Pending</name>
+    </customLabels>
+    <customLabels>
+        <label>Photos required</label>
+        <name>CMN_FieldEntry_PhotoMissingTitle</name>
+    </customLabels>
+    <customLabels>
+        <label>{0} sample {1}: attach at least one photo for an NG result.</label>
+        <name>CMN_FieldEntry_PhotoRequired</name>
+    </customLabels>
+    <customLabels>
+        <label>{0} photos</label>
+        <name>CMN_FieldEntry_Photos</name>
+    </customLabels>
+    <customLabels>
+        <label>Previous</label>
+        <name>CMN_FieldEntry_Prev</name>
+    </customLabels>
+    <customLabels>
+        <label>{0} of {1} entered</label>
+        <name>CMN_FieldEntry_Progress</name>
+    </customLabels>
+    <customLabels>
+        <label>Read only: you can't enter values in the current status or with your permissions.</label>
+        <name>CMN_FieldEntry_ReadOnly</name>
+    </customLabels>
+    <customLabels>
+        <label>View Reference</label>
+        <name>CMN_FieldEntry_Reference</name>
+    </customLabels>
+    <customLabels>
+        <label>Result</label>
+        <name>CMN_FieldEntry_ResultCol</name>
+    </customLabels>
+    <customLabels>
+        <label>Sample {0} of {1}</label>
+        <name>CMN_FieldEntry_Sample</name>
+    </customLabels>
+    <customLabels>
+        <label>Surface bubbles</label>
+        <name>CMN_FieldEntry_SampleBubble</name>
+    </customLabels>
+    <customLabels>
+        <label>S{0}</label>
+        <name>CMN_FieldEntry_SampleCol</name>
+    </customLabels>
+    <customLabels>
+        <label>Not a gauge number (for example, G-0012). Check the gauge label.</label>
+        <name>CMN_FieldEntry_SampleGaugeInvalid</name>
+    </customLabels>
+    <customLabels>
+        <label>Height</label>
+        <name>CMN_FieldEntry_SampleHeight</name>
+    </customLabels>
+    <customLabels>
+        <label>Lot</label>
+        <name>CMN_FieldEntry_SampleLotLabel</name>
+    </customLabels>
+    <customLabels>
+        <label>This lot doesn't match the record. Check the lot label.</label>
+        <name>CMN_FieldEntry_SampleLotMismatch</name>
+    </customLabels>
+    <customLabels>
+        <label>Vernier caliper</label>
+        <name>CMN_FieldEntry_SampleMethod</name>
+    </customLabels>
+    <customLabels>
+        <label>Some items failed. Consider raising a nonconformance (NCR).</label>
+        <name>CMN_FieldEntry_SampleNextNcr</name>
+    </customLabels>
+    <customLabels>
+        <label>Remarks</label>
+        <name>CMN_FieldEntry_SampleNote</name>
+    </customLabels>
+    <customLabels>
+        <label>Outer diameter</label>
+        <name>CMN_FieldEntry_SampleOuter</name>
+    </customLabels>
+    <customLabels>
+        <label>Lens scratches</label>
+        <name>CMN_FieldEntry_SampleScratch</name>
+    </customLabels>
+    <customLabels>
+        <label>Couldn't save to the server. You can keep entering. When you're back online, select Save Now.</label>
+        <name>CMN_FieldEntry_SaveFailed</name>
+    </customLabels>
+    <customLabels>
+        <label>Save Now</label>
+        <name>CMN_FieldEntry_SaveNow</name>
+    </customLabels>
+    <customLabels>
+        <label>Checked</label>
+        <name>CMN_FieldEntry_ScanOk</name>
+    </customLabels>
+    <customLabels>
+        <label>The server result differs from the preview for some items. Check the highlighted items.</label>
+        <name>CMN_FieldEntry_ServerDiff</name>
+    </customLabels>
+    <customLabels>
+        <label>Server result</label>
+        <name>CMN_FieldEntry_ServerResult</name>
+    </customLabels>
+    <customLabels>
+        <label>Saved</label>
+        <name>CMN_FieldEntry_ServerSaved</name>
+    </customLabels>
+    <customLabels>
+        <label>Spec</label>
+        <name>CMN_FieldEntry_SpecCol</name>
+    </customLabels>
+    <customLabels>
+        <label>Details</label>
+        <name>CMN_FieldEntry_Text</name>
+    </customLabels>
+    <customLabels>
+        <label>Measured value {0}</label>
+        <name>CMN_FieldEntry_Value</name>
+    </customLabels>
+    <customLabels>
         <label>Add Row</label>
         <name>CMN_Grid_BtnAddRow</name>
     </customLabels>
@@ -2205,6 +2453,10 @@ Open: {Url}</label>
     <customTabs>
         <label>Approvals</label>
         <name>CMN_ApprovalMonitor</name>
+    </customTabs>
+    <customTabs>
+        <label>Field Entry</label>
+        <name>CMN_FieldEntry</name>
     </customTabs>
     <customTabs>
         <label>Menu Hub</label>

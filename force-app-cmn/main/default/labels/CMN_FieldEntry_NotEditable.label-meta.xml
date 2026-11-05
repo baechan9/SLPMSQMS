@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_FieldEntry_NotEditable</fullName>
+    <categories>CMN</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>편집 불가 저장 거부(AC-7)</shortDescription>
+    <value>지금 상태나 권한으로는 입력값을 저장할 수 없습니다. 레코드 상태를 확인하세요.</value>
+</CustomLabel>

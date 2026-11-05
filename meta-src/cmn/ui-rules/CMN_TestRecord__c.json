@@ -50,6 +50,12 @@
         "key": "TestLinesEdit",
         "mode": "EDIT",
         "status": ["DRAFT", "IN_PROGRESS"]
+      },
+      {
+        "target": "COMPONENT",
+        "key": "TestFieldEntryEdit",
+        "mode": "EDIT",
+        "status": ["DRAFT", "IN_PROGRESS"]
       }
     ]
   }

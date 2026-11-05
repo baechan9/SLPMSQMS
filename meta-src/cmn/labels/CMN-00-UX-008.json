@@ -1,0 +1,626 @@
+{
+  "wi": "CMN-00-UX-008",
+  "package": "force-app-cmn",
+  "labels": [
+    {
+      "name": "CMN_FieldEntry_NoProvider",
+      "category": "CMN",
+      "description": "Provider 미등록(UX-008 BR-1)",
+      "value": {
+        "ko": "이 레코드에는 현장 입력 화면이 없습니다. 관리자에게 입력 화면 등록을 요청하세요.",
+        "en_US": "This record has no field entry screen. Ask your admin to set one up.",
+        "zh_CN": "此记录没有现场录入画面。请联系管理员进行设置。"
+      }
+    },
+    {
+      "name": "CMN_FieldEntry_NotEditable",
+      "category": "CMN",
+      "description": "편집 불가 저장 거부(AC-7)",
+      "value": {
+        "ko": "지금 상태나 권한으로는 입력값을 저장할 수 없습니다. 레코드 상태를 확인하세요.",
+        "en_US": "You can't save entries in the current status or with your permissions. Check the record status.",
+        "zh_CN": "当前状态或权限下无法保存录入值。请确认记录状态。"
+      }
+    },
+    {
+      "name": "CMN_FieldEntry_PhotoRequired",
+      "category": "CMN",
+      "description": "NG 사진 필수(BR-7, {0} = 항목, {1} = 시료)",
+      "value": {
+        "ko": "{0} 시료 {1}: 불합격(NG)이면 사진을 1장 이상 붙이세요.",
+        "en_US": "{0} sample {1}: attach at least one photo for an NG result.",
+        "zh_CN": "{0} 样品 {1}：判定为 NG 时请至少附一张照片。"
+      }
+    },
+    {
+      "name": "CMN_FieldEntry_InvalidScan",
+      "category": "CMN",
+      "description": "스캔 유형 오류",
+      "value": {
+        "ko": "확인할 수 없는 스캔 값입니다. 다시 스캔하거나 직접 입력하세요.",
+        "en_US": "This scan can't be checked. Scan again or type it in.",
+        "zh_CN": "无法确认该扫描值。请重新扫描或手动输入。"
+      }
+    },
+    {
+      "name": "CMN_FieldEntry_SampleOuter",
+      "category": "CMN",
+      "description": "샘플 항목: 외경",
+      "value": {
+        "ko": "외경",
+        "en_US": "Outer diameter",
+        "zh_CN": "外径"
+      }
+    },
+    {
+      "name": "CMN_FieldEntry_SampleHeight",
+      "category": "CMN",
+      "description": "샘플 항목: 높이",
+      "value": {
+        "ko": "높이",
+        "en_US": "Height",
+        "zh_CN": "高度"
+      }
+    },
+    {
+      "name": "CMN_FieldEntry_SampleBubble",
+      "category": "CMN",
+      "description": "샘플 항목: 외관 기포",
+      "value": {
+        "ko": "외관 기포",
+        "en_US": "Surface bubbles",
+        "zh_CN": "外观气泡"
+      }
+    },
+    {
+      "name": "CMN_FieldEntry_SampleScratch",
+      "category": "CMN",
+      "description": "샘플 항목: 렌즈 긁힘",
+      "value": {
+        "ko": "렌즈 긁힘",
+        "en_US": "Lens scratches",
+        "zh_CN": "透镜划痕"
+      }
+    },
+    {
+      "name": "CMN_FieldEntry_SampleNote",
+      "category": "CMN",
+      "description": "샘플 항목: 특이사항",
+      "value": {
+        "ko": "특이사항",
+        "en_US": "Remarks",
+        "zh_CN": "特记事项"
+      }
+    },
+    {
+      "name": "CMN_FieldEntry_SampleMethod",
+      "category": "CMN",
+      "description": "샘플 측정 방법",
+      "value": {
+        "ko": "버니어 캘리퍼스",
+        "en_US": "Vernier caliper",
+        "zh_CN": "游标卡尺"
+      }
+    },
+    {
+      "name": "CMN_FieldEntry_SampleNextNcr",
+      "category": "CMN",
+      "description": "샘플 후속 안내(불합격)",
+      "value": {
+        "ko": "불합격 항목이 있습니다. 부적합(NCR) 등록을 검토하세요.",
+        "en_US": "Some items failed. Consider raising a nonconformance (NCR).",
+        "zh_CN": "存在不合格项目。请考虑登记不合格（NCR）。"
+      }
+    },
+    {
+      "name": "CMN_FieldEntry_SampleLotMismatch",
+      "category": "CMN",
+      "description": "샘플 로트 불일치",
+      "value": {
+        "ko": "레코드의 로트와 다른 로트입니다. 로트 라벨을 확인하세요.",
+        "en_US": "This lot doesn't match the record. Check the lot label.",
+        "zh_CN": "批次与记录不一致。请确认批次标签。"
+      }
+    },
+    {
+      "name": "CMN_FieldEntry_SampleGaugeInvalid",
+      "category": "CMN",
+      "description": "샘플 측정기 번호 오류",
+      "value": {
+        "ko": "측정기 번호 형식이 아닙니다(예: G-0012). 측정기 라벨을 확인하세요.",
+        "en_US": "Not a gauge number (for example, G-0012). Check the gauge label.",
+        "zh_CN": "不是量具编号格式（例如 G-0012）。请确认量具标签。"
+      }
+    },
+    {
+      "name": "CMN_FieldEntry_SampleLotLabel",
+      "category": "CMN",
+      "description": "샘플 헤더: 로트",
+      "value": {
+        "ko": "로트",
+        "en_US": "Lot",
+        "zh_CN": "批次"
+      }
+    },
+    {
+      "name": "CMN_FieldEntry_Loading",
+      "category": "CMN",
+      "description": "로딩",
+      "value": {
+        "ko": "입력 화면을 불러오는 중",
+        "en_US": "Loading entry screen",
+        "zh_CN": "正在加载录入画面"
+      }
+    },
+    {
+      "name": "CMN_FieldEntry_LoadError",
+      "category": "CMN",
+      "description": "로드 실패",
+      "value": {
+        "ko": "입력 화면을 불러오지 못했습니다. 새로 고침하세요. 계속되면 관리자에게 알려 주세요.",
+        "en_US": "The entry screen didn't load. Refresh. If it keeps happening, tell your admin.",
+        "zh_CN": "录入画面加载失败。请刷新。如持续出现，请告知管理员。"
+      }
+    },
+    {
+      "name": "CMN_FieldEntry_NoRecord",
+      "category": "CMN",
+      "description": "레코드 미지정",
+      "value": {
+        "ko": "입력할 레코드가 지정되지 않았습니다. 레코드에서 입력 화면을 다시 여세요.",
+        "en_US": "No record is selected. Open the entry screen from a record again.",
+        "zh_CN": "未指定要录入的记录。请从记录重新打开录入画面。"
+      }
+    },
+    {
+      "name": "CMN_FieldEntry_Progress",
+      "category": "CMN",
+      "description": "진행률({0} 입력, {1} 전체)",
+      "value": {
+        "ko": "입력 {0} / {1}",
+        "en_US": "{0} of {1} entered",
+        "zh_CN": "已录入 {0} / {1}"
+      }
+    },
+    {
+      "name": "CMN_FieldEntry_ModeSequential",
+      "category": "CMN",
+      "description": "모드: 순차",
+      "value": {
+        "ko": "한 칸씩",
+        "en_US": "One at a Time",
+        "zh_CN": "逐项"
+      }
+    },
+    {
+      "name": "CMN_FieldEntry_ModeTable",
+      "category": "CMN",
+      "description": "모드: 표",
+      "value": {
+        "ko": "표",
+        "en_US": "Table",
+        "zh_CN": "表格"
+      }
+    },
+    {
+      "name": "CMN_FieldEntry_ModeLabel",
+      "category": "CMN",
+      "description": "모드 전환 라벨",
+      "value": {
+        "ko": "입력 방식",
+        "en_US": "Entry mode",
+        "zh_CN": "录入方式"
+      }
+    },
+    {
+      "name": "CMN_FieldEntry_MissingOnly",
+      "category": "CMN",
+      "description": "미입력만 보기",
+      "value": {
+        "ko": "미입력만 보기",
+        "en_US": "Show Missing Only",
+        "zh_CN": "仅显示未录入"
+      }
+    },
+    {
+      "name": "CMN_FieldEntry_Sample",
+      "category": "CMN",
+      "description": "시료 표시({0} 현재, {1} 전체)",
+      "value": {
+        "ko": "시료 {0} / {1}",
+        "en_US": "Sample {0} of {1}",
+        "zh_CN": "样品 {0} / {1}"
+      }
+    },
+    {
+      "name": "CMN_FieldEntry_SampleCol",
+      "category": "CMN",
+      "description": "표 열 머리글({0} = 시료 번호)",
+      "value": {
+        "ko": "시료 {0}",
+        "en_US": "S{0}",
+        "zh_CN": "样品 {0}"
+      }
+    },
+    {
+      "name": "CMN_FieldEntry_ItemCol",
+      "category": "CMN",
+      "description": "표 열: 항목",
+      "value": {
+        "ko": "항목",
+        "en_US": "Item",
+        "zh_CN": "项目"
+      }
+    },
+    {
+      "name": "CMN_FieldEntry_SpecCol",
+      "category": "CMN",
+      "description": "표 열: 규격",
+      "value": {
+        "ko": "규격",
+        "en_US": "Spec",
+        "zh_CN": "规格"
+      }
+    },
+    {
+      "name": "CMN_FieldEntry_ResultCol",
+      "category": "CMN",
+      "description": "표 열: 판정",
+      "value": {
+        "ko": "판정",
+        "en_US": "Result",
+        "zh_CN": "判定"
+      }
+    },
+    {
+      "name": "CMN_FieldEntry_Value",
+      "category": "CMN",
+      "description": "값 입력 라벨({0} = 단위)",
+      "value": {
+        "ko": "측정값 {0}",
+        "en_US": "Measured value {0}",
+        "zh_CN": "测量值 {0}"
+      }
+    },
+    {
+      "name": "CMN_FieldEntry_Text",
+      "category": "CMN",
+      "description": "텍스트 입력 라벨",
+      "value": {
+        "ko": "내용",
+        "en_US": "Details",
+        "zh_CN": "内容"
+      }
+    },
+    {
+      "name": "CMN_FieldEntry_Ok",
+      "category": "CMN",
+      "description": "OK 버튼",
+      "value": {
+        "ko": "합격(OK)",
+        "en_US": "OK",
+        "zh_CN": "合格（OK）"
+      }
+    },
+    {
+      "name": "CMN_FieldEntry_Ng",
+      "category": "CMN",
+      "description": "NG 버튼",
+      "value": {
+        "ko": "불합격(NG)",
+        "en_US": "NG",
+        "zh_CN": "不合格（NG）"
+      }
+    },
+    {
+      "name": "CMN_FieldEntry_Pass",
+      "category": "CMN",
+      "description": "판정: 합격",
+      "value": {
+        "ko": "합격",
+        "en_US": "Pass",
+        "zh_CN": "合格"
+      }
+    },
+    {
+      "name": "CMN_FieldEntry_Fail",
+      "category": "CMN",
+      "description": "판정: 불합격",
+      "value": {
+        "ko": "불합격",
+        "en_US": "Fail",
+        "zh_CN": "不合格"
+      }
+    },
+    {
+      "name": "CMN_FieldEntry_Incomplete",
+      "category": "CMN",
+      "description": "판정: 미완료",
+      "value": {
+        "ko": "입력 중",
+        "en_US": "Incomplete",
+        "zh_CN": "录入中"
+      }
+    },
+    {
+      "name": "CMN_FieldEntry_Prev",
+      "category": "CMN",
+      "description": "이전",
+      "value": {
+        "ko": "이전",
+        "en_US": "Previous",
+        "zh_CN": "上一个"
+      }
+    },
+    {
+      "name": "CMN_FieldEntry_Next",
+      "category": "CMN",
+      "description": "다음",
+      "value": {
+        "ko": "다음",
+        "en_US": "Next",
+        "zh_CN": "下一个"
+      }
+    },
+    {
+      "name": "CMN_FieldEntry_Finalize",
+      "category": "CMN",
+      "description": "판정 확정(최종 저장)",
+      "value": {
+        "ko": "판정 확정",
+        "en_US": "Finalize Result",
+        "zh_CN": "确认判定"
+      }
+    },
+    {
+      "name": "CMN_FieldEntry_SaveNow",
+      "category": "CMN",
+      "description": "수동 저장(전송 대기분)",
+      "value": {
+        "ko": "지금 저장",
+        "en_US": "Save Now",
+        "zh_CN": "立即保存"
+      }
+    },
+    {
+      "name": "CMN_FieldEntry_DraftSaved",
+      "category": "CMN",
+      "description": "임시 저장 상태",
+      "value": {
+        "ko": "이 기기에 임시 저장됨",
+        "en_US": "Saved on this device",
+        "zh_CN": "已临时保存在本设备"
+      }
+    },
+    {
+      "name": "CMN_FieldEntry_ServerSaved",
+      "category": "CMN",
+      "description": "서버 저장 상태",
+      "value": {
+        "ko": "서버에 저장됨",
+        "en_US": "Saved",
+        "zh_CN": "已保存"
+      }
+    },
+    {
+      "name": "CMN_FieldEntry_Pending",
+      "category": "CMN",
+      "description": "전송 대기({0} = 항목 수, BR-5)",
+      "value": {
+        "ko": "전송 대기 {0}건",
+        "en_US": "{0} waiting to send",
+        "zh_CN": "待发送 {0} 项"
+      }
+    },
+    {
+      "name": "CMN_FieldEntry_SaveFailed",
+      "category": "CMN",
+      "description": "저장 실패 안내(BR-5)",
+      "value": {
+        "ko": "서버에 저장하지 못했습니다. 입력은 계속할 수 있습니다. 연결되면 \"지금 저장\"을 누르세요.",
+        "en_US": "Couldn't save to the server. You can keep entering. When you're back online, select Save Now.",
+        "zh_CN": "未能保存到服务器。可以继续录入。恢复连接后请点击“立即保存”。"
+      }
+    },
+    {
+      "name": "CMN_FieldEntry_DraftRestore",
+      "category": "CMN",
+      "description": "초안 복원 질문(AC-3, {0} = 칸 수)",
+      "value": {
+        "ko": "이 기기에 저장하지 않은 입력값 {0}칸이 남아 있습니다. 복원할까요? 취소하면 버립니다.",
+        "en_US": "There are {0} unsaved entries on this device. Restore them? Cancel discards them.",
+        "zh_CN": "本设备上有 {0} 个未保存的录入值。要恢复吗？取消将放弃。"
+      }
+    },
+    {
+      "name": "CMN_FieldEntry_DraftTitle",
+      "category": "CMN",
+      "description": "초안 대화상자 제목",
+      "value": {
+        "ko": "저장하지 않은 입력값",
+        "en_US": "Unsaved Entries",
+        "zh_CN": "未保存的录入值"
+      }
+    },
+    {
+      "name": "CMN_FieldEntry_MissingConfirm",
+      "category": "CMN",
+      "description": "확정 전 미입력 확인({0} = 칸 수, {1} = 목록)",
+      "value": {
+        "ko": "미입력 {0}칸이 있습니다: {1}. 그래도 판정을 확정할까요?",
+        "en_US": "{0} entries are missing: {1}. Finalize anyway?",
+        "zh_CN": "有 {0} 个未录入：{1}。仍要确认判定吗？"
+      }
+    },
+    {
+      "name": "CMN_FieldEntry_FinalizeTitle",
+      "category": "CMN",
+      "description": "확정 대화상자 제목",
+      "value": {
+        "ko": "판정 확정",
+        "en_US": "Finalize Result",
+        "zh_CN": "确认判定"
+      }
+    },
+    {
+      "name": "CMN_FieldEntry_PhotoMissingTitle",
+      "category": "CMN",
+      "description": "사진 미충족 목록 제목(AC-5)",
+      "value": {
+        "ko": "사진이 필요한 칸",
+        "en_US": "Photos required",
+        "zh_CN": "需要照片的项"
+      }
+    },
+    {
+      "name": "CMN_FieldEntry_Finalized",
+      "category": "CMN",
+      "description": "확정 완료({0} = 전체 판정)",
+      "value": {
+        "ko": "판정을 확정했습니다: {0}",
+        "en_US": "Result finalized: {0}",
+        "zh_CN": "已确认判定：{0}"
+      }
+    },
+    {
+      "name": "CMN_FieldEntry_ServerDiff",
+      "category": "CMN",
+      "description": "서버 판정 차이 안내(AC-6)",
+      "value": {
+        "ko": "서버 판정이 화면 미리보기와 다른 항목이 있습니다. 강조된 항목을 확인하세요.",
+        "en_US": "The server result differs from the preview for some items. Check the highlighted items.",
+        "zh_CN": "部分项目的服务器判定与画面预览不同。请确认高亮的项目。"
+      }
+    },
+    {
+      "name": "CMN_FieldEntry_ServerResult",
+      "category": "CMN",
+      "description": "서버 판정 표시",
+      "value": {
+        "ko": "서버 판정",
+        "en_US": "Server result",
+        "zh_CN": "服务器判定"
+      }
+    },
+    {
+      "name": "CMN_FieldEntry_ReadOnly",
+      "category": "CMN",
+      "description": "읽기 전용 안내(AC-7)",
+      "value": {
+        "ko": "읽기 전용: 지금 상태나 권한으로는 입력할 수 없습니다.",
+        "en_US": "Read only: you can't enter values in the current status or with your permissions.",
+        "zh_CN": "只读：当前状态或权限下无法录入。"
+      }
+    },
+    {
+      "name": "CMN_FieldEntry_Lot",
+      "category": "CMN",
+      "description": "로트 확인 칸",
+      "value": {
+        "ko": "로트 확인",
+        "en_US": "Check lot",
+        "zh_CN": "确认批次"
+      }
+    },
+    {
+      "name": "CMN_FieldEntry_Gauge",
+      "category": "CMN",
+      "description": "측정기 번호 칸",
+      "value": {
+        "ko": "측정기 번호",
+        "en_US": "Gauge no.",
+        "zh_CN": "量具编号"
+      }
+    },
+    {
+      "name": "CMN_FieldEntry_ScanOk",
+      "category": "CMN",
+      "description": "스캔 확인 완료",
+      "value": {
+        "ko": "확인됨",
+        "en_US": "Checked",
+        "zh_CN": "已确认"
+      }
+    },
+    {
+      "name": "CMN_FieldEntry_Reference",
+      "category": "CMN",
+      "description": "기준 문서 열기",
+      "value": {
+        "ko": "기준 문서 보기",
+        "en_US": "View Reference",
+        "zh_CN": "查看基准文件"
+      }
+    },
+    {
+      "name": "CMN_FieldEntry_Photos",
+      "category": "CMN",
+      "description": "사진 수({0})",
+      "value": {
+        "ko": "사진 {0}장",
+        "en_US": "{0} photos",
+        "zh_CN": "照片 {0} 张"
+      }
+    },
+    {
+      "name": "CMN_FieldEntry_Method",
+      "category": "CMN",
+      "description": "측정 방법 표시({0})",
+      "value": {
+        "ko": "방법: {0}",
+        "en_US": "Method: {0}",
+        "zh_CN": "方法：{0}"
+      }
+    },
+    {
+      "name": "CMN_FieldEntry_Nominal",
+      "category": "CMN",
+      "description": "기준값 표시({0})",
+      "value": {
+        "ko": "기준 {0}",
+        "en_US": "Nominal {0}",
+        "zh_CN": "基准 {0}"
+      }
+    },
+    {
+      "name": "CMN_FieldEntry_AllDone",
+      "category": "CMN",
+      "description": "모두 입력됨",
+      "value": {
+        "ko": "모든 칸을 입력했습니다. 판정을 확정하세요.",
+        "en_US": "All entries are done. Finalize the result.",
+        "zh_CN": "已全部录入。请确认判定。"
+      }
+    },
+    {
+      "name": "CMN_FieldEntry_PasteHint",
+      "category": "CMN",
+      "description": "표 세로 붙여넣기 안내(BR-3)",
+      "value": {
+        "ko": "엑셀에서 세로 값 목록을 복사해 시료 칸에 붙여넣으면 그 시료부터 차례로 들어갑니다.",
+        "en_US": "Paste a column of values from Excel into a sample cell to fill from that sample onward.",
+        "zh_CN": "将 Excel 中的一列值粘贴到样品单元格，将从该样品开始依次填入。"
+      }
+    },
+    {
+      "name": "CMN_FieldEntry_GaugeRequired",
+      "category": "CMN",
+      "description": "측정기 필수({0} = 항목)",
+      "value": {
+        "ko": "{0}: 측정기 번호를 스캔하거나 입력하세요.",
+        "en_US": "{0}: scan or enter the gauge number.",
+        "zh_CN": "{0}：请扫描或输入量具编号。"
+      }
+    },
+    {
+      "name": "CMN_FieldEntry_NotNumber",
+      "category": "CMN",
+      "description": "숫자 아님",
+      "value": {
+        "ko": "숫자를 입력하세요(예: 1.25).",
+        "en_US": "Enter a number (for example, 1.25).",
+        "zh_CN": "请输入数字（例如 1.25）。"
+      }
+    }
+  ]
+}

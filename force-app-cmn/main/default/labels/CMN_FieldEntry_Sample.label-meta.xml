@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_FieldEntry_Sample</fullName>
+    <categories>CMN</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>시료 표시({0} 현재, {1} 전체)</shortDescription>
+    <value>시료 {0} / {1}</value>
+</CustomLabel>

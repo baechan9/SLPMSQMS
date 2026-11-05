@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_FieldEntry_AllDone</fullName>
+    <categories>CMN</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>모두 입력됨</shortDescription>
+    <value>모든 칸을 입력했습니다. 판정을 확정하세요.</value>
+</CustomLabel>

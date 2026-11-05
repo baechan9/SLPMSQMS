@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_FieldEntry_PhotoRequired</fullName>
+    <categories>CMN</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>NG 사진 필수(BR-7, {0} = 항목, {1} = 시료)</shortDescription>
+    <value>{0} 시료 {1}: 불합격(NG)이면 사진을 1장 이상 붙이세요.</value>
+</CustomLabel>

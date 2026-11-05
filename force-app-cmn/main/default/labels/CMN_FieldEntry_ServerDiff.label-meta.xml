@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_FieldEntry_ServerDiff</fullName>
+    <categories>CMN</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>서버 판정 차이 안내(AC-6)</shortDescription>
+    <value>서버 판정이 화면 미리보기와 다른 항목이 있습니다. 강조된 항목을 확인하세요.</value>
+</CustomLabel>

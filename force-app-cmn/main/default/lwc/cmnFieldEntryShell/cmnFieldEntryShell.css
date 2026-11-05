@@ -1,0 +1,37 @@
+/* 현장 입력 셸(UX-008 BR-9): 큰 터치 영역, 하단 고정 줄. 색은 SLDS 클래스·전역 훅만 쓴다 */
+.big-input {
+  font-size: 1.5rem;
+  min-height: 3.5rem;
+}
+
+.big-button {
+  min-height: 3.5rem;
+  font-size: 1.25rem;
+}
+
+.footer {
+  position: sticky;
+  bottom: 0;
+  z-index: 1;
+  background: var(--slds-g-color-surface-container-1, Canvas);
+  border-top-width: 1px;
+  border-top-style: solid;
+  border-top-color: var(--slds-g-color-border-1, currentColor);
+}
+
+.cell-input,
+.cell-select {
+  min-width: 5rem;
+}
+
+.cell-fail,
+.diff-row th {
+  font-weight: var(--slds-g-font-weight-bold, 700);
+}
+
+.diff-row td,
+.diff-row th {
+  border-left-width: 3px;
+  border-left-style: solid;
+  border-left-color: var(--slds-g-color-warning-1, currentColor);
+}

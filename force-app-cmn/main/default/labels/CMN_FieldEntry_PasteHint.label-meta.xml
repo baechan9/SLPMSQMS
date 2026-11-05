@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_FieldEntry_PasteHint</fullName>
+    <categories>CMN</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>표 세로 붙여넣기 안내(BR-3)</shortDescription>
+    <value>엑셀에서 세로 값 목록을 복사해 시료 칸에 붙여넣으면 그 시료부터 차례로 들어갑니다.</value>
+</CustomLabel>

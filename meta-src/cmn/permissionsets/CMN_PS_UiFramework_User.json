@@ -5,6 +5,11 @@
     "package": "force-app-cmn",
     "label": "CMN UI Framework User",
     "description": "공통 화면 부품 컨트롤러(UX-004 결정 지원 레일, 이후 UX-006·008·009). 사내 PSG 전부(SEC-001 BR-2)",
-    "classes": ["CMN_RailPanelController", "CMN_GridController"]
+    "classes": [
+      "CMN_RailPanelController",
+      "CMN_GridController",
+      "CMN_FieldEntryController"
+    ],
+    "tabs": ["CMN_FieldEntry"]
   }
 }

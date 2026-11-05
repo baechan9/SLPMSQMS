@@ -1,0 +1,15 @@
+{
+  "pageTab": {
+    "wi": "CMN-00-UX-008",
+    "name": "CMN_FieldEntry",
+    "package": "force-app-cmn",
+    "flexiPage": "CMN_FieldEntry",
+    "label": {
+      "ko": "현장 입력",
+      "en_US": "Field Entry",
+      "zh_CN": "现场录入"
+    },
+    "motif": "Custom19: Wrench",
+    "description": "현장 입력 셸(UX-008) 전체 화면. 상태 매개변수 c__recordId로 대상 레코드를 연다(내비게이션에는 넣지 않음)"
+  }
+}

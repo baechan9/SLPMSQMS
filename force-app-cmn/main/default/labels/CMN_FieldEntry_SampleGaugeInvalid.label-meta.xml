@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_FieldEntry_SampleGaugeInvalid</fullName>
+    <categories>CMN</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>샘플 측정기 번호 오류</shortDescription>
+    <value>측정기 번호 형식이 아닙니다(예: G-0012). 측정기 라벨을 확인하세요.</value>
+</CustomLabel>

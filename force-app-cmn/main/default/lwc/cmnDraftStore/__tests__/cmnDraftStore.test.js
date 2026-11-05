@@ -35,6 +35,16 @@ describe("c-cmn-draft-store (UX-006 BR-2)", () => {
     expect(loadDraft(draftKey("u", "g", "broken"))).toBeNull();
   });
 
+  it("honours a per-draft retention period (field entry keeps 7 days)", () => {
+    const key = draftKey("u", "FIELD_ENTRY", "r");
+    const now = Date.now();
+    saveDraft(key, { a: 1 }, 1000);
+    jest.spyOn(Date, "now").mockReturnValue(now + 500);
+    expect(loadDraft(key)).toEqual({ a: 1 });
+    Date.now.mockReturnValue(now + 2000);
+    expect(loadDraft(key)).toBeNull();
+  });
+
   it("prunes only expired drafts", () => {
     const now = Date.now();
     localStorage.setItem(

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_FieldEntry_MissingConfirm</fullName>
+    <categories>CMN</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>확정 전 미입력 확인({0} = 칸 수, {1} = 목록)</shortDescription>
+    <value>미입력 {0}칸이 있습니다: {1}. 그래도 판정을 확정할까요?</value>
+</CustomLabel>

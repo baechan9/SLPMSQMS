@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_FieldEntry_LoadError</fullName>
+    <categories>CMN</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>로드 실패</shortDescription>
+    <value>입력 화면을 불러오지 못했습니다. 새로 고침하세요. 계속되면 관리자에게 알려 주세요.</value>
+</CustomLabel>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomTab xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>현장 입력 셸(UX-008) 전체 화면. 상태 매개변수 c__recordId로 대상 레코드를 연다(내비게이션에는 넣지 않음)</description>
+    <flexiPage>CMN_FieldEntry</flexiPage>
+    <label>현장 입력</label>
+    <motif>Custom19: Wrench</motif>
+</CustomTab>

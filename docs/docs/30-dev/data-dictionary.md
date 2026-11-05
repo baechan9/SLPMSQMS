@@ -10,11 +10,11 @@
 
 | 구분 | 객체 수 | 커스텀 필드 수 |
 | --- | --- | --- |
-| 커스텀 객체 | 38 | 325 |
+| 커스텀 객체 | 38 | 327 |
 | 표준 객체 확장 | 2 | 22 |
-| 커스텀 메타데이터 유형(설정) | 22 | 146 |
+| 커스텀 메타데이터 유형(설정) | 23 | 149 |
 | Platform Event | 3 | 16 |
-| 합계 | 65 | 509 |
+| 합계 | 66 | 514 |
 
 ## 커스텀 객체
 
@@ -53,7 +53,7 @@
 | [CMN_RoleAssignment__c](#cmn_roleassignment__c) | 결재 Role 배정 | Role Assignment | 7 | CMN-00-APV-002 |
 | [CMN_SupplierItem__c](#cmn_supplieritem__c) | 협력사 품번 | Supplier Item | 6 | CMN-00-MDM-005 |
 | [CMN_TestRecordLine__c](#cmn_testrecordline__c) | 테스트 라인 | Test Line | 10 | CMN-00-UX-006 |
-| [CMN_TestRecord__c](#cmn_testrecord__c) | 테스트 레코드 | Test Record | 7 | CMN-00-ARC-003 |
+| [CMN_TestRecord__c](#cmn_testrecord__c) | 테스트 레코드 | Test Record | 9 | CMN-00-ARC-003 |
 | [CMN_Todo__c](#cmn_todo__c) | To-Do | To-Do | 19 | CMN-00-TDO-001 |
 | [CMN_UserDashboard__c](#cmn_userdashboard__c) | 사용자 대시보드 | User Dashboard | 5 | CMN-00-DSH-001 |
 | [CMN_UserPlantAccess__c](#cmn_userplantaccess__c) | 공장 접근 | Plant Access | 4 | CMN-00-SEC-002 |
@@ -580,6 +580,8 @@
 | Code__c | 코드 | Code | Lookup | → CMN_Code__c |  | MDM-007 AC-2(참조 중 코드 삭제 차단). 업무 객체처럼 리프 코드 Lookup |
 | DaysToDue__c | 남은 일수 | Days to Due | Formula(Number) | 6,0 |  | D-day(UX-004 BR-4): 기한 - 오늘. 음수면 기한 경과 |
 | DueDate__c | 기한 | Due Date | Date |  |  | 업무 레코드 표준(UX-004) 샘플: 기한 |
+| EntryJson__c | 현장 입력 값 | Field Entry Values | LongTextArea | 131072 |  | 현장 입력 셸(UX-008) 샘플 Provider가 항목·시료 값을 JSON 묶음으로 저장(시료마다 레코드를 만들지 않는다) |
+| EntryResult__c | 현장 입력 판정 | Field Entry Result | Text | 20 |  | 현장 입력 최종 판정(PASS·FAIL·INCOMPLETE, UX-008 샘플) |
 | Plant__c | 공장 | Plant | Lookup | → CMN_Plant__c |  | 채번·공장 공유 검증(ARC-003, SEC-002) |
 | RecordNo__c | 번호 | Record No. | Text | 40 | 외부 키 유일 | 채번 서비스가 발행(ARC-003). 업무 객체의 RecordNo__c와 같은 규칙 |
 | Status__c | 상태 | Status | Text | 40 |  | 삭제 통제 검증(SEC-003, DRAFT만 삭제) |
@@ -705,6 +707,7 @@ To-Do / To-Do. 통합 To-Do(TDO-001). Owner = Assignee, OWD Private(본인만). 
 | [CMN_DashboardTemplate__mdt](#cmn_dashboardtemplate__mdt) | 대시보드 템플릿 |  | 6 | CMN-00-DSH-001 |
 | [CMN_DeleteGuard__mdt](#cmn_deleteguard__mdt) | 삭제 통제 |  | 3 | CMN-00-SEC-003 |
 | [CMN_FeatureSwitch__mdt](#cmn_featureswitch__mdt) | 기능 스위치 |  | 2 | CMN-00-ARC-002 |
+| [CMN_FieldEntryProvider__mdt](#cmn_fieldentryprovider__mdt) | 현장 입력 Provider |  | 3 | CMN-00-UX-008 |
 | [CMN_GridColumn__mdt](#cmn_gridcolumn__mdt) | 편집 그리드 열 |  | 12 | CMN-00-UX-006 |
 | [CMN_GridDefinition__mdt](#cmn_griddefinition__mdt) | 편집 그리드 정의 |  | 12 | CMN-00-UX-006 |
 | [CMN_Interface__mdt](#cmn_interface__mdt) | 인터페이스 |  | 9 | CMN-00-INT-001 |
@@ -826,6 +829,16 @@ To-Do / To-Do. 통합 To-Do(TDO-001). Owner = Assignee, OWD Private(본인만). 
 | --- | --- | --- | --- | --- | --- | --- |
 | IsOn__c | On |  | Checkbox |  |  |  |
 | RequiredPermissionSet__c | Required Permission Set |  | Text | 80 |  | 비우면 모든 사용자. 값이 있으면 그 Permission Set(이름) 보유자만 |
+
+### CMN_FieldEntryProvider__mdt
+
+현장 입력 Provider / . 현장 입력 셸(UX-008) Provider 등록. 1행 = 업무 객체 1개 → CMN_FieldEntryProvider 구현 클래스
+
+| API | 라벨(ko) | Label(en) | 타입 | 값/길이/참조 | 제약 | 설명 |
+| --- | --- | --- | --- | --- | --- | --- |
+| IsActive__c | Active |  | Checkbox |  |  | 사용 여부 |
+| ObjectApiName__c | Object API Name |  | Text | 80 |  | 업무 객체 |
+| ProviderClass__c | Provider Class |  | Text | 80 |  | CMN_FieldEntryProvider 구현 클래스(공개 기본 생성자) |
 
 ### CMN_GridColumn__mdt
 

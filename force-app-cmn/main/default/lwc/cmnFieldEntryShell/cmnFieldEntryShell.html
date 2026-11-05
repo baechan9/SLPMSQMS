@@ -1,0 +1,492 @@
+<template>
+  <div class="shell slds-is-relative">
+    <template lwc:if={isLoading}>
+      <lightning-spinner
+        alternative-text={labels.loading}
+        size="medium"
+      ></lightning-spinner>
+    </template>
+    <template lwc:if={noRecord}>
+      <p class="slds-text-color_weak slds-p-around_medium no-record">
+        {noRecordText}
+      </p>
+    </template>
+    <template lwc:if={loadError}>
+      <p
+        class="slds-text-color_error slds-p-around_medium load-error"
+        role="alert"
+      >
+        {loadError}
+      </p>
+    </template>
+
+    <template lwc:if={sheet}>
+      <!-- 상단: 헤더·진행률·모드 -->
+      <div class="slds-box slds-theme_default slds-m-bottom_small header">
+        <div
+          class="slds-grid slds-wrap slds-grid_vertical-align-start slds-gutters_x-small"
+        >
+          <div class="slds-col slds-size_1-of-1 slds-medium-size_2-of-3">
+            <h1
+              class="slds-text-heading_medium slds-truncate"
+              title={sheet.header.title}
+            >
+              {sheet.header.title}
+            </h1>
+            <p class="slds-text-body_small slds-text-color_weak">
+              {headerLine}
+            </p>
+            <template for:each={sheet.header.extras} for:item="x">
+              <p key={x.labelKey} class="slds-text-body_small">
+                {x.label}: {x.value}
+              </p>
+            </template>
+          </div>
+          <template lwc:if={showLotCheck}>
+            <div
+              class="slds-col slds-size_1-of-1 slds-medium-size_1-of-3 lot-check"
+            >
+              <c-cmn-barcode-scanner
+                label={labels.lot}
+                onscan={handleLotScan}
+              ></c-cmn-barcode-scanner>
+              <template lwc:if={lotStatus}>
+                <p class={lotStatus.className} role="status">
+                  {lotStatus.text}
+                </p>
+              </template>
+            </div>
+          </template>
+        </div>
+        <div
+          class="slds-grid slds-wrap slds-grid_vertical-align-center slds-gutters_x-small slds-m-top_small"
+        >
+          <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2">
+            <p class="slds-text-body_small progress-text">{progressText}</p>
+            <lightning-progress-bar
+              value={progressValue}
+              size="large"
+            ></lightning-progress-bar>
+          </div>
+          <div
+            class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-grid slds-wrap slds-grid_align-end slds-grid_vertical-align-center"
+          >
+            <lightning-radio-group
+              type="button"
+              label={labels.modeLabel}
+              variant="label-hidden"
+              options={modeOptions}
+              value={mode}
+              onchange={handleMode}
+              class="mode slds-m-right_small"
+            ></lightning-radio-group>
+            <lightning-input
+              type="toggle"
+              label={labels.missingOnly}
+              checked={missingOnly}
+              message-toggle-active=""
+              message-toggle-inactive=""
+              onchange={handleMissingOnly}
+              class="missing-only"
+            ></lightning-input>
+          </div>
+        </div>
+        <template lwc:if={readOnly}>
+          <p class="slds-m-top_small slds-text-color_weak read-only">
+            <lightning-icon
+              icon-name="utility:lock"
+              size="x-small"
+              alternative-text={labels.readOnly}
+              class="slds-m-right_xx-small"
+            ></lightning-icon>
+            {labels.readOnly}
+          </p>
+        </template>
+      </div>
+
+      <!-- 안내: 서버 차이·사진 미충족·일반 오류·저장 실패·확정 결과 -->
+      <template lwc:if={hasDiff}>
+        <div
+          class="slds-notify slds-notify_alert slds-alert_warning slds-m-bottom_small diff-banner"
+          role="alert"
+        >
+          <h2>{labels.serverDiff}</h2>
+        </div>
+      </template>
+      <template lwc:if={photoMissing.length}>
+        <div class="slds-box slds-m-bottom_small photo-missing" role="alert">
+          <h2 class="slds-text-heading_small slds-text-color_error">
+            {labels.photoMissingTitle}
+          </h2>
+          <ul class="slds-list_dotted">
+            <template for:each={photoMissing} for:item="m">
+              <li key={m.key}>{m.text}</li>
+            </template>
+          </ul>
+        </div>
+      </template>
+      <template for:each={generalErrors} for:item="msg">
+        <p
+          key={msg}
+          class="slds-text-color_error slds-m-bottom_x-small general-error"
+          role="alert"
+        >
+          {msg}
+        </p>
+      </template>
+      <template lwc:if={failMessage}>
+        <p
+          class="slds-text-color_error slds-m-bottom_x-small save-failed"
+          role="alert"
+        >
+          {failMessage}
+        </p>
+      </template>
+      <template lwc:if={finalText}>
+        <div class="slds-box slds-m-bottom_small final-result" role="status">
+          <p class="slds-text-heading_small">{finalText}</p>
+          <template lwc:if={nextAction}>
+            <p class="slds-m-top_x-small next-action">{nextAction}</p>
+          </template>
+        </div>
+      </template>
+
+      <!-- 본문 -->
+      <template lwc:if={isSequential}>
+        <template lwc:if={current}>
+          <article class="slds-card card">
+            <div
+              class="slds-card__body slds-card__body_inner slds-p-vertical_medium"
+            >
+              <p class="slds-text-title_caps slds-m-bottom_x-small sample-text">
+                {current.sampleText}
+              </p>
+              <h2 class="slds-text-heading_large item-label">
+                {current.item.label}
+                <template lwc:if={current.item.specialClass}>
+                  <span class="slds-badge slds-m-left_x-small special"
+                    >{current.item.specialClass}</span
+                  >
+                </template>
+              </h2>
+              <template lwc:if={current.specText}>
+                <p class="slds-text-heading_small slds-m-top_x-small spec">
+                  {current.specText}
+                </p>
+              </template>
+              <template lwc:if={current.methodText}>
+                <p class="slds-text-color_weak">{current.methodText}</p>
+              </template>
+              <template lwc:if={current.item.referenceDocId}>
+                <lightning-button
+                  variant="base"
+                  label={labels.reference}
+                  icon-name="utility:file"
+                  data-id={current.item.referenceDocId}
+                  onclick={handleReference}
+                ></lightning-button>
+              </template>
+
+              <div class="slds-m-top_medium">
+                <template lwc:if={current.isNumber}>
+                  <div class="slds-form-element">
+                    <label class="slds-form-element__label" for="seq-number"
+                      >{current.valueLabel}</label
+                    >
+                    <div class="slds-form-element__control">
+                      <input
+                        id="seq-number"
+                        class="slds-input big-input seq-number"
+                        type="text"
+                        inputmode="decimal"
+                        autocomplete="off"
+                        value={current.numText}
+                        data-key={current.key}
+                        disabled={readOnly}
+                        onchange={handleNumber}
+                        onkeydown={handleNumberKey}
+                      />
+                    </div>
+                  </div>
+                </template>
+                <template lwc:if={current.isOkNg}>
+                  <div class="slds-grid slds-gutters_small">
+                    <div class="slds-col">
+                      <button
+                        type="button"
+                        class={current.okClass}
+                        data-key={current.key}
+                        data-value="OK"
+                        aria-pressed={current.okPressed}
+                        disabled={readOnly}
+                        onclick={handleOkNg}
+                      >
+                        {labels.ok}
+                      </button>
+                    </div>
+                    <div class="slds-col">
+                      <button
+                        type="button"
+                        class={current.ngClass}
+                        data-key={current.key}
+                        data-value="NG"
+                        aria-pressed={current.ngPressed}
+                        disabled={readOnly}
+                        onclick={handleOkNg}
+                      >
+                        {labels.ng}
+                      </button>
+                    </div>
+                  </div>
+                </template>
+                <template lwc:if={current.isText}>
+                  <lightning-textarea
+                    label={labels.text}
+                    value={current.text}
+                    data-key={current.key}
+                    disabled={readOnly}
+                    onchange={handleText}
+                  ></lightning-textarea>
+                </template>
+              </div>
+
+              <template lwc:if={current.showGauge}>
+                <div class="slds-m-top_small gauge">
+                  <c-cmn-barcode-scanner
+                    label={labels.gauge}
+                    data-item={current.itemKey}
+                    onscan={handleGaugeScan}
+                  ></c-cmn-barcode-scanner>
+                  <template lwc:if={current.gaugeStatus}>
+                    <p class={current.gaugeStatus.className} role="status">
+                      {current.gaugeStatus.text}
+                    </p>
+                  </template>
+                </div>
+              </template>
+              <template lwc:if={current.showPhoto}>
+                <div class="slds-m-top_small photo">
+                  <c-cmn-photo-capture
+                    record-id={recordId}
+                    doc-class={sheet.photoDocClass}
+                    data-key={current.key}
+                    onuploaded={handlePhotos}
+                  ></c-cmn-photo-capture>
+                </div>
+              </template>
+              <template lwc:if={current.photoText}>
+                <p class="slds-text-body_small slds-m-top_x-small photo-count">
+                  {current.photoText}
+                </p>
+              </template>
+
+              <p
+                class="slds-grid slds-grid_vertical-align-center slds-m-top_medium preview"
+                role="status"
+              >
+                <lightning-icon
+                  icon-name={current.result.icon}
+                  variant={current.result.variant}
+                  size="small"
+                  alternative-text={current.result.text}
+                  class="slds-m-right_x-small"
+                ></lightning-icon>
+                <span class="slds-text-heading_small"
+                  >{current.result.text}</span
+                >
+              </p>
+              <template for:each={current.errors} for:item="msg">
+                <p
+                  key={msg}
+                  class="slds-text-color_error slot-error"
+                  role="alert"
+                >
+                  {msg}
+                </p>
+              </template>
+            </div>
+          </article>
+        </template>
+        <template lwc:else>
+          <p class="slds-box slds-text-color_weak all-done">{labels.allDone}</p>
+        </template>
+      </template>
+
+      <template lwc:else>
+        <p
+          class="slds-text-body_small slds-text-color_weak slds-m-bottom_x-small"
+        >
+          {labels.pasteHint}
+        </p>
+        <div class="slds-scrollable_x">
+          <table
+            class="slds-table slds-table_bordered slds-table_cell-buffer slds-table_col-bordered entry-table"
+          >
+            <thead>
+              <tr class="slds-line-height_reset">
+                <th scope="col">{labels.itemCol}</th>
+                <th scope="col">{labels.specCol}</th>
+                <template for:each={sampleHeaders} for:item="h">
+                  <th key={h.key} scope="col">{h.text}</th>
+                </template>
+                <th scope="col">{labels.resultCol}</th>
+              </tr>
+            </thead>
+            <tbody>
+              <template for:each={tableRows} for:item="row">
+                <tr key={row.key} class={row.rowClass}>
+                  <th scope="row">
+                    <span>{row.label}</span>
+                    <template lwc:if={row.specialClass}>
+                      <span class="slds-badge slds-m-left_xx-small"
+                        >{row.specialClass}</span
+                      >
+                    </template>
+                    <template for:each={row.errors} for:item="msg">
+                      <p
+                        key={msg}
+                        class="slds-text-color_error slds-text-body_small"
+                      >
+                        {msg}
+                      </p>
+                    </template>
+                  </th>
+                  <td>{row.specText}</td>
+                  <template for:each={row.cells} for:item="cell">
+                    <td
+                      key={cell.key}
+                      class={cell.cellClass}
+                      title={cell.title}
+                    >
+                      <template lwc:if={cell.isNumber}>
+                        <input
+                          class="slds-input cell-input"
+                          type="text"
+                          inputmode="decimal"
+                          autocomplete="off"
+                          aria-label={cell.aria}
+                          value={cell.text}
+                          data-key={cell.key}
+                          disabled={readOnly}
+                          onchange={handleNumber}
+                          onpaste={handlePaste}
+                        />
+                      </template>
+                      <template lwc:elseif={cell.isOkNg}>
+                        <select
+                          class="slds-select cell-select"
+                          aria-label={cell.aria}
+                          data-key={cell.key}
+                          disabled={readOnly}
+                          onchange={handleOkNgSelect}
+                        >
+                          <option value="">-</option>
+                          <option value="OK" selected={cell.isOk}>
+                            {labels.ok}
+                          </option>
+                          <option value="NG" selected={cell.isNg}>
+                            {labels.ng}
+                          </option>
+                        </select>
+                      </template>
+                      <template lwc:elseif={cell.isText}>
+                        <input
+                          class="slds-input cell-input"
+                          type="text"
+                          aria-label={cell.aria}
+                          value={cell.text}
+                          data-key={cell.key}
+                          disabled={readOnly}
+                          onchange={handleText}
+                          onpaste={handlePaste}
+                        />
+                      </template>
+                      <template lwc:if={cell.failText}>
+                        <span class="slds-assistive-text">{cell.failText}</span>
+                      </template>
+                      <template lwc:if={cell.title}>
+                        <p class="slds-text-color_error slds-text-body_small">
+                          {cell.title}
+                        </p>
+                      </template>
+                    </td>
+                  </template>
+                  <td>
+                    <span class="slds-grid slds-grid_vertical-align-center">
+                      <lightning-icon
+                        icon-name={row.result.icon}
+                        variant={row.result.variant}
+                        size="x-small"
+                        alternative-text={row.result.text}
+                        class="slds-m-right_xx-small"
+                      ></lightning-icon>
+                      {row.result.text}
+                    </span>
+                    <template lwc:if={row.result.server}>
+                      <span
+                        class="slds-text-color_error slds-text-body_small server-result"
+                        >{row.result.server}</span
+                      >
+                    </template>
+                  </td>
+                </tr>
+              </template>
+            </tbody>
+          </table>
+        </div>
+      </template>
+
+      <!-- 하단 고정 -->
+      <div
+        class="footer slds-grid slds-wrap slds-grid_vertical-align-center slds-grid_align-spread slds-p-around_small"
+      >
+        <div class="slds-col slds-grid slds-grid_vertical-align-center">
+          <template lwc:if={isSequential}>
+            <lightning-button
+              label={labels.prev}
+              icon-name="utility:chevronleft"
+              onclick={handlePrev}
+              disabled={current.prevDisabled}
+              class="btn-prev slds-m-right_x-small"
+            ></lightning-button>
+            <lightning-button
+              label={labels.next}
+              icon-name="utility:chevronright"
+              icon-position="right"
+              onclick={handleNext}
+              disabled={current.nextDisabled}
+              class="btn-next slds-m-right_small"
+            ></lightning-button>
+          </template>
+          <span class="slds-text-body_small status-text" role="status"
+            >{statusText}</span
+          >
+        </div>
+        <template lwc:if={sheet.editable}>
+          <div class="slds-col slds-grow-none">
+            <template lwc:if={showSaveNow}>
+              <lightning-button
+                label={labels.saveNow}
+                onclick={handleSaveNow}
+                class="btn-save-now slds-m-right_x-small"
+              ></lightning-button>
+            </template>
+            <lightning-button
+              variant="brand"
+              label={labels.finalize}
+              onclick={handleFinalize}
+              disabled={finalizeDisabled}
+              class="btn-finalize"
+            ></lightning-button>
+          </div>
+        </template>
+      </div>
+      <template lwc:if={isSaving}>
+        <lightning-spinner
+          alternative-text={labels.loading}
+          size="small"
+        ></lightning-spinner>
+      </template>
+    </template>
+  </div>
+</template>

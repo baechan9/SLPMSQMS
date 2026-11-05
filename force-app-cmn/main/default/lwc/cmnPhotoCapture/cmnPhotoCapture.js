@@ -45,8 +45,14 @@ export default class CmnPhotoCapture extends LightningElement {
         photos
       });
       this.toast(UPLOADED.replace("{0}", results.length), "success");
+      // documentIds: 현장 입력·체크리스트가 값에 사진을 묶는다(UX-008·009)
       this.dispatchEvent(
-        new CustomEvent("uploaded", { detail: { count: results.length } })
+        new CustomEvent("uploaded", {
+          detail: {
+            count: results.length,
+            documentIds: results.map((r) => r.documentId)
+          }
+        })
       );
     } catch (e) {
       this.toast(e?.body?.message || ERROR, "error");

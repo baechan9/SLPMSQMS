@@ -1,0 +1,47 @@
+{
+  "wi": "CMN-00-UX-008",
+  "object": "CMN_FieldEntryProvider__mdt",
+  "kind": "mdt",
+  "package": "force-app-cmn",
+  "description": "현장 입력 셸(UX-008) Provider 등록. 1행 = 업무 객체 1개 → CMN_FieldEntryProvider 구현 클래스",
+  "label": {
+    "ko": "현장 입력 Provider"
+  },
+  "plural": {
+    "ko": "현장 입력 Provider"
+  },
+  "fields": [
+    {
+      "name": "ObjectApiName__c",
+      "type": "Text",
+      "label": "Object API Name",
+      "description": "업무 객체",
+      "length": 80
+    },
+    {
+      "name": "ProviderClass__c",
+      "type": "Text",
+      "label": "Provider Class",
+      "description": "CMN_FieldEntryProvider 구현 클래스(공개 기본 생성자)",
+      "length": 80
+    },
+    {
+      "name": "IsActive__c",
+      "type": "Checkbox",
+      "label": "Active",
+      "description": "사용 여부",
+      "default": true
+    }
+  ],
+  "records": [
+    {
+      "name": "CMN_TestRecord",
+      "label": "CMN_TestRecord__c",
+      "values": {
+        "ObjectApiName__c": "CMN_TestRecord__c",
+        "ProviderClass__c": "CMN_TestFieldEntryProvider",
+        "IsActive__c": true
+      }
+    }
+  ]
+}

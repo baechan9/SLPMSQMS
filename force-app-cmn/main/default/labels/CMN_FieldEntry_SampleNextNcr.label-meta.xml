@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_FieldEntry_SampleNextNcr</fullName>
+    <categories>CMN</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>샘플 후속 안내(불합격)</shortDescription>
+    <value>불합격 항목이 있습니다. 부적합(NCR) 등록을 검토하세요.</value>
+</CustomLabel>
