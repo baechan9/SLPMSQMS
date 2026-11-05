@@ -447,6 +447,16 @@ def build_permset(ps, spec_index):
         'admin': dict(allowCreate=True, allowDelete=True, allowEdit=True, allowRead=True, modifyAllRecords=True, viewAllRecords=True),
     }
     wanted = dict(ps.get('objects', {}))
+    review = ps.get('viewAllObjects')
+    if review:
+        # 화면 우선 개발 검토용 열람(A0 프로토 공용 장치, 결정 SF-3): 접두어가 맞는 사용자 정의 객체 모두 읽기 + 모두 보기.
+        # 주종 하위 객체는 부모 공유를 따르므로 읽기만. 새 메뉴 객체는 정의만 더하면 자동으로 들어온다
+        prefixes = tuple(review.get('prefixes', ['CMN_', 'QMS_']))
+        excluded = set(review.get('exclude', []))
+        for obj, spec in spec_index.items():
+            if spec.get('kind', 'object') != 'object' or spec.get('standard') or obj in excluded or not obj.startswith(prefixes):
+                continue
+            wanted.setdefault(obj, 'read' if spec.get('sharingModel') == 'ControlledByParent' else 'viewall')
     every = ps.get('allObjectFields', False)
     if every:
         # 이관·데모 적재용: 정의된 모든 객체의 모든 필드를 편집(서비스 전용 필드 포함). 표준 객체는 필드만

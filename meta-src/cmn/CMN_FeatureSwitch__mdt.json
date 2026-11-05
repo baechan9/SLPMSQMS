@@ -4,16 +4,35 @@
   "kind": "mdt",
   "package": "force-app-cmn",
   "description": "기능 스위치(ARC-002 BR-6). DeveloperName이 키. 미등록 키는 꺼짐.",
-  "label": { "ko": "기능 스위치" },
-  "plural": { "ko": "기능 스위치" },
+  "label": {
+    "ko": "기능 스위치"
+  },
+  "plural": {
+    "ko": "기능 스위치"
+  },
   "fields": [
-    { "name": "IsOn__c", "type": "Checkbox", "default": false, "label": "On" },
+    {
+      "name": "IsOn__c",
+      "type": "Checkbox",
+      "default": false,
+      "label": "On"
+    },
     {
       "name": "RequiredPermissionSet__c",
       "type": "Text",
       "length": 80,
       "label": "Required Permission Set",
       "description": "비우면 모든 사용자. 값이 있으면 그 Permission Set(이름) 보유자만"
+    }
+  ],
+  "records": [
+    {
+      "name": "CMN_PROTOTYPE_MODE",
+      "label": "CMN_PROTOTYPE_MODE",
+      "values": {
+        "IsOn__c": true,
+        "RequiredPermissionSet__c": "QMS_PS_Prototype_Review"
+      }
     }
   ]
 }

@@ -50,6 +50,8 @@ jobs:
         run: python3 scripts/ci/check-record-pages.py
       - name: 상태·권한 화면 제어 규칙과 FlexiPage 일치(UX-005 BR-3)
         run: python3 scripts/dev/ui-rule-sync.py --check
+      - name: 화면 우선 개발 자리 구현 참조 수(A0 프로토 공용 장치, 보고만)
+        run: python3 scripts/ci/check-prototype-stubs.py
       - run: npm run prettier:verify
       - run: npm run lint
       - run: npm run test:unit -- --coverage

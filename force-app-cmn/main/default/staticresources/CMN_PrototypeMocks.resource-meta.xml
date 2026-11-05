@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StaticResource xmlns="http://soap.sforce.com/2006/04/metadata">
+    <cacheControl>Private</cacheControl>
+    <contentType>application/json</contentType>
+    <description>화면 우선 개발 A단계 Snowflake 목 응답(CMN_Prototype.mockResponse). 원본 data/demo/mocks/dwh — scripts/dev/build-prototype-mocks.py로 묶음. 데모 가상 데이터만 포함. 전 메뉴 B단계 후 삭제(사용자 승인).</description>
+</StaticResource>

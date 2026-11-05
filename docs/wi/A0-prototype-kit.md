@@ -5,10 +5,10 @@ WI가 아닌 개발 도구·화면 골격이다. 항목별로 끝나는 대로 �
 | 항목 | 상태 | 비고 |
 | --- | --- | --- |
 | SL QMS 앱 내비게이션 골격(메뉴 순서, QMS-02~09 메뉴 자리) | 완료 2026-11-02 → CMN-00-UX-007로 흡수(2026-11-05) | 아래 1절. 화면 전략으로 앱 5개·전체 메뉴 모드·미결 배지·번호 바로가기를 UX-007이 확장 |
-| `CMN_Prototype`(`notYetAvailable`·`mockResponse`), 기능 스위치 `CMN_PROTOTYPE_MODE`, 정적 리소스 `CMN_PrototypeMocks`, 라벨 | 대기 | A1 착수 전 |
-| 검토용 PS `QMS_PS_Prototype_Review` | 대기 | A1 착수 전 |
-| `scripts/ci/check-prototype-stubs.py` | 대기 | |
-| 데모 로더 `--upto-bundle`, 화면 인벤토리 템플릿 | 대기 | |
+| `CMN_Prototype`(`notYetAvailable`·`mockResponse`), 기능 스위치 `CMN_PROTOTYPE_MODE`, 정적 리소스 `CMN_PrototypeMocks`, 라벨 | 완료 2026-11-06 | 아래 2절 |
+| 검토용 PS `QMS_PS_Prototype_Review` | 완료 2026-11-06 | 아래 3절 |
+| `scripts/ci/check-prototype-stubs.py` | 완료 2026-11-06 | 아래 4절 |
+| 데모 로더 `--upto-bundle`, 화면 인벤토리 템플릿 | 완료 2026-11-06 | 아래 5절 |
 
 ## 1. 앱 내비게이션 골격(2026-11-02)
 
@@ -55,3 +55,44 @@ SL PMS 앱: 홈 `CMN_PMS_Home`, 결재 현황, 공통 업무, 기준정보, 내 
 - Apex `CMN_AppMenuController_Test` 4건(타일 상태·순서·객체 라벨, 권한 없는 객체 숨김, 메뉴 키 검증, 배포된 메뉴 설정 무결성) 통과. 커버리지 CMN_AppMenuController 89%, CMN_AppMenuSelector 100%.
 - Jest `cmnAppMenuHub` 3건(타일·준비 중 묶음·열기 버튼, 객체/페이지 이동, 빈·오류). 전체 Jest 81건 통과.
 - 개발 Org(관리자): 10개 메뉴 모두 열림. QMS-02~06 타일은 전부 준비 중, QMS-07 "내 대시보드"·QMS-09 "연계 로그" 사용 가능, 공통 업무 11개 중 9개, 기준정보 16개 모두 사용 가능.
+
+## 2. 자리 구현과 목 응답(2026-11-06)
+
+- `CMN_Prototype`:
+  - `notYetAvailable()`: A단계 업무 동작 서비스 메서드(명세 시그니처 그대로)의 본문이다. 라벨 `CMN_Prototype_NotYetAvailable` 문구로 `CMN_ValidationException`을 던진다. 화면 컨트롤러가 검증 예외를 라벨 문구 그대로 보내므로 화면에는 "상세 기능 개발 단계에서 동작합니다"가 보인다.
+  - `mockResponse(queryKey, params)`: 정적 리소스 `CMN_PrototypeMocks`에서 Snowflake 조회 예시 응답을 돌려준다. 형식은 spec-snowflake-display.md 그대로이고, `params.case`로 ok·empty·stale·truncated·error-timeout을 고른다. 응답에 `isMock = true`를 더한다.
+  - `isActive()`: 세 조건을 모두 만족할 때만 true다. (1) 기능 스위치 `CMN_PROTOTYPE_MODE`(IsOn, 필요 PS = 검토용 PS) (2) 사용자에게 `QMS_PS_Prototype_Review` (3) Scratch Org(Organization.IsSandbox이면서 TrialExpirationDate가 있음). 그래서 운영·SIT에서는 목이 응답하지 않는다(결정 SF-2, DEV-1 해소안).
+- **목 묶음:** `scripts/dev/build-prototype-mocks.py`가 `data/demo/mocks/dwh/{QueryKey}/{case}.json`(30개 조회 키, 응답 41개, 221KB)을 하나로 묶는다. `scripts/dev/sync-fixtures.sh --check`(CI·wi-check)가 최신인지 확인한다.
+- **화면 표시:** `cmnPrototypeBadge`(라벨 `CMN_Prototype_MockBadge` "예시 데이터")를 목 응답을 그리는 화면 구석에 둔다(`show={isMock}`).
+- **검증:**
+  - Apex `CMN_Prototype_Test` 3건(안내 문구, 세 조건 조합, 배포된 리소스와 실제 Org 판정). 커버리지 95%.
+  - Jest 1건.
+  - 개발 Org 관리자로 `QMS_B2B_PARETO` 응답(3행, isMock)을 확인했다.
+
+## 3. 검토용 열람 PS(2026-11-06)
+
+- `QMS_PS_Prototype_Review`(force-app-qms)는 정의 파일의 `viewAllObjects`(metagen 새 옵션)로 만든다.
+  - `CMN_`·`QMS_` 사용자 정의 객체는 모두 읽기 + 모두 보기다. 주종 하위 객체는 읽기만이다.
+  - 의존하는 표준 객체 Account는 읽기다.
+  - 제외: 테스트 객체 2개, 로그, 채번 카운터.
+  - 새 메뉴 객체는 정의만 더하면 자동으로 들어온다. 현재 33개 객체다.
+- PSG에 넣지 않는다. `scripts/org/build-scratch.sh`가 관리자에게 항상 할당하고, `--review`면 검토 페르소나(E1101·E1102·E1104·E1112)에게도 할당한다.
+- B단계에서 메뉴별 공유가 들어오면 그 메뉴 객체를 `exclude`에 더한다. 전 메뉴 B단계 후 삭제한다(사용자 승인).
+- 개발 Org(`qms-dev-a`) 관리자에게 할당했다.
+
+## 4. 자리 구현 참조 수(2026-11-06)
+
+- `scripts/ci/check-prototype-stubs.py`는 `CMN_Prototype.notYetAvailable·mockResponse·isActive`와 라벨 `CMN_Prototype_NotYetAvailable` 참조를 메뉴·WI·파일별로 센다.
+  - WI는 파일 머리의 WI ID(@group 등)로 정한다.
+  - `--menu QMS-03`처럼 메뉴를 주면, 참조가 남아 있을 때 종료 코드 1이다(그 메뉴 B단계 완료 조건).
+- CI와 wi-check에서는 보고만 한다. 지금은 0건이다. 샘플 클래스로 메뉴·WI 판정과 `--menu` 실패를 확인했다.
+
+## 5. 데모 로더 묶음 범위·화면 인벤토리 템플릿(2026-11-06)
+
+- **로더:** `scripts/demo/load_salesforce.sh <org> --upto-bundle A{n}`은 screen-map.csv의 화면 묶음으로 객체 소유 WI를 걸러 A{n}까지 적재한다.
+  - `--upto-phase`와 함께 주면 둘 다 만족해야 적재한다.
+  - 건너뛴 파일은 "A{n} 묶음 소유"로 요약한다.
+  - dry-run(A0)으로 A1~A6 소유 파일 70개가 빠지는 것을 확인했다.
+- **Scratch 생성:** `scripts/org/build-scratch.sh <별칭> --bundle A{n} --review`가 묶음 검토 Org를 준비한다(데모 적재 + 검토 PS).
+- **화면 인벤토리 템플릿:** `docs/docs/30-dev/screens/_template.md`. 화면 목록(화면 ID·유형 T1~T8·공통 부품·진입 경로·페르소나·모바일), 업무 동작 자리 구현, 목 응답, 데모 데이터, 프로토 한계, 확인 기록으로 이루어진다.
+

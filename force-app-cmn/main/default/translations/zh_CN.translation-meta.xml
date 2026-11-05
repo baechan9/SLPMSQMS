@@ -2063,6 +2063,14 @@
         <name>CMN_Photo_Uploaded</name>
     </customLabels>
     <customLabels>
+        <label>示例数据</label>
+        <name>CMN_Prototype_MockBadge</name>
+    </customLabels>
+    <customLabels>
+        <label>此功能将在详细功能开发阶段生效。目前仅可查看画面。</label>
+        <name>CMN_Prototype_NotYetAvailable</name>
+    </customLabels>
+    <customLabels>
         <label>此记录没有未完成的待办</label>
         <name>CMN_RailTodo_Empty</name>
     </customLabels>

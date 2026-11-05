@@ -1,0 +1,21 @@
+{
+  "permissionSet": {
+    "wi": "A0-PROTOTYPE",
+    "name": "QMS_PS_Prototype_Review",
+    "package": "force-app-qms",
+    "label": "QMS Prototype Review (A stage)",
+    "description": "화면 우선 개발 A단계 검토용 열람(결정 SF-3). CMN·QMS 업무 객체 모두 읽기 + 모두 보기(View All), 의존하는 표준 객체(Account)는 읽기. PSG에 넣지 않고 개발·검토 Scratch Org의 검토 페르소나에게만 할당한다. 이 PS를 가진 사용자에게만 프로토 목 응답(CMN_PROTOTYPE_MODE)이 켜진다. B단계에서 메뉴별 공유가 들어오면 그 메뉴 객체를 exclude에 더하고, 전 메뉴 B단계 후 삭제(사용자 승인)",
+    "viewAllObjects": {
+      "prefixes": ["CMN_", "QMS_"],
+      "exclude": [
+        "CMN_TestRecord__c",
+        "CMN_TestRecordLine__c",
+        "CMN_Log__c",
+        "CMN_NumberCounter__c"
+      ]
+    },
+    "objects": {
+      "Account": "read"
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "wi": "A0-PROTOTYPE",
+  "package": "force-app-cmn",
+  "labels": [
+    {
+      "name": "CMN_Prototype_NotYetAvailable",
+      "category": "CMN",
+      "description": "화면 우선 개발 A단계 자리 구현 안내(업무 동작 버튼)",
+      "value": {
+        "ko": "이 기능은 상세 기능 개발 단계에서 동작합니다. 지금은 화면만 확인할 수 있습니다.",
+        "en_US": "This action will work in the detailed development stage. For now, you can only review the screen.",
+        "zh_CN": "此功能将在详细功能开发阶段生效。目前仅可查看画面。"
+      }
+    },
+    {
+      "name": "CMN_Prototype_MockBadge",
+      "category": "CMN",
+      "description": "A단계 예시 데이터 표시(목 응답 화면 구석)",
+      "value": {
+        "ko": "예시 데이터",
+        "en_US": "Sample data",
+        "zh_CN": "示例数据"
+      }
+    }
+  ]
+}

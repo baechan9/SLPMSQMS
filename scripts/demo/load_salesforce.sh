@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 # SL QMS 데모 데이터를 Salesforce Scratch Org·Sandbox에 적재한다(gen_salesforce.py + gen_snowflake.py 90번대 CSV).
-# 사용: scripts/demo/load_salesforce.sh <orgAlias> [--upto-phase N] [--max-users 8] [--from 40] [--only 48] [--strict] [--dry-run]
+# 사용: scripts/demo/load_salesforce.sh <orgAlias> [--upto-phase N] [--upto-bundle A{n}] [--max-users 8] [--from 40] [--only 48] [--strict] [--dry-run]
 #       --upto-phase N: 개발 플랜 페이즈 N까지 소유 객체만 적재(docs/docs/30-dev/phase-map.csv). 다음 페이즈에서 다시 실행하면 빠진 연결을 채운다.
+#       --upto-bundle A{n}: 화면 우선 플랜 묶음 A{n}까지 소유 객체만 적재(docs/docs/30-dev/screen-map.csv, A단계 묶음 검토용).
 # 전제: sf CLI(`sfdx` 금지), 대상 Org에 QMS·CMN 메타데이터(객체·필드·RecordType·PSG) 배포 완료,
 #       python3 data/demo/generator/generate_all.py 실행 완료.
 # 대상 검사: Scratch Org(sf org list의 scratchOrgs) 또는 Sandbox(Organization.IsSandbox)가 아니면 중단한다.

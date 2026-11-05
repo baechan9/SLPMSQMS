@@ -1,0 +1,13 @@
+<template>
+  <template lwc:if={show}>
+    <span class="slds-badge slds-badge_lightest" title={label}>
+      <lightning-icon
+        icon-name="utility:info"
+        size="xx-small"
+        alternative-text={label}
+        class="slds-m-right_xx-small"
+      ></lightning-icon>
+      {label}
+    </span>
+  </template>
+</template>

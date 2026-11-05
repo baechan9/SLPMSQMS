@@ -2063,6 +2063,14 @@ Open: {Url}</label>
         <name>CMN_Photo_Uploaded</name>
     </customLabels>
     <customLabels>
+        <label>Sample data</label>
+        <name>CMN_Prototype_MockBadge</name>
+    </customLabels>
+    <customLabels>
+        <label>This action will work in the detailed development stage. For now, you can only review the screen.</label>
+        <name>CMN_Prototype_NotYetAvailable</name>
+    </customLabels>
+    <customLabels>
         <label>No open to-dos for this record</label>
         <name>CMN_RailTodo_Empty</name>
     </customLabels>

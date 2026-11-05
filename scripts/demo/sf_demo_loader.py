@@ -1,12 +1,14 @@
 #!/usr/bin/env python3
 """SL QMS 데모 데이터를 Scratch Org·Sandbox에 적재한다(표준 라이브러리 + sf CLI).
 
-사용: scripts/demo/load_salesforce.sh <orgAlias> [--upto-phase N] [--max-users 8] [--from 40] [--only 48] [--dry-run]
+사용: scripts/demo/load_salesforce.sh <orgAlias> [--upto-phase N] [--upto-bundle A{n}] [--max-users 8] [--from 40] [--only 48] [--dry-run]
 
 순서
 1. 대상 검사: `sf org list`의 scratchOrgs에 있거나 Organization.IsSandbox = true여야 한다. 아니면 중단(운영 Org 보호).
 2. 적재 범위: Org에 배포된 객체만 적재한다. --upto-phase N이면 개발 플랜 배정표(docs/docs/30-dev/phase-map.csv)와
-   object-owner.json으로 페이즈 N까지 소유 객체만 적재한다. 객체에 아직 없는 열은 빼고 적재한 뒤 요약에 남긴다.
+   object-owner.json으로 페이즈 N까지 소유 객체만 적재한다. --upto-bundle A{n}이면 화면 우선 플랜의 화면 묶음
+   (docs/docs/30-dev/screen-map.csv)으로 A{n}까지 소유 객체만 적재한다(A단계 묶음 검토용, 둘 다 주면 둘 다 만족).
+   객체에 아직 없는 열은 빼고 적재한 뒤 요약에 남긴다.
 3. 사용자: data/demo/salesforce/users/*.json을 _demo.priority 순으로 --max-users명 만든다(`sf org create user`).
    남은 라이선스에 맞춰 Salesforce(표준 사용자) → Salesforce Platform(표준 플랫폼 사용자) 순으로 배정하고,
    Org 언어에 따라 바뀐 표준 프로필 이름을 찾아 쓴다. 실행 사용자에게 EmployeeNo__c = E1901(관리자 페르소나)을 넣고, PSG를 할당한다.
@@ -30,6 +32,8 @@ import tempfile
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
 SF_DIR = os.path.join(ROOT, 'data', 'demo', 'salesforce')
 PHASE_MAP = os.path.join(ROOT, 'docs', 'docs', '30-dev', 'phase-map.csv')
+SCREEN_MAP = os.path.join(ROOT, 'docs', 'docs', '30-dev', 'screen-map.csv')
+BUNDLE_RE = re.compile(r'^A(\d)$')
 OWNER_MAP = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'object-owner.json')
 PHASE_USERS = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'phase-users.json')
 REF_RE = re.compile(r'\{\{ref:([A-Za-z0-9_]+)\.([A-Za-z0-9_]+)=([^}]*)\}\}')
@@ -80,6 +84,7 @@ class Loader:
         self.tmp = tempfile.mkdtemp(prefix='slqms-demo-')
         self.deployed = None  # 적재 가능한 객체(None = 제한 없음)
         self.obj_phase = {}   # 객체 → 소유 WI의 페이즈
+        self.obj_bundle = {}  # 객체 → 소유 WI의 화면 묶음 번호(A{n}의 n)
         self.fields = {}      # 객체 → (필드 이름, 관계 이름)
         self.dropped = collections.defaultdict(set)    # 파일 → 객체에 없어 뺀 열
         self.skipped_files = []                        # (파일, 사유)
@@ -92,18 +97,37 @@ class Loader:
         with open(PHASE_MAP, encoding='utf-8-sig') as f:
             wi_phase = {r['WI_ID']: int(r['페이즈']) for r in csv.DictReader(f)}
         self.obj_phase = {o: wi_phase[w] for o, w in owners.items() if w in wi_phase}
+        if self.bundle_limit is not None:
+            with open(SCREEN_MAP, encoding='utf-8-sig') as f:
+                wi_bundle = {r['WI_ID']: int(m.group(1)) for r in csv.DictReader(f)
+                             if (m := BUNDLE_RE.match((r.get('화면묶음') or '').strip()))}
+            self.obj_bundle = {o: wi_bundle[w] for o, w in owners.items() if w in wi_bundle}
+            print(f'적재 범위: 화면 묶음 A{self.bundle_limit}까지 소유 객체')
         if self.dry:
-            if self.a.upto_phase is not None:
-                self.deployed = {o for o, p in self.obj_phase.items() if p <= self.a.upto_phase}
+            if self.a.upto_phase is not None or self.bundle_limit is not None:
+                self.deployed = {o for o in set(self.obj_phase) | set(self.obj_bundle) if self.in_scope(o)}
             return
         self.deployed = set(sf(['sobject', 'list', '--sobject', 'all'], self.org)['result'])
         if self.a.upto_phase is not None:
             print(f'적재 범위: 페이즈 {self.a.upto_phase}까지 소유 객체 중 Org에 배포된 것')
 
+    @property
+    def bundle_limit(self):
+        b = getattr(self.a, 'upto_bundle', None)
+        m = BUNDLE_RE.match(b.strip().upper()) if b else None
+        if b and not m:
+            sys.exit(f'--upto-bundle 형식 오류: {b} (예: A1)')
+        return int(m.group(1)) if m else None
+
+    def in_scope(self, obj):
+        phase_ok = self.a.upto_phase is None or self.obj_phase.get(obj, 99) <= self.a.upto_phase
+        bundle_ok = self.bundle_limit is None or self.obj_bundle.get(obj, 99) <= self.bundle_limit
+        return phase_ok and bundle_ok
+
     def available(self, obj):
         if self.deployed is not None and obj not in self.deployed:
             return False
-        return self.a.upto_phase is None or self.obj_phase.get(obj, 99) <= self.a.upto_phase
+        return self.in_scope(obj)
 
     def object_fields(self, obj):
         if obj not in self.fields:
@@ -397,8 +421,15 @@ class Loader:
                 continue
             if not self.available(p['object']):
                 phase = self.obj_phase.get(p['object'])
-                reason = '소유 WI 미등록(object-owner.json)' if phase is None else (
-                    f'P{phase} 소유' if self.a.upto_phase is not None and phase > self.a.upto_phase else 'Org에 미배포')
+                bundle = self.obj_bundle.get(p['object'])
+                if phase is None:
+                    reason = '소유 WI 미등록(object-owner.json)'
+                elif self.a.upto_phase is not None and phase > self.a.upto_phase:
+                    reason = f'P{phase} 소유'
+                elif self.bundle_limit is not None and (bundle is None or bundle > self.bundle_limit):
+                    reason = f'A{bundle} 묶음 소유' if bundle is not None else '화면 묶음 미배정(screen-map.csv)'
+                else:
+                    reason = 'Org에 미배포'
                 self.skipped_files.append((p['file'], reason))
                 continue
             with open(os.path.join(SF_DIR, p['file']), encoding='utf-8') as f:
@@ -473,6 +504,8 @@ def main():
     ap.add_argument('org', help='sf 별칭 또는 사용자 이름')
     ap.add_argument('--upto-phase', type=int, default=None,
                     help='개발 플랜 페이즈 N까지 소유 객체만 적재(docs/docs/30-dev/phase-map.csv). 다음 페이즈에서 다시 실행하면 빠진 연결을 채운다')
+    ap.add_argument('--upto-bundle', default=None,
+                    help='화면 우선 플랜 묶음 A{n}까지 소유 객체만 적재(docs/docs/30-dev/screen-map.csv 화면묶음). A단계 묶음 검토용')
     ap.add_argument('--users', default=None,
                     help='만들 데모 사용자 사번(쉼표 구분, 이 순서로). 없으면 --upto-phase의 phase-users.json 목록, 그것도 없으면 우선순위 순')
     ap.add_argument('--max-users', type=int, default=8, help='만들 데모 사용자 수 상한(기본 8). 실제 수는 남은 라이선스로 제한된다')
