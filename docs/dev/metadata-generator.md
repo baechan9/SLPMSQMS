@@ -7,6 +7,7 @@ python3 scripts/dev/metagen.py           # meta-src 전체 → force-app-*/ 생�
 python3 scripts/dev/metagen.py --check   # 생성 결과가 저장소와 같은지(CI)
 scripts/dev/wi-check.sh <테스트 클래스>   # 생성·포맷·린트·분석·배포·테스트·커버리지 한 번에
 python3 scripts/dev/data-dictionary.py      # 배포 소스의 객체·필드 → docs/docs/30-dev/data-dictionary.md(데이터 사전)
+python3 scripts/dev/object-catalog.py       # 명세 전체 객체(배포·예정)·메뉴별 ER 다이어그램 → docs/docs/30-dev/object-catalog.md
 ```
 
 ## 규칙

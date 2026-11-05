@@ -1,0 +1,186 @@
+객체,이름
+CMN_ScreenGuide__c,화면 가이드
+CMN_KpiValue__c,KPI 값
+CMN_ResultInbound__e,결과 수신 이벤트
+CMN_InboundRoute__mdt,수신 경로
+CMN_InboundReceipt__c,수신 영수
+CMN_AiRecommendation__c,AI 추천 기록
+Contact,연락처(포털 사용자)
+QMS_TestItem__c,시험 항목
+QMS_TestStandard__c,시험 기준서
+QMS_TestStandardLine__c,시험 기준서 라인
+QMS_QualPlan__c,인정시험 계획
+QMS_QualPlanLine__c,인정시험 계획 라인
+QMS_QualSampleResult__c,시료별 시험 결과
+QMS_ReportFormat__mdt,성적서 양식
+QMS_SupplierTestSubmission__c,협력사 시험 성적 제출
+QMS_PortalRoute__mdt,포털 경로
+QMS_PortalNotice__c,포털 공지
+QMS_SupplierCertificate__c,협력사 인증서
+QMS_SamplingPlan__c,샘플링 계획
+QMS_SamplingPlanRow__c,샘플링 표 행
+QMS_IqcStandard__c,수입검사 기준서
+QMS_IqcStandardLine__c,수입검사 기준서 라인
+QMS_IqcLot__c,수입검사 로트
+QMS_IqcResult__c,수입검사 항목 결과
+QMS_IqcDecision__e,수입검사 판정 이벤트
+QMS_IqcLevelChange__c,검사 수준 전환 이력
+QMS_IqcLevelHold__c,검사 수준 보류
+QMS_IqcSwitchRule__mdt,검사 수준 전환 규칙
+QMS_SupplierCoa__c,협력사 출하 성적서(COA)
+QMS_PeriodicTestSchedule__c,부품 보증시험 일정
+QMS_PpapElement__c,PPAP 요소
+QMS_PpapLevelRule__c,PPAP 제출 레벨 규칙
+QMS_Ppap__c,PPAP
+QMS_PpapElementLine__c,PPAP 요소 라인
+QMS_PpapSubmission__c,협력사 PPAP 제출
+QMS_StabilizationPlan__c,초기안정화 계획
+QMS_StabilizationDefault__mdt,초기안정화 기본값
+QMS_StabilizationReport__c,초기안정화 실적 보고
+QMS_MesDefectMap__c,MES 불량 코드 매핑
+QMS_SpcPlan__c,SPC 계획
+QMS_SpcLimit__c,SPC 관리 한계
+QMS_SpcRule__mdt,SPC 판정 규칙
+QMS_OcapTemplate__c,OCAP 템플릿
+QMS_OcapStep__c,OCAP 단계
+QMS_SpcAlarm__c,SPC 알람
+QMS_FinalInspStandard__c,출하검사 기준서
+QMS_FinalInspStandardLine__c,출하검사 기준서 라인
+QMS_FinalInspLot__c,출하검사 로트
+QMS_FinalInspResult__c,출하검사 항목 결과
+QMS_FinalInspDecision__e,출하 판정 이벤트
+QMS_FinalInspHold__c,출하 보류
+QMS_HorizontalDeploy__c,수평전개
+QMS_HorizontalDeployTarget__c,수평전개 대상
+QMS_LessonLearned__c,레슨런
+QMS_LeleCheckpoint__c,레슨런 체크포인트
+QMS_LeleApplication__c,레슨런 적용 검토
+QMS_PpapElementOwnerRule__mdt,PPAP 요소 담당 규칙
+QMS_PpapEvidence__c,PPAP 증빙
+QMS_PpapCollector__mdt,PPAP 증빙 수집기
+QMS_PpapCustomerSubmission__c,고객 PPAP 제출
+QMS_CustomerDefectMap__c,고객 결함 코드 매핑
+QMS_CustomerPartMap__c,고객 품번 매핑
+QMS_CustomerQualityOwner__c,고객 품질 담당
+QMS_B2bFormat__mdt,고객 데이터 양식
+QMS_B2bUpload__c,고객 데이터 업로드
+QMS_B2bUploadRequested__e,고객 데이터 업로드 이벤트
+QMS_CustomerQualityTarget__c,고객 품질 목표
+QMS_B2bTrendRule__c,고객 품질 추세 규칙
+QMS_CustomerQualityAlert__c,고객 품질 경보
+QMS_CustomerScorecard__c,고객 평가(스코어카드)
+QMS_EightD__c,8D
+QMS_EightDStep__c,8D 단계(D1~D8)
+QMS_EightDTeamMember__c,8D 팀원
+QMS_EightDAction__c,8D 조치
+QMS_EightDSubmission__c,협력사 8D 제출
+QMS_EightDStageField__mdt,8D 단계별 필드
+QMS_EightDFormat__mdt,8D 보고서 양식
+QMS_Claim__c,고객 클레임
+QMS_ClaimCost__c,클레임 비용
+QMS_SupplierChargeback__c,협력사 구상
+QMS_ClaimResponse__c,클레임 고객 회신
+QMS_ChangeTypeRule__c,4M 변경 유형 기준
+QMS_FourMChecklistTemplate__c,4M 체크리스트 템플릿
+QMS_FourMChecklistItem__c,4M 체크리스트 항목
+QMS_FourMChange__c,4M 변경
+QMS_FourMItem__c,4M 영향 품번
+QMS_FourMVerification__c,4M 검증
+QMS_FourMEvent__e,4M 이벤트
+QMS_SupplierFourMRequest__c,협력사 4M 신청
+QMS_SupplierFourMRequestItem__c,협력사 4M 신청 품번
+QMS_FourMApprovalRule__mdt,4M 결재 규칙
+QMS_NCR__c,부적합(NCR)
+QMS_NcrEvent__e,부적합 이벤트
+QMS_NcrSourceConfig__mdt,부적합 원천 설정
+QMS_NcrContainment__c,부적합 봉쇄
+QMS_NcrDisposition__c,부적합 처분
+QMS_NcrSupplierResponse__c,부적합 협력사 회신
+QMS_NcrCost__c,부적합 비용
+QMS_NcrChargeback__c,부적합 구상
+QMS_LimitSample__c,한도견본
+QMS_LimitSampleView__c,한도견본 열람 기록
+QMS_LimitSampleCopy__c,한도견본 사본
+QMS_LimitSampleCheck__c,한도견본 점검
+QMS_TrainingCourse__c,교육 과정
+QMS_TrainingPlan__c,교육 계획
+QMS_TrainingSession__c,교육 차수
+QMS_TrainingAttendance__c,교육 이수
+QMS_QualificationType__c,자격 유형
+QMS_QualificationRequirement__c,자격 요건
+QMS_Qualification__c,개인 자격
+QMS_QualMinStaff__mdt,자격 최소 인원
+QMS_Gauge__c,측정기
+QMS_Calibration__c,교정
+QMS_GaugeStatusChange__c,측정기 상태 변경
+QMS_GaugeImpactAnalysis__c,교정 불합격 영향 분석
+QMS_GaugeSourceSetting__mdt,측정기 원천 설정
+QMS_GaugeStatusMap__mdt,측정기 상태 매핑
+QMS_MsaSchedule__c,MSA 일정
+QMS_MsaStudy__c,MSA 연구
+QMS_MsaAppraiser__c,MSA 평가자
+QMS_LabAnalysisItem__c,분석 항목
+QMS_LabRequest__c,분석 의뢰
+QMS_LabRequestItem__c,분석 의뢰 항목
+QMS_LabSchedule__c,정기 분석 일정
+QMS_AuditChecklist__c,심사 체크리스트
+QMS_AuditQuestion__c,심사 질문
+QMS_AuditGradeRule__c,심사 등급 규칙
+QMS_AuditScorer__mdt,심사 점수 계산기
+QMS_Audit__c,심사
+QMS_AuditTeamMember__c,심사팀
+QMS_AuditResultItem__c,심사 결과 항목
+QMS_AuditQualificationMap__mdt,심사원 자격 매핑
+QMS_AuditFinding__c,심사 지적
+QMS_AuditFindingAction__c,심사 지적 조치
+QMS_FindingDueRule__mdt,지적 기한 규칙
+QMS_AuditEvidenceQuery__mdt,심사 증빙 쿼리
+QMS_AuditEvidenceRule__c,심사 증빙 규칙
+QMS_AuditEvidenceSnapshot__c,심사 증빙 스냅숏
+QMS_AuditProgram__c,연간 심사 프로그램
+QMS_AuditProgramItem__c,심사 프로그램 항목
+QMS_AuditRiskFactor__mdt,심사 위험 요소
+QMS_AuditFrequencyRule__mdt,심사 주기 규칙
+QMS_SupplierAuditRule__mdt,협력사 심사 규칙
+QMS_AuditFindingResponse__c,협력사 지적 회신
+QMS_CustomerAuditPrepTask__c,고객 심사 준비 과제
+QMS_CustomerAuditPrepTemplate__mdt,고객 심사 준비 템플릿
+QMS_Certification__c,인증
+QMS_CertReadinessCheck__mdt,인증 준비도 점검
+QMS_MgmtReviewInput__mdt,경영검토 입력
+QMS_SupplierTargetSet__c,협력사 목표 세트
+QMS_SupplierTarget__c,협력사 목표
+QMS_ScorecardMetric__mdt,스코어카드 지표
+QMS_SupplierGradeBand__mdt,협력사 등급 구간
+QMS_SupplierKnockOut__mdt,협력사 즉시 탈락 조건
+QMS_SupplierScorecard__c,협력사 스코어카드
+QMS_SupplierImprovementPlan__c,협력사 개선 계획
+QMS_ImprovementProject__c,개선 과제
+QMS_ImprovementPhase__c,개선 과제 단계
+QMS_ImprovementMember__c,개선 과제 팀원
+QMS_ImprovementTemplate__mdt,개선 과제 템플릿
+QMS_ImprovementKpiValue__c,개선 과제 KPI 값
+QMS_KpiDefinition__mdt,KPI 정의
+QMS_WidgetQuery__mdt,위젯 등록 쿼리
+QMS_WidgetCount__mdt,위젯 건수 쿼리
+QMS_WidgetList__mdt,위젯 목록 쿼리
+QMS_SuggestedQuestion__mdt,추천 질문
+QMS_DashboardPersonaRule__mdt,대시보드 페르소나 규칙
+QMS_OverviewSection__mdt,종합 대시보드 구역
+QMS_WidgetTelemetry__e,위젯 사용 이벤트
+QMS_WidgetUsageDaily__c,위젯 일별 사용
+QMS_KpiFreshness__c,KPI 신선도
+QMS_AiPlantPolicy__mdt,AI 공장 정책
+QMS_AiUsageLimit__mdt,AI 사용 한도
+QMS_AiUsageCounter__c,AI 사용량
+QMS_AiJobEvent__e,AI 작업 이벤트
+QMS_AiSourceAdapter__mdt,AI 원천 어댑터
+QMS_AiFinalizeConfig__mdt,AI 확정 설정
+QMS_AiQueryDef__mdt,AI 질의 정의
+QMS_EarlyWarning__c,조기경보
+QMS_AiPromptConfig__mdt,AI 프롬프트 설정
+QMS_AiEvalRun__c,AI 정확도 평가
+QMS_ExternalCodeMap__mdt,외부 코드 매핑
+QMS_SyncMonitorConfig__mdt,동기화 모니터 설정
+QMS_SyncResendLog__c,재전송 기록
+QMS_SapPostingRule__mdt,SAP 전기 규칙
