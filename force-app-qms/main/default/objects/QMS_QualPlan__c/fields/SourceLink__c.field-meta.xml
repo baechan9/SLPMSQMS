@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SourceLink__c</fullName>
+    <formula>IF(ISBLANK(SourceRecordId__c), "", HYPERLINK("/" &amp; SourceRecordId__c, BLANKVALUE(SourceRecordNo__c, SourceObject__c), "_self"))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>원천</label>
+    <type>Text</type>
+</CustomField>

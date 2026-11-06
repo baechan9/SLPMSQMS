@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AtRiskLines__c</fullName>
+    <description>DVQ-006</description>
+    <label>위험 라인</label>
+    <summaryFilterItems>
+        <field>QMS_QualPlanLine__c.IsAtRisk__c</field>
+        <operation>equals</operation>
+        <value>True</value>
+    </summaryFilterItems>
+    <summaryForeignKey>QMS_QualPlanLine__c.Plan__c</summaryForeignKey>
+    <summaryOperation>count</summaryOperation>
+    <type>Summary</type>
+</CustomField>

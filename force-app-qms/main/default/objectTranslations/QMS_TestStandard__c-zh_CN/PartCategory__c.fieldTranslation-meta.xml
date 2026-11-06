@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label>零件分类</label>
+    <name>PartCategory__c</name>
+    <picklistValues>
+        <masterLabel>렌즈</masterLabel>
+        <translation>透镜</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>하우징</masterLabel>
+        <translation>灯壳</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>LED 모듈</masterLabel>
+        <translation>LED 模组</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>리플렉터</masterLabel>
+        <translation>反射镜</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>베젤</masterLabel>
+        <translation>装饰框</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>커넥터</masterLabel>
+        <translation>连接器</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>PCB</masterLabel>
+        <translation>PCB</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>액추에이터</masterLabel>
+        <translation>执行器</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>기타</masterLabel>
+        <translation>其他</translation>
+    </picklistValues>
+</CustomFieldTranslation>

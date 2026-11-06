@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Progress__c</fullName>
+    <formula>IF(ValidLines__c &gt; 0, DoneLines__c / ValidLines__c, 0)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>진척률</label>
+    <precision>5</precision>
+    <scale>0</scale>
+    <type>Percent</type>
+</CustomField>

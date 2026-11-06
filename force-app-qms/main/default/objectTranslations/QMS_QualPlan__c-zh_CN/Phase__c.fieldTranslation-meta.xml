@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label>阶段</label>
+    <name>Phase__c</name>
+    <picklistValues>
+        <masterLabel>DV 설계 검증</masterLabel>
+        <translation>DV 设计验证</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>PV 생산 검증</masterLabel>
+        <translation>PV 生产验证</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>변경 검증</masterLabel>
+        <translation>变更验证</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>재인정</masterLabel>
+        <translation>再认定</translation>
+    </picklistValues>
+</CustomFieldTranslation>

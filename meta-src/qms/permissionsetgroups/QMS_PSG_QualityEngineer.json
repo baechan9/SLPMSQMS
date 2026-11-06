@@ -30,7 +30,8 @@
       "CMN_PS_DocSearch_User",
       "CMN_PS_ScreenGuide_Read",
       "QMS_PS_Menu_Read",
-      "CMN_PS_UiFramework_User"
+      "CMN_PS_UiFramework_User",
+      "QMS_PS_Qual_Edit"
     ]
   }
 }

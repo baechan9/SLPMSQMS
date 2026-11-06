@@ -1,0 +1,120 @@
+{
+  "wi": "QMS-02-DVQ-002",
+  "object": "QMS_TestStandardLine__c",
+  "package": "force-app-qms",
+  "description": "시험 기준 라인(DVQ-002): 세트에 포함되는 시험과 필수 여부·고객별 상향 조건",
+  "label": {
+    "ko": "시험 기준 라인",
+    "en_US": "Test Standard Line",
+    "zh_CN": "试验标准明细"
+  },
+  "plural": {
+    "ko": "시험 기준 라인",
+    "en_US": "Test Standard Lines",
+    "zh_CN": "试验标准明细"
+  },
+  "nameField": {
+    "type": "AutoNumber",
+    "format": "TSL-{000000}",
+    "label": {
+      "ko": "라인 번호",
+      "en_US": "Line No",
+      "zh_CN": "明细号"
+    }
+  },
+  "sharingModel": "ControlledByParent",
+  "fields": [
+    {
+      "name": "ExternalKey__c",
+      "type": "Text",
+      "label": {
+        "ko": "외부 키",
+        "en_US": "External Key",
+        "zh_CN": "外部键"
+      },
+      "length": 80,
+      "externalId": true,
+      "unique": true,
+      "caseSensitive": true
+    },
+    {
+      "name": "Standard__c",
+      "type": "MasterDetail",
+      "label": {
+        "ko": "시험 기준",
+        "en_US": "Test Standard",
+        "zh_CN": "试验标准"
+      },
+      "referenceTo": "QMS_TestStandard__c",
+      "relationshipName": "Lines"
+    },
+    {
+      "name": "TestItem__c",
+      "type": "Lookup",
+      "label": {
+        "ko": "시험 항목",
+        "en_US": "Test Item",
+        "zh_CN": "试验项目"
+      },
+      "referenceTo": "QMS_TestItem__c",
+      "relationshipName": "StandardLines",
+      "required": true,
+      "deleteConstraint": "Restrict",
+      "lookupFilter": {
+        "items": [
+          {
+            "field": "QMS_TestItem__c.Status__c",
+            "operation": "equals",
+            "value": "ACTIVE"
+          }
+        ],
+        "isOptional": false
+      }
+    },
+    {
+      "name": "IsMandatory__c",
+      "type": "Checkbox",
+      "label": {
+        "ko": "필수",
+        "en_US": "Mandatory",
+        "zh_CN": "必做"
+      },
+      "default": true,
+      "description": "면제하려면 결재"
+    },
+    {
+      "name": "SampleQtyOverride__c",
+      "type": "Number",
+      "label": {
+        "ko": "시료 수(상향)",
+        "en_US": "Sample Qty Override",
+        "zh_CN": "样品数(上调)"
+      },
+      "precision": 4,
+      "scale": 0
+    },
+    {
+      "name": "CriteriaOverride__c",
+      "type": "LongTextArea",
+      "label": {
+        "ko": "판정 기준(상향)",
+        "en_US": "Criteria Override",
+        "zh_CN": "判定标准(上调)"
+      },
+      "length": 4000,
+      "visibleLines": 3
+    },
+    {
+      "name": "Sequence__c",
+      "type": "Number",
+      "label": {
+        "ko": "순서",
+        "en_US": "Sequence",
+        "zh_CN": "顺序"
+      },
+      "precision": 4,
+      "scale": 0,
+      "required": true
+    }
+  ]
+}

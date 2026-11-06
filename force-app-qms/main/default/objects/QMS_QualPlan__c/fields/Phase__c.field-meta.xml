@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Phase__c</fullName>
+    <label>단계</label>
+    <required>true</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>DV</fullName>
+                <default>false</default>
+                <label>DV 설계 검증</label>
+            </value>
+            <value>
+                <fullName>PV</fullName>
+                <default>false</default>
+                <label>PV 생산 검증</label>
+            </value>
+            <value>
+                <fullName>CHANGE</fullName>
+                <default>false</default>
+                <label>변경 검증</label>
+            </value>
+            <value>
+                <fullName>REQUAL</fullName>
+                <default>false</default>
+                <label>재인정</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

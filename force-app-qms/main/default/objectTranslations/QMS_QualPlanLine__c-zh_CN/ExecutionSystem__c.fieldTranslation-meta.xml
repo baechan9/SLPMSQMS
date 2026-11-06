@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label>执行系统</label>
+    <name>ExecutionSystem__c</name>
+    <picklistValues>
+        <masterLabel>QMS</masterLabel>
+        <translation>QMS</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>신뢰성 시스템</masterLabel>
+        <translation>可靠性系统</translation>
+    </picklistValues>
+</CustomFieldTranslation>

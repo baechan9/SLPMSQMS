@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label>结果</label>
+    <name>Result__c</name>
+    <picklistValues>
+        <masterLabel>합격</masterLabel>
+        <translation>合格</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>불합격</masterLabel>
+        <translation>不合格</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>조건부</masterLabel>
+        <translation>有条件</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>해당 없음</masterLabel>
+        <translation>不适用</translation>
+    </picklistValues>
+</CustomFieldTranslation>

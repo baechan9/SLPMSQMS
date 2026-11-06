@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>TestItem__c</fullName>
+    <deleteConstraint>Restrict</deleteConstraint>
+    <label>시험 항목</label>
+    <lookupFilter>
+        <active>true</active>
+        <filterItems>
+            <field>QMS_TestItem__c.Status__c</field>
+            <operation>equals</operation>
+            <value>ACTIVE</value>
+        </filterItems>
+        <isOptional>false</isOptional>
+    </lookupFilter>
+    <referenceTo>QMS_TestItem__c</referenceTo>
+    <relationshipLabel>시험 기준 라인</relationshipLabel>
+    <relationshipName>StandardLines</relationshipName>
+    <required>true</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label>执行方</label>
+    <name>Executor__c</name>
+    <picklistValues>
+        <masterLabel>사내 시험실</masterLabel>
+        <translation>内部实验室</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>협력사</masterLabel>
+        <translation>供应商</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>외부 기관</masterLabel>
+        <translation>外部机构</translation>
+    </picklistValues>
+</CustomFieldTranslation>

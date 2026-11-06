@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>QMS_AllTestItems</fullName>
+    <columns>NAME</columns>
+    <columns>TestCode__c</columns>
+    <columns>Category__c</columns>
+    <columns>JudgmentType__c</columns>
+    <columns>Status__c</columns>
+    <columns>Revision__c</columns>
+    <columns>LAST_UPDATE</columns>
+    <filterScope>Everything</filterScope>
+    <label>전체</label>
+</ListView>

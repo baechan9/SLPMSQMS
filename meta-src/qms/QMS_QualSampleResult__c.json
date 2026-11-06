@@ -1,0 +1,110 @@
+{
+  "wi": "QMS-02-DVQ-003",
+  "object": "QMS_QualSampleResult__c",
+  "package": "force-app-qms",
+  "description": "시료별 측정값·판정(DVQ-003). IsPass는 저장 시 서버가 계산한다(BR-4, B단계)",
+  "label": {
+    "ko": "시료 결과",
+    "en_US": "Sample Result",
+    "zh_CN": "样品结果"
+  },
+  "plural": {
+    "ko": "시료 결과",
+    "en_US": "Sample Results",
+    "zh_CN": "样品结果"
+  },
+  "nameField": {
+    "type": "AutoNumber",
+    "format": "QSR-{0000000}",
+    "label": {
+      "ko": "결과 번호",
+      "en_US": "Result No",
+      "zh_CN": "结果号"
+    }
+  },
+  "sharingModel": "ControlledByParent",
+  "fields": [
+    {
+      "name": "Line__c",
+      "type": "MasterDetail",
+      "label": {
+        "ko": "인정시험 라인",
+        "en_US": "Qualification Line",
+        "zh_CN": "认定试验明细"
+      },
+      "referenceTo": "QMS_QualPlanLine__c",
+      "relationshipName": "SampleResults"
+    },
+    {
+      "name": "SampleNo__c",
+      "type": "Text",
+      "label": {
+        "ko": "시료 번호",
+        "en_US": "Sample No",
+        "zh_CN": "样品编号"
+      },
+      "length": 20,
+      "required": true
+    },
+    {
+      "name": "Value__c",
+      "type": "Number",
+      "label": {
+        "ko": "측정값",
+        "en_US": "Value",
+        "zh_CN": "测量值"
+      },
+      "precision": 18,
+      "scale": 6
+    },
+    {
+      "name": "VisualResult__c",
+      "type": "Picklist",
+      "label": {
+        "ko": "외관·합불",
+        "en_US": "Visual Result",
+        "zh_CN": "外观/合格"
+      },
+      "values": [
+        {
+          "api": "OK",
+          "label": {
+            "ko": "합격",
+            "en_US": "OK",
+            "zh_CN": "合格"
+          }
+        },
+        {
+          "api": "NG",
+          "label": {
+            "ko": "불합격",
+            "en_US": "NG",
+            "zh_CN": "不合格"
+          }
+        }
+      ]
+    },
+    {
+      "name": "IsPass__c",
+      "type": "Checkbox",
+      "label": {
+        "ko": "합격",
+        "en_US": "Pass",
+        "zh_CN": "合格"
+      },
+      "default": false,
+      "serviceOnly": true
+    },
+    {
+      "name": "Remark__c",
+      "type": "LongTextArea",
+      "label": {
+        "ko": "비고",
+        "en_US": "Remark",
+        "zh_CN": "备注"
+      },
+      "length": 500,
+      "visibleLines": 3
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Line__c</fullName>
+    <deleteConstraint>Restrict</deleteConstraint>
+    <label>인정시험 라인</label>
+    <referenceTo>QMS_QualPlanLine__c</referenceTo>
+    <relationshipLabel>협력사 시험 제출</relationshipLabel>
+    <relationshipName>SupplierSubmissions</relationshipName>
+    <required>true</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

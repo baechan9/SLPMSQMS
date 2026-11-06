@@ -1,0 +1,523 @@
+{
+  "wi": "QMS-02-DVQ-001",
+  "object": "QMS_TestItem__c",
+  "package": "force-app-qms",
+  "description": "시험 항목 라이브러리(DVQ-001). 방법·조건·판정 기준 기본값. 규격·조건·기준이 바뀌면 개정 번호가 올라가고 이력을 남긴다(BR-1, 서비스는 B단계). 기준정보라 사내 공개 읽기",
+  "label": {
+    "ko": "시험 항목",
+    "en_US": "Test Item",
+    "zh_CN": "试验项目"
+  },
+  "plural": {
+    "ko": "시험 항목",
+    "en_US": "Test Items",
+    "zh_CN": "试验项目"
+  },
+  "nameField": {
+    "label": {
+      "ko": "시험명",
+      "en_US": "Test Name",
+      "zh_CN": "试验名称"
+    }
+  },
+  "sharingModel": "Read",
+  "externalSharingModel": "Private",
+  "enableHistory": true,
+  "tab": {
+    "motif": "Custom55: Books"
+  },
+  "fields": [
+    {
+      "name": "TestCode__c",
+      "type": "Text",
+      "label": {
+        "ko": "시험 코드",
+        "en_US": "Test Code",
+        "zh_CN": "试验代码"
+      },
+      "length": 30,
+      "required": true,
+      "externalId": true,
+      "unique": true,
+      "caseSensitive": false,
+      "description": "예: ENV-THS-001"
+    },
+    {
+      "name": "NameEn__c",
+      "type": "Text",
+      "label": {
+        "ko": "영문명",
+        "en_US": "English Name",
+        "zh_CN": "英文名称"
+      },
+      "length": 80
+    },
+    {
+      "name": "NameZh__c",
+      "type": "Text",
+      "label": {
+        "ko": "중문명",
+        "en_US": "Chinese Name",
+        "zh_CN": "中文名称"
+      },
+      "length": 80
+    },
+    {
+      "name": "DisplayName__c",
+      "type": "Formula",
+      "label": {
+        "ko": "표시명",
+        "en_US": "Display Name",
+        "zh_CN": "显示名称"
+      },
+      "returnType": "Text",
+      "treatBlanksAs": "BlankAsBlank",
+      "formula": "CASE(LEFT(TEXT($User.LanguageLocaleKey),2), \"ko\", Name, \"zh\", BLANKVALUE(NameZh__c, BLANKVALUE(NameEn__c, Name)), BLANKVALUE(NameEn__c, Name))",
+      "description": "I18N-001 BR-3"
+    },
+    {
+      "name": "Category__c",
+      "type": "Picklist",
+      "label": {
+        "ko": "시험 분류",
+        "en_US": "Category",
+        "zh_CN": "试验分类"
+      },
+      "values": [
+        {
+          "api": "ENVIRONMENTAL",
+          "label": {
+            "ko": "환경",
+            "en_US": "Environmental",
+            "zh_CN": "环境"
+          }
+        },
+        {
+          "api": "MECHANICAL",
+          "label": {
+            "ko": "기계·진동",
+            "en_US": "Mechanical/Vibration",
+            "zh_CN": "机械·振动"
+          }
+        },
+        {
+          "api": "OPTICAL",
+          "label": {
+            "ko": "광학·배광",
+            "en_US": "Optical",
+            "zh_CN": "光学·配光"
+          }
+        },
+        {
+          "api": "ELECTRICAL",
+          "label": {
+            "ko": "전기·EMC",
+            "en_US": "Electrical/EMC",
+            "zh_CN": "电气·EMC"
+          }
+        },
+        {
+          "api": "SEALING",
+          "label": {
+            "ko": "방수·방진·기밀",
+            "en_US": "Sealing",
+            "zh_CN": "防水·防尘·气密"
+          }
+        },
+        {
+          "api": "MATERIAL",
+          "label": {
+            "ko": "재료·내광성",
+            "en_US": "Material",
+            "zh_CN": "材料·耐光"
+          }
+        },
+        {
+          "api": "DURABILITY",
+          "label": {
+            "ko": "내구",
+            "en_US": "Durability",
+            "zh_CN": "耐久"
+          }
+        },
+        {
+          "api": "DIMENSIONAL",
+          "label": {
+            "ko": "치수",
+            "en_US": "Dimensional",
+            "zh_CN": "尺寸"
+          }
+        },
+        {
+          "api": "APPEARANCE",
+          "label": {
+            "ko": "외관",
+            "en_US": "Appearance",
+            "zh_CN": "外观"
+          }
+        }
+      ],
+      "required": true
+    },
+    {
+      "name": "MethodStandard__c",
+      "type": "Text",
+      "label": {
+        "ko": "시험 규격",
+        "en_US": "Method Standard",
+        "zh_CN": "试验标准"
+      },
+      "length": 255,
+      "required": true,
+      "trackHistory": true,
+      "description": "OEM 규격, ISO, ECE 등 조항"
+    },
+    {
+      "name": "Condition__c",
+      "type": "LongTextArea",
+      "label": {
+        "ko": "시험 조건",
+        "en_US": "Condition",
+        "zh_CN": "试验条件"
+      },
+      "length": 4000,
+      "visibleLines": 3,
+      "trackHistory": true,
+      "description": "필수(서비스 확인, 긴 텍스트는 필드 필수 불가)"
+    },
+    {
+      "name": "JudgmentType__c",
+      "type": "Picklist",
+      "label": {
+        "ko": "판정 방식",
+        "en_US": "Judgment Type",
+        "zh_CN": "判定方式"
+      },
+      "values": [
+        {
+          "api": "VALUE_RANGE",
+          "label": {
+            "ko": "수치 범위",
+            "en_US": "Value Range",
+            "zh_CN": "数值范围"
+          }
+        },
+        {
+          "api": "PASS_FAIL",
+          "label": {
+            "ko": "합불",
+            "en_US": "Pass/Fail",
+            "zh_CN": "合格/不合格"
+          }
+        },
+        {
+          "api": "VISUAL",
+          "label": {
+            "ko": "외관 비교",
+            "en_US": "Visual",
+            "zh_CN": "外观比较"
+          }
+        },
+        {
+          "api": "REPORT",
+          "label": {
+            "ko": "성적서 판정",
+            "en_US": "Report",
+            "zh_CN": "报告判定"
+          }
+        }
+      ],
+      "required": true,
+      "trackHistory": true,
+      "description": "결과 입력 화면 형태를 정한다"
+    },
+    {
+      "name": "Unit__c",
+      "type": "Picklist",
+      "label": {
+        "ko": "단위",
+        "en_US": "Unit",
+        "zh_CN": "单位"
+      },
+      "values": [
+        {
+          "api": "mm",
+          "label": {
+            "ko": "mm",
+            "en_US": "mm",
+            "zh_CN": "mm"
+          }
+        },
+        {
+          "api": "%",
+          "label": {
+            "ko": "%",
+            "en_US": "%",
+            "zh_CN": "%"
+          }
+        },
+        {
+          "api": "cd",
+          "label": {
+            "ko": "cd",
+            "en_US": "cd",
+            "zh_CN": "cd"
+          }
+        },
+        {
+          "api": "lx",
+          "label": {
+            "ko": "lx",
+            "en_US": "lx",
+            "zh_CN": "lx"
+          }
+        },
+        {
+          "api": "℃",
+          "label": {
+            "ko": "℃",
+            "en_US": "℃",
+            "zh_CN": "℃"
+          }
+        },
+        {
+          "api": "h",
+          "label": {
+            "ko": "h",
+            "en_US": "h",
+            "zh_CN": "h"
+          }
+        },
+        {
+          "api": "V",
+          "label": {
+            "ko": "V",
+            "en_US": "V",
+            "zh_CN": "V"
+          }
+        },
+        {
+          "api": "A",
+          "label": {
+            "ko": "A",
+            "en_US": "A",
+            "zh_CN": "A"
+          }
+        },
+        {
+          "api": "N",
+          "label": {
+            "ko": "N",
+            "en_US": "N",
+            "zh_CN": "N"
+          }
+        },
+        {
+          "api": "kPa",
+          "label": {
+            "ko": "kPa",
+            "en_US": "kPa",
+            "zh_CN": "kPa"
+          }
+        },
+        {
+          "api": "ETC",
+          "label": {
+            "ko": "기타",
+            "en_US": "Other",
+            "zh_CN": "其他"
+          }
+        }
+      ]
+    },
+    {
+      "name": "LSL__c",
+      "type": "Number",
+      "label": {
+        "ko": "하한",
+        "en_US": "LSL",
+        "zh_CN": "下限"
+      },
+      "precision": 18,
+      "scale": 6,
+      "trackHistory": true
+    },
+    {
+      "name": "USL__c",
+      "type": "Number",
+      "label": {
+        "ko": "상한",
+        "en_US": "USL",
+        "zh_CN": "上限"
+      },
+      "precision": 18,
+      "scale": 6,
+      "trackHistory": true
+    },
+    {
+      "name": "Criteria__c",
+      "type": "LongTextArea",
+      "label": {
+        "ko": "판정 기준",
+        "en_US": "Criteria",
+        "zh_CN": "判定标准"
+      },
+      "length": 4000,
+      "visibleLines": 3,
+      "trackHistory": true,
+      "description": "필수(서비스 확인, 긴 텍스트는 필드 필수 불가)"
+    },
+    {
+      "name": "DefaultSampleQty__c",
+      "type": "Number",
+      "label": {
+        "ko": "기본 시료 수",
+        "en_US": "Default Sample Qty",
+        "zh_CN": "默认样品数"
+      },
+      "precision": 4,
+      "scale": 0,
+      "required": true
+    },
+    {
+      "name": "DefaultDurationDays__c",
+      "type": "Number",
+      "label": {
+        "ko": "표준 소요 일수",
+        "en_US": "Standard Duration (Days)",
+        "zh_CN": "标准周期(天)"
+      },
+      "precision": 4,
+      "scale": 0,
+      "required": true
+    },
+    {
+      "name": "DefaultExecutor__c",
+      "type": "Picklist",
+      "label": {
+        "ko": "기본 수행 주체",
+        "en_US": "Default Executor",
+        "zh_CN": "默认执行方"
+      },
+      "values": [
+        {
+          "api": "INTERNAL_LAB",
+          "label": {
+            "ko": "사내 시험실",
+            "en_US": "Internal Lab",
+            "zh_CN": "内部实验室"
+          }
+        },
+        {
+          "api": "SUPPLIER",
+          "label": {
+            "ko": "협력사",
+            "en_US": "Supplier",
+            "zh_CN": "供应商"
+          }
+        },
+        {
+          "api": "EXTERNAL_LAB",
+          "label": {
+            "ko": "외부 기관",
+            "en_US": "External Lab",
+            "zh_CN": "外部机构"
+          }
+        }
+      ],
+      "required": true
+    },
+    {
+      "name": "ResponsibleDept__c",
+      "type": "Lookup",
+      "label": {
+        "ko": "수행 부서",
+        "en_US": "Responsible Dept",
+        "zh_CN": "执行部门"
+      },
+      "referenceTo": "CMN_Department__c",
+      "relationshipName": "QmsTestItems",
+      "description": "사내 시험실이면 필수"
+    },
+    {
+      "name": "Revision__c",
+      "type": "Number",
+      "label": {
+        "ko": "개정",
+        "en_US": "Revision",
+        "zh_CN": "修订"
+      },
+      "precision": 3,
+      "scale": 0,
+      "required": true,
+      "default": "1",
+      "serviceOnly": true,
+      "trackHistory": true
+    },
+    {
+      "name": "Status__c",
+      "type": "Picklist",
+      "label": {
+        "ko": "상태",
+        "en_US": "Status",
+        "zh_CN": "状态"
+      },
+      "values": [
+        {
+          "api": "ACTIVE",
+          "label": {
+            "ko": "사용",
+            "en_US": "Active",
+            "zh_CN": "启用"
+          }
+        },
+        {
+          "api": "OBSOLETE",
+          "label": {
+            "ko": "폐기",
+            "en_US": "Obsolete",
+            "zh_CN": "废止"
+          }
+        }
+      ],
+      "required": true,
+      "default": "ACTIVE",
+      "trackHistory": true
+    }
+  ],
+  "listViews": [
+    {
+      "name": "QMS_ActiveTestItems",
+      "label": "사용 중",
+      "columns": [
+        "NAME",
+        "TestCode__c",
+        "Category__c",
+        "JudgmentType__c",
+        "DefaultSampleQty__c",
+        "DefaultExecutor__c",
+        "Revision__c"
+      ],
+      "filters": [
+        {
+          "field": "Status__c",
+          "operation": "equals",
+          "value": "ACTIVE"
+        }
+      ]
+    },
+    {
+      "name": "QMS_AllTestItems",
+      "label": "전체",
+      "columns": [
+        "NAME",
+        "TestCode__c",
+        "Category__c",
+        "JudgmentType__c",
+        "Status__c",
+        "Revision__c",
+        "LAST_UPDATE"
+      ]
+    }
+  ]
+}

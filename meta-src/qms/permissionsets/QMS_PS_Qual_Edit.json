@@ -1,0 +1,19 @@
+{
+  "permissionSet": {
+    "wi": "QMS-02-DVQ-003",
+    "name": "QMS_PS_Qual_Edit",
+    "package": "force-app-qms",
+    "label": "QMS Qualification Edit",
+    "description": "인정시험 계획 작성·라인 편집·협력사 제출 검토(DVQ-003 BR-6, DVQ-010). QualityEngineer·DevEngineer·SupplierQuality PSG(A1-16)",
+    "objects": {
+      "QMS_TestItem__c": "read",
+      "QMS_TestStandard__c": "read",
+      "QMS_TestStandardLine__c": "read",
+      "QMS_QualPlan__c": "edit",
+      "QMS_QualPlanLine__c": "edit-delete",
+      "QMS_QualSampleResult__c": "edit-delete",
+      "QMS_SupplierTestSubmission__c": "edit"
+    },
+    "tabs": ["QMS_QualPlan__c", "QMS_TestItem__c", "QMS_TestStandard__c"]
+  }
+}

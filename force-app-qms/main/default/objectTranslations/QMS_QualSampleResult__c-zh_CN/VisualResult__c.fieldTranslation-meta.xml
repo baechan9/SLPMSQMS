@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label>外观/合格</label>
+    <name>VisualResult__c</name>
+    <picklistValues>
+        <masterLabel>합격</masterLabel>
+        <translation>合格</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>불합격</masterLabel>
+        <translation>不合格</translation>
+    </picklistValues>
+</CustomFieldTranslation>

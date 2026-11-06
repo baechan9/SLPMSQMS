@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>보고서 형식(DVQ-009 DVP&amp;R, Vol.4 FQC_COA·PSW 확장). 고객 그룹과 언어별 열 구성. 없으면 표준(en_US)</description>
+    <label>보고서 형식</label>
+    <pluralLabel>보고서 형식</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label>明细状态</label>
+    <name>LineStatus__c</name>
+    <picklistValues>
+        <masterLabel>계획</masterLabel>
+        <translation>已计划</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>의뢰</masterLabel>
+        <translation>已委托</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>접수</masterLabel>
+        <translation>已接收</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>시험 중</masterLabel>
+        <translation>试验中</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>완료</masterLabel>
+        <translation>完成</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>면제</masterLabel>
+        <translation>豁免</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>취소</masterLabel>
+        <translation>已取消</translation>
+    </picklistValues>
+</CustomFieldTranslation>

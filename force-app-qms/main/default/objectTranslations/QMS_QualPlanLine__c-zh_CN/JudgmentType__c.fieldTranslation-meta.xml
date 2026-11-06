@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label>判定方式</label>
+    <name>JudgmentType__c</name>
+    <picklistValues>
+        <masterLabel>수치 범위</masterLabel>
+        <translation>数值范围</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>합불</masterLabel>
+        <translation>合格/不合格</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>외관 비교</masterLabel>
+        <translation>外观比较</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>성적서 판정</masterLabel>
+        <translation>报告判定</translation>
+    </picklistValues>
+</CustomFieldTranslation>

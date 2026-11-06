@@ -1,0 +1,742 @@
+{
+  "wi": "QMS-02-DVQ-003",
+  "object": "QMS_QualPlanLine__c",
+  "package": "force-app-qms",
+  "description": "인정시험 라인(DVQ-003): 시험 1항목의 계획·실행·결과. 생성 시 시험 항목 스냅숏을 복사한다(BR-2). DVQ-006 실행 필드, Vol.9 외부 연계 상태(변경 요청) 포함",
+  "label": {
+    "ko": "인정시험 라인",
+    "en_US": "Qualification Line",
+    "zh_CN": "认定试验明细"
+  },
+  "plural": {
+    "ko": "인정시험 라인",
+    "en_US": "Qualification Lines",
+    "zh_CN": "认定试验明细"
+  },
+  "nameField": {
+    "type": "AutoNumber",
+    "format": "QPL-{0000000}",
+    "label": {
+      "ko": "라인 번호",
+      "en_US": "Line No",
+      "zh_CN": "明细号"
+    }
+  },
+  "sharingModel": "ControlledByParent",
+  "enableHistory": true,
+  "fields": [
+    {
+      "name": "ExternalKey__c",
+      "type": "Text",
+      "label": {
+        "ko": "외부 키",
+        "en_US": "External Key",
+        "zh_CN": "外部键"
+      },
+      "length": 80,
+      "externalId": true,
+      "unique": true,
+      "caseSensitive": true
+    },
+    {
+      "name": "Plan__c",
+      "type": "MasterDetail",
+      "label": {
+        "ko": "인정시험 계획",
+        "en_US": "Qualification Plan",
+        "zh_CN": "认定试验计划"
+      },
+      "referenceTo": "QMS_QualPlan__c",
+      "relationshipName": "Lines"
+    },
+    {
+      "name": "TestItem__c",
+      "type": "Lookup",
+      "label": {
+        "ko": "시험 항목",
+        "en_US": "Test Item",
+        "zh_CN": "试验项目"
+      },
+      "referenceTo": "QMS_TestItem__c",
+      "relationshipName": "QualPlanLines",
+      "required": true,
+      "deleteConstraint": "Restrict"
+    },
+    {
+      "name": "TestCode__c",
+      "type": "Text",
+      "label": {
+        "ko": "시험 코드",
+        "en_US": "Test Code",
+        "zh_CN": "试验代码"
+      },
+      "length": 30
+    },
+    {
+      "name": "TestName__c",
+      "type": "Text",
+      "label": {
+        "ko": "시험명",
+        "en_US": "Test Name",
+        "zh_CN": "试验名称"
+      },
+      "length": 80
+    },
+    {
+      "name": "TestItemRevision__c",
+      "type": "Number",
+      "label": {
+        "ko": "시험 항목 개정",
+        "en_US": "Test Item Revision",
+        "zh_CN": "试验项目修订"
+      },
+      "precision": 3,
+      "scale": 0
+    },
+    {
+      "name": "MethodStandard__c",
+      "type": "Text",
+      "label": {
+        "ko": "시험 규격",
+        "en_US": "Method Standard",
+        "zh_CN": "试验标准"
+      },
+      "length": 255
+    },
+    {
+      "name": "Condition__c",
+      "type": "LongTextArea",
+      "label": {
+        "ko": "시험 조건",
+        "en_US": "Condition",
+        "zh_CN": "试验条件"
+      },
+      "length": 4000,
+      "visibleLines": 3
+    },
+    {
+      "name": "JudgmentType__c",
+      "type": "Picklist",
+      "label": {
+        "ko": "판정 방식",
+        "en_US": "Judgment Type",
+        "zh_CN": "判定方式"
+      },
+      "values": [
+        {
+          "api": "VALUE_RANGE",
+          "label": {
+            "ko": "수치 범위",
+            "en_US": "Value Range",
+            "zh_CN": "数值范围"
+          }
+        },
+        {
+          "api": "PASS_FAIL",
+          "label": {
+            "ko": "합불",
+            "en_US": "Pass/Fail",
+            "zh_CN": "合格/不合格"
+          }
+        },
+        {
+          "api": "VISUAL",
+          "label": {
+            "ko": "외관 비교",
+            "en_US": "Visual",
+            "zh_CN": "外观比较"
+          }
+        },
+        {
+          "api": "REPORT",
+          "label": {
+            "ko": "성적서 판정",
+            "en_US": "Report",
+            "zh_CN": "报告判定"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Unit__c",
+      "type": "Picklist",
+      "label": {
+        "ko": "단위",
+        "en_US": "Unit",
+        "zh_CN": "单位"
+      },
+      "values": [
+        {
+          "api": "mm",
+          "label": {
+            "ko": "mm",
+            "en_US": "mm",
+            "zh_CN": "mm"
+          }
+        },
+        {
+          "api": "%",
+          "label": {
+            "ko": "%",
+            "en_US": "%",
+            "zh_CN": "%"
+          }
+        },
+        {
+          "api": "cd",
+          "label": {
+            "ko": "cd",
+            "en_US": "cd",
+            "zh_CN": "cd"
+          }
+        },
+        {
+          "api": "lx",
+          "label": {
+            "ko": "lx",
+            "en_US": "lx",
+            "zh_CN": "lx"
+          }
+        },
+        {
+          "api": "℃",
+          "label": {
+            "ko": "℃",
+            "en_US": "℃",
+            "zh_CN": "℃"
+          }
+        },
+        {
+          "api": "h",
+          "label": {
+            "ko": "h",
+            "en_US": "h",
+            "zh_CN": "h"
+          }
+        },
+        {
+          "api": "V",
+          "label": {
+            "ko": "V",
+            "en_US": "V",
+            "zh_CN": "V"
+          }
+        },
+        {
+          "api": "A",
+          "label": {
+            "ko": "A",
+            "en_US": "A",
+            "zh_CN": "A"
+          }
+        },
+        {
+          "api": "N",
+          "label": {
+            "ko": "N",
+            "en_US": "N",
+            "zh_CN": "N"
+          }
+        },
+        {
+          "api": "kPa",
+          "label": {
+            "ko": "kPa",
+            "en_US": "kPa",
+            "zh_CN": "kPa"
+          }
+        },
+        {
+          "api": "ETC",
+          "label": {
+            "ko": "기타",
+            "en_US": "Other",
+            "zh_CN": "其他"
+          }
+        }
+      ]
+    },
+    {
+      "name": "LSL__c",
+      "type": "Number",
+      "label": {
+        "ko": "하한",
+        "en_US": "LSL",
+        "zh_CN": "下限"
+      },
+      "precision": 18,
+      "scale": 6
+    },
+    {
+      "name": "USL__c",
+      "type": "Number",
+      "label": {
+        "ko": "상한",
+        "en_US": "USL",
+        "zh_CN": "上限"
+      },
+      "precision": 18,
+      "scale": 6
+    },
+    {
+      "name": "Criteria__c",
+      "type": "LongTextArea",
+      "label": {
+        "ko": "판정 기준",
+        "en_US": "Criteria",
+        "zh_CN": "判定标准"
+      },
+      "length": 4000,
+      "visibleLines": 3
+    },
+    {
+      "name": "IsMandatory__c",
+      "type": "Checkbox",
+      "label": {
+        "ko": "필수",
+        "en_US": "Mandatory",
+        "zh_CN": "必做"
+      },
+      "default": true
+    },
+    {
+      "name": "SampleQty__c",
+      "type": "Number",
+      "label": {
+        "ko": "시료 수",
+        "en_US": "Sample Qty",
+        "zh_CN": "样品数"
+      },
+      "precision": 4,
+      "scale": 0,
+      "required": true
+    },
+    {
+      "name": "Executor__c",
+      "type": "Picklist",
+      "label": {
+        "ko": "수행 주체",
+        "en_US": "Executor",
+        "zh_CN": "执行方"
+      },
+      "values": [
+        {
+          "api": "INTERNAL_LAB",
+          "label": {
+            "ko": "사내 시험실",
+            "en_US": "Internal Lab",
+            "zh_CN": "内部实验室"
+          }
+        },
+        {
+          "api": "SUPPLIER",
+          "label": {
+            "ko": "협력사",
+            "en_US": "Supplier",
+            "zh_CN": "供应商"
+          }
+        },
+        {
+          "api": "EXTERNAL_LAB",
+          "label": {
+            "ko": "외부 기관",
+            "en_US": "External Lab",
+            "zh_CN": "外部机构"
+          }
+        }
+      ],
+      "required": true
+    },
+    {
+      "name": "ExecutorDept__c",
+      "type": "Lookup",
+      "label": {
+        "ko": "수행 부서",
+        "en_US": "Executor Dept",
+        "zh_CN": "执行部门"
+      },
+      "referenceTo": "CMN_Department__c",
+      "relationshipName": "QualPlanLines"
+    },
+    {
+      "name": "ExternalLabName__c",
+      "type": "Text",
+      "label": {
+        "ko": "외부 기관",
+        "en_US": "External Lab",
+        "zh_CN": "外部机构"
+      },
+      "length": 120
+    },
+    {
+      "name": "ExecutionSystem__c",
+      "type": "Picklist",
+      "label": {
+        "ko": "실행 시스템",
+        "en_US": "Execution System",
+        "zh_CN": "执行系统"
+      },
+      "values": [
+        {
+          "api": "QMS",
+          "label": {
+            "ko": "QMS",
+            "en_US": "QMS",
+            "zh_CN": "QMS"
+          }
+        },
+        {
+          "api": "RELIABILITY_SYS",
+          "label": {
+            "ko": "신뢰성 시스템",
+            "en_US": "Reliability System",
+            "zh_CN": "可靠性系统"
+          }
+        }
+      ],
+      "required": true,
+      "default": "QMS"
+    },
+    {
+      "name": "PlannedStart__c",
+      "type": "Date",
+      "label": {
+        "ko": "계획 시작",
+        "en_US": "Planned Start",
+        "zh_CN": "计划开始"
+      }
+    },
+    {
+      "name": "PlannedEnd__c",
+      "type": "Date",
+      "label": {
+        "ko": "계획 종료",
+        "en_US": "Planned End",
+        "zh_CN": "计划结束"
+      }
+    },
+    {
+      "name": "ActualStart__c",
+      "type": "Date",
+      "label": {
+        "ko": "실제 시작",
+        "en_US": "Actual Start",
+        "zh_CN": "实际开始"
+      }
+    },
+    {
+      "name": "ActualEnd__c",
+      "type": "Date",
+      "label": {
+        "ko": "실제 종료",
+        "en_US": "Actual End",
+        "zh_CN": "实际结束"
+      }
+    },
+    {
+      "name": "DaysToDue__c",
+      "type": "Formula",
+      "label": {
+        "ko": "남은 일수",
+        "en_US": "Days to Due",
+        "zh_CN": "剩余天数"
+      },
+      "returnType": "Number",
+      "precision": 6,
+      "scale": 0,
+      "treatBlanksAs": "BlankAsBlank",
+      "formula": "PlannedEnd__c - TODAY()",
+      "description": "UX-004 헤더 기한(명세 보충)"
+    },
+    {
+      "name": "LineStatus__c",
+      "type": "Picklist",
+      "label": {
+        "ko": "라인 상태",
+        "en_US": "Line Status",
+        "zh_CN": "明细状态"
+      },
+      "values": [
+        {
+          "api": "PLANNED",
+          "label": {
+            "ko": "계획",
+            "en_US": "Planned",
+            "zh_CN": "已计划"
+          }
+        },
+        {
+          "api": "REQUESTED",
+          "label": {
+            "ko": "의뢰",
+            "en_US": "Requested",
+            "zh_CN": "已委托"
+          }
+        },
+        {
+          "api": "RECEIVED",
+          "label": {
+            "ko": "접수",
+            "en_US": "Received",
+            "zh_CN": "已接收"
+          }
+        },
+        {
+          "api": "IN_PROGRESS",
+          "label": {
+            "ko": "시험 중",
+            "en_US": "In Progress",
+            "zh_CN": "试验中"
+          }
+        },
+        {
+          "api": "DONE",
+          "label": {
+            "ko": "완료",
+            "en_US": "Done",
+            "zh_CN": "完成"
+          }
+        },
+        {
+          "api": "WAIVED",
+          "label": {
+            "ko": "면제",
+            "en_US": "Waived",
+            "zh_CN": "豁免"
+          }
+        },
+        {
+          "api": "CANCELLED",
+          "label": {
+            "ko": "취소",
+            "en_US": "Cancelled",
+            "zh_CN": "已取消"
+          }
+        }
+      ],
+      "required": true,
+      "default": "PLANNED",
+      "serviceOnly": true,
+      "trackHistory": true
+    },
+    {
+      "name": "Result__c",
+      "type": "Picklist",
+      "label": {
+        "ko": "결과",
+        "en_US": "Result",
+        "zh_CN": "结果"
+      },
+      "values": [
+        {
+          "api": "PASS",
+          "label": {
+            "ko": "합격",
+            "en_US": "Pass",
+            "zh_CN": "合格"
+          }
+        },
+        {
+          "api": "FAIL",
+          "label": {
+            "ko": "불합격",
+            "en_US": "Fail",
+            "zh_CN": "不合格"
+          }
+        },
+        {
+          "api": "CONDITIONAL",
+          "label": {
+            "ko": "조건부",
+            "en_US": "Conditional",
+            "zh_CN": "有条件"
+          }
+        },
+        {
+          "api": "NA",
+          "label": {
+            "ko": "해당 없음",
+            "en_US": "N/A",
+            "zh_CN": "不适用"
+          }
+        }
+      ],
+      "trackHistory": true
+    },
+    {
+      "name": "WaiverReason__c",
+      "type": "LongTextArea",
+      "label": {
+        "ko": "면제 사유",
+        "en_US": "Waiver Reason",
+        "zh_CN": "豁免原因"
+      },
+      "length": 500,
+      "visibleLines": 3
+    },
+    {
+      "name": "RetestOf__c",
+      "type": "Lookup",
+      "label": {
+        "ko": "재시험 원 라인",
+        "en_US": "Retest Of",
+        "zh_CN": "原试验明细"
+      },
+      "referenceTo": "QMS_QualPlanLine__c",
+      "relationshipName": "Retests"
+    },
+    {
+      "name": "RetestNo__c",
+      "type": "Number",
+      "label": {
+        "ko": "재시험 차수",
+        "en_US": "Retest No",
+        "zh_CN": "复试次数"
+      },
+      "precision": 2,
+      "scale": 0
+    },
+    {
+      "name": "NcrRecordId__c",
+      "type": "Text",
+      "label": {
+        "ko": "NCR Id",
+        "en_US": "NCR Id",
+        "zh_CN": "NCR Id"
+      },
+      "length": 18,
+      "description": "불합격 시 생성된 NCR(다른 메뉴 객체라 Id 텍스트)"
+    },
+    {
+      "name": "ReportDocument__c",
+      "type": "Lookup",
+      "label": {
+        "ko": "시험 성적서",
+        "en_US": "Test Report",
+        "zh_CN": "试验报告"
+      },
+      "referenceTo": "CMN_Document__c",
+      "relationshipName": "QualPlanLineReports",
+      "description": "DocClass TEST_REPORT"
+    },
+    {
+      "name": "Sequence__c",
+      "type": "Number",
+      "label": {
+        "ko": "순서",
+        "en_US": "Sequence",
+        "zh_CN": "顺序"
+      },
+      "precision": 4,
+      "scale": 0,
+      "required": true
+    },
+    {
+      "name": "SampleSentDate__c",
+      "type": "Date",
+      "label": {
+        "ko": "시료 발송일",
+        "en_US": "Sample Sent",
+        "zh_CN": "样品发送日"
+      }
+    },
+    {
+      "name": "SampleReceivedDate__c",
+      "type": "Date",
+      "label": {
+        "ko": "시료 접수일",
+        "en_US": "Sample Received",
+        "zh_CN": "样品接收日"
+      }
+    },
+    {
+      "name": "Tester__c",
+      "type": "Lookup",
+      "label": {
+        "ko": "시험 담당",
+        "en_US": "Tester",
+        "zh_CN": "试验负责人"
+      },
+      "referenceTo": "User",
+      "relationshipName": "QualPlanLinesTested"
+    },
+    {
+      "name": "LabRequestNo__c",
+      "type": "Text",
+      "label": {
+        "ko": "의뢰 번호",
+        "en_US": "Lab Request No",
+        "zh_CN": "委托编号"
+      },
+      "length": 40
+    },
+    {
+      "name": "IsAtRisk__c",
+      "type": "Checkbox",
+      "label": {
+        "ko": "일정 위험",
+        "en_US": "At Risk",
+        "zh_CN": "进度风险"
+      },
+      "default": false,
+      "serviceOnly": true,
+      "description": "PlannedEnd > Plan.TargetDate − 판정 여유일(DVQ-006 BR-5 배치)"
+    },
+    {
+      "name": "ExternalSyncStatus__c",
+      "type": "Picklist",
+      "label": {
+        "ko": "외부 연계 상태",
+        "en_US": "External Sync Status",
+        "zh_CN": "外部同步状态"
+      },
+      "values": [
+        {
+          "api": "PENDING",
+          "label": {
+            "ko": "대기",
+            "en_US": "Pending",
+            "zh_CN": "待处理"
+          }
+        },
+        {
+          "api": "SENT",
+          "label": {
+            "ko": "전송",
+            "en_US": "Sent",
+            "zh_CN": "已发送"
+          }
+        },
+        {
+          "api": "ACCEPTED",
+          "label": {
+            "ko": "접수",
+            "en_US": "Accepted",
+            "zh_CN": "已接受"
+          }
+        },
+        {
+          "api": "FAILED",
+          "label": {
+            "ko": "실패",
+            "en_US": "Failed",
+            "zh_CN": "失败"
+          }
+        }
+      ],
+      "serviceOnly": true,
+      "description": "Vol.9 INT-018 변경 요청"
+    },
+    {
+      "name": "ExternalSyncMessage__c",
+      "type": "Text",
+      "label": {
+        "ko": "외부 연계 메시지",
+        "en_US": "External Sync Message",
+        "zh_CN": "外部同步信息"
+      },
+      "length": 255,
+      "serviceOnly": true
+    }
+  ]
+}

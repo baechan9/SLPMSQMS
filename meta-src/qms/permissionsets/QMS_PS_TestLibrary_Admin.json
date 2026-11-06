@@ -1,0 +1,19 @@
+{
+  "permissionSet": {
+    "wi": "QMS-02-DVQ-003",
+    "name": "QMS_PS_TestLibrary_Admin",
+    "package": "force-app-qms",
+    "label": "QMS Test Library Admin",
+    "description": "시험 항목·시험 기준 편집(DVQ-001 BR-3, DVQ-002 BR-4). QualityAdmin PSG, 신뢰성팀장은 개인 할당(A1-16)",
+    "objects": {
+      "QMS_TestItem__c": "edit",
+      "QMS_TestStandard__c": "edit-delete",
+      "QMS_TestStandardLine__c": "edit-delete",
+      "QMS_QualPlan__c": "read",
+      "QMS_QualPlanLine__c": "read",
+      "QMS_QualSampleResult__c": "read",
+      "QMS_SupplierTestSubmission__c": "read"
+    },
+    "tabs": ["QMS_QualPlan__c", "QMS_TestItem__c", "QMS_TestStandard__c"]
+  }
+}

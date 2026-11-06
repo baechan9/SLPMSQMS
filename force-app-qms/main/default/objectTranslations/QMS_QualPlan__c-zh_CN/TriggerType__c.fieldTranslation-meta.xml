@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label>触发类型</label>
+    <name>TriggerType__c</name>
+    <picklistValues>
+        <masterLabel>신규 개발</masterLabel>
+        <translation>新开发</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>사양 변경</masterLabel>
+        <translation>规格变更</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>4M 변경</masterLabel>
+        <translation>4M 变更</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>정기 시험</masterLabel>
+        <translation>定期试验</translation>
+    </picklistValues>
+</CustomFieldTranslation>

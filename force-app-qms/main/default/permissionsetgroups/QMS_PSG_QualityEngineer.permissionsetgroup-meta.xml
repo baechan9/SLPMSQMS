@@ -28,5 +28,6 @@
     <permissionSets>CMN_PS_Todo_User</permissionSets>
     <permissionSets>CMN_PS_UiFramework_User</permissionSets>
     <permissionSets>QMS_PS_Menu_Read</permissionSets>
+    <permissionSets>QMS_PS_Qual_Edit</permissionSets>
     <status>Updated</status>
 </PermissionSetGroup>

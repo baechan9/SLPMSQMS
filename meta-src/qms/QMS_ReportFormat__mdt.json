@@ -1,0 +1,86 @@
+{
+  "wi": "QMS-02-DVQ-009",
+  "object": "QMS_ReportFormat__mdt",
+  "kind": "mdt",
+  "package": "force-app-qms",
+  "description": "보고서 형식(DVQ-009 DVP&R, Vol.4 FQC_COA·PSW 확장). 고객 그룹과 언어별 열 구성. 없으면 표준(en_US)",
+  "label": {
+    "ko": "보고서 형식"
+  },
+  "plural": {
+    "ko": "보고서 형식"
+  },
+  "fields": [
+    {
+      "name": "ReportType__c",
+      "type": "Text",
+      "length": 20,
+      "label": "Report Type",
+      "description": "DVPR, FQC_COA, PSW(Vol.4 변경 요청)"
+    },
+    {
+      "name": "CustomerGroup__c",
+      "type": "Text",
+      "length": 40,
+      "label": "Customer Group",
+      "description": "공란 = 표준"
+    },
+    {
+      "name": "Language__c",
+      "type": "Text",
+      "length": 10,
+      "label": "Language",
+      "description": "ko, en_US"
+    },
+    {
+      "name": "ColumnsJson__c",
+      "type": "LongTextArea",
+      "length": 32768,
+      "visibleLines": 5,
+      "label": "Columns JSON",
+      "description": "열 순서·라벨 키"
+    },
+    {
+      "name": "ShowRetestHistory__c",
+      "type": "Checkbox",
+      "default": true,
+      "label": "Show Retest History"
+    },
+    {
+      "name": "ShowSampleValues__c",
+      "type": "Checkbox",
+      "default": false,
+      "label": "Show Sample Values",
+      "description": "Vol.4 변경 요청"
+    },
+    {
+      "name": "FileNamePattern__c",
+      "type": "Text",
+      "length": 120,
+      "label": "File Name Pattern",
+      "description": "Vol.4 변경 요청"
+    },
+    {
+      "name": "LogoResource__c",
+      "type": "Text",
+      "length": 80,
+      "label": "Logo Resource"
+    }
+  ],
+  "records": [
+    {
+      "name": "STD_DVPR_EN",
+      "label": "DVP&R Standard (en_US)",
+      "values": {
+        "ReportType__c": "DVPR",
+        "CustomerGroup__c": null,
+        "Language__c": "en_US",
+        "ColumnsJson__c": "[\"Sequence\",\"TestCode\",\"TestName\",\"MethodStandard\",\"Condition\",\"Criteria\",\"SampleQty\",\"Executor\",\"PlannedStart\",\"PlannedEnd\",\"ActualEnd\",\"Result\",\"Remark\"]",
+        "ShowRetestHistory__c": true,
+        "ShowSampleValues__c": false,
+        "FileNamePattern__c": "{RecordNo}_DVPR_{yyyyMMdd}",
+        "LogoResource__c": null
+      }
+    }
+  ]
+}

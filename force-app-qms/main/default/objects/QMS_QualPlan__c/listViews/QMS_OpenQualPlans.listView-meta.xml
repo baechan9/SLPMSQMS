@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>QMS_OpenQualPlans</fullName>
+    <columns>RecordNo__c</columns>
+    <columns>NAME</columns>
+    <columns>Item__c</columns>
+    <columns>Plant__c</columns>
+    <columns>Phase__c</columns>
+    <columns>Status__c</columns>
+    <columns>Progress__c</columns>
+    <columns>TargetDate__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Status__c</field>
+        <operation>notEqual</operation>
+        <value>CLOSED,CANCELLED</value>
+    </filters>
+    <label>진행 중</label>
+</ListView>

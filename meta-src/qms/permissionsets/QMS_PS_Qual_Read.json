@@ -1,0 +1,19 @@
+{
+  "permissionSet": {
+    "wi": "QMS-02-DVQ-003",
+    "name": "QMS_PS_Qual_Read",
+    "package": "force-app-qms",
+    "label": "QMS Qualification Read",
+    "description": "인정시험 계획·라인·결과 조회(DVQ-003 BR-6). Viewer·QualityManager·SupplierQuality·QualityAdmin PSG(A1-16)",
+    "objects": {
+      "QMS_TestItem__c": "read",
+      "QMS_TestStandard__c": "read",
+      "QMS_TestStandardLine__c": "read",
+      "QMS_QualPlan__c": "read",
+      "QMS_QualPlanLine__c": "read",
+      "QMS_QualSampleResult__c": "read",
+      "QMS_SupplierTestSubmission__c": "read"
+    },
+    "tabs": ["QMS_QualPlan__c", "QMS_TestItem__c", "QMS_TestStandard__c"]
+  }
+}

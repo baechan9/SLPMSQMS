@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LineStatus__c</fullName>
+    <label>라인 상태</label>
+    <required>true</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>PLANNED</fullName>
+                <default>true</default>
+                <label>계획</label>
+            </value>
+            <value>
+                <fullName>REQUESTED</fullName>
+                <default>false</default>
+                <label>의뢰</label>
+            </value>
+            <value>
+                <fullName>RECEIVED</fullName>
+                <default>false</default>
+                <label>접수</label>
+            </value>
+            <value>
+                <fullName>IN_PROGRESS</fullName>
+                <default>false</default>
+                <label>시험 중</label>
+            </value>
+            <value>
+                <fullName>DONE</fullName>
+                <default>false</default>
+                <label>완료</label>
+            </value>
+            <value>
+                <fullName>WAIVED</fullName>
+                <default>false</default>
+                <label>면제</label>
+            </value>
+            <value>
+                <fullName>CANCELLED</fullName>
+                <default>false</default>
+                <label>취소</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

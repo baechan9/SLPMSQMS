@@ -43,5 +43,7 @@
     <permissionSets>CMN_PS_UiFramework_User</permissionSets>
     <permissionSets>QMS_PS_Dashboard_AllPlants</permissionSets>
     <permissionSets>QMS_PS_Menu_Read</permissionSets>
+    <permissionSets>QMS_PS_Qual_Read</permissionSets>
+    <permissionSets>QMS_PS_TestLibrary_Admin</permissionSets>
     <status>Updated</status>
 </PermissionSetGroup>

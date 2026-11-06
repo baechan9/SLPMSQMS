@@ -1,0 +1,385 @@
+{
+  "wi": "QMS-02-DVQ-002",
+  "object": "QMS_TestStandard__c",
+  "package": "force-app-qms",
+  "description": "시험 기준 세트(DVQ-002). 고객·제품군·부품 분류·트리거·단계별 필수 시험 묶음. ACTIVE는 새 버전으로만 고친다(BR-3, B단계). TriggerType PERIODIC·Phase REQUAL은 Vol.3 PWT 변경 요청",
+  "label": {
+    "ko": "시험 기준",
+    "en_US": "Test Standard",
+    "zh_CN": "试验标准"
+  },
+  "plural": {
+    "ko": "시험 기준",
+    "en_US": "Test Standards",
+    "zh_CN": "试验标准"
+  },
+  "nameField": {
+    "label": {
+      "ko": "기준 이름",
+      "en_US": "Standard Name",
+      "zh_CN": "标准名称"
+    }
+  },
+  "sharingModel": "Read",
+  "externalSharingModel": "Private",
+  "enableHistory": true,
+  "tab": {
+    "motif": "Custom18: Form"
+  },
+  "fields": [
+    {
+      "name": "ExternalKey__c",
+      "type": "Text",
+      "label": {
+        "ko": "외부 키",
+        "en_US": "External Key",
+        "zh_CN": "外部键"
+      },
+      "length": 80,
+      "externalId": true,
+      "unique": true,
+      "caseSensitive": true
+    },
+    {
+      "name": "Scope__c",
+      "type": "Picklist",
+      "label": {
+        "ko": "범위",
+        "en_US": "Scope",
+        "zh_CN": "范围"
+      },
+      "values": [
+        {
+          "api": "PART",
+          "label": {
+            "ko": "부품",
+            "en_US": "Part",
+            "zh_CN": "零件"
+          }
+        },
+        {
+          "api": "PRODUCT",
+          "label": {
+            "ko": "제품",
+            "en_US": "Product",
+            "zh_CN": "产品"
+          }
+        }
+      ],
+      "required": true
+    },
+    {
+      "name": "Customer__c",
+      "type": "Lookup",
+      "label": {
+        "ko": "고객",
+        "en_US": "Customer",
+        "zh_CN": "客户"
+      },
+      "referenceTo": "Account",
+      "relationshipName": "QmsTestStandards",
+      "lookupFilter": {
+        "items": [
+          {
+            "field": "Account.RecordTypeId",
+            "operation": "equals",
+            "value": "고객"
+          }
+        ],
+        "isOptional": false
+      },
+      "description": "공란 = 모든 고객"
+    },
+    {
+      "name": "ProductGroup__c",
+      "type": "Lookup",
+      "label": {
+        "ko": "제품군",
+        "en_US": "Product Group",
+        "zh_CN": "产品组"
+      },
+      "referenceTo": "CMN_ProductGroup__c",
+      "relationshipName": "QmsTestStandards",
+      "description": "공란 = 모든 제품군"
+    },
+    {
+      "name": "PartCategory__c",
+      "type": "Picklist",
+      "label": {
+        "ko": "부품 분류",
+        "en_US": "Part Category",
+        "zh_CN": "零件分类"
+      },
+      "values": [
+        {
+          "api": "LENS",
+          "label": {
+            "ko": "렌즈",
+            "en_US": "Lens",
+            "zh_CN": "透镜"
+          }
+        },
+        {
+          "api": "HOUSING",
+          "label": {
+            "ko": "하우징",
+            "en_US": "Housing",
+            "zh_CN": "灯壳"
+          }
+        },
+        {
+          "api": "LED_MODULE",
+          "label": {
+            "ko": "LED 모듈",
+            "en_US": "LED Module",
+            "zh_CN": "LED 模组"
+          }
+        },
+        {
+          "api": "REFLECTOR",
+          "label": {
+            "ko": "리플렉터",
+            "en_US": "Reflector",
+            "zh_CN": "反射镜"
+          }
+        },
+        {
+          "api": "BEZEL",
+          "label": {
+            "ko": "베젤",
+            "en_US": "Bezel",
+            "zh_CN": "装饰框"
+          }
+        },
+        {
+          "api": "CONNECTOR",
+          "label": {
+            "ko": "커넥터",
+            "en_US": "Connector",
+            "zh_CN": "连接器"
+          }
+        },
+        {
+          "api": "PCB",
+          "label": {
+            "ko": "PCB",
+            "en_US": "PCB",
+            "zh_CN": "PCB"
+          }
+        },
+        {
+          "api": "ACTUATOR",
+          "label": {
+            "ko": "액추에이터",
+            "en_US": "Actuator",
+            "zh_CN": "执行器"
+          }
+        },
+        {
+          "api": "ETC",
+          "label": {
+            "ko": "기타",
+            "en_US": "Other",
+            "zh_CN": "其他"
+          }
+        }
+      ],
+      "description": "PART 전용, MDM-004와 같은 값"
+    },
+    {
+      "name": "TriggerType__c",
+      "type": "Picklist",
+      "label": {
+        "ko": "트리거",
+        "en_US": "Trigger",
+        "zh_CN": "触发类型"
+      },
+      "values": [
+        {
+          "api": "NEW_DEV",
+          "label": {
+            "ko": "신규 개발",
+            "en_US": "New Development",
+            "zh_CN": "新开发"
+          }
+        },
+        {
+          "api": "SPEC_CHANGE",
+          "label": {
+            "ko": "사양 변경",
+            "en_US": "Spec Change",
+            "zh_CN": "规格变更"
+          }
+        },
+        {
+          "api": "CHANGE_4M",
+          "label": {
+            "ko": "4M 변경",
+            "en_US": "4M Change",
+            "zh_CN": "4M 变更"
+          }
+        },
+        {
+          "api": "PERIODIC",
+          "label": {
+            "ko": "정기 시험",
+            "en_US": "Periodic",
+            "zh_CN": "定期试验"
+          }
+        }
+      ],
+      "required": true
+    },
+    {
+      "name": "ChangeTypes__c",
+      "type": "Text",
+      "label": {
+        "ko": "4M 변경 유형",
+        "en_US": "Change Types",
+        "zh_CN": "4M 变更类型"
+      },
+      "length": 255,
+      "description": "CHANGE_TYPE 코드 경로(쉼표 구분). 4M이면 필수 명세 Text(1000) → 255(플랫폼 최대)"
+    },
+    {
+      "name": "Phase__c",
+      "type": "Picklist",
+      "label": {
+        "ko": "단계",
+        "en_US": "Phase",
+        "zh_CN": "阶段"
+      },
+      "values": [
+        {
+          "api": "DV",
+          "label": {
+            "ko": "DV 설계 검증",
+            "en_US": "DV",
+            "zh_CN": "DV 设计验证"
+          }
+        },
+        {
+          "api": "PV",
+          "label": {
+            "ko": "PV 생산 검증",
+            "en_US": "PV",
+            "zh_CN": "PV 生产验证"
+          }
+        },
+        {
+          "api": "CHANGE",
+          "label": {
+            "ko": "변경 검증",
+            "en_US": "Change",
+            "zh_CN": "变更验证"
+          }
+        },
+        {
+          "api": "REQUAL",
+          "label": {
+            "ko": "재인정",
+            "en_US": "Requalification",
+            "zh_CN": "再认定"
+          }
+        }
+      ],
+      "required": true
+    },
+    {
+      "name": "Status__c",
+      "type": "Picklist",
+      "label": {
+        "ko": "상태",
+        "en_US": "Status",
+        "zh_CN": "状态"
+      },
+      "values": [
+        {
+          "api": "DRAFT",
+          "label": {
+            "ko": "작성 중",
+            "en_US": "Draft",
+            "zh_CN": "草稿"
+          }
+        },
+        {
+          "api": "ACTIVE",
+          "label": {
+            "ko": "사용",
+            "en_US": "Active",
+            "zh_CN": "启用"
+          }
+        },
+        {
+          "api": "OBSOLETE",
+          "label": {
+            "ko": "폐기",
+            "en_US": "Obsolete",
+            "zh_CN": "废止"
+          }
+        }
+      ],
+      "required": true,
+      "default": "DRAFT",
+      "trackHistory": true
+    },
+    {
+      "name": "Version__c",
+      "type": "Number",
+      "label": {
+        "ko": "버전",
+        "en_US": "Version",
+        "zh_CN": "版本"
+      },
+      "precision": 3,
+      "scale": 0,
+      "required": true,
+      "default": "1"
+    },
+    {
+      "name": "StandardDocUrl__c",
+      "type": "Url",
+      "label": {
+        "ko": "근거 회사표준",
+        "en_US": "Standard Document",
+        "zh_CN": "依据公司标准"
+      }
+    }
+  ],
+  "listViews": [
+    {
+      "name": "QMS_ActiveStandards",
+      "label": "사용 중",
+      "columns": [
+        "NAME",
+        "Scope__c",
+        "Customer__c",
+        "ProductGroup__c",
+        "PartCategory__c",
+        "TriggerType__c",
+        "Phase__c",
+        "Version__c"
+      ],
+      "filters": [
+        {
+          "field": "Status__c",
+          "operation": "equals",
+          "value": "ACTIVE"
+        }
+      ]
+    },
+    {
+      "name": "QMS_AllStandards",
+      "label": "전체",
+      "columns": [
+        "NAME",
+        "Scope__c",
+        "TriggerType__c",
+        "Phase__c",
+        "Status__c",
+        "Version__c",
+        "LAST_UPDATE"
+      ]
+    }
+  ]
+}

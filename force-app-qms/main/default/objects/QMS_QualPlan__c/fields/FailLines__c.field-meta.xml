@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>FailLines__c</fullName>
+    <label>불합격 라인</label>
+    <summaryFilterItems>
+        <field>QMS_QualPlanLine__c.Result__c</field>
+        <operation>equals</operation>
+        <value>FAIL</value>
+    </summaryFilterItems>
+    <summaryForeignKey>QMS_QualPlanLine__c.Plan__c</summaryForeignKey>
+    <summaryOperation>count</summaryOperation>
+    <type>Summary</type>
+</CustomField>

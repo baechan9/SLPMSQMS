@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>供应商试验提交</value>
+    </caseValues>
+    <nameFieldLabel>提交编号</nameFieldLabel>
+    <sharingReasons>
+        <label>工厂共享</label>
+        <name>CMN_Plant__c</name>
+    </sharingReasons>
+    <sharingReasons>
+        <label>供应商共享</label>
+        <name>CMN_Supplier__c</name>
+    </sharingReasons>
+</CustomObjectTranslation>

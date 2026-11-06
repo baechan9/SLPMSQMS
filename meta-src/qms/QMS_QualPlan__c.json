@@ -1,0 +1,691 @@
+{
+  "wi": "QMS-02-DVQ-003",
+  "object": "QMS_QualPlan__c",
+  "package": "force-app-qms",
+  "description": "인정시험 계획(DVQ-003, DVP&R 1장). 상태는 서비스로만 바꾼다(BR-1, B단계). 공장 공유만, 협력사는 DVQ-010 제출 객체로 접근(BR-5). AtRiskLines는 DVQ-006, ClosedAt·ValidLines·SourceLink·DaysToDue는 명세 보충",
+  "label": {
+    "ko": "인정시험 계획",
+    "en_US": "Qualification Plan",
+    "zh_CN": "认定试验计划"
+  },
+  "plural": {
+    "ko": "인정시험 계획",
+    "en_US": "Qualification Plans",
+    "zh_CN": "认定试验计划"
+  },
+  "nameField": {
+    "label": {
+      "ko": "제목",
+      "en_US": "Title",
+      "zh_CN": "标题"
+    }
+  },
+  "sharingModel": "Private",
+  "externalSharingModel": "Private",
+  "enableHistory": true,
+  "sharingReasons": [
+    {
+      "name": "CMN_Plant__c",
+      "label": {
+        "ko": "공장 공유",
+        "en_US": "Plant Sharing",
+        "zh_CN": "工厂共享"
+      }
+    },
+    {
+      "name": "CMN_Approval__c",
+      "label": {
+        "ko": "결재자 공유",
+        "en_US": "Approver Sharing",
+        "zh_CN": "审批人共享"
+      }
+    }
+  ],
+  "tab": {
+    "motif": "Custom39: Telescope"
+  },
+  "recordTypes": [
+    {
+      "name": "PART",
+      "label": {
+        "ko": "부품",
+        "en_US": "Part",
+        "zh_CN": "零件"
+      },
+      "description": "협력사 부품 인정시험"
+    },
+    {
+      "name": "PRODUCT",
+      "label": {
+        "ko": "제품",
+        "en_US": "Product",
+        "zh_CN": "产品"
+      },
+      "description": "완제품 인정시험"
+    }
+  ],
+  "fields": [
+    {
+      "name": "RecordNo__c",
+      "type": "Text",
+      "label": {
+        "ko": "계획 번호",
+        "en_US": "Plan No",
+        "zh_CN": "计划编号"
+      },
+      "length": 40,
+      "externalId": true,
+      "unique": true,
+      "caseSensitive": false,
+      "serviceOnly": true,
+      "description": "QTP-{PLANT}-{YYYY}-{SEQ:5}(ARC-003)"
+    },
+    {
+      "name": "Item__c",
+      "type": "Lookup",
+      "label": {
+        "ko": "품번",
+        "en_US": "Item",
+        "zh_CN": "物料"
+      },
+      "referenceTo": "CMN_Item__c",
+      "relationshipName": "QualPlans",
+      "required": true,
+      "deleteConstraint": "Restrict"
+    },
+    {
+      "name": "Supplier__c",
+      "type": "Lookup",
+      "label": {
+        "ko": "협력사",
+        "en_US": "Supplier",
+        "zh_CN": "供应商"
+      },
+      "referenceTo": "Account",
+      "relationshipName": "SupplierQualPlans",
+      "lookupFilter": {
+        "items": [
+          {
+            "field": "Account.RecordTypeId",
+            "operation": "equals",
+            "value": "협력사"
+          }
+        ],
+        "isOptional": false
+      },
+      "description": "PART면 필수"
+    },
+    {
+      "name": "Customer__c",
+      "type": "Lookup",
+      "label": {
+        "ko": "고객",
+        "en_US": "Customer",
+        "zh_CN": "客户"
+      },
+      "referenceTo": "Account",
+      "relationshipName": "CustomerQualPlans",
+      "lookupFilter": {
+        "items": [
+          {
+            "field": "Account.RecordTypeId",
+            "operation": "equals",
+            "value": "고객"
+          }
+        ],
+        "isOptional": false
+      },
+      "description": "PRODUCT면 필수"
+    },
+    {
+      "name": "Vehicle__c",
+      "type": "Lookup",
+      "label": {
+        "ko": "차종",
+        "en_US": "Vehicle",
+        "zh_CN": "车型"
+      },
+      "referenceTo": "CMN_Vehicle__c",
+      "relationshipName": "QualPlans"
+    },
+    {
+      "name": "Plant__c",
+      "type": "Lookup",
+      "label": {
+        "ko": "공장",
+        "en_US": "Plant",
+        "zh_CN": "工厂"
+      },
+      "referenceTo": "CMN_Plant__c",
+      "relationshipName": "QualPlans",
+      "required": true,
+      "deleteConstraint": "Restrict"
+    },
+    {
+      "name": "TriggerType__c",
+      "type": "Picklist",
+      "label": {
+        "ko": "트리거",
+        "en_US": "Trigger",
+        "zh_CN": "触发类型"
+      },
+      "values": [
+        {
+          "api": "NEW_DEV",
+          "label": {
+            "ko": "신규 개발",
+            "en_US": "New Development",
+            "zh_CN": "新开发"
+          }
+        },
+        {
+          "api": "SPEC_CHANGE",
+          "label": {
+            "ko": "사양 변경",
+            "en_US": "Spec Change",
+            "zh_CN": "规格变更"
+          }
+        },
+        {
+          "api": "CHANGE_4M",
+          "label": {
+            "ko": "4M 변경",
+            "en_US": "4M Change",
+            "zh_CN": "4M 变更"
+          }
+        },
+        {
+          "api": "PERIODIC",
+          "label": {
+            "ko": "정기 시험",
+            "en_US": "Periodic",
+            "zh_CN": "定期试验"
+          }
+        }
+      ],
+      "required": true
+    },
+    {
+      "name": "ChangeTypes__c",
+      "type": "Text",
+      "label": {
+        "ko": "4M 변경 유형",
+        "en_US": "Change Types",
+        "zh_CN": "4M 变更类型"
+      },
+      "length": 255,
+      "description": "명세 Text(1000) → 255(플랫폼 최대)"
+    },
+    {
+      "name": "Phase__c",
+      "type": "Picklist",
+      "label": {
+        "ko": "단계",
+        "en_US": "Phase",
+        "zh_CN": "阶段"
+      },
+      "values": [
+        {
+          "api": "DV",
+          "label": {
+            "ko": "DV 설계 검증",
+            "en_US": "DV",
+            "zh_CN": "DV 设计验证"
+          }
+        },
+        {
+          "api": "PV",
+          "label": {
+            "ko": "PV 생산 검증",
+            "en_US": "PV",
+            "zh_CN": "PV 生产验证"
+          }
+        },
+        {
+          "api": "CHANGE",
+          "label": {
+            "ko": "변경 검증",
+            "en_US": "Change",
+            "zh_CN": "变更验证"
+          }
+        },
+        {
+          "api": "REQUAL",
+          "label": {
+            "ko": "재인정",
+            "en_US": "Requalification",
+            "zh_CN": "再认定"
+          }
+        }
+      ],
+      "required": true
+    },
+    {
+      "name": "Standard__c",
+      "type": "Lookup",
+      "label": {
+        "ko": "적용 기준",
+        "en_US": "Applied Standard",
+        "zh_CN": "适用标准"
+      },
+      "referenceTo": "QMS_TestStandard__c",
+      "relationshipName": "QualPlans"
+    },
+    {
+      "name": "StandardVersion__c",
+      "type": "Number",
+      "label": {
+        "ko": "기준 버전",
+        "en_US": "Standard Version",
+        "zh_CN": "标准版本"
+      },
+      "precision": 3,
+      "scale": 0
+    },
+    {
+      "name": "SourceRecordId__c",
+      "type": "Text",
+      "label": {
+        "ko": "원천 레코드 Id",
+        "en_US": "Source Record Id",
+        "zh_CN": "来源记录 Id"
+      },
+      "length": 18
+    },
+    {
+      "name": "SourceObject__c",
+      "type": "Text",
+      "label": {
+        "ko": "원천 객체",
+        "en_US": "Source Object",
+        "zh_CN": "来源对象"
+      },
+      "length": 80
+    },
+    {
+      "name": "SourceRecordNo__c",
+      "type": "Text",
+      "label": {
+        "ko": "원천 번호",
+        "en_US": "Source No",
+        "zh_CN": "来源编号"
+      },
+      "length": 40
+    },
+    {
+      "name": "SourceLink__c",
+      "type": "Formula",
+      "label": {
+        "ko": "원천",
+        "en_US": "Source",
+        "zh_CN": "来源"
+      },
+      "returnType": "Text",
+      "formula": "IF(ISBLANK(SourceRecordId__c), \"\", HYPERLINK(\"/\" & SourceRecordId__c, BLANKVALUE(SourceRecordNo__c, SourceObject__c), \"_self\"))"
+    },
+    {
+      "name": "TargetDate__c",
+      "type": "Date",
+      "label": {
+        "ko": "판정 목표일",
+        "en_US": "Target Date",
+        "zh_CN": "目标日期"
+      },
+      "required": true,
+      "trackHistory": true
+    },
+    {
+      "name": "DaysToDue__c",
+      "type": "Formula",
+      "label": {
+        "ko": "남은 일수",
+        "en_US": "Days to Due",
+        "zh_CN": "剩余天数"
+      },
+      "returnType": "Number",
+      "precision": 6,
+      "scale": 0,
+      "treatBlanksAs": "BlankAsBlank",
+      "formula": "TargetDate__c - TODAY()"
+    },
+    {
+      "name": "ResponsibleDept__c",
+      "type": "Lookup",
+      "label": {
+        "ko": "주관 부서",
+        "en_US": "Responsible Dept",
+        "zh_CN": "主管部门"
+      },
+      "referenceTo": "CMN_Department__c",
+      "relationshipName": "QualPlans",
+      "required": true,
+      "deleteConstraint": "Restrict"
+    },
+    {
+      "name": "Status__c",
+      "type": "Picklist",
+      "label": {
+        "ko": "상태",
+        "en_US": "Status",
+        "zh_CN": "状态"
+      },
+      "values": [
+        {
+          "api": "DRAFT",
+          "label": {
+            "ko": "작성 중",
+            "en_US": "Draft",
+            "zh_CN": "草稿"
+          }
+        },
+        {
+          "api": "PLAN_APPROVAL",
+          "label": {
+            "ko": "계획 결재",
+            "en_US": "Plan Approval",
+            "zh_CN": "计划审批"
+          }
+        },
+        {
+          "api": "PLANNED",
+          "label": {
+            "ko": "계획 확정",
+            "en_US": "Planned",
+            "zh_CN": "已计划"
+          }
+        },
+        {
+          "api": "IN_TEST",
+          "label": {
+            "ko": "시험 중",
+            "en_US": "In Test",
+            "zh_CN": "试验中"
+          }
+        },
+        {
+          "api": "JUDGMENT_APPROVAL",
+          "label": {
+            "ko": "판정 결재",
+            "en_US": "Judgment Approval",
+            "zh_CN": "判定审批"
+          }
+        },
+        {
+          "api": "CLOSED",
+          "label": {
+            "ko": "종결",
+            "en_US": "Closed",
+            "zh_CN": "已关闭"
+          }
+        },
+        {
+          "api": "CANCELLED",
+          "label": {
+            "ko": "취소",
+            "en_US": "Cancelled",
+            "zh_CN": "已取消"
+          }
+        }
+      ],
+      "required": true,
+      "default": "DRAFT",
+      "serviceOnly": true,
+      "trackHistory": true
+    },
+    {
+      "name": "FinalResult__c",
+      "type": "Picklist",
+      "label": {
+        "ko": "종합 판정",
+        "en_US": "Final Result",
+        "zh_CN": "综合判定"
+      },
+      "values": [
+        {
+          "api": "PASS",
+          "label": {
+            "ko": "양산 적용 가능",
+            "en_US": "Pass",
+            "zh_CN": "合格"
+          }
+        },
+        {
+          "api": "CONDITIONAL",
+          "label": {
+            "ko": "조건부",
+            "en_US": "Conditional",
+            "zh_CN": "有条件"
+          }
+        },
+        {
+          "api": "FAIL",
+          "label": {
+            "ko": "불합격",
+            "en_US": "Fail",
+            "zh_CN": "不合格"
+          }
+        }
+      ],
+      "serviceOnly": true,
+      "trackHistory": true
+    },
+    {
+      "name": "ResultCondition__c",
+      "type": "LongTextArea",
+      "label": {
+        "ko": "조건부 승인 조건",
+        "en_US": "Result Condition",
+        "zh_CN": "有条件批准条件"
+      },
+      "length": 4000,
+      "visibleLines": 3
+    },
+    {
+      "name": "CancelReason__c",
+      "type": "Text",
+      "label": {
+        "ko": "취소 사유",
+        "en_US": "Cancel Reason",
+        "zh_CN": "取消原因"
+      },
+      "length": 255
+    },
+    {
+      "name": "ClosedAt__c",
+      "type": "DateTime",
+      "label": {
+        "ko": "종결 시각",
+        "en_US": "Closed At",
+        "zh_CN": "关闭时间"
+      },
+      "serviceOnly": true,
+      "description": "DVQ-008 BR-6(명세 보충: DVQ-003 필드 표에 없음)"
+    },
+    {
+      "name": "MandatoryLines__c",
+      "type": "Summary",
+      "label": {
+        "ko": "필수 라인",
+        "en_US": "Mandatory Lines",
+        "zh_CN": "必做明细"
+      },
+      "summaryForeignKey": "QMS_QualPlanLine__c.Plan__c",
+      "summaryOperation": "count",
+      "summaryFilterItems": [
+        {
+          "field": "QMS_QualPlanLine__c.IsMandatory__c",
+          "operation": "equals",
+          "value": "True"
+        }
+      ]
+    },
+    {
+      "name": "DoneLines__c",
+      "type": "Summary",
+      "label": {
+        "ko": "완료 라인",
+        "en_US": "Done Lines",
+        "zh_CN": "完成明细"
+      },
+      "summaryForeignKey": "QMS_QualPlanLine__c.Plan__c",
+      "summaryOperation": "count",
+      "summaryFilterItems": [
+        {
+          "field": "QMS_QualPlanLine__c.LineStatus__c",
+          "operation": "equals",
+          "value": "DONE"
+        }
+      ]
+    },
+    {
+      "name": "FailLines__c",
+      "type": "Summary",
+      "label": {
+        "ko": "불합격 라인",
+        "en_US": "Failed Lines",
+        "zh_CN": "不合格明细"
+      },
+      "summaryForeignKey": "QMS_QualPlanLine__c.Plan__c",
+      "summaryOperation": "count",
+      "summaryFilterItems": [
+        {
+          "field": "QMS_QualPlanLine__c.Result__c",
+          "operation": "equals",
+          "value": "FAIL"
+        }
+      ]
+    },
+    {
+      "name": "ValidLines__c",
+      "type": "Summary",
+      "label": {
+        "ko": "유효 라인",
+        "en_US": "Valid Lines",
+        "zh_CN": "有效明细"
+      },
+      "summaryForeignKey": "QMS_QualPlanLine__c.Plan__c",
+      "summaryOperation": "count",
+      "summaryFilterItems": [
+        {
+          "field": "QMS_QualPlanLine__c.LineStatus__c",
+          "operation": "notEqual",
+          "value": "WAIVED, CANCELLED"
+        }
+      ],
+      "description": "진척률 분모(명세 보충)"
+    },
+    {
+      "name": "AtRiskLines__c",
+      "type": "Summary",
+      "label": {
+        "ko": "위험 라인",
+        "en_US": "At-Risk Lines",
+        "zh_CN": "风险明细"
+      },
+      "summaryForeignKey": "QMS_QualPlanLine__c.Plan__c",
+      "summaryOperation": "count",
+      "summaryFilterItems": [
+        {
+          "field": "QMS_QualPlanLine__c.IsAtRisk__c",
+          "operation": "equals",
+          "value": "True"
+        }
+      ],
+      "description": "DVQ-006"
+    },
+    {
+      "name": "Progress__c",
+      "type": "Formula",
+      "label": {
+        "ko": "진척률",
+        "en_US": "Progress",
+        "zh_CN": "进度"
+      },
+      "returnType": "Percent",
+      "precision": 5,
+      "scale": 0,
+      "formula": "IF(ValidLines__c > 0, DoneLines__c / ValidLines__c, 0)"
+    },
+    {
+      "name": "IsOverdue__c",
+      "type": "Formula",
+      "label": {
+        "ko": "기한 경과",
+        "en_US": "Overdue",
+        "zh_CN": "已逾期"
+      },
+      "returnType": "Checkbox",
+      "formula": "AND(NOT(ISPICKVAL(Status__c, 'CLOSED')), NOT(ISPICKVAL(Status__c, 'CANCELLED')), TargetDate__c < TODAY())"
+    }
+  ],
+  "listViews": [
+    {
+      "name": "QMS_OpenQualPlans",
+      "label": "진행 중",
+      "columns": [
+        "RecordNo__c",
+        "NAME",
+        "Item__c",
+        "Plant__c",
+        "Phase__c",
+        "Status__c",
+        "Progress__c",
+        "TargetDate__c"
+      ],
+      "filters": [
+        {
+          "field": "Status__c",
+          "operation": "notEqual",
+          "value": "CLOSED,CANCELLED"
+        }
+      ]
+    },
+    {
+      "name": "QMS_OverdueQualPlans",
+      "label": "기한 경과",
+      "columns": [
+        "RecordNo__c",
+        "NAME",
+        "Item__c",
+        "Plant__c",
+        "Status__c",
+        "TargetDate__c",
+        "AtRiskLines__c"
+      ],
+      "filters": [
+        {
+          "field": "IsOverdue__c",
+          "operation": "equals",
+          "value": "1"
+        }
+      ]
+    },
+    {
+      "name": "QMS_MyQualPlans",
+      "label": "내 계획",
+      "filterScope": "Mine",
+      "columns": [
+        "RecordNo__c",
+        "NAME",
+        "Item__c",
+        "Status__c",
+        "Progress__c",
+        "TargetDate__c"
+      ]
+    },
+    {
+      "name": "QMS_AllQualPlans",
+      "label": "전체",
+      "columns": [
+        "RecordNo__c",
+        "NAME",
+        "Item__c",
+        "Plant__c",
+        "TriggerType__c",
+        "Phase__c",
+        "Status__c",
+        "FinalResult__c"
+      ]
+    }
+  ]
+}

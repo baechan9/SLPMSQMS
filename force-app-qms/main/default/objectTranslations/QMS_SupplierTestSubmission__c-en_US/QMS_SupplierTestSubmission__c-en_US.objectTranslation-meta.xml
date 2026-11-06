@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Supplier Test Submission</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Supplier Test Submissions</value>
+    </caseValues>
+    <nameFieldLabel>Submission No</nameFieldLabel>
+    <startsWith>Consonant</startsWith>
+    <sharingReasons>
+        <label>Plant Sharing</label>
+        <name>CMN_Plant__c</name>
+    </sharingReasons>
+    <sharingReasons>
+        <label>Supplier Sharing</label>
+        <name>CMN_Supplier__c</name>
+    </sharingReasons>
+</CustomObjectTranslation>

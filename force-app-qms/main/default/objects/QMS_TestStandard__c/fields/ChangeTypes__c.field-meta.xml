@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ChangeTypes__c</fullName>
+    <description>CHANGE_TYPE 코드 경로(쉼표 구분). 4M이면 필수 명세 Text(1000) → 255(플랫폼 최대)</description>
+    <label>4M 변경 유형</label>
+    <length>255</length>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+</CustomField>

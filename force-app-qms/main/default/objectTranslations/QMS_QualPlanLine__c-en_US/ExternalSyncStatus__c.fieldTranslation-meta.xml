@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label>External Sync Status</label>
+    <name>ExternalSyncStatus__c</name>
+    <picklistValues>
+        <masterLabel>대기</masterLabel>
+        <translation>Pending</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>전송</masterLabel>
+        <translation>Sent</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>접수</masterLabel>
+        <translation>Accepted</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>실패</masterLabel>
+        <translation>Failed</translation>
+    </picklistValues>
+</CustomFieldTranslation>

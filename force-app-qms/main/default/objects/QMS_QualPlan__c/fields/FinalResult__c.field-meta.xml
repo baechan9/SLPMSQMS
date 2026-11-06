@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>FinalResult__c</fullName>
+    <label>종합 판정</label>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>PASS</fullName>
+                <default>false</default>
+                <label>양산 적용 가능</label>
+            </value>
+            <value>
+                <fullName>CONDITIONAL</fullName>
+                <default>false</default>
+                <label>조건부</label>
+            </value>
+            <value>
+                <fullName>FAIL</fullName>
+                <default>false</default>
+                <label>불합격</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,244 @@
+{
+  "wi": "QMS-02-DVQ-010",
+  "object": "QMS_SupplierTestSubmission__c",
+  "package": "force-app-qms",
+  "description": "협력사 시험 성적서 제출(DVQ-010). 협력사 포털에서 작성·제출하고 SQE가 승인·반려한다. 계획은 협력사에 공유하지 않으므로 라인 정보는 스냅숏(LineSnapshotJson, 명세 보충 A1-03)으로 보인다",
+  "label": {
+    "ko": "협력사 시험 제출",
+    "en_US": "Supplier Test Submission",
+    "zh_CN": "供应商试验提交"
+  },
+  "plural": {
+    "ko": "협력사 시험 제출",
+    "en_US": "Supplier Test Submissions",
+    "zh_CN": "供应商试验提交"
+  },
+  "nameField": {
+    "type": "AutoNumber",
+    "format": "STS-{000000}",
+    "label": {
+      "ko": "제출 번호",
+      "en_US": "Submission No",
+      "zh_CN": "提交编号"
+    }
+  },
+  "sharingModel": "Private",
+  "externalSharingModel": "Private",
+  "sharingReasons": [
+    {
+      "name": "CMN_Plant__c",
+      "label": {
+        "ko": "공장 공유",
+        "en_US": "Plant Sharing",
+        "zh_CN": "工厂共享"
+      }
+    },
+    {
+      "name": "CMN_Supplier__c",
+      "label": {
+        "ko": "협력사 공유",
+        "en_US": "Supplier Sharing",
+        "zh_CN": "供应商共享"
+      }
+    }
+  ],
+  "fields": [
+    {
+      "name": "Line__c",
+      "type": "Lookup",
+      "label": {
+        "ko": "인정시험 라인",
+        "en_US": "Qualification Line",
+        "zh_CN": "认定试验明细"
+      },
+      "referenceTo": "QMS_QualPlanLine__c",
+      "relationshipName": "SupplierSubmissions",
+      "required": true,
+      "deleteConstraint": "Restrict"
+    },
+    {
+      "name": "Supplier__c",
+      "type": "Lookup",
+      "label": {
+        "ko": "협력사",
+        "en_US": "Supplier",
+        "zh_CN": "供应商"
+      },
+      "referenceTo": "Account",
+      "relationshipName": "QmsSupplierTestSubmissions",
+      "required": true,
+      "lookupFilter": {
+        "items": [
+          {
+            "field": "Account.RecordTypeId",
+            "operation": "equals",
+            "value": "협력사"
+          }
+        ],
+        "isOptional": false
+      },
+      "deleteConstraint": "Restrict"
+    },
+    {
+      "name": "Plant__c",
+      "type": "Lookup",
+      "label": {
+        "ko": "공장",
+        "en_US": "Plant",
+        "zh_CN": "工厂"
+      },
+      "referenceTo": "CMN_Plant__c",
+      "relationshipName": "SupplierTestSubmissions",
+      "required": true,
+      "deleteConstraint": "Restrict"
+    },
+    {
+      "name": "Status__c",
+      "type": "Picklist",
+      "label": {
+        "ko": "상태",
+        "en_US": "Status",
+        "zh_CN": "状态"
+      },
+      "values": [
+        {
+          "api": "DRAFT",
+          "label": {
+            "ko": "작성 중",
+            "en_US": "Draft",
+            "zh_CN": "草稿"
+          }
+        },
+        {
+          "api": "SUBMITTED",
+          "label": {
+            "ko": "제출",
+            "en_US": "Submitted",
+            "zh_CN": "已提交"
+          }
+        },
+        {
+          "api": "ACCEPTED",
+          "label": {
+            "ko": "승인",
+            "en_US": "Accepted",
+            "zh_CN": "已接受"
+          }
+        },
+        {
+          "api": "RETURNED",
+          "label": {
+            "ko": "반려",
+            "en_US": "Returned",
+            "zh_CN": "已退回"
+          }
+        }
+      ],
+      "required": true,
+      "default": "DRAFT",
+      "serviceOnly": true
+    },
+    {
+      "name": "ActualStart__c",
+      "type": "Date",
+      "label": {
+        "ko": "시험 시작",
+        "en_US": "Actual Start",
+        "zh_CN": "试验开始"
+      }
+    },
+    {
+      "name": "ActualEnd__c",
+      "type": "Date",
+      "label": {
+        "ko": "시험 종료",
+        "en_US": "Actual End",
+        "zh_CN": "试验结束"
+      }
+    },
+    {
+      "name": "SampleResultsJson__c",
+      "type": "LongTextArea",
+      "label": {
+        "ko": "시료 결과",
+        "en_US": "Sample Results",
+        "zh_CN": "样品结果"
+      },
+      "length": 131072,
+      "visibleLines": 3,
+      "description": "[{sampleNo, value, visualResult, remark}]"
+    },
+    {
+      "name": "ProposedResult__c",
+      "type": "Picklist",
+      "label": {
+        "ko": "협력사 판정",
+        "en_US": "Proposed Result",
+        "zh_CN": "供应商判定"
+      },
+      "values": [
+        {
+          "api": "PASS",
+          "label": {
+            "ko": "합격",
+            "en_US": "Pass",
+            "zh_CN": "合格"
+          }
+        },
+        {
+          "api": "FAIL",
+          "label": {
+            "ko": "불합격",
+            "en_US": "Fail",
+            "zh_CN": "不合格"
+          }
+        },
+        {
+          "api": "CONDITIONAL",
+          "label": {
+            "ko": "조건부",
+            "en_US": "Conditional",
+            "zh_CN": "有条件"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ReturnComment__c",
+      "type": "LongTextArea",
+      "label": {
+        "ko": "반려 사유",
+        "en_US": "Return Comment",
+        "zh_CN": "退回原因"
+      },
+      "length": 4000,
+      "visibleLines": 3
+    },
+    {
+      "name": "Round__c",
+      "type": "Number",
+      "label": {
+        "ko": "제출 차수",
+        "en_US": "Round",
+        "zh_CN": "提交次数"
+      },
+      "precision": 2,
+      "scale": 0,
+      "required": true,
+      "default": "1"
+    },
+    {
+      "name": "LineSnapshotJson__c",
+      "type": "LongTextArea",
+      "label": {
+        "ko": "시험 정보",
+        "en_US": "Test Information",
+        "zh_CN": "试验信息"
+      },
+      "length": 32768,
+      "visibleLines": 3,
+      "serviceOnly": true,
+      "description": "라인 스냅숏(시험명·조건·기준·시료 수·일정) — 협력사가 계획을 못 보므로(명세 보충)"
+    }
+  ]
+}

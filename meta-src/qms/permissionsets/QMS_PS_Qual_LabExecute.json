@@ -1,0 +1,46 @@
+{
+  "permissionSet": {
+    "wi": "QMS-02-DVQ-003",
+    "name": "QMS_PS_Qual_LabExecute",
+    "package": "force-app-qms",
+    "label": "QMS Qualification Lab Execute",
+    "description": "시험실 실행: 라인 실행 필드(접수·착수·일자·결과·성적서·시료 결과)만 편집(DVQ-003 BR-6, DVQ-006). LabTester PSG",
+    "objects": {
+      "QMS_TestItem__c": "read",
+      "QMS_TestStandard__c": "read",
+      "QMS_TestStandardLine__c": "read",
+      "QMS_QualPlan__c": "read",
+      "QMS_QualPlanLine__c": "edit",
+      "QMS_QualSampleResult__c": "edit-delete",
+      "QMS_SupplierTestSubmission__c": "read"
+    },
+    "tabs": ["QMS_QualPlan__c"],
+    "readOnlyFields": {
+      "QMS_QualPlanLine__c": [
+        "TestItem__c",
+        "TestCode__c",
+        "TestName__c",
+        "TestItemRevision__c",
+        "MethodStandard__c",
+        "Condition__c",
+        "JudgmentType__c",
+        "Unit__c",
+        "LSL__c",
+        "USL__c",
+        "Criteria__c",
+        "IsMandatory__c",
+        "Executor__c",
+        "ExecutorDept__c",
+        "ExternalLabName__c",
+        "ExecutionSystem__c",
+        "PlannedStart__c",
+        "PlannedEnd__c",
+        "WaiverReason__c",
+        "RetestOf__c",
+        "RetestNo__c",
+        "Sequence__c",
+        "ExternalKey__c"
+      ]
+    }
+  }
+}

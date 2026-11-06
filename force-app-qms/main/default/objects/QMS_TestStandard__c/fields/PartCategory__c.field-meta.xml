@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PartCategory__c</fullName>
+    <description>PART 전용, MDM-004와 같은 값</description>
+    <label>부품 분류</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>LENS</fullName>
+                <default>false</default>
+                <label>렌즈</label>
+            </value>
+            <value>
+                <fullName>HOUSING</fullName>
+                <default>false</default>
+                <label>하우징</label>
+            </value>
+            <value>
+                <fullName>LED_MODULE</fullName>
+                <default>false</default>
+                <label>LED 모듈</label>
+            </value>
+            <value>
+                <fullName>REFLECTOR</fullName>
+                <default>false</default>
+                <label>리플렉터</label>
+            </value>
+            <value>
+                <fullName>BEZEL</fullName>
+                <default>false</default>
+                <label>베젤</label>
+            </value>
+            <value>
+                <fullName>CONNECTOR</fullName>
+                <default>false</default>
+                <label>커넥터</label>
+            </value>
+            <value>
+                <fullName>PCB</fullName>
+                <default>false</default>
+                <label>PCB</label>
+            </value>
+            <value>
+                <fullName>ACTUATOR</fullName>
+                <default>false</default>
+                <label>액추에이터</label>
+            </value>
+            <value>
+                <fullName>ETC</fullName>
+                <default>false</default>
+                <label>기타</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

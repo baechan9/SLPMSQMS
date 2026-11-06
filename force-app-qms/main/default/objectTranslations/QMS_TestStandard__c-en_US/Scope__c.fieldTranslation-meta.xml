@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label>Scope</label>
+    <name>Scope__c</name>
+    <picklistValues>
+        <masterLabel>부품</masterLabel>
+        <translation>Part</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>제품</masterLabel>
+        <translation>Product</translation>
+    </picklistValues>
+</CustomFieldTranslation>

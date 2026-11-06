@@ -45,7 +45,9 @@
       "CMN_PS_ScreenGuide_Admin",
       "CMN_PS_AiRecommendation_Admin",
       "QMS_PS_Menu_Read",
-      "CMN_PS_UiFramework_User"
+      "CMN_PS_UiFramework_User",
+      "QMS_PS_Qual_Read",
+      "QMS_PS_TestLibrary_Admin"
     ]
   }
 }
