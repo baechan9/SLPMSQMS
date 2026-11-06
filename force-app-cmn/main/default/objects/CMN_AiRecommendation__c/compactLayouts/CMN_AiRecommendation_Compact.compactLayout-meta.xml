@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_AiRecommendation_Compact</fullName>
+    <fields>Name</fields>
+    <fields>UseCase__c</fields>
+    <fields>Status__c</fields>
+    <fields>Rank__c</fields>
+    <fields>Score__c</fields>
+    <fields>SourceLink__c</fields>
+    <fields>IsHit__c</fields>
+    <label>AI Recommendation Compact</label>
+</CompactLayout>

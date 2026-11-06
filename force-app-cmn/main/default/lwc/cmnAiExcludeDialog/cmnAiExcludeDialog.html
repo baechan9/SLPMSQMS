@@ -1,0 +1,33 @@
+<template>
+  <lightning-modal-header label={labels.title}></lightning-modal-header>
+  <lightning-modal-body>
+    <p class="slds-text-body_small slds-m-bottom_small target">
+      {recommendationTitle}
+    </p>
+    <c-cmn-code-picker
+      group-code={reasonGroup}
+      label={labels.reason}
+      required
+      onchange={handleReason}
+      class="reason"
+    ></c-cmn-code-picker>
+    <template lwc:if={errorMessage}>
+      <p class="slds-text-color_error slds-m-top_x-small" role="alert">
+        {errorMessage}
+      </p>
+    </template>
+  </lightning-modal-body>
+  <lightning-modal-footer>
+    <lightning-button
+      label={labels.cancel}
+      onclick={handleCancel}
+      class="cancel"
+    ></lightning-button>
+    <lightning-button
+      variant="brand"
+      label={labels.confirm}
+      onclick={handleConfirm}
+      class="confirm slds-m-left_x-small"
+    ></lightning-button>
+  </lightning-modal-footer>
+</template>

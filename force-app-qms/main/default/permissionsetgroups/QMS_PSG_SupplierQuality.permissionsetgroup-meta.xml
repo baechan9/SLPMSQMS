@@ -3,6 +3,7 @@
     <description>협력사 품질(SQE): 수입검사, 부품 NCR, 협력사 4M·Audit(CMN-00-SEC-001)</description>
     <hasActivationRequired>false</hasActivationRequired>
     <label>QMS 협력사 품질(SQE)</label>
+    <permissionSets>CMN_PS_AiRecommendation_User</permissionSets>
     <permissionSets>CMN_PS_AppQmsField_Read</permissionSets>
     <permissionSets>CMN_PS_AppQmsQuality_Read</permissionSets>
     <permissionSets>CMN_PS_AppQms_Read</permissionSets>

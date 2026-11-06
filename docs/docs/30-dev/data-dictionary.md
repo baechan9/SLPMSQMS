@@ -10,17 +10,18 @@
 
 | 구분 | 객체 수 | 커스텀 필드 수 |
 | --- | --- | --- |
-| 커스텀 객체 | 40 | 354 |
+| 커스텀 객체 | 41 | 373 |
 | 표준 객체 확장 | 2 | 22 |
 | 커스텀 메타데이터 유형(설정) | 25 | 156 |
 | Platform Event | 5 | 23 |
-| 합계 | 72 | 555 |
+| 합계 | 73 | 574 |
 
 ## 커스텀 객체
 
 | 객체 | 라벨(ko) | Label(en) | 필드 수 | 소유 WI |
 | --- | --- | --- | --- | --- |
 | [CMN_ActionItem__c](#cmn_actionitem__c) | 조치 항목 | Action Item | 10 | CMN-00-MTG-001 |
+| [CMN_AiRecommendation__c](#cmn_airecommendation__c) | AI 추천 | AI Recommendation | 19 | CMN-00-AI-004 |
 | [CMN_ApprovalRequest__c](#cmn_approvalrequest__c) | 결재 요청 | Approval Request | 14 | CMN-00-APV-001 |
 | [CMN_ApprovalStep__c](#cmn_approvalstep__c) | 결재 단계 | Approval Step | 14 | CMN-00-APV-001 |
 | [CMN_ApprovalTemplateStep__c](#cmn_approvaltemplatestep__c) | 템플릿 단계 | Template Step | 9 | CMN-00-APV-002 |
@@ -77,6 +78,32 @@
 | SourceKey__c | 원천 세부 키 | Source Key | Text | 80 |  | 원천 레코드 안의 세부 위치(체크리스트 질문 키 등, UX-009 BR-5). SourceRecordId__c와 함께 쓴다 |
 | SourceRecordId__c | 원천 업무 | Source Record | Text | 18 |  |  |
 | Status__c | 상태 | Status | Picklist | OPEN, DONE, CANCELLED | 필수 |  |
+
+### CMN_AiRecommendation__c
+
+AI 추천 / AI Recommendation. AI 추천 기록(AI-004). 무엇을 추천했고 사용자가 무엇을 채택했고 최종 확정이 무엇이었는지 남긴다(정확도 측정 근거). 기록·결정·확정은 CMN_AiRecommendationService만 한다(사람 확정 원칙: 추천은 업무 필드에 직접 쓰지 않는다). 공장은 원천 레코드에서 가져와 공장 공유(SEC-002)를 따른다
+
+| API | 라벨(ko) | Label(en) | 타입 | 값/길이/참조 | 제약 | 설명 |
+| --- | --- | --- | --- | --- | --- | --- |
+| ContentJson__c | 추천 내용 | Content JSON | LongTextArea | 32768 |  | 구조화 내용. 기본 표시 키: title, text, items[{label,value}]. UseCase 렌더러가 확장 |
+| DecidedAt__c | 결정 시각 | Decided At | DateTime |  |  |  |
+| DecidedBy__c | 결정자 | Decided By | Lookup | → User |  |  |
+| ExcludeReason__c | 제외 사유 | Exclude Reason | Lookup | → CMN_Code__c |  | 공통 코드 그룹 AI_EXCLUDE_REASON. 제외면 필수(AC-2) |
+| FinalOutcomeJson__c | 확정 결과 | Final Outcome | LongTextArea | 32768 |  | 업무 확정 시 실제 결과(예: 확정 원인 코드) |
+| FinalizedAt__c | 확정 평가 시각 | Finalized At | DateTime |  |  | Vol.8 변경 요청: 적중 평가 시각 |
+| IsHit__c | 적중 | Hit | Checkbox |  |  | 확정 결과와 일치(업무 WI의 CMN_AiHitRule) |
+| ModelInfo__c | 모델 | Model | Text | 80 | 필수 |  |
+| Plant__c | 공장 | Plant | Lookup | → CMN_Plant__c |  | 원천 레코드의 Plant__c(있을 때). 공장 공유 기준(명세 보충) |
+| PromptVersion__c | 프롬프트 버전 | Prompt Version | Text | 40 | 필수 |  |
+| Rank__c | 순위 | Rank | Number | 3,0 | 필수 |  |
+| Rationale__c | 근거 설명 | Rationale | LongTextArea | 32768 |  |  |
+| Score__c | 신뢰 점수 | Score | Number | 5,4 |  | 유사도·신뢰 점수 0~1 |
+| SourceLink__c | 대상 레코드 | Source Record | Formula(Text) |  |  | 대상 레코드 바로 가기(명세 보충) |
+| SourceObject__c | 대상 객체 | Source Object | Text | 80 | 필수 |  |
+| SourceRecordId__c | 대상 레코드 Id | Source Record Id | Text | 18 | 필수 외부 키 | 추천 대상 업무 레코드(다른 메뉴 객체라 Lookup이 아닌 Id 텍스트). 외부 ID = 조회 인덱스 |
+| SourceRefs__c | 근거 출처 | Source References | LongTextArea | 32768 |  | 근거 레코드·문서 목록 JSON [{id, label}] |
+| Status__c | 결정 상태 | Status | Picklist | PROPOSED, ADOPTED, MODIFIED, EXCLUDED, EXPIRED | 필수 |  |
+| UseCase__c | 추천 유형 | Use Case | Picklist | QMS_RCA, QMS_CAPA, QMS_8D_DRAFT, QMS_LELE, QMS_EW, QMS_COA_ANOMALY, QMS_4M_TEST, QMS_AUDIT_PREP, PMS_SCHEDULE, PMS_DELIVERABLE_DRAFT, PMS_EW | 필수 | QMS_COA_ANOMALY(Vol.3)·QMS_4M_TEST(Vol.6a)·QMS_AUDIT_PREP(Vol.8)은 review-pack 변경 요청 |
 
 ### CMN_ApprovalRequest__c
 

@@ -1,0 +1,21 @@
+{
+  "permissionSet": {
+    "wi": "CMN-00-AI-004",
+    "name": "CMN_PS_AiRecommendation_User",
+    "package": "force-app-cmn",
+    "label": "CMN AI Recommendation User",
+    "description": "AI 추천 보기·채택·제외(CMN-00-AI-004). 공장 공유로 보이는 추천만, 결정 필드는 서비스가 바꾼다(편집 권한은 레코드 편집 접근 판정용, 만들기·삭제 없음). 사내 페르소나 PSG 전체",
+    "objects": {
+      "CMN_AiRecommendation__c": {
+        "allowCreate": false,
+        "allowDelete": false,
+        "allowEdit": true,
+        "allowRead": true,
+        "modifyAllRecords": false,
+        "viewAllRecords": false
+      }
+    },
+    "classes": ["CMN_AiRecommendationController"],
+    "tabs": ["CMN_AiRecommendation__c"]
+  }
+}

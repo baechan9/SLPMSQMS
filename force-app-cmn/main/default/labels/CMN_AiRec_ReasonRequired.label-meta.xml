@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_AiRec_ReasonRequired</fullName>
+    <categories>CMN</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>제외 사유 필수(AC-2)</shortDescription>
+    <value>제외하려면 제외 사유를 고르세요.</value>
+</CustomLabel>

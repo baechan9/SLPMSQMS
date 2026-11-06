@@ -99,7 +99,7 @@
         "DefaultOpen__c": true,
         "RequiredPermission__c": null,
         "Config__c": null,
-        "IsActive__c": false
+        "IsActive__c": true
       }
     },
     {

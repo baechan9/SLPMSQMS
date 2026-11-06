@@ -3,6 +3,7 @@
     <description>신뢰성·광학 시험 담당과 분석실 분석자(CMN-00-SEC-001)</description>
     <hasActivationRequired>false</hasActivationRequired>
     <label>QMS 시험·분석 담당</label>
+    <permissionSets>CMN_PS_AiRecommendation_User</permissionSets>
     <permissionSets>CMN_PS_AppQmsField_Read</permissionSets>
     <permissionSets>CMN_PS_AppQmsQuality_Read</permissionSets>
     <permissionSets>CMN_PS_AppQms_Read</permissionSets>

@@ -1,0 +1,188 @@
+<template>
+  <template lwc:if={showSpinner}>
+    <div class="slds-is-relative slds-p-around_medium">
+      <lightning-spinner
+        alternative-text={labels.loading}
+        size="small"
+      ></lightning-spinner>
+    </div>
+  </template>
+  <template lwc:elseif={errorMessage}>
+    <p class="slds-text-color_error" role="alert" data-id="error">
+      {errorMessage}
+    </p>
+  </template>
+  <template lwc:elseif={isEmpty}>
+    <p class="slds-text-color_weak" data-id="empty">{labels.empty}</p>
+  </template>
+  <template lwc:else>
+    <ul class="slds-has-dividers_bottom-space">
+      <template for:each={cards} for:item="c">
+        <li key={c.id} class="slds-item card" data-id={c.id}>
+          <div class="slds-grid slds-grid_vertical-align-start">
+            <span
+              class="slds-badge slds-badge_inverse slds-m-right_x-small slds-shrink-none rank"
+              >{c.rankLabel}</span
+            >
+            <span class="slds-text-heading_small title">{c.title}</span>
+          </div>
+          <div class="slds-m-top_xx-small">
+            <span class={c.badgeClass} data-id="status">{c.statusLabel}</span>
+            <template lwc:if={c.scoreLabel}>
+              <span class="slds-badge slds-m-left_xx-small score"
+                >{c.scoreLabel}</span
+              >
+            </template>
+            <template lwc:if={c.hitText}>
+              <span class="slds-badge slds-m-left_xx-small hit"
+                >{c.hitText}</span
+              >
+            </template>
+            <span
+              class="slds-text-body_small slds-text-color_weak slds-m-left_xx-small use-case"
+              >{c.useCaseLabel}</span
+            >
+          </div>
+          <template lwc:if={hasRenderer}>
+            <div class="slds-m-top_x-small" data-id="renderer">
+              <lwc:component
+                lwc:is={rendererCtor}
+                content={c.contentJson}
+                recommendation={c}
+              ></lwc:component>
+            </div>
+          </template>
+          <template lwc:else>
+            <template lwc:if={c.text}>
+              <p class="slds-m-top_x-small text">{c.text}</p>
+            </template>
+            <template lwc:if={c.hasDetails}>
+              <dl class="slds-list_horizontal slds-wrap slds-m-top_x-small">
+                <template for:each={c.details} for:item="d">
+                  <dt
+                    key={d.labelKey}
+                    class="slds-item_label slds-text-color_weak slds-truncate"
+                    title={d.label}
+                  >
+                    {d.label}
+                  </dt>
+                  <dd
+                    key={d.valueKey}
+                    class="slds-item_detail slds-truncate"
+                    title={d.value}
+                  >
+                    {d.value}
+                  </dd>
+                </template>
+              </dl>
+            </template>
+          </template>
+          <template lwc:if={c.rationale}>
+            <button
+              class="slds-button slds-m-top_x-small"
+              data-id={c.id}
+              onclick={toggleRationale}
+              aria-expanded={c.rationaleExpanded}
+            >
+              <lightning-icon
+                icon-name={c.rationaleIcon}
+                size="xx-small"
+                class="slds-m-right_xx-small"
+              ></lightning-icon
+              >{labels.rationale}
+            </button>
+            <template lwc:if={c.showRationale}>
+              <p class="slds-text-body_small slds-m-top_xx-small rationale">
+                {c.rationale}
+              </p>
+            </template>
+          </template>
+          <template lwc:if={c.hasRefs}>
+            <div class="slds-m-top_x-small refs">
+              <span class="slds-text-body_small slds-text-color_weak"
+                >{labels.sources}</span
+              >
+              <template for:each={c.refs} for:item="ref">
+                <lightning-button
+                  key={ref.id}
+                  variant="base"
+                  label={ref.label}
+                  data-id={ref.id}
+                  onclick={openRef}
+                  class="slds-m-left_x-small ref"
+                ></lightning-button>
+              </template>
+            </div>
+          </template>
+          <template lwc:if={c.decidedText}>
+            <p
+              class="slds-text-body_small slds-text-color_weak slds-m-top_x-small decided"
+            >
+              {c.decidedText}
+              <template lwc:if={c.decidedAt}>
+                ·
+                <lightning-formatted-date-time
+                  value={c.decidedAt}
+                  year="numeric"
+                  month="2-digit"
+                  day="2-digit"
+                  hour="2-digit"
+                  minute="2-digit"
+                ></lightning-formatted-date-time>
+              </template>
+              <template lwc:if={c.excludeReason}>
+                · <span class="exclude-reason">{c.excludeReason}</span>
+              </template>
+            </p>
+          </template>
+          <template lwc:if={c.canDecide}>
+            <lightning-button-group class="slds-m-top_x-small actions">
+              <lightning-button
+                label={labels.adopt}
+                variant={c.adoptVariant}
+                disabled={c.adoptDisabled}
+                data-id={c.id}
+                onclick={handleAdopt}
+                class="adopt"
+              ></lightning-button>
+              <lightning-button
+                label={labels.modify}
+                variant={c.modifyVariant}
+                disabled={c.modifyDisabled}
+                data-id={c.id}
+                onclick={handleModify}
+                class="modify"
+              ></lightning-button>
+              <lightning-button
+                label={labels.exclude}
+                variant={c.excludeVariant}
+                disabled={c.excludeDisabled}
+                data-id={c.id}
+                onclick={handleExclude}
+                class="exclude"
+              ></lightning-button>
+            </lightning-button-group>
+          </template>
+        </li>
+      </template>
+    </ul>
+    <template lwc:if={hasMore}>
+      <lightning-button
+        variant="base"
+        label={moreLabel}
+        onclick={toggleMore}
+        class="more"
+      ></lightning-button>
+    </template>
+  </template>
+  <p
+    class="slds-text-body_small slds-text-color_weak slds-m-top_x-small notice"
+  >
+    <lightning-icon
+      icon-name="utility:info"
+      size="xx-small"
+      class="slds-m-right_xx-small"
+    ></lightning-icon
+    >{labels.notice}
+  </p>
+</template>

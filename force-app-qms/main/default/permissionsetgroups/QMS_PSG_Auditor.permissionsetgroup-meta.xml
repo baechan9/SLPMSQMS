@@ -3,6 +3,7 @@
     <description>내부·협력사 심사원: 심사 계획·결과·지적 사항(CMN-00-SEC-001)</description>
     <hasActivationRequired>false</hasActivationRequired>
     <label>QMS 심사원</label>
+    <permissionSets>CMN_PS_AiRecommendation_User</permissionSets>
     <permissionSets>CMN_PS_AppQmsField_Read</permissionSets>
     <permissionSets>CMN_PS_AppQmsQuality_Read</permissionSets>
     <permissionSets>CMN_PS_AppQms_Read</permissionSets>

@@ -11,7 +11,7 @@
 | 메뉴 | 객체 | 표준 확장 | 메타데이터 | 이벤트 | 배포됨 | 예정 |
 | --- | --- | --- | --- | --- | --- | --- |
 | 공통 — 기준정보 | 16 | 2 | 3 | 0 | 21 | 0 |
-| 공통 — 업무 엔진·운영 | 25 | 0 | 22 | 4 | 49 | 2 |
+| 공통 — 업무 엔진·운영 | 25 | 0 | 22 | 4 | 50 | 1 |
 | QMS-02 개발 품질 | 7 | 0 | 1 | 0 | 0 | 8 |
 | QMS-03 부품/협력사 품질 | 19 | 1 | 3 | 1 | 0 | 24 |
 | QMS-04 제품/공정 품질 | 18 | 0 | 3 | 1 | 0 | 22 |
@@ -22,7 +22,7 @@
 | QMS-07 대시보드 | 2 | 0 | 7 | 1 | 0 | 10 |
 | QMS-08 AI | 3 | 0 | 6 | 1 | 0 | 10 |
 | QMS-09 연계 | 1 | 0 | 3 | 0 | 0 | 4 |
-| 합계 | 167 | 3 | 70 | 11 | 70 | 181 |
+| 합계 | 167 | 3 | 70 | 11 | 71 | 180 |
 
 ## 그림 1. 전체 구조와 메뉴 간 연결
 
@@ -111,7 +111,7 @@ flowchart TB
 
 | 객체 API | 이름 | 종류 | 소유 WI | 필드 | 상태 | 상위(Master-Detail) | 비고 |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| CMN_AiRecommendation__c | AI 추천 기록 | 객체 | CMN-00-AI-004 | 17 | 예정 A0 |  |  |
+| CMN_AiRecommendation__c | AI 추천 | 객체 | CMN-00-AI-004 | 17 | 배포됨 |  |  |
 | CMN_ApprovalRequest__c | 결재 요청 | 객체 | CMN-00-APV-001 | 13 | 배포됨 |  |  |
 | CMN_ApprovalStep__c | 결재 단계 | 객체 | CMN-00-APV-001 | 10 | 배포됨 | CMN_ApprovalRequest__c |  |
 | CMN_ApprovalTemplateStep__c | 템플릿 단계 | 객체 | CMN-00-APV-002 | 8 | 배포됨 | CMN_ApprovalTemplate__c |  |
@@ -504,7 +504,7 @@ erDiagram
     }
     CMN_AiRecommendation_c {
         string api "CMN_AiRecommendation__c"
-        string name "AI 추천 기록"
+        string name "AI 추천"
     }
     CMN_ApprovalRequest_c {
         string api "CMN_ApprovalRequest__c"
@@ -651,6 +651,7 @@ erDiagram
     CMN_Plant_c |o--o{ CMN_KpiValue_c : "Plant__c"
     CMN_Department_c |o--o{ CMN_KpiValue_c : "Department__c"
     CMN_Line_c |o--o{ CMN_KpiValue_c : "Line__c"
+    CMN_Plant_c |o--o{ CMN_AiRecommendation_c : "Plant__c"
     Account |o--o{ CMN_TestRecord_c : "Supplier__c"
     CMN_Plant_c |o--o{ CMN_TestRecord_c : "Plant__c"
 ```

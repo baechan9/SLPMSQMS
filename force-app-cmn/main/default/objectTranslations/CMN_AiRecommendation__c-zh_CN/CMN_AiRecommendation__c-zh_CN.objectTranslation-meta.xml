@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>AI 推荐</value>
+    </caseValues>
+    <nameFieldLabel>标题</nameFieldLabel>
+    <sharingReasons>
+        <label>工厂共享</label>
+        <name>CMN_Plant__c</name>
+    </sharingReasons>
+    <validationRules>
+        <errorMessage>排除时请选择排除原因。</errorMessage>
+        <name>CMN_AiRecommendation_ExcludeReason</name>
+    </validationRules>
+</CustomObjectTranslation>

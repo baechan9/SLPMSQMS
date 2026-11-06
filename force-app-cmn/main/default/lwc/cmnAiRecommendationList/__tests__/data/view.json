@@ -1,0 +1,140 @@
+{
+  "items": [
+    {
+      "id": "a0e000000000001AAA",
+      "useCase": "QMS_RCA",
+      "useCaseLabel": "Root Cause",
+      "rank": 1,
+      "title": "Cause 1",
+      "text": "Seal issue 1",
+      "details": [
+        {
+          "label": "Cause",
+          "value": "C1"
+        }
+      ],
+      "rationale": "Because 1",
+      "refs": [
+        {
+          "id": "a01000000000001AAA",
+          "label": "Similar NCR"
+        }
+      ],
+      "scorePercent": 89,
+      "status": "PROPOSED",
+      "statusLabel": "Proposed",
+      "excludeReason": null,
+      "decidedBy": null,
+      "decidedAt": null,
+      "isHit": null,
+      "isFinalized": false,
+      "canDecide": true,
+      "contentJson": "{\"causeCode\": \"C1\"}"
+    },
+    {
+      "id": "a0e000000000002AAA",
+      "useCase": "QMS_RCA",
+      "useCaseLabel": "Root Cause",
+      "rank": 2,
+      "title": "Cause 2",
+      "text": "Seal issue 2",
+      "details": [
+        {
+          "label": "Cause",
+          "value": "C2"
+        }
+      ],
+      "rationale": "Because 2",
+      "refs": [],
+      "scorePercent": 88,
+      "status": "PROPOSED",
+      "statusLabel": "Proposed",
+      "excludeReason": null,
+      "decidedBy": null,
+      "decidedAt": null,
+      "isHit": null,
+      "isFinalized": false,
+      "canDecide": true,
+      "contentJson": "{\"causeCode\": \"C2\"}"
+    },
+    {
+      "id": "a0e000000000003AAA",
+      "useCase": "QMS_RCA",
+      "useCaseLabel": "Root Cause",
+      "rank": 3,
+      "title": "Cause 3",
+      "text": "Seal issue 3",
+      "details": [
+        {
+          "label": "Cause",
+          "value": "C3"
+        }
+      ],
+      "rationale": "Because 3",
+      "refs": [],
+      "scorePercent": 87,
+      "status": "PROPOSED",
+      "statusLabel": "Proposed",
+      "excludeReason": null,
+      "decidedBy": null,
+      "decidedAt": null,
+      "isHit": null,
+      "isFinalized": false,
+      "canDecide": true,
+      "contentJson": "{\"causeCode\": \"C3\"}"
+    },
+    {
+      "id": "a0e000000000004AAA",
+      "useCase": "QMS_RCA",
+      "useCaseLabel": "Root Cause",
+      "rank": 4,
+      "title": "Cause 4",
+      "text": "Seal issue 4",
+      "details": [
+        {
+          "label": "Cause",
+          "value": "C4"
+        }
+      ],
+      "rationale": "Because 4",
+      "refs": [],
+      "scorePercent": 86,
+      "status": "ADOPTED",
+      "statusLabel": "Adopted",
+      "excludeReason": null,
+      "decidedBy": "Kim",
+      "decidedAt": "2026-11-05T01:00:00.000Z",
+      "isHit": null,
+      "isFinalized": false,
+      "canDecide": true,
+      "contentJson": "{\"causeCode\": \"C4\"}"
+    },
+    {
+      "id": "a0e000000000005AAA",
+      "useCase": "QMS_RCA",
+      "useCaseLabel": "Root Cause",
+      "rank": 5,
+      "title": "Cause 5",
+      "text": "Seal issue 5",
+      "details": [
+        {
+          "label": "Cause",
+          "value": "C5"
+        }
+      ],
+      "rationale": "Because 5",
+      "refs": [],
+      "scorePercent": 85,
+      "status": "EXCLUDED",
+      "statusLabel": "Excluded",
+      "excludeReason": "Not relevant",
+      "decidedBy": "Lee",
+      "decidedAt": "2026-11-05T02:00:00.000Z",
+      "isHit": false,
+      "isFinalized": true,
+      "canDecide": false,
+      "contentJson": "{\"causeCode\": \"C5\"}"
+    }
+  ],
+  "proposedCount": 3
+}

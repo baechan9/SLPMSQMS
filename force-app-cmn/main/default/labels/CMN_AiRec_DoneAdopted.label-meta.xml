@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_AiRec_DoneAdopted</fullName>
+    <categories>CMN</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>채택 완료 알림</shortDescription>
+    <value>추천을 채택했습니다. 내용을 확인해 입력란에 반영하세요.</value>
+</CustomLabel>

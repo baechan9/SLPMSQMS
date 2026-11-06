@@ -1,0 +1,246 @@
+{
+  "wi": "CMN-00-AI-004",
+  "package": "force-app-cmn",
+  "labels": [
+    {
+      "name": "CMN_AiRec_NoAccess",
+      "category": "CMN",
+      "description": "결정 권한 없음",
+      "value": {
+        "ko": "이 추천을 결정할 권한이 없습니다. 대상 레코드의 공장 편집 권한을 확인하세요.",
+        "en_US": "You can't decide on this recommendation. Check your edit access to the record's plant.",
+        "zh_CN": "您无权决定此推荐。请检查对该记录所属工厂的编辑权限。"
+      }
+    },
+    {
+      "name": "CMN_AiRec_Closed",
+      "category": "CMN",
+      "description": "닫힌 추천",
+      "value": {
+        "ko": "만료되었거나 확정 평가된 추천은 바꿀 수 없습니다. 새로 고친 뒤 최신 추천을 확인하세요.",
+        "en_US": "This recommendation has expired or was already evaluated. Refresh to see the latest recommendations.",
+        "zh_CN": "该推荐已过期或已完成确定评估。请刷新后查看最新推荐。"
+      }
+    },
+    {
+      "name": "CMN_AiRec_ReasonRequired",
+      "category": "CMN",
+      "description": "제외 사유 필수(AC-2)",
+      "value": {
+        "ko": "제외하려면 제외 사유를 고르세요.",
+        "en_US": "Choose an exclude reason to exclude this recommendation.",
+        "zh_CN": "排除时请选择排除原因。"
+      }
+    },
+    {
+      "name": "CMN_AiRec_Empty",
+      "category": "CMN",
+      "description": "추천 없음",
+      "value": {
+        "ko": "아직 AI 추천이 없습니다.",
+        "en_US": "No AI recommendations yet.",
+        "zh_CN": "暂无 AI 推荐。"
+      }
+    },
+    {
+      "name": "CMN_AiRec_Notice",
+      "category": "CMN",
+      "description": "사람 확정 원칙 안내",
+      "value": {
+        "ko": "AI 추천은 참고용입니다. 확정은 사람이 합니다.",
+        "en_US": "AI recommendations are for reference only. People make the final decision.",
+        "zh_CN": "AI 推荐仅供参考，最终由人确认。"
+      }
+    },
+    {
+      "name": "CMN_AiRec_Adopt",
+      "category": "CMN",
+      "description": "채택 버튼",
+      "value": {
+        "ko": "채택",
+        "en_US": "Adopt",
+        "zh_CN": "采纳"
+      }
+    },
+    {
+      "name": "CMN_AiRec_Modify",
+      "category": "CMN",
+      "description": "수정 채택 버튼",
+      "value": {
+        "ko": "수정 채택",
+        "en_US": "Adopt with Changes",
+        "zh_CN": "修改后采纳"
+      }
+    },
+    {
+      "name": "CMN_AiRec_Exclude",
+      "category": "CMN",
+      "description": "제외 버튼",
+      "value": {
+        "ko": "제외",
+        "en_US": "Exclude",
+        "zh_CN": "排除"
+      }
+    },
+    {
+      "name": "CMN_AiRec_Cancel",
+      "category": "CMN",
+      "description": "취소 버튼",
+      "value": {
+        "ko": "취소",
+        "en_US": "Cancel",
+        "zh_CN": "取消"
+      }
+    },
+    {
+      "name": "CMN_AiRec_Rank",
+      "category": "CMN",
+      "description": "순위 배지({0} 순위)",
+      "value": {
+        "ko": "{0}위",
+        "en_US": "#{0}",
+        "zh_CN": "第{0}位"
+      }
+    },
+    {
+      "name": "CMN_AiRec_Score",
+      "category": "CMN",
+      "description": "신뢰 점수 배지({0} 백분율)",
+      "value": {
+        "ko": "신뢰 {0}%",
+        "en_US": "Confidence {0}%",
+        "zh_CN": "可信度 {0}%"
+      }
+    },
+    {
+      "name": "CMN_AiRec_Rationale",
+      "category": "CMN",
+      "description": "근거 펼치기",
+      "value": {
+        "ko": "근거 보기",
+        "en_US": "Show rationale",
+        "zh_CN": "查看依据"
+      }
+    },
+    {
+      "name": "CMN_AiRec_Sources",
+      "category": "CMN",
+      "description": "근거 출처 머리말",
+      "value": {
+        "ko": "출처",
+        "en_US": "Sources",
+        "zh_CN": "来源"
+      }
+    },
+    {
+      "name": "CMN_AiRec_DecidedBy",
+      "category": "CMN",
+      "description": "결정자({0} 이름)",
+      "value": {
+        "ko": "{0} 결정",
+        "en_US": "Decided by {0}",
+        "zh_CN": "{0} 已决定"
+      }
+    },
+    {
+      "name": "CMN_AiRec_Hit",
+      "category": "CMN",
+      "description": "적중 배지",
+      "value": {
+        "ko": "확정 결과와 일치",
+        "en_US": "Matched final outcome",
+        "zh_CN": "与确定结果一致"
+      }
+    },
+    {
+      "name": "CMN_AiRec_Miss",
+      "category": "CMN",
+      "description": "미적중 배지",
+      "value": {
+        "ko": "확정 결과와 다름",
+        "en_US": "Differs from final outcome",
+        "zh_CN": "与确定结果不同"
+      }
+    },
+    {
+      "name": "CMN_AiRec_ShowMore",
+      "category": "CMN",
+      "description": "레일 더 보기({0} 남은 수)",
+      "value": {
+        "ko": "{0}건 더 보기",
+        "en_US": "Show {0} more",
+        "zh_CN": "再显示 {0} 条"
+      }
+    },
+    {
+      "name": "CMN_AiRec_ShowLess",
+      "category": "CMN",
+      "description": "레일 접기",
+      "value": {
+        "ko": "접기",
+        "en_US": "Show less",
+        "zh_CN": "收起"
+      }
+    },
+    {
+      "name": "CMN_AiRec_ExcludeTitle",
+      "category": "CMN",
+      "description": "제외 대화상자 제목",
+      "value": {
+        "ko": "추천 제외",
+        "en_US": "Exclude Recommendation",
+        "zh_CN": "排除推荐"
+      }
+    },
+    {
+      "name": "CMN_AiRec_ExcludeReason",
+      "category": "CMN",
+      "description": "제외 사유 입력 라벨",
+      "value": {
+        "ko": "제외 사유",
+        "en_US": "Exclude Reason",
+        "zh_CN": "排除原因"
+      }
+    },
+    {
+      "name": "CMN_AiRec_DoneAdopted",
+      "category": "CMN",
+      "description": "채택 완료 알림",
+      "value": {
+        "ko": "추천을 채택했습니다. 내용을 확인해 입력란에 반영하세요.",
+        "en_US": "Recommendation adopted. Review it and apply it to the form.",
+        "zh_CN": "已采纳推荐。请确认内容后填入输入栏。"
+      }
+    },
+    {
+      "name": "CMN_AiRec_DoneModified",
+      "category": "CMN",
+      "description": "수정 채택 완료 알림",
+      "value": {
+        "ko": "수정 채택으로 기록했습니다.",
+        "en_US": "Recorded as adopted with changes.",
+        "zh_CN": "已记录为修改后采纳。"
+      }
+    },
+    {
+      "name": "CMN_AiRec_DoneExcluded",
+      "category": "CMN",
+      "description": "제외 완료 알림",
+      "value": {
+        "ko": "추천을 제외했습니다.",
+        "en_US": "Recommendation excluded.",
+        "zh_CN": "已排除推荐。"
+      }
+    },
+    {
+      "name": "CMN_AiRec_LoadError",
+      "category": "CMN",
+      "description": "목록 로드 실패",
+      "value": {
+        "ko": "AI 추천을 불러오지 못했습니다. 잠시 뒤 다시 시도하세요.",
+        "en_US": "Couldn't load AI recommendations. Try again in a moment.",
+        "zh_CN": "无法加载 AI 推荐。请稍后重试。"
+      }
+    }
+  ]
+}

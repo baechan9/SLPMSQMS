@@ -26,6 +26,7 @@
       "CMN_PS_Meeting_User",
       "CMN_PS_Dashboard_User",
       "CMN_PS_KpiValue_Read",
+      "CMN_PS_AiRecommendation_User",
       "QMS_PS_Menu_Read",
       "CMN_PS_UiFramework_User"
     ]

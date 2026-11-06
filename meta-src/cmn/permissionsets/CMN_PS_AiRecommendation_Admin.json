@@ -1,0 +1,13 @@
+{
+  "permissionSet": {
+    "wi": "CMN-00-AI-004",
+    "name": "CMN_PS_AiRecommendation_Admin",
+    "package": "force-app-cmn",
+    "label": "CMN AI Recommendation Admin",
+    "description": "AI 추천 기록 전체 조회(정확도 검토, CMN-00-AI-004). CMN_PSG_SystemAdmin, QMS_PSG_QualityAdmin",
+    "objects": {
+      "CMN_AiRecommendation__c": "viewall"
+    },
+    "tabs": ["CMN_AiRecommendation__c"]
+  }
+}

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>66.0</apiVersion>
+    <isExposed>false</isExposed>
+    <description
+  >AI 추천 제외 대화상자(CMN-00-AI-004): 제외 사유 공통 코드 필수</description>
+</LightningComponentBundle>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>CMN_AiRecommendation_Compact</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>AI 추천 기록(AI-004). 무엇을 추천했고 사용자가 무엇을 채택했고 최종 확정이 무엇이었는지 남긴다(정확도 측정 근거). 기록·결정·확정은 CMN_AiRecommendationService만 한다(사람 확정 원칙: 추천은 업무 필드에 직접 쓰지 않는다). 공장은 원천 레코드에서 가져와 공장 공유(SEC-002)를 따른다</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableLicensing>false</enableLicensing>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>Private</externalSharingModel>
+    <label>AI 추천</label>
+    <nameField>
+        <label>제목</label>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>AI 추천</pluralLabel>
+    <sharingModel>Private</sharingModel>
+    <visibility>Public</visibility>
+</CustomObject>

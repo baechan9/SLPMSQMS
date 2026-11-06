@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label>决定状态</label>
+    <name>Status__c</name>
+    <picklistValues>
+        <masterLabel>제안</masterLabel>
+        <translation>已提议</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>채택</masterLabel>
+        <translation>已采纳</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>수정 채택</masterLabel>
+        <translation>修改后采纳</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>제외</masterLabel>
+        <translation>已排除</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>만료</masterLabel>
+        <translation>已过期</translation>
+    </picklistValues>
+</CustomFieldTranslation>

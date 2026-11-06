@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_AiRecommendation_ExcludeReason</fullName>
+    <active>true</active>
+    <description>AI-004 AC-2: 제외는 사유 필수</description>
+    <errorConditionFormula>ISPICKVAL(Status__c, 'EXCLUDED') &amp;&amp; ISBLANK(ExcludeReason__c)</errorConditionFormula>
+    <errorDisplayField>ExcludeReason__c</errorDisplayField>
+    <errorMessage>제외하려면 제외 사유를 고르세요.</errorMessage>
+</ValidationRule>

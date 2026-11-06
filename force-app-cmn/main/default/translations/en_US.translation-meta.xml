@@ -25,6 +25,102 @@
         <name>CMN_Action_OwnerRequired</name>
     </customLabels>
     <customLabels>
+        <label>Adopt</label>
+        <name>CMN_AiRec_Adopt</name>
+    </customLabels>
+    <customLabels>
+        <label>Cancel</label>
+        <name>CMN_AiRec_Cancel</name>
+    </customLabels>
+    <customLabels>
+        <label>This recommendation has expired or was already evaluated. Refresh to see the latest recommendations.</label>
+        <name>CMN_AiRec_Closed</name>
+    </customLabels>
+    <customLabels>
+        <label>Decided by {0}</label>
+        <name>CMN_AiRec_DecidedBy</name>
+    </customLabels>
+    <customLabels>
+        <label>Recommendation adopted. Review it and apply it to the form.</label>
+        <name>CMN_AiRec_DoneAdopted</name>
+    </customLabels>
+    <customLabels>
+        <label>Recommendation excluded.</label>
+        <name>CMN_AiRec_DoneExcluded</name>
+    </customLabels>
+    <customLabels>
+        <label>Recorded as adopted with changes.</label>
+        <name>CMN_AiRec_DoneModified</name>
+    </customLabels>
+    <customLabels>
+        <label>No AI recommendations yet.</label>
+        <name>CMN_AiRec_Empty</name>
+    </customLabels>
+    <customLabels>
+        <label>Exclude</label>
+        <name>CMN_AiRec_Exclude</name>
+    </customLabels>
+    <customLabels>
+        <label>Exclude Reason</label>
+        <name>CMN_AiRec_ExcludeReason</name>
+    </customLabels>
+    <customLabels>
+        <label>Exclude Recommendation</label>
+        <name>CMN_AiRec_ExcludeTitle</name>
+    </customLabels>
+    <customLabels>
+        <label>Matched final outcome</label>
+        <name>CMN_AiRec_Hit</name>
+    </customLabels>
+    <customLabels>
+        <label>Couldn't load AI recommendations. Try again in a moment.</label>
+        <name>CMN_AiRec_LoadError</name>
+    </customLabels>
+    <customLabels>
+        <label>Differs from final outcome</label>
+        <name>CMN_AiRec_Miss</name>
+    </customLabels>
+    <customLabels>
+        <label>Adopt with Changes</label>
+        <name>CMN_AiRec_Modify</name>
+    </customLabels>
+    <customLabels>
+        <label>You can't decide on this recommendation. Check your edit access to the record's plant.</label>
+        <name>CMN_AiRec_NoAccess</name>
+    </customLabels>
+    <customLabels>
+        <label>AI recommendations are for reference only. People make the final decision.</label>
+        <name>CMN_AiRec_Notice</name>
+    </customLabels>
+    <customLabels>
+        <label>#{0}</label>
+        <name>CMN_AiRec_Rank</name>
+    </customLabels>
+    <customLabels>
+        <label>Show rationale</label>
+        <name>CMN_AiRec_Rationale</name>
+    </customLabels>
+    <customLabels>
+        <label>Choose an exclude reason to exclude this recommendation.</label>
+        <name>CMN_AiRec_ReasonRequired</name>
+    </customLabels>
+    <customLabels>
+        <label>Confidence {0}%</label>
+        <name>CMN_AiRec_Score</name>
+    </customLabels>
+    <customLabels>
+        <label>Show less</label>
+        <name>CMN_AiRec_ShowLess</name>
+    </customLabels>
+    <customLabels>
+        <label>Show {0} more</label>
+        <name>CMN_AiRec_ShowMore</name>
+    </customLabels>
+    <customLabels>
+        <label>Sources</label>
+        <name>CMN_AiRec_Sources</name>
+    </customLabels>
+    <customLabels>
         <label>No functions in this menu are available to you.</label>
         <name>CMN_AppMenu_Empty</name>
     </customLabels>

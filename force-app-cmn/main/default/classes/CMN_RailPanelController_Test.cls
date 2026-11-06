@@ -254,7 +254,9 @@ private class CMN_RailPanelController_Test {
       keys.add(p.key);
     }
     Assert.isTrue(keys.contains('CONTEXT_TODO'), String.valueOf(keys));
-    Assert.isFalse(keys.contains('AI'), 'AI-004 배포 전에는 AI 패널 비활성');
+    // AI-004 배포로 AI 패널이 켜졌다(Vol.0 UX-004 "AI-004 배포 전 비활성"). 순서 10 = 첫 패널
+    Assert.isTrue(keys.contains('AI'), String.valueOf(keys));
+    Assert.areEqual('AI', panels[0].key);
   }
 
   @IsTest

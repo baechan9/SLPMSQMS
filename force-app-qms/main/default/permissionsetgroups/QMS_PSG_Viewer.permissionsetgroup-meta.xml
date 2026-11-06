@@ -3,6 +3,7 @@
     <description>개발·구매·생산 일반: 조회 + 귀책 부서 대책 입력, 4M 요청·NCR 등록·회신(CMN-00-SEC-001)</description>
     <hasActivationRequired>false</hasActivationRequired>
     <label>QMS 조회(유관 부서)</label>
+    <permissionSets>CMN_PS_AiRecommendation_User</permissionSets>
     <permissionSets>CMN_PS_AppQms_Read</permissionSets>
     <permissionSets>CMN_PS_Approval_User</permissionSets>
     <permissionSets>CMN_PS_Characteristic_Read</permissionSets>

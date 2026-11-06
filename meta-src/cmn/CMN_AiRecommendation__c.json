@@ -1,0 +1,538 @@
+{
+  "wi": "CMN-00-AI-004",
+  "object": "CMN_AiRecommendation__c",
+  "package": "force-app-cmn",
+  "description": "AI 추천 기록(AI-004). 무엇을 추천했고 사용자가 무엇을 채택했고 최종 확정이 무엇이었는지 남긴다(정확도 측정 근거). 기록·결정·확정은 CMN_AiRecommendationService만 한다(사람 확정 원칙: 추천은 업무 필드에 직접 쓰지 않는다). 공장은 원천 레코드에서 가져와 공장 공유(SEC-002)를 따른다",
+  "label": {
+    "ko": "AI 추천",
+    "en_US": "AI Recommendation",
+    "zh_CN": "AI 推荐"
+  },
+  "plural": {
+    "ko": "AI 추천",
+    "en_US": "AI Recommendations",
+    "zh_CN": "AI 推荐"
+  },
+  "nameField": {
+    "label": {
+      "ko": "제목",
+      "en_US": "Title",
+      "zh_CN": "标题"
+    }
+  },
+  "sharingModel": "Private",
+  "externalSharingModel": "Private",
+  "tab": {
+    "motif": "Custom39: Telescope"
+  },
+  "readOnlyLayout": true,
+  "sharingReasons": [
+    {
+      "name": "CMN_Plant__c",
+      "label": {
+        "ko": "공장 공유",
+        "en_US": "Plant Sharing",
+        "zh_CN": "工厂共享"
+      }
+    }
+  ],
+  "compactLayout": {
+    "name": "CMN_AiRecommendation_Compact",
+    "label": "AI Recommendation Compact",
+    "fields": [
+      "Name",
+      "UseCase__c",
+      "Status__c",
+      "Rank__c",
+      "Score__c",
+      "SourceLink__c",
+      "IsHit__c"
+    ]
+  },
+  "layout": {
+    "columns": [
+      [
+        "Name",
+        "UseCase__c",
+        "Rank__c",
+        "Score__c",
+        "Status__c",
+        "ExcludeReason__c",
+        "DecidedBy__c",
+        "DecidedAt__c",
+        "ContentJson__c",
+        "Rationale__c"
+      ],
+      [
+        "SourceLink__c",
+        "SourceObject__c",
+        "SourceRecordId__c",
+        "Plant__c",
+        "PromptVersion__c",
+        "ModelInfo__c",
+        "IsHit__c",
+        "FinalizedAt__c",
+        "FinalOutcomeJson__c",
+        "SourceRefs__c"
+      ]
+    ]
+  },
+  "fields": [
+    {
+      "name": "UseCase__c",
+      "type": "Picklist",
+      "required": true,
+      "label": {
+        "ko": "추천 유형",
+        "en_US": "Use Case",
+        "zh_CN": "推荐类型"
+      },
+      "values": [
+        {
+          "api": "QMS_RCA",
+          "label": {
+            "ko": "원인 추천",
+            "en_US": "Root Cause",
+            "zh_CN": "根本原因推荐"
+          }
+        },
+        {
+          "api": "QMS_CAPA",
+          "label": {
+            "ko": "대책 추천",
+            "en_US": "Corrective Action",
+            "zh_CN": "纠正措施推荐"
+          }
+        },
+        {
+          "api": "QMS_8D_DRAFT",
+          "label": {
+            "ko": "8D 초안",
+            "en_US": "8D Draft",
+            "zh_CN": "8D 草稿"
+          }
+        },
+        {
+          "api": "QMS_LELE",
+          "label": {
+            "ko": "레슨런 추천",
+            "en_US": "Lessons Learned",
+            "zh_CN": "经验教训推荐"
+          }
+        },
+        {
+          "api": "QMS_EW",
+          "label": {
+            "ko": "품질 조기경보",
+            "en_US": "Early Warning",
+            "zh_CN": "质量预警"
+          }
+        },
+        {
+          "api": "QMS_COA_ANOMALY",
+          "label": {
+            "ko": "성적서 이상 징후",
+            "en_US": "CoA Anomaly",
+            "zh_CN": "成绩书异常征兆"
+          }
+        },
+        {
+          "api": "QMS_4M_TEST",
+          "label": {
+            "ko": "4M 필요 시험",
+            "en_US": "4M Required Tests",
+            "zh_CN": "4M 所需试验"
+          }
+        },
+        {
+          "api": "QMS_AUDIT_PREP",
+          "label": {
+            "ko": "심사 예상 지적",
+            "en_US": "Audit Preparation",
+            "zh_CN": "审核预期发现"
+          }
+        },
+        {
+          "api": "PMS_SCHEDULE",
+          "label": {
+            "ko": "일정 추천",
+            "en_US": "Schedule",
+            "zh_CN": "日程推荐"
+          }
+        },
+        {
+          "api": "PMS_DELIVERABLE_DRAFT",
+          "label": {
+            "ko": "산출물 초안",
+            "en_US": "Deliverable Draft",
+            "zh_CN": "交付物草稿"
+          }
+        },
+        {
+          "api": "PMS_EW",
+          "label": {
+            "ko": "프로젝트 조기경보",
+            "en_US": "Project Early Warning",
+            "zh_CN": "项目预警"
+          }
+        }
+      ],
+      "description": "QMS_COA_ANOMALY(Vol.3)·QMS_4M_TEST(Vol.6a)·QMS_AUDIT_PREP(Vol.8)은 review-pack 변경 요청"
+    },
+    {
+      "name": "SourceRecordId__c",
+      "type": "Text",
+      "length": 18,
+      "required": true,
+      "externalId": true,
+      "label": {
+        "ko": "대상 레코드 Id",
+        "en_US": "Source Record Id",
+        "zh_CN": "目标记录 Id"
+      },
+      "description": "추천 대상 업무 레코드(다른 메뉴 객체라 Lookup이 아닌 Id 텍스트). 외부 ID = 조회 인덱스"
+    },
+    {
+      "name": "SourceObject__c",
+      "type": "Text",
+      "length": 80,
+      "required": true,
+      "label": {
+        "ko": "대상 객체",
+        "en_US": "Source Object",
+        "zh_CN": "目标对象"
+      }
+    },
+    {
+      "name": "SourceLink__c",
+      "type": "Formula",
+      "returnType": "Text",
+      "formula": "HYPERLINK(\"/\" & SourceRecordId__c, SourceObject__c, \"_self\")",
+      "label": {
+        "ko": "대상 레코드",
+        "en_US": "Source Record",
+        "zh_CN": "目标记录"
+      },
+      "description": "대상 레코드 바로 가기(명세 보충)"
+    },
+    {
+      "name": "Plant__c",
+      "type": "Lookup",
+      "referenceTo": "CMN_Plant__c",
+      "relationshipName": "AiRecommendations",
+      "serviceOnly": true,
+      "label": {
+        "ko": "공장",
+        "en_US": "Plant",
+        "zh_CN": "工厂"
+      },
+      "description": "원천 레코드의 Plant__c(있을 때). 공장 공유 기준(명세 보충)"
+    },
+    {
+      "name": "Rank__c",
+      "type": "Number",
+      "precision": 3,
+      "scale": 0,
+      "required": true,
+      "label": {
+        "ko": "순위",
+        "en_US": "Rank",
+        "zh_CN": "排名"
+      }
+    },
+    {
+      "name": "ContentJson__c",
+      "type": "LongTextArea",
+      "length": 32768,
+      "visibleLines": 5,
+      "label": {
+        "ko": "추천 내용",
+        "en_US": "Content JSON",
+        "zh_CN": "推荐内容"
+      },
+      "description": "구조화 내용. 기본 표시 키: title, text, items[{label,value}]. UseCase 렌더러가 확장",
+      "serviceOnly": true
+    },
+    {
+      "name": "Rationale__c",
+      "type": "LongTextArea",
+      "length": 32768,
+      "visibleLines": 5,
+      "label": {
+        "ko": "근거 설명",
+        "en_US": "Rationale",
+        "zh_CN": "依据说明"
+      },
+      "serviceOnly": true
+    },
+    {
+      "name": "SourceRefs__c",
+      "type": "LongTextArea",
+      "length": 32768,
+      "visibleLines": 5,
+      "label": {
+        "ko": "근거 출처",
+        "en_US": "Source References",
+        "zh_CN": "依据来源"
+      },
+      "description": "근거 레코드·문서 목록 JSON [{id, label}]",
+      "serviceOnly": true
+    },
+    {
+      "name": "Score__c",
+      "type": "Number",
+      "precision": 5,
+      "scale": 4,
+      "label": {
+        "ko": "신뢰 점수",
+        "en_US": "Score",
+        "zh_CN": "可信分数"
+      },
+      "description": "유사도·신뢰 점수 0~1"
+    },
+    {
+      "name": "PromptVersion__c",
+      "type": "Text",
+      "length": 40,
+      "required": true,
+      "label": {
+        "ko": "프롬프트 버전",
+        "en_US": "Prompt Version",
+        "zh_CN": "提示词版本"
+      }
+    },
+    {
+      "name": "ModelInfo__c",
+      "type": "Text",
+      "length": 80,
+      "required": true,
+      "label": {
+        "ko": "모델",
+        "en_US": "Model",
+        "zh_CN": "模型"
+      }
+    },
+    {
+      "name": "Status__c",
+      "type": "Picklist",
+      "required": true,
+      "default": "PROPOSED",
+      "serviceOnly": true,
+      "label": {
+        "ko": "결정 상태",
+        "en_US": "Status",
+        "zh_CN": "决定状态"
+      },
+      "values": [
+        {
+          "api": "PROPOSED",
+          "label": {
+            "ko": "제안",
+            "en_US": "Proposed",
+            "zh_CN": "已提议"
+          }
+        },
+        {
+          "api": "ADOPTED",
+          "label": {
+            "ko": "채택",
+            "en_US": "Adopted",
+            "zh_CN": "已采纳"
+          }
+        },
+        {
+          "api": "MODIFIED",
+          "label": {
+            "ko": "수정 채택",
+            "en_US": "Adopted with Changes",
+            "zh_CN": "修改后采纳"
+          }
+        },
+        {
+          "api": "EXCLUDED",
+          "label": {
+            "ko": "제외",
+            "en_US": "Excluded",
+            "zh_CN": "已排除"
+          }
+        },
+        {
+          "api": "EXPIRED",
+          "label": {
+            "ko": "만료",
+            "en_US": "Expired",
+            "zh_CN": "已过期"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ExcludeReason__c",
+      "type": "Lookup",
+      "referenceTo": "CMN_Code__c",
+      "relationshipName": "AiRecommendationsExcluded",
+      "serviceOnly": true,
+      "label": {
+        "ko": "제외 사유",
+        "en_US": "Exclude Reason",
+        "zh_CN": "排除原因"
+      },
+      "description": "공통 코드 그룹 AI_EXCLUDE_REASON. 제외면 필수(AC-2)",
+      "lookupFilter": {
+        "items": [
+          {
+            "field": "CMN_Code__c.CodeGroup__r.GroupCode__c",
+            "operation": "equals",
+            "value": "AI_EXCLUDE_REASON"
+          }
+        ],
+        "isOptional": false
+      }
+    },
+    {
+      "name": "DecidedBy__c",
+      "type": "Lookup",
+      "referenceTo": "User",
+      "relationshipName": "AiRecommendationsDecided",
+      "serviceOnly": true,
+      "label": {
+        "ko": "결정자",
+        "en_US": "Decided By",
+        "zh_CN": "决定人"
+      }
+    },
+    {
+      "name": "DecidedAt__c",
+      "type": "DateTime",
+      "serviceOnly": true,
+      "label": {
+        "ko": "결정 시각",
+        "en_US": "Decided At",
+        "zh_CN": "决定时间"
+      }
+    },
+    {
+      "name": "FinalOutcomeJson__c",
+      "type": "LongTextArea",
+      "length": 32768,
+      "visibleLines": 5,
+      "label": {
+        "ko": "확정 결과",
+        "en_US": "Final Outcome",
+        "zh_CN": "确定结果"
+      },
+      "description": "업무 확정 시 실제 결과(예: 확정 원인 코드)",
+      "serviceOnly": true
+    },
+    {
+      "name": "IsHit__c",
+      "type": "Checkbox",
+      "serviceOnly": true,
+      "label": {
+        "ko": "적중",
+        "en_US": "Hit",
+        "zh_CN": "命中"
+      },
+      "description": "확정 결과와 일치(업무 WI의 CMN_AiHitRule)"
+    },
+    {
+      "name": "FinalizedAt__c",
+      "type": "DateTime",
+      "serviceOnly": true,
+      "label": {
+        "ko": "확정 평가 시각",
+        "en_US": "Finalized At",
+        "zh_CN": "确定评估时间"
+      },
+      "description": "Vol.8 변경 요청: 적중 평가 시각"
+    }
+  ],
+  "validationRules": [
+    {
+      "name": "CMN_AiRecommendation_ExcludeReason",
+      "field": "ExcludeReason__c",
+      "formula": "ISPICKVAL(Status__c, 'EXCLUDED') && ISBLANK(ExcludeReason__c)",
+      "description": "AI-004 AC-2: 제외는 사유 필수",
+      "message": {
+        "ko": "제외하려면 제외 사유를 고르세요.",
+        "en_US": "Choose an exclude reason to exclude this recommendation.",
+        "zh_CN": "排除时请选择排除原因。"
+      }
+    }
+  ],
+  "listViews": [
+    {
+      "name": "CMN_ProposedAi",
+      "label": "제안 중",
+      "columns": [
+        "NAME",
+        "UseCase__c",
+        "SourceObject__c",
+        "Rank__c",
+        "Score__c",
+        "Plant__c",
+        "CREATED_DATE"
+      ],
+      "filters": [
+        {
+          "field": "Status__c",
+          "operation": "equals",
+          "value": "PROPOSED"
+        }
+      ]
+    },
+    {
+      "name": "CMN_ExcludedAi",
+      "label": "제외됨",
+      "columns": [
+        "NAME",
+        "UseCase__c",
+        "SourceObject__c",
+        "Rank__c",
+        "ExcludeReason__c",
+        "DecidedBy__c",
+        "DecidedAt__c"
+      ],
+      "filters": [
+        {
+          "field": "Status__c",
+          "operation": "equals",
+          "value": "EXCLUDED"
+        }
+      ]
+    },
+    {
+      "name": "CMN_FinalizedAi",
+      "label": "확정 평가됨",
+      "columns": [
+        "NAME",
+        "UseCase__c",
+        "SourceObject__c",
+        "Rank__c",
+        "Status__c",
+        "IsHit__c",
+        "FinalizedAt__c"
+      ],
+      "filters": [
+        {
+          "field": "FinalizedAt__c",
+          "operation": "notEqual",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "name": "CMN_AllAi",
+      "label": "전체",
+      "columns": [
+        "NAME",
+        "UseCase__c",
+        "SourceObject__c",
+        "Rank__c",
+        "Status__c",
+        "IsHit__c",
+        "CREATED_DATE"
+      ]
+    }
+  ]
+}

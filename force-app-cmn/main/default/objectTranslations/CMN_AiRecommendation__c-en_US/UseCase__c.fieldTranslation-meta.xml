@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label>Use Case</label>
+    <name>UseCase__c</name>
+    <picklistValues>
+        <masterLabel>원인 추천</masterLabel>
+        <translation>Root Cause</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>대책 추천</masterLabel>
+        <translation>Corrective Action</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>8D 초안</masterLabel>
+        <translation>8D Draft</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>레슨런 추천</masterLabel>
+        <translation>Lessons Learned</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>품질 조기경보</masterLabel>
+        <translation>Early Warning</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>성적서 이상 징후</masterLabel>
+        <translation>CoA Anomaly</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>4M 필요 시험</masterLabel>
+        <translation>4M Required Tests</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>심사 예상 지적</masterLabel>
+        <translation>Audit Preparation</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>일정 추천</masterLabel>
+        <translation>Schedule</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>산출물 초안</masterLabel>
+        <translation>Deliverable Draft</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>프로젝트 조기경보</masterLabel>
+        <translation>Project Early Warning</translation>
+    </picklistValues>
+</CustomFieldTranslation>

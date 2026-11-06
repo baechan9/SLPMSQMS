@@ -25,6 +25,102 @@
         <name>CMN_Action_OwnerRequired</name>
     </customLabels>
     <customLabels>
+        <label>采纳</label>
+        <name>CMN_AiRec_Adopt</name>
+    </customLabels>
+    <customLabels>
+        <label>取消</label>
+        <name>CMN_AiRec_Cancel</name>
+    </customLabels>
+    <customLabels>
+        <label>该推荐已过期或已完成确定评估。请刷新后查看最新推荐。</label>
+        <name>CMN_AiRec_Closed</name>
+    </customLabels>
+    <customLabels>
+        <label>{0} 已决定</label>
+        <name>CMN_AiRec_DecidedBy</name>
+    </customLabels>
+    <customLabels>
+        <label>已采纳推荐。请确认内容后填入输入栏。</label>
+        <name>CMN_AiRec_DoneAdopted</name>
+    </customLabels>
+    <customLabels>
+        <label>已排除推荐。</label>
+        <name>CMN_AiRec_DoneExcluded</name>
+    </customLabels>
+    <customLabels>
+        <label>已记录为修改后采纳。</label>
+        <name>CMN_AiRec_DoneModified</name>
+    </customLabels>
+    <customLabels>
+        <label>暂无 AI 推荐。</label>
+        <name>CMN_AiRec_Empty</name>
+    </customLabels>
+    <customLabels>
+        <label>排除</label>
+        <name>CMN_AiRec_Exclude</name>
+    </customLabels>
+    <customLabels>
+        <label>排除原因</label>
+        <name>CMN_AiRec_ExcludeReason</name>
+    </customLabels>
+    <customLabels>
+        <label>排除推荐</label>
+        <name>CMN_AiRec_ExcludeTitle</name>
+    </customLabels>
+    <customLabels>
+        <label>与确定结果一致</label>
+        <name>CMN_AiRec_Hit</name>
+    </customLabels>
+    <customLabels>
+        <label>无法加载 AI 推荐。请稍后重试。</label>
+        <name>CMN_AiRec_LoadError</name>
+    </customLabels>
+    <customLabels>
+        <label>与确定结果不同</label>
+        <name>CMN_AiRec_Miss</name>
+    </customLabels>
+    <customLabels>
+        <label>修改后采纳</label>
+        <name>CMN_AiRec_Modify</name>
+    </customLabels>
+    <customLabels>
+        <label>您无权决定此推荐。请检查对该记录所属工厂的编辑权限。</label>
+        <name>CMN_AiRec_NoAccess</name>
+    </customLabels>
+    <customLabels>
+        <label>AI 推荐仅供参考，最终由人确认。</label>
+        <name>CMN_AiRec_Notice</name>
+    </customLabels>
+    <customLabels>
+        <label>第{0}位</label>
+        <name>CMN_AiRec_Rank</name>
+    </customLabels>
+    <customLabels>
+        <label>查看依据</label>
+        <name>CMN_AiRec_Rationale</name>
+    </customLabels>
+    <customLabels>
+        <label>排除时请选择排除原因。</label>
+        <name>CMN_AiRec_ReasonRequired</name>
+    </customLabels>
+    <customLabels>
+        <label>可信度 {0}%</label>
+        <name>CMN_AiRec_Score</name>
+    </customLabels>
+    <customLabels>
+        <label>收起</label>
+        <name>CMN_AiRec_ShowLess</name>
+    </customLabels>
+    <customLabels>
+        <label>再显示 {0} 条</label>
+        <name>CMN_AiRec_ShowMore</name>
+    </customLabels>
+    <customLabels>
+        <label>来源</label>
+        <name>CMN_AiRec_Sources</name>
+    </customLabels>
+    <customLabels>
         <label>此菜单中没有您可用的功能。</label>
         <name>CMN_AppMenu_Empty</name>
     </customLabels>

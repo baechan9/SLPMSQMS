@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<LightningMessageChannel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description
+  >AI 추천 결정 알림(CMN-00-AI-004 BR-3). cmnAiRecommendationList가 채택·수정 채택·제외 후 발행한다. 같은 페이지의 업무 화면이 받아 추천 내용을 입력란에 복사한다(본문 필드에 자동으로 쓰지 않는다).</description>
+    <isExposed>false</isExposed>
+    <lightningMessageFields>
+        <description>추천 대상 업무 레코드 Id</description>
+        <fieldName>recordId</fieldName>
+    </lightningMessageFields>
+    <lightningMessageFields>
+        <description>추천 Id(CMN_AiRecommendation__c)</description>
+        <fieldName>recommendationId</fieldName>
+    </lightningMessageFields>
+    <lightningMessageFields>
+        <description>추천 유형(UseCase__c)</description>
+        <fieldName>useCase</fieldName>
+    </lightningMessageFields>
+    <lightningMessageFields>
+        <description>결정(ADOPTED, MODIFIED, EXCLUDED)</description>
+        <fieldName>status</fieldName>
+    </lightningMessageFields>
+    <lightningMessageFields>
+        <description>추천 순위</description>
+        <fieldName>rank</fieldName>
+    </lightningMessageFields>
+    <lightningMessageFields>
+        <description>추천 내용 원문(ContentJson__c)</description>
+        <fieldName>contentJson</fieldName>
+    </lightningMessageFields>
+    <masterLabel>CMN AI Recommendation</masterLabel>
+</LightningMessageChannel>

@@ -3,6 +3,7 @@
     <description>개발팀: 제품 인정시험 계획 작성, 개발 품질 산출물(CMN-00-SEC-001)</description>
     <hasActivationRequired>false</hasActivationRequired>
     <label>QMS 개발 엔지니어</label>
+    <permissionSets>CMN_PS_AiRecommendation_User</permissionSets>
     <permissionSets>CMN_PS_AppQms_Read</permissionSets>
     <permissionSets>CMN_PS_Approval_User</permissionSets>
     <permissionSets>CMN_PS_Characteristic_Edit</permissionSets>

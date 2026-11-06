@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_ExcludedAi</fullName>
+    <columns>NAME</columns>
+    <columns>UseCase__c</columns>
+    <columns>SourceObject__c</columns>
+    <columns>Rank__c</columns>
+    <columns>ExcludeReason__c</columns>
+    <columns>DecidedBy__c</columns>
+    <columns>DecidedAt__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Status__c</field>
+        <operation>equals</operation>
+        <value>EXCLUDED</value>
+    </filters>
+    <label>제외됨</label>
+</ListView>

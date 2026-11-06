@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>UseCase__c</fullName>
+    <description>QMS_COA_ANOMALY(Vol.3)·QMS_4M_TEST(Vol.6a)·QMS_AUDIT_PREP(Vol.8)은 review-pack 변경 요청</description>
+    <label>추천 유형</label>
+    <required>true</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>QMS_RCA</fullName>
+                <default>false</default>
+                <label>원인 추천</label>
+            </value>
+            <value>
+                <fullName>QMS_CAPA</fullName>
+                <default>false</default>
+                <label>대책 추천</label>
+            </value>
+            <value>
+                <fullName>QMS_8D_DRAFT</fullName>
+                <default>false</default>
+                <label>8D 초안</label>
+            </value>
+            <value>
+                <fullName>QMS_LELE</fullName>
+                <default>false</default>
+                <label>레슨런 추천</label>
+            </value>
+            <value>
+                <fullName>QMS_EW</fullName>
+                <default>false</default>
+                <label>품질 조기경보</label>
+            </value>
+            <value>
+                <fullName>QMS_COA_ANOMALY</fullName>
+                <default>false</default>
+                <label>성적서 이상 징후</label>
+            </value>
+            <value>
+                <fullName>QMS_4M_TEST</fullName>
+                <default>false</default>
+                <label>4M 필요 시험</label>
+            </value>
+            <value>
+                <fullName>QMS_AUDIT_PREP</fullName>
+                <default>false</default>
+                <label>심사 예상 지적</label>
+            </value>
+            <value>
+                <fullName>PMS_SCHEDULE</fullName>
+                <default>false</default>
+                <label>일정 추천</label>
+            </value>
+            <value>
+                <fullName>PMS_DELIVERABLE_DRAFT</fullName>
+                <default>false</default>
+                <label>산출물 초안</label>
+            </value>
+            <value>
+                <fullName>PMS_EW</fullName>
+                <default>false</default>
+                <label>프로젝트 조기경보</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

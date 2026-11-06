@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_AiRec_Notice</fullName>
+    <categories>CMN</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>사람 확정 원칙 안내</shortDescription>
+    <value>AI 추천은 참고용입니다. 확정은 사람이 합니다.</value>
+</CustomLabel>

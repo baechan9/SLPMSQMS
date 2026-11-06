@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_AiRec_NoAccess</fullName>
+    <categories>CMN</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>결정 권한 없음</shortDescription>
+    <value>이 추천을 결정할 권한이 없습니다. 대상 레코드의 공장 편집 권한을 확인하세요.</value>
+</CustomLabel>

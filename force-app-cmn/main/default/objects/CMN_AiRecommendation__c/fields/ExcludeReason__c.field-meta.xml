@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ExcludeReason__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>공통 코드 그룹 AI_EXCLUDE_REASON. 제외면 필수(AC-2)</description>
+    <label>제외 사유</label>
+    <lookupFilter>
+        <active>true</active>
+        <filterItems>
+            <field>CMN_Code__c.CodeGroup__r.GroupCode__c</field>
+            <operation>equals</operation>
+            <value>AI_EXCLUDE_REASON</value>
+        </filterItems>
+        <isOptional>false</isOptional>
+    </lookupFilter>
+    <referenceTo>CMN_Code__c</referenceTo>
+    <relationshipLabel>AI 추천</relationshipLabel>
+    <relationshipName>AiRecommendationsExcluded</relationshipName>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label>推荐类型</label>
+    <name>UseCase__c</name>
+    <picklistValues>
+        <masterLabel>원인 추천</masterLabel>
+        <translation>根本原因推荐</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>대책 추천</masterLabel>
+        <translation>纠正措施推荐</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>8D 초안</masterLabel>
+        <translation>8D 草稿</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>레슨런 추천</masterLabel>
+        <translation>经验教训推荐</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>품질 조기경보</masterLabel>
+        <translation>质量预警</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>성적서 이상 징후</masterLabel>
+        <translation>成绩书异常征兆</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>4M 필요 시험</masterLabel>
+        <translation>4M 所需试验</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>심사 예상 지적</masterLabel>
+        <translation>审核预期发现</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>일정 추천</masterLabel>
+        <translation>日程推荐</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>산출물 초안</masterLabel>
+        <translation>交付物草稿</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>프로젝트 조기경보</masterLabel>
+        <translation>项目预警</translation>
+    </picklistValues>
+</CustomFieldTranslation>
