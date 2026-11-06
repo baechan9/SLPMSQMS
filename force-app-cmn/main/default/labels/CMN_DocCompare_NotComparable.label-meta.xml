@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_DocCompare_NotComparable</fullName>
+    <categories>CMN</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>비교 불가(AC-2)</shortDescription>
+    <value>텍스트를 뽑을 수 없는 형식(스캔 이미지·CAD)이라 비교할 수 없습니다. 원본 파일을 직접 비교하세요.</value>
+</CustomLabel>

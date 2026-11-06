@@ -1,0 +1,180 @@
+<template>
+  <lightning-card title={labels.title} icon-name="standard:search">
+    <div class="slds-p-horizontal_medium">
+      <div
+        class="slds-grid slds-wrap slds-grid_vertical-align-end slds-gutters_x-small"
+      >
+        <div class="slds-col slds-size_1-of-1 slds-medium-size_2-of-3">
+          <lightning-input
+            type="search"
+            label={labels.inputLabel}
+            placeholder={labels.placeholder}
+            value={term}
+            max-length="100"
+            onchange={handleTerm}
+            onkeyup={handleKeyUp}
+            class="term"
+          ></lightning-input>
+        </div>
+        <div class="slds-col slds-shrink-none slds-m-top_x-small">
+          <lightning-button
+            variant="brand"
+            label={labels.run}
+            disabled={isLoading}
+            onclick={runSearch}
+            class="run"
+          ></lightning-button>
+        </div>
+        <div class="slds-col slds-shrink-none slds-m-top_x-small">
+          <lightning-input
+            type="checkbox"
+            label={labels.includeSuperseded}
+            checked={includeSuperseded}
+            onchange={handleSuperseded}
+            class="superseded"
+          ></lightning-input>
+        </div>
+      </div>
+
+      <template lwc:if={isLoading}>
+        <div class="slds-is-relative slds-p-around_large">
+          <lightning-spinner
+            alternative-text={labels.loading}
+            size="small"
+          ></lightning-spinner>
+        </div>
+      </template>
+      <template lwc:if={errorMessage}>
+        <p
+          class="slds-text-color_error slds-m-top_small"
+          role="alert"
+          data-id="error"
+        >
+          {errorMessage}
+        </p>
+      </template>
+      <template lwc:if={showHint}>
+        <p class="slds-text-color_weak slds-m-top_small" data-id="hint">
+          {labels.hint}
+        </p>
+      </template>
+
+      <template lwc:if={hasResult}>
+        <template lwc:if={hasSummary}>
+          <section class="slds-box slds-m-top_medium summary">
+            <div class="slds-grid slds-grid_vertical-align-center slds-wrap">
+              <h2 class="slds-text-heading_small slds-m-right_x-small">
+                {labels.aiSummary}
+              </h2>
+              <span class="slds-badge slds-m-right_x-small" data-id="ai-badge">
+                <lightning-icon
+                  icon-name="utility:einstein"
+                  size="xx-small"
+                  class="slds-m-right_xx-small"
+                ></lightning-icon
+                >{labels.aiGenerated}</span
+              >
+              <c-cmn-prototype-badge show={isMock}></c-cmn-prototype-badge>
+            </div>
+            <p class="slds-m-top_x-small summary-text">{docs.summary}</p>
+            <template lwc:if={sourceItems.length}>
+              <p
+                class="slds-text-body_small slds-text-color_weak slds-m-top_x-small"
+              >
+                {labels.sources}
+              </p>
+              <ul class="slds-list_dotted slds-text-body_small sources">
+                <template for:each={sourceItems} for:item="s">
+                  <li key={s.key}>{s.text}</li>
+                </template>
+              </ul>
+            </template>
+            <p
+              class="slds-text-body_small slds-text-color_weak slds-m-top_x-small notice"
+            >
+              {labels.summaryNotice}
+            </p>
+          </section>
+        </template>
+
+        <template lwc:if={noResults}>
+          <p class="slds-text-color_weak slds-m-top_medium" data-id="empty">
+            {labels.noResults}
+          </p>
+        </template>
+
+        <div class="slds-grid slds-wrap slds-gutters slds-m-top_medium">
+          <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2">
+            <h2 class="slds-text-heading_small slds-m-bottom_x-small">
+              {labels.documents}
+            </h2>
+            <template lwc:if={docsNotAvailable}>
+              <p class="slds-text-color_weak" data-id="docs-not-available">
+                {docs.message}
+              </p>
+            </template>
+            <template lwc:elseif={showNoDocuments}>
+              <p class="slds-text-color_weak" data-id="docs-empty">
+                {labels.noDocuments}
+              </p>
+            </template>
+            <template lwc:else>
+              <ul class="slds-has-dividers_bottom-space">
+                <template for:each={docItems} for:item="d">
+                  <li key={d.key} class="slds-item doc">
+                    <p class="slds-text-title_bold doc-title">{d.title}</p>
+                    <p class="slds-text-body_small slds-text-color_weak">
+                      {d.meta}
+                    </p>
+                    <p class="slds-m-top_xx-small snippet">{d.snippet}</p>
+                    <template lwc:if={d.scoreLabel}>
+                      <span class="slds-badge slds-m-top_xx-small score"
+                        >{d.scoreLabel}</span
+                      >
+                    </template>
+                    <template lwc:if={d.superseded}>
+                      <span
+                        class="slds-badge slds-badge_lightest slds-m-left_xx-small superseded-badge"
+                        >{labels.superseded}</span
+                      >
+                    </template>
+                  </li>
+                </template>
+              </ul>
+            </template>
+          </div>
+          <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2">
+            <h2 class="slds-text-heading_small slds-m-bottom_x-small">
+              {labels.records}
+            </h2>
+            <template for:each={recordGroups} for:item="g">
+              <div key={g.objectApiName} class="slds-m-bottom_small group">
+                <p class="slds-text-title slds-m-bottom_xx-small">
+                  {g.objectLabel} · {g.countLabel}
+                </p>
+                <ul>
+                  <template for:each={g.hits} for:item="h">
+                    <li key={h.id} class="slds-p-vertical_xx-small hit">
+                      <lightning-button
+                        variant="base"
+                        label={h.display}
+                        data-id={h.id}
+                        onclick={openRecord}
+                      ></lightning-button>
+                      <template lwc:if={h.subtitle}>
+                        <span
+                          class="slds-text-body_small slds-text-color_weak slds-m-left_x-small"
+                          >{h.subtitle}</span
+                        >
+                      </template>
+                    </li>
+                  </template>
+                </ul>
+              </div>
+            </template>
+          </div>
+        </div>
+      </template>
+    </div>
+  </lightning-card>
+</template>

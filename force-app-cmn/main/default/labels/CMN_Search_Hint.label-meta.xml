@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_Search_Hint</fullName>
+    <categories>CMN</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>첫 화면 안내</shortDescription>
+    <value>레코드 번호·제목과 문서 내용을 함께 찾습니다.</value>
+</CustomLabel>

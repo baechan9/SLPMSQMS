@@ -1,0 +1,186 @@
+{
+  "wi": "CMN-00-AI-002",
+  "package": "force-app-cmn",
+  "labels": [
+    {
+      "name": "CMN_Search_TermLength",
+      "category": "CMN",
+      "description": "검색어 길이 오류",
+      "value": {
+        "ko": "검색어는 2~100자로 입력하세요.",
+        "en_US": "Enter a search term of 2 to 100 characters.",
+        "zh_CN": "请输入 2~100 个字符的搜索词。"
+      }
+    },
+    {
+      "name": "CMN_Search_Title",
+      "category": "CMN",
+      "description": "화면 제목",
+      "value": {
+        "ko": "통합 검색",
+        "en_US": "Unified Search",
+        "zh_CN": "统一搜索"
+      }
+    },
+    {
+      "name": "CMN_Search_InputLabel",
+      "category": "CMN",
+      "description": "검색어 입력 라벨",
+      "value": {
+        "ko": "검색어",
+        "en_US": "Search term",
+        "zh_CN": "搜索词"
+      }
+    },
+    {
+      "name": "CMN_Search_Placeholder",
+      "category": "CMN",
+      "description": "검색어 안내",
+      "value": {
+        "ko": "번호, 제목, 품번 또는 찾고 싶은 내용",
+        "en_US": "Number, title, part number or what you're looking for",
+        "zh_CN": "编号、标题、物料号或要查找的内容"
+      }
+    },
+    {
+      "name": "CMN_Search_Run",
+      "category": "CMN",
+      "description": "검색 버튼",
+      "value": {
+        "ko": "검색",
+        "en_US": "Search",
+        "zh_CN": "搜索"
+      }
+    },
+    {
+      "name": "CMN_Search_IncludeSuperseded",
+      "category": "CMN",
+      "description": "이전 리비전 포함 체크",
+      "value": {
+        "ko": "이전 리비전 포함",
+        "en_US": "Include superseded revisions",
+        "zh_CN": "包含旧版本"
+      }
+    },
+    {
+      "name": "CMN_Search_Hint",
+      "category": "CMN",
+      "description": "첫 화면 안내",
+      "value": {
+        "ko": "레코드 번호·제목과 문서 내용을 함께 찾습니다.",
+        "en_US": "Searches record numbers and titles together with document content.",
+        "zh_CN": "同时搜索记录编号、标题和文档内容。"
+      }
+    },
+    {
+      "name": "CMN_Search_AiSummary",
+      "category": "CMN",
+      "description": "AI 요약 머리말",
+      "value": {
+        "ko": "AI 요약",
+        "en_US": "AI Summary",
+        "zh_CN": "AI 摘要"
+      }
+    },
+    {
+      "name": "CMN_Search_AiGenerated",
+      "category": "CMN",
+      "description": "AI 생성 배지",
+      "value": {
+        "ko": "AI 생성",
+        "en_US": "AI generated",
+        "zh_CN": "AI 生成"
+      }
+    },
+    {
+      "name": "CMN_Search_SummaryNotice",
+      "category": "CMN",
+      "description": "요약 참고 안내",
+      "value": {
+        "ko": "AI 요약은 참고용입니다. 결론을 쓰기 전에 원문을 확인하세요.",
+        "en_US": "The AI summary is for reference. Check the source documents before you conclude.",
+        "zh_CN": "AI 摘要仅供参考，下结论前请确认原文。"
+      }
+    },
+    {
+      "name": "CMN_Search_Sources",
+      "category": "CMN",
+      "description": "요약 근거 머리말",
+      "value": {
+        "ko": "근거 문서",
+        "en_US": "Sources",
+        "zh_CN": "依据文档"
+      }
+    },
+    {
+      "name": "CMN_Search_Documents",
+      "category": "CMN",
+      "description": "문서 결과 머리말",
+      "value": {
+        "ko": "문서",
+        "en_US": "Documents",
+        "zh_CN": "文档"
+      }
+    },
+    {
+      "name": "CMN_Search_Records",
+      "category": "CMN",
+      "description": "레코드 결과 머리말",
+      "value": {
+        "ko": "레코드",
+        "en_US": "Records",
+        "zh_CN": "记录"
+      }
+    },
+    {
+      "name": "CMN_Search_NoResults",
+      "category": "CMN",
+      "description": "결과 없음",
+      "value": {
+        "ko": "검색 결과가 없습니다. 다른 검색어로 찾아보세요.",
+        "en_US": "No results. Try a different search term.",
+        "zh_CN": "没有搜索结果，请换个搜索词。"
+      }
+    },
+    {
+      "name": "CMN_Search_NoDocuments",
+      "category": "CMN",
+      "description": "문서 결과 없음",
+      "value": {
+        "ko": "내용이 맞는 문서가 없습니다.",
+        "en_US": "No matching documents.",
+        "zh_CN": "没有内容匹配的文档。"
+      }
+    },
+    {
+      "name": "CMN_Search_Superseded",
+      "category": "CMN",
+      "description": "이전 리비전 배지",
+      "value": {
+        "ko": "이전 리비전",
+        "en_US": "Superseded",
+        "zh_CN": "旧版本"
+      }
+    },
+    {
+      "name": "CMN_Search_Score",
+      "category": "CMN",
+      "description": "일치도 배지({0} 백분율)",
+      "value": {
+        "ko": "일치 {0}%",
+        "en_US": "Match {0}%",
+        "zh_CN": "匹配 {0}%"
+      }
+    },
+    {
+      "name": "CMN_Search_Count",
+      "category": "CMN",
+      "description": "건수({0})",
+      "value": {
+        "ko": "{0}건",
+        "en_US": "{0}",
+        "zh_CN": "{0} 条"
+      }
+    }
+  ]
+}

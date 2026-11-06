@@ -201,6 +201,15 @@
                     data-id={d.id}
                     onclick={toggleHistory}
                   ></lightning-button>
+                  <template lwc:if={d.canCompare}>
+                    <lightning-button
+                      class="slds-m-left_small compare"
+                      variant="base"
+                      label={labels.compare}
+                      data-id={d.id}
+                      onclick={openCompare}
+                    ></lightning-button>
+                  </template>
                   <template lwc:if={d.isExpanded}>
                     <ul class="slds-m-left_medium" data-id="history">
                       <template for:each={d.revisions} for:item="r">

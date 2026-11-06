@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_Search_Placeholder</fullName>
+    <categories>CMN</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>검색어 안내</shortDescription>
+    <value>번호, 제목, 품번 또는 찾고 싶은 내용</value>
+</CustomLabel>

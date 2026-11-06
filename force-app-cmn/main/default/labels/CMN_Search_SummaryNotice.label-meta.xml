@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_Search_SummaryNotice</fullName>
+    <categories>CMN</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>요약 참고 안내</shortDescription>
+    <value>AI 요약은 참고용입니다. 결론을 쓰기 전에 원문을 확인하세요.</value>
+</CustomLabel>

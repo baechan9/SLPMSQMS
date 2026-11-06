@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <classAccesses>
+        <apexClass>CMN_DocumentCompareController</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>CMN_UnifiedSearchController</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <description>통합 검색(AI-002)·문서 버전 비교(AI-003) 화면. 결과는 사용자 권한으로만 나온다(레코드 SOSL USER_MODE, 문서 결과는 상위 레코드 접근 확인). 사내 페르소나 PSG 전체</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>CMN Doc Search User</label>
+    <tabSettings>
+        <tab>CMN_UnifiedSearch</tab>
+        <visibility>Visible</visibility>
+    </tabSettings>
+</PermissionSet>

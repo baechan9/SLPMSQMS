@@ -1137,6 +1137,90 @@
         <name>CMN_Delete_NotAllowedStatus</name>
     </customLabels>
     <customLabels>
+        <label>新增</label>
+        <name>CMN_DocCompare_Added</name>
+    </customLabels>
+    <customLabels>
+        <label>变更后</label>
+        <name>CMN_DocCompare_After</name>
+    </customLabels>
+    <customLabels>
+        <label>填入变更说明</label>
+        <name>CMN_DocCompare_Apply</name>
+    </customLabels>
+    <customLabels>
+        <label>变更前</label>
+        <name>CMN_DocCompare_Before</name>
+    </customLabels>
+    <customLabels>
+        <label>表格比较</label>
+        <name>CMN_DocCompare_Cells</name>
+    </customLabels>
+    <customLabels>
+        <label>变更</label>
+        <name>CMN_DocCompare_Changed</name>
+    </customLabels>
+    <customLabels>
+        <label>变更列表</label>
+        <name>CMN_DocCompare_Changes</name>
+    </customLabels>
+    <customLabels>
+        <label>关闭</label>
+        <name>CMN_DocCompare_Close</name>
+    </customLabels>
+    <customLabels>
+        <label>项目</label>
+        <name>CMN_DocCompare_Column</name>
+    </customLabels>
+    <customLabels>
+        <label>旧版本</label>
+        <name>CMN_DocCompare_From</name>
+    </customLabels>
+    <customLabels>
+        <label>类型</label>
+        <name>CMN_DocCompare_Kind</name>
+    </customLabels>
+    <customLabels>
+        <label>没有变化。</label>
+        <name>CMN_DocCompare_NoChanges</name>
+    </customLabels>
+    <customLabels>
+        <label>该格式无法提取文本（扫描图像或 CAD），无法比较。请直接比较原文件。</label>
+        <name>CMN_DocCompare_NotComparable</name>
+    </customLabels>
+    <customLabels>
+        <label>版本比较</label>
+        <name>CMN_DocCompare_Open</name>
+    </customLabels>
+    <customLabels>
+        <label>请选择同一文档的两个不同版本。</label>
+        <name>CMN_DocCompare_PickTwo</name>
+    </customLabels>
+    <customLabels>
+        <label>删除</label>
+        <name>CMN_DocCompare_Removed</name>
+    </customLabels>
+    <customLabels>
+        <label>比较</label>
+        <name>CMN_DocCompare_Run</name>
+    </customLabels>
+    <customLabels>
+        <label>位置</label>
+        <name>CMN_DocCompare_Section</name>
+    </customLabels>
+    <customLabels>
+        <label>变更摘要</label>
+        <name>CMN_DocCompare_Summary</name>
+    </customLabels>
+    <customLabels>
+        <label>版本比较</label>
+        <name>CMN_DocCompare_Title</name>
+    </customLabels>
+    <customLabels>
+        <label>新版本</label>
+        <name>CMN_DocCompare_To</name>
+    </customLabels>
+    <customLabels>
         <label>登记链接</label>
         <name>CMN_Doc_AddLink</name>
     </customLabels>
@@ -2199,6 +2283,78 @@
         <name>CMN_RecordPage_TabRelated</name>
     </customLabels>
     <customLabels>
+        <label>AI 生成</label>
+        <name>CMN_Search_AiGenerated</name>
+    </customLabels>
+    <customLabels>
+        <label>AI 摘要</label>
+        <name>CMN_Search_AiSummary</name>
+    </customLabels>
+    <customLabels>
+        <label>{0} 条</label>
+        <name>CMN_Search_Count</name>
+    </customLabels>
+    <customLabels>
+        <label>文档</label>
+        <name>CMN_Search_Documents</name>
+    </customLabels>
+    <customLabels>
+        <label>同时搜索记录编号、标题和文档内容。</label>
+        <name>CMN_Search_Hint</name>
+    </customLabels>
+    <customLabels>
+        <label>包含旧版本</label>
+        <name>CMN_Search_IncludeSuperseded</name>
+    </customLabels>
+    <customLabels>
+        <label>搜索词</label>
+        <name>CMN_Search_InputLabel</name>
+    </customLabels>
+    <customLabels>
+        <label>没有内容匹配的文档。</label>
+        <name>CMN_Search_NoDocuments</name>
+    </customLabels>
+    <customLabels>
+        <label>没有搜索结果，请换个搜索词。</label>
+        <name>CMN_Search_NoResults</name>
+    </customLabels>
+    <customLabels>
+        <label>编号、标题、物料号或要查找的内容</label>
+        <name>CMN_Search_Placeholder</name>
+    </customLabels>
+    <customLabels>
+        <label>记录</label>
+        <name>CMN_Search_Records</name>
+    </customLabels>
+    <customLabels>
+        <label>搜索</label>
+        <name>CMN_Search_Run</name>
+    </customLabels>
+    <customLabels>
+        <label>匹配 {0}%</label>
+        <name>CMN_Search_Score</name>
+    </customLabels>
+    <customLabels>
+        <label>依据文档</label>
+        <name>CMN_Search_Sources</name>
+    </customLabels>
+    <customLabels>
+        <label>AI 摘要仅供参考，下结论前请确认原文。</label>
+        <name>CMN_Search_SummaryNotice</name>
+    </customLabels>
+    <customLabels>
+        <label>旧版本</label>
+        <name>CMN_Search_Superseded</name>
+    </customLabels>
+    <customLabels>
+        <label>请输入 2~100 个字符的搜索词。</label>
+        <name>CMN_Search_TermLength</name>
+    </customLabels>
+    <customLabels>
+        <label>统一搜索</label>
+        <name>CMN_Search_Title</name>
+    </customLabels>
+    <customLabels>
         <label>已存在相同的用户和工厂访问: {0}</label>
         <name>CMN_Sharing_DuplicateAccess</name>
     </customLabels>
@@ -2945,6 +3101,10 @@
     <customTabs>
         <label>首页</label>
         <name>CMN_QMS_Home</name>
+    </customTabs>
+    <customTabs>
+        <label>统一搜索</label>
+        <name>CMN_UnifiedSearch</name>
     </customTabs>
     <customTabs>
         <label>开发质量</label>

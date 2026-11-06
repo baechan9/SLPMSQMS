@@ -1137,6 +1137,90 @@
         <name>CMN_Delete_NotAllowedStatus</name>
     </customLabels>
     <customLabels>
+        <label>Added</label>
+        <name>CMN_DocCompare_Added</name>
+    </customLabels>
+    <customLabels>
+        <label>After</label>
+        <name>CMN_DocCompare_After</name>
+    </customLabels>
+    <customLabels>
+        <label>Apply to change note</label>
+        <name>CMN_DocCompare_Apply</name>
+    </customLabels>
+    <customLabels>
+        <label>Before</label>
+        <name>CMN_DocCompare_Before</name>
+    </customLabels>
+    <customLabels>
+        <label>Table Changes</label>
+        <name>CMN_DocCompare_Cells</name>
+    </customLabels>
+    <customLabels>
+        <label>Changed</label>
+        <name>CMN_DocCompare_Changed</name>
+    </customLabels>
+    <customLabels>
+        <label>Changes</label>
+        <name>CMN_DocCompare_Changes</name>
+    </customLabels>
+    <customLabels>
+        <label>Close</label>
+        <name>CMN_DocCompare_Close</name>
+    </customLabels>
+    <customLabels>
+        <label>Item</label>
+        <name>CMN_DocCompare_Column</name>
+    </customLabels>
+    <customLabels>
+        <label>From revision</label>
+        <name>CMN_DocCompare_From</name>
+    </customLabels>
+    <customLabels>
+        <label>Type</label>
+        <name>CMN_DocCompare_Kind</name>
+    </customLabels>
+    <customLabels>
+        <label>No changes found.</label>
+        <name>CMN_DocCompare_NoChanges</name>
+    </customLabels>
+    <customLabels>
+        <label>These files have no extractable text (scanned image or CAD), so they can't be compared. Compare the original files directly.</label>
+        <name>CMN_DocCompare_NotComparable</name>
+    </customLabels>
+    <customLabels>
+        <label>Compare versions</label>
+        <name>CMN_DocCompare_Open</name>
+    </customLabels>
+    <customLabels>
+        <label>Choose two different revisions of the same document.</label>
+        <name>CMN_DocCompare_PickTwo</name>
+    </customLabels>
+    <customLabels>
+        <label>Removed</label>
+        <name>CMN_DocCompare_Removed</name>
+    </customLabels>
+    <customLabels>
+        <label>Compare</label>
+        <name>CMN_DocCompare_Run</name>
+    </customLabels>
+    <customLabels>
+        <label>Section</label>
+        <name>CMN_DocCompare_Section</name>
+    </customLabels>
+    <customLabels>
+        <label>Change Summary</label>
+        <name>CMN_DocCompare_Summary</name>
+    </customLabels>
+    <customLabels>
+        <label>Compare Versions</label>
+        <name>CMN_DocCompare_Title</name>
+    </customLabels>
+    <customLabels>
+        <label>To revision</label>
+        <name>CMN_DocCompare_To</name>
+    </customLabels>
+    <customLabels>
         <label>Add Link</label>
         <name>CMN_Doc_AddLink</name>
     </customLabels>
@@ -2199,6 +2283,78 @@ Open: {Url}</label>
         <name>CMN_RecordPage_TabRelated</name>
     </customLabels>
     <customLabels>
+        <label>AI generated</label>
+        <name>CMN_Search_AiGenerated</name>
+    </customLabels>
+    <customLabels>
+        <label>AI Summary</label>
+        <name>CMN_Search_AiSummary</name>
+    </customLabels>
+    <customLabels>
+        <label>{0}</label>
+        <name>CMN_Search_Count</name>
+    </customLabels>
+    <customLabels>
+        <label>Documents</label>
+        <name>CMN_Search_Documents</name>
+    </customLabels>
+    <customLabels>
+        <label>Searches record numbers and titles together with document content.</label>
+        <name>CMN_Search_Hint</name>
+    </customLabels>
+    <customLabels>
+        <label>Include superseded revisions</label>
+        <name>CMN_Search_IncludeSuperseded</name>
+    </customLabels>
+    <customLabels>
+        <label>Search term</label>
+        <name>CMN_Search_InputLabel</name>
+    </customLabels>
+    <customLabels>
+        <label>No matching documents.</label>
+        <name>CMN_Search_NoDocuments</name>
+    </customLabels>
+    <customLabels>
+        <label>No results. Try a different search term.</label>
+        <name>CMN_Search_NoResults</name>
+    </customLabels>
+    <customLabels>
+        <label>Number, title, part number or what you're looking for</label>
+        <name>CMN_Search_Placeholder</name>
+    </customLabels>
+    <customLabels>
+        <label>Records</label>
+        <name>CMN_Search_Records</name>
+    </customLabels>
+    <customLabels>
+        <label>Search</label>
+        <name>CMN_Search_Run</name>
+    </customLabels>
+    <customLabels>
+        <label>Match {0}%</label>
+        <name>CMN_Search_Score</name>
+    </customLabels>
+    <customLabels>
+        <label>Sources</label>
+        <name>CMN_Search_Sources</name>
+    </customLabels>
+    <customLabels>
+        <label>The AI summary is for reference. Check the source documents before you conclude.</label>
+        <name>CMN_Search_SummaryNotice</name>
+    </customLabels>
+    <customLabels>
+        <label>Superseded</label>
+        <name>CMN_Search_Superseded</name>
+    </customLabels>
+    <customLabels>
+        <label>Enter a search term of 2 to 100 characters.</label>
+        <name>CMN_Search_TermLength</name>
+    </customLabels>
+    <customLabels>
+        <label>Unified Search</label>
+        <name>CMN_Search_Title</name>
+    </customLabels>
+    <customLabels>
         <label>The same user and plant access already exists: {0}</label>
         <name>CMN_Sharing_DuplicateAccess</name>
     </customLabels>
@@ -2945,6 +3101,10 @@ Open: {Url}</label>
     <customTabs>
         <label>Home</label>
         <name>CMN_QMS_Home</name>
+    </customTabs>
+    <customTabs>
+        <label>Unified Search</label>
+        <name>CMN_UnifiedSearch</name>
     </customTabs>
     <customTabs>
         <label>Development Quality</label>

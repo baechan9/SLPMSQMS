@@ -1,0 +1,15 @@
+{
+  "pageTab": {
+    "wi": "CMN-00-AI-002",
+    "name": "CMN_UnifiedSearch",
+    "package": "force-app-cmn",
+    "flexiPage": "CMN_UnifiedSearch",
+    "label": {
+      "ko": "통합 검색",
+      "en_US": "Unified Search",
+      "zh_CN": "统一搜索"
+    },
+    "motif": "Custom39: Telescope",
+    "description": "통합 검색·요약(AI-002 BR-3): 레코드 검색과 문서 의미 검색. 상태 매개변수 c__q로 검색어를 넘길 수 있다"
+  }
+}

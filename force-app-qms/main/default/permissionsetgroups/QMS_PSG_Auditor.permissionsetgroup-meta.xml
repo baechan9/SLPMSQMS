@@ -16,6 +16,7 @@
     <permissionSets>CMN_PS_Dashboard_User</permissionSets>
     <permissionSets>CMN_PS_Delegation_User</permissionSets>
     <permissionSets>CMN_PS_DeleteLog_Read</permissionSets>
+    <permissionSets>CMN_PS_DocSearch_User</permissionSets>
     <permissionSets>CMN_PS_Document_User</permissionSets>
     <permissionSets>CMN_PS_Employee_Read</permissionSets>
     <permissionSets>CMN_PS_Item_Read</permissionSets>

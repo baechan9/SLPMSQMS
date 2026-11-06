@@ -28,11 +28,11 @@
     </values>
     <values>
         <field>TargetType__c</field>
-        <value xsi:type="xsd:string">NONE</value>
+        <value xsi:type="xsd:string">PAGE</value>
     </values>
     <values>
         <field>Target__c</field>
-        <value xsi:nil="true"/>
+        <value xsi:type="xsd:string">CMN_UnifiedSearch</value>
     </values>
     <values>
         <field>Bundle__c</field>

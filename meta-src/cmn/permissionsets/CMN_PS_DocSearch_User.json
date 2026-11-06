@@ -1,0 +1,11 @@
+{
+  "permissionSet": {
+    "wi": "CMN-00-AI-002",
+    "name": "CMN_PS_DocSearch_User",
+    "package": "force-app-cmn",
+    "label": "CMN Doc Search User",
+    "description": "통합 검색(AI-002)·문서 버전 비교(AI-003) 화면. 결과는 사용자 권한으로만 나온다(레코드 SOSL USER_MODE, 문서 결과는 상위 레코드 접근 확인). 사내 페르소나 PSG 전체",
+    "classes": ["CMN_UnifiedSearchController", "CMN_DocumentCompareController"],
+    "tabs": ["CMN_UnifiedSearch"]
+  }
+}

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>66.0</apiVersion>
+    <isExposed>false</isExposed>
+    <description
+  >문서 버전 비교·변경 요약 대화상자(CMN-00-AI-003): 변경 목록·표 셀 비교·AI 요약, 비교 불가 표시</description>
+</LightningComponentBundle>

@@ -5,6 +5,7 @@ import getPanel from "@salesforce/apex/CMN_DocumentController.getPanel";
 import registerFiles from "@salesforce/apex/CMN_DocumentController.registerFiles";
 import registerLink from "@salesforce/apex/CMN_DocumentController.registerLink";
 import submitDocument from "@salesforce/apex/CMN_DocumentController.submitDocument";
+import CmnDocumentCompare from "c/cmnDocumentCompare";
 import TITLE from "@salesforce/label/c.CMN_Doc_Title";
 import UPLOAD from "@salesforce/label/c.CMN_Doc_Upload";
 import CLASS_LABEL from "@salesforce/label/c.CMN_Doc_Class";
@@ -19,6 +20,8 @@ import SAVE from "@salesforce/label/c.CMN_Doc_Save";
 import CANCEL from "@salesforce/label/c.CMN_Doc_Cancel";
 import TEMPLATE from "@salesforce/label/c.CMN_Doc_Template";
 import HISTORY from "@salesforce/label/c.CMN_Doc_History";
+import COMPARE from "@salesforce/label/c.CMN_DocCompare_Open";
+import COMPARE_TITLE from "@salesforce/label/c.CMN_DocCompare_Title";
 import REQUIRED from "@salesforce/label/c.CMN_Doc_Required";
 import MISSING from "@salesforce/label/c.CMN_Doc_Missing";
 import DUPLICATE from "@salesforce/label/c.CMN_Doc_Duplicate";
@@ -67,6 +70,7 @@ export default class CmnDocumentPanel extends NavigationMixin(
     cancel: CANCEL,
     template: TEMPLATE,
     history: HISTORY,
+    compare: COMPARE,
     required: REQUIRED,
     missing: MISSING,
     duplicate: DUPLICATE,
@@ -151,6 +155,8 @@ export default class CmnDocumentPanel extends NavigationMixin(
       ...d,
       currentView: current,
       revisions,
+      // 버전 비교(AI-003 BR-1): 리비전이 둘 이상일 때
+      canCompare: revisions.length >= 2,
       isExpanded: this.expanded[d.id] === true
     };
   }
@@ -260,6 +266,27 @@ export default class CmnDocumentPanel extends NavigationMixin(
     } finally {
       this.isSaving = false;
     }
+  }
+
+  openCompare(event) {
+    const id = event.target.dataset.id;
+    const doc = (this.panel?.classes ?? [])
+      .flatMap((g) => g.documents ?? [])
+      .find((d) => d.id === id);
+    if (!doc) {
+      return;
+    }
+    const revisions = this.decorate(doc).revisions.map((r) => ({
+      id: r.id,
+      label: r.label,
+      revisionNo: r.revisionNo
+    }));
+    CmnDocumentCompare.open({
+      size: "medium",
+      label: COMPARE_TITLE,
+      documentName: doc.name,
+      revisions
+    });
   }
 
   toggleHistory(event) {

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>통합 검색(AI-002 BR-3 (a)) 레코드 검색 대상. 1행 = 객체 1개(SOSL RETURNING). 각 메뉴가 자기 업무 객체를 등록한다. 결과는 사용자 권한(USER_MODE)으로만 나온다</description>
+    <label>검색 범위</label>
+    <pluralLabel>검색 범위</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>

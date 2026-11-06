@@ -12,9 +12,9 @@
 | --- | --- | --- |
 | 커스텀 객체 | 41 | 373 |
 | 표준 객체 확장 | 2 | 22 |
-| 커스텀 메타데이터 유형(설정) | 25 | 156 |
+| 커스텀 메타데이터 유형(설정) | 26 | 163 |
 | Platform Event | 5 | 23 |
-| 합계 | 73 | 574 |
+| 합계 | 74 | 581 |
 
 ## 커스텀 객체
 
@@ -786,6 +786,7 @@ To-Do / To-Do. 통합 To-Do(TDO-001). Owner = Assignee, OWD Private(본인만). 
 | [CMN_NotificationRule__mdt](#cmn_notificationrule__mdt) | 알림 규칙 |  | 4 | CMN-00-NTF-001 |
 | [CMN_NumberingRule__mdt](#cmn_numberingrule__mdt) | 채번 규칙 |  | 5 | CMN-00-ARC-003 |
 | [CMN_RailPanel__mdt](#cmn_railpanel__mdt) | 결정 지원 레일 패널 |  | 10 | CMN-00-UX-004 |
+| [CMN_SearchScope__mdt](#cmn_searchscope__mdt) | 검색 범위 |  | 7 | CMN-00-AI-002 |
 | [CMN_Setting__mdt](#cmn_setting__mdt) | CMN 설정 |  | 2 | CMN-00-MDM-003 |
 | [CMN_SharingConfig__mdt](#cmn_sharingconfig__mdt) | 공유 설정 |  | 4 | CMN-00-SEC-002 |
 | [CMN_StatusFlow__mdt](#cmn_statusflow__mdt) | 상태 흐름 |  | 2 | CMN-00-UX-003 |
@@ -1026,6 +1027,20 @@ To-Do / To-Do. 통합 To-Do(TDO-001). Owner = Assignee, OWD Private(본인만). 
 | PhoneOrder__c | Phone Order |  | Number | 3,0 |  | 휴대폰 순서(비우면 Order) |
 | RequiredPermission__c | Required Permission |  | Text | 80 |  | Custom Permission API명. 지정하면 보유자에게만 |
 | TitleLabel__c | Title Label |  | Text | 80 |  | 패널 제목 Custom Label 이름 |
+
+### CMN_SearchScope__mdt
+
+검색 범위 / . 통합 검색(AI-002 BR-3 (a)) 레코드 검색 대상. 1행 = 객체 1개(SOSL RETURNING). 각 메뉴가 자기 업무 객체를 등록한다. 결과는 사용자 권한(USER_MODE)으로만 나온다
+
+| API | 라벨(ko) | Label(en) | 타입 | 값/길이/참조 | 제약 | 설명 |
+| --- | --- | --- | --- | --- | --- | --- |
+| IsActive__c | Active |  | Checkbox |  |  | 사용 여부 |
+| MaxRows__c | Max Rows |  | Number | 3,0 |  | 객체당 최대 건수(1~20, 기본 5) |
+| NumberField__c | Number Field |  | Text | 80 |  | 번호 필드(예: RecordNo__c, ItemNo__c). 비우면 번호 없이 |
+| ObjectApiName__c | Object API Name |  | Text | 80 |  | 검색할 객체 |
+| Order__c | Order |  | Number | 4,0 |  | 결과 묶음 순서 |
+| SubtitleField__c | Subtitle Field |  | Text | 80 |  | 보조 표시 필드(선택) |
+| TitleField__c | Title Field |  | Text | 80 |  | 제목 필드(보통 Name) |
 
 ### CMN_Setting__mdt
 

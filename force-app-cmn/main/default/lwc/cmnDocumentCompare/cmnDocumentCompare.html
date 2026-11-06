@@ -1,0 +1,180 @@
+<template>
+  <lightning-modal-header label={labels.title}></lightning-modal-header>
+  <lightning-modal-body>
+    <p class="slds-text-body_small slds-m-bottom_small doc-name">
+      {documentName}
+    </p>
+    <div
+      class="slds-grid slds-wrap slds-grid_vertical-align-end slds-gutters_x-small"
+    >
+      <div class="slds-col slds-size_1-of-1 slds-medium-size_2-of-5">
+        <lightning-combobox
+          label={labels.from}
+          options={options}
+          value={fromId}
+          onchange={handleFrom}
+          class="from"
+        ></lightning-combobox>
+      </div>
+      <div class="slds-col slds-size_1-of-1 slds-medium-size_2-of-5">
+        <lightning-combobox
+          label={labels.to}
+          options={options}
+          value={toId}
+          onchange={handleTo}
+          class="to"
+        ></lightning-combobox>
+      </div>
+      <div class="slds-col slds-shrink-none slds-m-top_x-small">
+        <lightning-button
+          variant="brand"
+          label={labels.run}
+          disabled={runDisabled}
+          onclick={runCompare}
+          class="run"
+        ></lightning-button>
+      </div>
+    </div>
+
+    <template lwc:if={isLoading}>
+      <div class="slds-is-relative slds-p-around_large">
+        <lightning-spinner
+          alternative-text={labels.loading}
+          size="small"
+        ></lightning-spinner>
+      </div>
+    </template>
+    <template lwc:if={errorMessage}>
+      <p
+        class="slds-text-color_error slds-m-top_small"
+        role="alert"
+        data-id="error"
+      >
+        {errorMessage}
+      </p>
+    </template>
+    <template lwc:if={stateMessage}>
+      <p class="slds-text-color_weak slds-m-top_small" data-id="state">
+        {stateMessage}
+      </p>
+    </template>
+
+    <template lwc:if={isOk}>
+      <section class="slds-m-top_medium">
+        <div class="slds-grid slds-grid_vertical-align-center slds-wrap">
+          <h2 class="slds-text-heading_small slds-m-right_x-small">
+            {labels.summary}
+          </h2>
+          <span class="slds-badge slds-m-right_x-small" data-id="ai-badge">
+            <lightning-icon
+              icon-name="utility:einstein"
+              size="xx-small"
+              class="slds-m-right_xx-small"
+            ></lightning-icon
+            >{labels.aiGenerated}</span
+          >
+          <c-cmn-prototype-badge show={isMock}></c-cmn-prototype-badge>
+        </div>
+        <lightning-textarea
+          label={labels.summary}
+          variant="label-hidden"
+          value={summaryText}
+          onchange={handleSummary}
+          class="summary"
+        ></lightning-textarea>
+      </section>
+
+      <template lwc:if={showNoChanges}>
+        <p class="slds-text-color_weak slds-m-top_small" data-id="no-changes">
+          {labels.noChanges}
+        </p>
+      </template>
+
+      <template lwc:if={hasChanges}>
+        <h2 class="slds-text-heading_small slds-m-top_medium">
+          {labels.changes}
+        </h2>
+        <div class="slds-scrollable_x">
+          <table
+            class="slds-table slds-table_bordered slds-table_cell-buffer slds-m-top_x-small changes"
+          >
+            <thead>
+              <tr class="slds-line-height_reset">
+                <th scope="col">{labels.kind}</th>
+                <th scope="col">{labels.section}</th>
+                <th scope="col">{labels.before}</th>
+                <th scope="col">{labels.after}</th>
+              </tr>
+            </thead>
+            <tbody>
+              <template for:each={result.changes} for:item="c">
+                <tr key={c.key} class="change">
+                  <td>
+                    <span class="slds-badge">{c.typeLabel}</span>
+                  </td>
+                  <td class="slds-cell-wrap">{c.section}</td>
+                  <td class="slds-cell-wrap">{c.beforeText}</td>
+                  <td class="slds-cell-wrap">{c.afterText}</td>
+                </tr>
+              </template>
+            </tbody>
+          </table>
+        </div>
+      </template>
+
+      <template lwc:if={hasCells}>
+        <h2 class="slds-text-heading_small slds-m-top_medium">
+          {labels.cells}
+        </h2>
+        <div class="slds-scrollable_x">
+          <table
+            class="slds-table slds-table_bordered slds-table_cell-buffer slds-m-top_x-small cells"
+          >
+            <thead>
+              <tr class="slds-line-height_reset">
+                <th scope="col">{result.rowKeyLabel}</th>
+                <th scope="col">{labels.column}</th>
+                <th scope="col">{labels.before}</th>
+                <th scope="col">{labels.after}</th>
+              </tr>
+            </thead>
+            <tbody>
+              <template for:each={result.cells} for:item="cell">
+                <tr key={cell.key} class="cell">
+                  <td>{cell.rowKey}</td>
+                  <td>{cell.columnName}</td>
+                  <td>{cell.beforeText}</td>
+                  <td>{cell.afterText}</td>
+                </tr>
+              </template>
+            </tbody>
+          </table>
+        </div>
+      </template>
+
+      <template lwc:if={applyMessage}>
+        <p
+          class="slds-text-color_weak slds-m-top_small"
+          data-id="apply-message"
+        >
+          {applyMessage}
+        </p>
+      </template>
+    </template>
+  </lightning-modal-body>
+  <lightning-modal-footer>
+    <lightning-button
+      label={labels.close}
+      onclick={handleClose}
+      class="close"
+    ></lightning-button>
+    <template lwc:if={isOk}>
+      <lightning-button
+        variant="brand"
+        label={labels.apply}
+        onclick={handleApply}
+        class="apply slds-m-left_x-small"
+      ></lightning-button>
+    </template>
+  </lightning-modal-footer>
+</template>

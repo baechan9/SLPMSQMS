@@ -1,0 +1,216 @@
+{
+  "wi": "CMN-00-AI-003",
+  "package": "force-app-cmn",
+  "labels": [
+    {
+      "name": "CMN_DocCompare_PickTwo",
+      "category": "CMN",
+      "description": "리비전 선택 오류",
+      "value": {
+        "ko": "같은 문서의 서로 다른 리비전 두 개를 고르세요.",
+        "en_US": "Choose two different revisions of the same document.",
+        "zh_CN": "请选择同一文档的两个不同版本。"
+      }
+    },
+    {
+      "name": "CMN_DocCompare_NotComparable",
+      "category": "CMN",
+      "description": "비교 불가(AC-2)",
+      "value": {
+        "ko": "텍스트를 뽑을 수 없는 형식(스캔 이미지·CAD)이라 비교할 수 없습니다. 원본 파일을 직접 비교하세요.",
+        "en_US": "These files have no extractable text (scanned image or CAD), so they can't be compared. Compare the original files directly.",
+        "zh_CN": "该格式无法提取文本（扫描图像或 CAD），无法比较。请直接比较原文件。"
+      }
+    },
+    {
+      "name": "CMN_DocCompare_Added",
+      "category": "CMN",
+      "description": "변경 구분: 추가",
+      "value": {
+        "ko": "추가",
+        "en_US": "Added",
+        "zh_CN": "新增"
+      }
+    },
+    {
+      "name": "CMN_DocCompare_Removed",
+      "category": "CMN",
+      "description": "변경 구분: 삭제",
+      "value": {
+        "ko": "삭제",
+        "en_US": "Removed",
+        "zh_CN": "删除"
+      }
+    },
+    {
+      "name": "CMN_DocCompare_Changed",
+      "category": "CMN",
+      "description": "변경 구분: 변경",
+      "value": {
+        "ko": "변경",
+        "en_US": "Changed",
+        "zh_CN": "变更"
+      }
+    },
+    {
+      "name": "CMN_DocCompare_Title",
+      "category": "CMN",
+      "description": "대화상자 제목",
+      "value": {
+        "ko": "버전 비교",
+        "en_US": "Compare Versions",
+        "zh_CN": "版本比较"
+      }
+    },
+    {
+      "name": "CMN_DocCompare_Open",
+      "category": "CMN",
+      "description": "문서 패널 버튼",
+      "value": {
+        "ko": "버전 비교",
+        "en_US": "Compare versions",
+        "zh_CN": "版本比较"
+      }
+    },
+    {
+      "name": "CMN_DocCompare_From",
+      "category": "CMN",
+      "description": "이전 리비전 선택",
+      "value": {
+        "ko": "이전 리비전",
+        "en_US": "From revision",
+        "zh_CN": "旧版本"
+      }
+    },
+    {
+      "name": "CMN_DocCompare_To",
+      "category": "CMN",
+      "description": "이후 리비전 선택",
+      "value": {
+        "ko": "이후 리비전",
+        "en_US": "To revision",
+        "zh_CN": "新版本"
+      }
+    },
+    {
+      "name": "CMN_DocCompare_Run",
+      "category": "CMN",
+      "description": "비교 버튼",
+      "value": {
+        "ko": "비교",
+        "en_US": "Compare",
+        "zh_CN": "比较"
+      }
+    },
+    {
+      "name": "CMN_DocCompare_Summary",
+      "category": "CMN",
+      "description": "변경 요약 머리말",
+      "value": {
+        "ko": "변경 요약",
+        "en_US": "Change Summary",
+        "zh_CN": "变更摘要"
+      }
+    },
+    {
+      "name": "CMN_DocCompare_Changes",
+      "category": "CMN",
+      "description": "변경 목록 머리말",
+      "value": {
+        "ko": "변경 목록",
+        "en_US": "Changes",
+        "zh_CN": "变更列表"
+      }
+    },
+    {
+      "name": "CMN_DocCompare_Cells",
+      "category": "CMN",
+      "description": "표 비교 머리말",
+      "value": {
+        "ko": "표 비교",
+        "en_US": "Table Changes",
+        "zh_CN": "表格比较"
+      }
+    },
+    {
+      "name": "CMN_DocCompare_Kind",
+      "category": "CMN",
+      "description": "열: 구분",
+      "value": {
+        "ko": "구분",
+        "en_US": "Type",
+        "zh_CN": "类型"
+      }
+    },
+    {
+      "name": "CMN_DocCompare_Section",
+      "category": "CMN",
+      "description": "열: 위치",
+      "value": {
+        "ko": "위치",
+        "en_US": "Section",
+        "zh_CN": "位置"
+      }
+    },
+    {
+      "name": "CMN_DocCompare_Before",
+      "category": "CMN",
+      "description": "열: 이전",
+      "value": {
+        "ko": "이전",
+        "en_US": "Before",
+        "zh_CN": "变更前"
+      }
+    },
+    {
+      "name": "CMN_DocCompare_After",
+      "category": "CMN",
+      "description": "열: 이후",
+      "value": {
+        "ko": "이후",
+        "en_US": "After",
+        "zh_CN": "变更后"
+      }
+    },
+    {
+      "name": "CMN_DocCompare_Column",
+      "category": "CMN",
+      "description": "열: 항목",
+      "value": {
+        "ko": "항목",
+        "en_US": "Item",
+        "zh_CN": "项目"
+      }
+    },
+    {
+      "name": "CMN_DocCompare_Apply",
+      "category": "CMN",
+      "description": "요약 반영 버튼",
+      "value": {
+        "ko": "변경 내용에 반영",
+        "en_US": "Apply to change note",
+        "zh_CN": "填入变更说明"
+      }
+    },
+    {
+      "name": "CMN_DocCompare_Close",
+      "category": "CMN",
+      "description": "닫기 버튼",
+      "value": {
+        "ko": "닫기",
+        "en_US": "Close",
+        "zh_CN": "关闭"
+      }
+    },
+    {
+      "name": "CMN_DocCompare_NoChanges",
+      "category": "CMN",
+      "description": "변경 없음",
+      "value": {
+        "ko": "바뀐 내용이 없습니다.",
+        "en_US": "No changes found.",
+        "zh_CN": "没有变化。"
+      }
+    }
+  ]
+}

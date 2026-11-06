@@ -1,0 +1,66 @@
+{
+  "queryKey": "CMN_DOC_SEARCH",
+  "mode": "AI",
+  "version": 1,
+  "summary": {
+    "text": "렌즈 흐림의 주된 대책은 벤트 멤브레인 통기량 상향과 실링 경화 시간 연장이었고, 적용 뒤 재발이 없었습니다. 수밀 시험 기준서는 온도 사이클 뒤 응결 여부로 판정합니다. 계절별 경화 조건 관리가 레슨런으로 남아 있습니다.",
+    "sources": [
+      {
+        "label": "DOC-KR01-2025-0012 Rev.2"
+      },
+      {
+        "label": "DOC-KR01-2024-0031 Rev.5"
+      },
+      {
+        "label": "DOC-KR01-2023-0108 Rev.3"
+      }
+    ]
+  },
+  "documents": [
+    {
+      "title": "렌즈 흐림 대책 8D 보고서",
+      "docNo": "DOC-KR01-2025-0012",
+      "revisionLabel": "Rev.2",
+      "docClass": "8D 보고서",
+      "snippet": "벤트 멤브레인 통기량 사양을 상향하고 실링 경화 시간을 늘린 뒤 흐림 재발이 없었다.",
+      "score": 0.91,
+      "superseded": false
+    },
+    {
+      "title": "헤드램프 수밀 시험 기준서",
+      "docNo": "DOC-KR01-2024-0031",
+      "revisionLabel": "Rev.5",
+      "docClass": "시험 기준서",
+      "snippet": "온도 사이클 후 수밀 시험에서 렌즈 내면 응결 여부를 판정한다.",
+      "score": 0.84,
+      "superseded": false
+    },
+    {
+      "title": "렌즈 흐림 대책 8D 보고서",
+      "docNo": "DOC-KR01-2025-0012",
+      "revisionLabel": "Rev.1",
+      "docClass": "8D 보고서",
+      "snippet": "임시 대책으로 출하 전 응결 검사를 추가했다.",
+      "score": 0.8,
+      "superseded": true
+    },
+    {
+      "title": "벤트 부품 변경 4M 신고서",
+      "docNo": "DOC-KR01-2025-0044",
+      "revisionLabel": "Rev.1",
+      "docClass": "4M 신고",
+      "snippet": "벤트 멤브레인 공급사 변경과 초도품 검증 결과를 첨부했다.",
+      "score": 0.77,
+      "superseded": false
+    },
+    {
+      "title": "레슨런: 하우징 실링 경화 조건",
+      "docNo": "DOC-KR01-2023-0108",
+      "revisionLabel": "Rev.3",
+      "docClass": "레슨런",
+      "snippet": "경화 온도 편차가 큰 계절에 흐림 클레임이 늘었다.",
+      "score": 0.71,
+      "superseded": false
+    }
+  ]
+}

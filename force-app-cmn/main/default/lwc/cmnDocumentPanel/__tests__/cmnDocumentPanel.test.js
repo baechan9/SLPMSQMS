@@ -4,6 +4,12 @@ import getPanel from "@salesforce/apex/CMN_DocumentController.getPanel";
 import registerFiles from "@salesforce/apex/CMN_DocumentController.registerFiles";
 import registerLink from "@salesforce/apex/CMN_DocumentController.registerLink";
 import submitDocument from "@salesforce/apex/CMN_DocumentController.submitDocument";
+import CmnDocumentCompare from "c/cmnDocumentCompare";
+
+jest.mock("c/cmnDocumentCompare", () => ({
+  __esModule: true,
+  default: { open: jest.fn() }
+}));
 
 // 탐색 호출을 기록하는 목(기본 스텁은 아무것도 하지 않는다)
 const mockNavigate = jest.fn();
@@ -285,6 +291,22 @@ describe("c-cmn-document-panel", () => {
     expect(submitDocument).toHaveBeenCalledWith({
       documentId: "a0D000000000002AAA",
       comment: null
+    });
+  });
+
+  it("AI-003: 리비전이 둘 이상인 문서만 버전 비교를 연다", async () => {
+    const el = await mount();
+    const compareButtons = qa(el, "lightning-button.compare");
+    expect(compareButtons).toHaveLength(1);
+    compareButtons[0].click();
+    const arg = CmnDocumentCompare.open.mock.calls[0][0];
+    expect(arg.documentName).toBe("8D Report");
+    expect(arg.label).toBe("c.CMN_DocCompare_Title");
+    expect(arg.revisions).toHaveLength(2);
+    expect(arg.revisions[0]).toEqual({
+      id: "a0R000000000001AAA",
+      label: expect.any(String),
+      revisionNo: 2
     });
   });
 
