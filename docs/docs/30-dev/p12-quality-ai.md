@@ -7,7 +7,7 @@ Vol.8 품질 AI(AIQ-001~013·016)와 CMN AI 나머지(문서 검색 AI-002, 버�
 | 항목 | 내용 |
 | --- | --- |
 | 목표 | 원인 추천(8D D4·심사 지적·SPC 알람), 8D 초안, LELE 추천, 조기경보, 품질 Q&A(업무 현황·추세 통계), 품질 문서 검색이 사람 확정 원칙과 공장 권한을 지키며 동작하고, 모든 추천이 `CMN_AiRecommendation__c`에 기록됨 |
-| 기간(4명 기준) | 누적 290영업일(P11 이후 약 26일) |
+| 기간(기본 인원) | 누적 266영업일(P11 이후 약 27일). QMS 4명·PMS 3명 시뮬레이션(2026-11-06, [개발 플랜](dev-plan.md) 9.2절) |
 | 마일스톤 | S1·S2·S5·S6 AI 완성, S11 조기경보 |
 | 착수 조건 | P0 S-4 결과에 따른 Agentforce 환경(Scratch Org 또는 대안 Org), D-4·D8-1 결정, AI 기대값 파일(9절) |
 | 다음 페이즈로 당겨 착수 가능 | P13 AIQ-014·015(AIQ-006 뒤) |
@@ -31,7 +31,7 @@ WI 18건 · 104 M/D · W1 10 · W2 8 · SF 트랙 15건 · 외부 트랙 3건
 | C2 | QMS-08-AIQ-007 | LELE 추천 서비스(규칙 후보 + 의미 순위 + 반영 초안) | W1 | 7 | SF + DW 목 + Agentforce | AIQ-001, AIQ-002 | — |
 | C3 | QMS-08-AIQ-008 | PMS 연계 흐름·PoC 시나리오 6 시연 | W1 | 5 | SF + 연계 시뮬 | AIQ-007 | — |
 | C4 | QMS-08-AIQ-016 | AI 평가·출시 기준·프롬프트 버전·사용량 운영 | W2 | 5 | SF + DW 목 + Agentforce | AIQ-001, AIQ-003, AIQ-007, AIQ-010, AIQ-011, AIQ-004 | 앞당김: QMS-07-DSH-012의 선행 |
-| D1 | CMN-00-AI-002 | 문서 통합 검색·요약 | W2 | 8 | SF + 연계 시뮬 + Agentforce + Data Cloud(Sandbox) | — | Data Cloud 부분은 D-4 결정 후 Sandbox |
+| D1 | CMN-00-AI-002 | 문서 통합 검색·요약 | W2 | 8 | SF + 연계 시뮬 + Agentforce + Data Cloud(Sandbox) | — | Data Cloud 부분은 D-4 결정 후 Sandbox / 앞당김: PMS-06-DLV-005의 선행 |
 | D2 | CMN-00-AI-003 | 문서 버전 비교·변경 요약 | W2 | 4 | SF + Agentforce | AI-002 | — |
 | D3 | QMS-08-AIQ-013 | 품질 문서 검색 범위·QMS 검색 구성·리비전 비교 사용처 | W2 | 4 | SF + Agentforce + Data Cloud(Sandbox) | AIQ-001, AI-002, AI-003 | Data Cloud 부분은 Sandbox |
 | X1 | QMS-08-AIQ-011 | 위험 점수 계산(피처·점수·이상 탐지, Snowflake) | W2 | 7 | 외부 트랙 | — | 앞당김: QMS-07-DSH-012의 선행 |

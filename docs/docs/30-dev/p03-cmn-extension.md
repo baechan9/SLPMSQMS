@@ -1,4 +1,4 @@
-# P3 공통 확장·QMS 연계 공통
+# P3 공통 확장·연계 공통·대시보드 공용
 
 결재 UI·위임·독촉, 모바일, 회의, 위젯 대시보드 프레임워크와 홈, 포탈 To-Do API, Snowflake ↔ Salesforce 수신·조회 경로, AI 추천 기록, QMS 연계 공통 프레임을 만든다. QMS 업무 WI가 W1에서 바로 쓰는 공통 기능이다. DWH-004(W2)는 W1 WI 10건의 선행이라 여기로 당겼다.
 
@@ -6,35 +6,40 @@
 
 | 항목 | 내용 |
 | --- | --- |
-| 목표 | QMS 업무 화면이 붙을 결재 UI·홈·위젯 보드, Snowflake KPI·알람 수신과 드릴다운 호출 경로, AI 추천 기록 서비스가 동작 |
-| 기간(4명 기준) | 누적 51영업일(P2 이후 약 17일) |
-| 마일스톤 | 결재 UI·위임, KPI 수신, 위젯 보드. 외부 트랙이 준비되면 첫 L3 연결 |
+| 목표 | QMS·PMS 업무 화면이 붙을 결재 UI·홈·위젯 보드와 대시보드 공용 라이브러리, Snowflake KPI·알람 수신과 드릴다운 호출 경로, AI 추천 기록 서비스, 표준 질문지 템플릿이 동작 |
+| 기간(기본 인원) | 누적 53영업일(P2 이후 약 19일). QMS 4명·PMS 3명 시뮬레이션(2026-11-06, [개발 플랜](dev-plan.md) 9.2절) |
+| 마일스톤 | 결재 UI·위임, KPI 수신, 위젯 보드·공용 라이브러리, 질문지 템플릿. 외부 트랙이 준비되면 첫 L3 연결 |
 | 착수 조건 | CMN WI는 선행이 끝나면 P2 게이트 전에도 착수(롤링). QMS-09-INT-001~003은 QMS WI이므로 W0(P1·P2) 전부 `개발 완료` 후 |
-| 다음 페이즈로 당겨 착수 가능 | P4 중 DVQ-001, PPA-001, IQC-001, SPP-001(선행이 CMN뿐인 것) |
+| 다음 페이즈로 당겨 착수 가능 | P4 중 DVQ-001, PPA-001, IQC-001, SPP-001(선행이 CMN뿐인 것). PMS 트랙 P14 전부(P2 이후 착수 가능, [개발 플랜](dev-plan.md) 4.1절) |
 
 ## 2. WI 착수 순서
 
 <!-- BEGIN:WI-TABLE -->
-WI 22건 · 109 M/D · W0 2 · W1 17 · W2 3 · SF 트랙 21건 · 외부 트랙 1건
+WI 27건 · 138 M/D · W0 2 · W1 22 · W2 3 · SF 트랙 26건 · 외부 트랙 1건
 
 | 순서 | WI | 제목 | Wave | M/D | Scratch Org 범위 | 이 페이즈 안 선행 | 비고 |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | A1 | CMN-00-APV-004 | 대리결재(위임) | W1 | 4 | SF | — | — |
-| A2 | CMN-00-APV-005 | 결재 지연 알림·에스컬레이션 | W2 | 2 | SF | — | — |
-| A3 | CMN-00-MTG-001 | 회의 관리 | W2 | 5 | SF | — | 앞당김: UX-009의 선행 |
+| A2 | CMN-00-APV-005 | 결재 지연 알림·에스컬레이션 | W2 | 2 | SF | — | 앞당김: PMS-03-CFT-002의 선행 |
+| A3 | CMN-00-MTG-001 | 회의 관리 | W2 | 5 | SF | — | 앞당김: UX-009·PMS-09-GAT-003·PMS-09-GAT-004 외의 선행 |
 | A4 | CMN-00-UX-001 | 모바일·멀티 브라우저 지원 | W1 | 3 | SF | — | — |
 | A5 | CMN-00-APV-003 | 결재 상신·처리·이력 UI | W1 | 6 | SF | UX-001 | — |
 | A6 | CMN-00-UX-006 | 공통 편집 그리드 | W1 | 7 | SF | UX-004, UX-005 | 화면 전략 2026-11-05 공통 화면 부품(A0에서 완성) |
 | A7 | CMN-00-UX-008 | 현장 입력 셸 | W1 | 7 | SF | UX-001, UX-006 | 화면 전략 2026-11-05 공통 화면 부품(A0에서 완성) |
 | A8 | CMN-00-UX-009 | 체크리스트 수행 화면 | W1 | 6 | SF | UX-001, UX-004, UX-006, MTG-001 | 화면 전략 2026-11-05 공통 화면 부품(A0에서 완성) |
+| A9 | CMN-00-QNR-001 | 표준 질문지 템플릿(판·버전·문항 대응) | W1 | 7 | SF | UX-009 | QMS 심사(P9 IAU)와 PMS Gate 평가표(P17)가 같이 쓰는 공통 질문지 템플릿(2026-11-06 신규) |
 | B1 | CMN-00-DSH-001 | 위젯 대시보드 프레임워크 | W1 | 7 | SF | — | 앞당김: UX-004의 선행 |
 | B2 | CMN-00-TDO-003 | 포탈 To-Do 연계 API | W1 | 5 | SF + 연계 시뮬 | — | — |
 | B3 | CMN-00-TDO-004 | QMS·PMS 메인 홈 | W1 | 3 | SF | DSH-001 | — |
 | B4 | CMN-00-UX-004 | 업무 레코드 작업공간 템플릿·결정 지원 레일 | W0 | 6 | SF | DSH-001 | 화면 전략 2026-11-05 공통 화면 부품(A0에서 완성) |
-| B5 | CMN-00-UX-005 | 상태·권한 화면 제어 매트릭스 | W0 | 5 | SF | UX-004 | 화면 전략 2026-11-05 공통 화면 부품(A0에서 완성) |
-| B6 | CMN-00-UX-007 | 앱 구성·메뉴 허브 | W1 | 4 | SF | TDO-004 | 화면 전략 2026-11-05 공통 화면 부품(A0에서 완성) |
+| B5 | QMS-07-DSH-001 | KPI 정의 레지스트리·RAG 규칙 단일화 | W1 | 5 | SF + DW 목 + 연계 시뮬 | DWH-003 | PMS·QMS 대시보드 공용 라이브러리라 P7에서 P3로 당김(2026-11-06). IQC KPI 키는 IQC-007이 레지스트리에 추가(CR-15) |
+| B6 | CMN-00-UX-005 | 상태·권한 화면 제어 매트릭스 | W0 | 5 | SF | UX-004 | 화면 전략 2026-11-05 공통 화면 부품(A0에서 완성) |
+| B7 | CMN-00-UX-007 | 앱 구성·메뉴 허브 | W1 | 4 | SF | TDO-004 | 화면 전략 2026-11-05 공통 화면 부품(A0에서 완성) |
+| B8 | QMS-07-DSH-002 | 위젯 데이터 서비스(공장 권한·비용 권한·캐시) | W1 | 6 | SF | DWH-003, DWH-004, DSH-001 | PMS·QMS 대시보드 공용 라이브러리(P7에서 당김) |
+| B9 | QMS-07-DSH-003 | 공용 차트·KPI 컴포넌트 라이브러리 | W1 | 7 | SF | UX-001, DSH-001, DSH-002 | PMS·QMS 대시보드 공용 라이브러리(P7에서 당김). cmnChartJs는 force-app-cmn에 둠(CR-7) |
+| B10 | QMS-07-DSH-004 | 위젯 설정 폼·위젯 등록 규칙 | W1 | 4 | SF | DSH-001, DSH-003 | PMS·QMS 대시보드 공용 라이브러리(P7에서 당김) |
 | C1 | CMN-00-DWH-003 | Snowflake → Salesforce KPI·알람 전달 | W1 | 6 | SF + DW 목 + 연계 시뮬 | — | — |
-| C2 | CMN-00-DWH-004 | 상세 데이터 조회 API(드릴다운) | W2 | 4 | SF + DW 목 + 연계 시뮬 | — | callProcedure 확장 함께 반영 권고(CR-9) / 앞당김: QMS-04-RPP-002·QMS-04-SPC-003·QMS-04-SPC-006 외의 선행 |
+| C2 | CMN-00-DWH-004 | 상세 데이터 조회 API(드릴다운) | W2 | 4 | SF + DW 목 + 연계 시뮬 | — | callProcedure 확장 함께 반영 권고(CR-9) / 앞당김: PMS-10-DSH-002·QMS-04-RPP-002·QMS-04-SPC-003 외의 선행 |
 | C3 | QMS-09-INT-001 | QMS 연계 공통 프레임·카탈로그·코드 매핑 | W1 | 6 | SF + DW 목 + 연계 시뮬 | — | — |
 | C4 | QMS-09-INT-002 | 외부 요청 수신 규약·동기화 상태 모니터·재전송 | W1 | 5 | SF + DW 목 + 연계 시뮬 | DWH-003, INT-001 | — |
 | C5 | QMS-09-INT-003 | 연계 테스트 환경·목(mock)·PoC 데이터 주입 | W1 | 4 | SF + DW 목 + 연계 시뮬 | INT-001 | — |
@@ -45,19 +50,21 @@ WI 22건 · 109 M/D · W0 2 · W1 17 · W2 3 · SF 트랙 21건 · 외부 트랙
 
 ## 3. 레인별 작업
 
-### 레인 A — 결재 UI·모바일·회의(UX-001 → APV-003, APV-004, APV-005, MTG-001)
+### 레인 A — 결재 UI·모바일·회의·질문지(UX-001 → APV-003, APV-004, APV-005, MTG-001, QNR-001)
 
 1. **UX-001**: 모바일 앱·모바일 웹·멀티 브라우저 기준, `formFactors` Small 포함 규칙, 사진 첨부 시 장변 1920px 축소. AC-1(NCR 사진)은 테스트 대상 객체로, P5 NCR-002에서 다시 확인. review-pack 변경 요청 1건.
 2. **APV-003**: `cmnApprovalLine`, 상신·처리·이력 LWC(버전 구분), 개인 결재선 저장·불러오기, 반려 의견 필수(화면·서버).
 3. **APV-004**: `CMN_Delegation__c`(유형 범위 TypeCodes, 기간), 위임자·수임자 To-Do 동시 표시와 자동 종료. 데모 보강: `ExternalKey__c`(`DLG-{위임자 사번}-{시작일}`).
 4. **APV-005**: 공장 09:00 독촉 잡(공장 시간대), 같은 날 중복 방지, 에스컬레이션.
 5. **MTG-001**: 회의·조치 항목, 회의록 확정 시 담당자별 To-Do, 확정 후 수정 차단. review-pack 변경 요청 1건. P9 CER-002(경영검토)가 이것을 쓴다.
+6. **UX-009 다음 QNR-001**(2026-11-06 신규): 표준 질문지 템플릿 `CMN_QuestionnaireTemplate__c`·`Item__c`·`GradeRule__c`, 판·발효일·문항 대응(PreviousItemKey·MappingType), 시작 시점 스냅숏, 도메인 권한(`CMN_QnrAdmin_Audit`·`Gate`·`Other`), `CMN_QuestionnaireService`(activeTemplate·snapshot·newVersion·activate·compareVersions·importItems), 점수 계산기·사용처 검사·도메인 검증 인터페이스, `cmnQuestionnaireEditor`·`cmnQuestionnaireImport`. QMS 심사(P9 IAU-001)와 PMS Gate 평가표(P17 GAT-002)가 같이 쓴다. Vol.P4 변경 요청(템플릿 활성화 검증 훅)을 함께 반영.
 
-### 레인 B — 위젯 보드·홈·포탈 API(DSH-001 → TDO-004, TDO-003)
+### 레인 B — 위젯 보드·홈·포탈 API·대시보드 공용(DSH-001 → TDO-004, TDO-003, QMS-07-DSH-001~004)
 
 1. **DSH-001**: `CMN_Widget__mdt`(위젯 계약 `@api config`, `@api size`, ConfigSchema — Vol.7 요청), `cmnWidgetBoard`(편집 모드·저장·위젯 단위 오류 격리), 역할 템플릿 복사. 테스트용 위젯 1~2개로 확인한다. review-pack 변경 요청 1건.
 2. **TDO-004**: SL QMS 홈(To-Do 목록 + 위젯 보드, 기본 필터 QMS, 위젯 지연 로딩).
 3. **TDO-003**: 포탈 To-Do 연계 REST API(건수·목록, category·lang 파라미터). 외부 포탈 인증 방식(OAuth 클라이언트 자격 증명 등)은 Connected App·External Client App 중 Org에서 지원되는 것으로. AC-3(동시 500, p95 1초)은 UAT 항목으로 넘긴다.
+4. **대시보드 공용 라이브러리 QMS-07-DSH-001 → 002 → 003 → 004**(2026-11-06 P7에서 당김): PMS 대시보드(P18 PMS-10-DSH-001)와 QMS 위젯(P11)이 함께 쓰므로 기반으로 옮겼다. KPI 정의 레지스트리 `QMS_KpiDefinition__mdt`(IQC KPI 키는 P6 IQC-007이 행을 더한다 — CR-15), 위젯 데이터 서비스(공장 권한·비용 권한·캐시), 공용 차트·KPI 컴포넌트 7종과 `cmnChartJs`(force-app-cmn, CR-7), 위젯 설정 폼·등록 규칙. 상세 작업은 [P7](p07-spc-lele-dashboard-lib.md) 옛 레인 B 설명을 이곳으로 옮겨 읽는다.
 
 ### 레인 C — Snowflake 수신·조회와 QMS 연계 공통(DWH-003, DWH-004 → QMS-09-INT-001 → INT-002, INT-003)
 

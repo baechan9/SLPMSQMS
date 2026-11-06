@@ -23,6 +23,7 @@ CMN-00-UX-006,3,A,,,화면 전략 2026-11-05 공통 화면 부품(A0에서 완�
 CMN-00-UX-007,3,B,,,화면 전략 2026-11-05 공통 화면 부품(A0에서 완성)
 CMN-00-UX-008,3,A,,,화면 전략 2026-11-05 공통 화면 부품(A0에서 완성)
 CMN-00-UX-009,3,A,,,화면 전략 2026-11-05 공통 화면 부품(A0에서 완성)
+CMN-00-QNR-001,3,A,,,QMS 심사(P9 IAU)와 PMS Gate 평가표(P17)가 같이 쓰는 공통 질문지 템플릿(2026-11-06 신규)
 CMN-00-APV-001,2,A,,,
 CMN-00-APV-002,2,A,,,
 CMN-00-APV-003,3,A,,,
@@ -179,10 +180,10 @@ QMS-06-SQM-002,9,C,,,
 QMS-06-SQM-003,9,C,,,
 QMS-06-IMP-001,9,D,,,
 QMS-06-IMP-002,9,D,,,
-QMS-07-DSH-001,7,B,,,
-QMS-07-DSH-002,7,B,,,
-QMS-07-DSH-003,7,B,,,cmnChartJs는 force-app-cmn에 둠(CR-7)
-QMS-07-DSH-004,7,B,,,
+QMS-07-DSH-001,3,B,,QMS-03-IQC-007,PMS·QMS 대시보드 공용 라이브러리라 P7에서 P3로 당김(2026-11-06). IQC KPI 키는 IQC-007이 레지스트리에 추가(CR-15)
+QMS-07-DSH-002,3,B,,,PMS·QMS 대시보드 공용 라이브러리(P7에서 당김)
+QMS-07-DSH-003,3,B,,,PMS·QMS 대시보드 공용 라이브러리(P7에서 당김). cmnChartJs는 force-app-cmn에 둠(CR-7)
+QMS-07-DSH-004,3,B,,,PMS·QMS 대시보드 공용 라이브러리(P7에서 당김)
 QMS-07-DSH-005,11,A,,,
 QMS-07-DSH-006,11,A,,,
 QMS-07-DSH-007,11,A,,,
@@ -232,3 +233,68 @@ QMS-09-INT-018,10,D,,,
 QMS-09-INT-019,9,C,,,
 QMS-09-INT-020,12,X,,,
 QMS-09-INT-021,13,B,,,D-1이 단일 Org면 폐기(D9-6)
+PMS-04-WBS-001,14,A,,PMS-02-PRJ-003;PMS-03-CFT-001,PMO 기준정보라 프로젝트보다 먼저. PROJECT_ROLE·CUSTOMER_MILESTONE 코드 그룹은 MDM-007 데이터로 먼저 적재(그룹 규칙 소유는 CFT-001·PRJ-003) — 순환 해소 CR-13
+PMS-04-WBS-002,14,A,,,
+PMS-02-PRJ-001,14,B,,,"플랫폼 이벤트 PMS_ProjectEvent__e(Enterprise Scratch, D-P8 적용)"
+PMS-02-PRJ-002,14,B,,,
+PMS-02-PRJ-003,14,B,,,
+PMS-03-CFT-001,14,C,,,
+PMS-03-CFT-003,14,C,,,
+PMS-12-APV-001,14,C,,,PROJECT_ROLE 결재선 해석 — SOR·CFT·산출물·Gate 결재가 쓰므로 먼저. APV-002 플러그인 변경 요청 함께
+PMS-02-SOR-001,14,C,,,
+PMS-07-ACT-001,15,A,,,
+PMS-04-WBS-004,15,A,,,CPM 엔진(임계 경로). 공장 근무 달력은 Vol.0 변경 요청(MDM-002 확장)
+PMS-04-WBS-003,15,A,,,
+PMS-04-WBS-005,15,A,,,
+PMS-04-WBS-006,15,A,,,
+PMS-07-ACT-002,15,B,,,
+PMS-07-ACT-003,15,B,,,
+PMS-07-ACT-005,15,B,,,
+PMS-03-CFT-002,15,C,,,
+PMS-03-EFF-001,15,C,,,
+PMS-06-DLV-001,16,A,,,
+PMS-06-DLV-002,16,A,,,APV-001 하위 객체 공유 변경 요청(V0-5) 선반영 필요
+PMS-07-ACT-004,16,A,,,
+PMS-04-WBS-009,16,A,,,
+PMS-06-DLV-005,16,A,,CMN-00-AI-002,통합 검색 범위 등록(BR-6)은 A0에서 배포한 CMN_SearchScope__mdt로 먼저 한다. 문서 내용 색인·요약 확인은 AI-002(P12) 완료 후 — 연결 확인 L-1
+PMS-04-WBS-007,16,B,,,
+PMS-03-EFF-002,16,B,,,
+PMS-04-WBS-008,16,B,,,Gantt 자산 결정 D-P2·DP2-3. 진척률·RAG(WBS-007)를 그리므로 P16
+PMS-05-CST-003,16,C,,,
+PMS-05-CST-001,16,C,,,D-3 Multi-Currency 결정 확인(D-P5)
+PMS-05-CST-002,16,C,,,
+PMS-09-GAT-001,17,A,,,
+PMS-09-GAT-002,17,A,,,
+PMS-09-GAT-003,17,A,,,
+PMS-09-GAT-004,17,A,,,
+PMS-09-GAT-006,17,A,PMS-12-INT-005,QMS-04-EFC-001;QMS-03-PIS-001;PMS-08-ISS-002,초기유동 요청은 INT-005 requestEarlyProductionContainment(게이트웨이 STABILIZATION)로 한다 — QMS 클래스 직접 호출 제거(CR-14). EFC-001(P8) 바인딩 전에는 기본 구현(담당자 To-Do). EFC-001 실연결과 레슨런 후보 일괄 보내기(ISS-002)는 연결 확인 L-2
+PMS-08-RSK-001,17,B,,,
+PMS-08-ISS-001,17,B,,,
+PMS-08-RSK-003,17,B,,,
+PMS-12-INT-005,17,C,,,PMS ↔ QMS 디지털 스레드 기반(연결 대장·게이트웨이 바인딩 키)
+PMS-08-ISS-002,17,C,,,
+PMS-08-RSK-002,17,C,,,
+PMS-10-DSH-001,18,A,,,
+PMS-10-DSH-002,18,A,,,
+PMS-10-DSH-003,18,A,,,
+PMS-10-DSH-004,18,A,,,
+PMS-03-EFF-003,18,B,,,
+PMS-05-CST-004,18,B,,,
+PMS-02-SOR-002,18,B,,,
+PMS-06-DLV-003,18,B,,,
+PMS-11-AIP-004,19,A,,,PMS 에이전트 기반(다른 AIP의 선행)
+PMS-11-AIP-001,19,A,,,
+PMS-11-AIP-003,19,A,,,
+PMS-11-AIP-002,19,B,,,
+PMS-11-AIP-005,19,B,,,
+PMS-09-GAT-005,19,B,,,
+PMS-06-DLV-004,19,B,,,
+PMS-12-INT-001,20,A,,,
+PMS-12-INT-004,20,A,,,
+PMS-12-INT-003,20,A,,,
+PMS-12-INT-002,20,A,,,
+PMS-04-WBS-010,20,B,,,
+PMS-13-PRF-001,20,B,,,
+PMS-13-PRF-002,20,B,,,
+PMS-13-CHG-001,20,B,,,
+PMS-13-CHG-002,20,B,,,

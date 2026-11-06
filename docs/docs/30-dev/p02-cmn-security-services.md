@@ -7,7 +7,7 @@
 | 항목 | 내용 |
 | --- | --- |
 | 목표 | 모든 QMS 메뉴가 호출할 공통 서비스(`CMN_ApprovalService`, `CMN_TodoService`, `CMN_NotificationService`, `CMN_DocumentService`, `CMN_SharingService`)와 격리 모델이 테스트 대상 객체로 검증된 상태 |
-| 기간(4명 기준) | 누적 34영업일(P1 이후 약 17일) |
+| 기간(기본 인원) | 누적 34영업일(P1 이후 약 19일). QMS 4명·PMS 3명 시뮬레이션(2026-11-06, [개발 플랜](dev-plan.md) 9.2절) |
 | 마일스톤 | 공장 격리, 결재·To-Do·알림·문서 서비스, 테스트 IdP SSO |
 | 착수 조건 | P1의 해당 선행 WI `개발 완료`, 8절 결정 |
 | 다음 페이즈로 당겨 착수 가능 | P3 중 UX-001(SEC-001), DSH-001(SEC-001·I18N-001), DWH-003·004(DWH-001·INT-001) |
