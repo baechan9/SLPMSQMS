@@ -4,7 +4,7 @@
         <headerColor>#706E6B</headerColor>
         <shouldOverrideOrgTheme>false</shouldOverrideOrgTheme>
     </brand>
-    <description>운영·기준 정보 관리 앱: 메뉴 허브(공통 업무·기준정보), 공통 코드, 결재 템플릿, 연계 로그, 로그, 삭제 로그(UX-007 BR-2). 품질경영팀·IT 운영</description>
+    <description>운영·기준 정보 관리 앱: 메뉴 허브(공통 업무·기준정보), 공통 코드, 결재 템플릿, 연계 로그, 수신 영수·KPI 값(DWH-003), 로그, 삭제 로그(UX-007 BR-2). 품질경영팀·IT 운영</description>
     <formFactors>Small</formFactors>
     <formFactors>Large</formFactors>
     <isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
@@ -16,6 +16,8 @@
     <tabs>CMN_Code__c</tabs>
     <tabs>CMN_ApprovalTemplate__c</tabs>
     <tabs>CMN_InterfaceLog__c</tabs>
+    <tabs>CMN_InboundReceipt__c</tabs>
+    <tabs>CMN_KpiValue__c</tabs>
     <tabs>CMN_Log__c</tabs>
     <tabs>CMN_DeleteLog__c</tabs>
     <uiType>Lightning</uiType>

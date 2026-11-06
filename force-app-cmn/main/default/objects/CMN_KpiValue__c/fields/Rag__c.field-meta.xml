@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Rag__c</fullName>
+    <description>Snowflake 공통 RAG 판정(MART.F_KPI_RAG). 판정 기준이 없는 KPI는 비운다</description>
+    <label>신호</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>GREEN</fullName>
+                <default>false</default>
+                <label>양호</label>
+            </value>
+            <value>
+                <fullName>AMBER</fullName>
+                <default>false</default>
+                <label>주의</label>
+            </value>
+            <value>
+                <fullName>RED</fullName>
+                <default>false</default>
+                <label>위험</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

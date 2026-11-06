@@ -10,11 +10,11 @@
 
 | 구분 | 객체 수 | 커스텀 필드 수 |
 | --- | --- | --- |
-| 커스텀 객체 | 38 | 329 |
+| 커스텀 객체 | 40 | 354 |
 | 표준 객체 확장 | 2 | 22 |
-| 커스텀 메타데이터 유형(설정) | 24 | 152 |
-| Platform Event | 3 | 16 |
-| 합계 | 67 | 519 |
+| 커스텀 메타데이터 유형(설정) | 25 | 156 |
+| Platform Event | 5 | 23 |
+| 합계 | 72 | 555 |
 
 ## 커스텀 객체
 
@@ -37,10 +37,12 @@
 | [CMN_DocumentRevision__c](#cmn_documentrevision__c) | 문서 리비전 | Document Revision | 17 | CMN-00-DOC-001 |
 | [CMN_Document__c](#cmn_document__c) | 문서 | Document | 9 | CMN-00-DOC-001 |
 | [CMN_Employee__c](#cmn_employee__c) | 임직원 | Employee | 7 | CMN-00-INT-002 |
+| [CMN_InboundReceipt__c](#cmn_inboundreceipt__c) | 수신 영수 | Inbound Receipt | 8 | CMN-00-DWH-003 |
 | [CMN_InterfaceLog__c](#cmn_interfacelog__c) | 연계 로그 | Interface Log | 11 | CMN-00-INT-001 |
 | [CMN_ItemPlant__c](#cmn_itemplant__c) | 공장별 품번 | Item Plant | 4 | CMN-00-MDM-004 |
 | [CMN_ItemVehicle__c](#cmn_itemvehicle__c) | 적용 차종 | Item Vehicle | 4 | CMN-00-MDM-004 |
 | [CMN_Item__c](#cmn_item__c) | 품번 | Item | 13 | CMN-00-MDM-004 |
+| [CMN_KpiValue__c](#cmn_kpivalue__c) | KPI 값 | KPI Value | 17 | CMN-00-DWH-003 |
 | [CMN_Line__c](#cmn_line__c) | 라인 | Line | 9 | CMN-00-MDM-002 |
 | [CMN_LogSetting__c](#cmn_logsetting__c) | 로그 설정 |  | 1 | CMN-00-ARC-002 |
 | [CMN_Log__c](#cmn_log__c) | 로그 | Log | 6 | CMN-00-ARC-002 |
@@ -343,6 +345,21 @@
 | NameEn__c | 영문 성명 | English Name | Text | 80 |  |  |
 | User__c | 사용자 | User | Lookup | → User |  | 라이선스 사용자. 비우면 같은 사번의 사용자를 트리거가 연결 |
 
+### CMN_InboundReceipt__c
+
+수신 영수 / Inbound Receipt. 결과 수신 영수(DWH-003 BR-3·BR-4). 이벤트 1건 = 1건, 외부 이벤트 Id 유일로 중복 수신을 거른다(멱등). 미등록 유형은 UNROUTED, 핸들러 실패는 FAILED + 관리자 재처리(재처리에 쓰려고 원문 Payload를 보관한다). 상태는 수신 서비스만 바꾼다
+
+| API | 라벨(ko) | Label(en) | 타입 | 값/길이/참조 | 제약 | 설명 |
+| --- | --- | --- | --- | --- | --- | --- |
+| AttemptCount__c | 처리 횟수 | Attempts | Number | 3,0 |  | 첫 처리 1, 관리자 재처리마다 1씩 더한다(명세 보충) |
+| ErrorMessage__c | 오류 내용 | Error Message | LongTextArea | 32768 |  | FAILED·UNROUTED 사유(명세 보충). 개인정보·비용 원문은 남기지 않는다 |
+| EventType__c | 이벤트 유형 | Event Type | Text | 80 | 필수 |  |
+| ExternalEventId__c | 외부 이벤트 Id | External Event Id | Text | 255 | 필수 외부 키 유일 | 원천의 결정적 Id. 같은 Id가 다시 오면 핸들러를 실행하지 않는다(AC-1) |
+| PayloadJson__c | 수신 원문 | Payload JSON | LongTextArea | 131072 |  | 재처리용 원문(BR-4, 명세 보충). 운영 데이터 보존 기간 표(결정 O-2)에 따라 정리 |
+| ProcessedAt__c | 처리 시각 | Processed At | DateTime |  |  |  |
+| ResultRecordId__c | 결과 레코드 Id | Result Record Id | Text | 18 |  | 핸들러가 만들거나 고친 대표 레코드 |
+| Status__c | 처리 상태 | Status | Picklist | RECEIVED, PROCESSED, UNROUTED, FAILED | 필수 | RECEIVED는 처리 중(같은 트랜잭션에서 결과 상태로 바뀐다) |
+
 ### CMN_InterfaceLog__c
 
 연계 로그 / Interface Log. 연계 실행 로그(INT-001 BR-4). 배치 1회 = 1건(Mule이 기록). 외부 키 = {InterfaceId}:{CorrelationId}로 같은 실행은 갱신. FAILED면 시스템 관리자에게 알림(BR-3)
@@ -402,6 +419,30 @@
 | PartCategory__c | 부품 분류 | Part Category | Picklist | LENS, HOUSING, LED_MODULE, REFLECTOR, BEZEL, CONNECTOR, PCB, ACTUATOR, ETC |  | LELE·수평전개 유사도 키 |
 | ProductGroup__c | 제품군 | Product Group | Lookup | → CMN_ProductGroup__c | 필수 |  |
 | SpecialCharCount__c | 특별특성 수 | Special Characteristics | Roll-Up Summary |  |  | ACTIVE이면서 SpecialClass ≠ NONE인 특성 수(CMN-00-MDM-006에서 추가. 폐기 버전 중복을 막으려고 ACTIVE 조건 추가) |
+
+### CMN_KpiValue__c
+
+KPI 값 / KPI Value. Snowflake가 계산한 KPI 값(DWH-003 BR-1). Mule이 MART.V_SF_KPI_* 뷰를 읽어 외부 키로 upsert한다. 위젯 집계 단위만 적재하고 세부는 드릴다운(DWH-004), 13개월 초과 값은 삭제(Snowflake 보존, 결정 O-2). 사내 공개 읽기 전용·외부 비공개(Vol.7 요청) — 공장 필터는 위젯 데이터 서비스가 강제한다. Name은 트리거가 채운다
+
+| API | 라벨(ko) | Label(en) | 타입 | 값/길이/참조 | 제약 | 설명 |
+| --- | --- | --- | --- | --- | --- | --- |
+| Characteristic__c | 특성 | Characteristic | Lookup | → CMN_Characteristic__c |  | 차원(SPC Cpk·Ppk) |
+| Customer__c | 고객 | Customer | Lookup | → Account |  | 차원(고객 PPM·필드 클레임) |
+| Department__c | 부서 | Department | Lookup | → CMN_Department__c |  | 차원(Vol.6b TRN-003 요청: 부서별 교육 계획 이행률). 외부 키 해시에 포함 |
+| ExternalKey__c | 외부 키 | External Key | Text | 255 | 필수 외부 키 유일 | KPI·기간·차원 키 해시(Snowflake가 만든다, 재적재 멱등) |
+| Item__c | 품번 | Item | Lookup | → CMN_Item__c |  | 차원 |
+| KpiKey__c | KPI 키 | KPI Key | Text | 60 | 필수 | KPI 레지스트리 키. 예: QMS_PPM_CUSTOMER, QMS_SPC_CPK, QMS_SUPPLIER_PPM(interfaces.md KPI 이름 통일) |
+| Line__c | 라인 | Line | Lookup | → CMN_Line__c |  | 차원 |
+| PeriodStart__c | 기간 시작 | Period Start | Date |  | 필수 | 일 = 그날, 주 = 월요일, 월 = 1일, 분기 = 분기 첫날 |
+| PeriodType__c | 기간 단위 | Period Type | Picklist | DAY, WEEK, MONTH, QUARTER | 필수 | QUARTER는 Vol.6c·Vol.7 요청(감사 반복률, 협력사 등급 수) |
+| Plant__c | 공장 | Plant | Lookup | → CMN_Plant__c |  | 차원(해당하는 것만 채운다) |
+| ProductGroup__c | 제품군 | Product Group | Lookup | → CMN_ProductGroup__c |  | 차원(Vol.7·Vol.8 요청: 제품군 위험 점수) |
+| Rag__c | 신호 | RAG | Picklist | GREEN, AMBER, RED |  | Snowflake 공통 RAG 판정(MART.F_KPI_RAG). 판정 기준이 없는 KPI는 비운다 |
+| Supplier__c | 협력사 | Supplier | Lookup | → Account |  | 차원(협력사 PPM·수입검사 합격률) |
+| Target__c | 목표 | Target | Number | 18,6 |  |  |
+| Unit__c | 단위 | Unit | Text | 20 |  | KPI 레지스트리 단위 코드: RATIO, CNT, PCT, PPM, R1000 |
+| Value__c | 값 | Value | Number | 18,6 | 필수 |  |
+| Vehicle__c | 차종 | Vehicle | Lookup | → CMN_Vehicle__c |  | 차원(Vol.5 B2B-003 요청: 차종별 필드 클레임 R/1000) |
 
 ### CMN_Line__c
 
@@ -713,6 +754,7 @@ To-Do / To-Do. 통합 To-Do(TDO-001). Owner = Assignee, OWD Private(본인만). 
 | [CMN_FieldEntryProvider__mdt](#cmn_fieldentryprovider__mdt) | 현장 입력 Provider |  | 3 | CMN-00-UX-008 |
 | [CMN_GridColumn__mdt](#cmn_gridcolumn__mdt) | 편집 그리드 열 |  | 12 | CMN-00-UX-006 |
 | [CMN_GridDefinition__mdt](#cmn_griddefinition__mdt) | 편집 그리드 정의 |  | 12 | CMN-00-UX-006 |
+| [CMN_InboundRoute__mdt](#cmn_inboundroute__mdt) | 수신 경로 |  | 4 | CMN-00-DWH-003 |
 | [CMN_Interface__mdt](#cmn_interface__mdt) | 인터페이스 |  | 9 | CMN-00-INT-001 |
 | [CMN_NotificationRule__mdt](#cmn_notificationrule__mdt) | 알림 규칙 |  | 4 | CMN-00-NTF-001 |
 | [CMN_NumberingRule__mdt](#cmn_numberingrule__mdt) | 채번 규칙 |  | 5 | CMN-00-ARC-003 |
@@ -891,6 +933,17 @@ To-Do / To-Do. 통합 To-Do(TDO-001). Owner = Assignee, OWD Private(본인만). 
 | ScheduleEndField__c | Schedule End Field |  | Text | 80 |  | 일정 막대 종료일 |
 | ScheduleStartField__c | Schedule Start Field |  | Text | 80 |  | 일정 막대 시작일(종료일과 함께 있으면 일정 보기) |
 
+### CMN_InboundRoute__mdt
+
+수신 경로 / . 결과 수신 라우팅(DWH-003 BR-3). 1행 = 이벤트 유형 1개 → CMN_InboundHandler 구현 클래스. 핸들러는 이벤트 유형을 소유한 Vol. WI가 만들고 여기에 등록한다. 미등록 유형은 수신 영수 UNROUTED
+
+| API | 라벨(ko) | Label(en) | 타입 | 값/길이/참조 | 제약 | 설명 |
+| --- | --- | --- | --- | --- | --- | --- |
+| EventType__c | Event Type |  | Text | 80 |  | CMN_ResultInbound__e.EventType__c 값(QMS_{영역}_{사건}) |
+| HandlerClass__c | Handler Class |  | Text | 80 |  | CMN_InboundHandler 구현 클래스(공개 기본 생성자) |
+| IsActive__c | Active |  | Checkbox |  |  | 사용 여부(끄면 UNROUTED로 남는다) |
+| OwnerWi__c | Owner WI |  | Text | 30 |  | 핸들러를 소유한 WI(예: QMS-04-SPC-002) |
+
 ### CMN_Interface__mdt
 
 인터페이스 / . 인터페이스 카탈로그(INT-001). DeveloperName = InterfaceId의 - 를 _ 로. 새 인터페이스는 담당 WI가 레코드를 더한다
@@ -1051,7 +1104,9 @@ CMN 설정 / . 전사 설정 키·값(“CMN 설정”). DeveloperName이 키. �
 | 객체 | 라벨(ko) | Label(en) | 필드 수 | 소유 WI |
 | --- | --- | --- | --- | --- |
 | [CMN_ApprovalEvent__e](#cmn_approvalevent__e) | 결재 이벤트 |  | 6 | CMN-00-APV-001 |
+| [CMN_KpiLoaded__e](#cmn_kpiloaded__e) | KPI 적재 완료 이벤트 |  | 4 | CMN-00-DWH-003 |
 | [CMN_LogEvent__e](#cmn_logevent__e) | 로그 이벤트 |  | 6 | CMN-00-ARC-002 |
+| [CMN_ResultInbound__e](#cmn_resultinbound__e) | 결과 수신 이벤트 |  | 3 | CMN-00-DWH-003 |
 | [CMN_TodoChanged__e](#cmn_todochanged__e) | To-Do 변경 이벤트 |  | 4 | CMN-00-TDO-001 |
 
 ### CMN_ApprovalEvent__e
@@ -1067,6 +1122,17 @@ CMN 설정 / . 전사 설정 키·값(“CMN 설정”). DeveloperName이 키. �
 | TypeCode__c | Type Code |  | Text | 80 |  |  |
 | UserId__c | User Id |  | Text | 18 |  | 처리 차례 결재자(STEP_PENDING) 또는 처리자 |
 
+### CMN_KpiLoaded__e
+
+KPI 적재 완료 이벤트 / . KPI 적재 완료(Vol.7 변경 요청). Mule이 KPI 적재 배치 1회가 끝나면 발행하고, 위젯 데이터 서비스(Vol.7 DSH-002)가 kpi: 캐시를 비운다
+
+| API | 라벨(ko) | Label(en) | 타입 | 값/길이/참조 | 제약 | 설명 |
+| --- | --- | --- | --- | --- | --- | --- |
+| KpiKeys__c | KPI Keys |  | LongTextArea | 32768 |  | 이번 적재에 포함된 KPI 키(쉼표 구분) |
+| LoadId__c | Load Id |  | Text | 64 |  | 적재 배치 상관 ID(연계 로그 CorrelationId와 같다) |
+| LoadedAt__c | Loaded At |  | DateTime |  |  |  |
+| RowCount__c | Row Count |  | Number | 10,0 |  |  |
+
 ### CMN_LogEvent__e
 
 로그 이벤트 / . 로그 이벤트. 트랜잭션이 롤백돼도 로그가 남도록 즉시 발행한다(ARC-002 BR-4).
@@ -1079,6 +1145,16 @@ CMN 설정 / . 전사 설정 키·값(“CMN 설정”). DeveloperName이 키. �
 | RecordId__c | Record Id |  | Text | 18 |  |  |
 | Source__c | Source |  | Text | 255 |  |  |
 | TransactionId__c | Transaction Id |  | Text | 36 |  |  |
+
+### CMN_ResultInbound__e
+
+결과 수신 이벤트 / . 외부 결과 수신(DWH-003 BR-2·BR-3). Snowflake SHARE.OUTBOUND_EVENT를 Mule이 1분 폴링해 발행하고, 다른 원천의 업무 요청도 같은 규약으로 쓴다(Vol.9 INT-002 BR-5). 구독 트리거가 수신 영수로 중복을 거르고 CMN_InboundRoute__mdt의 핸들러를 실행한다
+
+| API | 라벨(ko) | Label(en) | 타입 | 값/길이/참조 | 제약 | 설명 |
+| --- | --- | --- | --- | --- | --- | --- |
+| EventType__c | Event Type |  | Text | 80 |  | QMS_{영역}_{사건}(예: QMS_SPC_ALARM). 테스트 = CMN_TEST |
+| ExternalEventId__c | External Event Id |  | Text | 255 |  | 원천의 결정적 Id(Snowflake EVENT_ID 또는 {IF-ID}:{원천 키}:{원천 버전}) |
+| PayloadJson__c | Payload JSON |  | LongTextArea | 131072 |  | 최상위 schemaVersion(정수) 필수, 120,000자 이하(초과 시 200건 단위 part 분할) |
 
 ### CMN_TodoChanged__e
 

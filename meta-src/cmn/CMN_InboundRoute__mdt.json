@@ -1,0 +1,44 @@
+{
+  "wi": "CMN-00-DWH-003",
+  "object": "CMN_InboundRoute__mdt",
+  "kind": "mdt",
+  "package": "force-app-cmn",
+  "description": "결과 수신 라우팅(DWH-003 BR-3). 1행 = 이벤트 유형 1개 → CMN_InboundHandler 구현 클래스. 핸들러는 이벤트 유형을 소유한 Vol. WI가 만들고 여기에 등록한다. 미등록 유형은 수신 영수 UNROUTED",
+  "label": {
+    "ko": "수신 경로"
+  },
+  "plural": {
+    "ko": "수신 경로"
+  },
+  "fields": [
+    {
+      "name": "EventType__c",
+      "type": "Text",
+      "label": "Event Type",
+      "description": "CMN_ResultInbound__e.EventType__c 값(QMS_{영역}_{사건})",
+      "length": 80
+    },
+    {
+      "name": "HandlerClass__c",
+      "type": "Text",
+      "label": "Handler Class",
+      "description": "CMN_InboundHandler 구현 클래스(공개 기본 생성자)",
+      "length": 80
+    },
+    {
+      "name": "OwnerWi__c",
+      "type": "Text",
+      "label": "Owner WI",
+      "description": "핸들러를 소유한 WI(예: QMS-04-SPC-002)",
+      "length": 30
+    },
+    {
+      "name": "IsActive__c",
+      "type": "Checkbox",
+      "label": "Active",
+      "description": "사용 여부(끄면 UNROUTED로 남는다)",
+      "default": true
+    }
+  ],
+  "records": []
+}

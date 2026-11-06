@@ -746,6 +746,26 @@
       }
     },
     {
+      "name": "QMS_07_DSH_KPIVALUE",
+      "label": "CMN_KpiValue__c",
+      "values": {
+        "Menu__c": "QMS_07",
+        "Order__c": 45,
+        "FeatureCode__c": "DSH",
+        "TitleLabel__c": null,
+        "DescLabel__c": "QMS_AppMenu_Item_DSH_KPIVALUE_Desc",
+        "IconName__c": "standard:dashboard",
+        "TargetType__c": "OBJECT",
+        "Target__c": "CMN_KpiValue__c",
+        "Bundle__c": null,
+        "IsActive__c": true,
+        "TodoSourceTypes__c": null,
+        "ShowOnPhone__c": false,
+        "KeywordsLabel__c": null,
+        "RequiredPermission__c": null
+      }
+    },
+    {
       "name": "QMS_07_DSH_PORTAL",
       "label": "협력사 포털 품질 요약",
       "values": {
@@ -897,6 +917,26 @@
         "IconName__c": "standard:connected_apps",
         "TargetType__c": "OBJECT",
         "Target__c": "CMN_InterfaceLog__c",
+        "Bundle__c": null,
+        "IsActive__c": true,
+        "TodoSourceTypes__c": null,
+        "ShowOnPhone__c": false,
+        "KeywordsLabel__c": null,
+        "RequiredPermission__c": null
+      }
+    },
+    {
+      "name": "QMS_09_INT_INBOUND",
+      "label": "CMN_InboundReceipt__c",
+      "values": {
+        "Menu__c": "QMS_09",
+        "Order__c": 15,
+        "FeatureCode__c": "INT",
+        "TitleLabel__c": null,
+        "DescLabel__c": "QMS_AppMenu_Item_INT_INBOUND_Desc",
+        "IconName__c": "standard:event",
+        "TargetType__c": "OBJECT",
+        "Target__c": "CMN_InboundReceipt__c",
         "Bundle__c": null,
         "IsActive__c": true,
         "TodoSourceTypes__c": null,

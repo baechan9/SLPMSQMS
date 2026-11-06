@@ -23,6 +23,7 @@
       "CMN_PS_Delegation_User",
       "CMN_PS_Meeting_User",
       "CMN_PS_Dashboard_User",
+      "CMN_PS_KpiValue_Read",
       "QMS_PS_Menu_Read",
       "CMN_PS_UiFramework_User"
     ]

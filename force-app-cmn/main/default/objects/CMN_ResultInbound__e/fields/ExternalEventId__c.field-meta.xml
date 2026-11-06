@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ExternalEventId__c</fullName>
+    <description>원천의 결정적 Id(Snowflake EVENT_ID 또는 {IF-ID}:{원천 키}:{원천 버전})</description>
+    <label>External Event Id</label>
+    <length>255</length>
+    <required>false</required>
+    <type>Text</type>
+</CustomField>

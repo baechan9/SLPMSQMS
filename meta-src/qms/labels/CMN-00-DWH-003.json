@@ -1,0 +1,26 @@
+{
+  "wi": "CMN-00-DWH-003",
+  "package": "force-app-qms",
+  "labels": [
+    {
+      "name": "QMS_AppMenu_Item_DSH_KPIVALUE_Desc",
+      "category": "QMS",
+      "description": "메뉴 기능 QMS_07.DSH_KPIVALUE 설명(DWH-003)",
+      "value": {
+        "ko": "Snowflake에서 받은 KPI 값과 위험 신호 확인",
+        "en_US": "KPI values and red signals received from Snowflake",
+        "zh_CN": "查看从 Snowflake 接收的 KPI 值和危险信号"
+      }
+    },
+    {
+      "name": "QMS_AppMenu_Item_INT_INBOUND_Desc",
+      "category": "QMS",
+      "description": "메뉴 기능 QMS_09.INT_INBOUND 설명(DWH-003)",
+      "value": {
+        "ko": "외부 결과 수신 처리와 실패·경로 없음 확인",
+        "en_US": "Inbound result processing, failures and unrouted events",
+        "zh_CN": "外部结果接收处理及失败、无路由确认"
+      }
+    }
+  ]
+}

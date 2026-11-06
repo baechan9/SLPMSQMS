@@ -1,0 +1,38 @@
+{
+  "wi": "CMN-00-DWH-003",
+  "object": "CMN_ResultInbound__e",
+  "kind": "event",
+  "package": "force-app-cmn",
+  "publishBehavior": "PublishAfterCommit",
+  "description": "외부 결과 수신(DWH-003 BR-2·BR-3). Snowflake SHARE.OUTBOUND_EVENT를 Mule이 1분 폴링해 발행하고, 다른 원천의 업무 요청도 같은 규약으로 쓴다(Vol.9 INT-002 BR-5). 구독 트리거가 수신 영수로 중복을 거르고 CMN_InboundRoute__mdt의 핸들러를 실행한다",
+  "label": {
+    "ko": "결과 수신 이벤트"
+  },
+  "plural": {
+    "ko": "결과 수신 이벤트"
+  },
+  "fields": [
+    {
+      "name": "EventType__c",
+      "type": "Text",
+      "length": 80,
+      "label": "Event Type",
+      "description": "QMS_{영역}_{사건}(예: QMS_SPC_ALARM). 테스트 = CMN_TEST"
+    },
+    {
+      "name": "ExternalEventId__c",
+      "type": "Text",
+      "length": 255,
+      "label": "External Event Id",
+      "description": "원천의 결정적 Id(Snowflake EVENT_ID 또는 {IF-ID}:{원천 키}:{원천 버전})"
+    },
+    {
+      "name": "PayloadJson__c",
+      "type": "LongTextArea",
+      "length": 131072,
+      "visibleLines": 3,
+      "label": "Payload JSON",
+      "description": "최상위 schemaVersion(정수) 필수, 120,000자 이하(초과 시 200건 단위 part 분할)"
+    }
+  ]
+}

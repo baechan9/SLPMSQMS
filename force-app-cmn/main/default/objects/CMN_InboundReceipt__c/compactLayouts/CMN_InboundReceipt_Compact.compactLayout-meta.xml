@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_InboundReceipt_Compact</fullName>
+    <fields>Name</fields>
+    <fields>EventType__c</fields>
+    <fields>Status__c</fields>
+    <fields>ProcessedAt__c</fields>
+    <fields>AttemptCount__c</fields>
+    <fields>ResultRecordId__c</fields>
+    <label>Inbound Receipt Compact</label>
+</CompactLayout>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>KPI 적재 완료(Vol.7 변경 요청). Mule이 KPI 적재 배치 1회가 끝나면 발행하고, 위젯 데이터 서비스(Vol.7 DSH-002)가 kpi: 캐시를 비운다</description>
+    <eventType>HighVolume</eventType>
+    <label>KPI 적재 완료 이벤트</label>
+    <pluralLabel>KPI 적재 완료 이벤트</pluralLabel>
+    <publishBehavior>PublishAfterCommit</publishBehavior>
+</CustomObject>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label>期间类型</label>
+    <name>PeriodType__c</name>
+    <picklistValues>
+        <masterLabel>일</masterLabel>
+        <translation>日</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>주</masterLabel>
+        <translation>周</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>월</masterLabel>
+        <translation>月</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>분기</masterLabel>
+        <translation>季度</translation>
+    </picklistValues>
+</CustomFieldTranslation>

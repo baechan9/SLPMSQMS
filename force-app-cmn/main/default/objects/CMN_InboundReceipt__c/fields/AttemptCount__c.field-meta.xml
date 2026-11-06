@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AttemptCount__c</fullName>
+    <defaultValue>0</defaultValue>
+    <description>첫 처리 1, 관리자 재처리마다 1씩 더한다(명세 보충)</description>
+    <label>처리 횟수</label>
+    <precision>3</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+</CustomField>

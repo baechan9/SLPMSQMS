@@ -11,7 +11,7 @@
 | 메뉴 | 객체 | 표준 확장 | 메타데이터 | 이벤트 | 배포됨 | 예정 |
 | --- | --- | --- | --- | --- | --- | --- |
 | 공통 — 기준정보 | 16 | 2 | 3 | 0 | 21 | 0 |
-| 공통 — 업무 엔진·운영 | 25 | 0 | 22 | 4 | 45 | 6 |
+| 공통 — 업무 엔진·운영 | 25 | 0 | 22 | 4 | 49 | 2 |
 | QMS-02 개발 품질 | 7 | 0 | 1 | 0 | 0 | 8 |
 | QMS-03 부품/협력사 품질 | 19 | 1 | 3 | 1 | 0 | 24 |
 | QMS-04 제품/공정 품질 | 18 | 0 | 3 | 1 | 0 | 22 |
@@ -22,7 +22,7 @@
 | QMS-07 대시보드 | 2 | 0 | 7 | 1 | 0 | 10 |
 | QMS-08 AI | 3 | 0 | 6 | 1 | 0 | 10 |
 | QMS-09 연계 | 1 | 0 | 3 | 0 | 0 | 4 |
-| 합계 | 167 | 3 | 70 | 11 | 66 | 185 |
+| 합계 | 167 | 3 | 70 | 11 | 70 | 181 |
 
 ## 그림 1. 전체 구조와 메뉴 간 연결
 
@@ -126,8 +126,8 @@ flowchart TB
 | CMN_DocumentRevision__c | 문서 리비전 | 객체 | CMN-00-DOC-001 | 13 | 배포됨 | CMN_Document__c |  |
 | CMN_Document__c | 문서 | 객체 | CMN-00-DOC-001 | 6 | 배포됨 |  |  |
 | CMN_UserDashboard__c | 사용자 대시보드 | 객체 | CMN-00-DSH-001 | 4 | 배포됨 |  |  |
-| CMN_InboundReceipt__c | 수신 영수 | 객체 | CMN-00-DWH-003 | 0 | 예정 A0 |  |  |
-| CMN_KpiValue__c | KPI 값 | 객체 | CMN-00-DWH-003 | 14 | 예정 A0 |  | 오브젝트 리뷰 O-2: 집계 단위·보존 기간 조정 권고 |
+| CMN_InboundReceipt__c | 수신 영수 | 객체 | CMN-00-DWH-003 | 0 | 배포됨 |  |  |
+| CMN_KpiValue__c | KPI 값 | 객체 | CMN-00-DWH-003 | 14 | 배포됨 |  | 오브젝트 리뷰 O-2: 집계 단위·보존 기간 조정 권고 |
 | CMN_InterfaceLog__c | 연계 로그 | 객체 | CMN-00-INT-001 | 8 | 배포됨 |  |  |
 | CMN_Employee__c | 임직원 | 객체 | CMN-00-INT-002 | 8 | 배포됨 |  |  |
 | CMN_ActionItem__c | 조치 항목 | 객체 | CMN-00-MTG-001 | 0 | 배포됨 |  |  |
@@ -144,7 +144,7 @@ flowchart TB
 | CMN_DashboardTemplateItem__mdt | 대시보드 템플릿 항목 | 메타데이터 | CMN-00-DSH-001 | 0 | 배포됨 |  |  |
 | CMN_DashboardTemplate__mdt | 대시보드 템플릿 | 메타데이터 | CMN-00-DSH-001 | 0 | 배포됨 |  |  |
 | CMN_Widget__mdt | 대시보드 위젯 | 메타데이터 | CMN-00-DSH-001 | 3 | 배포됨 |  |  |
-| CMN_InboundRoute__mdt | 수신 경로 | 메타데이터 | CMN-00-DWH-003 | 0 | 예정 A0 |  |  |
+| CMN_InboundRoute__mdt | 수신 경로 | 메타데이터 | CMN-00-DWH-003 | 0 | 배포됨 |  |  |
 | CMN_Interface__mdt | 인터페이스 | 메타데이터 | CMN-00-INT-001 | 0 | 배포됨 |  |  |
 | CMN_NotificationRule__mdt | 알림 규칙 | 메타데이터 | CMN-00-NTF-001 | 4 | 배포됨 |  |  |
 | CMN_StatusFlow__mdt | 상태 흐름 | 메타데이터 | CMN-00-UX-003 | 0 | 배포됨 |  |  |
@@ -160,7 +160,7 @@ flowchart TB
 | CMN_ChecklistProvider__mdt | 체크리스트 Provider | 메타데이터 | CMN-00-UX-009 | 3 | 배포됨 |  |  |
 | CMN_ApprovalEvent__e | 결재 이벤트 | 이벤트 | CMN-00-APV-001 | 0 | 배포됨 |  |  |
 | CMN_LogEvent__e | 로그 이벤트 | 이벤트 | CMN-00-ARC-002 | 0 | 배포됨 |  |  |
-| CMN_ResultInbound__e | 결과 수신 이벤트 | 이벤트 | CMN-00-DWH-003 | 0 | 예정 A0 |  |  |
+| CMN_ResultInbound__e | 결과 수신 이벤트 | 이벤트 | CMN-00-DWH-003 | 0 | 배포됨 |  |  |
 | CMN_TodoChanged__e | To-Do 변경 이벤트 | 이벤트 | CMN-00-TDO-001 | 0 | 배포됨 |  | 구현 중 추가(명세 표 밖) |
 
 ### QMS-02 개발 품질
@@ -598,6 +598,10 @@ erDiagram
         string api "CMN_Plant__c"
         string name "공장 (다른 메뉴)"
     }
+    CMN_ProductGroup_c {
+        string api "CMN_ProductGroup__c"
+        string name "제품군 (다른 메뉴)"
+    }
     CMN_RoleAssignment_c {
         string api "CMN_RoleAssignment__c"
         string name "결재 Role 배정"
@@ -618,6 +622,10 @@ erDiagram
         string api "CMN_UserDashboard__c"
         string name "사용자 대시보드"
     }
+    CMN_Vehicle_c {
+        string api "CMN_Vehicle__c"
+        string name "차종 (다른 메뉴)"
+    }
     CMN_Plant_c |o--o{ CMN_ApprovalRequest_c : "Plant__c"
     CMN_ApprovalRequest_c ||--o{ CMN_ApprovalStep_c : "Request__c"
     CMN_Plant_c |o--o{ CMN_RoleAssignment_c : "Plant__c"
@@ -635,11 +643,14 @@ erDiagram
     CMN_Plant_c |o--o{ CMN_ActionItem_c : "Plant__c"
     CMN_Plant_c |o--o{ CMN_InterfaceLog_c : "Plant__c"
     CMN_Department_c |o--o{ CMN_Employee_c : "Department__c"
-    CMN_Plant_c |o--o{ CMN_KpiValue_c : "Plant__c"
-    CMN_Line_c |o--o{ CMN_KpiValue_c : "Line__c"
     CMN_Item_c |o--o{ CMN_KpiValue_c : "Item__c"
     Account |o--o{ CMN_KpiValue_c : "Customer__c, Supplier__c"
+    CMN_Vehicle_c |o--o{ CMN_KpiValue_c : "Vehicle__c"
+    CMN_ProductGroup_c |o--o{ CMN_KpiValue_c : "ProductGroup__c"
     CMN_Characteristic_c |o--o{ CMN_KpiValue_c : "Characteristic__c"
+    CMN_Plant_c |o--o{ CMN_KpiValue_c : "Plant__c"
+    CMN_Department_c |o--o{ CMN_KpiValue_c : "Department__c"
+    CMN_Line_c |o--o{ CMN_KpiValue_c : "Line__c"
     Account |o--o{ CMN_TestRecord_c : "Supplier__c"
     CMN_Plant_c |o--o{ CMN_TestRecord_c : "Plant__c"
 ```

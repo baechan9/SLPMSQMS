@@ -2563,6 +2563,10 @@ Open: {Url}</label>
         <name>QMS_AppMenu_Item_CLM_Title</name>
     </customLabels>
     <customLabels>
+        <label>KPI values and red signals received from Snowflake</label>
+        <name>QMS_AppMenu_Item_DSH_KPIVALUE_Desc</name>
+    </customLabels>
+    <customLabels>
         <label>KPI registry and RAG rules, KPI freshness and widget performance</label>
         <name>QMS_AppMenu_Item_DSH_KPI_Desc</name>
     </customLabels>
@@ -2665,6 +2669,10 @@ Open: {Url}</label>
     <customLabels>
         <label>Interface Catalog &amp; Code Mapping</label>
         <name>QMS_AppMenu_Item_INT_CATALOG_Title</name>
+    </customLabels>
+    <customLabels>
+        <label>Inbound result processing, failures and unrouted events</label>
+        <name>QMS_AppMenu_Item_INT_INBOUND_Desc</name>
     </customLabels>
     <customLabels>
         <label>Interface call history and failures</label>

@@ -2563,6 +2563,10 @@
         <name>QMS_AppMenu_Item_CLM_Title</name>
     </customLabels>
     <customLabels>
+        <label>查看从 Snowflake 接收的 KPI 值和危险信号</label>
+        <name>QMS_AppMenu_Item_DSH_KPIVALUE_Desc</name>
+    </customLabels>
+    <customLabels>
         <label>KPI定义注册与RAG规则、KPI新鲜度与组件性能</label>
         <name>QMS_AppMenu_Item_DSH_KPI_Desc</name>
     </customLabels>
@@ -2665,6 +2669,10 @@
     <customLabels>
         <label>接口目录与代码映射</label>
         <name>QMS_AppMenu_Item_INT_CATALOG_Title</name>
+    </customLabels>
+    <customLabels>
+        <label>外部结果接收处理及失败、无路由确认</label>
+        <name>QMS_AppMenu_Item_INT_INBOUND_Desc</name>
     </customLabels>
     <customLabels>
         <label>接口调用记录与失败确认</label>

@@ -4,13 +4,15 @@
     "name": "SL_Admin",
     "package": "force-app-cmn",
     "label": "SL Admin",
-    "description": "운영·기준 정보 관리 앱: 메뉴 허브(공통 업무·기준정보), 공통 코드, 결재 템플릿, 연계 로그, 로그, 삭제 로그(UX-007 BR-2). 품질경영팀·IT 운영",
+    "description": "운영·기준 정보 관리 앱: 메뉴 허브(공통 업무·기준정보), 공통 코드, 결재 템플릿, 연계 로그, 수신 영수·KPI 값(DWH-003), 로그, 삭제 로그(UX-007 BR-2). 품질경영팀·IT 운영",
     "headerColor": "#706E6B",
     "tabs": [
       "CMN_MenuHub",
       "CMN_Code__c",
       "CMN_ApprovalTemplate__c",
       "CMN_InterfaceLog__c",
+      "CMN_InboundReceipt__c",
+      "CMN_KpiValue__c",
       "CMN_Log__c",
       "CMN_DeleteLog__c"
     ],

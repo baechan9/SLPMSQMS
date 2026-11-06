@@ -476,7 +476,9 @@ def build_permset(ps, spec_index):
         readonly = set(ps.get('readOnlyFields', {}).get(obj, []))
         # 서비스 전용 필드 중 이 권한 셋에만 쓰기를 여는 필드(예: 통합 사용자의 외부 키 upsert)
         unlocked = set(ps.get('editableFields', {}).get(obj, []))
-        for f in field_names(spec_index, obj):
+        # 플랫폼 이벤트 필드는 필드 수준 보안이 없다(객체 권한 읽기·만들기만 준다)
+        is_event = (spec_index.get(obj) or {}).get('kind') == 'event'
+        for f in [] if is_event else field_names(spec_index, obj):
             if f['type'] == 'MasterDetail' or f.get('required'):
                 continue  # 필수·주종 필드는 권한 셋에 넣을 수 없다(항상 접근)
             calc = f['type'] in ('Formula', 'Summary')

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Department__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>차원(Vol.6b TRN-003 요청: 부서별 교육 계획 이행률). 외부 키 해시에 포함</description>
+    <label>부서</label>
+    <referenceTo>CMN_Department__c</referenceTo>
+    <relationshipLabel>KPI 값</relationshipLabel>
+    <relationshipName>KpiValues</relationshipName>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

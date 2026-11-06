@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>외부 결과 수신(DWH-003 BR-2·BR-3). Snowflake SHARE.OUTBOUND_EVENT를 Mule이 1분 폴링해 발행하고, 다른 원천의 업무 요청도 같은 규약으로 쓴다(Vol.9 INT-002 BR-5). 구독 트리거가 수신 영수로 중복을 거르고 CMN_InboundRoute__mdt의 핸들러를 실행한다</description>
+    <eventType>HighVolume</eventType>
+    <label>결과 수신 이벤트</label>
+    <pluralLabel>결과 수신 이벤트</pluralLabel>
+    <publishBehavior>PublishAfterCommit</publishBehavior>
+</CustomObject>

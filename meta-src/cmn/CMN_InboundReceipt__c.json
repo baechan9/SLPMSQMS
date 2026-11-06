@@ -1,0 +1,248 @@
+{
+  "wi": "CMN-00-DWH-003",
+  "object": "CMN_InboundReceipt__c",
+  "package": "force-app-cmn",
+  "description": "결과 수신 영수(DWH-003 BR-3·BR-4). 이벤트 1건 = 1건, 외부 이벤트 Id 유일로 중복 수신을 거른다(멱등). 미등록 유형은 UNROUTED, 핸들러 실패는 FAILED + 관리자 재처리(재처리에 쓰려고 원문 Payload를 보관한다). 상태는 수신 서비스만 바꾼다",
+  "label": {
+    "ko": "수신 영수",
+    "en_US": "Inbound Receipt",
+    "zh_CN": "接收回执"
+  },
+  "plural": {
+    "ko": "수신 영수",
+    "en_US": "Inbound Receipts",
+    "zh_CN": "接收回执"
+  },
+  "nameField": {
+    "label": {
+      "ko": "수신",
+      "en_US": "Receipt",
+      "zh_CN": "回执"
+    }
+  },
+  "sharingModel": "Private",
+  "externalSharingModel": "Private",
+  "tab": {
+    "motif": "Custom63: Computer"
+  },
+  "readOnlyLayout": true,
+  "compactLayout": {
+    "name": "CMN_InboundReceipt_Compact",
+    "label": "Inbound Receipt Compact",
+    "fields": [
+      "Name",
+      "EventType__c",
+      "Status__c",
+      "ProcessedAt__c",
+      "AttemptCount__c",
+      "ResultRecordId__c"
+    ]
+  },
+  "layout": {
+    "columns": [
+      [
+        "Name",
+        "EventType__c",
+        "ExternalEventId__c",
+        "Status__c",
+        "ErrorMessage__c"
+      ],
+      [
+        "ProcessedAt__c",
+        "AttemptCount__c",
+        "ResultRecordId__c",
+        "PayloadJson__c"
+      ]
+    ]
+  },
+  "fields": [
+    {
+      "name": "ExternalEventId__c",
+      "type": "Text",
+      "length": 255,
+      "required": true,
+      "externalId": true,
+      "unique": true,
+      "caseSensitive": true,
+      "label": {
+        "ko": "외부 이벤트 Id",
+        "en_US": "External Event Id",
+        "zh_CN": "外部事件 Id"
+      },
+      "description": "원천의 결정적 Id. 같은 Id가 다시 오면 핸들러를 실행하지 않는다(AC-1)"
+    },
+    {
+      "name": "EventType__c",
+      "type": "Text",
+      "length": 80,
+      "required": true,
+      "label": {
+        "ko": "이벤트 유형",
+        "en_US": "Event Type",
+        "zh_CN": "事件类型"
+      }
+    },
+    {
+      "name": "Status__c",
+      "type": "Picklist",
+      "required": true,
+      "default": "RECEIVED",
+      "serviceOnly": true,
+      "label": {
+        "ko": "처리 상태",
+        "en_US": "Status",
+        "zh_CN": "处理状态"
+      },
+      "values": [
+        {
+          "api": "RECEIVED",
+          "label": {
+            "ko": "수신",
+            "en_US": "Received",
+            "zh_CN": "已接收"
+          }
+        },
+        {
+          "api": "PROCESSED",
+          "label": {
+            "ko": "처리 완료",
+            "en_US": "Processed",
+            "zh_CN": "已处理"
+          }
+        },
+        {
+          "api": "UNROUTED",
+          "label": {
+            "ko": "경로 없음",
+            "en_US": "Unrouted",
+            "zh_CN": "无路由"
+          }
+        },
+        {
+          "api": "FAILED",
+          "label": {
+            "ko": "실패",
+            "en_US": "Failed",
+            "zh_CN": "失败"
+          }
+        }
+      ],
+      "description": "RECEIVED는 처리 중(같은 트랜잭션에서 결과 상태로 바뀐다)"
+    },
+    {
+      "name": "ProcessedAt__c",
+      "type": "DateTime",
+      "serviceOnly": true,
+      "label": {
+        "ko": "처리 시각",
+        "en_US": "Processed At",
+        "zh_CN": "处理时间"
+      }
+    },
+    {
+      "name": "ResultRecordId__c",
+      "type": "Text",
+      "length": 18,
+      "serviceOnly": true,
+      "label": {
+        "ko": "결과 레코드 Id",
+        "en_US": "Result Record Id",
+        "zh_CN": "结果记录 Id"
+      },
+      "description": "핸들러가 만들거나 고친 대표 레코드"
+    },
+    {
+      "name": "AttemptCount__c",
+      "type": "Number",
+      "precision": 3,
+      "scale": 0,
+      "default": "0",
+      "serviceOnly": true,
+      "label": {
+        "ko": "처리 횟수",
+        "en_US": "Attempts",
+        "zh_CN": "处理次数"
+      },
+      "description": "첫 처리 1, 관리자 재처리마다 1씩 더한다(명세 보충)"
+    },
+    {
+      "name": "PayloadJson__c",
+      "type": "LongTextArea",
+      "length": 131072,
+      "visibleLines": 5,
+      "serviceOnly": true,
+      "label": {
+        "ko": "수신 원문",
+        "en_US": "Payload JSON",
+        "zh_CN": "接收原文"
+      },
+      "description": "재처리용 원문(BR-4, 명세 보충). 운영 데이터 보존 기간 표(결정 O-2)에 따라 정리"
+    },
+    {
+      "name": "ErrorMessage__c",
+      "type": "LongTextArea",
+      "length": 32768,
+      "visibleLines": 5,
+      "serviceOnly": true,
+      "label": {
+        "ko": "오류 내용",
+        "en_US": "Error Message",
+        "zh_CN": "错误内容"
+      },
+      "description": "FAILED·UNROUTED 사유(명세 보충). 개인정보·비용 원문은 남기지 않는다"
+    }
+  ],
+  "listViews": [
+    {
+      "name": "CMN_FailedReceipts",
+      "label": "실패",
+      "columns": [
+        "NAME",
+        "EventType__c",
+        "ExternalEventId__c",
+        "Status__c",
+        "AttemptCount__c",
+        "ProcessedAt__c",
+        "CREATED_DATE"
+      ],
+      "filters": [
+        {
+          "field": "Status__c",
+          "operation": "equals",
+          "value": "FAILED"
+        }
+      ]
+    },
+    {
+      "name": "CMN_UnroutedReceipts",
+      "label": "경로 없음",
+      "columns": [
+        "NAME",
+        "EventType__c",
+        "ExternalEventId__c",
+        "Status__c",
+        "CREATED_DATE"
+      ],
+      "filters": [
+        {
+          "field": "Status__c",
+          "operation": "equals",
+          "value": "UNROUTED"
+        }
+      ]
+    },
+    {
+      "name": "CMN_AllReceipts",
+      "label": "전체",
+      "columns": [
+        "NAME",
+        "EventType__c",
+        "Status__c",
+        "ProcessedAt__c",
+        "AttemptCount__c",
+        "ResultRecordId__c",
+        "CREATED_DATE"
+      ]
+    }
+  ]
+}

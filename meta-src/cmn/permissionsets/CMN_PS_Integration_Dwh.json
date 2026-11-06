@@ -1,0 +1,48 @@
+{
+  "permissionSet": {
+    "wi": "CMN-00-DWH-003",
+    "name": "CMN_PS_Integration_Dwh",
+    "package": "force-app-cmn",
+    "label": "CMN Integration DWH",
+    "description": "Snowflake 연계(IF-SNOW-001) 통합 사용자: KPI 값 upsert(차원은 외부 키 참조라 읽기), 결과 수신·KPI 적재 완료 이벤트 발행, 수신 구독 실행 사용자(PlatformEventSubscriberConfig)로서 수신 영수 기록(CMN-00-DWH-003). CMN_PS_Integration과 함께 준다. 13개월 초과 KPI 삭제는 Salesforce 배치가 하므로 삭제 권한 없음",
+    "objects": {
+      "CMN_InboundReceipt__c": "edit",
+      "CMN_Item__c": "read",
+      "CMN_KpiLoaded__e": {
+        "allowCreate": true,
+        "allowDelete": false,
+        "allowEdit": false,
+        "allowRead": true,
+        "modifyAllRecords": false,
+        "viewAllRecords": false
+      },
+      "CMN_KpiValue__c": "edit",
+      "CMN_ResultInbound__e": {
+        "allowCreate": true,
+        "allowDelete": false,
+        "allowEdit": false,
+        "allowRead": true,
+        "modifyAllRecords": false,
+        "viewAllRecords": false
+      },
+      "Account": "read",
+      "CMN_Characteristic__c": "read",
+      "CMN_Company__c": "read",
+      "CMN_Department__c": "read",
+      "CMN_Line__c": "read",
+      "CMN_Plant__c": "read",
+      "CMN_ProductGroup__c": "read",
+      "CMN_Vehicle__c": "read"
+    },
+    "editableFields": {
+      "CMN_InboundReceipt__c": [
+        "Status__c",
+        "ProcessedAt__c",
+        "ResultRecordId__c",
+        "AttemptCount__c",
+        "PayloadJson__c",
+        "ErrorMessage__c"
+      ]
+    }
+  }
+}

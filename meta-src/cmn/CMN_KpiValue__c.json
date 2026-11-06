@@ -1,0 +1,400 @@
+{
+  "wi": "CMN-00-DWH-003",
+  "object": "CMN_KpiValue__c",
+  "package": "force-app-cmn",
+  "description": "Snowflake가 계산한 KPI 값(DWH-003 BR-1). Mule이 MART.V_SF_KPI_* 뷰를 읽어 외부 키로 upsert한다. 위젯 집계 단위만 적재하고 세부는 드릴다운(DWH-004), 13개월 초과 값은 삭제(Snowflake 보존, 결정 O-2). 사내 공개 읽기 전용·외부 비공개(Vol.7 요청) — 공장 필터는 위젯 데이터 서비스가 강제한다. Name은 트리거가 채운다",
+  "label": {
+    "ko": "KPI 값",
+    "en_US": "KPI Value",
+    "zh_CN": "KPI 值"
+  },
+  "plural": {
+    "ko": "KPI 값",
+    "en_US": "KPI Values",
+    "zh_CN": "KPI 值"
+  },
+  "nameField": {
+    "label": {
+      "ko": "이름",
+      "en_US": "Name",
+      "zh_CN": "名称"
+    }
+  },
+  "sharingModel": "Read",
+  "externalSharingModel": "Private",
+  "tab": {
+    "motif": "Custom62: Chalkboard"
+  },
+  "readOnlyLayout": true,
+  "compactLayout": {
+    "name": "CMN_KpiValue_Compact",
+    "label": "KPI Value Compact",
+    "fields": [
+      "Name",
+      "KpiKey__c",
+      "PeriodType__c",
+      "PeriodStart__c",
+      "Value__c",
+      "Rag__c",
+      "Plant__c"
+    ]
+  },
+  "layout": {
+    "columns": [
+      [
+        "Name",
+        "KpiKey__c",
+        "PeriodType__c",
+        "PeriodStart__c",
+        "Value__c",
+        "Target__c",
+        "Unit__c",
+        "Rag__c",
+        "ExternalKey__c"
+      ],
+      [
+        "Plant__c",
+        "Line__c",
+        "Item__c",
+        "Characteristic__c",
+        "Supplier__c",
+        "Customer__c",
+        "Vehicle__c",
+        "Department__c",
+        "ProductGroup__c"
+      ]
+    ]
+  },
+  "fields": [
+    {
+      "name": "KpiKey__c",
+      "type": "Text",
+      "length": 60,
+      "required": true,
+      "label": {
+        "ko": "KPI 키",
+        "en_US": "KPI Key",
+        "zh_CN": "KPI 键"
+      },
+      "description": "KPI 레지스트리 키. 예: QMS_PPM_CUSTOMER, QMS_SPC_CPK, QMS_SUPPLIER_PPM(interfaces.md KPI 이름 통일)"
+    },
+    {
+      "name": "PeriodType__c",
+      "type": "Picklist",
+      "required": true,
+      "label": {
+        "ko": "기간 단위",
+        "en_US": "Period Type",
+        "zh_CN": "期间类型"
+      },
+      "values": [
+        {
+          "api": "DAY",
+          "label": {
+            "ko": "일",
+            "en_US": "Day",
+            "zh_CN": "日"
+          }
+        },
+        {
+          "api": "WEEK",
+          "label": {
+            "ko": "주",
+            "en_US": "Week",
+            "zh_CN": "周"
+          }
+        },
+        {
+          "api": "MONTH",
+          "label": {
+            "ko": "월",
+            "en_US": "Month",
+            "zh_CN": "月"
+          }
+        },
+        {
+          "api": "QUARTER",
+          "label": {
+            "ko": "분기",
+            "en_US": "Quarter",
+            "zh_CN": "季度"
+          }
+        }
+      ],
+      "description": "QUARTER는 Vol.6c·Vol.7 요청(감사 반복률, 협력사 등급 수)"
+    },
+    {
+      "name": "PeriodStart__c",
+      "type": "Date",
+      "required": true,
+      "label": {
+        "ko": "기간 시작",
+        "en_US": "Period Start",
+        "zh_CN": "期间开始"
+      },
+      "description": "일 = 그날, 주 = 월요일, 월 = 1일, 분기 = 분기 첫날"
+    },
+    {
+      "name": "Plant__c",
+      "type": "Lookup",
+      "referenceTo": "CMN_Plant__c",
+      "relationshipName": "KpiValues",
+      "label": {
+        "ko": "공장",
+        "en_US": "Plant",
+        "zh_CN": "工厂"
+      },
+      "description": "차원(해당하는 것만 채운다)"
+    },
+    {
+      "name": "Line__c",
+      "type": "Lookup",
+      "referenceTo": "CMN_Line__c",
+      "relationshipName": "KpiValues",
+      "label": {
+        "ko": "라인",
+        "en_US": "Line",
+        "zh_CN": "产线"
+      },
+      "description": "차원"
+    },
+    {
+      "name": "Item__c",
+      "type": "Lookup",
+      "referenceTo": "CMN_Item__c",
+      "relationshipName": "KpiValues",
+      "label": {
+        "ko": "품번",
+        "en_US": "Item",
+        "zh_CN": "物料"
+      },
+      "description": "차원"
+    },
+    {
+      "name": "Characteristic__c",
+      "type": "Lookup",
+      "referenceTo": "CMN_Characteristic__c",
+      "relationshipName": "KpiValues",
+      "label": {
+        "ko": "특성",
+        "en_US": "Characteristic",
+        "zh_CN": "特性"
+      },
+      "description": "차원(SPC Cpk·Ppk)"
+    },
+    {
+      "name": "Supplier__c",
+      "type": "Lookup",
+      "referenceTo": "Account",
+      "relationshipName": "SupplierKpiValues",
+      "relationshipLabel": {
+        "ko": "KPI 값(협력사)",
+        "en_US": "KPI Values (Supplier)",
+        "zh_CN": "KPI 值(供应商)"
+      },
+      "label": {
+        "ko": "협력사",
+        "en_US": "Supplier",
+        "zh_CN": "供应商"
+      },
+      "description": "차원(협력사 PPM·수입검사 합격률)"
+    },
+    {
+      "name": "Customer__c",
+      "type": "Lookup",
+      "referenceTo": "Account",
+      "relationshipName": "CustomerKpiValues",
+      "relationshipLabel": {
+        "ko": "KPI 값(고객)",
+        "en_US": "KPI Values (Customer)",
+        "zh_CN": "KPI 值(客户)"
+      },
+      "label": {
+        "ko": "고객",
+        "en_US": "Customer",
+        "zh_CN": "客户"
+      },
+      "description": "차원(고객 PPM·필드 클레임)"
+    },
+    {
+      "name": "Vehicle__c",
+      "type": "Lookup",
+      "referenceTo": "CMN_Vehicle__c",
+      "relationshipName": "KpiValues",
+      "label": {
+        "ko": "차종",
+        "en_US": "Vehicle",
+        "zh_CN": "车型"
+      },
+      "description": "차원(Vol.5 B2B-003 요청: 차종별 필드 클레임 R/1000)"
+    },
+    {
+      "name": "Department__c",
+      "type": "Lookup",
+      "referenceTo": "CMN_Department__c",
+      "relationshipName": "KpiValues",
+      "label": {
+        "ko": "부서",
+        "en_US": "Department",
+        "zh_CN": "部门"
+      },
+      "description": "차원(Vol.6b TRN-003 요청: 부서별 교육 계획 이행률). 외부 키 해시에 포함"
+    },
+    {
+      "name": "ProductGroup__c",
+      "type": "Lookup",
+      "referenceTo": "CMN_ProductGroup__c",
+      "relationshipName": "KpiValues",
+      "label": {
+        "ko": "제품군",
+        "en_US": "Product Group",
+        "zh_CN": "产品组"
+      },
+      "description": "차원(Vol.7·Vol.8 요청: 제품군 위험 점수)"
+    },
+    {
+      "name": "Value__c",
+      "type": "Number",
+      "precision": 18,
+      "scale": 6,
+      "required": true,
+      "label": {
+        "ko": "값",
+        "en_US": "Value",
+        "zh_CN": "值"
+      }
+    },
+    {
+      "name": "Target__c",
+      "type": "Number",
+      "precision": 18,
+      "scale": 6,
+      "label": {
+        "ko": "목표",
+        "en_US": "Target",
+        "zh_CN": "目标"
+      }
+    },
+    {
+      "name": "Unit__c",
+      "type": "Text",
+      "length": 20,
+      "label": {
+        "ko": "단위",
+        "en_US": "Unit",
+        "zh_CN": "单位"
+      },
+      "description": "KPI 레지스트리 단위 코드: RATIO, CNT, PCT, PPM, R1000"
+    },
+    {
+      "name": "Rag__c",
+      "type": "Picklist",
+      "label": {
+        "ko": "신호",
+        "en_US": "RAG",
+        "zh_CN": "信号"
+      },
+      "values": [
+        {
+          "api": "GREEN",
+          "label": {
+            "ko": "양호",
+            "en_US": "Green",
+            "zh_CN": "良好"
+          }
+        },
+        {
+          "api": "AMBER",
+          "label": {
+            "ko": "주의",
+            "en_US": "Amber",
+            "zh_CN": "注意"
+          }
+        },
+        {
+          "api": "RED",
+          "label": {
+            "ko": "위험",
+            "en_US": "Red",
+            "zh_CN": "危险"
+          }
+        }
+      ],
+      "description": "Snowflake 공통 RAG 판정(MART.F_KPI_RAG). 판정 기준이 없는 KPI는 비운다"
+    },
+    {
+      "name": "ExternalKey__c",
+      "type": "Text",
+      "length": 255,
+      "required": true,
+      "externalId": true,
+      "unique": true,
+      "caseSensitive": true,
+      "label": {
+        "ko": "외부 키",
+        "en_US": "External Key",
+        "zh_CN": "外部键"
+      },
+      "description": "KPI·기간·차원 키 해시(Snowflake가 만든다, 재적재 멱등)"
+    }
+  ],
+  "listViews": [
+    {
+      "name": "CMN_RecentMonthly",
+      "label": "월간 값",
+      "columns": [
+        "NAME",
+        "KpiKey__c",
+        "PeriodStart__c",
+        "Plant__c",
+        "Value__c",
+        "Target__c",
+        "Unit__c",
+        "Rag__c"
+      ],
+      "filters": [
+        {
+          "field": "PeriodType__c",
+          "operation": "equals",
+          "value": "MONTH"
+        }
+      ]
+    },
+    {
+      "name": "CMN_RedSignals",
+      "label": "위험 신호",
+      "columns": [
+        "NAME",
+        "KpiKey__c",
+        "PeriodType__c",
+        "PeriodStart__c",
+        "Plant__c",
+        "Value__c",
+        "Target__c",
+        "Unit__c"
+      ],
+      "filters": [
+        {
+          "field": "Rag__c",
+          "operation": "equals",
+          "value": "RED"
+        }
+      ]
+    },
+    {
+      "name": "CMN_AllKpiValues",
+      "label": "전체",
+      "columns": [
+        "NAME",
+        "KpiKey__c",
+        "PeriodType__c",
+        "PeriodStart__c",
+        "Plant__c",
+        "Value__c",
+        "Unit__c",
+        "Rag__c",
+        "LAST_UPDATE"
+      ]
+    }
+  ]
+}

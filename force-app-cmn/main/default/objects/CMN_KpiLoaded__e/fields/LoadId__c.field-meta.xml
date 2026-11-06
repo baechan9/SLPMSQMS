@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LoadId__c</fullName>
+    <description>적재 배치 상관 ID(연계 로그 CorrelationId와 같다)</description>
+    <label>Load Id</label>
+    <length>64</length>
+    <required>false</required>
+    <type>Text</type>
+</CustomField>

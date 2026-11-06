@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_RecentMonthly</fullName>
+    <columns>NAME</columns>
+    <columns>KpiKey__c</columns>
+    <columns>PeriodStart__c</columns>
+    <columns>Plant__c</columns>
+    <columns>Value__c</columns>
+    <columns>Target__c</columns>
+    <columns>Unit__c</columns>
+    <columns>Rag__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>PeriodType__c</field>
+        <operation>equals</operation>
+        <value>MONTH</value>
+    </filters>
+    <label>월간 값</label>
+</ListView>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label>处理状态</label>
+    <name>Status__c</name>
+    <picklistValues>
+        <masterLabel>수신</masterLabel>
+        <translation>已接收</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>처리 완료</masterLabel>
+        <translation>已处理</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>경로 없음</masterLabel>
+        <translation>无路由</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>실패</masterLabel>
+        <translation>失败</translation>
+    </picklistValues>
+</CustomFieldTranslation>

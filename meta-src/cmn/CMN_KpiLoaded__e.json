@@ -1,0 +1,43 @@
+{
+  "wi": "CMN-00-DWH-003",
+  "object": "CMN_KpiLoaded__e",
+  "kind": "event",
+  "package": "force-app-cmn",
+  "publishBehavior": "PublishAfterCommit",
+  "description": "KPI 적재 완료(Vol.7 변경 요청). Mule이 KPI 적재 배치 1회가 끝나면 발행하고, 위젯 데이터 서비스(Vol.7 DSH-002)가 kpi: 캐시를 비운다",
+  "label": {
+    "ko": "KPI 적재 완료 이벤트"
+  },
+  "plural": {
+    "ko": "KPI 적재 완료 이벤트"
+  },
+  "fields": [
+    {
+      "name": "LoadId__c",
+      "type": "Text",
+      "length": 64,
+      "label": "Load Id",
+      "description": "적재 배치 상관 ID(연계 로그 CorrelationId와 같다)"
+    },
+    {
+      "name": "KpiKeys__c",
+      "type": "LongTextArea",
+      "length": 32768,
+      "visibleLines": 3,
+      "label": "KPI Keys",
+      "description": "이번 적재에 포함된 KPI 키(쉼표 구분)"
+    },
+    {
+      "name": "RowCount__c",
+      "type": "Number",
+      "precision": 10,
+      "scale": 0,
+      "label": "Row Count"
+    },
+    {
+      "name": "LoadedAt__c",
+      "type": "DateTime",
+      "label": "Loaded At"
+    }
+  ]
+}

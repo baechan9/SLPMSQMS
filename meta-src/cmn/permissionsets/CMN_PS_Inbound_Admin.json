@@ -1,0 +1,14 @@
+{
+  "permissionSet": {
+    "wi": "CMN-00-DWH-003",
+    "name": "CMN_PS_Inbound_Admin",
+    "package": "force-app-cmn",
+    "label": "CMN Inbound Admin",
+    "description": "Snowflake 수신 운영(CMN-00-DWH-003): 수신 영수 모두 보기·KPI 값 탭. 재처리 버튼(BR-4)은 B단계에서 이 PS에 더한다. CMN_PSG_SystemAdmin",
+    "objects": {
+      "CMN_InboundReceipt__c": "viewall",
+      "CMN_KpiValue__c": "read"
+    },
+    "tabs": ["CMN_KpiValue__c", "CMN_InboundReceipt__c"]
+  }
+}

@@ -39,12 +39,14 @@
       "CMN_PS_Document_User",
       "CMN_PS_Document_Admin",
       "CMN_PS_InterfaceLog_Read",
+      "CMN_PS_Inbound_Admin",
       "CMN_PS_Employee_Read",
       "CMN_PS_Employee_Admin",
       "CMN_PS_Delegation_User",
       "CMN_PS_Delegation_Admin",
       "CMN_PS_Meeting_User",
       "CMN_PS_Dashboard_User",
+      "CMN_PS_KpiValue_Read",
       "QMS_PS_Menu_Read",
       "CMN_PS_UiFramework_User"
     ]
