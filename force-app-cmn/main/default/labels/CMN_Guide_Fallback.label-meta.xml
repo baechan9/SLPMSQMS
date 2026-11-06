@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_Guide_Fallback</fullName>
+    <categories>CMN</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>언어 대체 안내(BR-2)</shortDescription>
+    <value>사용 중인 언어의 가이드가 없어 다른 언어 가이드를 보여 줍니다.</value>
+</CustomLabel>

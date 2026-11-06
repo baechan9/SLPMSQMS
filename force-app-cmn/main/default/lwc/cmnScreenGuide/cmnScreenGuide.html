@@ -1,0 +1,101 @@
+<template>
+  <div class="slds-p-around_small">
+    <template lwc:if={isLoading}>
+      <div class="slds-is-relative slds-p-around_large">
+        <lightning-spinner
+          alternative-text={labels.loading}
+          size="small"
+        ></lightning-spinner>
+      </div>
+    </template>
+    <template lwc:elseif={errorMessage}>
+      <p class="slds-text-color_error" role="alert" data-id="error">
+        {errorMessage}
+      </p>
+    </template>
+    <template lwc:elseif={isUnsupported}>
+      <p class="slds-text-color_weak" data-id="unsupported">
+        {labels.unsupported}
+      </p>
+    </template>
+    <template lwc:elseif={hasGuide}>
+      <h2 class="slds-text-heading_small slds-m-bottom_x-small guide-title">
+        {guide.title}
+      </h2>
+      <template lwc:if={guide.isFallback}>
+        <p
+          class="slds-text-body_small slds-text-color_weak slds-m-bottom_x-small"
+          data-id="fallback"
+        >
+          <lightning-icon
+            icon-name="utility:info"
+            size="xx-small"
+            class="slds-m-right_xx-small"
+          ></lightning-icon
+          >{labels.fallback}
+        </p>
+      </template>
+      <lightning-formatted-rich-text
+        value={guide.content}
+        class="content"
+      ></lightning-formatted-rich-text>
+      <div class="slds-m-top_small links">
+        <template lwc:if={guide.videoUrl}>
+          <p>
+            <lightning-icon
+              icon-name="utility:video"
+              size="xx-small"
+              class="slds-m-right_xx-small"
+            ></lightning-icon>
+            <a
+              href={guide.videoUrl}
+              target="_blank"
+              rel="noopener"
+              data-id="video"
+              >{labels.video}</a
+            >
+          </p>
+        </template>
+        <template lwc:if={guide.standardDocUrl}>
+          <p>
+            <lightning-icon
+              icon-name="utility:knowledge_base"
+              size="xx-small"
+              class="slds-m-right_xx-small"
+            ></lightning-icon>
+            <a
+              href={guide.standardDocUrl}
+              target="_blank"
+              rel="noopener"
+              data-id="standard-doc"
+              >{labels.standardDoc}</a
+            >
+          </p>
+        </template>
+      </div>
+      <p
+        class="slds-text-body_small slds-text-color_weak slds-m-top_small updated"
+      >
+        {labels.updated}
+        <lightning-formatted-date-time
+          value={guide.updatedAt}
+          year="numeric"
+          month="2-digit"
+          day="2-digit"
+          class="slds-m-left_xx-small"
+        ></lightning-formatted-date-time>
+      </p>
+    </template>
+    <template lwc:elseif={showNoGuide}>
+      <p class="slds-text-color_weak" data-id="no-guide">{labels.noGuide}</p>
+    </template>
+    <template lwc:if={pageKeyText}>
+      <p
+        class="slds-text-body_small slds-text-color_weak slds-m-top_small"
+        data-id="page-key"
+      >
+        {pageKeyText}
+      </p>
+    </template>
+  </div>
+</template>

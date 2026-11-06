@@ -18,6 +18,7 @@
     <tabs>CMN_InterfaceLog__c</tabs>
     <tabs>CMN_InboundReceipt__c</tabs>
     <tabs>CMN_KpiValue__c</tabs>
+    <tabs>CMN_ScreenGuide__c</tabs>
     <tabs>CMN_Log__c</tabs>
     <tabs>CMN_DeleteLog__c</tabs>
     <uiType>Lightning</uiType>

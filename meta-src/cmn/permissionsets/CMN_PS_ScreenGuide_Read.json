@@ -1,0 +1,13 @@
+{
+  "permissionSet": {
+    "wi": "CMN-00-UX-002",
+    "name": "CMN_PS_ScreenGuide_Read",
+    "package": "force-app-cmn",
+    "label": "CMN Screen Guide Read",
+    "description": "화면 가이드 보기(유틸리티 바, CMN-00-UX-002). 사내 페르소나 PSG 전체",
+    "objects": {
+      "CMN_ScreenGuide__c": "read"
+    },
+    "classes": ["CMN_ScreenGuideController"]
+  }
+}

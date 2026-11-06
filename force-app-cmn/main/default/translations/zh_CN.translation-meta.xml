@@ -1949,6 +1949,42 @@
         <name>CMN_Grid_WarnOverdue</name>
     </customLabels>
     <customLabels>
+        <label>没有您所用语言的指南，因此显示其他语言的指南。</label>
+        <name>CMN_Guide_Fallback</name>
+    </customLabels>
+    <customLabels>
+        <label>请按 {对象API}.RECORD、{对象API}.LIST、页面 API 名称或 home 的格式输入画面键。</label>
+        <name>CMN_Guide_InvalidPageKey</name>
+    </customLabels>
+    <customLabels>
+        <label>此画面暂无指南。如有需要，请联系管理员编写。</label>
+        <name>CMN_Guide_NoGuide</name>
+    </customLabels>
+    <customLabels>
+        <label>画面键：{0}</label>
+        <name>CMN_Guide_PageKey</name>
+    </customLabels>
+    <customLabels>
+        <label>查看相关公司标准</label>
+        <name>CMN_Guide_StandardDoc</name>
+    </customLabels>
+    <customLabels>
+        <label>画面指南</label>
+        <name>CMN_Guide_Title</name>
+    </customLabels>
+    <customLabels>
+        <label>此画面无法关联指南。</label>
+        <name>CMN_Guide_Unsupported</name>
+    </customLabels>
+    <customLabels>
+        <label>更新日期</label>
+        <name>CMN_Guide_Updated</name>
+    </customLabels>
+    <customLabels>
+        <label>观看视频</label>
+        <name>CMN_Guide_Video</name>
+    </customLabels>
+    <customLabels>
         <label>该用户未注册。请联系管理员创建账户。</label>
         <name>CMN_I18n_JitNoUserCreation</name>
     </customLabels>

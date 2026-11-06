@@ -1,0 +1,96 @@
+{
+  "wi": "CMN-00-UX-002",
+  "package": "force-app-cmn",
+  "labels": [
+    {
+      "name": "CMN_Guide_Title",
+      "category": "CMN",
+      "description": "유틸리티 제목",
+      "value": {
+        "ko": "화면 가이드",
+        "en_US": "Screen Guide",
+        "zh_CN": "画面指南"
+      }
+    },
+    {
+      "name": "CMN_Guide_NoGuide",
+      "category": "CMN",
+      "description": "가이드 없음",
+      "value": {
+        "ko": "이 화면의 가이드가 아직 없습니다. 필요하면 관리자에게 작성을 요청하세요.",
+        "en_US": "There's no guide for this screen yet. Ask your admin to write one if you need it.",
+        "zh_CN": "此画面暂无指南。如有需要，请联系管理员编写。"
+      }
+    },
+    {
+      "name": "CMN_Guide_Unsupported",
+      "category": "CMN",
+      "description": "가이드 대상 아님",
+      "value": {
+        "ko": "이 화면은 가이드를 연결할 수 없는 화면입니다.",
+        "en_US": "Guides can't be attached to this screen.",
+        "zh_CN": "此画面无法关联指南。"
+      }
+    },
+    {
+      "name": "CMN_Guide_Fallback",
+      "category": "CMN",
+      "description": "언어 대체 안내(BR-2)",
+      "value": {
+        "ko": "사용 중인 언어의 가이드가 없어 다른 언어 가이드를 보여 줍니다.",
+        "en_US": "No guide in your language, so a guide in another language is shown.",
+        "zh_CN": "没有您所用语言的指南，因此显示其他语言的指南。"
+      }
+    },
+    {
+      "name": "CMN_Guide_PageKey",
+      "category": "CMN",
+      "description": "화면 키 표시({0})",
+      "value": {
+        "ko": "화면 키: {0}",
+        "en_US": "Page key: {0}",
+        "zh_CN": "画面键：{0}"
+      }
+    },
+    {
+      "name": "CMN_Guide_Video",
+      "category": "CMN",
+      "description": "동영상 링크",
+      "value": {
+        "ko": "사용 동영상 보기",
+        "en_US": "Watch the video",
+        "zh_CN": "观看视频"
+      }
+    },
+    {
+      "name": "CMN_Guide_StandardDoc",
+      "category": "CMN",
+      "description": "회사표준 링크",
+      "value": {
+        "ko": "관련 회사표준 보기",
+        "en_US": "View the related company standard",
+        "zh_CN": "查看相关公司标准"
+      }
+    },
+    {
+      "name": "CMN_Guide_Updated",
+      "category": "CMN",
+      "description": "고친 날 머리말",
+      "value": {
+        "ko": "고친 날",
+        "en_US": "Updated",
+        "zh_CN": "更新日期"
+      }
+    },
+    {
+      "name": "CMN_Guide_InvalidPageKey",
+      "category": "CMN",
+      "description": "화면 키 형식 오류",
+      "value": {
+        "ko": "화면 키는 {객체API}.RECORD, {객체API}.LIST, 페이지 API명 또는 home 형식으로 입력하세요.",
+        "en_US": "Enter the page key as {Object API}.RECORD, {Object API}.LIST, a page API name, or home.",
+        "zh_CN": "请按 {对象API}.RECORD、{对象API}.LIST、页面 API 名称或 home 的格式输入画面键。"
+      }
+    }
+  ]
+}

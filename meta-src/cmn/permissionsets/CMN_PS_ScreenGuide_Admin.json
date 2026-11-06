@@ -1,0 +1,13 @@
+{
+  "permissionSet": {
+    "wi": "CMN-00-UX-002",
+    "name": "CMN_PS_ScreenGuide_Admin",
+    "package": "force-app-cmn",
+    "label": "CMN Screen Guide Admin",
+    "description": "화면 가이드 작성·게시·모두 수정(개발 없이 관리자가 고침, 다른 관리자가 쓴 가이드도 고친다 — 사내 공개 읽기 전용이라 모두 수정이 필요, CMN-00-UX-002). CMN_PSG_SystemAdmin, QMS_PSG_QualityAdmin",
+    "objects": {
+      "CMN_ScreenGuide__c": "admin"
+    },
+    "tabs": ["CMN_ScreenGuide__c"]
+  }
+}

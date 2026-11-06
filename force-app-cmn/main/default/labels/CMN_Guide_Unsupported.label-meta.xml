@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CMN_Guide_Unsupported</fullName>
+    <categories>CMN</categories>
+    <language>ko</language>
+    <protected>false</protected>
+    <shortDescription>가이드 대상 아님</shortDescription>
+    <value>이 화면은 가이드를 연결할 수 없는 화면입니다.</value>
+</CustomLabel>

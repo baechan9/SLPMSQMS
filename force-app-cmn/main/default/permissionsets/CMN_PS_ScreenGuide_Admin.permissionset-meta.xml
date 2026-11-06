@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>화면 가이드 작성·게시·모두 수정(개발 없이 관리자가 고침, 다른 관리자가 쓴 가이드도 고친다 — 사내 공개 읽기 전용이라 모두 수정이 필요, CMN-00-UX-002). CMN_PSG_SystemAdmin, QMS_PSG_QualityAdmin</description>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>CMN_ScreenGuide__c.Content__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>CMN_ScreenGuide__c.IsPublished__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>CMN_ScreenGuide__c.StandardDocUrl__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>CMN_ScreenGuide__c.VideoUrl__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>CMN Screen Guide Admin</label>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>true</modifyAllRecords>
+        <viewAllRecords>true</viewAllRecords>
+        <object>CMN_ScreenGuide__c</object>
+    </objectPermissions>
+    <tabSettings>
+        <tab>CMN_ScreenGuide__c</tab>
+        <visibility>Visible</visibility>
+    </tabSettings>
+</PermissionSet>

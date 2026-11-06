@@ -1,0 +1,193 @@
+{
+  "wi": "CMN-00-UX-002",
+  "object": "CMN_ScreenGuide__c",
+  "package": "force-app-cmn",
+  "description": "화면별 사용 가이드(UX-002). 1건 = 화면 키 × 언어. 관리자가 개발 없이 내용을 고친다(회사표준 개편 기간 절차 변경 대응). 사용자 언어 → en_US → ko 순으로 대체 표시(BR-2). 공지성 안내는 표준 In-App Guidance로(BR-3). 외부 키는 트리거가 {PageKey}-{Language}로 채운다",
+  "label": {
+    "ko": "화면 가이드",
+    "en_US": "Screen Guide",
+    "zh_CN": "画面指南"
+  },
+  "plural": {
+    "ko": "화면 가이드",
+    "en_US": "Screen Guides",
+    "zh_CN": "画面指南"
+  },
+  "nameField": {
+    "label": {
+      "ko": "제목",
+      "en_US": "Title",
+      "zh_CN": "标题"
+    }
+  },
+  "sharingModel": "Read",
+  "externalSharingModel": "Private",
+  "tab": {
+    "motif": "Custom55: Books"
+  },
+  "layout": {
+    "columns": [
+      ["Name", "PageKey__c", "Language__c", "IsPublished__c"],
+      ["VideoUrl__c", "StandardDocUrl__c", "ExternalKey__c"]
+    ]
+  },
+  "fields": [
+    {
+      "name": "PageKey__c",
+      "type": "Text",
+      "length": 80,
+      "required": true,
+      "label": {
+        "ko": "화면 키",
+        "en_US": "Page Key",
+        "zh_CN": "画面键"
+      },
+      "description": "레코드 페이지 = {객체API}.RECORD, 목록 = {객체API}.LIST, 앱 페이지 = 페이지(탭) API명, 홈 = home"
+    },
+    {
+      "name": "Language__c",
+      "type": "Picklist",
+      "required": true,
+      "default": "ko",
+      "label": {
+        "ko": "언어",
+        "en_US": "Language",
+        "zh_CN": "语言"
+      },
+      "values": [
+        {
+          "api": "ko",
+          "label": {
+            "ko": "한국어",
+            "en_US": "Korean",
+            "zh_CN": "韩语"
+          }
+        },
+        {
+          "api": "en_US",
+          "label": {
+            "ko": "영어",
+            "en_US": "English",
+            "zh_CN": "英语"
+          }
+        },
+        {
+          "api": "zh_CN",
+          "label": {
+            "ko": "중국어",
+            "en_US": "Chinese",
+            "zh_CN": "中文"
+          }
+        },
+        {
+          "api": "pl",
+          "label": {
+            "ko": "폴란드어",
+            "en_US": "Polish",
+            "zh_CN": "波兰语"
+          }
+        },
+        {
+          "api": "es",
+          "label": {
+            "ko": "스페인어",
+            "en_US": "Spanish",
+            "zh_CN": "西班牙语"
+          }
+        },
+        {
+          "api": "pt_BR",
+          "label": {
+            "ko": "포르투갈어(브라질)",
+            "en_US": "Portuguese (Brazil)",
+            "zh_CN": "葡萄牙语(巴西)"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Content__c",
+      "type": "Html",
+      "length": 32768,
+      "visibleLines": 25,
+      "label": {
+        "ko": "본문",
+        "en_US": "Content",
+        "zh_CN": "正文"
+      },
+      "description": "본문(이미지 포함 가능). 비어 있으면 게시해도 화면에 안내만 보인다"
+    },
+    {
+      "name": "VideoUrl__c",
+      "type": "Url",
+      "label": {
+        "ko": "동영상 링크",
+        "en_US": "Video URL",
+        "zh_CN": "视频链接"
+      },
+      "description": "사내 동영상 링크"
+    },
+    {
+      "name": "StandardDocUrl__c",
+      "type": "Url",
+      "label": {
+        "ko": "회사표준 링크",
+        "en_US": "Standard Document URL",
+        "zh_CN": "公司标准链接"
+      },
+      "description": "관련 회사표준(프로세스·지침) 링크"
+    },
+    {
+      "name": "IsPublished__c",
+      "type": "Checkbox",
+      "default": false,
+      "label": {
+        "ko": "게시",
+        "en_US": "Published",
+        "zh_CN": "已发布"
+      },
+      "description": "게시된 가이드만 화면에 나온다"
+    },
+    {
+      "name": "ExternalKey__c",
+      "type": "Text",
+      "length": 100,
+      "required": true,
+      "externalId": true,
+      "unique": true,
+      "caseSensitive": false,
+      "serviceOnly": true,
+      "label": {
+        "ko": "외부 키",
+        "en_US": "External Key",
+        "zh_CN": "外部键"
+      },
+      "description": "{PageKey}-{Language}. 트리거가 채운다(같은 화면·언어 중복 금지)"
+    }
+  ],
+  "listViews": [
+    {
+      "name": "CMN_AllGuides",
+      "label": "전체",
+      "columns": [
+        "NAME",
+        "PageKey__c",
+        "Language__c",
+        "IsPublished__c",
+        "LAST_UPDATE"
+      ]
+    },
+    {
+      "name": "CMN_UnpublishedGuides",
+      "label": "미게시",
+      "columns": ["NAME", "PageKey__c", "Language__c", "LAST_UPDATE"],
+      "filters": [
+        {
+          "field": "IsPublished__c",
+          "operation": "equals",
+          "value": "0"
+        }
+      ]
+    }
+  ]
+}

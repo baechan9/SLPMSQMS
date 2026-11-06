@@ -32,6 +32,8 @@
     <permissionSets>CMN_PS_Language_User</permissionSets>
     <permissionSets>CMN_PS_Meeting_User</permissionSets>
     <permissionSets>CMN_PS_Org_Read</permissionSets>
+    <permissionSets>CMN_PS_ScreenGuide_Admin</permissionSets>
+    <permissionSets>CMN_PS_ScreenGuide_Read</permissionSets>
     <permissionSets>CMN_PS_Site_Admin</permissionSets>
     <permissionSets>CMN_PS_Site_Read</permissionSets>
     <permissionSets>CMN_PS_Supplier_Admin</permissionSets>

@@ -10,11 +10,11 @@
 
 | 구분 | 객체 수 | 커스텀 필드 수 |
 | --- | --- | --- |
-| 커스텀 객체 | 41 | 373 |
+| 커스텀 객체 | 42 | 380 |
 | 표준 객체 확장 | 2 | 22 |
 | 커스텀 메타데이터 유형(설정) | 26 | 163 |
 | Platform Event | 5 | 23 |
-| 합계 | 74 | 581 |
+| 합계 | 75 | 588 |
 
 ## 커스텀 객체
 
@@ -54,6 +54,7 @@
 | [CMN_Plant__c](#cmn_plant__c) | 공장 | Plant | 10 | CMN-00-MDM-002 |
 | [CMN_ProductGroup__c](#cmn_productgroup__c) | 제품군 | Product Group | 6 | CMN-00-MDM-004 |
 | [CMN_RoleAssignment__c](#cmn_roleassignment__c) | 결재 Role 배정 | Role Assignment | 7 | CMN-00-APV-002 |
+| [CMN_ScreenGuide__c](#cmn_screenguide__c) | 화면 가이드 | Screen Guide | 7 | CMN-00-UX-002 |
 | [CMN_SupplierItem__c](#cmn_supplieritem__c) | 협력사 품번 | Supplier Item | 6 | CMN-00-MDM-005 |
 | [CMN_TestRecordLine__c](#cmn_testrecordline__c) | 테스트 라인 | Test Line | 10 | CMN-00-UX-006 |
 | [CMN_TestRecord__c](#cmn_testrecord__c) | 테스트 레코드 | Test Record | 10 | CMN-00-ARC-003 |
@@ -609,6 +610,20 @@ KPI 값 / KPI Value. Snowflake가 계산한 KPI 값(DWH-003 BR-1). Mule이 MART.
 | User__c | 사용자 | User | Lookup | → User |  | 명세 필수: User 조회는 필수로 만들 수 없어 트리거가 확인 |
 | ValidFrom__c | 유효 시작 | Valid From | Date |  | 필수 |  |
 | ValidTo__c | 유효 종료 | Valid To | Date |  |  |  |
+
+### CMN_ScreenGuide__c
+
+화면 가이드 / Screen Guide. 화면별 사용 가이드(UX-002). 1건 = 화면 키 × 언어. 관리자가 개발 없이 내용을 고친다(회사표준 개편 기간 절차 변경 대응). 사용자 언어 → en_US → ko 순으로 대체 표시(BR-2). 공지성 안내는 표준 In-App Guidance로(BR-3). 외부 키는 트리거가 {PageKey}-{Language}로 채운다
+
+| API | 라벨(ko) | Label(en) | 타입 | 값/길이/참조 | 제약 | 설명 |
+| --- | --- | --- | --- | --- | --- | --- |
+| Content__c | 본문 | Content | Html | 32768 |  | 본문(이미지 포함 가능). 비어 있으면 게시해도 화면에 안내만 보인다 |
+| ExternalKey__c | 외부 키 | External Key | Text | 100 | 필수 외부 키 유일 | {PageKey}-{Language}. 트리거가 채운다(같은 화면·언어 중복 금지) |
+| IsPublished__c | 게시 | Published | Checkbox |  |  | 게시된 가이드만 화면에 나온다 |
+| Language__c | 언어 | Language | Picklist | ko, en_US, zh_CN, pl, es, pt_BR | 필수 |  |
+| PageKey__c | 화면 키 | Page Key | Text | 80 | 필수 | 레코드 페이지 = {객체API}.RECORD, 목록 = {객체API}.LIST, 앱 페이지 = 페이지(탭) API명, 홈 = home |
+| StandardDocUrl__c | 회사표준 링크 | Standard Document URL | Url |  |  | 관련 회사표준(프로세스·지침) 링크 |
+| VideoUrl__c | 동영상 링크 | Video URL | Url |  |  | 사내 동영상 링크 |
 
 ### CMN_SupplierItem__c
 

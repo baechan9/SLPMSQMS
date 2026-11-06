@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ExternalKey__c</fullName>
+    <caseSensitive>false</caseSensitive>
+    <description>{PageKey}-{Language}. 트리거가 채운다(같은 화면·언어 중복 금지)</description>
+    <externalId>true</externalId>
+    <label>외부 키</label>
+    <length>100</length>
+    <required>true</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>true</unique>
+</CustomField>

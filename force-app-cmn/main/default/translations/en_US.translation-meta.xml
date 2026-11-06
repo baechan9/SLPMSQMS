@@ -1949,6 +1949,42 @@
         <name>CMN_Grid_WarnOverdue</name>
     </customLabels>
     <customLabels>
+        <label>No guide in your language, so a guide in another language is shown.</label>
+        <name>CMN_Guide_Fallback</name>
+    </customLabels>
+    <customLabels>
+        <label>Enter the page key as {Object API}.RECORD, {Object API}.LIST, a page API name, or home.</label>
+        <name>CMN_Guide_InvalidPageKey</name>
+    </customLabels>
+    <customLabels>
+        <label>There's no guide for this screen yet. Ask your admin to write one if you need it.</label>
+        <name>CMN_Guide_NoGuide</name>
+    </customLabels>
+    <customLabels>
+        <label>Page key: {0}</label>
+        <name>CMN_Guide_PageKey</name>
+    </customLabels>
+    <customLabels>
+        <label>View the related company standard</label>
+        <name>CMN_Guide_StandardDoc</name>
+    </customLabels>
+    <customLabels>
+        <label>Screen Guide</label>
+        <name>CMN_Guide_Title</name>
+    </customLabels>
+    <customLabels>
+        <label>Guides can't be attached to this screen.</label>
+        <name>CMN_Guide_Unsupported</name>
+    </customLabels>
+    <customLabels>
+        <label>Updated</label>
+        <name>CMN_Guide_Updated</name>
+    </customLabels>
+    <customLabels>
+        <label>Watch the video</label>
+        <name>CMN_Guide_Video</name>
+    </customLabels>
+    <customLabels>
         <label>This user is not registered. Ask your administrator to create the account.</label>
         <name>CMN_I18n_JitNoUserCreation</name>
     </customLabels>

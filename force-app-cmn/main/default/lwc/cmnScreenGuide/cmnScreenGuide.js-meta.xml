@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>66.0</apiVersion>
+    <isExposed>true</isExposed>
+    <masterLabel>CMN Screen Guide</masterLabel>
+    <description
+  >화면별 사용 가이드(CMN-00-UX-002): 유틸리티 바에서 지금 화면의 가이드(사용자 언어 → 영어 → 한국어)</description>
+    <targets>
+        <target>lightning__UtilityBar</target>
+    </targets>
+</LightningComponentBundle>

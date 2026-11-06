@@ -13,6 +13,7 @@
       "CMN_InterfaceLog__c",
       "CMN_InboundReceipt__c",
       "CMN_KpiValue__c",
+      "CMN_ScreenGuide__c",
       "CMN_Log__c",
       "CMN_DeleteLog__c"
     ],
