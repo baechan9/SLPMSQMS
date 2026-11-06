@@ -162,15 +162,6 @@
         <allowEdit>false</allowEdit>
         <allowRead>false</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
-        <object>DandBCompany</object>
-        <viewAllRecords>false</viewAllRecords>
-    </objectPermissions>
-    <objectPermissions>
-        <allowCreate>false</allowCreate>
-        <allowDelete>false</allowDelete>
-        <allowEdit>false</allowEdit>
-        <allowRead>false</allowRead>
-        <modifyAllRecords>false</modifyAllRecords>
         <object>DataUseLegalBasis</object>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
@@ -226,15 +217,6 @@
         <allowRead>false</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
         <object>PartyConsent</object>
-        <viewAllRecords>false</viewAllRecords>
-    </objectPermissions>
-    <objectPermissions>
-        <allowCreate>false</allowCreate>
-        <allowDelete>false</allowDelete>
-        <allowEdit>false</allowEdit>
-        <allowRead>false</allowRead>
-        <modifyAllRecords>false</modifyAllRecords>
-        <object>PushTopic</object>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
@@ -420,10 +402,6 @@
     </userPermissions>
     <userPermissions>
         <enabled>false</enabled>
-        <name>SendExternalEmailAvailable</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>false</enabled>
         <name>ShareFilesWithNetworks</name>
     </userPermissions>
     <userPermissions>
@@ -449,6 +427,10 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>ViewHelpLink</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>false</enabled>
+        <name>ViewLicenseUtilization</name>
     </userPermissions>
     <userPermissions>
         <enabled>false</enabled>

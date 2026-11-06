@@ -15,3 +15,7 @@ node_modules/
 
 # 빈 패키지 디렉터리를 Git에 남기기 위한 파일
 **/.gitkeep
+
+# 협력사 포털 프로필: Enterprise Scratch에 Customer Community Plus 라이선스가 없어 배포에서 잠시 뺀다(2026-11-06).
+# A1 포털 착수 전에 Scratch 정의에 라이선스 기능을 넣거나 결정 D-5(포털 라이선스)를 받은 뒤 이 줄을 지운다.
+**/profiles/SL Supplier Portal User.profile-meta.xml

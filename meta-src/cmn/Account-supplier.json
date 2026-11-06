@@ -116,6 +116,8 @@
   ],
   "objectSettings": {
     "enableHistory": true,
-    "enableFeeds": true
+    "enableFeeds": true,
+    "sharingModel": "ReadWrite",
+    "externalSharingModel": "Private"
   }
 }
