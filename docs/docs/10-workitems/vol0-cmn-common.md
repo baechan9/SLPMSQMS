@@ -29,7 +29,7 @@ QMS RFP 45개 요구 중 15개가 PMS RFP와 같은 기능이거나 같은 엔�
 
 | 메뉴                    | 기능코드                                                            | 범위                                                                                                                                                   | QMS RFP                                                           | PMS RFP 대응                           | 작성 Vol.       |
 |-------------------------|---------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------|----------------------------------------|-----------------|
-| CMN-00 공통             | ARC, MDM, SEC, I18N, UX, APV, TDO, NTF, DOC, DSH, MTG, INT, DWH, AI | 개발 표준, 기준정보, 권한, 다국어, 모바일, 결재, To-Do, 알림, 문서, 위젯 프레임워크, 회의, 연계, Snowflake, AI 공통                                    | Q-1~3, 29, 34(프레임워크), 35, 39(프레임워크), 41~45, NFR 4.1~4.4 | P-1~3, 7, 19, 34~40, 47, 55, 58, 62~69 | Vol.0 (본 문서) |
+| CMN-00 공통             | ARC, MDM, SEC, I18N, UX, QNR, APV, TDO, NTF, DOC, DSH, MTG, INT, DWH, AI | 개발 표준, 기준정보, 권한, 다국어, 모바일, 표준 질문지 템플릿, 결재, To-Do, 알림, 문서, 위젯 프레임워크, 회의, 연계, Snowflake, AI 공통                                    | Q-1~3, 29, 34(프레임워크), 35, 39(프레임워크), 41~45, NFR 4.1~4.4 | P-1~3, 7, 19, 34~40, 47, 55, 58, 62~69 | Vol.0 (본 문서) |
 | QMS-02 개발 품질        | DVQ                                                                 | 부품·제품 인정시험 기획/실행                                                                                                                           | Q-4, 5                                                            | P-21, 37 (산출물 스레드)               | Vol.2           |
 | QMS-03 부품/협력사 품질 | SPP, IQC, PWT, PPA, PIS                                             | 협력사 포털, 수입검사, 부품 보증시험, 부품 Re-PPAP, 부품 초기안정화                                                                                    | Q-6~9                                                             | P-28                                   | Vol.3           |
 | QMS-04 제품/공정 품질   | EFC, SPC, FQC, HZD, LEL, RPP                                        | 초기유동, SPC, 제품/출하 검사, 수평전개, 레슨런(LELE), 제품 Re-PPAP                                                                                    | Q-10~15                                                           | P-15, 50 (LELE↔WBS)                    | Vol.4           |
@@ -1379,7 +1379,7 @@ QMS RFP 45개 요구 중 15개가 PMS RFP와 같은 기능이거나 같은 엔�
   - 후속 조치 생성: 기본 구현 = `CMN_ActionItem__c`
   - 태블릿 순차 모드, 브라우저 임시 저장
 - Out:
-  - 질문지 마스터·버전·등급·강등 규칙·점수 계산: Vol.6c IAU-001, IAU-003, CAU-002
+  - 질문지 템플릿·판·버전·등급·강등 규칙: CMN-00-QNR-001. 심사 도메인 규칙·점수 계산: Vol.6c IAU-001, IAU-003, CAU-002. Gate 평가: PMS-09-GAT-002·003
   - 심사 지적 사항 객체: IAU-004
   - 증빙 패널: IAU-005
   - PMS Gate Provider: PMS Vol.
@@ -1453,13 +1453,129 @@ QMS RFP 45개 요구 중 15개가 PMS RFP와 같은 기능이거나 같은 엔�
 - AC-7: Given 내 분담만 켜기, When 표시, Then 다른 심사원에게 분담된 질문은 보이지 않는다.
 
 **에이전트 주의**
-- 질문지·점수 객체를 CMN에 새로 만들지 않는다(Vol.6c 소유).
+- 질문지 템플릿 객체는 CMN-00-QNR-001 소유다. 이 셸은 질문지를 저장하지 않는다(도메인 Provider가 스냅숏 문항을 준다).
 - 점수 계산을 LWC나 이 WI의 Apex에 넣지 않는다.
 - VDA 등 라이선스 문구를 테스트·데모 데이터에 넣지 않는다.
 
 **오픈 이슈**
 - 계층별 공정 심사(LPA)를 별도 기능으로 둘지 SL에 확인해야 한다(이 셸과 Provider로 수용 가능).
-- PMS Gate 점검의 적용 시점은 PMS Vol.에서 정한다.
+- PMS Gate 점검의 적용 시점과 Provider는 PMS-09-GAT-003에서 정했다(2026-11-06).
+
+### CMN-00-QNR-001 표준 질문지 템플릿(판·버전·문항 대응)
+
+추적 Q-30, Q-31, Q-32, Q-33, P-54 · 필수 · W1 · SF · DM, APEX, LWC · Customization · 선행 MDM-007, I18N-001, DOC-001, UX-009 · 7 M/D
+
+**목적**: VDA 6.3·IATF 16949 심사 질문지, 고객 Gate·APQP 점검표, SL 신제품개발 Gate 평가표처럼 **외부·사내 표준이 판(版) 단위로 개정되는 질문지**를 판째 받아 버전 템플릿으로 등록하고, QMS 심사·자체 평가·LPA와 PMS Gate 평가가 같은 엔진으로 쓴다. 회사표준 개정(신제품개발 26.11~27.04), IATF 16949 2판, VDA 6.3 개정판을 개발 없이 반영하고, 심사·평가 당시 어떤 판의 어떤 문항으로 판정했는지 재현하기 위해서다. 2026-11-06 검토 결과(`pms-architecture.md` 6절)에 따라 Vol.6c IAU-001의 질문지·질문·등급 규칙을 이 WI로 옮겼다(공통 판정 기준 (2) 같은 엔진·콘텐츠만 다름).
+
+**범위** In: 질문지 템플릿·문항·등급 규칙 객체, 점수 계산기 등록 메타데이터, 판 수령(원문 파일·발효일·판 변경 표시), 새 버전·활성화·발효일 전환, 판 간 문항 대응과 비교 보고, CSV 일괄 등록, 편집기·시뮬레이터, 스냅숏 API. Out: 도메인별 계산기 구현(QMS-06-IAU-003 일반, QMS-06-CAU-002 VDA 6.3, PMS-09-GAT-003 Gate RAG), 실행 화면(UX-009 체크리스트 셸 + 도메인 Provider), 도메인별 사용 규칙(QMS-06-IAU-001 심사, PMS-09-GAT-002 Gate).
+
+**데이터 모델**
+
+| 객체 / 필드 | 타입 | 필수 | 설명 |
+| --- | --- | --- | --- |
+| CMN_QuestionnaireTemplate__c.TemplateCode__c | Text(40), External ID, Unique | Y | `{Family}-V{Version}` 자동. 예: VDA63-PROC-V2, SL-GDP-G5-V1 |
+| CMN_QuestionnaireTemplate__c.Domain__c | Picklist (AUDIT 심사, SELF_ASSESSMENT 자체 평가, LPA 계층별 공정 감사, GATE PMS Gate, LELE 레슨런 점검, OTHER) | Y | 사용 도메인. 편집 권한도 도메인 단위(BR-8) |
+| CMN_QuestionnaireTemplate__c.Family__c | Text(40) | Y | 같은 질문지의 버전 묶음 키. 예: VDA63-PROC, IATF-SYS, PROD-HL, SL-GDP-G5, CUST-GATE-BMW-RG3 |
+| CMN_QuestionnaireTemplate__c.Version__c | Number(3,0) | Y | 시스템 버전(1부터). 판이 같아도 오탈자·안내 수정이면 1 증가 |
+| CMN_QuestionnaireTemplate__c.Name / NameEn__c / NameZh__c | Text(80) | Y / N / N | 다국어 표시명(I18N-001) |
+| CMN_QuestionnaireTemplate__c.Scheme__c | Picklist (COMPLIANCE 적합·부적합, POINTS 배점 합, VDA63 VDA 6.3 점수, PRODUCT_AUDIT 제품 심사 결함 가중, GATE_RAG Gate 신호) | Y | 점수 계산기 선택 키 |
+| CMN_QuestionnaireTemplate__c.UsageKeys__c | Text(255) | N | 도메인이 정한 사용 범위 키(쉼표). AUDIT = `{심사 레코드타입}/{심사 유형}`(QMS-06-IAU-001), GATE = GateCode(PMS-09-GAT-002). 공란 = 도메인 전체 |
+| CMN_QuestionnaireTemplate__c.CustomerGroup__c | Picklist (MDM-003 CustomerGroup 값) | N | 고객 전용 질문지(예: BMW 대비 자체 평가, 고객 Gate) |
+| CMN_QuestionnaireTemplate__c.StandardRef__c | Text(80) | Y | 근거 규격(예: VDA 6.3, IATF 16949, SL 신제품개발 프로세스) |
+| CMN_QuestionnaireTemplate__c.StandardEdition__c | Text(40) | Y | 받은 판(예: 2023, 2016, Rev02) |
+| CMN_QuestionnaireTemplate__c.EditionIssuedDate__c | Date | N | 판 발행일 |
+| CMN_QuestionnaireTemplate__c.EditionChange__c | Checkbox | Y | 이전 버전과 판이 다르면 true(BR-4 문항 대응 필수) |
+| CMN_QuestionnaireTemplate__c.SourceDocument__c | Lookup(CMN_Document__c) | EditionChange 또는 LICENSED_ORIGINAL이면 Y | 받은 원문·판 파일(DocClass QUESTIONNAIRE_SOURCE, 사내 제한) |
+| CMN_QuestionnaireTemplate__c.PreviousVersion__c | Lookup(CMN_QuestionnaireTemplate__c) | 2판부터 Y | 같은 Family의 직전 버전 |
+| CMN_QuestionnaireTemplate__c.EffectiveFrom__c / EffectiveTo__c | Date / Date | ACTIVE면 From Y / N | 발효 기간. To는 다음 버전 발효 전날로 자동 |
+| CMN_QuestionnaireTemplate__c.AllowedScores__c | Text(40) | VDA63·SCORE_STEPS면 Y | 허용 점수 단계(쉼표). 품질경영팀이 원문 기준으로 입력 |
+| CMN_QuestionnaireTemplate__c.DefectWeightA__c / B__c / C__c | Number(5,2) | PRODUCT_AUDIT면 Y | 결함 등급별 가중치(SL 기준값) |
+| CMN_QuestionnaireTemplate__c.TextSource__c | Picklist (SL_WORDING SL 자체 문구, LICENSED_ORIGINAL 라이선스 원문) | Y | 문항 문구 출처 선언(D6C-2) |
+| CMN_QuestionnaireTemplate__c.LicenseConfirmed__c / LicenseRef__c | Checkbox / Text(255) | N / LicenseConfirmed면 Y | 원문 사용 라이선스 확인과 근거 |
+| CMN_QuestionnaireTemplate__c.ResponsibleDept__c | Lookup(CMN_Department__c) | Y | 관리 부서(QMS = 품질경영팀, GATE = PMO) |
+| CMN_QuestionnaireTemplate__c.Status__c | Picklist (DRAFT, ACTIVE, OBSOLETE) | Y | 서비스로만 변경 |
+| CMN_QuestionnaireItem__c.Template__c | Master-Detail | Y | |
+| CMN_QuestionnaireItem__c.ItemNo__c | Text(20) | Y | 예: 6.2.3, SYS-07-02, G5-12. 템플릿 안 Unique |
+| CMN_QuestionnaireItem__c.Element__c / SubElement__c | Text(20) / Text(20) | VDA63이면 Element Y / N | 예: P6 / 6.2 |
+| CMN_QuestionnaireItem__c.Sequence__c | Number(4,0) | Y | |
+| CMN_QuestionnaireItem__c.Text__c / TextEn__c / TextZh__c | Long Text(2000) | Y(서비스 확인) / N / N | TextSource 규칙(BR-3) |
+| CMN_QuestionnaireItem__c.Guidance__c | Long Text(4000) | N | 확인 포인트·예시 증빙(SL 작성) |
+| CMN_QuestionnaireItem__c.IsStar__c | Checkbox | N | 강등 규칙 대상 문항(별표) |
+| CMN_QuestionnaireItem__c.IsMandatory__c | Checkbox | N | 필수 문항(Gate는 미충족 시 RED 강등 대상) |
+| CMN_QuestionnaireItem__c.AnswerType__c | Picklist (SCORE_STEPS 단계 점수, COMPLIANCE 적합·부적합·해당 없음, POINTS 0~최대, YES_NO 예·아니오, DEFECT_CLASS 결함 등급 개수, TEXT 서술) | Y | UX-009 답 유형과 같다 |
+| CMN_QuestionnaireItem__c.MaxPoints__c | Number(5,2) | SCORE_STEPS·POINTS면 Y | SCORE_STEPS는 AllowedScores 최댓값 자동 |
+| CMN_QuestionnaireItem__c.Weight__c | Number(5,2) | Y | 기본 1 |
+| CMN_QuestionnaireItem__c.AllowNA__c | Checkbox | Y | 해당 없음 허용 |
+| CMN_QuestionnaireItem__c.ScopeKeys__c | Text(255) | N | 문항 필터 키(쉼표). AUDIT = QMS_PROCESS 코드, GATE = DEV_ACTIVITY_TYPE 코드. 공란 = 공통 문항 |
+| CMN_QuestionnaireItem__c.EvidenceKeys__c | Text(255) | N | 연결 증빙 규칙 키(QMS-06-IAU-005, PMS-09-GAT-003) |
+| CMN_QuestionnaireItem__c.AutoCheckRuleKey__c / AutoCheckParams__c | Text(80) / Text(255) | N | 자동 점검 규칙 키와 매개변수(예: DELIVERABLE_APPROVED / DFMEA). 해석은 도메인 Provider |
+| CMN_QuestionnaireItem__c.PreviousItemKey__c | Text(80) | EditionChange이고 MappingType이 NEW가 아니면 Y | 직전 버전 문항의 ExternalKey |
+| CMN_QuestionnaireItem__c.MappingType__c | Picklist (SAME 같음, CHANGED 바뀜, NEW 새 문항, SPLIT 나뉨, MERGED 합쳐짐) | 2판부터 Y | 직전 버전 대비 대응 |
+| CMN_QuestionnaireItem__c.ExternalKey__c | Text(80), External ID, Unique | Y | `{TemplateCode}-{ItemNo}` |
+| CMN_QuestionnaireGradeRule__c.Template__c | Master-Detail | Y | |
+| CMN_QuestionnaireGradeRule__c.RuleType__c | Picklist (GRADE_BAND 등급 구간, DOWNGRADE 강등) | Y | |
+| CMN_QuestionnaireGradeRule__c.Grade__c | Text(10) | GRADE_BAND면 Y | 예: A, B, C / GREEN, AMBER, RED |
+| CMN_QuestionnaireGradeRule__c.MinPercent__c / MaxPercent__c | Number(5,2) | GRADE_BAND면 Y | Min ≤ 달성률 < Max(마지막 구간은 Max 포함) |
+| CMN_QuestionnaireGradeRule__c.Condition__c | Picklist (STAR_ITEM_SCORE_LE 별표 문항 점수 이하, ANY_ITEM_SCORE_LE 임의 문항 점수 이하, ELEMENT_PERCENT_LT 요소 달성률 미만, SUBELEMENT_PERCENT_LT 하위 요소 달성률 미만, MAJOR_FINDING_COUNT_GE 중대 지적 수 이상, MANDATORY_NOT_MET_GE 필수 미충족 수 이상) | DOWNGRADE면 Y | |
+| CMN_QuestionnaireGradeRule__c.Threshold__c | Number(5,2) | DOWNGRADE면 Y | 조건 기준값 |
+| CMN_QuestionnaireGradeRule__c.AppliesToGrades__c / ResultGrade__c | Text(30) / Text(10) | DOWNGRADE면 Y | 적용 대상 등급(쉼표)과 결과 등급 |
+| CMN_QuestionnaireGradeRule__c.Sequence__c / Description__c | Number(3,0) / Text(255) | Y | 적용 순서, 보고서 표시 문구 |
+| CMN_QuestionnaireScorer__mdt | Custom Metadata | — | Scheme__c, ScorerClass__c(`CMN_QuestionnaireScorer` 구현), IsActive__c |
+
+**서비스 API**
+
+    public with sharing class CMN_QuestionnaireService {
+      // 발효 중 템플릿: Domain·Family(필수)·CustomerGroup(있으면 우선)·asOf(EffectiveFrom ≤ asOf, 가장 늦은 것)
+      static CMN_QuestionnaireTemplate__c activeTemplate(String domain, String family, String customerGroup, Date asOf)
+      // 실행용 스냅숏: 문항 전체(문구 3개 언어, 답 형태, 배점, 별표·필수, 자동 점검 키, ExternalKey) + 등급 규칙
+      static CMN_Questionnaire.Snapshot snapshot(Id templateId)
+      static Id newVersion(Id templateId, Boolean editionChange)          // DRAFT 복사(문항·규칙, PreviousItemKey = 원 문항 키, MappingType SAME)
+      static void activate(Id templateId, Date effectiveFrom)            // BR-1·4·5·6 검사
+      static CMN_Questionnaire.EditionCompare compareVersions(Id fromId, Id toId) // SAME·CHANGED·NEW·REMOVED·SPLIT·MERGED 목록·건수
+      static CMN_Questionnaire.ImportResult importItems(Id templateId, String csv)
+    }
+    public interface CMN_QuestionnaireScorer {
+      CMN_Questionnaire.ScoreResult score(CMN_Questionnaire.Snapshot snapshot, List<CMN_Questionnaire.Answer> answers)
+    }
+
+**비즈니스 규칙**
+
+- BR-1: 버전 보호 — ACTIVE 템플릿과 그 문항·등급 규칙은 고칠 수 없다. "새 버전"은 같은 Family로 Version + 1인 DRAFT를 만들고 문항·규칙을 복사한다(PreviousItemKey = 원 문항 ExternalKey, MappingType = SAME). 이미 시작한 심사·평가는 스냅숏을 갖고 있어 영향받지 않는다.
+- BR-2: 판 수령 — 판이 바뀌면 "새 판으로 새 버전"(EditionChange = true)을 고르고 StandardEdition·EditionIssuedDate·SourceDocument(받은 원문 파일, DOC-001 DocClass QUESTIONNAIRE_SOURCE, 관리 부서만 열람)를 입력한다. CSV로 문항을 바꾸면서 PreviousItemKey·MappingType을 함께 넣는다.
+- BR-3: 문구 출처 — TextSource = LICENSED_ORIGINAL은 LicenseConfirmed = true이고 LicenseRef와 SourceDocument가 있을 때만 고를 수 있다. SL_WORDING 템플릿은 활성화 화면에서 "외부 규격 원문을 옮겨 적지 않았음" 확인을 받아 이력(UX-003 코멘트)에 남긴다(D6C-2).
+- BR-4: 문항 대응(활성화 시) — EditionChange = true면 모든 문항에 MappingType이 있어야 하고, NEW가 아닌 문항은 PreviousItemKey가 직전 버전에 있어야 한다. 직전 버전 문항 중 어느 새 문항에서도 가리키지 않은 것은 REMOVED로 비교 보고에 나온다.
+- BR-5: 발효 — activate(effectiveFrom)은 effectiveFrom ≥ 오늘이어야 한다. 같은 Family(·CustomerGroup)의 이전 ACTIVE는 EffectiveTo = 새 effectiveFrom − 1일로 바뀌고, 매일 02:00 배치가 EffectiveTo < 오늘인 ACTIVE를 OBSOLETE로 바꾼다. 그래서 새 판을 발효일 전에 미리 받아 둘 수 있다. activeTemplate은 asOf 기준으로 고른다.
+- BR-6: 점수 체계별 검증(활성화 시) — VDA63: 모든 문항 AnswerType = SCORE_STEPS 또는 TEXT, Element 필수, AllowedScores 필수. COMPLIANCE: COMPLIANCE·YES_NO·TEXT. POINTS: MaxPoints > 0. PRODUCT_AUDIT: DefectWeightA~C 필수, DEFECT_CLASS 문항 1개 이상. GATE_RAG: COMPLIANCE·YES_NO·TEXT, GRADE_BAND 등급은 GREEN·AMBER·RED만. 해당 Scheme의 CMN_QuestionnaireScorer__mdt가 활성이어야 한다.
+- BR-7: 등급 구간 검증(활성화 시) — GRADE_BAND가 하나라도 있으면 0~100을 겹침·빈틈 없이 덮어야 한다. DOWNGRADE의 AppliesToGrades·ResultGrade는 GRADE_BAND에 있는 등급만 허용. 등급 구간이 없으면 점수만 계산하고 등급은 비운다.
+- BR-8: 도메인 권한 — 편집·활성화는 PS `CMN_PS_Questionnaire_Admin` + 도메인 Custom Permission(`CMN_QnrAdmin_Audit`, `CMN_QnrAdmin_Gate`, `CMN_QnrAdmin_Other`)이 있어야 한다. QMS 품질경영팀은 AUDIT·SELF_ASSESSMENT·LPA·LELE, PMS PMO는 GATE를 관리한다.
+- BR-9: 규칙 값의 원천 — VDA 6.3 등급 구간·강등 조건·허용 점수, 고객 Gate 기준은 관리 부서가 원문으로 검수해 입력한다(D6C-3). 개발 산출물(코드·초기 데이터 스크립트)에 문항·규칙 숫자를 넣지 않는다. 테스트는 테스트 전용 가상 템플릿으로 한다.
+- BR-10: 사용 중 보호 — 심사·평가에서 쓰인 템플릿·문항은 삭제할 수 없다(OBSOLETE만). 사용 여부는 도메인이 등록한 사용 확인 클래스로 묻는다(`CMN_QuestionnaireUsageCheck`, QMS-06-IAU-002·PMS-09-GAT-003 구현).
+- BR-11: 편집기 `cmnQuestionnaireEditor` — 왼쪽 트리(요소 → 하위 요소 → 문항, 드래그 순서), 오른쪽 문항 편집(ko·en·zh 탭, 안내, 별표·필수, 답 형태, 배점, 가중치, 범위 키, 증빙 키, 자동 점검 키, 이전 판 문항·대응), 탭 "등급 규칙"(구간·강등 표), 탭 "시뮬레이터"(문항별 가상 답 → 해당 Scheme 계산기로 요소·전체 달성률, 강등 전·후 등급), 탭 "판 비교"(compareVersions 결과와 건수).
+- BR-12: 일괄 등록 `cmnQuestionnaireImport` — CSV(ItemNo, Element, SubElement, 문구 ko·en·zh, Guidance, IsStar, IsMandatory, AnswerType, MaxPoints, Weight, AllowNA, ScopeKeys, EvidenceKeys, AutoCheckRuleKey, AutoCheckParams, PreviousItemKey, MappingType)로 DRAFT 템플릿에 문항을 upsert하고 행별 오류를 표시한다.
+
+**화면/UX**: T6 기준정보·설정. 편집기(템플릿 레코드 페이지 첫 탭), 가져오기 앱 페이지, 리스트뷰(Domain·Family·상태·발효일). SL Admin 앱 "질문지" 탭, QMS 메뉴 허브 06 심사 설정, PMS 메뉴 허브 09 Gate 설정에서 도메인 필터로 연다. 실행 화면은 UX-009 셸이다.
+
+**권한**: CMN_PS_Questionnaire_Read(사내 페르소나 조회), CMN_PS_Questionnaire_Admin + 도메인 Custom Permission(편집·활성화, BR-8).
+
+**수용 기준**
+
+- AC-1: Given ACTIVE 템플릿의 문항, When 문구 수정, Then 차단 + "새 버전 만들기" 안내.
+- AC-2: Given 문항 58개 ACTIVE V1, When 새 판으로 새 버전, Then V2 DRAFT에 문항 58개·등급 규칙 복사, 모든 문항 MappingType SAME·PreviousItemKey 채움, EditionChange = true, SourceDocument 없으면 활성화 차단.
+- AC-3: Given V2에서 문항 3개 삭제·2개 추가(NEW)·5개 문구 변경(CHANGED), When 판 비교, Then SAME 50·CHANGED 5·NEW 2·REMOVED 3.
+- AC-4: Given V1 ACTIVE, V2를 다음 달 1일 발효로 활성화, When 오늘 기준 activeTemplate, Then V1. 발효일 기준이면 V2. 발효일 다음 날 배치 후 V1 OBSOLETE.
+- AC-5: Given V1으로 시작한 심사(또는 Gate 평가), When V2 활성화, Then 그 심사의 스냅숏 문항은 V1 그대로.
+- AC-6: Given 테스트 구간 0~80 C, 90~100 A만 등록, When 활성화, Then 80~90 빈 구간 오류로 차단.
+- AC-7: Given LicenseConfirmed = false, When TextSource를 LICENSED_ORIGINAL로 저장, Then 차단.
+- AC-8: Given GATE 관리 권한만 있는 사용자, When AUDIT 템플릿 활성화, Then 차단.
+- AC-9: Given CSV 60행 중 2행 AnswerType 오류, When 업로드, Then 58행 반영 + 2행 사유 표시.
+
+**에이전트 주의**
+- VDA 6.3·IATF·고객 Gate 문구를 기억이나 인터넷에서 옮겨 초기 데이터·테스트에 넣지 않는다(BR-9).
+- 템플릿 편집을 표준 관련 목록 편집으로 대신하지 않는다. 버전 보호 검사는 서비스와 트리거에 있어야 한다.
+- 도메인별 계산기를 이 WI에 만들지 않는다. 인터페이스와 등록부만 만든다.
+- 실행 결과(답)를 이 객체들에 저장하지 않는다. 도메인 객체(심사 결과 라인, Gate 평가 항목)가 스냅숏과 답을 갖는다.
+
+**오픈 이슈**: 고객 Gate·APQP 점검표 원문의 사용 권한(고객 제공 양식), 판 수령 담당(품질경영팀·PMO)과 발효 결재 필요 여부, LPA를 이 엔진으로 할지(UX-009 오픈 이슈와 같음).
 
 ## 9. CMN-00-APV 결재
 
@@ -2255,7 +2371,7 @@ AI 요구는 QMS 6개(Q-35~40), PMS 5개(P-58~62)다. 공통 원칙 세 가지: 
 
 ## 14. 검토 요청
 
-Vol.0 공통 메뉴는 **49개 워크아이템, 개발 공수 약 226 M/D**(AI 코딩 보조 기준, 분석·통합테스트 제외)다. W0 28개는 QMS·PMS 어느 메뉴든 착수 전에 끝나야 하는 기반이다. 2026-11-05 화면 전략(`screen-strategy.md`)에 따라 공통 화면 부품 UX-004~009 6개(35 M/D)를 더했다.
+Vol.0 공통 메뉴는 **50개 워크아이템, 개발 공수 약 233 M/D**(AI 코딩 보조 기준, 분석·통합테스트 제외)다. W0 28개는 QMS·PMS 어느 메뉴든 착수 전에 끝나야 하는 기반이다. 2026-11-05 화면 전략(`screen-strategy.md`)에 따라 공통 화면 부품 UX-004~009 6개(35 M/D)를 더했다.
 
 | 기능코드            | WI 수 | 공수(M/D) | W0  | W1  | W2  |
 |---------------------|-------|-----------|-----|-----|-----|
@@ -2263,12 +2379,13 @@ Vol.0 공통 메뉴는 **49개 워크아이템, 개발 공수 약 226 M/D**(AI �
 | MDM 기준정보        | 7     | 19        | 7   | 0   | 0   |
 | SEC 권한·보안       | 4     | 16        | 4   | 0   | 0   |
 | I18N·UX 다국어·화면 | 10    | 51        | 4   | 5   | 1   |
+| QNR 질문지 템플릿    | 1     | 7         | 0   | 1   | 0   |
 | APV 결재            | 5     | 26        | 2   | 2   | 1   |
 | TDO·NTF To-Do·알림  | 5     | 20        | 3   | 2   | 0   |
 | DOC·DSH·MTG         | 3     | 19        | 1   | 1   | 1   |
 | INT·DWH 연계·DW     | 7     | 36        | 4   | 2   | 1   |
 | AI 공통             | 5     | 27        | 0   | 2   | 3   |
-| 합계                | 49    | 226       | 28  | 14  | 7   |
+| 합계                | 50    | 233       | 28  | 15  | 7   |
 
 **검토 시 결정이 필요한 항목** (결정 결과에 따라 해당 WI의 BR을 고친 뒤 마스터 파일로 이관한다)
 
@@ -2282,6 +2399,7 @@ Vol.0 공통 메뉴는 **49개 워크아이템, 개발 공수 약 226 M/D**(AI �
 - [ ] D-8 임직원 전원 CMN_Employee__c 동기화 + 라이선스 사용자만 User 생성 방식 — INT-002
 - [ ] D-9 공장 데이터 격리 수준: 해외 공장 사용자의 타 공장 조회 전면 차단이 맞는지 — SEC-002
 - [ ] D-10 AI “학습”의 정의(재학습이 아닌 확정 사례 재사용)를 제안서 표현으로 수용하는지 — AI-004
+- [ ] D-11 표준 질문지(VDA 6.3·IATF 심사, 고객·SL Gate 평가표)를 판째 받아 공통 버전 템플릿(QNR-001)으로 관리하고 QMS 심사·PMS Gate가 같이 쓴다(2026-11-06 검토, 권고: 승인 — Vol.6c IAU-001 질문지 객체를 CMN으로 이관)
 
 **화면 전략 결정**(`screen-strategy.md` 13절. 자율 진행 지시에 따라 권고안으로 반영·개발하고 검토 때 확정)
 

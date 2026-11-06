@@ -1,0 +1,134 @@
+{
+  "wi": "QMS-02-DVQ-006",
+  "object": "QMS_QualLineRequested__e",
+  "kind": "event",
+  "package": "force-app-qms",
+  "publishBehavior": "PublishAfterCommit",
+  "description": "신뢰성 시스템 라인 의뢰 이벤트(DVQ-006 BR-7). 필드는 Vol.9 INT-018 제안(변경 요청). QMS-09가 구독한다",
+  "label": {
+    "ko": "인정시험 라인 의뢰 이벤트"
+  },
+  "plural": {
+    "ko": "인정시험 라인 의뢰 이벤트"
+  },
+  "fields": [
+    {
+      "name": "LineId__c",
+      "type": "Text",
+      "length": 18,
+      "label": "Line Id"
+    },
+    {
+      "name": "PlanId__c",
+      "type": "Text",
+      "length": 18,
+      "label": "Plan Id"
+    },
+    {
+      "name": "PlanRecordNo__c",
+      "type": "Text",
+      "length": 40,
+      "label": "PlanRecordNo"
+    },
+    {
+      "name": "Sequence__c",
+      "type": "Number",
+      "precision": 4,
+      "scale": 0,
+      "label": "Sequence"
+    },
+    {
+      "name": "EventType__c",
+      "type": "Text",
+      "length": 20,
+      "label": "EventType",
+      "description": "REQUESTED, CANCELLED, RESCHEDULED"
+    },
+    {
+      "name": "TestCode__c",
+      "type": "Text",
+      "length": 30,
+      "label": "TestCode"
+    },
+    {
+      "name": "TestItemRevision__c",
+      "type": "Number",
+      "precision": 3,
+      "scale": 0,
+      "label": "Test Item Revision"
+    },
+    {
+      "name": "TestName__c",
+      "type": "Text",
+      "length": 80,
+      "label": "TestName"
+    },
+    {
+      "name": "MethodStandard__c",
+      "type": "Text",
+      "length": 255,
+      "label": "MethodStandard"
+    },
+    {
+      "name": "Condition__c",
+      "type": "LongTextArea",
+      "length": 4000,
+      "visibleLines": 3,
+      "label": "Condition"
+    },
+    {
+      "name": "Criteria__c",
+      "type": "LongTextArea",
+      "length": 4000,
+      "visibleLines": 3,
+      "label": "Criteria"
+    },
+    {
+      "name": "SampleQty__c",
+      "type": "Number",
+      "precision": 4,
+      "scale": 0,
+      "label": "Sample Qty"
+    },
+    {
+      "name": "PlannedStart__c",
+      "type": "Date",
+      "label": "Planned Start"
+    },
+    {
+      "name": "PlannedEnd__c",
+      "type": "Date",
+      "label": "Planned End"
+    },
+    {
+      "name": "ExecutorDeptCode__c",
+      "type": "Text",
+      "length": 20,
+      "label": "ExecutorDeptCode"
+    },
+    {
+      "name": "PlantCode__c",
+      "type": "Text",
+      "length": 10,
+      "label": "PlantCode"
+    },
+    {
+      "name": "ItemNo__c",
+      "type": "Text",
+      "length": 40,
+      "label": "ItemNo"
+    },
+    {
+      "name": "CustomerCode__c",
+      "type": "Text",
+      "length": 20,
+      "label": "CustomerCode"
+    },
+    {
+      "name": "RequestedByEmployeeNo__c",
+      "type": "Text",
+      "length": 20,
+      "label": "RequestedByEmployeeNo"
+    }
+  ]
+}

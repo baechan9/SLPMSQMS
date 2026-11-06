@@ -1,0 +1,47 @@
+{
+  "wi": "QMS-02-DVQ-005",
+  "object": "QMS_QualPlanEvent__e",
+  "kind": "event",
+  "package": "force-app-qms",
+  "publishBehavior": "PublishAfterCommit",
+  "description": "인정시험 계획 상태 이벤트(DVQ-005 BR-5). 4M·PMS가 구독한다(발행·구독은 B단계)",
+  "label": {
+    "ko": "인정시험 계획 이벤트"
+  },
+  "plural": {
+    "ko": "인정시험 계획 이벤트"
+  },
+  "fields": [
+    {
+      "name": "PlanId__c",
+      "type": "Text",
+      "length": 18,
+      "label": "Plan Id"
+    },
+    {
+      "name": "SourceRecordId__c",
+      "type": "Text",
+      "length": 18,
+      "label": "SourceRecord Id"
+    },
+    {
+      "name": "SourceObject__c",
+      "type": "Text",
+      "length": 80,
+      "label": "SourceObject"
+    },
+    {
+      "name": "EventType__c",
+      "type": "Text",
+      "length": 30,
+      "label": "EventType",
+      "description": "CREATED, PLAN_APPROVED, JUDGED, CANCELLED"
+    },
+    {
+      "name": "FinalResult__c",
+      "type": "Text",
+      "length": 20,
+      "label": "FinalResult"
+    }
+  ]
+}

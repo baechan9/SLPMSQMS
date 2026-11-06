@@ -81,9 +81,9 @@ flowchart LR
 
 | 객체 | 구분 | 관계 | 역할 | 정의 WI |
 | --- | --- | --- | --- | --- |
-| QMS_AuditChecklist__c / QMS_AuditQuestion__c | 설정 | Question → Checklist(MD) | 질문지(버전)와 질문 | IAU-001 |
-| QMS_AuditGradeRule__c | 설정 | Checklist(Lookup) | 등급 구간·강등 규칙(설정 데이터) | IAU-001 |
-| QMS_AuditScorer__mdt | 설정 | — | 점수 체계별 계산 클래스 등록 | IAU-001 |
+| CMN_QuestionnaireTemplate__c / CMN_QuestionnaireItem__c(Domain AUDIT) | 설정(CMN) | Item → Template(MD) | 질문지(판·버전)와 문항 — CMN-00-QNR-001 소유, 심사 사용 규칙은 IAU-001 | CMN-00-QNR-001 |
+| CMN_QuestionnaireGradeRule__c | 설정(CMN) | Template(MD) | 등급 구간·강등 규칙(설정 데이터) | CMN-00-QNR-001 |
+| CMN_QuestionnaireScorer__mdt | 설정(CMN) | — | 점수 체계별 계산 클래스 등록(심사 레코드는 IAU-001) | CMN-00-QNR-001 |
 | QMS_Audit__c | 업무 | Checklist, Plant, Supplier, Customer(Lookup), Parent(self) | 심사 1건(RecordType INTERNAL, SUPPLIER, CUSTOMER, CERTIFICATION) | IAU-002 |
 | QMS_AuditTeamMember__c | 업무 | Audit(MD) | 심사팀(역할·자격 확인 결과) | IAU-002 |
 | QMS_AuditResultItem__c | 업무 | Audit(MD), Question(Lookup) | 질문별 답·점수(스냅숏) | IAU-002 |
@@ -108,7 +108,7 @@ flowchart LR
 
 | 대상 | 값(순서) |
 | --- | --- |
-| QMS_AuditChecklist__c.Status__c | DRAFT → ACTIVE → OBSOLETE |
+| CMN_QuestionnaireTemplate__c.Status__c | DRAFT → ACTIVE → OBSOLETE(발효일 전환, CMN-00-QNR-001) |
 | QMS_Audit__c.Status__c | PLANNED → PREPARING(통보·준비) → IN_PROGRESS → REPORTING → REPORT_APPROVAL → FOLLOW_UP(지적 시정 중) → CLOSED · CANCELLED (지적이 없으면 REPORT_APPROVAL → CLOSED) |
 | QMS_AuditResultItem__c.Status__c | OPEN → ANSWERED · NA |
 | QMS_AuditFinding__c.Status__c | OPEN → PLAN_SUBMITTED → PLAN_ACCEPTED → IMPLEMENTED → VERIFIED → CLOSED (반려 시 PLAN_SUBMITTED → OPEN, 유효성 미흡 시 IMPLEMENTED → PLAN_ACCEPTED) · CANCELLED |
@@ -145,7 +145,7 @@ flowchart LR
 | --- | --- | --- | --- |
 | QMS_AuditService.createAudit / getStatusBySource | Apex | IAU-002 | IAU-006, SAU-001, CAU-001, CER-001 |
 | QMS_QualificationGateway(바인딩 AUDITOR_QUALIFICATION) | 호출(구현은 Vol.6b TRN) | IAU-002 | 심사원 자격 확인 |
-| QMS_AuditScoringService.calculate, QMS_AuditScorer | Apex / Interface | IAU-003 | CAU-002(VDA 6.3 계산기), SAU |
+| QMS_AuditScoringService.calculate(계산기는 CMN_QuestionnaireScorer 구현) | Apex | IAU-003 | CAU-002(VDA 6.3 계산기), SAU |
 | QMS_AuditFindingService.createFinding / transition | Apex | IAU-004 | SAU-002, CAU-003, CER-002 |
 | QMS_AuditFindingHitRule | CMN_AiHitRule 구현 | IAU-004 | Vol.8 지적 RCA 정확도 |
 | QMS_AuditEvidenceService.collect / snapshot, QMS_AuditEvidenceProvider | Apex / Interface | IAU-005 | CAU-001, 각 Vol. 증빙 제공자(선택) |
@@ -187,99 +187,48 @@ flowchart LR
 
 ## 4. 심사 엔진·내부심사: 질문지·심사·수행·지적 (IAU-001~004)
 
-### QMS-06-IAU-001 심사 질문지 라이브러리·점수 체계·등급 규칙
+### QMS-06-IAU-001 심사 질문지 설정(공통 질문지 템플릿 AUDIT 도메인)·점수 체계·등급 규칙
 
-추적 Q-30, Q-31, Q-32, Q-33 · 필수 · W1 · SF · DM, LWC, APEX · Customization · 선행 MDM-007, I18N-001, SEC-001 · 6 M/D
+추적 Q-30, Q-31, Q-32, Q-33 · 필수 · W1 · SF · DM, CFG, APEX · Customization · 선행 CMN-00-QNR-001, MDM-007, SEC-001 · 3 M/D
 
-**목적**: 내부 시스템·공정·제품 심사, 협력사 심사, VDA 6.3 자체 평가가 모두 "버전 관리되는 질문지 + 점수 체계 + 등급 규칙"을 데이터로 갖게 한다. 회사표준 개정(27년)이나 VDA 6.3 개정판을 개발 없이 반영하고, 심사 당시 어떤 판의 질문으로 판정했는지 재현하기 위해서다.
+**변경 이력**: 2026-11-06 검토(`pms-architecture.md` 6절, Vol.0 D-11)에 따라 질문지·질문·등급 규칙·계산기 등록 객체와 편집기·가져오기·판 관리는 공통 WI `CMN-00-QNR-001`로 옮겼다. 이 WI는 심사 도메인(AUDIT·SELF_ASSESSMENT) 사용 규칙만 남긴다. 객체 이름 대응: QMS_AuditChecklist__c → CMN_QuestionnaireTemplate__c(Domain AUDIT), QMS_AuditQuestion__c → CMN_QuestionnaireItem__c, QMS_AuditGradeRule__c → CMN_QuestionnaireGradeRule__c, QMS_AuditScorer__mdt → CMN_QuestionnaireScorer__mdt, ChecklistCode → TemplateCode, QuestionNo → ItemNo, QuestionText → Text, IsStarQuestion → IsStar, ProcessCodes → ScopeKeys, RecordTypes·AuditTypes → UsageKeys.
 
-**범위** In: 질문지·질문 객체, 등급 구간·강등 규칙 객체, 점수 계산기 등록 메타데이터, 편집기·CSV 일괄 등록·규칙 시뮬레이터. Out: 심사 레코드·결과 라인 생성(IAU-002), 점수 계산 구현(IAU-003 일반 계산기, CAU-002 VDA 6.3 계산기), 증빙 규칙(IAU-005).
+**목적**: 내부 시스템·공정·제품 심사, 협력사 심사, VDA 6.3 자체 평가가 공통 버전 템플릿(판째 받은 표준 질문지)을 쓰면서, 심사 종류·유형별로 어떤 질문지를 쓸 수 있는지와 점수 체계별 검증·계산기 등록을 심사 업무 규칙으로 정한다. 회사표준 개정(27년)·VDA 6.3 개정판·IATF 16949 2판을 개발 없이 반영하고, 심사 당시 판을 재현하기 위해서다.
+
+**범위** In: AUDIT·SELF_ASSESSMENT 도메인 템플릿의 사용 키 형식(UsageKeys), 범위 키(ScopeKeys = QMS_PROCESS), 심사 Scheme 계산기 등록 레코드(COMPLIANCE·POINTS·PRODUCT_AUDIT = IAU-003, VDA63 = CAU-002), 심사 사용 확인 클래스, 심사 설정 메뉴 연결. Out: 템플릿·문항·등급 규칙 객체와 판·버전·비교·가져오기·편집기·시뮬레이터(CMN-00-QNR-001), 심사 레코드·결과 라인(IAU-002), 계산기 구현(IAU-003, CAU-002), 증빙 규칙(IAU-005).
 
 **데이터 모델**
 
 | 객체 / 필드 | 타입 | 필수 | 설명 |
 | --- | --- | --- | --- |
-| QMS_AuditChecklist__c.ChecklistCode__c | Text(40), External ID, Unique | Y | `{Family}-V{Version}` 자동. 예: VDA63-PROC-V1 |
-| QMS_AuditChecklist__c.Family__c | Text(30) | Y | 같은 질문지의 버전 묶음 키. 예: VDA63-PROC, IATF-SYS, PROD-HL |
-| QMS_AuditChecklist__c.Version__c | Number(3,0) | Y | 1부터 |
-| QMS_AuditChecklist__c.Name / NameEn__c / NameZh__c | Text(80) | Y / N / N | 다국어 표시명 |
-| QMS_AuditChecklist__c.Scheme__c | Picklist (COMPLIANCE 적합·부적합, POINTS 배점 합, VDA63 VDA 6.3 점수, PRODUCT_AUDIT 제품 심사 결함 가중) | Y | 점수 계산기 선택 키 |
-| QMS_AuditChecklist__c.RecordTypes__c | Multi-Picklist (INTERNAL, SUPPLIER, CUSTOMER, CERTIFICATION) | Y | 이 질문지를 쓸 수 있는 심사 종류 |
-| QMS_AuditChecklist__c.AuditTypes__c | Multi-Picklist (IAU-002 AuditType 값) | Y | 쓸 수 있는 심사 유형 |
-| QMS_AuditChecklist__c.CustomerGroup__c | Picklist (MDM-003 CustomerGroup 값) | N | 고객 전용 질문지(예: BMW 대비 자체 평가) |
-| QMS_AuditChecklist__c.StandardRef__c | Text(80) | Y | 근거 규격과 판(예: VDA 6.3 2023, IATF 16949 2016) |
-| QMS_AuditChecklist__c.AllowedScores__c | Text(40) | VDA63·POINTS 단계형이면 Y | 허용 점수 단계(쉼표). 품질경영팀이 원문 기준으로 입력 |
-| QMS_AuditChecklist__c.DefectWeightA__c / B__c / C__c | Number(5,2) | PRODUCT_AUDIT면 Y | 결함 등급별 가중치(SL 기준값) |
-| QMS_AuditChecklist__c.TextSource__c | Picklist (SL_WORDING SL 자체 문구, LICENSED_ORIGINAL 라이선스 원문) | Y | 질문 문구의 출처 선언(D6C-2) |
-| QMS_AuditChecklist__c.LicenseConfirmed__c / LicenseRef__c | Checkbox / Text(255) | N / LicenseConfirmed면 Y | 원문 사용 라이선스 확인과 근거 |
-| QMS_AuditChecklist__c.Status__c / EffectiveFrom__c | Picklist (DRAFT, ACTIVE, OBSOLETE) / Date | Y / ACTIVE면 Y | |
-| QMS_AuditQuestion__c.Checklist__c | Master-Detail | Y | |
-| QMS_AuditQuestion__c.QuestionNo__c | Text(20) | Y | 예: 6.2.3, SYS-07-02. 질문지 안 Unique |
-| QMS_AuditQuestion__c.Element__c / SubElement__c | Text(20) / Text(20) | VDA63이면 Element Y / N | 예: P6 / 6.2 |
-| QMS_AuditQuestion__c.Sequence__c | Number(4,0) | Y | |
-| QMS_AuditQuestion__c.QuestionText__c / QuestionTextEn__c / QuestionTextZh__c | Long Text(2000) | Y / N / N | TextSource 규칙(BR-2) |
-| QMS_AuditQuestion__c.Guidance__c | Long Text(4000) | N | 확인 포인트·예시 증빙(SL 작성) |
-| QMS_AuditQuestion__c.IsStarQuestion__c | Checkbox | N | 강등 규칙 대상 질문(별표) |
-| QMS_AuditQuestion__c.AnswerType__c | Picklist (SCORE_STEPS 단계 점수, COMPLIANCE 적합·부적합·해당 없음, POINTS 0~최대, DEFECT_CLASS 결함 등급 개수, TEXT 서술) | Y | 입력 화면 형태 |
-| QMS_AuditQuestion__c.MaxPoints__c | Number(5,2) | SCORE_STEPS·POINTS면 Y | SCORE_STEPS는 AllowedScores 최댓값 자동 |
-| QMS_AuditQuestion__c.Weight__c | Number(5,2) | Y | 기본 1 |
-| QMS_AuditQuestion__c.AllowNA__c | Checkbox | Y | 해당 없음 허용 |
-| QMS_AuditQuestion__c.ProcessCodes__c | Text(255) | N | QMS_PROCESS 코드(쉼표). 공란 = 공통 질문 |
-| QMS_AuditQuestion__c.EvidenceKeys__c | Text(1000) | N | 연결 증빙 규칙 키(IAU-005) |
-| QMS_AuditQuestion__c.ExternalKey__c | Text(80), External ID, Unique | Y | `{ChecklistCode}-{QuestionNo}` |
-| QMS_AuditGradeRule__c.Checklist__c | Lookup(QMS_AuditChecklist__c) | Y | |
-| QMS_AuditGradeRule__c.RuleType__c | Picklist (GRADE_BAND 등급 구간, DOWNGRADE 강등) | Y | |
-| QMS_AuditGradeRule__c.Grade__c | Text(5) | GRADE_BAND면 Y | 예: A, B, C |
-| QMS_AuditGradeRule__c.MinPercent__c / MaxPercent__c | Number(5,2) | GRADE_BAND면 Y | Min ≤ 달성률 < Max(마지막 구간은 Max 포함) |
-| QMS_AuditGradeRule__c.Condition__c | Picklist (STAR_QUESTION_SCORE_LE 별표 질문 점수 이하, ANY_QUESTION_SCORE_LE 임의 질문 점수 이하, ELEMENT_PERCENT_LT 요소 달성률 미만, SUBELEMENT_PERCENT_LT 하위 요소 달성률 미만, MAJOR_FINDING_COUNT_GE 중대 지적 수 이상) | DOWNGRADE면 Y | |
-| QMS_AuditGradeRule__c.Threshold__c | Number(5,2) | DOWNGRADE면 Y | 조건 기준값 |
-| QMS_AuditGradeRule__c.AppliesToGrades__c / ResultGrade__c | Text(20) / Text(5) | DOWNGRADE면 Y | 적용 대상 등급(쉼표)과 결과 등급 |
-| QMS_AuditGradeRule__c.Sequence__c / Description__c | Number(3,0) / Text(255) | Y | 적용 순서, 보고서 표시 문구 |
-| QMS_AuditScorer__mdt | Custom Metadata | — | Scheme__c, ScorerClass__c, IsActive__c |
+| CMN_QuestionnaireTemplate__c(Domain AUDIT·SELF_ASSESSMENT).UsageKeys__c | Text(255) | Y | 이 질문지를 쓸 수 있는 `{심사 RecordType}/{AuditType}` 목록(쉼표). 예: `INTERNAL/SYSTEM, INTERNAL/PROCESS`, `SUPPLIER/POTENTIAL`. RecordType 값 INTERNAL, SUPPLIER, CUSTOMER, CERTIFICATION, AuditType 값은 IAU-002 |
+| CMN_QuestionnaireItem__c.ScopeKeys__c | Text(255) | N | QMS_PROCESS 코드(회사표준 프로세스 목록, Vol.0 변경 요청). 공란 = 공통 질문 |
+| CMN_QuestionnaireScorer__mdt 레코드 | 데이터 | — | COMPLIANCE·POINTS·PRODUCT_AUDIT → `QMS_GeneralAuditScorer`(IAU-003), VDA63 → `QMS_Vda63Scorer`(CAU-002) |
+| CMN_QuestionnaireUsageCheck 등록 | 데이터 | — | `QMS_AuditQuestionnaireUsage`(IAU-002 구현): 심사 결과 라인이 문항 ExternalKey를 쓰면 사용 중 |
 
 **비즈니스 규칙**
 
-- BR-1: 버전 — ACTIVE 질문지와 그 질문·등급 규칙은 고칠 수 없다. "새 버전"은 같은 Family로 Version + 1인 DRAFT를 만들고 질문·규칙을 복사한다. 활성화하면 같은 Family의 이전 ACTIVE는 OBSOLETE. 이미 만들어진 심사는 질문 스냅숏(IAU-002 BR-1)을 갖고 있어 영향받지 않는다. 활성화는 QMS_PS_Audit_Admin 보유자만.
+- BR-1: 사용 키 검증(활성화 시) — Domain AUDIT 템플릿은 UsageKeys가 1개 이상이고 각 키가 `RecordType/AuditType` 형식이며 IAU-002의 값이어야 한다. SELF_ASSESSMENT는 `CUSTOMER/PRE_ASSESSMENT`만 허용한다. 검증은 CMN-00-QNR-001의 도메인 검증 확장점(`CMN_QuestionnaireDomainValidator`, Domain AUDIT 등록)으로 넣는다.
+- BR-2: 질문지 선택(IAU-002 BR-1) — 심사 생성 시 `CMN_QuestionnaireService.activeTemplate('AUDIT', family, customerGroup, 심사 계획일)`로 고르고, UsageKeys에 그 심사의 `RecordType/AuditType`이 있어야 한다. 심사는 시작 시점에 스냅숏을 복사하므로 이후 판 개정의 영향을 받지 않는다(QNR-001 AC-5).
+- BR-3: 점수 체계 — 심사가 쓰는 Scheme은 COMPLIANCE, POINTS, VDA63, PRODUCT_AUDIT다. GATE_RAG(PMS)는 심사 질문지에 쓸 수 없다.
+- BR-4: 판 수령 책임 — VDA 6.3·IATF 질문지 판은 품질경영팀이 받아 등록한다(QNR-001 BR-2·3). 라이선스 원문은 LicenseConfirmed·LicenseRef·SourceDocument가 있어야 한다(D6C-2). 고객 심사 비교용 고객 질문지 결과는 CAU-002 비교 화면에서 판을 맞춰 본다(문항 대응 PreviousItemKey 사용).
+- BR-5: 규칙 값의 원천 — VDA 6.3 등급 구간·강등 조건 값과 허용 점수 단계는 품질경영팀이 원문으로 검수해 입력한다(D6C-3). 개발 산출물에 규칙 숫자를 넣지 않는다. 테스트는 테스트 전용 가상 규칙으로 한다.
+- BR-6: 메뉴 — SL QMS 메뉴 허브 06 "심사 설정" 타일은 `cmnQuestionnaireEditor`·`cmnQuestionnaireImport`를 Domain AUDIT·SELF_ASSESSMENT 필터로 연다.
 
-- BR-2: 문구 출처 — TextSource = LICENSED_ORIGINAL은 LicenseConfirmed = true이고 LicenseRef가 있을 때만 고를 수 있다. SL_WORDING 질문지는 활성화 화면에서 "외부 규격 원문을 옮겨 적지 않았음" 확인 체크를 받아 이력(코멘트)에 남긴다(D6C-2).
+**화면/UX**: T6 기준정보·설정. 공통 편집기·가져오기(CMN-00-QNR-001)를 도메인 필터로 쓴다. 질문지 리스트뷰 "심사 질문지"(Domain AUDIT·SELF_ASSESSMENT, Family·Scheme·상태·발효일).
 
-- BR-3: 점수 체계별 검증(활성화 시) — VDA63: 모든 질문 AnswerType = SCORE_STEPS 또는 TEXT, Element 필수, AllowedScores 필수. COMPLIANCE: AnswerType = COMPLIANCE 또는 TEXT. POINTS: MaxPoints > 0. PRODUCT_AUDIT: DefectWeightA~C 필수, DEFECT_CLASS 질문 1개 이상. 해당 Scheme의 QMS_AuditScorer__mdt가 활성이어야 한다.
-
-- BR-4: 등급 구간 검증(활성화 시) — GRADE_BAND가 하나라도 있으면 0~100을 겹침·빈틈 없이 덮어야 한다. DOWNGRADE의 AppliesToGrades·ResultGrade는 GRADE_BAND에 있는 등급만 허용. 등급 구간이 없으면 점수만 계산하고 등급은 비운다.
-
-- BR-5: 규칙 값의 원천 — VDA 6.3 등급 구간·강등 조건 값과 허용 점수 단계는 품질경영팀이 원문으로 검수해 입력한다(D6C-3). 개발 산출물(코드·초기 데이터 스크립트)에 규칙 숫자를 넣지 않는다. 테스트는 테스트 전용 가상 규칙으로 한다.
-
-- BR-6: 질문 필터 키 — ProcessCodes는 코드 그룹 QMS_PROCESS(회사표준 프로세스 목록, Vol.0 변경 요청) 값만 허용한다. 공란 질문은 모든 범위에 들어간다(IAU-002 BR-1).
-
-- BR-7: 편집기 `qmsAuditChecklistEditor` — 왼쪽 트리(요소 → 하위 요소 → 질문, 드래그로 순서), 오른쪽 질문 편집(ko·en·zh 탭, Guidance, 별표, 답 형태, 배점, 가중치, 프로세스 코드, 증빙 키), 탭 "등급 규칙"(구간·강등 표 편집), 탭 "시뮬레이터"(질문별 가상 점수 입력 → 해당 Scheme 계산기로 요소·전체 달성률, 강등 전·후 등급, 적용 강등 규칙 표시).
-
-- BR-8: 일괄 등록 `qmsAuditChecklistImport` — CSV(QuestionNo, Element, SubElement, 문구 ko·en·zh, Guidance, IsStar, AnswerType, MaxPoints, Weight, AllowNA, ProcessCodes, EvidenceKeys)로 DRAFT 질문지에 질문을 upsert하고 행별 오류를 표시한다(QMS-02-DVQ-001 BR-4 방식). SL 현행 체크리스트 이관용.
-
-- BR-9: 사용 중 보호 — 심사에서 쓰인 질문지·질문은 삭제할 수 없다(OBSOLETE만).
-
-**화면/UX**: `qmsAuditChecklistEditor`(질문지 레코드 페이지), `qmsAuditChecklistImport`(SL QMS 앱 "심사 설정" 페이지), 질문지 리스트뷰(Family·Scheme·상태 필터).
-
-**권한**: QMS_PS_Audit_Admin(편집·활성화), QMS_PS_Audit_Read·QMS_PS_Audit_Execute(조회).
+**권한**: CMN_PS_Questionnaire_Admin + Custom Permission CMN_QnrAdmin_Audit(품질경영팀, QMS_PSG_QualityAdmin), QMS_PS_Audit_Read·QMS_PS_Audit_Execute는 CMN_PS_Questionnaire_Read와 함께 조회.
 
 **수용 기준**
 
-- AC-1: Given ACTIVE 질문지의 질문, When 문구 수정, Then 차단 + "새 버전 만들기" 안내.
+- AC-1: Given UsageKeys `INTERNAL/SYSTEM` 템플릿, When 협력사 심사(SUPPLIER/POTENTIAL) 생성 시 선택, Then 선택 목록에 없음.
+- AC-2: Given Domain AUDIT 템플릿의 UsageKeys에 `SUPPLIER/UNKNOWN`, When 활성화, Then 차단(값 오류).
+- AC-3: Given Scheme GATE_RAG 템플릿, When 심사 생성 시 선택, Then 선택 목록에 없음.
+- AC-4: Given 심사 V1로 진행 중, When 품질경영팀이 VDA 6.3 새 판(V2)을 다음 달 발효로 활성화, Then 진행 중 심사 질문은 V1, 발효일 이후 새로 만든 심사는 V2.
 
-- AC-2: Given 질문 58개 ACTIVE 질문지 V1, When 새 버전, Then V2 DRAFT에 질문 58개·등급 규칙 복사, 활성화 시 V1 OBSOLETE.
+**에이전트 주의**: 질문지·문항·등급 규칙 객체를 QMS에 다시 만들지 않는다(CMN-00-QNR-001). VDA 6.3·IATF 질문 문구를 기억이나 인터넷에서 옮겨 초기 데이터로 넣지 않는다. 등급 구간·강등 조건·허용 점수 숫자를 코드에 하드코딩하지 않는다.
 
-- AC-3: Given 테스트 구간 0~80 C, 90~100 A만 등록, When 활성화, Then 80~90 빈 구간 오류로 차단.
-
-- AC-4: Given LicenseConfirmed = false 질문지, When TextSource를 LICENSED_ORIGINAL로 저장, Then 차단.
-
-- AC-5: Given 영어 사용자, QuestionTextEn 공란, When 질문 표시, Then 기본(ko) 문구 표시.
-
-- AC-6: Given CSV 60행 중 2행 AnswerType 오류, When 업로드, Then 58행 반영 + 2행 사유 표시.
-
-- AC-7: Given 시뮬레이터에서 별표 질문 1개를 테스트 강등 조건 이하 점수로 입력, When 계산, Then 강등 전 등급·강등 후 등급과 적용 규칙 Description 표시.
-
-**에이전트 주의**: VDA 6.3·IATF 질문 문구를 기억이나 인터넷에서 옮겨 초기 데이터로 넣지 않는다. 등급 구간·강등 조건·허용 점수 숫자를 코드에 하드코딩하지 않는다(모두 QMS_AuditGradeRule__c와 질문지 필드). 질문지 편집을 표준 레코드 관련 목록 편집으로 대신하지 않는다(버전 보호 검사가 서비스에 있어야 함).
-
-**오픈 이슈**: SL 현행 내부심사 체크리스트(시스템·공정·제품) 형태와 수, 회사표준 프로세스 목록(27년 개정 중) 확정 시점, 고객별 자체 평가 질문지 필요 여부.
+**오픈 이슈**: 데모 데이터 `37_QMS_AuditChecklist__c`·`38_QMS_AuditQuestion__c`·`39_QMS_AuditGradeRule__c`를 CMN 객체 이름으로 바꾼다(데이터 생성기 변경 요청).
 
 ### QMS-06-IAU-002 심사 데이터 모델·상태 규칙·심사팀 배정(자격·독립성)
 
@@ -299,7 +248,7 @@ flowchart LR
 | QMS_Audit__c.Plant__c | Lookup(CMN_Plant__c) | Y | 공유 기준. 협력사 심사는 주관(납품 대상) 공장 |
 | QMS_Audit__c.Supplier__c / Customer__c | Lookup(Account, 협력사 RT) / Lookup(Account, 고객 RT) | SUPPLIER면 Supplier Y / CUSTOMER면 Customer Y | |
 | QMS_Audit__c.CertificationId__c | Text(18) | CERTIFICATION면 Y | QMS_Certification__c Id(CER-001이 Lookup으로 승격하지 않고 텍스트 유지, 배포 순서 무관) |
-| QMS_Audit__c.Checklist__c / ChecklistCode__c | Lookup(QMS_AuditChecklist__c) / Text(40) | INTERNAL·SUPPLIER면 Y | 고객·인증 심사는 선택 |
+| QMS_Audit__c.Checklist__c / ChecklistCode__c | Lookup(CMN_QuestionnaireTemplate__c) / Text(40) | INTERNAL·SUPPLIER면 Y | 고객·인증 심사는 선택 |
 | QMS_Audit__c.ScopeProcessCodes__c | Text(255) | SYSTEM·PROCESS면 Y | QMS_PROCESS 코드(쉼표) |
 | QMS_Audit__c.ScopeLineIds__c | Text(1000) | PROCESS면 Y(INTERNAL) | CMN_Line__c Id(쉼표) |
 | QMS_Audit__c.ProductGroup__c / Item__c | Lookup | PRODUCT면 둘 중 1개 Y | |
@@ -329,7 +278,7 @@ flowchart LR
 | QMS_AuditTeamMember__c.OverrideReason__c / OverriddenBy__c | Text(255) / Lookup(User) | OVERRIDDEN면 Y | |
 | QMS_AuditTeamMember__c.AssignedElements__c | Text(255) | N | 분담 요소(예: P5, P6) |
 | QMS_AuditResultItem__c.Audit__c | Master-Detail | Y | |
-| QMS_AuditResultItem__c.Question__c | Lookup(QMS_AuditQuestion__c) | Y | |
+| QMS_AuditResultItem__c.Question__c | Lookup(CMN_QuestionnaireItem__c) | Y | |
 | QMS_AuditResultItem__c 스냅숏: QuestionNo__c, Element__c, SubElement__c, Sequence__c, QuestionText__c, QuestionTextEn__c, QuestionTextZh__c, Guidance__c, IsStarQuestion__c, AnswerType__c, MaxPoints__c, Weight__c, AllowNA__c, EvidenceKeys__c | 원본과 같은 타입 | Y(해당 시) | 생성 시 복사 |
 | QMS_AuditResultItem__c.Points__c | Number(5,2) | 답한 SCORE_STEPS·POINTS면 Y | |
 | QMS_AuditResultItem__c.Compliance__c | Picklist (CONFORM, NONCONFORM) | 답한 COMPLIANCE면 Y | |
@@ -435,9 +384,9 @@ flowchart LR
     void applyScore(Id auditId)                  // 계산 결과를 심사 필드에 저장
     void submitReport(Id auditId, String comment)
 
-    public interface QMS_AuditScorer {
-        QMS_AuditScoreResult score(QMS_AuditScoreInput input);
-    }
+    // 계산기는 공통 인터페이스 CMN_QuestionnaireScorer(CMN-00-QNR-001)를 구현한다.
+    //   CMN_Questionnaire.ScoreResult score(CMN_Questionnaire.Snapshot snapshot, List<CMN_Questionnaire.Answer> answers)
+    // QMS_AuditScoringService가 결과 라인(스냅숏·답)을 Snapshot·Answer로 바꿔 넘기고, 결과를 QMS_AuditScoreResult로 바꾼다.
     // QMS_AuditScoreResult: totalPercent, elementScores[{element, subElement, earned, possible, percent}],
     //   gradeBeforeDowngrade, grade, downgradeReasons[{ruleId, description}], answeredCount, naCount
 
@@ -447,7 +396,7 @@ flowchart LR
 
 - BR-2: 저점 기록 — SCORE_STEPS에서 최고 점수 미만이거나 COMPLIANCE NONCONFORM이면 Notes 필수. 0점(허용 점수 중 최솟값)이거나 NONCONFORM인 질문은 MAJOR·MINOR 지적이 연결되거나 NoFindingReason이 있어야 보고서를 상신할 수 있다(상신 화면에 해당 질문 목록 표시).
 
-- BR-3: 계산기 선택 — `calculate`는 Checklist.Scheme의 QMS_AuditScorer__mdt ScorerClass를 `Type.forName`으로 만들어 호출한다. 미등록·비활성이면 "점수 계산기 미등록: {Scheme}" 예외. 질문지 없는 심사는 점수 없음(ScoreSource 공란).
+- BR-3: 계산기 선택 — `calculate`는 심사 질문지(CMN_QuestionnaireTemplate__c) Scheme의 CMN_QuestionnaireScorer__mdt ScorerClass를 `Type.forName`으로 만들어 호출한다. 미등록·비활성이면 "점수 계산기 미등록: {Scheme}" 예외. 질문지 없는 심사는 점수 없음(ScoreSource 공란).
 
 - BR-4: COMPLIANCE 계산 — 달성률 = Σ(가중치 × CONFORM) / Σ(가중치 × (CONFORM + NONCONFORM)) × 100, NA 제외. 요소·하위 요소별로 같은 식. 질문 "점수"는 CONFORM = 1, NONCONFORM = 0으로 보고 강등 조건(BR-7)에 쓴다.
 
@@ -1095,18 +1044,18 @@ flowchart LR
 
 **목적**: VDA 6.3 질문지(자체 평가·협력사 심사·고객 결과 비교)의 요소·전체 달성률, 등급, 강등을 질문지에 설정된 규칙대로 계산한다. 규칙 숫자는 품질경영팀이 원문으로 검수해 데이터로 넣고, 코드는 계산 방식만 갖는다(D6C-3).
 
-**범위** In: Scheme VDA63 계산기, 공정 단계별 P6 질문 복제, 집계 방식 설정 필드, 결과 매트릭스 화면, 자체 평가 대 고객 결과 비교, 골든 케이스 테스트. Out: 공통 등급 평가기(IAU-003 BR-7), 질문지·규칙 데이터 입력(IAU-001, 품질경영팀).
+**범위** In: Scheme VDA63 계산기, 공정 단계별 P6 질문 복제, 집계 방식 설정 필드, 결과 매트릭스 화면, 자체 평가 대 고객 결과 비교, 골든 케이스 테스트. Out: 공통 등급 평가기(IAU-003 BR-7), 질문지·규칙 데이터 입력(CMN-00-QNR-001·IAU-001, 품질경영팀).
 
 **데이터 모델**
 
 | 객체 / 필드 | 타입 | 필수 | 설명 |
 | --- | --- | --- | --- |
-| QMS_AuditChecklist__c.TotalMethod__c | Picklist (QUESTION_SUM 전체 질문 점수 합 / 가능 점수, ELEMENT_AVERAGE 요소 달성률 평균) | VDA63이면 Y | 전체 달성률 계산 방식(원문 검수 후 설정) |
-| QMS_AuditChecklist__c.StepElement__c | Text(20) | N | 공정 단계별로 반복 평가하는 요소(예: P6). 공란 = 반복 없음 |
-| QMS_AuditChecklist__c.StepAggregation__c | Picklist (ALL_QUESTIONS 단계 구분 없이 합산, STEP_AVERAGE 단계별 달성률 평균) | StepElement 있으면 Y | |
+| CMN_QuestionnaireTemplate__c.TotalMethod__c | Picklist (QUESTION_SUM 전체 질문 점수 합 / 가능 점수, ELEMENT_AVERAGE 요소 달성률 평균) | VDA63이면 Y | 전체 달성률 계산 방식(원문 검수 후 설정) |
+| CMN_QuestionnaireTemplate__c.StepElement__c | Text(20) | N | 공정 단계별로 반복 평가하는 요소(예: P6). 공란 = 반복 없음 |
+| CMN_QuestionnaireTemplate__c.StepAggregation__c | Picklist (ALL_QUESTIONS 단계 구분 없이 합산, STEP_AVERAGE 단계별 달성률 평균) | StepElement 있으면 Y | |
 | QMS_Audit__c.ScopeProcessSteps__c | Text(1000) | StepElement 질문지면 Y | 공정 단계 이름(쉼표, 예: 사출, 하드코팅, 증착, 조립) |
 | QMS_AuditResultItem__c.ProcessStep__c | Text(80) | 반복 요소면 Y | 공정 단계 |
-| QMS_AuditScorer__mdt 레코드 | 데이터 | — | Scheme VDA63 → QMS_Vda63Scorer |
+| CMN_QuestionnaireScorer__mdt 레코드 | 데이터 | — | Scheme VDA63 → QMS_Vda63Scorer |
 
 **비즈니스 규칙**
 
@@ -1764,11 +1713,11 @@ flowchart LR
 
 ## 11. 검토 요청
 
-Vol.6c는 **20개 워크아이템, 약 107 M/D**다. W1 8개(IAU-001~005, CAU-001~003, 48 M/D)가 공용 심사 엔진과 고객 Audit 대응(PoC 시나리오 4)이고, W2 12개(59 M/D)는 내부심사 프로그램·심사 KPI, 협력사 Audit, 인증, 협력사 실적, 개선 관리다.
+Vol.6c는 **20개 워크아이템, 약 104 M/D**다(2026-11-06 질문지 템플릿을 CMN-00-QNR-001로 이관해 IAU-001 6 → 3 M/D). W1 8개(IAU-001~005, CAU-001~003, 45 M/D)가 공용 심사 엔진과 고객 Audit 대응(PoC 시나리오 4)이고, W2 12개(59 M/D)는 내부심사 프로그램·심사 KPI, 협력사 Audit, 인증, 협력사 실적, 개선 관리다.
 
 | WI | 제목 | Wave | 공수(M/D) |
 | --- | --- | --- | --- |
-| QMS-06-IAU-001 | 심사 질문지 라이브러리·점수 체계·등급 규칙 | W1 | 6 |
+| QMS-06-IAU-001 | 심사 질문지 설정(공통 질문지 템플릿 AUDIT 도메인)·점수 체계·등급 규칙 | W1 | 3 |
 | QMS-06-IAU-002 | 심사 데이터 모델·상태 규칙·심사팀 배정(자격·독립성) | W1 | 7 |
 | QMS-06-IAU-003 | 심사 수행(모바일)·점수 계산·심사 보고서 | W1 | 7 |
 | QMS-06-IAU-004 | 심사 지적 사항·시정 조치·유효성 검증 | W1 | 6 |

@@ -27,6 +27,7 @@
 | CMN_CodeGroup__c / CMN_Code__c, cmnCodePicker | 마스터·LWC | MDM-007 | 그룹 DEFECT_TYPE, DEFECT_LOCATION, CAUSE_5M1E, RESPONSIBILITY, DISPOSITION, APPROVAL_ROLE, DOC_CLASS, CHANGE_TYPE, AI_EXCLUDE_REASON, IQC_COMMON_CHECK |
 | CMN_ApprovalService, CMN_ApprovalLineResolver, CMN_ApprovalCallback, CMN_ApprovalType__mdt, cmnApprovalLine | 결재 | APV-001~003 | 콜백 onSubmitted/onApproved/onRejected/onRecalled, canSubmit. 결재선 기여 인터페이스 CMN_ApprovalLineContributor(Vol.2 변경 요청) |
 | CMN_RoleAssignment__c, APPROVAL_ROLE | 결재 Role | APV-002 | QUALITY_MANAGER, PRODUCTION_MANAGER, PLANT_MANAGER, PURCHASING_MANAGER, DEV_MANAGER, QM_HEAD, LAB_RECEIVER, SUPPLIER_QUALITY, SQ_MANAGER, IQC_LEAD |
+| CMN_QuestionnaireTemplate__c / CMN_QuestionnaireItem__c / CMN_QuestionnaireGradeRule__c, CMN_QuestionnaireService(activeTemplate, snapshot, newVersion, activate, compareVersions, importItems), CMN_QuestionnaireScorer, CMN_QuestionnaireScorer__mdt | 질문지 템플릿 | QNR-001 | 판째 받은 표준 질문지의 버전 템플릿(Domain AUDIT·SELF_ASSESSMENT·LPA·GATE·LELE). 실행은 시작 시점 스냅숏. 계산기는 도메인 WI 구현(IAU-003, CAU-002, PMS-09-GAT-003) |
 | CMN_TodoService.open/close/cancel, CMN_Todo__c | To-Do | TDO-001 | ExternalKey `{SourceType}/{SourceRecordId}/{AssigneeId}` |
 | CMN_NotificationService.send, CMN_NotificationRule__mdt | 알림 | NTF-001 | 문구는 Custom Label |
 | CMN_NumberingService, CMN_NumberingRule__mdt | 채번 | ARC-003 | RecordNo__c |
@@ -84,7 +85,7 @@
 | QMS_LabRequest__c | 분석실 | Vol.6b LAB | CLM(반품 분석), NCR | |
 | KPI 목표·등급(Account.SupplierGrade__c 갱신) | 협력사 실적 | Vol.6c SQM | IQC-005(무검사 조건), Vol.7 | |
 | QMS_ImprovementProject__c, QMS_ImprovementService.createFromSource | 개선 과제 | Vol.6c IMP | B2B, SQM, Audit, Vol.8 EW | |
-| QMS_Audit__c, QMS_AuditChecklist__c, QMS_AuditQuestion__c, QMS_AuditResultItem__c, QMS_AuditFinding__c | 심사 엔진(공용) | Vol.6c IAU | SAU, CAU, CER, Vol.8(지적 RCA) | RecordType INTERNAL, SUPPLIER, CUSTOMER, CERTIFICATION |
+| QMS_Audit__c, QMS_AuditResultItem__c, QMS_AuditFinding__c(질문지는 CMN_QuestionnaireTemplate__c Domain AUDIT, CMN-00-QNR-001) | 심사 엔진(공용) | Vol.6c IAU | SAU, CAU, CER, Vol.8(지적 RCA) | RecordType INTERNAL, SUPPLIER, CUSTOMER, CERTIFICATION |
 | QMS_Certification__c | 인증 | Vol.6c CER | Vol.7 | ISO 9001, IATF 16949 등 SL 사업장 인증 |
 | qms*Widget, 역할별 템플릿 | 대시보드 콘텐츠 | Vol.7 DSH | — | DSH-001 위젯 계약 준수 |
 | Agentforce 토픽·액션, QMS_LeleRecommendService, 조기경보 모델 | 품질 AI | Vol.8 AIQ | NCR·CLM·Audit·PMS | |
@@ -141,3 +142,21 @@
 게이트웨이 인터페이스와 그 DTO(`QMS_NcrRequest`, `QMS_EightDRequest`, `QMS_EightDActionDraft`, `QMS_EightDStatusDTO`, `QMS_FollowUpRequest`, `QMS_FollowUpStatusDTO`)는 모두 프레임워크와 같은 공통 패키지에 둔다. 소유 메뉴가 배포되기 전에도 호출 측이 컴파일되게 하기 위해서다.
 
 `QMS_FollowUpRequest` 필드: sourceId, sourceObject, sourceNo, title, description, plantId, itemId, supplierId, customerId, requestedById, dueDate, payloadJson(메뉴별 추가 값). `QMS_NcrRequest`의 sourceType 값: QUAL_TEST, IQC, FQC, SPC_ALARM, PROCESS, CUSTOMER_CLAIM, CUSTOMER_RETURN, GAUGE_IMPACT, AUDIT, OTHER.
+
+## 6. PMS 계약(Vol.P1~P6)
+
+PMS 메뉴의 WI 번호·객체·상태값·이벤트·QMS 접점은 `pms-architecture.md`가 최종이다(이 절은 요약).
+
+| 이름 | 종류 | 소유 | 요지 |
+| --- | --- | --- | --- |
+| PMS_Project__c, PMS_ProjectPart__c, PMS_CustomerMilestone__c | 프로젝트 | PMS-02-PRJ | 공유 기준(CFT 구성원 Apex 공유, 공장 격리 ProdPlant) |
+| PMS_Requirement__c, PMS_RequirementLink__c | SOR | PMS-02-SOR | 요구사항 ↔ 액티비티·산출물·QMS 인정시험 라인(텍스트 Id) |
+| PMS_CftMember__c, PMS_SecurityPledge__c, PMS_EffortPlan__c, PMS_EffortActual__c | 자원 | PMS-03 | PROJECT_ROLE 코드, 주 단위 투입 |
+| PMS_WbsTemplate*, PMS_Activity__c, PMS_ActivityDependency__c, PMS_CompletionRule__mdt, PMS_CompletionChecker | 일정·액티비티 | PMS-04, PMS-07 | DEV_PHASE·DEV_ACTIVITY_TYPE 속성(LELE 매칭 키), 완료 조건 규칙 QMS_LELE_NO_OPEN_MANDATORY·QMS_QUAL_PASS |
+| PMS_CostBudget__c, PMS_CostActual__c, PMS_LaborRate__c | 비용 | PMS-05 | 비용 권한 PMS_PS_Cost_Read |
+| PMS_Deliverable__c, PMS_DeliverableTrace__c, PMS_ImpactAssessment__c | 산출물 | PMS-06 | CMN_Document__c 확장 |
+| PMS_Risk__c, PMS_Issue__c, PMS_RiskQualityLink__c | 리스크·문제점 | PMS-08 | QMS 클레임·NCR·8D 텍스트 Id, 레슨런 후보 → LESSON_LEARNED 게이트웨이 |
+| PMS_GateDefinition__c, PMS_GateReview__c, PMS_GateCheckItem__c, PMS_GateChecklistProvider | Gate | PMS-09 | 평가표 = CMN_QuestionnaireTemplate__c Domain GATE, SOP Gate → QMS EFC createFromSource(NEW_PRODUCT) |
+| PMS_ProjectEvent__e, PMS_ActivityEvent__e, PMS_GateEvent__e, PMS_IssueEvent__e | 이벤트 | PMS 각 소유 WI | 발행 측은 구독하지 않는다 |
+| QMS 접점(같은 Org) | 호출·구독 | PMS-12-INT-005 | QMS_LeleApplicationService.propose·hasOpenMandatory, QUALIFICATION·LESSON_LEARNED 게이트웨이, QMS_QualPlanEvent__e·QMS_ClaimEvent__e·QMS_NcrEvent__e 구독 |
+

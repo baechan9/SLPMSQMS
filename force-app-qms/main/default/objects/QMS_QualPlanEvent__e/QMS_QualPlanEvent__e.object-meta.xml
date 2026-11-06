@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>인정시험 계획 상태 이벤트(DVQ-005 BR-5). 4M·PMS가 구독한다(발행·구독은 B단계)</description>
+    <eventType>HighVolume</eventType>
+    <label>인정시험 계획 이벤트</label>
+    <pluralLabel>인정시험 계획 이벤트</pluralLabel>
+    <publishBehavior>PublishAfterCommit</publishBehavior>
+</CustomObject>
