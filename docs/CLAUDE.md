@@ -54,17 +54,18 @@
 
 | Vol. | 메뉴 | WI | 공수 | 상태 |
 | --- | --- | --- | --- | --- |
-| Vol.0 | CMN-00 공통 | 49 | 226 M/D | 작성 완료(2026-11-05 화면 부품 UX-004~009 추가), 사용자 검토 대기 |
+| Vol.0 | CMN-00 공통 | 50 | 233 M/D | 작성 완료(2026-11-05 화면 부품 UX-004~009, 2026-11-06 질문지 템플릿 QNR-001 추가), 사용자 검토 대기 |
 | Vol.2 | QMS-02 개발 품질 | 10 | 51 M/D | 작성 완료, 사용자 검토 대기 |
 | Vol.3 | QMS-03 부품/협력사 품질 | 20 | 103 M/D | 작성 완료, 사용자 검토 대기 |
-| Vol.4~9 | QMS-04~09 (Vol.6은 6a·6b·6c 세 파일) | 154 | 812 M/D | 작성 완료, 사용자 검토 대기 |
-| 합계 | | 233 | 1,192 M/D | |
+| Vol.4~9 | QMS-04~09 (Vol.6은 6a·6b·6c 세 파일) | 154 | 809 M/D | 작성 완료, 사용자 검토 대기 |
+| Vol.P1~P6 | PMS-02~13 (계약 `docs/10-workitems/pms-architecture.md`) | 65 | 353 M/D | 작성 완료(2026-11-06), 사용자 검토 대기 |
+| 합계 | | 299 | 1,549 M/D | |
 
 Vol. 간 객체·서비스·이벤트 소유와 게이트웨이 등록부는 `docs/10-workitems/interfaces.md`가 최종이다. 다른 메뉴 업무를 요청할 때는 등록부의 게이트웨이(`QMS_GatewayFactory.get(바인딩 키)`)를 쓴다.
 
 ## 7. 다음 할 일
 
-1. 사용자 검토: `docs/20-status/review-pack.md`(결정 109건 — 화면 전략 DS-1~8 포함, 변경 요청)를 기준으로 결정을 받고 BR·변경 요청을 반영한다.
+1. 사용자 검토: `docs/20-status/review-pack.md`(결정 196건 — 화면 전략 DS-1~8·PMS DP1~DP6 포함, PMS 공통 결정 D-P1~P9는 pms-architecture.md, 변경 요청)를 기준으로 결정을 받고 BR·변경 요청을 반영한다.
 2. 반영 후 검사·재생성: `python3 scripts/validate_vol.py docs/10-workitems/vol*.md`, `python3 scripts/build_index.py`, `python3 scripts/build_review_pack.py`.
 3. 승인분으로 마스터 xlsx 생성: `/build-master` 커맨드 (`master/workitem-index.csv`가 원천).
 4. 이후: PMS 메뉴 작성 또는 PoC 준비(`docs/20-status/backlog.md`).

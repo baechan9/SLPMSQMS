@@ -7,12 +7,15 @@ DECISION = re.compile(r'^- \[([ x])\] (D[0-9A-Z]*-\d+)\s*(.*)$')
 SECTIONS = {
     'vol0': re.compile(r'^\*\*Vol\.0에 반영이 필요한 변경'),
     'prev': re.compile(r'^\*\*(Vol\.2[^*]*|이전 Vol\.)에 반영이 필요한 변경'),
+    # PMS Vol.(volp*)이 QMS Vol.과 PMS 계약·다른 PMS Vol.에 내는 변경 요청(2026-11-06)
+    'qms': re.compile(r'^\*\*QMS Vol\.(에 반영이 필요한 변경| 변경)'),
+    'pms': re.compile(r'^\*\*(PMS 계약|계약\(`pms-architecture|아키텍처\(`pms-architecture|다른 PMS Vol\.|PMS 다른 Vol\.|PMS Vol\.에 대한 요청)'),
 }
 
 
 def vol_label(path):
-    m = re.match(r'vol(\d+[a-z]?)-', os.path.basename(path))
-    return 'Vol.' + m.group(1)
+    m = re.match(r'vol(p?\d+[a-z]?)-', os.path.basename(path))
+    return 'Vol.' + m.group(1).upper() if m.group(1).startswith('p') else 'Vol.' + m.group(1)
 
 
 def table_after(lines, start):
@@ -31,7 +34,7 @@ def table_after(lines, start):
 
 def collect():
     decisions = collections.OrderedDict()
-    changes = {'vol0': [], 'prev': []}
+    changes = {k: [] for k in SECTIONS}
     files = sorted(glob.glob('docs/10-workitems/vol*.md'),
                    key=lambda p: [int(t) if t.isdigit() else t for t in re.split(r'(\d+)', os.path.basename(p))])
     for path in files:
@@ -60,8 +63,9 @@ def render(decisions, changes):
         out += [f'### {label} ({len(items)}건)', '']
         out += [f'- [{mark}] {did} {text}' for mark, did, text in items]
         out.append('')
-    titles = {'vol0': '2. Vol.0 변경 요청', 'prev': '3. Vol.2·3 및 이전 Vol. 변경 요청'}
-    for key in ('vol0', 'prev'):
+    titles = {'vol0': '2. Vol.0 변경 요청', 'prev': '3. Vol.2·3 및 이전 Vol. 변경 요청',
+              'qms': '4. PMS Vol. → QMS Vol. 변경 요청', 'pms': '5. PMS 계약·다른 PMS Vol. 변경 요청'}
+    for key in ('vol0', 'prev', 'qms', 'pms'):
         rows = sorted(changes[key], key=lambda r: (r[0], r[1]))
         out += [f'## {titles[key]} ({len(rows)}건, 대상순)', '',
                 '| 대상 | 요청 Vol. | 변경 내용 | 근거 |', '| --- | --- | --- | --- |']
@@ -73,4 +77,5 @@ def render(decisions, changes):
 if __name__ == '__main__':
     d, c = collect()
     open(OUT, 'w', encoding='utf-8').write(render(d, c))
-    print(f'결정 {sum(len(v) for v in d.values())}건, Vol.0 변경 {len(c["vol0"])}건, 이전 Vol. 변경 {len(c["prev"])}건 → {OUT}')
+    print(f'결정 {sum(len(v) for v in d.values())}건, Vol.0 변경 {len(c["vol0"])}건, 이전 Vol. 변경 {len(c["prev"])}건, '
+          f'PMS → QMS 변경 {len(c["qms"])}건, PMS 계약·Vol. 간 변경 {len(c["pms"])}건 → {OUT}')
